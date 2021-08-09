@@ -4,6 +4,7 @@ module.exports = {
     title: "breq.dev",
   },
   plugins: [
+    "gatsby-plugin-postcss",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     {
