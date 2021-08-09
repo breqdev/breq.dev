@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import Navbar from "./Navbar"
+import Footer from "./Footer"
 
 
 export default function Page({ children }) {
@@ -8,6 +9,7 @@ export default function Page({ children }) {
         <div>
             <Navbar />
             {children}
+            <Footer />
         </div>
     )
 }
