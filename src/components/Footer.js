@@ -16,7 +16,7 @@ export default function Footer() {
 
 
     return (
-        <footer className="bg-blue-400 text-lg font-display">
+        <footer className="bg-panblue text-lg font-display z-10">
             <div className="max-w-7xl mx-auto px-4 py-16 md:pb-32 flex flex-col gap-8">
                 <p>
                     made with <FontAwesomeIcon icon={faHeart} />

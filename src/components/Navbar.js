@@ -20,7 +20,7 @@ export default function Navbar() {
 
 
     return (
-        <nav className="sticky top-0 bg-pink-500 p-4 font-display">
+        <nav className="sticky top-0 bg-panpink p-4 font-display z-10">
 
             <div className="flex flex-col md:flex-row mx-auto w-full max-w-7xl gap-4">
 
@@ -33,7 +33,7 @@ export default function Navbar() {
                 </div>
 
                 <div className={"md:block absolute md:static left-0 mt-16 md:mt-0 w-full " + (expanded ? "" : "hidden")}>
-                    <ul className="flex gap-2 p-4 md:p-0 flex-col md:flex-row bg-pink-500">
+                    <ul className="flex gap-2 p-4 md:p-0 flex-col md:flex-row bg-panpink">
                         {Object.entries(navLinks).map(([name, url]) => (
                             <li className="text-lg" key={url}>
                                 <Link className={false ? "text-white hover:text-black" : "hover:text-white"} to={url}>{ name }</Link>

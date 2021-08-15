@@ -8,7 +8,18 @@ module.exports = {
     extend: {
       zIndex: {
         "-10": "-10",
-      }
+      },
+      colors: {
+        panpink: {
+          DEFAULT: "#FF1B8D"
+        },
+        panblue: {
+          DEFAULT: "#1BB3FF"
+        },
+        panyellow: {
+          DEFAULT: "#FFDA00"
+        }
+      },
     },
   },
   variants: {
