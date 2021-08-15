@@ -1,4 +1,5 @@
-import * as React from "react"
+import React from "react"
+import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart, faEnvelope, faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import { faCopyright } from "@fortawesome/free-regular-svg-icons"
@@ -15,29 +16,28 @@ export default function Footer() {
 
 
     return (
-        <div class="bg-blue-400 text-lg">
-            <div class="max-w-7xl mx-auto px-4 py-16 md:pb-32 flex flex-col gap-8">
+        <div className="bg-blue-400 text-lg font-display">
+            <div className="max-w-7xl mx-auto px-4 py-16 md:pb-32 flex flex-col gap-8">
                 <p>
                     made with <FontAwesomeIcon icon={faHeart} />
-                    <span class="sr-only">love</span> by breq,{" "}
+                    <span className="sr-only">love</span> by breq,{" "}
 
                     <FontAwesomeIcon icon={faCopyright} />
-                    <span class="sr-only">copyright</span> 2021,{" "}
+                    <span className="sr-only">copyright</span> 2021,{" "}
 
                     <FontAwesomeIcon icon={faGithub} />
-                    <span class="sr-only">github</span>
-                    <a href="https://github.com/Breq16/breq.dev" target="_blank"> Breq16/breq.dev</a>
+                    <span className="sr-only">github</span>
+                    <a href="https://github.com/Breq16/breq.dev" className="hover:underline" target="_blank" rel="noreferrer"> Breq16/breq.dev</a>
                 </p>
         <p>
             {contactLinks.map(([icon, text, href]) => (
                 <React.Fragment key={text}>
                     <FontAwesomeIcon icon={icon} />{" "}
-                    {href ? <a href={href} target="_blank">{text}</a> : text}
+                    {href ? <a href={href} className="hover:underline" target="_blank" rel="noreferrer">{text}</a> : text}
                     {" • "}
                 </React.Fragment>
             ))}
-            <a href="{{ site.contact }}" target="_blank">{"more "}
-            <FontAwesomeIcon icon={faChevronRight} /></a>
+            <Link to="/contact" className="hover:underline">more <FontAwesomeIcon icon={faChevronRight} /></Link>
         </p>
     </div>
 </div>

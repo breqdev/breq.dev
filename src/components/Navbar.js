@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHamburger } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "gatsby"
@@ -16,11 +16,11 @@ export default function Navbar() {
         contact: "/contact",
     }
 
-    const [expanded, setExpanded] = React.useState(false)
+    const [expanded, setExpanded] = useState(false)
 
 
     return (
-        <div className="sticky top-0 bg-pink-500 p-4">
+        <div className="sticky top-0 bg-pink-500 p-4 font-display">
 
             <div className="flex flex-col md:flex-row mx-auto w-full max-w-7xl gap-4">
 
