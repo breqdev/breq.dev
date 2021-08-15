@@ -1,34 +1,26 @@
-import React, { useRef } from "react"
-import { Canvas, useFrame, extend, useThree } from "@react-three/fiber"
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
+import React, { useEffect, useRef } from "react"
+import { Canvas, useFrame } from "@react-three/fiber"
 
 import Page from "../components/Page"
 
 
-extend({ OrbitControls })
-
-
-function Controls() {
-    const orbit = useRef()
-    const { camera, gl: renderer } = useThree()
-
-    useFrame(() => orbit.current.update())
-
-    return (
-        <orbitControls
-            args={[ camera, renderer.domElement ]}
-            ref={orbit}
-        />
-    )
-}
-
-
 function ZoomingTorus() {
-    const torus = React.useRef()
+    const torus = useRef()
 
     useFrame(() => {
-        torus.current.rotation.x += 0.01
         torus.current.rotation.y += 0.005
+    })
+
+    useEffect(() => {
+        const listener = window.addEventListener("scroll", () => {
+            const top = document.body.getBoundingClientRect().top
+
+            torus.current.rotation.x = top / 100
+        })
+
+        return () => {
+            window.removeEventListener("scroll", listener)
+        }
     })
 
     return (
@@ -42,12 +34,10 @@ function ZoomingTorus() {
 
 function Background() {
     return (
-        <div className="fixed inset-0">
+        <div className="fixed inset-0 -z-10">
             <Canvas>
                 <ZoomingTorus />
                 <pointLight args={[ 0xFFFFFF ]} position={ [20, 20, 20] } />
-                <gridHelper />
-                <Controls />
             </Canvas>
         </div>
     )
@@ -57,7 +47,8 @@ function Background() {
 export default function Index() {
     return (
         <Page>
-            <h1>Hello, world!</h1>
+            <div style={{ height: "500vh" }}>
+            </div>
             <Background />
         </Page>
     )

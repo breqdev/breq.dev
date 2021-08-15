@@ -20,7 +20,7 @@ export default function Navbar() {
 
 
     return (
-        <div className="sticky top-0 bg-pink-500 p-4 font-display">
+        <nav className="sticky top-0 bg-pink-500 p-4 font-display">
 
             <div className="flex flex-col md:flex-row mx-auto w-full max-w-7xl gap-4">
 
@@ -42,7 +42,7 @@ export default function Navbar() {
                     </ul>
                 </div>
             </div>
-        </div>
+        </nav>
 
     )
 }

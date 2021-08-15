@@ -5,7 +5,11 @@ module.exports = {
     fontFamily: {
       display: ["Nunito", "sans-serif"]
     },
-    extend: {},
+    extend: {
+      zIndex: {
+        "-10": "-10",
+      }
+    },
   },
   variants: {
     extend: {},

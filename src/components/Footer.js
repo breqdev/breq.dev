@@ -16,7 +16,7 @@ export default function Footer() {
 
 
     return (
-        <div className="bg-blue-400 text-lg font-display">
+        <footer className="bg-blue-400 text-lg font-display">
             <div className="max-w-7xl mx-auto px-4 py-16 md:pb-32 flex flex-col gap-8">
                 <p>
                     made with <FontAwesomeIcon icon={faHeart} />
@@ -40,6 +40,6 @@ export default function Footer() {
                     <Link to="/contact" className="hover:underline">more <FontAwesomeIcon icon={faChevronRight} /></Link>
                 </p>
             </div>
-        </div>
+        </footer>
     )
 }
