@@ -29,18 +29,17 @@ export default function Footer() {
                     <span className="sr-only">github</span>
                     <a href="https://github.com/Breq16/breq.dev" className="hover:underline" target="_blank" rel="noreferrer"> Breq16/breq.dev</a>
                 </p>
-        <p>
-            {contactLinks.map(([icon, text, href]) => (
-                <React.Fragment key={text}>
-                    <FontAwesomeIcon icon={icon} />{" "}
-                    {href ? <a href={href} className="hover:underline" target="_blank" rel="noreferrer">{text}</a> : text}
-                    {" • "}
-                </React.Fragment>
-            ))}
-            <Link to="/contact" className="hover:underline">more <FontAwesomeIcon icon={faChevronRight} /></Link>
-        </p>
-    </div>
-</div>
-
+                <p>
+                    {contactLinks.map(([icon, text, href]) => (
+                        <React.Fragment key={text}>
+                            <FontAwesomeIcon icon={icon} />{" "}
+                            {href ? <a href={href} className="hover:underline" target="_blank" rel="noreferrer">{text}</a> : text}
+                            {" • "}
+                        </React.Fragment>
+                    ))}
+                    <Link to="/contact" className="hover:underline">more <FontAwesomeIcon icon={faChevronRight} /></Link>
+                </p>
+            </div>
+        </div>
     )
 }

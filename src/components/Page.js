@@ -6,9 +6,11 @@ import Footer from "./Footer"
 
 export default function Page({ children }) {
     return (
-        <div>
+        <div className="min-h-screen flex flex-col">
             <Navbar />
-            {children}
+            <div className="flex-grow">
+                {children}
+            </div>
             <Footer />
         </div>
     )
