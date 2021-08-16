@@ -145,7 +145,7 @@ export default function Terminal() {
                 optDef: {},
             }
         })
-    }), [chatName, socket])
+    }), [chatName, socket, inbox])
 
     const konamiCodeSuccess = useKonamiCode()
 
@@ -178,7 +178,7 @@ export default function Terminal() {
                     fontFamily: "'Ubuntu Mono', ui-monospace, monospace",
                     width: "100%"
                 }}
-                promptSymbol="breq@breq.net$ "
+                promptSymbol="breq@breq.dev$ "
                 emulatorState={emulatorState}
             />
         </div>
