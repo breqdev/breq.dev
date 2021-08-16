@@ -7,8 +7,8 @@ function Arduino() {
 
     useScroll((scroll, height) => {
         if (model.current) {
-            const x = -12 + scroll / height * 24
-            const y = -1 - scroll / height
+            const x = -12 + scroll / height * 12
+            const y = -1 - scroll / height * 0.5
             model.current.position.set(x, y, 0)
 
             model.current.rotation.x = scroll * -0.001
@@ -28,8 +28,8 @@ function RasPi() {
 
     useScroll((scroll, height) => {
         if (model.current) {
-            const x = 10 - scroll / height * 20
-            const y = 1 - scroll / height
+            const x = 10 - scroll / height * 10
+            const y = 1 - scroll / height * 0.5
             model.current.position.set(x, y, 0)
 
             model.current.rotation.x = scroll * -0.001
@@ -49,8 +49,8 @@ function Div() {
 
     useScroll((scroll, height) => {
         if (model.current) {
-            const x = -10 + scroll / height * 20
-            const y = 6 - scroll / height * 12
+            const x = -10 + scroll / height * 10
+            const y = 6 - scroll / height * 6
             model.current.position.set(x, y, -2)
 
             model.current.rotation.x = scroll * -0.0001

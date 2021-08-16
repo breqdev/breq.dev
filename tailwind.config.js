@@ -3,7 +3,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      display: ["Nunito", "sans-serif"]
+      display: ["Nunito", "sans-serif"],
+      mono: ['"Ubuntu Mono"', "ui-monospace", "monospace"],
     },
     extend: {
       zIndex: {

@@ -8,7 +8,7 @@ function Desk() {
 
     useScroll((scroll, height) => {
         if (model.current) {
-            const x = -10 + scroll / height * 20
+            const x = -10 + scroll / height * 10
             model.current.position.set(x, 0, 0)
 
             model.current.rotation.y = - scroll * 0.003
@@ -17,7 +17,7 @@ function Desk() {
     })
 
     return (
-        <Gltf url="/models/desk.glb" ref={model} />
+        <Gltf url="/models/desk.glb" position={[-10, 0, 0]} ref={model} />
     )
 }
 

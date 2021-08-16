@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Canvas } from "@react-three/fiber"
 import useScroll from "../models/useScroll"
 
@@ -18,6 +18,10 @@ export default function Background() {
     const scenes = [Greeting, Projects, null, About]
     const Scene = scenes[scene]
 
+
+    useEffect(() => {
+        setScene(Math.floor(-document.body.getBoundingClientRect().top / (window.innerHeight * 2)))
+    }, [])
 
     return (
         <div className="fixed inset-0 -z-10">
