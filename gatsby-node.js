@@ -16,6 +16,25 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 }
 
 
+// exports.createSchemaCustomization = ({ actions }) => {
+//     actions.createTypes(`
+//         type Mdx implements Node {
+//             frontmatter: Frontmatter
+//         }
+
+//         type Frontmatter {
+//             created: String
+//             title: String
+//             subtitle: String
+//             repo: String
+//             demo: String
+//             image: File
+//             video: File
+//         }
+//     `)
+// }
+
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
     const { createNodeField } = actions
 

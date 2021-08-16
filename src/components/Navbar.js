@@ -8,11 +8,7 @@ export default function Navbar() {
 
     const navLinks = {
         projects: "/projects",
-        hacks: "/hacks",
-        archives: "/archives",
-        featured: "/featured",
         blog: "/blog",
-        apps: "/apps",
         contact: "/contact",
     }
 

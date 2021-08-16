@@ -2,8 +2,8 @@
 layout: project
 title: Mini-ITX Computer Case
 subtitle: My custom-built PC case that fit in my backpack.
-image: /assets/images/pc-case/photo.jpg
-created: 2018-19
+image: "../images/pc-case/photo.jpg"
+created: "2018-19"
 ---
 
 ![](/assets/images/pc-case/photo.jpg)
