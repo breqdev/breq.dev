@@ -2,11 +2,13 @@ import React, { useRef } from "react"
 import useScroll from "../components/models/useScroll"
 
 import Page from "../components/Page"
+import ProjectCard from "../components/ProjectCard"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 
 import Background from "../components/index/IndexCanvas"
 import Terminal from "../components/index/Terminal"
+import { graphql } from "gatsby"
 
 
 function ScrollDownHint() {
@@ -33,8 +35,8 @@ function ScrollDownHint() {
 
 
 
-export default function Index() {
-    let projects = ["test", "test", "test"]
+export default function Index({ data }) {
+    const projects = data.allMdx.edges.map(({ node }) => <ProjectCard key={node.id} {...node} />)
 
     return (
         <Page>
@@ -53,12 +55,12 @@ export default function Index() {
                 </div>
 
                 <div style={{ height: "200vh" }} className="max-w-6xl mx-auto px-8 py-32 text-center font-display">
-                    <div className="flex flex-wrap items-start gap-8">
-                        {projects.map(project => (
-                        <div className="bg-white rounded-xl text-black h-96 w-96 flex-grow" key={project}>
-                            <h2 className="text-4xl mb-2">{project}</h2>
-                        </div>
-                    ))}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-6 auto-rows-0 overflow-y-hidden gap-x-8">
+                        {projects.map((project, idx) => (
+                            <div className="mb-8" key={idx}>
+                                {project}
+                            </div>
+                        ))}
                     </div>
                 </div>
 
@@ -107,3 +109,29 @@ export default function Index() {
     )
 }
 
+
+export const query = graphql`
+    query {
+        allMdx(filter: { fileAbsolutePath: { regex: "\\/projects/" } }) {
+            edges {
+                node {
+                    id
+                    slug
+                    frontmatter {
+                        title
+                        subtitle
+                        image {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    width: 1000
+                                    placeholder: BLURRED
+                                    formats: [AUTO, WEBP, AVIF]
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`
