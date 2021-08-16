@@ -1,55 +1,11 @@
-import React, { useEffect, useMemo, useRef, useState } from "react"
-import { Canvas, useFrame } from "@react-three/fiber"
-import Gltf from "../components/models/Gltf"
+import React, { useRef } from "react"
 import useScroll from "../components/models/useScroll"
 
 import Page from "../components/Page"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 
-
-function InnerLogo() {
-    const model = useRef()
-
-    useScroll((scroll) => {
-        if (model.current) {
-            const scale = Math.min(0.5 + scroll / 1500, 1)
-            model.current.scale.set(scale, scale, scale)
-
-            const x = Math.max(-scroll / 200, -700)
-            model.current.position.set(x, 0, 0)
-        }
-    }, model)
-
-    return (
-        <Gltf url="/models/inner_logo.glb" ref={model} scale={[0.5, 0.5, 0.5]} />
-    )
-}
-
-
-function ThreeLights() {
-    const position = (angle) => [10 * Math.cos(angle), 10 * Math.sin(angle), 10]
-
-    return (
-        <>
-            <spotLight color={0xFF1B8D} position={position(Math.PI * 3/6)} />
-            <spotLight color={0xFFDA00} position={position(Math.PI * 7/6)} />
-            <spotLight color={0x1BB3FF} position={position(Math.PI * 11/6)} />
-        </>
-    )
-}
-
-
-function Background() {
-    return (
-        <div className="fixed inset-0 -z-10">
-            <Canvas camera={{ fov: 10, near: 0.1, far: 1000, position: [0, 0, 50] }}>
-                <InnerLogo />
-                <ThreeLights />
-            </Canvas>
-        </div>
-    )
-}
+import Background from "../components/index/IndexCanvas"
 
 
 function ScrollDownHint() {
@@ -65,28 +21,81 @@ function ScrollDownHint() {
         }
     })
 
+    const handleScroll = () => window.scrollBy({top: 200, behavior: "smooth"})
+
     return (
-        <div className="absolute bottom-0 left-0 right-0 mb-32 text-center text-8xl transition-opacity duration-300" ref={iconRef}>
+        <div className="absolute bottom-0 left-0 right-0 mb-32 text-center text-8xl transition-opacity duration-300" ref={iconRef} onClick={handleScroll}>
             <FontAwesomeIcon icon={faChevronDown} />
         </div>
     )
 }
 
 
+
 export default function Index() {
+    let projects = ["test", "test", "test"]
+
     return (
         <Page>
             <div className="text-white relative">
-                <div className="h-screen relative">
-                    <ScrollDownHint />
-                </div>
+                <div style={{ height: "200vh" }} className="max-w-6xl mx-auto px-16 text-right font-display">
+                    <div className="h-screen relative">
+                        <ScrollDownHint />
+                    </div>
 
-
-                <div className="max-w-6xl mx-auto px-16 text-right font-display">
                     <h1 className="text-7xl mb-2">hey, I'm Brooke.</h1>
                     <p className="text-4xl">welcome to my little patch of internet.</p>
                 </div>
-                <div style={{ height: "500vh" }} />
+
+                <div style={{ height: "200vh" }} className="max-w-6xl mx-auto px-8 py-32 text-center font-display relative">
+                    <h1 className="text-6xl mb-2 sticky top-0 py-32">projects</h1>
+                </div>
+
+                <div style={{ height: "200vh" }} className="max-w-6xl mx-auto px-8 py-32 text-center font-display">
+                    <div className="flex flex-wrap items-start gap-8">
+                        {projects.map(project => (
+                        <div className="bg-white rounded-xl text-black h-96 w-96 flex-grow">
+                            <h2 className="text-4xl mb-2">{project}</h2>
+                        </div>
+                    ))}
+                    </div>
+                </div>
+
+                <div style={{ height: "200vh" }} className="max-w-6xl mx-auto px-8 py-32 text-center font-display">
+                    <h1 className="text-6xl mb-2 sticky top-0 py-32">about me</h1>
+                </div>
+
+                <div style={{ height: "200vh" }} className="max-w-3xl mx-auto px-8 font-display text-2xl">
+                    <p>
+                        hey, i'm brooke, and i'm here to learn, create, and enjoy it.
+                        <br />
+                        <br />
+                        i'm passionate about embedded systems,
+                        backend engineering, and web dev.
+                        <br />
+                        <br />
+                        my favorite tools are python, react, redis, and linux.
+                        someday i want to learn rust.
+                        <br />
+                        <br />
+                        i believe that the only way to learn something fully is
+                        to be creative with it. you can never truly understand
+                        something without applying it to a problem yourself.
+                        <br />
+                        <br />
+                        i'm a transgender woman, and i'm still learning to love myself.
+                        i want to be myself and leave an impact on the world that i can be proud of.
+                        <br />
+                        <br />
+                        technology should be for everyone. i think it's important to create tools
+                        and resources that help people express themselves creatively—whether that's
+                        with code, or something else entirely. (we can't all spend our lives making
+                        websites with too much javascript.)
+                        <br />
+                        <br />
+                        be excellent to each other.
+                    </p>
+                </div>
 
                 <div className="absolute inset-0 bg-black -z-10" />
             </div>
