@@ -8,7 +8,7 @@ function Desk() {
 
     useScroll((scroll, height) => {
         if (model.current) {
-            const x = -7 + scroll / height * 14
+            const x = -10 + scroll / height * 20
             model.current.position.set(x, 0, 0)
 
             model.current.rotation.y = - scroll * 0.003

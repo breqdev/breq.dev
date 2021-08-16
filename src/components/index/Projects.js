@@ -7,7 +7,7 @@ function Arduino() {
 
     useScroll((scroll, height) => {
         if (model.current) {
-            const x = -7 + scroll / height * 14
+            const x = -12 + scroll / height * 24
             const y = -1 - scroll / height
             model.current.position.set(x, y, 0)
 
@@ -18,7 +18,7 @@ function Arduino() {
     })
 
     return (
-        <Gltf url="/models/arduino.glb" scale={[0.05, 0.05, 0.05]} ref={model} />
+        <Gltf url="/models/arduino.glb" scale={[0.05, 0.05, 0.05]} position={[-12, -1, 0]} ref={model} />
     )
 }
 
@@ -39,7 +39,7 @@ function RasPi() {
     })
 
     return (
-        <Gltf url="/models/raspi.glb" scale={[0.05, 0.05, 0.05]} ref={model} />
+        <Gltf url="/models/raspi.glb" scale={[0.05, 0.05, 0.05]} position={[10, 1, 0]} ref={model} />
     )
 }
 
@@ -60,7 +60,7 @@ function Div() {
     })
 
     return (
-        <Gltf url="/models/div.glb" ref={model} />
+        <Gltf url="/models/div.glb" ref={model} position={[-10, 6, -2]} />
     )
 }
 
