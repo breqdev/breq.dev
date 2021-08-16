@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     fontFamily: {
       display: ["Nunito", "sans-serif"],
+      body: ["Montserrat", "sans-serif"],
       mono: ['"Ubuntu Mono"', "ui-monospace", "monospace"],
     },
     extend: {
@@ -29,5 +30,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio')
+  ],
 }

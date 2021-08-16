@@ -1,8 +1,8 @@
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
 import { graphql } from "gatsby"
 
 import Page from "../components/Page"
+import Markdown from "../components/markdown/Markdown"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCalendarAlt, faLaptopCode } from "@fortawesome/free-solid-svg-icons"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
@@ -63,15 +63,14 @@ function ProjectHeader({ data }) {
 }
 
 
-
 export default function Project({ data }) {
     return (
         <Page>
             <article className="max-w-6xl mx-auto p-4">
                 <ProjectHeader data={data} />
-                <MDXRenderer>
+                <Markdown>
                     {data.mdx.body}
-                </MDXRenderer>
+                </Markdown>
             </article>
         </Page>
     )
