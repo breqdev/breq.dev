@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 import Page from "../components/Page"
 import Markdown from "../components/markdown/Markdown"
+import { Helmet } from "react-helmet"
 
 
 function PostHeader({ data }) {
@@ -14,6 +15,9 @@ function PostHeader({ data }) {
 
     return (
         <section className="bg-black text-white rounded-xl text-center font-display p-8">
+            <Helmet>
+                <title>{data.mdx.frontmatter.title}</title>
+            </Helmet>
             <h1 className="text-4xl md:text-6xl">{data.mdx.frontmatter.title}</h1>
             <p className="text-2xl">{date}</p>
         </section>

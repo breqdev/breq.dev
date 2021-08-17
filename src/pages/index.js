@@ -9,6 +9,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import Background from "../components/index/IndexCanvas"
 import Terminal from "../components/index/Terminal"
 import { graphql } from "gatsby"
+import { Helmet } from "react-helmet"
 
 
 function ScrollDownHint() {
@@ -40,13 +41,16 @@ export default function Index({ data }) {
 
     return (
         <Page>
+            <Helmet>
+                <title>breq.dev. hey, i'm brooke.</title>
+            </Helmet>
             <div className="text-white relative">
                 <div style={{ height: "200vh" }} className="max-w-6xl mx-auto px-16 text-right font-display">
                     <div className="h-screen relative">
                         <ScrollDownHint />
                     </div>
 
-                    <h1 className="text-7xl mb-2">hey, I'm Brooke.</h1>
+                    <h1 className="text-7xl mb-2">hey, i'm brooke.</h1>
                     <p className="text-4xl">welcome to my little patch of internet.</p>
                 </div>
 

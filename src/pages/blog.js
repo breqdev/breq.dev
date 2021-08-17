@@ -1,5 +1,6 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
+import { Helmet } from "react-helmet"
 
 import Page from "../components/Page"
 
@@ -29,6 +30,9 @@ export default function Posts({ data }) {
 
     return (
         <Page className="bg-black text-white">
+            <Helmet>
+                <title>blog. ramblings about nothing in particular.</title>
+            </Helmet>
             <div className="text-center max-w-7xl mx-auto font-display">
                 <h1 className="my-8 text-6xl">Projects</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-stretch m-8">
