@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import Gltf from "../models/Gltf"
 import useScroll from "../models/useScroll"
 
-function InnerLogo() {
+function InnerLogo(props) {
     const model = useRef()
 
     useScroll((scroll, height) => {
@@ -19,12 +19,12 @@ function InnerLogo() {
     }, model)
 
     return (
-        <Gltf url="/models/inner_logo.glb" ref={model} scale={[0.5, 0.5, 0.5]} />
+        <Gltf url="/models/inner_logo.glb" ref={model} scale={[0.5, 0.5, 0.5]} visible={props.visible} />
     )
 }
 
 
-function DimmingLight({color, angle}) {
+function DimmingLight({color, angle, visible}) {
     const position = [10 * Math.cos(angle), 10 * Math.sin(angle), 10]
     const light = useRef()
 
@@ -35,27 +35,27 @@ function DimmingLight({color, angle}) {
     })
 
     return (
-        <spotLight color={color} position={position} ref={light} />
+        <spotLight color={color} position={position} ref={light} visible={visible} />
     )
 }
 
 
-function ThreeLights() {
+function ThreeLights({ visible }) {
     return (
         <>
-            <DimmingLight color={0xFF1B8D} angle={Math.PI * 3/6} />
-            <DimmingLight color={0xFFDA00} angle={Math.PI * 7/6} />
-            <DimmingLight color={0x1BB3FF} angle={Math.PI * 11/6} />
+            <DimmingLight color={0xFF1B8D} angle={Math.PI * 3/6} visible={visible} />
+            <DimmingLight color={0xFFDA00} angle={Math.PI * 7/6} visible={visible} />
+            <DimmingLight color={0x1BB3FF} angle={Math.PI * 11/6} visible={visible} />
         </>
     )
 }
 
 
-export default function Greeting() {
+export default function Greeting({ visible }) {
     return (
         <>
-            <InnerLogo />
-            <ThreeLights />
+            <InnerLogo visible={visible} />
+            <ThreeLights visible={visible} />
         </>
     )
 }

@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import Gltf from "../models/Gltf"
 import useScroll from "../models/useScroll"
 
-function Arduino() {
+function Arduino({ visible }) {
     const model = useRef()
 
     useScroll((scroll, height) => {
@@ -18,12 +18,12 @@ function Arduino() {
     })
 
     return (
-        <Gltf url="/models/arduino.glb" scale={[0.05, 0.05, 0.05]} position={[-12, -1, 0]} ref={model} />
+        <Gltf url="/models/arduino.glb" scale={[0.05, 0.05, 0.05]} position={[-12, -1, 0]} ref={model} visible={visible} />
     )
 }
 
 
-function RasPi() {
+function RasPi({ visible }) {
     const model = useRef()
 
     useScroll((scroll, height) => {
@@ -39,12 +39,12 @@ function RasPi() {
     })
 
     return (
-        <Gltf url="/models/raspi.glb" scale={[0.05, 0.05, 0.05]} position={[10, 1, 0]} ref={model} />
+        <Gltf url="/models/raspi.glb" scale={[0.05, 0.05, 0.05]} position={[10, 1, 0]} ref={model} visible={visible} />
     )
 }
 
 
-function Div() {
+function Div({ visible }) {
     const model = useRef()
 
     useScroll((scroll, height) => {
@@ -60,25 +60,25 @@ function Div() {
     })
 
     return (
-        <Gltf url="/models/div.glb" ref={model} position={[-10, 6, -2]} />
+        <Gltf url="/models/div.glb" ref={model} position={[-10, 6, -2]} visible={visible} />
     )
 }
 
 
-function ProjectLight() {
+function ProjectLight({ visible }) {
     const light = useRef()
 
-    return <spotLight color={0xFFFFFF} position={[0, 0, 10]} ref={light} />
+    return <spotLight color={0xFFFFFF} position={[0, 0, 10]} ref={light} visible={visible} />
 }
 
 
-export default function Projects() {
+export default function Projects({ visible }) {
     return (
         <>
-            <Arduino />
-            <Div />
-            <RasPi />
-            <ProjectLight />
+            <Arduino visible={visible} />
+            <Div visible={visible} />
+            <RasPi visible={visible} />
+            <ProjectLight visible={visible} />
         </>
     )
 }

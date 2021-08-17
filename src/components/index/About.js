@@ -3,7 +3,7 @@ import Gltf from "../models/Gltf"
 import useScroll from "../models/useScroll"
 
 
-function Desk() {
+function Desk({ visible }) {
     const model = useRef()
 
     useScroll((scroll, height) => {
@@ -17,16 +17,16 @@ function Desk() {
     })
 
     return (
-        <Gltf url="/models/desk.glb" position={[-10, 0, 0]} ref={model} />
+        <Gltf url="/models/desk.glb" position={[-10, 0, 0]} ref={model} visible={visible} />
     )
 }
 
 
-export default function About() {
+export default function About({ visible }) {
     return (
         <>
-            <Desk />
-            <spotLight color={0xFFFFFF} position={[0, 0, 10]} />
+            <Desk visible={visible} />
+            <spotLight color={0xFFFFFF} position={[0, 0, 10]} visible={visible} />
         </>
     )
 }
