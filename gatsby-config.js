@@ -37,6 +37,7 @@ module.exports = {
           require("remark-math"),
         ],
         rehypePlugins: [
+          require("rehype-slug"),
           require("rehype-katex"),
         ],
         extensions: [".mdx", ".md"],
