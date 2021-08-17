@@ -5,10 +5,17 @@ import Page from "../components/Page"
 
 
 function Post(props) {
+    const [year, month, day] = props.slug.split("-")
+
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+    const date = `${months[parseInt(month)]} ${day}, ${year}`
+
     return (
         <Link to={"/" + props.slug.replaceAll("-", "/")} className="block bg-white text-black p-4 rounded-2xl">
             <section className="flex flex-col h-full">
-                <h1 className="text-2xl flex-grow">{props.frontmatter.title}</h1>
+                <h1 className="text-2xl flex-grow mb-4">{props.frontmatter.title}</h1>
+                <p>{date}</p>
                 <hr className="my-2 border-black" />
                 <p>{props.excerpt}</p>
             </section>
