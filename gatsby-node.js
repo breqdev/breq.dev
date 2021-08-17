@@ -35,43 +35,47 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 // }
 
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-    const { createNodeField } = actions
-
-    if (node.internal.type === "Mdx") {
-        const value = createFilePath({ node, getNode })
-
-        createNodeField({
-            node,
-            name: "slug",
-            value: `/projects${value}`,
-        })
-    }
-}
-
-
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
 
-    const result = await graphql(`
+    const projects = await graphql(`
         {
             allMdx(filter: { fileAbsolutePath: { regex: "\\/projects/" } }) {
                 edges {
                     node {
                         id
-                        fields {
-                            slug
-                        }
+                        slug
                     }
                 }
             }
         }
     `)
 
-    result.data.allMdx.edges.forEach(({ node }) => {
+    projects.data.allMdx.edges.forEach(({ node }) => {
         createPage({
-            path: node.fields.slug,
+            path: "projects/" + node.slug,
             component: path.resolve("./src/templates/project.js"),
+            context: { id: node.id },
+        })
+    })
+
+    const posts = await graphql(`
+        {
+            allMdx(filter: { fileAbsolutePath: { regex: "\\/posts/" } }) {
+                edges {
+                    node {
+                        id
+                        slug
+                    }
+                }
+            }
+        }
+    `)
+
+    posts.data.allMdx.edges.forEach(({ node }) => {
+        createPage({
+            path: node.slug.replaceAll("-", "/"),
+            component: path.resolve("./src/templates/post.js"),
             context: { id: node.id },
         })
     })

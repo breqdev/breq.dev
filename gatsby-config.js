@@ -33,6 +33,12 @@ module.exports = {
             },
           },
         ],
+        remarkPlugins: [
+          require("remark-math"),
+        ],
+        rehypePlugins: [
+          require("rehype-katex"),
+        ],
         extensions: [".mdx", ".md"],
       }
     },
