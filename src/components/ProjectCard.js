@@ -3,10 +3,21 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 
 
+function ProjectVideo(props) {
+    return (
+        <video playsinline autoPlay muted loop disablePictureInPicture className="object-cover w-full">
+            <source src={props.src} type="video/webm" />
+        </video>
+    )
+}
+
+
 export default function Project(props) {
     let media
 
-    if (props.frontmatter.image) {
+    if (props.frontmatter.video) {
+        media = <ProjectVideo src={props.frontmatter.video} />
+    } else if (props.frontmatter.image) {
         const image = getImage(props.frontmatter.image)
 
         media = <GatsbyImage image={image} alt="Project image" objectFit="cover" />

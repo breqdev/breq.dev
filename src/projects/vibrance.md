@@ -3,7 +3,7 @@ layout: project
 title: Vibrance
 subtitle: Vibrance synchronizes computers and smartphones to display configurable animations and effects.
 image: "../images/pansexual.png"
-video: /assets/videos/vibrance.480p.webm
+video: /videos/vibrance.480p.webm
 created: "2020"
 repo: Breq16/vibrance
 ---
