@@ -13,9 +13,26 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
+    "gatsby-remark-images",
     {
       resolve: "gatsby-plugin-mdx",
       options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 1200,
+              withWebp: true,
+              withAvif: true
+            },
+          },
+          {
+            resolve: "gatsby-remark-prismjs",
+            options: {
+              classPrefix: "language-",
+            },
+          },
+        ],
         extensions: [".mdx", ".md"],
       }
     },

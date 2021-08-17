@@ -4,3 +4,5 @@ import "./src/styles/global.css"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
 config.autoAddCss = false
+
+require("prismjs/themes/prism.css")

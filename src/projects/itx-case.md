@@ -6,10 +6,11 @@ image: "../images/pc-case/photo.jpg"
 created: "2018-19"
 ---
 
-![](/assets/images/pc-case/photo.jpg)
+![](../images/pc-case/photo.jpg)
 
+<Caption>
 The finished product had about the same footprint as my laptop.
-{: .caption}
+</Caption>
 
 In late 2018/early 2019, I decided to build a desktop computer for use doing
 3D rendering and experimenting with machine learning.
@@ -17,13 +18,13 @@ In late 2018/early 2019, I decided to build a desktop computer for use doing
 Unfortunately, I didn't document my work nearly as well as I should have, so
 this writeup is going to be a bit heavy on the renders and light on the photos.
 
-## Overview
+# Overview
 
 This was a custom-built PC case that houses a mini-ITX motherboard, SFX power
 supply, and small-form-factor GPU. It was built out of a mix of wooden parts
 and 3D-printed parts that I designed.
 
-## Motivation
+# Motivation
 
 Around this time, I had started taking 3D rendering at MSSM, and I was
 disappointed with the poor rendering performance of my laptop. I decided that I
@@ -42,21 +43,21 @@ I decided to build my own case, with a goal of making something no larger than
 a few vertically-stacked binders. I wanted it to be able to fit in my backpack
 or suitcase to make transportation easy.
 
-## Technical Description
+# Technical Description
 
 The case consists of three wooden panels (the top, bottom, and front) that all
 screw into the 3D-printed interior structure. Because my 3D printer has only
 120mm of build plate space, the interior is split into 6 separate sections
 which are held together by their mutual attachment to the wooden panels.
 
-![](/assets/images/pc-case/exploded.jpg)
+![](../images/pc-case/exploded.jpg)
 
 The case contains two distinct airflow zones--one for the GPU and one for the
 CPU. The GPU slots into the left side of the case, connecting to the
 motherboard using a riser. The PSU sits directly underneath it. Additionyally,
 there is space for an SSD alongside the fan.
 
-![](/assets/images/pc-case/rightside.jpg)
+![](../images/pc-case/rightside.jpg)
 
 On the left side, a hard drive sits underneath the motherboard, and there is
 space for an additional drawer for storing USB cables or other small parts.
@@ -64,13 +65,13 @@ Above these, the motherboard sits on standoffs, and an SSD can attach to the
 front. This area has its own fan which blows air mostly above the motherboard,
 but some goes towards the hard drive as well.
 
-![](/assets/images/pc-case/leftside.jpg)
+![](../images/pc-case/leftside.jpg)
 
 In the far corner of the render, you can see a small keyhole shape. This is
 a place where power button, status LED, or other types of modules can be
 inserted. I only ever made one such module, a simple on/off switch.
 
-## Results
+# Results
 
 I used this case for over a year, and it held up pretty well. By the end of
 its life, the power button had broken, and the screws were starting to strip

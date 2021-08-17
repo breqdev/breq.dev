@@ -8,17 +8,17 @@ repo: Breq16/blockchat
 status: old
 ---
 
-![](/assets/images/blockchat.png)
+![](../images/blockchat.png)
 
-## Description
+# Description
 
 BlockChat is a simple decentralized chatroom application that uses a blockchain to store the message data.
 
-## Motivation
+# Motivation
 
 This project was something I quickly threw together in order to better understand blockchain while the Bitcoin boom was taking place. I couldn't find a resource that explained proof-of-work, consensus, and other blockchain-related topics well enough for me to understand them, so I decided to try making my own blockchain application, loosely based around a couple of examples I saw around the Internet.
 
-## Technical Description
+# Technical Description
 
 At its core, a blockchain is just a distributed, public ledger, so I decided that the easiest blockchain application to write would be a chatroom. At the time, it seemed much easier than a digital token or currency system.
 
@@ -34,7 +34,7 @@ Next, I worked on the consensus algorithm. For a node to accept new blocks, it f
 
 Finally, I needed to devise the protocol which would allow nodes to add messages to the blockchain and compare versions with other nodes. I decided to just use a REST API, because it was the easiest solution.
 
-## Results
+# Results
 
 In the end, the program did work. However, there were a few corners I cut that made the end result kind of impractical.
 
@@ -42,4 +42,4 @@ The first issue was that I did not include distinction between nodes and miners.
 
 The second issue is the lack of reward for miners. Initially, this was one of the things I didn't intend to include, because I wanted to keep things simple. But because the miners have no incentive to mine blocks, it would be difficult to get benevolent miners to participate in the blockchain, and it would be easy for "evil" miners to gain enough of a share of the computing power to undermine the stability provided by proof-of-work.
 
-While the end result wasn't something practical to deploy, working on this project definitely helped me understand the underlying design of blockchain platforms. It also answered many questions I had about the technology, such as "Why do non-currency applications like [Namecoin](https://en.wikipedia.org/wiki/Namecoin){:target="_blank"} still have tradeable tokens?" and "How exactly does proof-of-work ensure the stability of the blockchain system?", so I would definitely consider it a success.
+While the end result wasn't something practical to deploy, working on this project definitely helped me understand the underlying design of blockchain platforms. It also answered many questions I had about the technology, such as "Why do non-currency applications like [Namecoin](https://en.wikipedia.org/wiki/Namecoin) still have tradeable tokens?" and "How exactly does proof-of-work ensure the stability of the blockchain system?", so I would definitely consider it a success.

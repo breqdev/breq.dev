@@ -8,20 +8,19 @@ repo: Breq16/botbuilder
 demo: https://botbuilder.breq.dev/
 ---
 
-![](/assets/images/botbuilder.png){: .actual-size}
+![](../images/botbuilder.png)
 
-A couple demo commands built using Blockly.
-{: .caption}
+<Caption>A couple demo commands built using Blockly.</Caption>
 
-## Overview
+# Overview
 
-BotBuilder is an online tool that allows people to build custom Discord commands by dragging blocks. These commands are then added as slash commands to the user's guild (similar to bots built with [flask-discord-interactions]({% link _projects/flask-discord-interactions.md %}).
+BotBuilder is an online tool that allows people to build custom Discord commands by dragging blocks. These commands are then added as slash commands to the user's guild (similar to bots built with <Link to="/projects/flask-discord-interactions">flask-discord-interactions</Link>).
 
-## Motivation
+# Motivation
 
-After building the [flask-discord-interactions]({% link _projects/flask-discord-interactions.md %}) library, I realized how Discord's Interactions API could enable interesting custom commands with less overhead than a traditional Gateway-based bot. Many of my friends wanted to create their own Discord bot to include custom commands, but running a Discord bot typically requires registering as a developer, finding hosting, handling tokens, installing a library, writing code, and other tasks that might prove difficult for someone inexperienced with programming. I wanted to create a service that would allow users to add custom commands to their Discord servers without any prior knowledge of bot development or code.
+After building the <Link to="/projects/flask-discord-interactions">flask-discord-interactions</Link> library, I realized how Discord's Interactions API could enable interesting custom commands with less overhead than a traditional Gateway-based bot. Many of my friends wanted to create their own Discord bot to include custom commands, but running a Discord bot typically requires registering as a developer, finding hosting, handling tokens, installing a library, writing code, and other tasks that might prove difficult for someone inexperienced with programming. I wanted to create a service that would allow users to add custom commands to their Discord servers without any prior knowledge of bot development or code.
 
-## Technical Description
+# Technical Description
 
 Users log in with their Discord account using OAuth2 to access their workspace. There, they are able to use [Blockly](https://developers.google.com/blockly) to create commands.
 
@@ -35,6 +34,6 @@ After identifying the command, BotBuilder will execute the JavaScript code and r
 
 I chose to use JavaScript as the compilation target for the commands for security reasons. Executing, say, Python code in a sandbox would be difficult to do securely. JavaScript, on the other hand, is designed to be run in the browser, which is an inherently sandboxed environment.
 
-## Results
+# Results
 
 Not many of my friends ended up using this. I think the main reason was beacuse not enough features were present, and most people who wanted to make a custom command would need more functionality. Some of this was a limitation of Discord--without a bot user, the Interactions API is much more limited, and it doesn't allow applications to look up user information, modify roles, or do other actions that most bots typically do. However, supporting additional features like custom command arguments and HTTP request blocks would have maybe turned this into a more useful service.
