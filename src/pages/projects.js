@@ -24,7 +24,10 @@ export default function Projects({ data }) {
 
 export const query = graphql`
     query {
-        allMdx(filter: { fileAbsolutePath: { regex: "\\/projects/" } }) {
+        allMdx(
+            filter: { fileAbsolutePath: { regex: "\\/projects/" } }
+            sort: { fields: [frontmatter___created], order: DESC }
+        ) {
             edges {
                 node {
                     id

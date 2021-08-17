@@ -41,7 +41,10 @@ export default function Posts({ data }) {
 
 export const query = graphql`
     query {
-        allMdx(filter: { fileAbsolutePath: { regex: "\\/posts/" } }) {
+        allMdx(
+            filter: { fileAbsolutePath: { regex: "\\/posts/" } }
+            sort: { fields: slug, order: DESC }
+        ) {
             edges {
                 node {
                     id
