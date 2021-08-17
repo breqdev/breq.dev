@@ -55,7 +55,7 @@ export default function Index({ data }) {
                 </div>
 
                 <div style={{ height: "200vh" }} className="max-w-6xl mx-auto px-8 py-32 text-center font-display">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-6 auto-rows-0 overflow-y-hidden gap-x-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-4 md:grid-rows-6 auto-rows-0 overflow-y-hidden gap-x-8">
                         {projects.map((project, idx) => (
                             <div className="mb-8" key={idx}>
                                 {project}

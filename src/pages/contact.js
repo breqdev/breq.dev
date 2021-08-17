@@ -5,8 +5,8 @@ import Page from "../components/Page"
 export default function Contact() {
     return (
         <Page>
-            <div className="max-w-2xl mx-auto text-center font-display flex flex-col gap-8 px-4">
-                <h1 className="text-6xl mt-4">get in touch</h1>
+            <div className="max-w-2xl mx-auto text-center font-display flex flex-col gap-8 px-4 my-4">
+                <h1 className="text-6xl">get in touch</h1>
 
                 <a href="https://github.com/Breq16" className="block border-2 border-black rounded-xl px-4">
                     <h3 className="text-4xl my-4">is it about my code?</h3>

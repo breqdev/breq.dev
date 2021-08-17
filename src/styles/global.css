@@ -10,6 +10,10 @@
     body, html {
         scroll-padding-top: 100px;
     }
+
+    .math {
+        @apply overflow-x-scroll;
+    }
 }
 
 

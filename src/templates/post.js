@@ -14,7 +14,7 @@ function PostHeader({ data }) {
 
     return (
         <section className="bg-black text-white rounded-xl text-center font-display p-8">
-            <h1 className="text-6xl">{data.mdx.frontmatter.title}</h1>
+            <h1 className="text-4xl md:text-6xl">{data.mdx.frontmatter.title}</h1>
             <p className="text-2xl">{date}</p>
         </section>
     )

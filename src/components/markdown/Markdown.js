@@ -4,6 +4,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import YouTube from "../YouTube"
+import Desmos from "../Desmos"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLink } from "@fortawesome/free-solid-svg-icons"
 
@@ -140,6 +141,7 @@ const shortcodes = {
 
 
     YouTube,
+    Desmos,
     Caption,
     Link: IntLink,
 }
