@@ -12,7 +12,7 @@
     }
 
     .math {
-        @apply overflow-x-scroll;
+        @apply overflow-x-auto;
     }
 }
 
