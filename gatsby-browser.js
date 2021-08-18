@@ -7,4 +7,7 @@ config.autoAddCss = false
 
 require("prismjs/themes/prism.css")
 
-require(`katex/dist/katex.min.css`)
+require("katex/dist/katex.min.css")
+
+require("lite-youtube-embed/src/lite-yt-embed.js")
+require("lite-youtube-embed/src/lite-yt-embed.css")
