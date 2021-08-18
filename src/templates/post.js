@@ -16,7 +16,9 @@ function PostHeader({ data }) {
     return (
         <section className="bg-black text-white rounded-xl text-center font-display p-8">
             <Helmet>
-                <title>{data.mdx.frontmatter.title}</title>
+                <title>{data.mdx.frontmatter.title} - breq.dev</title>
+                <meta name="og:title" content={data.mdx.frontmatter.title + " - breq.dev"} />
+                <meta name="og:description" content={data.mdx.excerpt.replace("\n", " ")} />
             </Helmet>
             <h1 className="text-4xl md:text-6xl">{data.mdx.frontmatter.title}</h1>
             <p className="text-2xl">{date}</p>
@@ -44,6 +46,7 @@ export const query = graphql`
         mdx(id: {eq: $id}) {
             body
             slug
+            excerpt
             frontmatter {
                 title
             }
