@@ -67,6 +67,7 @@ function HoverLink(props) {
             <span className="absolute left-0 top-0 bottom-0 -ml-8 opacity-0 group-hover:opacity-100">
                 <a href={`#${props.id}`} className="text-xl">
                     <FontAwesomeIcon icon={faLink} />
+                    <span className="sr-only">Link to this section</span>
                 </a>
             </span>
             <span>{props.children}</span>
