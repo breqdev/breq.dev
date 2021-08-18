@@ -4,7 +4,7 @@ import Helmet from "react-helmet"
 
 export default function SEOHelmet(props) {
     return (
-        <Helmet>
+        <Helmet htmlAttributes={{ lang: "en" }}>
             <meta charSet="utf-8" />
 
             <link rel="canonical" href="https://breq.dev/" />
