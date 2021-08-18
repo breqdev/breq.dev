@@ -57,7 +57,9 @@ function ProjectHeader({ data }) {
     return (
         <section className="font-display text-center bg-black text-white rounded-xl p-8">
             <Helmet>
-                <title>{data.mdx.frontmatter.title}, made by breq.</title>
+                <title>{data.mdx.frontmatter.title} - breq.dev</title>
+                <meta name="og:title" content={data.mdx.frontmatter.title} />
+                <meta name="og:description" content={data.mdx.frontmatter.subtitle} />
             </Helmet>
             <h1 className="text-5xl">{data.mdx.frontmatter.title}</h1>
             <h2 className="text-3xl text-gray-300 mb-4">{data.mdx.frontmatter.subtitle}</h2>
