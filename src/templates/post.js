@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import Page from "../components/Page"
 import Markdown from "../components/markdown/Markdown"
-import { Helmet } from "react-helmet"
+import SEOHelmet from "../components/SEOHelmet"
 
 
 function PostHeader({ data }) {
@@ -15,11 +15,7 @@ function PostHeader({ data }) {
 
     return (
         <section className="bg-black text-white rounded-xl text-center font-display p-8">
-            <Helmet>
-                <title>{data.mdx.frontmatter.title} - breq.dev</title>
-                <meta name="og:title" content={data.mdx.frontmatter.title + " - breq.dev"} />
-                <meta name="og:description" content={data.mdx.excerpt.replace("\n", " ")} />
-            </Helmet>
+            <SEOHelmet title={data.mdx.frontmatter.title + " - breq.dev"} description={data.mdx.excerpt.replace("\n", " ")} />
             <h1 className="text-4xl md:text-6xl">{data.mdx.frontmatter.title}</h1>
             <p className="text-2xl">{date}</p>
         </section>

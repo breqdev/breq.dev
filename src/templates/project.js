@@ -1,5 +1,4 @@
 import React from "react"
-import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 
 import Page from "../components/Page"
@@ -7,6 +6,7 @@ import Markdown from "../components/markdown/Markdown"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCalendarAlt, faLaptopCode } from "@fortawesome/free-solid-svg-icons"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
+import SEOHelmet from "../components/SEOHelmet"
 
 
 function ProjectInfoItem({ name, icon, value, link }) {
@@ -56,11 +56,7 @@ function ProjectInfo({ data }) {
 function ProjectHeader({ data }) {
     return (
         <section className="font-display text-center bg-black text-white rounded-xl p-8">
-            <Helmet>
-                <title>{data.mdx.frontmatter.title} - breq.dev</title>
-                <meta name="og:title" content={data.mdx.frontmatter.title + " - breq.dev"} />
-                <meta name="og:description" content={data.mdx.frontmatter.subtitle} />
-            </Helmet>
+            <SEOHelmet title={data.mdx.frontmatter.title + " - breq.dev"} description={data.mdx.frontmatter.subtitle} />
             <h1 className="text-5xl">{data.mdx.frontmatter.title}</h1>
             <h2 className="text-3xl text-gray-300 mb-4">{data.mdx.frontmatter.subtitle}</h2>
             <ProjectInfo data={data} />

@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 import React from "react"
-import Helmet from "react-helmet"
+import SEOHelmet from "../components/SEOHelmet"
 
 import Page from "../components/Page"
 import ProjectCard from "../components/ProjectCard"
@@ -13,9 +13,7 @@ export default function Projects({ data }) {
 
     return (
         <Page className="bg-black text-white">
-            <Helmet>
-                <title>projects i've made, with &lt;3.</title>
-            </Helmet>
+            <SEOHelmet title="projects i've made, with <3." />
             <div className="text-center max-w-7xl mx-auto font-display">
                 <h1 className="my-8 text-6xl">Projects</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-stretch m-8">

@@ -1,14 +1,12 @@
 import React from "react"
-import { Helmet } from "react-helmet"
 import Page from "../components/Page"
+import SEOHelmet  from "../components/SEOHelmet"
 
 
 export default function Contact() {
     return (
         <Page>
-            <Helmet>
-                <title>contact me. if you want to.</title>
-            </Helmet>
+            <SEOHelmet title="contact me. if you want to." />
             <div className="max-w-2xl mx-auto text-center font-display flex flex-col gap-8 px-4 my-4">
                 <h1 className="text-6xl">get in touch</h1>
 
