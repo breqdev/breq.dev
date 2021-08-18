@@ -7,8 +7,6 @@ export default function SEOHelmet(props) {
         <Helmet htmlAttributes={{ lang: "en" }}>
             <meta charSet="utf-8" />
 
-            <link rel="canonical" href="https://breq.dev/" />
-
             <title>{props.title}</title>
             <meta name="description" content={props.description} />
 
