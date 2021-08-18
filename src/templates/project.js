@@ -58,7 +58,7 @@ function ProjectHeader({ data }) {
         <section className="font-display text-center bg-black text-white rounded-xl p-8">
             <Helmet>
                 <title>{data.mdx.frontmatter.title} - breq.dev</title>
-                <meta name="og:title" content={data.mdx.frontmatter.title} />
+                <meta name="og:title" content={data.mdx.frontmatter.title + " - breq.dev"} />
                 <meta name="og:description" content={data.mdx.frontmatter.subtitle} />
             </Helmet>
             <h1 className="text-5xl">{data.mdx.frontmatter.title}</h1>
