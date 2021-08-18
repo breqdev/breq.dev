@@ -37,7 +37,12 @@ export default function Footer() {
                             {" • "}
                         </React.Fragment>
                     ))}
-                    <Link to="/contact" className="hover:underline">more <FontAwesomeIcon icon={faChevronRight} /></Link>
+                    <Link to="/contact" className="hover:underline">
+                        more
+                        {" "}
+                        <span className="sr-only">ways to contact me </span>
+                        <FontAwesomeIcon icon={faChevronRight} />
+                    </Link>
                 </p>
             </div>
         </footer>
