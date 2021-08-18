@@ -16,7 +16,8 @@ module.exports = {
           DEFAULT: "#FF1B8D"
         },
         panblue: {
-          DEFAULT: "#1BB3FF"
+          DEFAULT: "#1BB3FF",
+          dark: "#0077b3" // for styling text, to meet accessibility guidelines
         },
         panyellow: {
           DEFAULT: "#FFDA00"

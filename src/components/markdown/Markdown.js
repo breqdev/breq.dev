@@ -46,7 +46,7 @@ function List(props) {
 
 function IntLink(props) {
     return (
-        <Link to={props.to} className="text-panblue hover:underline">
+        <Link to={props.to} className="text-panblue-dark hover:underline">
             {props.children}
         </Link>
     )
@@ -54,7 +54,7 @@ function IntLink(props) {
 
 function ExtLink(props) {
     return (
-        <a href={props.href} className="text-panblue hover:underline" target="_blank" rel="noopener noreferrer">
+        <a href={props.href} className="text-panblue-dark hover:underline" target="_blank" rel="noopener noreferrer">
             {props.children}
         </a>
     )
