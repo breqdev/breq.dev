@@ -129,6 +129,15 @@ function Td(props) {
 }
 
 
+function BlockQuote(props) {
+    return (
+        <blockquote className="italic max-w-3xl mx-auto">
+            {props.children}
+        </blockquote>
+    )
+}
+
+
 const shortcodes = {
     p: Paragraph,
     ul: List,
@@ -139,6 +148,7 @@ const shortcodes = {
     table: Table,
     th: Th,
     td: Td,
+    blockquote: BlockQuote,
 
 
     YouTube,
