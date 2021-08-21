@@ -39,7 +39,7 @@
          * Make sure the ".terminalContainer" class name is present in a JS file,
          * so that it doesn't get purged! We need this rule to stick around.
          */
-        overflow-y: auto !important;
+        @apply overflow-y-auto !important;
     }
 }
 
