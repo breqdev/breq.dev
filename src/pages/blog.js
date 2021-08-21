@@ -13,7 +13,7 @@ function Post(props) {
     const date = `${months[parseInt(month)]} ${day}, ${year}`
 
     return (
-        <Link to={"/" + props.slug.replaceAll("-", "/")} className="block bg-white text-black p-4 rounded-2xl">
+        <Link to={"/" + props.slug.replaceAll("-", "/")} className="block bg-white text-black p-4 rounded-2xl outline-none border-4 border-black focus:border-panpink">
             <section className="flex flex-col h-full">
                 <h1 className="text-2xl flex-grow mb-4">{props.frontmatter.title}</h1>
                 <p>{date}</p>

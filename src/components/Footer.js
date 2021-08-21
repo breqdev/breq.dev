@@ -15,6 +15,8 @@ export default function Footer() {
     ]
 
 
+    const linkStyles = "hover:underline outline-none focus:underline focus:bg-panyellow"
+
     return (
         <footer className="bg-panblue text-lg font-display z-10">
             <div className="max-w-7xl mx-auto px-4 py-16 md:pb-32 flex flex-col gap-8">
@@ -27,17 +29,17 @@ export default function Footer() {
 
                     <FontAwesomeIcon icon={faGithub} />&nbsp;
                     <span className="sr-only">github</span>
-                    <a href="https://github.com/Breq16/breq.dev" className="hover:underline" target="_blank" rel="noreferrer">Breq16/breq.dev</a>
+                    <a href="https://github.com/Breq16/breq.dev" className={linkStyles} target="_blank" rel="noreferrer">Breq16/breq.dev</a>
                 </p>
                 <p>
                     {contactLinks.map(([icon, text, href]) => (
                         <React.Fragment key={text}>
                             <FontAwesomeIcon icon={icon} />&nbsp;
-                            {href ? <a href={href} className="hover:underline" target="_blank" rel="noreferrer">{text}</a> : text}
+                            {href ? <a href={href} className={linkStyles} target="_blank" rel="noreferrer">{text}</a> : text}
                             {" • "}
                         </React.Fragment>
                     ))}
-                    <Link to="/contact" className="hover:underline">
+                    <Link to="/contact" className={linkStyles}>
                         more
                         {" "}
                         <span className="sr-only">ways to contact me </span>

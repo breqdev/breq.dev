@@ -24,7 +24,7 @@ export default function Project(props) {
     }
 
     return (
-        <Link to={"/projects/" + props.slug} className="block bg-white text-black p-4 rounded-2xl">
+        <Link to={"/projects/" + props.slug} className="block bg-white text-black p-4 rounded-2xl border-black border-4 focus:border-panpink">
             <section>
                 <div className="font-display h-32 overflow-hidden">
                     <h1 className="text-3xl">{props.frontmatter.title}</h1>
