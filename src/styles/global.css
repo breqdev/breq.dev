@@ -8,12 +8,35 @@
 
 @layer base {
     body, html {
+        /* scroll smoothly between links on the same page */
         scroll-behavior: smooth;
+
+        /* keep the content below the navbar when scrolling directly to it */
+        /* 100px is a magic number, adjust as needed */
         scroll-padding-top: 100px;
     }
 
     .math {
+        /* 
+         * KaTeX equations should scroll horizontally if not enough room is available
+         * this prevents overflow on mobile screens
+         */
         @apply overflow-x-auto;
+    }
+
+    .terminalContainer {
+        /*
+         * style override for https://github.com/rohanchandra/react-terminal-component/
+         *
+         * by default, the terminal always has a scrollbar
+         * in this site, we always expand the terminal container so that it has no overflow
+         * thus, we can safely disable the scrollbar
+         *
+         * note, we need !important here -- the terminal container's styling comes
+         * primarily from a StyledComponent, and we can't override those styles since they're
+         * scoped. thus, we set this style on .terminalContainer
+         */
+        @apply overflow-y-auto !important;
     }
 }
 
