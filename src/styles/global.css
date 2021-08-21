@@ -26,15 +26,18 @@
 
     .terminalContainer {
         /*
-         * style override for https://github.com/rohanchandra/react-terminal-component/
+         * Style override for https://github.com/rohanchandra/react-terminal-component/
          *
-         * by default, the terminal always has a scrollbar
-         * in this site, we always expand the terminal container so that it has no overflow
-         * thus, we can safely disable the scrollbar
+         * By default, the terminal always has a scrollbar
+         * In this site, we always expand the terminal container so that it has no overflow
+         * Thus, we can safely disable the scrollbar
          *
-         * note, we need !important here -- the terminal container's styling comes
+         * Note, we need !important here -- the terminal container's styling comes
          * primarily from a StyledComponent, and we can't override those styles since they're
-         * scoped. thus, we set this style on .terminalContainer
+         * scoped. Thus, we set this style on .terminalContainer
+         *
+         * Make sure the ".terminalContainer" class name is present in a JS file,
+         * so that it doesn't get purged! We need this rule to stick around.
          */
         overflow-y: auto !important;
     }
