@@ -28,8 +28,8 @@ function ScrollDownHint() {
     const handleScroll = () => window.scrollBy({top: 200, behavior: "smooth"})
 
     return (
-        <div className="absolute bottom-0 left-0 right-0 mb-32 text-center text-8xl transition-opacity duration-300" ref={iconRef} onClick={handleScroll}>
-            <button>
+        <div className="absolute bottom-0 left-0 right-0 mb-32 text-center text-8xl transition-opacity duration-300" ref={iconRef}>
+            <button onClick={handleScroll}>
                 <FontAwesomeIcon icon={faChevronDown} />
             </button>
         </div>
