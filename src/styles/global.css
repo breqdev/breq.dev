@@ -17,7 +17,7 @@
     }
 
     .math {
-        /* 
+        /*
          * KaTeX equations should scroll horizontally if not enough room is available
          * this prevents overflow on mobile screens
          */
@@ -36,7 +36,7 @@
          * primarily from a StyledComponent, and we can't override those styles since they're
          * scoped. thus, we set this style on .terminalContainer
          */
-        @apply overflow-y-auto !important;
+        overflow-y: auto !important;
     }
 }
 
