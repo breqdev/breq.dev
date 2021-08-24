@@ -56,7 +56,7 @@ export default function Index({ data }) {
                 </div>
 
                 <div style={{ height: "200vh" }} className="max-w-6xl mx-auto px-8 py-32 text-center font-display relative">
-                    <h1 className="text-6xl mb-2 sticky top-0 py-32">projects</h1>
+                    <h2 className="text-6xl mb-2 sticky top-0 py-32">projects</h2>
                 </div>
 
                 <div style={{ height: "200vh" }} className="max-w-6xl mx-auto px-8 py-32 text-center font-display relative z-10">
@@ -70,7 +70,7 @@ export default function Index({ data }) {
                 </div>
 
                 <div style={{ height: "200vh" }} className="max-w-6xl mx-auto px-8 py-32 text-center font-display">
-                    <h1 className="text-6xl mb-2 sticky top-0 py-32">about me</h1>
+                    <h2 className="text-6xl mb-2 sticky top-0 py-32">about me</h2>
                 </div>
 
                 <div style={{ height: "200vh" }} className="max-w-3xl mx-auto px-8 font-display text-2xl">
