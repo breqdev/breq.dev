@@ -20,7 +20,7 @@ export default function Project(props) {
     } else if (props.frontmatter.image) {
         const image = getImage(props.frontmatter.image)
 
-        media = <GatsbyImage image={image} alt="Project image" objectFit="cover" />
+        media = <GatsbyImage image={image} alt={props.frontmatter.title} objectFit="cover" />
     }
 
     return (
