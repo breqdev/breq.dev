@@ -20,7 +20,7 @@ Breqbot is a Discord bot that manages a virtual economy, provides several fun mi
 
 # Motivation
 
-A couple things came together to make this project happen. First, one of my friends invited me to a Discord server where they were using a variety of other popular Discord bots. I wasn't a fan of how some of these bots ran their economy or other features, and I wanted to see if I could implement something better. Second, my work on <Link to="/projects/mcstatus/">McStatus</Link>'s backend using Heroku gave me experience working with microservice architectures, and I wanted to work on a more complex microservices project.
+A couple things came together to make this project happen. First, one of my friends invited me to a Discord server where they were using a variety of other popular Discord bots. I wasn't a fan of how some of these bots ran their economy or other features, and I wanted to see if I could implement something better. Second, my work on [McStatus](/projects/mcstatus/)'s backend using Heroku gave me experience working with microservice architectures, and I wanted to work on a more complex microservices project.
 
 # Technical Description
 

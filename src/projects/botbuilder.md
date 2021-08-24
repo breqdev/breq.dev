@@ -14,11 +14,11 @@ demo: https://botbuilder.breq.dev/
 
 # Overview
 
-BotBuilder is an online tool that allows people to build custom Discord commands by dragging blocks. These commands are then added as slash commands to the user's guild (similar to bots built with <Link to="/projects/flask-discord-interactions">flask-discord-interactions</Link>).
+BotBuilder is an online tool that allows people to build custom Discord commands by dragging blocks. These commands are then added as slash commands to the user's guild ).
 
 # Motivation
 
-After building the <Link to="/projects/flask-discord-interactions">flask-discord-interactions</Link> library, I realized how Discord's Interactions API could enable interesting custom commands with less overhead than a traditional Gateway-based bot. Many of my friends wanted to create their own Discord bot to include custom commands, but running a Discord bot typically requires registering as a developer, finding hosting, handling tokens, installing a library, writing code, and other tasks that might prove difficult for someone inexperienced with programming. I wanted to create a service that would allow users to add custom commands to their Discord servers without any prior knowledge of bot development or code.
+After building the [flask-discord-interactions](/projects/flask-discord-interactions) library, I realized how Discord's Interactions API could enable interesting custom commands with less overhead than a traditional Gateway-based bot. Many of my friends wanted to create their own Discord bot to include custom commands, but running a Discord bot typically requires registering as a developer, finding hosting, handling tokens, installing a library, writing code, and other tasks that might prove difficult for someone inexperienced with programming. I wanted to create a service that would allow users to add custom commands to their Discord servers without any prior knowledge of bot development or code.
 
 # Technical Description
 

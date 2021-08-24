@@ -10,7 +10,7 @@ status: old
 
 # Overview
 
-This was a wrapper for [nxt-python](https://github.com/Eelviny/nxt-python) I wrote while I was in middle school for projects like the <Link to="/projects/r2d2">R2D2</Link>.
+This was a wrapper for [nxt-python](https://github.com/Eelviny/nxt-python) I wrote while I was in middle school for projects like the [R2D2](/projects/r2d2).
 
 # Motivation
 

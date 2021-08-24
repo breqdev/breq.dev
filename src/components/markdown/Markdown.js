@@ -44,20 +44,22 @@ function List(props) {
     )
 }
 
-function IntLink(props) {
-    return (
-        <Link to={props.to} className="text-panblue-dark hover:underline outline-none focus:bg-panyellow">
-            {props.children}
-        </Link>
-    )
-}
+function A(props) {
+    const ExtLinkRegex = new RegExp("^(?:[a-z]+:)?//", "i")
 
-function ExtLink(props) {
-    return (
-        <a href={props.href} className="text-panblue-dark hover:underline outline-none focus:bg-panyellow" target="_blank" rel="noopener noreferrer">
-            {props.children}
-        </a>
-    )
+    if (ExtLinkRegex.test(props.href)) {
+        return (
+            <a href={props.href} className="text-panblue-dark hover:underline outline-none focus:bg-panyellow" target="_blank" rel="noopener noreferrer">
+                {props.children}
+            </a>
+        )
+    } else {
+        return (
+            <Link to={props.href} className="text-panblue-dark hover:underline outline-none focus:bg-panyellow">
+                {props.children}
+            </Link>
+        )
+    }
 }
 
 
@@ -141,7 +143,7 @@ function BlockQuote(props) {
 const shortcodes = {
     p: Paragraph,
     ul: List,
-    a: ExtLink,
+    a: A,
     h1: Heading,
     h2: SubHeading,
     h3: SubSubHeading,
@@ -154,7 +156,6 @@ const shortcodes = {
     YouTube,
     Desmos,
     Caption,
-    Link: IntLink,
 }
 
 

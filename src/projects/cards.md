@@ -16,7 +16,7 @@ This is a service to generate custom "cards" based on a defined template and use
 
 # Motivation
 
-While working on <Link to="/projects/breqbot">Breqbot</Link>, I wanted to replicate the "rank card" idea provided by bots like [MEE6](https://mee6.xyz/), but with user-supplied information and images instead.
+While working on [Breqbot](/projects/breqbot), I wanted to replicate the "rank card" idea provided by bots like [MEE6](https://mee6.xyz/), but with user-supplied information and images instead.
 
 I started by writing a simple program using PIL that would take in a user's name, bio, and profile image, and generate a simple PNG. I was frustrated by the process and the end result. I had to manually implement things I had taken for granted in the world of web-dev, such as text wrapping and emoji support. The process of implementing and modifying the card templates was time-consuming and tedious. Additionally, when I tried to include these rudimentary images on Breqbot's website, I needed to redo the entire layout in HTML and CSS.
 
@@ -26,7 +26,7 @@ I had the idea of creating a standalone service to generate these cards based on
 
 The service will render an HTML template with the user-provided parameters. Then, if an image file is requested, it will use [pyppeteer](https://github.com/pyppeteer/pyppeteer) to take a screenshot of the HTML template using Chrome.
 
-It's also possible to "freeze" a card, preserving its screenshot on the server and returning a permanent link/URL to the card. This avoids having to use pyppeteer for every request for the card. To generate the card IDs, I'm using another service I made, <Link to="/projects/snowflake">Snowflake</Link>.
+It's also possible to "freeze" a card, preserving its screenshot on the server and returning a permanent link/URL to the card. This avoids having to use pyppeteer for every request for the card. To generate the card IDs, I'm using another service I made, [Snowflake](/projects/snowflake).
 
 # Results
 
