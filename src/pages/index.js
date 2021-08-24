@@ -45,7 +45,7 @@ export default function Index({ data }) {
     return (
         <Page>
             <SEOHelmet title="breq.dev. hey, i'm brooke." />
-            <div className="text-white relative">
+            <div className="bg-black text-white relative z-10">
                 <div style={{ height: "200vh" }} className="max-w-6xl mx-auto px-16 text-right font-display">
                     <div className="h-screen relative">
                         <ScrollDownHint />
@@ -106,10 +106,8 @@ export default function Index({ data }) {
                 </div>
 
                 <Terminal />
-
-                <div className="absolute inset-0 bg-black -z-10" />
+                <Background />
             </div>
-            <Background />
         </Page>
     )
 }
