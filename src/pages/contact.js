@@ -30,7 +30,7 @@ export default function Contact() {
                 <h1 className="text-6xl">get in touch</h1>
 
                 <ContactBadge href="https://github.com/Breq16">
-                    <h3 className="text-4xl my-4">is it about my code?</h3>
+                    <h2 className="text-4xl my-4">is it about my code?</h2>
                     <p className="text-2xl my-4 font-body">
                         the best way to reach me with code-related questions is
                         on GitHub. if you're having trouble, don't hesitate to open an issue!
@@ -38,7 +38,7 @@ export default function Contact() {
                 </ContactBadge>
 
                 <ContactBadge href="https://keybase.io/breq">
-                    <h3 className="text-4xl my-4">sliding in my dms?</h3>
+                    <h2 className="text-4xl my-4">sliding in my dms?</h2>
                     <p className="text-2xl my-4 font-body">
                         i'm typically reachable on keybase, if encrypted messaging
                         is your jam.
@@ -46,7 +46,7 @@ export default function Contact() {
                 </ContactBadge>
 
                 <ContactBadge>
-                    <h3 className="text-4xl my-4">discord?</h3>
+                    <h2 className="text-4xl my-4">discord?</h2>
                     <p className="text-2xl my-4 font-body">
                         i don't always accept friend requests from people i
                         don't know. if you'd like to reach out to me on discord,
@@ -56,7 +56,7 @@ export default function Contact() {
                 </ContactBadge>
 
                 <ContactBadge href="mailto:breq@breq.dev">
-                    <h3 className="text-4xl my-4">ol' reliable?</h3>
+                    <h2 className="text-4xl my-4">ol' reliable?</h2>
                     <p className="text-2xl my-4 font-body">
                         shoot me an email at breq@breq.dev.
                     </p>
