@@ -31,6 +31,7 @@ function ScrollDownHint() {
         <div className="absolute bottom-0 left-0 right-0 mb-32 text-center text-8xl transition-opacity duration-300" ref={iconRef}>
             <button onClick={handleScroll}>
                 <FontAwesomeIcon icon={faChevronDown} />
+                <span className="sr-only">scroll down</span>
             </button>
         </div>
     )
