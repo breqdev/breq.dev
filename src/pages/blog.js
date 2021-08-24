@@ -15,7 +15,7 @@ function Post(props) {
     return (
         <Link to={"/" + props.slug.replaceAll("-", "/")} className="block bg-white text-black p-4 rounded-2xl outline-none border-4 border-black focus:border-panpink">
             <section className="flex flex-col h-full">
-                <h1 className="text-2xl flex-grow mb-4">{props.frontmatter.title}</h1>
+                <h2 className="text-2xl flex-grow mb-4">{props.frontmatter.title}</h2>
                 <p>{date}</p>
                 <hr className="my-2 border-black" />
                 <p>{props.excerpt}</p>
@@ -32,7 +32,7 @@ export default function Posts({ data }) {
         <Page className="bg-black text-white">
             <SEOHelmet title="blog. ramblings about nothing in particular." />
             <div className="text-center max-w-7xl mx-auto font-display">
-                <h1 className="my-8 text-6xl">Projects</h1>
+                <h1 className="my-8 text-6xl">posts</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-stretch m-8">
                     {posts}
                 </div>
