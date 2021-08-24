@@ -52,7 +52,7 @@ export default function Index({ data }) {
                     </div>
 
                     <h1 className="text-7xl mb-2">hey, i'm brooke.</h1>
-                    <p className="text-4xl">welcome to my little patch of internet.</p>
+                    <h2 className="text-4xl">welcome to my little patch of internet.</h2>
                 </div>
 
                 <div style={{ height: "200vh" }} className="max-w-6xl mx-auto px-8 py-32 text-center font-display relative">
