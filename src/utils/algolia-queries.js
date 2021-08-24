@@ -8,21 +8,25 @@ const pageQuery = `
         edges {
             node {
                 id
-                slug
+                fields {
+                    slug
+                    type
+                }
                 frontmatter {
                     title
                     subtitle
                 }
-                excerpt(pruneLength: 5000)
+                excerpt(pruneLength: 20000)
             }
         }
     }
 }
 `
 
-function pageToAlgoliaRecord({ node: { id, frontmatter, ...rest } }) {
+function pageToAlgoliaRecord({ node: { id, fields, frontmatter, ...rest } }) {
     return {
         objectID: id,
+        ...fields,
         ...frontmatter,
         ...rest
     }

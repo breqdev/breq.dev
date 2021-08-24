@@ -9,7 +9,7 @@ import { InstantSearch, connectSearchBox, connectHits, Configure } from "react-i
 const SearchBox = connectSearchBox(({ refine, currentRefinement, onFocus }) =>(
     <div className="flex flex-col">
         <form className="flex items-center">
-            <input type="text" className="bg-panpink outline-none p-2 z-20" value={currentRefinement} onFocus={onFocus} onChange={e => refine(e.target.value)} />
+            <input type="text" className="bg-panpink outline-none p-2 z-20 flex-grow" value={currentRefinement} onFocus={onFocus} onChange={e => refine(e.target.value)} />
             <FontAwesomeIcon icon={faSearch} />
             <span className="sr-only">search</span>
         </form>
@@ -22,8 +22,8 @@ function Hit({ hit }) {
     return (
         <li className="border-black focus-within:border-white border-2 rounded-xl p-4">
             <Link to={hit.slug} className="outline-none">
-                <h3>{hit.title}</h3>
-                <h4>{hit.subtitle}</h4>
+                <h3 className="text-xl">{hit.title}</h3>
+                <h4 className="text-base">{hit.subtitle}</h4>
             </Link>
         </li>
     )
@@ -31,26 +31,32 @@ function Hit({ hit }) {
 
 
 const Hits = connectHits(({ hits }) => (
-    <ul className="flex flex-col gap-4">
-        {hits.map(hit => <Hit hit={hit} />)}
-    </ul>
+    <div className="absolute top-0 left-0 right-0 my-16 bg-panpink p-4">
+        {hits.length > 0 ? (
+            <ul className="flex flex-col gap-4">
+                {hits.map(hit => <Hit hit={hit} />)}
+            </ul>
+        ) : (
+            <p className="text-center">No results found</p>
+        )}
+    </div>
 ))
 
 
 function Search() {
+    const [query, setQuery] = useState("")
+
     const searchClient = useMemo(() => algoliasearch(
         process.env.GATSBY_ALGOLIA_APP_ID,
         process.env.GATSBY_ALGOLIA_SEARCH_KEY,
     ), [])
 
     return (
-        <div className="relative">
-            <InstantSearch searchClient={searchClient} indexName="breq.dev">
+        <div className="relative w-full max-w-3xl">
+            <InstantSearch searchClient={searchClient} indexName="breq.dev" onSearchStateChange={({ query }) => setQuery(query)}>
                 <Configure hitsPerPage={5} />
                 <SearchBox />
-                <div className="absolute top-0 my-16 bg-panpink p-4">
-                    <Hits />
-                </div>
+                {query.length > 0 && <Hits />}
             </InstantSearch>
         </div>
     )
