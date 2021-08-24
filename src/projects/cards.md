@@ -18,9 +18,9 @@ This is a service to generate custom "cards" based on a defined template and use
 
 While working on [Breqbot](/projects/breqbot), I wanted to replicate the "rank card" idea provided by bots like [MEE6](https://mee6.xyz/), but with user-supplied information and images instead.
 
-I started by writing a simple program using PIL that would take in a user's name, bio, and profile image, and generate a simple PNG. I was frustrated by the process and the end result. I had to manually implement things I had taken for granted in the world of web-dev, such as text wrapping and emoji support. The process of implementing and modifying the card templates was time-consuming and tedious. Additionally, when I tried to include these rudimentary images on Breqbot's website, I needed to redo the entire layout in HTML and CSS.
+I started by writing a program using PIL that would take in a user's name, bio, and profile image, and generate a basic PNG. I was frustrated by the process and the end result. I had to manually implement things I had taken for granted in the world of web-dev, such as text wrapping and emoji support. The process of implementing and modifying the card templates was time-consuming and tedious. Additionally, when I tried to include these rudimentary images on Breqbot's website, I needed to redo the entire layout in HTML and CSS.
 
-I had the idea of creating a standalone service to generate these cards based on a predefined template and output them to either an IFrame or just an image file. The resulting output could be used anywhere: sent as a Discord message, included in a GitHub README, or embedded in a website.
+I had the idea of creating a standalone service to generate these cards based on a predefined template and output them to either an IFrame or an image file. The resulting output could be used anywhere: sent as a Discord message, included in a GitHub README, or embedded in a website.
 
 # Technical Description
 

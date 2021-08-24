@@ -28,8 +28,8 @@ and 3D-printed parts that I designed.
 
 Around this time, I had started taking 3D rendering at MSSM, and I was
 disappointed with the poor rendering performance of my laptop. I decided that I
-wanted to build a more powerful computer that would handle tasks like 3D
-modeling, rendering, and deep learning more easily. In order to get the best
+wanted to build a more powerful computer that would better handle tasks like 3D
+modeling, rendering, and deep learning. In order to get the best
 sustained performance at my price point, I decided to go with a desktop instead
 of a higher-end laptop or a NUC.
 

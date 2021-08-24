@@ -30,8 +30,7 @@ status displayed on the light tower. However, this script needs to run as root,
 since Adafruit's library uses DMA (direct memory access) to control the Pi's
 PWM module.
 
-I then wrote an Octoprint plugin that handles printer events. It was pretty
-easy to use the
+I then wrote an Octoprint plugin that handles printer events. I used the
 [EventHandlerPlugin mixin](https://docs.octoprint.org/en/master/plugins/mixins.html#eventhandlerplugin)
 to write a basic Python script that called the NeoPixel script when necessary.
 
@@ -41,7 +40,7 @@ user account to execute a program as the root user.
 
 I decided to use the Unix "setuid" system to allow the Octoprint user to
 invoke the NeoPixel script with the permissions of the root user. Since setuid
-can't be used for scripts, I wrote a simple wrapper function to pass along the
+can't be used for scripts, I wrote a wrapper function to pass along the
 arguments and run the NeoPixel script as root.
 
 ```c

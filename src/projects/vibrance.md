@@ -32,7 +32,7 @@ The Vibrance system has three main parts: the *controller*, the *relay*, and the
 
 ## Clients
 
-The client code is a simple JavaScript app that runs on audience members' phones or computers. It receives messages from the relay and changes the color displayed on the user's screen accordingly. These messages are JSON objects, which allows for a variety of extensions to be added. For instance, it is possible to direct a client to display certain text on its screen (song lyrics, a welcome message, etc). Because this code runs in JavaScript, and the messages require very low latency, I chose the WebSocket protocol.
+The client code is a JavaScript app that runs on audience members' phones or computers. It receives messages from the relay and changes the color displayed on the user's screen accordingly. These messages are JSON objects, which allows for a variety of extensions to be added. For instance, it is possible to direct a client to display certain text on its screen (song lyrics, a welcome message, etc). Because this code runs in JavaScript, and the messages require very low latency, I chose the WebSocket protocol.
 
 ## Relay
 
@@ -40,7 +40,7 @@ Most of the time, both the client devices and the controller will be connected t
 
 Because it would be impractical for the controller to calculate separate colors for hundreds of clients, the clients are divided into zones. Client devices will indicate their zone to the relay (typically after prompting the user to choose which part of the room they are in). Messages sent to the relay by the controller are marked with their destination zone.
 
-Upon receiving a message from the controller, the relay simply forwards it along to each device in its intended zone. In the background, the relay manages newly-connected clients, ensures connections are kept alive, and removes inactive clients.
+Upon receiving a message from the controller, the relay forwards it along to each device in its intended zone. In the background, the relay manages newly-connected clients, ensures connections are kept alive, and removes inactive clients.
 
 ## Controller
 
@@ -81,4 +81,4 @@ A variety of example scripts are provided by Vibrance.
 
 I don't think I'll have an opportunity to test Vibrance in the real world any time soon, because of the COVID-19 pandemic. However, I have tested it with multiple devices and with hundreds of simulated clients at my house.
 
-I started this project a few weeks (!) before the stay-at-home orders started, and I had initially planned on trying it at the next opportunity my brother had to perform his music. As an alternative, in the video I filmed demonstrating Vibrance, I emulated his Ableton Live setup as closely as possible.
+I started this project a few weeks (!) before the stay-at-home orders started, and I had initially planned on trying it at the next opportunity my sibling had to perform their music. As an alternative, in the video I filmed demonstrating Vibrance, I emulated their Ableton Live setup as closely as possible.

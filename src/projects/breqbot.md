@@ -60,7 +60,7 @@ Most of Breqbot's features rely on [Redis](https://redis.io/) to store user data
 
 ![](../images/breqbot/reddit.png)
 
-One notable use of Redis is to cache Reddit posts. Breqbot uses [PRAW](https://praw.readthedocs.io/en/latest/) to automatically retrieve popular posts from Reddit to display. However, the Reddit API is slow, and it does not provide a method to choose a random popular post. Because of this, Breqbot uses a background task to periodically retrieve the 100 most popular posts from a variety of subreddits and store them in Redis. Then, when a user requests a post from one of these subreddits, Breqbot can simply retrieve it from its cache.
+One notable use of Redis is to cache Reddit posts. Breqbot uses [PRAW](https://praw.readthedocs.io/en/latest/) to automatically retrieve popular posts from Reddit to display. However, the Reddit API is slow, and it does not provide a method to choose a random popular post. Because of this, Breqbot uses a background task to periodically retrieve the 100 most popular posts from a variety of subreddits and store them in Redis. Then, when a user requests a post from one of these subreddits, Breqbot can retrieve it from its cache.
 
 ## The Web Process
 

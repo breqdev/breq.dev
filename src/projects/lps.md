@@ -51,7 +51,7 @@ A LiDAR sensor can create a point cloud of a robot’s surroundings, and SLAM (S
 If a robot is able to determine the relative signal strength of multiple different radios (such as WiFi access points or Bluetooth beacons), and it knows the positions of these radios, it can estimate its position relative to them by assuming signal strength correlates with distance. Because there are many other variables that affect signal strength, such as objects between the robot and radio, this method is not very reliable. Also, robots that use wireless communication will need to make sure their transmissions do not affect their ability to determine their location. This problem is worse if multiple robots are present in an area.
 
 ## New System
-In the past, I have more or less given up on systems which do not accumulate error, and have simply programmed the robot to navigate using an open-loop system and then drive into a wall (of known position) every so often. As this solution doesn’t work well outside of a clearly-defined environment, I wanted to see if I could come up with a better solution for localization.
+In the past, I have more or less given up on systems which do not accumulate error and instead programmed the robot to navigate using an open-loop system and then drive into a wall (of known position) every so often. As this solution doesn’t work well outside of a clearly-defined environment, I wanted to see if I could come up with a better solution for localization.
 
 I set the following criteria for such a system:
 * Work well in scenarios where multiple robots are present
@@ -60,7 +60,7 @@ I set the following criteria for such a system:
 * Be relatively inexpensive and use commonly available parts
 * Not accumulate error over time
 
-I decided to primarily target a scenario with multiple tracked objects in a single area. Putting the heavy processing outside of the robot allows for more inexpensive robots powered by simple microcontrollers. Additionally, this allows passive objects in the scene to be tracked, allowing robots to interact with them.
+I decided to primarily target a scenario with multiple tracked objects in a single area. Putting the heavy processing outside of the robot allows for more inexpensive robots powered by basic microcontrollers. Additionally, this allows passive objects in the scene to be tracked, allowing robots to interact with them.
 
 I decided to try implementing a solution that worked outside the plane that the robots would be in, so that it would not be affected by adding more robots or objects into the area. Cameras are common and relatively cheap, so using a camera mounted on a tripod and pointed down at robots seemed like the best approach.
 
@@ -100,7 +100,7 @@ In order to compute a perspective transformation, we need a new coordinate syste
 
 ![](../images/lps/transformation-calculation-2.png)
 
-The solution is a system known as homogeneous coordinates. To map our existing cartesian coordinates to homogeneous ones, we can simply include a 1 as the third coordinate. To map them back to cartesian coordinates, divide the X and Y coordinates by the third coordinate. This solves our horizon-point problem: Points with a third coordinate of 0 will have no defined equivalent cartesian coordinate.
+The solution is a system known as homogeneous coordinates. To map our existing cartesian coordinates to homogeneous ones, we just include a 1 as the third coordinate. To map them back to cartesian coordinates, divide the X and Y coordinates by the third coordinate. This solves our horizon-point problem: Points with a third coordinate of 0 will have no defined equivalent cartesian coordinate.
 
 (While the system is operating normally, points on the horizon line shouldn’t ever actually be visible. Despite this, we still need to consider it in order to define the perspective transformation.)
 
@@ -130,7 +130,7 @@ The different square codes signify the different types of marker present. The or
 
 Mathematically, the hard work is already done: we can use the transformation matrices for the reference marker that have already been calculated. In a previous step, the system used the transformation matrix on the corners of each square, mapping each point’s coordinates in the scene to its coordinates in the picture. Similarly, we can use the reference’s inverse transformation matrix to map each additional marker’s coordinates in the picture to its coordinates in the scene.
 
-The system plots a simple overhead-view grid of each visible marker. Note that the orientation and position of each marker is visible. Additionally, the size of each marker is known: smaller markers have a shorter arrow.
+The system plots an overhead-view grid of each visible marker. Note that the orientation and position of each marker is visible. Additionally, the size of each marker is known: smaller markers have a shorter arrow.
 
 ![](../images/lps/global-reference-2.png)
 
@@ -195,7 +195,7 @@ Because of the camera’s limited resolution and field-of-view, the usable area 
 
 Despite these issues, the system does accomplish the goals I set out at the beginning of the project. However, because of the system’s mediocre accuracy and reliability, I do not anticipate using it for anything in the future in its current state, although I do think this approach to localization is potentially useful (albeit with a lot more refinement).
 
-I am curious as to how much better this sort of system would work if some of the aforementioned solutions were implemented. A system using four separate reference markers instead of just one, QR-style finder pattern codes to help objects be more accurately recognized, and perhaps multiple cameras positioned on opposing sides of the area would likely have a much more useful accuracy. Although such a system would be more difficult and expensive to set up and operate, it would still be a practical and economical solution for providing localization capabilities to one or more robots in an enclosed area.
+I am curious as to how much better this sort of system would work if some of the aforementioned solutions were implemented. A system using four separate reference markers instead of one, QR-style finder pattern codes to help objects be more accurately recognized, and perhaps multiple cameras positioned on opposing sides of the area would likely have a much more useful accuracy. Although such a system would be more difficult and expensive to set up and operate, it would still be a practical and economical solution for providing localization capabilities to one or more robots in an enclosed area.
 
 ## FAQ (Fully Anticipated Questions)
 
@@ -205,7 +205,7 @@ I built this using Python, with OpenCV handling some of the heavy lifting for co
 
 **Why invent your own computer vision marker instead of using some existing standard?**
 
-I tried to use QR codes, which would’ve saved me from doing most of the computer vision work and would’ve allowed me to focus on the linear algebra side of things, but the camera resolution was just too low for that to work well. QR scanner libraries are built to recognize one or two codes positioned close to the camera, not many small codes positioned far away.
+I tried to use QR codes, which would’ve saved me from doing most of the computer vision work and would’ve allowed me to focus on the linear algebra side of things, but the camera resolution was too low for that to work well. QR scanner libraries are built to recognize one or two codes positioned close to the camera, not many small codes positioned far away.
 
 In hindsight, I’m kind of glad I had this problem, because working with computer vision was honestly pretty fun. I hadn’t really done anything in this field before.
 

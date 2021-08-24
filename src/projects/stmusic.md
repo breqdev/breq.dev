@@ -25,7 +25,7 @@ This game is similar to Guitar Hero or other rhythm-based games. The player shou
 
 # Motivation
 
-This was a homework assignment in my Computer Organization class to help us learn how to use bitwise operations to display a game on the ST Discovery's LCD. I chose to add sound functionality mostly because I thought it would be an interesting challenge, I was interested in how simple microcontrollers generate different sounds, and I figured a silent game would be rather boring.
+This was a homework assignment in my Computer Organization class to help us learn how to use bitwise operations to display a game on the ST Discovery's LCD. I chose to add sound functionality mostly because I thought it would be an interesting challenge, I was interested in how basic microcontrollers generate different sounds, and I figured a silent game would be rather boring.
 
 # Technical Description
 
@@ -45,11 +45,11 @@ For the kick drum, I borrowed a [trick](https://www.youtube.com/watch?v=Jd6nyynu
 
 For the snare drum, I decided to just use a burst of white noise. But as the STM32 doesn't have any built-in random number generation, I had to choose a pseudorandom algorithm to implement.
 
-At first, I tried to use a Linear Congruential Generator, because it seemed easy to implement. However, with the parameters I chose, the period was small enough that I could hear a distinct tone in the output. I could have probably eliminated this by choosing better parameters, but I didn't want to spent a bunch of time tuning the parameters.
+At first, I tried to use a Linear Congruential Generator, because it seemed easier to implement. However, with the parameters I chose, the period was small enough that I could hear a distinct tone in the output. I could have probably eliminated this by choosing better parameters, but I didn't want to spent a bunch of time tuning the parameters.
 
 I then looked into using a Mersenne Twister, because it seemed like a popular choice. I ultimately decided it against it as it seemed hard to implement. I also worried that it might be too slow, considering I'd want to be sending bits to the GPIO pin as fast as possible to ensure the snare sound had enough high-end frequencies.
 
-Finally, I settled on XorShift, which was fast and easy to implement.
+Finally, I settled on XorShift, which was fast and had a basic implementation.
 
 ## Data Packing
 
@@ -60,7 +60,7 @@ I decided early on to try to fit the information for each beat into a small inte
 * Drum sound (2 bits - kick, drum, or neither)
 * Indicator (1 bit)
 
-To store each note pitch, I decided to use MIDI note numbers. These only use 7 bits per note, and they can be converted to frequencies using a simple formula, so this was a much better solution than trying to store the note frequency or wavelength.
+To store each note pitch, I decided to use MIDI note numbers. These only use 7 bits per note, and they can be converted to frequencies using a basic formula, so this was a much better solution than trying to store the note frequency or wavelength.
 
 10 bits is kind of an odd size, so I tried to figure out what else I could include to use all bits in a 16 bit integer. The first thing I added was duty cycle controls. The original NES had 3 duty cycle settings, and composers could create interesting [effects](https://www.youtube.com/watch?v=kl9v8gtYRZ4) by switching between them. I decided to add 4 duty cycle settings to this project, although they didn't sound as different as I had hoped (likely due to the poor quality speaker I used). This brought the total up to 12 bits.
 

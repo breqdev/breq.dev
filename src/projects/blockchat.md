@@ -20,7 +20,7 @@ This project was something I quickly threw together in order to better understan
 
 # Technical Description
 
-At its core, a blockchain is just a distributed, public ledger, so I decided that the easiest blockchain application to write would be a chatroom. At the time, it seemed much easier than a digital token or currency system.
+At its core, a blockchain is a distributed, public ledger, so I decided that the easiest blockchain application to write would be a chatroom. At the time, it seemed much easier than a digital token or currency system.
 
 I started by implementing the blockchain data structure. As the name implies, this is a chain of blocks, where each new block contains the cryptographic hash of the previous block, so that old data cannot be modified without also re-writing all of the new data.
 
@@ -28,11 +28,11 @@ Then, I moved on to the proof-of-work algorithm. This algorithm is designed to b
 
 For my proof-of-work algorithm, I decided to require finding an integer with a hash that starts with a certain number. Solutions to this are difficult to find (as miners have to blindly guess at what the number is) but easy to verify (just hash the potential number and see if the first digits match). To make sure no miner tries to re-use the same solution multiple times, I required each new solution to be a larger number than the previous one.
 
-I didn't put too much effort into optimizing my miner implementation - it just uses a single CPU thread, sequentially searching numbers. In an actual blockchain scenario, this isn't a good choice, as anyone who could just write a better miner (by using multiple CPU cores, GPUs, or even FPGAs) would then have much more computational power compared to the rest of the network. I also didn't make the difficulty of the proof-of-work change in response to miner availability. This also isn't a good idea for a real blockchain, as periods of low miner activity may not be able to mine new blocks quickly. Worse, if many more miners decided to mine my blockchain, a too-easy proof-of-work would make it easier for malicious miners to modify the blockchain.
+I didn't put too much effort into optimizing my miner implementation - it only uses a single CPU thread, sequentially searching numbers. In an actual blockchain scenario, this isn't a good choice, as anyone who could write a better miner (by using multiple CPU cores, GPUs, or even FPGAs) would then have much more computational power compared to the rest of the network. I also didn't make the difficulty of the proof-of-work change in response to miner availability. This also isn't a good idea for a real blockchain, as periods of low miner activity may not be able to mine new blocks quickly. Worse, if many more miners decided to mine my blockchain, a too-easy proof-of-work would make it easier for malicious miners to modify the blockchain.
 
 Next, I worked on the consensus algorithm. For a node to accept new blocks, it first needs to verify the proof-of-work values and hashes to ensure the chain it receives is valid. Assuming it is, the node needs to choose which version of the chain it should prefer. In my implementation, the node will simply choose the longest version.
 
-Finally, I needed to devise the protocol which would allow nodes to add messages to the blockchain and compare versions with other nodes. I decided to just use a REST API, because it was the easiest solution.
+Finally, I needed to devise the protocol which would allow nodes to add messages to the blockchain and compare versions with other nodes. I decided to use a REST API, because it was the easiest solution.
 
 # Results
 

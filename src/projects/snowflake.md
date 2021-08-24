@@ -14,7 +14,7 @@ This is a service to generate Snowflake IDs. These are unique, time-ordered IDs,
 
 # Motivation
 
-I wanted to get more experience working with the [12 Factor App](https://12factor.net/) model. Implementing a simple service like this seemed like the easiest way to go about it. I also figured this kind of service could be useful for me at some point.
+I wanted to get more experience working with the [12 Factor App](https://12factor.net/) model. Implementing a basic service like this seemed like the easiest way to go about it. I also figured this kind of service could be useful for me at some point.
 
 # Technical Description
 

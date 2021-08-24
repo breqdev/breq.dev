@@ -20,9 +20,9 @@ Recently, Discord introduced a new Slash Commands feature that allows bots to in
 
 # Motivation
 
-Most Discord bots and libraries use a Bot user to connect to the Discord API. Bot users interact with Discord in a similar way to actual Discord users: they connect over a WebSocket and then send and receive events such as messages. This approach works well for simple bots, but it makes it difficult to scale. Alternatively, webhook-based bots can be deployed behind a load balancer and scaled up or down as needed without worrying about overloading the websocket or allocating different servers to different processes.
+Most Discord bots and libraries use a Bot user to connect to the Discord API. Bot users interact with Discord in a similar way to actual Discord users: they connect over a WebSocket and then send and receive events such as messages. This approach works well for basic bots, but it makes it difficult to scale. Alternatively, webhook-based bots can be deployed behind a load balancer and scaled up or down as needed without worrying about overloading the websocket or allocating different servers to different processes.
 
-That said, the webhook approach is significantly more limited. Webhook bots can't manage channels, reactions, direct messages, roles, or most of the other features in Discord. However, for simple bots that don't need these features, webhook bots can be easier to develop and deploy.
+That said, the webhook approach is significantly more limited. Webhook bots can't manage channels, reactions, direct messages, roles, or most of the other features in Discord. However, for basic bots that don't need these features, webhook bots can be easier to develop and deploy.
 
 # Technical Description
 
@@ -57,4 +57,4 @@ The `discord.command()` decorator creates a `SlashCommand` and adds it to the ap
 
 # Results
 
-This was one of the first OAuth2 projects I made, which was cool. It works well enough for my simple testing bot. Overall, I'm pretty proud of this one: I saw a gap where a library didn't exist, and I developed something to fill it.
+This was one of the first OAuth2 projects I made, which was cool. It works well enough for my basic testing bot. Overall, I'm pretty proud of this one: I saw a gap where a library didn't exist, and I developed something to fill it.
