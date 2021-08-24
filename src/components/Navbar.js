@@ -1,7 +1,61 @@
-import React, { useState } from "react"
+import React, { useMemo, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHamburger } from "@fortawesome/free-solid-svg-icons"
+import { faHamburger, faSearch } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "gatsby"
+import algoliasearch from "algoliasearch"
+import { InstantSearch, connectSearchBox, connectHits, Configure } from "react-instantsearch-dom"
+
+
+const SearchBox = connectSearchBox(({ refine, currentRefinement, onFocus }) =>(
+    <div className="flex flex-col">
+        <form className="flex items-center">
+            <input type="text" className="bg-panpink outline-none p-2 z-20" value={currentRefinement} onFocus={onFocus} onChange={e => refine(e.target.value)} />
+            <FontAwesomeIcon icon={faSearch} />
+            <span className="sr-only">search</span>
+        </form>
+        <hr className="border-black" />
+    </div>
+))
+
+
+function Hit({ hit }) {
+    return (
+        <li className="border-black focus-within:border-white border-2 rounded-xl p-4">
+            <Link to={hit.slug} className="outline-none">
+                <h3>{hit.title}</h3>
+                <h4>{hit.subtitle}</h4>
+            </Link>
+        </li>
+    )
+}
+
+
+const Hits = connectHits(({ hits }) => (
+    <ul className="flex flex-col gap-4">
+        {hits.map(hit => <Hit hit={hit} />)}
+    </ul>
+))
+
+
+function Search() {
+    const searchClient = useMemo(() => algoliasearch(
+        process.env.GATSBY_ALGOLIA_APP_ID,
+        process.env.GATSBY_ALGOLIA_SEARCH_KEY,
+    ), [])
+
+    return (
+        <div className="relative">
+            <InstantSearch searchClient={searchClient} indexName="breq.dev">
+                <Configure hitsPerPage={5} />
+                <SearchBox />
+                <div className="absolute top-0 my-16 bg-panpink p-4">
+                    <Hits />
+                </div>
+            </InstantSearch>
+        </div>
+    )
+}
+
 
 
 export default function Navbar() {
@@ -37,6 +91,8 @@ export default function Navbar() {
                         ))}
                     </ul>
                 </div>
+
+                <Search />
             </div>
         </nav>
 
