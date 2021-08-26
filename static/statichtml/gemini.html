@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>gemini</title>
+</head>
+<body>
+<style>
+body {
+	font-family: "Comic Sans MS", cursive, sans-serif
+}
+a {
+    color: black;
+}
+a {
+    text-decoration: none;
+}
+</style>
+<div id="header" name="header">
+<h1>gemini</h1>
+<a href="gabout.html">about</a>
+<p>© wᒷᓭꖎᒷ|| chalmers 2016</p>
+<p>use arrow keys and wsad</p>
+<p>very wow circles</p>
+
+</div>
+
+<canvas id="canvas" width="1000" height="500"></canvas>
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script>
+
+setTimeout(function(){
+	$("#header").slideUp(10000);
+})
+
+</script>
+<script>
+var audio = new Audio('Kalimba.mp3');
+audio.play();
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+function pausecomp(millis)
+ {
+  var date = new Date();
+  var curDate = null;
+  do { curDate = new Date(); }
+  while(curDate-date < millis);
+}
+var Ball = function(){
+	this.x = 100;
+	this.y = 100;
+	this.xSpeed = 0;
+	this.ySpeed = 0;
+	this.mult = 0.75;
+	this.xgravity = 0.0;
+	this.ygravity = 0.0;
+	this.xgravityspd = 0.0;
+	this.ygravityspd = 0.0;
+	this.radius = 5;
+};
+var Target = function(){
+	this.x = 500;
+	this.y = 250;
+	this.radius = 5;
+
+}
+var circle = function(x,y,radius,fillCircle){
+	ctx.beginPath();
+	ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+	if (fillCircle){
+		ctx.fill();
+	} else {
+		ctx.stroke();
+	}
+};
+Ball.prototype.draw = function () {
+	circle(this.x, this.y, this.radius, true);
+};
+Target.prototype.draw = function(){
+	circle(this.x, this.y, this.radius, false);
+};
+Ball.prototype.move = function() {
+	this.x += this.xSpeed;
+	this.y += this.ySpeed;
+};
+Target.prototype.move = function(){
+	this.x = Math.floor((Math.random() * 1000) + 1);
+	this.y = Math.floor((Math.random() * 500) + 1);
+}
+Ball.prototype.checkCollision = function() {
+	if (this.x < this.radius){
+		this.x = this.radius;
+		this.xSpeed = -this.xSpeed;
+	}
+	if (this.x > (1000-this.radius)){
+		this.x = 1000-this.radius;
+		this.xSpeed = -this.xSpeed;
+	}
+	if (this.y < this.radius) {
+		this.y = this.radius;
+		this.ySpeed = -this.xSpeed;
+	}
+	if (this.y > (500-this.radius)){
+		this.y = 500-this.radius;
+		this.ySpeed = -this.xSpeed;
+	};
+};
+Ball.prototype.setSpeed = function(x,y){
+	this.xSpeed += x;
+	this.ySpeed += y;
+};
+Ball.prototype.multSpeed = function(){
+	this.xSpeed *= this.mult;
+	this.ySpeed *= this.mult;
+	this.xSpeed += this.xgravity
+	this.ySpeed += this.ygravity;
+	// console.log("Gravity Update "+this.ySpeed);
+	this.move();
+	this.checkCollision();
+};
+Ball.prototype.changeGravity = function(){
+	this.xgravityspd += ((Math.random()*2)-1)/10000;
+	this.ygravityspd += ((Math.random()*2)-1)/10000;
+	this.xgravity += this.xgravityspd;
+	this.ygravity += this.ygravityspd;
+	if (this.xgravity > 0.2 || this.xgravity < -0.2){
+		this.xgravityspd = -this.xgravityspd;
+	};
+	if (this.ygravity > 0.2 || this.ygravity < -0.2){
+		this.ygravityspd = -this.ygravityspd;
+	};
+}
+var keyX = {
+	37: -0.002,
+	38: 0,
+	39: 0.002,
+	40: 0,
+	65:-0.0005,
+	87:0,
+	68:0.0005,
+	83:0
+};
+var keyY = {
+	37:0,
+	38:-0.002,
+	39:0,
+	40:0.002,
+	65:0,
+	87:-0.0005,
+	68:0,
+	83:0.0005
+};
+
+var ball = new Ball();
+var target = new Target();
+
+setInterval(function(){
+	$("body").keydown(function (event) {
+		var x = keyX[event.keyCode];
+		var y = keyY[event.keyCode];
+		ball.setSpeed(x,y);
+		if (event.keyCode >= 37 && event.keyCode <= 40){
+			event.preventDefault();
+			return false;
+		}
+	})
+}, 30)
+setInterval(function(){
+	ctx.clearRect(0, 0, 1000, 500);
+	ball.draw();
+	target.draw();
+	ball.move();
+	if (ball.x - ball.radius < target.x && target.x < ball.x + ball.radius && ball.y - ball.radius < target.y && target.y < ball.y + ball.radius){
+		target.move();
+	}
+	ball.checkCollision();
+	ctx.strokeRect(0, 0, 1000, 500);
+
+	ball.multSpeed();
+	ball.changeGravity();
+}, 30);
+</script>
+</body>
+</html>
