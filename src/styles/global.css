@@ -12,7 +12,7 @@
         scroll-behavior: smooth;
     }
 
-    :target {
+    *:target {
         /* keep the content below the navbar when scrolling directly to it */
         /* 100px is a magic number, adjust as needed */
         scroll-margin-top: 100px;
