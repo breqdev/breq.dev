@@ -140,6 +140,15 @@ function BlockQuote(props) {
 }
 
 
+function Kbd(props) {
+    return (
+        <kbd className="bg-gray-200 border-black border-2 rounded p-1">
+            {props.children}
+        </kbd>
+    )
+}
+
+
 const shortcodes = {
     p: Paragraph,
     ul: List,
@@ -151,6 +160,7 @@ const shortcodes = {
     th: Th,
     td: Td,
     blockquote: BlockQuote,
+    kbd: Kbd,
 
 
     YouTube,
