@@ -10,10 +10,12 @@
     body, html {
         /* scroll smoothly between links on the same page */
         scroll-behavior: smooth;
+    }
 
+    :target {
         /* keep the content below the navbar when scrolling directly to it */
         /* 100px is a magic number, adjust as needed */
-        scroll-padding-top: 100px;
+        scroll-margin-top: 100px;
     }
 
     .math {
