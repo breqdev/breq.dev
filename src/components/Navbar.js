@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHamburger, faSearch } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "gatsby"
 import algoliasearch from "algoliasearch"
-import { InstantSearch, connectSearchBox, connectHits, Configure, PoweredBy } from "react-instantsearch-dom"
+import { InstantSearch, connectSearchBox, connectHits, Configure } from "react-instantsearch-dom"
 
 
 const SearchBox = connectSearchBox(({ refine, currentRefinement, onFocus }) =>(
