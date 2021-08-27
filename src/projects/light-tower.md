@@ -2,9 +2,13 @@
 layout: project
 title: 3D Printer Light Tower
 subtitle: An indicator to represent 3D printer status.
-image: "../images/pansexual.png"
+image: "../images/light-tower.jpg"
 created: "2021"
 ---
+
+![](../images/light-tower.jpg)
+
+<Caption>NeoPixels never look good on camera.</Caption>
 
 # Overview
 
