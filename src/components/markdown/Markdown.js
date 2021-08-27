@@ -3,8 +3,9 @@ import { MDXProvider } from "@mdx-js/react"
 import React from "react"
 import { Link } from "gatsby"
 
-import YouTube from "../YouTube"
-import Desmos from "../Desmos"
+import YouTube from "../embeds/YouTube"
+import Desmos from "../embeds/Desmos"
+import Tweet from "../embeds/Twitter"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLink } from "@fortawesome/free-solid-svg-icons"
 
@@ -165,6 +166,8 @@ const shortcodes = {
 
     YouTube,
     Desmos,
+    Tweet,
+
     Caption,
 }
 
