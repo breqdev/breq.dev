@@ -16,6 +16,8 @@ export default function SEOHelmet(props) {
             <meta name="og:url" content="https://breq.dev/" />
             <meta name="og:site_name" content="breq.dev" />
             <meta name="og:type" content="website" />
+
+            <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e735a672f6cc409684d4fcc9df92b84c"}'></script>
         </Helmet>
     )
 }
