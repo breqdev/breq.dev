@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<title>bounce</title>
+<link href='//fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+<style>
+html {
+  overflow: hidden;
+}
+* { margin:0; padding:0; }
+html, body {
+  width:100%;
+  height:100%;
+}
+</style>
+<canvas id="canvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+<script>
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+canvas.width = document.body.clientWidth; //document.width is obsolete
+canvas.height = document.body.clientHeight; //document.height is obsolete
+canvasW = canvas.width;
+canvasH = canvas.height;
+
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+};
+
+function Ball(color){
+  this.radius = 5;
+  this.x = Math.floor(Math.random()*canvasW);
+  this.y = 0;
+  this.xSpeed = 1;
+  this.ySpeed = 1;
+  this.color = color;
+};
+
+Ball.prototype.draw = function() {
+  ctx.strokeStyle = this.color
+  ctx.beginPath();
+  ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+  ctx.stroke();
+};
+
+Ball.prototype.move = function() {
+  var newx = this.x + this.xSpeed
+  var newy = this.y + this.ySpeed
+  if ((newx < 0) || (newx > canvasW)) {
+    this.xSpeed = -this.xSpeed
+    if (newx < 0) {
+      newx = 0
+    } else {
+      newx = canvasW
+    }
+  } else if ((newy < 0) || (newy > canvasH)) {
+    this.ySpeed = -this.ySpeed
+    if (newy < 0) {
+      newy = 0
+    } else {
+      newy = canvasH
+    }
+  }
+  this.xSpeed += getRandomArbitrary(-0.5, 0.5);
+  this.ySpeed += getRandomArbitrary(-0.5, 0.5);
+  this.ySpeed += 0.5 // Gravity
+  this.x = newx
+  this.y = newy
+  ctx.clearRect(0, 0, canvasW, canvasH);
+};
+var blue = new Ball("blue");
+var red  = new Ball("red");
+var green = new Ball("green");
+var ball = [blue, red, green];
+
+function moveBall(){
+  var arrayLength = ball.length;
+  for (var i = 0; i < arrayLength; i++) {
+    ball[i].move();
+  };
+  var d = new Date();
+  ctx.font = "20px Ubuntu";
+  ctx.textAlign = "left";
+  hours = d.getHours()
+  if (hours > 12){
+    hours -= 12
+  }
+  minutes = d.getMinutes().toString()
+  if (minutes.length == 1){
+    minutes = "0"+minutes;
+  }
+  ctx.fillText("bounce.html - Made by Wᒷᓭꖎᒷ|| Chalmers - "+ball.length, 10, canvasH-10)
+  ctx.font = "100px Ubuntu";
+  ctx.textAlign = "center";
+  ctx.fillText(hours+":"+minutes, Math.floor(canvasW/2), Math.floor(canvasH/3))
+  for (var i = 0; i < arrayLength; i++) {
+    ball[i].draw();
+  };
+};
+document.onkeydown = function(event){
+  if (event.which == 32){
+    color = getRandomColor();
+    var target = ball.length/5
+    for (var i=0; i<target; i++){
+      ball.push(new Ball(color));
+    }
+    event.preventDefault();
+  } else if (event.which == 67) {
+    ball.splice(3, ball.length);
+    event.preventDefault();
+  }
+};
+setInterval(moveBall, 60);
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+</script>
