@@ -46,6 +46,12 @@ addEventListener("fetch", (event) => {
 });
 
 async function handleRequest(request) {
+  const incomingOrigin = request.headers.get("Origin")
+
+  if (!(/(breq\.dev|genregen\.pages\.dev)/.test(incomingOrigin))) {
+    return new Response("Origin Not Allowed", { status: 403 })
+  }
+
   const url = new URL(request.url)
   const paste = url.searchParams.get("paste")
 
@@ -55,7 +61,7 @@ async function handleRequest(request) {
   let response = await fetch(request)
 
   response = new Response(response.body, response)
-  response.headers.set("Access-Control-Allow-Origin", "*")
+  response.headers.set("Access-Control-Allow-Origin", incomingOrigin)
   response.headers.set("Vary", "Origin")
 
   return response
