@@ -16,7 +16,7 @@ Some commands for Breqbot Lite, a bot I made with this library.
 
 # Overview
 
-Recently, Discord introduced a new Slash Commands feature that allows bots to integrate using webhooks. This is a library that handles registering the commands, receiving interactions, sending responses, and sending followup messages. It's written as a Flask extension, so you can add other pages to the app and handle scaling/serving like any other Flask app.
+Recently, Discord introduced a new Slash Commands feature that allows bots to integrate using webhooks. This is a library that handles registering the commands, receiving interactions, sending responses, sending followup messages, and including message components like clickable buttons in your message. It's written as a Flask extension, so you can add other pages to the app and handle scaling/serving like any other Flask app.
 
 # Motivation
 
@@ -58,3 +58,5 @@ The `discord.command()` decorator creates a `SlashCommand` and adds it to the ap
 # Results
 
 This was one of the first OAuth2 projects I made, which was cool. It works well enough for my basic testing bot. Overall, I'm pretty proud of this one: I saw a gap where a library didn't exist, and I developed something to fill it.
+
+I'm also really glad to see that a small community has sprung up around this library. I listed it in the official Discord Developer Documentation, among the numerous other Slash Command libraries. So far, four other people have contributed code to the project through pull requests, and 22 issues have been filed in the issue tracker. It's been an interesting experience to receive a bug report or feature request from a community member and then figure out how to prioritize it and how best to patch it.
