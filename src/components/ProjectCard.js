@@ -5,7 +5,7 @@ import React from "react"
 
 function ProjectVideo(props) {
     return (
-        <video playsinline autoPlay muted loop disablePictureInPicture className="object-cover w-full">
+        <video playsInline autoPlay muted loop disablePictureInPicture className="object-cover w-full">
             <source src={props.src} type="video/webm" />
         </video>
     )
