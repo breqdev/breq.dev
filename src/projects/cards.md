@@ -8,7 +8,7 @@ repo: Breq16/cards
 demo: https://cards.breq.dev/
 ---
 
-<iframe className="block mx-auto rounded-2xl mt-4" height="300" width="500" src="https://cards.api.breq.dev/card/130828037779294750.html"></iframe>
+<iframe className="block mx-auto rounded-2xl mt-4" height="300" width="500" src="https://cards.api.breq.dev/card/130828037779294750.png"></iframe>
 
 # Overview
 
