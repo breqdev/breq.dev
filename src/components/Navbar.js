@@ -40,7 +40,7 @@ const Hits = connectHits(({ hits, ...props }) => (
             <p className="text-center">No results found</p>
         )}
         <a href="https://www.algolia.com/">
-            <img className="mx-auto mt-2" src="/search-by-algolia-light-background.svg" />
+            <img className="mx-auto mt-2" src="/search-by-algolia-light-background.svg" alt="search powered by Algolia" />
         </a>
     </div>
 ))
