@@ -5,14 +5,11 @@ import Page from "../components/Page"
 import Markdown from "../components/markdown/Markdown"
 import SEOHelmet from "../components/SEOHelmet"
 import Comments from "../components/Comments"
+import parseDate from "../utils/parseDate"
 
 
 function PostHeader({ data }) {
-    const [year, month, day] = data.mdx.slug.split("-")
-
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-
-    const date = `${months[parseInt(month)]} ${day}, ${year}`
+    const date = parseDate(data.mdx.slug)
 
     return (
         <section className="bg-black text-white rounded-xl text-center font-display p-8">

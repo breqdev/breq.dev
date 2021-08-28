@@ -3,14 +3,11 @@ import React from "react"
 
 import Page from "../components/Page"
 import SEOHelmet from "../components/SEOHelmet"
+import parseDate from "../utils/parseDate"
 
 
 function Post(props) {
-    const [year, month, day] = props.slug.split("-")
-
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-
-    const date = `${months[parseInt(month)]} ${day}, ${year}`
+    const date = parseDate(props.slug)
 
     return (
         <Link to={"/" + props.slug.replaceAll("-", "/")} className="block bg-white text-black p-4 rounded-2xl outline-none border-4 border-black focus:border-panpink">
