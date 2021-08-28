@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCalendarAlt, faLaptopCode } from "@fortawesome/free-solid-svg-icons"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import SEOHelmet from "../components/SEOHelmet"
+import Comments from "../components/Comments"
 
 
 function ProjectInfoItem({ name, icon, value, link }) {
@@ -74,6 +75,7 @@ export default function Project({ data }) {
                     {data.mdx.body}
                 </Markdown>
             </article>
+            <Comments />
         </Page>
     )
 }
