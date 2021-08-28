@@ -6,15 +6,12 @@ import algoliasearch from "algoliasearch"
 import { InstantSearch, connectSearchBox, connectHits, Configure } from "react-instantsearch-dom"
 
 
-const SearchBox = connectSearchBox(({ refine, currentRefinement, onFocus }) =>(
-    <div className="flex flex-col">
-        <form className="flex items-center px-2 md:px-0">
-            <input type="text" className="bg-panpink outline-none pb-2 z-20 flex-grow" value={currentRefinement} onFocus={onFocus} onChange={e => refine(e.target.value)} />
-            <FontAwesomeIcon icon={faSearch} />
-            <span className="sr-only">search</span>
-        </form>
-        <hr className="border-black" />
-    </div>
+const SearchBox = connectSearchBox(({ refine, currentRefinement, onFocus }) => (
+    <form className="flex items-center px-2 md:px-0 border-b-2 border-black focus-within:border-white transition-all duration-300">
+        <input type="text" className="bg-panpink outline-none pb-2 z-20 flex-grow" value={currentRefinement} onFocus={onFocus} onChange={e => refine(e.target.value)} />
+        <FontAwesomeIcon icon={faSearch} />
+        <span className="sr-only">search</span>
+    </form>
 ))
 
 
