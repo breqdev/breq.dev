@@ -12,7 +12,7 @@ export default function SEOHelmet(props) {
 
             <meta name="og:title" content={props.title} />
             <meta name="og:description" content={props.description} />
-            <meta name="og:image" content="/opengraph/pansexual.jpg" />
+            <meta name="og:image" content={props.image || "/opengraph/pansexual.jpg"} />
             <meta name="og:url" content="https://breq.dev/" />
             <meta name="og:site_name" content="breq.dev" />
             <meta name="og:type" content="website" />

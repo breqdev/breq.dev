@@ -56,7 +56,7 @@ function ProjectInfo({ data }) {
 function ProjectHeader({ data }) {
     return (
         <section className="font-display text-center bg-black text-white rounded-xl p-8">
-            <SEOHelmet title={data.mdx.frontmatter.title + " - breq.dev"} description={data.mdx.frontmatter.subtitle} />
+            <SEOHelmet title={data.mdx.frontmatter.title + " - breq.dev"} description={data.mdx.frontmatter.subtitle} image={data.mdx.frontmatter.image.childImageSharp.fixed.src} />
             <h1 className="text-5xl">{data.mdx.frontmatter.title}</h1>
             <h2 className="text-3xl text-gray-300 mb-4">{data.mdx.frontmatter.subtitle}</h2>
             <ProjectInfo data={data} />
@@ -88,6 +88,13 @@ export const query = graphql`
                 created
                 repo
                 demo
+                image {
+                    childImageSharp {
+                        fixed {
+                            src
+                        }
+                    }
+                }
             }
         }
     }
