@@ -15,7 +15,7 @@ function ProjectInfoItem({ name, icon, value, link }) {
             <span className="sr-only">{name}</span>
             <FontAwesomeIcon icon={icon} />
             <span>
-                {link ? <a href={link} className="hover:underline focus:underline" target="_blank" rel="noopener noreferrer">{value}</a> : value}
+                {link ? <a href={link} className="hover:underline focus:underline outline-none focus:bg-panyellow focus:text-black" target="_blank" rel="noopener noreferrer">{value}</a> : value}
             </span>
         </div>
     )
