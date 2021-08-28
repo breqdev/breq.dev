@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Page from "../components/Page"
 import Markdown from "../components/markdown/Markdown"
 import SEOHelmet from "../components/SEOHelmet"
+import Comments from "../components/Comments"
 
 
 function PostHeader({ data }) {
@@ -32,6 +33,7 @@ export default function Post({ data }) {
                     {data.mdx.body}
                 </Markdown>
             </article>
+            <Comments />
         </Page>
     )
 }
