@@ -4,6 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
 
 @layer base {
@@ -42,6 +43,10 @@
          * so that it doesn't get purged! We need this rule to stick around.
          */
         @apply overflow-y-auto !important;
+    }
+
+    .font-display strong {
+        font-weight: 700;
     }
 }
 
