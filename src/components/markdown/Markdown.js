@@ -12,7 +12,7 @@ import { faLink } from "@fortawesome/free-solid-svg-icons"
 
 function Caption(props) {
     return (
-        <p className="text-center font-body">
+        <p className="text-center font-body mx-auto max-w-xl">
             {props.children}
         </p>
     )
