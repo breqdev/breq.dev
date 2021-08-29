@@ -3,16 +3,15 @@ import { MDXProvider } from "@mdx-js/react"
 import React from "react"
 import { Link } from "gatsby"
 
-import YouTube from "../embeds/YouTube"
-import Desmos from "../embeds/Desmos"
-import Tweet from "../embeds/Twitter"
+import YouTube from "../YouTube"
+import Desmos from "../Desmos"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLink } from "@fortawesome/free-solid-svg-icons"
 
 
 function Caption(props) {
     return (
-        <p className="text-center font-body mx-auto max-w-xl">
+        <p className="text-center font-body">
             {props.children}
         </p>
     )
@@ -45,22 +44,20 @@ function List(props) {
     )
 }
 
-function A(props) {
-    const ExtLinkRegex = new RegExp("^(?:[a-z]+:)?//", "i")
+function IntLink(props) {
+    return (
+        <Link to={props.to} className="text-panblue-dark hover:underline">
+            {props.children}
+        </Link>
+    )
+}
 
-    if (ExtLinkRegex.test(props.href)) {
-        return (
-            <a href={props.href} className="text-panblue-dark hover:underline outline-none focus:bg-panyellow" target="_blank" rel="noopener noreferrer">
-                {props.children}
-            </a>
-        )
-    } else {
-        return (
-            <Link to={props.href} className="text-panblue-dark hover:underline outline-none focus:bg-panyellow">
-                {props.children}
-            </Link>
-        )
-    }
+function ExtLink(props) {
+    return (
+        <a href={props.href} className="text-panblue-dark hover:underline" target="_blank" rel="noopener noreferrer">
+            {props.children}
+        </a>
+    )
 }
 
 
@@ -68,9 +65,9 @@ function HoverLink(props) {
     return (
         <span className="relative">
             <span className="absolute left-0 top-0 bottom-0 -ml-8 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <a href={`#${props.id}`} className="text-xl outline-none">
+                <a href={`#${props.id}`} className="text-xl">
                     <FontAwesomeIcon icon={faLink} />
-                    <span className="sr-only">Link to this section </span>
+                    <span className="sr-only">Link to this section</span>
                 </a>
             </span>
             <span>{props.children}</span>
@@ -81,27 +78,27 @@ function HoverLink(props) {
 
 function Heading(props) {
     return (
-        <h2 className="max-w-4xl mx-auto text-4xl font-display text-center mt-8 mb-4 group focus-within:text-panblue-dark" id={props.id}>
+        <h1 className="max-w-4xl mx-auto text-4xl font-display text-center mt-8 group" style={{ scrollMarginTop: "100px" }} id={props.id}>
             <HoverLink id={props.id}>{props.children}</HoverLink>
-        </h2>
+        </h1>
     )
 }
 
 
 function SubHeading(props) {
     return (
-        <h3 className="text-3xl font-display text-center mt-8 mb-4 italic group focus-within:text-panblue-dark" id={props.id}>
+        <h2 className="text-3xl font-display text-center mt-8 italic group" style={{ scrollMarginTop: "100px" }} id={props.id}>
             <HoverLink id={props.id}>{props.children}</HoverLink>
-        </h3>
+        </h2>
     )
 }
 
 
 function SubSubHeading(props) {
     return (
-        <h4 className="text-2xl font-display text-center mt-8 -mb-2 underline group focus-within:text-panblue-dark" id={props.id}>
+        <h3 className="text-2xl font-display text-center mt-8 -mb-2 underline group" style={{ scrollMarginTop: "100px" }} id={props.id}>
             <HoverLink id={props.id}>{props.children}</HoverLink>
-        </h4>
+        </h3>
     )
 }
 
@@ -141,19 +138,10 @@ function BlockQuote(props) {
 }
 
 
-function Kbd(props) {
-    return (
-        <kbd className="bg-gray-200 border-black border-2 rounded p-1">
-            {props.children}
-        </kbd>
-    )
-}
-
-
 const shortcodes = {
     p: Paragraph,
     ul: List,
-    a: A,
+    a: ExtLink,
     h1: Heading,
     h2: SubHeading,
     h3: SubSubHeading,
@@ -161,14 +149,12 @@ const shortcodes = {
     th: Th,
     td: Td,
     blockquote: BlockQuote,
-    kbd: Kbd,
 
 
     YouTube,
     Desmos,
-    Tweet,
-
     Caption,
+    Link: IntLink,
 }
 
 
