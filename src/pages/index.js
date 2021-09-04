@@ -51,7 +51,11 @@ export default function Index({ data }) {
                         <ScrollDownHint />
                     </div>
 
-                    <h1 className="text-7xl mb-2">hey, i'm brooke.</h1>
+                    <h1 className="text-7xl mb-2">
+                        hey, i'm brooke.
+                        <br />
+                        <span className="text-gray-500">she/her.</span>
+                    </h1>
                     <h2 className="text-4xl">welcome to my little patch of internet.</h2>
                 </div>
 
