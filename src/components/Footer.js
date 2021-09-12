@@ -3,14 +3,14 @@ import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart, faEnvelope, faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import { faCopyright } from "@fortawesome/free-regular-svg-icons"
-import { faGithub, faDiscord, faKeybase } from "@fortawesome/free-brands-svg-icons"
+import { faGithub, faKeybase, faTwitter } from "@fortawesome/free-brands-svg-icons"
 
 
 export default function Footer() {
 
     const contactLinks = [
         [faEnvelope, "breq@breq.dev", "mailto:breq@breq.dev"],
-        [faDiscord, "Breq#8296", null],
+        [faTwitter, "breqdev", "https://twitter.com/breqdev"],
         [faKeybase, "breq", "https://keybase.io/breq"],
     ]
 
