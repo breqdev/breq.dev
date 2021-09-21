@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>AutoRedditor Demo</title>
+        <style>
+            body {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 8px;
+                font-family: sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>AutoRedditor Demo</h1>
+        <p>The following is a randomly selected post from r/aww:</p>
+
+        <hr />
+
+        <h2 id="title"></h2>
+        <img id="image" src="" alt="">
+
+        <hr />
+
+        <p>For the full list, see <a href="https://redditor.breq.dev/list"><code>/list</code></a>. For more info, see the <a href="https://breq.dev/projects/redditor">project page</a>.</p>
+
+        <script>
+            let title = document.getElementById("title")
+            let image = document.getElementById("image")
+
+            fetch("https://redditor.breq.dev/aww")
+                .then(response => response.json())
+                .then(data => {
+                    title.innerText = data.title
+                    image.src = data.url
+                })
+        </script>
+
+    </body>
+</html>

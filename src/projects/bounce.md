@@ -3,11 +3,11 @@ layout: project
 title: Bounce Homepage
 subtitle: A simple homepage for my school laptop.
 image: "../images/website/bounce.png"
-demo: https://breq.dev/statichtml/bounce.html
+demo: https://breq.dev/apps/bounce.html
 created: "2017"
 ---
 
-<div className="text-center my-4 text-2xl">View the <a href="https://breq.dev/statichtml/bounce.html">live demo</a>!</div>
+<div className="text-center my-4 text-2xl">View the <a href="https://breq.dev/apps/bounce.html">live demo</a>!</div>
 
 Bounce was a homepage I made to make my school laptop just a bit more unique from everyone else's. It features three bouncing circles. Pressing <kbd>space</kbd> adds circles to the screen, while pressing <kbd>c</kbd> takes them away.
 

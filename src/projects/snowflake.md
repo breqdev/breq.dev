@@ -5,7 +5,7 @@ subtitle: A scalable service to generate time-ordered, unique ID numbers.
 image: "../images/pansexual.png"
 created: "2020"
 repo: Breq16/snowflake
-demo: /apps/snowflake
+demo: /apps/snowflake.html
 ---
 
 # Overview

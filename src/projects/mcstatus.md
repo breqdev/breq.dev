@@ -5,6 +5,7 @@ subtitle: A JavaScript library to embed information about a Minecraft server int
 image: "../images/logo/minecraft.jpg"
 created: "2020"
 repo: Breq16/mcstatus
+demo: /apps/mcstatus.html
 ---
 
 

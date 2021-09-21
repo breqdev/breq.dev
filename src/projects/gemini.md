@@ -3,11 +3,11 @@ layout: project
 title: Gemini
 subtitle: A canvas-based web game.
 image: "../images/website/gemini.png"
-demo: https://breq.dev/statichtml/gemini.html
+demo: https://breq.dev/apps/gemini.html
 created: "2016"
 ---
 
-<div className="text-center my-4 text-2xl">View the <a href="https://breq.dev/statichtml/gemini.html">live demo</a>!</div>
+<div className="text-center my-4 text-2xl">View the <a href="https://breq.dev/apps/gemini.html">live demo</a>!</div>
 
 # Overview
 

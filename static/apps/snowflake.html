@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 8px;
+                text-align: center;
+                font-family: sans-serif;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Snowflake Demo</h1>
+        <p>
+            Here's your unique ID, generated just for you:
+        </p>
+        <h2 id="id"></h2>
+
+        <p>
+            Read more on the <a href="https://breq.dev/projects/snowflake">project page</a>.
+        </p>
+
+        <script>
+            let elm = document.getElementById("id")
+
+            fetch("https://snowflake.breq.dev/", {
+                method: "POST",
+            }).then(res => res.json()).then(res => elm.innerText = res.snowflake_str)
+        </script>
+    </body>
+</html>

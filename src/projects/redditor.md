@@ -5,7 +5,7 @@ subtitle: A service for caching and providing random Reddit posts.
 image: "../images/pansexual.png"
 created: "2020"
 repo: Breq16/redditor
-demo: /apps/redditor
+demo: /apps/redditor.html
 ---
 
 # Overview
