@@ -75,6 +75,7 @@ export default function Navbar() {
         projects: "/projects",
         blog: "/blog",
         contact: "/contact",
+        status: "/status",
     }
 
     const [expanded, setExpanded] = useState(false)
