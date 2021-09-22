@@ -15,7 +15,7 @@ function Monitor({ monitor }) {
     return (
         <div className="border-2 border-black rounded-xl p-4 flex flex-col items-center gap-4">
             <div className={`h-32 w-32 ${color} rounded-full flex items-center justify-center`}>
-                <span className="text-5xl">{message}</span>
+                <span className="font-display text-5xl">{message}</span>
             </div>
             <span className="font-display text-xl">{monitor.friendly_name}</span>
         </div>
