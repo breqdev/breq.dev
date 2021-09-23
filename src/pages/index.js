@@ -40,7 +40,15 @@ function ScrollDownHint() {
 
 
 export default function Index({ data }) {
-    const projects = data.allMdx.edges.map(({ node }) => <ProjectCard key={node.id} {...node} />)
+    const projects = data.allMdx.edges.filter(({ node }) => {
+        if (node.frontmatter.video) {
+            return true
+        } else if (node.frontmatter.image && !(/\/default/.test(node.frontmatter.image.absolutePath))) {
+            return true
+        } else {
+            return false
+        }
+    }).map(({ node }) => <ProjectCard key={node.id} {...node} />)
 
     return (
         <Page>
@@ -131,6 +139,7 @@ export const query = graphql`
                         title
                         subtitle
                         image {
+                            absolutePath
                             childImageSharp {
                                 gatsbyImageData(
                                     width: 1000
