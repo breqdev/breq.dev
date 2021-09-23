@@ -2,7 +2,7 @@
 layout: project
 title: Wall Matrix
 subtitle: A small, flashy display I made to hang on the wall.
-image: "../images/pansexual.png"
+image: "../images/default.png"
 video: /videos/matrix.480p.webm
 created: "2021"
 repo: Breq16/wallmatrix

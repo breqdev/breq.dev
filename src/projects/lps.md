@@ -2,7 +2,7 @@
 layout: project
 title: LPS System
 subtitle: A simple, calibration-free, vision-based local positioning system.
-image: "../images/pansexual.png"
+image: "../images/default.png"
 video: ../videos/lps.480p.webm
 created: "2020"
 repo: Breq16/lps
