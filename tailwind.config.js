@@ -23,9 +23,6 @@ module.exports = {
                     DEFAULT: "#FFDA00",
                 },
             },
-            gridAutoRows: {
-                0: "0px",
-            },
         },
     },
     variants: {
