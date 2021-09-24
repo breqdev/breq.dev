@@ -1,19 +1,17 @@
 const path = require("path")
 
-
 exports.onCreateWebpackConfig = ({ actions }) => {
     actions.setWebpackConfig({
         module: {
             rules: [
                 {
                     test: /\.txt$/,
-                    type: "asset/source"
-                }
-            ]
-        }
+                    type: "asset/source",
+                },
+            ],
+        },
     })
 }
-
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
     const { createNodeField } = actions
@@ -23,24 +21,26 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
             createNodeField({
                 node,
                 name: "type",
-                value: "post"
+                value: "post",
             })
 
             // Blog posts have URLs of the form
             // https://breq.dev/2021/02/10/dokku
 
-            const slug = "/" + path.parse(node.fileAbsolutePath).name.replaceAll("-", "/")
+            const slug =
+                "/" +
+                path.parse(node.fileAbsolutePath).name.replaceAll("-", "/")
 
             createNodeField({
                 node,
                 name: "slug",
-                value: slug
+                value: slug,
             })
         } else if (/projects/.test(node.fileAbsolutePath)) {
             createNodeField({
                 node,
                 name: "type",
-                value: "project"
+                value: "project",
             })
 
             // Projects have URLs of the form
@@ -51,12 +51,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
             createNodeField({
                 node,
                 name: "slug",
-                value: slug
+                value: slug,
             })
         }
     }
 }
-
 
 // exports.createSchemaCustomization = ({ actions }) => {
 //     actions.createTypes(`
@@ -76,13 +75,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 //     `)
 // }
 
-
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
 
     templates = {
         post: path.resolve("./src/templates/post.js"),
-        project: path.resolve("./src/templates/project.js")
+        project: path.resolve("./src/templates/project.js"),
     }
 
     const pages = await graphql(`

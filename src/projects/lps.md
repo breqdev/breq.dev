@@ -16,23 +16,26 @@ A quick demonstration of the system in action.
 
 # Overview
 
-*The following is adapted from [this document](https://docs.google.com/document/d/1GBooxXnvndxPmWwFXSiqQRPsxmN0NLmFtbzJHfWmCzk/edit?usp=sharing) that I initially wrote describing the system.*
+_The following is adapted from [this document](https://docs.google.com/document/d/1GBooxXnvndxPmWwFXSiqQRPsxmN0NLmFtbzJHfWmCzk/edit?usp=sharing) that I initially wrote describing the system._
 
 The LPS (Local Positioning System) is a system to help robots determine their location in a predefined area. This system uses a camera and colored markers to determine the position of robots and other objects in a scene, then relays that information to robots over a network connection.
-
 
 # Motivation
 
 Localization in robotics is a difficult but important problem. Through the Vex Robotics Competition, I’ve had experience trying to get a robot to perform pre-programmed movements. I’ve also worked on several automated robots outside of VRC. In all cases, I’ve been dissatisfied with the poor options available for determining a robot’s position.
 
 ## Current Systems
+
 ### Accelerometer
+
 Because an accelerometer measures acceleration, it must be double-integrated to track the robot’s position. This means that any error will drastically affect the result over time, and the calculated position will rapidly lose precision.
 
 ### Encoder Wheels
+
 By placing encoders on wheels, a robot can track its movement over time. VRC team 5225A, “πlons,” used a technique with three separate encoders to track the robot’s movement, its slip sideways, and its orientation (described here). However, any error (wheel slop, robot getting bumped or tipping, etc) will accumulate over time with this method. πlons needed to supplement their tracking system by occasionally driving into the corners of the VRC field in order to reset the accumulated error.
 
 ### Global Positioning System
+
 GPS can work well for tracking a robot’s general position in a large area. However, common receivers have an accuracy of only about 3 meters, and while modules with centimeter-level accuracy are available, they are prohibitively expensive.
 
 ![](../images/lps/pattern_wall.png)
@@ -42,23 +45,28 @@ The "Vex GPS": An example of the "Pattern Wall" approach to localization.
 </Caption>
 
 ### Pattern Wall
+
 By placing a specific code along the walls of the area, a camera mounted on a robot can determine its position and orientation. This method will be used in the Vex AI Competition. Other objects in the field can block the robot’s view of the pattern wall. Additionally, this system requires a defined playing field with straight sides and walls, and each robot is required to have its own camera and computer vision processing onboard.
 
 ### LiDAR
+
 A LiDAR sensor can create a point cloud of a robot’s surroundings, and SLAM (Simultaneous Localization And Mapping) algorithms can automatically map an area and determine the robot’s position relative to other objects. However, LiDAR sensors are large and expensive, they must be mounted with a clear view of the robot’s surroundings, and the robot must have enough processing power to run these algorithms. Additionally, this system will not work as well in an open environment, where there won’t be any objects for the LiDAR to detect, and it might have difficulty determining the difference between stationary objects (such as walls) and moving objects (such as other robots in the area).
 
 ### Radio trilateration
+
 If a robot is able to determine the relative signal strength of multiple different radios (such as WiFi access points or Bluetooth beacons), and it knows the positions of these radios, it can estimate its position relative to them by assuming signal strength correlates with distance. Because there are many other variables that affect signal strength, such as objects between the robot and radio, this method is not very reliable. Also, robots that use wireless communication will need to make sure their transmissions do not affect their ability to determine their location. This problem is worse if multiple robots are present in an area.
 
 ## New System
+
 In the past, I have more or less given up on systems which do not accumulate error and instead programmed the robot to navigate using an open-loop system and then drive into a wall (of known position) every so often. As this solution doesn’t work well outside of a clearly-defined environment, I wanted to see if I could come up with a better solution for localization.
 
 I set the following criteria for such a system:
-* Work well in scenarios where multiple robots are present
-* Not require complex processing on each robot
-* Be simple to set up in a given area (not requiring calibration)
-* Be relatively inexpensive and use commonly available parts
-* Not accumulate error over time
+
+-   Work well in scenarios where multiple robots are present
+-   Not require complex processing on each robot
+-   Be simple to set up in a given area (not requiring calibration)
+-   Be relatively inexpensive and use commonly available parts
+-   Not accumulate error over time
 
 I decided to primarily target a scenario with multiple tracked objects in a single area. Putting the heavy processing outside of the robot allows for more inexpensive robots powered by basic microcontrollers. Additionally, this allows passive objects in the scene to be tracked, allowing robots to interact with them.
 

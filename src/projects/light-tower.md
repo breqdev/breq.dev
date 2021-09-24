@@ -62,7 +62,6 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-
 With this in place, the chain of Octoprint -> Plugin -> Setuid Wrapper -> NeoPixel Script -> NeoPixels
 worked perfectly.
 

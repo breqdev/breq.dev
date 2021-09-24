@@ -1,21 +1,27 @@
 import React from "react"
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHeart, faEnvelope, faChevronRight } from "@fortawesome/free-solid-svg-icons"
+import {
+    faHeart,
+    faEnvelope,
+    faChevronRight,
+} from "@fortawesome/free-solid-svg-icons"
 import { faCopyright } from "@fortawesome/free-regular-svg-icons"
-import { faGithub, faKeybase, faTwitter } from "@fortawesome/free-brands-svg-icons"
-
+import {
+    faGithub,
+    faKeybase,
+    faTwitter,
+} from "@fortawesome/free-brands-svg-icons"
 
 export default function Footer() {
-
     const contactLinks = [
         [faEnvelope, "breq@breq.dev", "mailto:breq@breq.dev"],
         [faTwitter, "breqdev", "https://twitter.com/breqdev"],
         [faKeybase, "breq", "https://keybase.io/breq"],
     ]
 
-
-    const linkStyles = "hover:underline outline-none focus:underline focus:bg-panyellow"
+    const linkStyles =
+        "hover:underline outline-none focus:underline focus:bg-panyellow"
 
     return (
         <footer className="bg-panblue text-lg font-display z-10">
@@ -23,25 +29,42 @@ export default function Footer() {
                 <p>
                     made with <FontAwesomeIcon icon={faHeart} />
                     <span className="sr-only">love</span> by breq,{" "}
-
                     <FontAwesomeIcon icon={faCopyright} />
                     <span className="sr-only">copyright</span>&nbsp;2021,{" "}
-
-                    <FontAwesomeIcon icon={faGithub} />&nbsp;
+                    <FontAwesomeIcon icon={faGithub} />
+                    &nbsp;
                     <span className="sr-only">github</span>
-                    <a href="https://github.com/Breq16/breq.dev" className={linkStyles} target="_blank" rel="noreferrer">Breq16/breq.dev</a>
+                    <a
+                        href="https://github.com/Breq16/breq.dev"
+                        className={linkStyles}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        Breq16/breq.dev
+                    </a>
                 </p>
                 <p>
                     {contactLinks.map(([icon, text, href]) => (
                         <React.Fragment key={text}>
-                            <FontAwesomeIcon icon={icon} />&nbsp;
-                            {href ? <a href={href} className={linkStyles} target="_blank" rel="noreferrer">{text}</a> : text}
+                            <FontAwesomeIcon icon={icon} />
+                            &nbsp;
+                            {href ? (
+                                <a
+                                    href={href}
+                                    className={linkStyles}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    {text}
+                                </a>
+                            ) : (
+                                text
+                            )}
                             {" • "}
                         </React.Fragment>
                     ))}
                     <Link to="/contact" className={linkStyles}>
-                        more
-                        {" "}
+                        more{" "}
                         <span className="sr-only">ways to contact me </span>
                         <FontAwesomeIcon icon={faChevronRight} />
                     </Link>

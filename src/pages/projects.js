@@ -5,11 +5,10 @@ import SEOHelmet from "../components/SEOHelmet"
 import Page from "../components/Page"
 import ProjectCard from "../components/ProjectCard"
 
-
-
 export default function Projects({ data }) {
-
-    const projects = data.allMdx.edges.map(({ node }) => <ProjectCard key={node.id} {...node} />)
+    const projects = data.allMdx.edges.map(({ node }) => (
+        <ProjectCard key={node.id} {...node} />
+    ))
 
     return (
         <Page className="bg-black text-white">
@@ -27,7 +26,7 @@ export default function Projects({ data }) {
 export const query = graphql`
     query {
         allMdx(
-            filter: { fileAbsolutePath: { regex: "\\/projects/" } }
+            filter: { fileAbsolutePath: { regex: "/projects/" } }
             sort: { fields: [frontmatter___created], order: DESC }
         ) {
             edges {
@@ -53,4 +52,3 @@ export const query = graphql`
         }
     }
 `
-

@@ -12,7 +12,6 @@ repo: Breq16/STMusic
     Note that unlike other projects on this site, I wrote this for a homework assignment. That being said, adding in the speaker and music were things I did because I wanted to have fun, not to meet the assignment requirements.
 </div>
 
-
 <YouTube id="_AXSp7ZT-E8" />
 
 <Caption>
@@ -56,9 +55,10 @@ Finally, I settled on XorShift, which was fast and had a basic implementation.
 After figuring out how to synthesize the song, I needed to figure out how to store it. The trial version of CrossWorks Studio that I was using restricted me to a 16kB code size. I initially wanted to include multiple long songs (although I later scrapped this due to time constraints), so I needed to find an efficient way to store each note, drum, and indicator on the screen.
 
 I decided early on to try to fit the information for each beat into a small integer and store these integers in an array. I looked into what information I would need to store:
-* Note pitch (7 bits when stored as MIDI note number)
-* Drum sound (2 bits - kick, drum, or neither)
-* Indicator (1 bit)
+
+-   Note pitch (7 bits when stored as MIDI note number)
+-   Drum sound (2 bits - kick, drum, or neither)
+-   Indicator (1 bit)
 
 To store each note pitch, I decided to use MIDI note numbers. These only use 7 bits per note, and they can be converted to frequencies using a basic formula, so this was a much better solution than trying to store the note frequency or wavelength.
 

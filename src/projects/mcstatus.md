@@ -8,11 +8,9 @@ repo: Breq16/mcstatus
 demo: /apps/mcstatus.html
 ---
 
-
 # Overview
 
 McStatus.js is a JavaScript library and API backend to embed a Minecraft server status readout.
-
 
 # Motivation
 

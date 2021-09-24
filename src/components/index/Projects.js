@@ -7,8 +7,8 @@ function Arduino({ visible }) {
 
     useScroll((scroll, height) => {
         if (model.current) {
-            const x = -12 + scroll / height * 12
-            const y = -1 - scroll / height * 0.5
+            const x = -12 + (scroll / height) * 12
+            const y = -1 - (scroll / height) * 0.5
             model.current.position.set(x, y, 0)
 
             model.current.rotation.x = scroll * -0.001
@@ -18,18 +18,23 @@ function Arduino({ visible }) {
     })
 
     return (
-        <Gltf url="/models/arduino.glb" scale={[0.05, 0.05, 0.05]} position={[-12, -1, 0]} ref={model} visible={visible} />
+        <Gltf
+            url="/models/arduino.glb"
+            scale={[0.05, 0.05, 0.05]}
+            position={[-12, -1, 0]}
+            ref={model}
+            visible={visible}
+        />
     )
 }
-
 
 function RasPi({ visible }) {
     const model = useRef()
 
     useScroll((scroll, height) => {
         if (model.current) {
-            const x = 10 - scroll / height * 10
-            const y = 1 - scroll / height * 0.5
+            const x = 10 - (scroll / height) * 10
+            const y = 1 - (scroll / height) * 0.5
             model.current.position.set(x, y, 0)
 
             model.current.rotation.x = scroll * -0.001
@@ -39,18 +44,23 @@ function RasPi({ visible }) {
     })
 
     return (
-        <Gltf url="/models/raspi.glb" scale={[0.05, 0.05, 0.05]} position={[10, 1, 0]} ref={model} visible={visible} />
+        <Gltf
+            url="/models/raspi.glb"
+            scale={[0.05, 0.05, 0.05]}
+            position={[10, 1, 0]}
+            ref={model}
+            visible={visible}
+        />
     )
 }
-
 
 function Div({ visible }) {
     const model = useRef()
 
     useScroll((scroll, height) => {
         if (model.current) {
-            const x = -10 + scroll / height * 10
-            const y = 6 - scroll / height * 6
+            const x = -10 + (scroll / height) * 10
+            const y = 6 - (scroll / height) * 6
             model.current.position.set(x, y, -2)
 
             model.current.rotation.x = scroll * -0.0001
@@ -60,17 +70,27 @@ function Div({ visible }) {
     })
 
     return (
-        <Gltf url="/models/div.glb" ref={model} position={[-10, 6, -2]} visible={visible} />
+        <Gltf
+            url="/models/div.glb"
+            ref={model}
+            position={[-10, 6, -2]}
+            visible={visible}
+        />
     )
 }
-
 
 function ProjectLight({ visible }) {
     const light = useRef()
 
-    return <spotLight color={0xFFFFFF} position={[0, 0, 10]} ref={light} visible={visible} />
+    return (
+        <spotLight
+            color={0xffffff}
+            position={[0, 0, 10]}
+            ref={light}
+            visible={visible}
+        />
+    )
 }
-
 
 export default function Projects({ visible }) {
     return (

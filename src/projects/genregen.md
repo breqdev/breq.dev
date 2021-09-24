@@ -38,33 +38,33 @@ To solve this, I ended up using [Cloudflare Workers](https://workers.dev/) to ma
 
 ```js
 addEventListener("fetch", (event) => {
-  event.respondWith(
-    handleRequest(event.request).catch(
-      (err) => new Response(err.stack, { status: 500 })
+    event.respondWith(
+        handleRequest(event.request).catch(
+            (err) => new Response(err.stack, { status: 500 })
+        )
     )
-  );
-});
+})
 
 async function handleRequest(request) {
-  const incomingOrigin = request.headers.get("Origin")
+    const incomingOrigin = request.headers.get("Origin")
 
-  if (!(/(breq\.dev|genregen\.pages\.dev)/.test(incomingOrigin))) {
-    return new Response("Origin Not Allowed", { status: 403 })
-  }
+    if (!/(breq\.dev|genregen\.pages\.dev)/.test(incomingOrigin)) {
+        return new Response("Origin Not Allowed", { status: 403 })
+    }
 
-  const url = new URL(request.url)
-  const paste = url.searchParams.get("paste")
+    const url = new URL(request.url)
+    const paste = url.searchParams.get("paste")
 
-  request = new Request("https://pastebin.com/raw/" + paste, request)
-  request.headers.set("Origin", "pastebin.com")
+    request = new Request("https://pastebin.com/raw/" + paste, request)
+    request.headers.set("Origin", "pastebin.com")
 
-  let response = await fetch(request)
+    let response = await fetch(request)
 
-  response = new Response(response.body, response)
-  response.headers.set("Access-Control-Allow-Origin", incomingOrigin)
-  response.headers.set("Vary", "Origin")
+    response = new Response(response.body, response)
+    response.headers.set("Access-Control-Allow-Origin", incomingOrigin)
+    response.headers.set("Vary", "Origin")
 
-  return response
+    return response
 }
 ```
 

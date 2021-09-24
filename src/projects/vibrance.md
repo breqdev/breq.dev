@@ -26,7 +26,7 @@ I wanted to make a light show like the Coldplay concert that would cost almost n
 
 # Technical Description
 
-The Vibrance system has three main parts: the *controller*, the *relay*, and the *clients*. Working backwards from the clients:
+The Vibrance system has three main parts: the _controller_, the _relay_, and the _clients_. Working backwards from the clients:
 
 <img className="mx-auto" src="/diagrams/vibrance_simple.svg" />
 
@@ -44,7 +44,7 @@ Upon receiving a message from the controller, the relay forwards it along to eac
 
 ## Controller
 
-The controller is the most complicated part of the pipeline. It is responsible for handling input from some device (through a *driver*), determining the color messages to send to the relay (using an *interface* and *script*), and sending these messages to the relay.
+The controller is the most complicated part of the pipeline. It is responsible for handling input from some device (through a _driver_), determining the color messages to send to the relay (using an _interface_ and _script_), and sending these messages to the relay.
 
 ### Driver
 
@@ -73,7 +73,6 @@ def animation(event):
 A variety of example scripts are provided by Vibrance.
 
 ## Block Diagram
-
 
 <img src="/diagrams/vibrance.svg" />
 

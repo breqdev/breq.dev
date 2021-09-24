@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from "react"
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"
 
 const Gltf = React.forwardRef((props, ref) => {
     const [gltf, setGltf] = useState()

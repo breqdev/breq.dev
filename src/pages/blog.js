@@ -5,14 +5,18 @@ import Page from "../components/Page"
 import SEOHelmet from "../components/SEOHelmet"
 import parseDate from "../utils/parseDate"
 
-
 function Post(props) {
     const date = parseDate(props.slug)
 
     return (
-        <Link to={"/" + props.slug.replaceAll("-", "/")} className="block bg-white text-black p-4 rounded-2xl outline-none border-4 border-black focus:border-panpink">
+        <Link
+            to={"/" + props.slug.replaceAll("-", "/")}
+            className="block bg-white text-black p-4 rounded-2xl outline-none border-4 border-black focus:border-panpink"
+        >
             <section className="flex flex-col h-full">
-                <h2 className="text-2xl flex-grow mb-4">{props.frontmatter.title}</h2>
+                <h2 className="text-2xl flex-grow mb-4">
+                    {props.frontmatter.title}
+                </h2>
                 <p>{date}</p>
                 <hr className="my-2 border-black" />
                 <p>{props.excerpt}</p>
@@ -21,9 +25,10 @@ function Post(props) {
     )
 }
 
-
 export default function Posts({ data }) {
-    const posts = data.allMdx.edges.map(({ node }) => <Post key={node.id} {...node} />)
+    const posts = data.allMdx.edges.map(({ node }) => (
+        <Post key={node.id} {...node} />
+    ))
 
     return (
         <Page className="bg-black text-white">
@@ -41,7 +46,7 @@ export default function Posts({ data }) {
 export const query = graphql`
     query {
         allMdx(
-            filter: { fileAbsolutePath: { regex: "\\/posts/" } }
+            filter: { fileAbsolutePath: { regex: "/posts/" } }
             sort: { fields: slug, order: DESC }
         ) {
             edges {

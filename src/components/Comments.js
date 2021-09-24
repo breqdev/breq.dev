@@ -29,7 +29,5 @@ export default function Comments(props) {
         commentBox.current.appendChild(script)
     }, [])
 
-    return (
-        <div ref={commentBox} />
-    )
+    return <div ref={commentBox} />
 }

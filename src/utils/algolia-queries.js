@@ -28,10 +28,9 @@ function pageToAlgoliaRecord({ node: { id, fields, frontmatter, ...rest } }) {
         objectID: id,
         ...fields,
         ...frontmatter,
-        ...rest
+        ...rest,
     }
 }
-
 
 module.exports = [
     {
@@ -39,5 +38,5 @@ module.exports = [
         transformer: ({ data }) => data.allMdx.edges.map(pageToAlgoliaRecord),
         indexName: "breq.dev",
         settings: { attributesToSnippet: [`excerpt:20`] },
-    }
+    },
 ]

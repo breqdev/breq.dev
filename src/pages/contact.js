@@ -1,13 +1,18 @@
-import { faDiscord, faGithub, faKeybase, faTwitter } from "@fortawesome/free-brands-svg-icons"
+import {
+    faDiscord,
+    faGithub,
+    faKeybase,
+    faTwitter,
+} from "@fortawesome/free-brands-svg-icons"
 import { faArrowRight, faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import Page from "../components/Page"
-import SEOHelmet  from "../components/SEOHelmet"
-
+import SEOHelmet from "../components/SEOHelmet"
 
 function ContactBadge(props) {
-    const className = "block border-2 border-black focus:border-panpink focus:border-4 rounded-xl px-4 outline-none"
+    const className =
+        "block border-2 border-black focus:border-panpink focus:border-4 rounded-xl px-4 outline-none"
 
     if (props.href) {
         return (
@@ -16,17 +21,13 @@ function ContactBadge(props) {
             </a>
         )
     } else {
-        return (
-            <div className={className}>
-                {props.children}
-            </div>
-        )
+        return <div className={className}>{props.children}</div>
     }
 }
 
-
-const RightArrow = () => <FontAwesomeIcon icon={faArrowRight} className="mx-4" />
-
+const RightArrow = () => (
+    <FontAwesomeIcon icon={faArrowRight} className="mx-4" />
+)
 
 export default function Contact() {
     return (
@@ -43,7 +44,8 @@ export default function Contact() {
                     </h2>
                     <p className="text-2xl my-4 font-body">
                         the best way to reach me with code-related questions is
-                        on GitHub. if you're having trouble, don't hesitate to open an issue!
+                        on GitHub. if you're having trouble, don't hesitate to
+                        open an issue!
                     </p>
                 </ContactBadge>
 
@@ -54,8 +56,8 @@ export default function Contact() {
                         <FontAwesomeIcon icon={faKeybase} />
                     </h2>
                     <p className="text-2xl my-4 font-body">
-                        i'm typically reachable on keybase, if encrypted messaging
-                        is your jam.
+                        i'm typically reachable on keybase, if encrypted
+                        messaging is your jam.
                     </p>
                 </ContactBadge>
 
@@ -66,8 +68,8 @@ export default function Contact() {
                         <FontAwesomeIcon icon={faTwitter} />
                     </h2>
                     <p className="text-2xl my-4 font-body">
-                        my DM's are open to everyone on twitter, but i might
-                        not see them straight away.
+                        my DM's are open to everyone on twitter, but i might not
+                        see them straight away.
                     </p>
                 </ContactBadge>
 
@@ -80,8 +82,8 @@ export default function Contact() {
                     <p className="text-2xl my-4 font-body">
                         i don't always accept friend requests from people i
                         don't know. if you'd like to reach out to me on discord,
-                        please fill out the 'about me' on your profile so i
-                        know who you are!
+                        please fill out the 'about me' on your profile so i know
+                        who you are!
                     </p>
                 </ContactBadge>
 
