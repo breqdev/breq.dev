@@ -11,6 +11,7 @@ function ProjectVideo(props) {
             loop
             disablePictureInPicture
             className="object-cover w-full"
+            tabIndex="-1"
         >
             <source src={props.src} type="video/webm" />
         </video>

@@ -1,4 +1,5 @@
 import React, { useRef } from "react"
+import { useMediaQuery } from "react-responsive"
 import useScroll from "../components/models/useScroll"
 
 import Page from "../components/Page"
@@ -39,7 +40,7 @@ function ScrollDownHint() {
     )
 }
 
-export default function Index({ data }) {
+function Projects({ data }) {
     const projects = data.allMdx.edges
         .filter(({ node }) => {
             if (node.frontmatter.video) {
@@ -55,6 +56,28 @@ export default function Index({ data }) {
         })
         .map(({ node }) => <ProjectCard key={node.id} {...node} />)
 
+    const isDoubleWide = useMediaQuery({ query: "(min-width: 768px)" })
+    const isTripleWide = useMediaQuery({ query: "(min-width: 1024px)" })
+    const isExtraRow = useMediaQuery({ query: "(min-width: 1280px)" })
+
+    const numColumns = isTripleWide ? 3 : isDoubleWide ? 2 : 1
+    const numProjects = numColumns * (isExtraRow ? 5 : 4)
+
+    return (
+        <div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-y-hidden gap-x-8"
+            tabIndex="-1"
+        >
+            {projects.splice(numProjects).map((project, idx) => (
+                <div className="mb-8" key={idx}>
+                    {project}
+                </div>
+            ))}
+        </div>
+    )
+}
+
+export default function Index({ data }) {
     return (
         <Page>
             <SEOHelmet title="breq.dev. hey, i'm brooke." />
@@ -90,13 +113,7 @@ export default function Index({ data }) {
                     style={{ height: "200vh" }}
                     className="max-w-6xl mx-auto px-8 py-32 text-center font-display relative z-10"
                 >
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-4 xl:grid-rows-5 auto-rows-0 overflow-y-hidden gap-x-8">
-                        {projects.map((project, idx) => (
-                            <div className="mb-8" key={idx}>
-                                {project}
-                            </div>
-                        ))}
-                    </div>
+                    <Projects data={data} />
                 </div>
 
                 <div
