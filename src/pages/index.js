@@ -68,7 +68,7 @@ function Projects({ data }) {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-y-hidden gap-x-8"
             tabIndex="-1"
         >
-            {projects.splice(numProjects).map((project, idx) => (
+            {projects.slice(0, numProjects).map((project, idx) => (
                 <div className="mb-8" key={idx}>
                     {project}
                 </div>
