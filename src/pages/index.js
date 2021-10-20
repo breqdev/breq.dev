@@ -32,7 +32,10 @@ function ScrollDownHint() {
             className="absolute bottom-0 left-0 right-0 mb-32 text-center text-8xl transition-opacity duration-300"
             ref={iconRef}
         >
-            <button className="focus:text-panpink outline-none" onClick={handleScroll}>
+            <button
+                className="focus:text-panpink outline-none"
+                onClick={handleScroll}
+            >
                 <FontAwesomeIcon icon={faChevronDown} />
                 <span className="sr-only">scroll down</span>
             </button>
@@ -80,7 +83,10 @@ function Projects({ data }) {
 export default function Index({ data }) {
     return (
         <Page>
-            <SEOHelmet title="breq.dev. hey, i'm brooke." />
+            <SEOHelmet
+                title="breq.dev. hey, i'm brooke."
+                description="welcome to my little patch of internet. view my projects, posts, and miscellaneous experiments here."
+            />
             <div className="bg-black text-white relative z-10">
                 <div
                     style={{ height: "200vh" }}
