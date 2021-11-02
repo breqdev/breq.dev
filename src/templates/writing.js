@@ -8,7 +8,7 @@ export default function Writing({ data }) {
         <Page>
             <div>
                 <section className="h-screen flex flex-col items-center justify-center font-display bg-black text-white">
-                    <h1 className="text-4xl md:text-7xl">
+                    <h1 className="text-5xl md:text-7xl text-center p-8">
                         {data.mdx.frontmatter.title}
                     </h1>
                     <h2 className="text-xl">{data.mdx.frontmatter.date}</h2>

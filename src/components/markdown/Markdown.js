@@ -154,11 +154,18 @@ function Kbd(props) {
     )
 }
 
+function Hr(props) {
+    return <div className="border-black border max-w-xl w-full mx-auto my-8" />
+}
+
 function Poem(props) {
     return (
         <PoemContext.Provider value={{ poem: true }}>
             <section
-                className="mx-auto max-w-3xl pl-16 text-lg font-body"
+                className={
+                    "mx-auto max-w-3xl pl-16 text-lg font-body " +
+                    (props.center ? " mx-auto" : "")
+                }
                 style={{
                     textIndent: "-64px",
                     maxWidth: "min(max-content, 100%)",
@@ -168,6 +175,10 @@ function Poem(props) {
             </section>
         </PoemContext.Provider>
     )
+}
+
+function Indent(props) {
+    return <div className="ml-12">{props.children}</div>
 }
 
 const shortcodes = {
@@ -182,6 +193,7 @@ const shortcodes = {
     td: Td,
     blockquote: BlockQuote,
     kbd: Kbd,
+    hr: Hr,
 
     YouTube,
     Desmos,
@@ -189,6 +201,7 @@ const shortcodes = {
 
     Caption,
     Poem,
+    Indent,
 }
 
 export default function Markdown(props) {
