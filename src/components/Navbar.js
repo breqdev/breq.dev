@@ -32,8 +32,15 @@ function Hit({ hit, ...props }) {
                 className="block p-4 outline-none"
                 onClick={props.onSelect}
             >
-                <h3 className="text-xl">{hit.title}</h3>
-                <h4 className="text-base">{hit.subtitle}</h4>
+                <h3 className="text-xl">
+                    {hit.title}
+                    <span className="text-gray-700 italic"> - {hit.type}</span>
+                </h3>
+                <h4 className="text-base">
+                    {hit.subtitle ||
+                        hit.description ||
+                        hit.excerpt.substring(0, 100) + "..."}
+                </h4>
             </Link>
         </li>
     )
@@ -98,6 +105,7 @@ function Search(props) {
 export default function Navbar() {
     const navLinks = {
         projects: "/projects",
+        writing: "/writing",
         blog: "/blog",
         contact: "/contact",
         status: "/status",
@@ -111,12 +119,12 @@ export default function Navbar() {
         <nav className="sticky top-0 bg-panpink p-4 font-display z-20">
             <div className="flex flex-col md:flex-row mx-auto w-full max-w-7xl gap-4">
                 <div className="flex w-full md:w-max justify-between">
-                    <a
+                    <Link
                         className="text-5xl hover:text-white outline-none focus:text-white focus:underline"
-                        href="/"
+                        to="/"
                     >
                         breq.dev
-                    </a>
+                    </Link>
 
                     <button
                         className="border-4 border-black rounded-xl p-2 md:hidden text-lg"

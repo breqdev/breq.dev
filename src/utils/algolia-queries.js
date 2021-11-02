@@ -2,7 +2,7 @@ const pageQuery = `
 {
     allMdx(
         filter: {
-            fileAbsolutePath: { regex: "/(projects|posts)/" }
+            fileAbsolutePath: { regex: "/(projects|posts|writing)/" }
         }
     ) {
         edges {
@@ -15,6 +15,7 @@ const pageQuery = `
                 frontmatter {
                     title
                     subtitle
+                    description
                 }
                 excerpt(pruneLength: 20000)
             }

@@ -9,18 +9,27 @@ import Tweet from "../embeds/Twitter"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLink } from "@fortawesome/free-solid-svg-icons"
 
+const PoemContext = React.createContext({ poem: false })
+
 function Caption(props) {
     return (
-        <p className="text-center font-body mx-auto max-w-xl">
+        <p className="text-center font-body mx-auto max-w-xl mb-8">
             {props.children}
         </p>
     )
 }
 
 function Paragraph(props) {
+    // Detect if we're inside a poem
+    const poemContext = React.useContext(PoemContext)
+
     // Detect if we're wrapping a Gatsby image
     if (props.children?.props?.className?.startsWith?.("gatsby-resp-image")) {
         return <p className="my-4">{props.children}</p>
+    }
+
+    if (poemContext.poem) {
+        return <p className="my-1">{props.children}</p>
     }
 
     return (
@@ -128,7 +137,10 @@ function Td(props) {
 
 function BlockQuote(props) {
     return (
-        <blockquote className="italic max-w-3xl mx-auto">
+        <blockquote
+            className="italic max-w-3xl mx-auto"
+            style={{ maxWidth: "min(max-content, 100%)" }}
+        >
             {props.children}
         </blockquote>
     )
@@ -140,6 +152,33 @@ function Kbd(props) {
             {props.children}
         </kbd>
     )
+}
+
+function Hr(props) {
+    return <div className="border-black border max-w-xl w-full mx-auto my-8" />
+}
+
+function Poem(props) {
+    return (
+        <PoemContext.Provider value={{ poem: true }}>
+            <section
+                className={
+                    "mx-auto max-w-3xl pl-16 text-lg font-body " +
+                    (props.center ? " mx-auto" : "")
+                }
+                style={{
+                    textIndent: "-64px",
+                    maxWidth: "min(max-content, 100%)",
+                }}
+            >
+                {props.children}
+            </section>
+        </PoemContext.Provider>
+    )
+}
+
+function Indent(props) {
+    return <div className="ml-12">{props.children}</div>
 }
 
 const shortcodes = {
@@ -154,20 +193,25 @@ const shortcodes = {
     td: Td,
     blockquote: BlockQuote,
     kbd: Kbd,
+    hr: Hr,
 
     YouTube,
     Desmos,
     Tweet,
 
     Caption,
+    Poem,
+    Indent,
 }
 
 export default function Markdown(props) {
     return (
-        <MDXProvider components={shortcodes}>
-            <div className="font-body">
-                <MDXRenderer>{props.children}</MDXRenderer>
-            </div>
-        </MDXProvider>
+        <PoemContext.Provider value={{ poem: false }}>
+            <MDXProvider components={shortcodes}>
+                <div className="font-body">
+                    <MDXRenderer>{props.children}</MDXRenderer>
+                </div>
+            </MDXProvider>
+        </PoemContext.Provider>
     )
 }
