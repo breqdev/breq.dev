@@ -53,6 +53,23 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
                 name: "slug",
                 value: slug,
             })
+        } else if (/writing/.test(node.fileAbsolutePath)) {
+            createNodeField({
+                node,
+                name: "type",
+                value: "writing",
+            })
+
+            // Writing has URLs of the form
+            // https://breq.dev/writing/liminal
+
+            const slug = "/writing/" + path.parse(node.fileAbsolutePath).name
+
+            createNodeField({
+                node,
+                name: "slug",
+                value: slug,
+            })
         }
     }
 }
@@ -81,6 +98,7 @@ exports.createPages = async ({ graphql, actions }) => {
     templates = {
         post: path.resolve("./src/templates/post.js"),
         project: path.resolve("./src/templates/project.js"),
+        writing: path.resolve("./src/templates/writing.js"),
     }
 
     const pages = await graphql(`

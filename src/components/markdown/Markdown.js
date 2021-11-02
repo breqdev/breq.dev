@@ -9,18 +9,27 @@ import Tweet from "../embeds/Twitter"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLink } from "@fortawesome/free-solid-svg-icons"
 
+const PoemContext = React.createContext({ poem: false })
+
 function Caption(props) {
     return (
-        <p className="text-center font-body mx-auto max-w-xl">
+        <p className="text-center font-body mx-auto max-w-xl mb-8">
             {props.children}
         </p>
     )
 }
 
 function Paragraph(props) {
+    // Detect if we're inside a poem
+    const poemContext = React.useContext(PoemContext)
+
     // Detect if we're wrapping a Gatsby image
     if (props.children?.props?.className?.startsWith?.("gatsby-resp-image")) {
         return <p className="my-4">{props.children}</p>
+    }
+
+    if (poemContext.poem) {
+        return <p className="my-1">{props.children}</p>
     }
 
     return (
@@ -128,7 +137,10 @@ function Td(props) {
 
 function BlockQuote(props) {
     return (
-        <blockquote className="italic max-w-3xl mx-auto">
+        <blockquote
+            className="italic max-w-3xl mx-auto"
+            style={{ maxWidth: "min(max-content, 100%)" }}
+        >
             {props.children}
         </blockquote>
     )
@@ -139,6 +151,22 @@ function Kbd(props) {
         <kbd className="bg-gray-200 border-black border-2 rounded p-1">
             {props.children}
         </kbd>
+    )
+}
+
+function Poem(props) {
+    return (
+        <PoemContext.Provider value={{ poem: true }}>
+            <section
+                className="mx-auto max-w-3xl pl-16 text-lg font-body"
+                style={{
+                    textIndent: "-64px",
+                    maxWidth: "min(max-content, 100%)",
+                }}
+            >
+                {props.children}
+            </section>
+        </PoemContext.Provider>
     )
 }
 
@@ -160,14 +188,17 @@ const shortcodes = {
     Tweet,
 
     Caption,
+    Poem,
 }
 
 export default function Markdown(props) {
     return (
-        <MDXProvider components={shortcodes}>
-            <div className="font-body">
-                <MDXRenderer>{props.children}</MDXRenderer>
-            </div>
-        </MDXProvider>
+        <PoemContext.Provider value={{ poem: false }}>
+            <MDXProvider components={shortcodes}>
+                <div className="font-body">
+                    <MDXRenderer>{props.children}</MDXRenderer>
+                </div>
+            </MDXProvider>
+        </PoemContext.Provider>
     )
 }
