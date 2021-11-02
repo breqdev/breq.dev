@@ -2,7 +2,7 @@ const pageQuery = `
 {
     allMdx(
         filter: {
-            fileAbsolutePath: { regex: "/(projects|posts)/" }
+            fileAbsolutePath: { regex: "/(projects|posts|writing)/" }
         }
     ) {
         edges {
