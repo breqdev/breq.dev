@@ -32,8 +32,15 @@ function Hit({ hit, ...props }) {
                 className="block p-4 outline-none"
                 onClick={props.onSelect}
             >
-                <h3 className="text-xl">{hit.title}</h3>
-                <h4 className="text-base">{hit.subtitle}</h4>
+                <h3 className="text-xl">
+                    {hit.title}
+                    <span className="text-gray-700 italic"> - {hit.type}</span>
+                </h3>
+                <h4 className="text-base">
+                    {hit.subtitle ||
+                        hit.description ||
+                        hit.excerpt.substring(0, 100) + "..."}
+                </h4>
             </Link>
         </li>
     )

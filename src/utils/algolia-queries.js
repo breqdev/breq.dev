@@ -15,6 +15,7 @@ const pageQuery = `
                 frontmatter {
                     title
                     subtitle
+                    description
                 }
                 excerpt(pruneLength: 20000)
             }
