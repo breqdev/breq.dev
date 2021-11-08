@@ -2,10 +2,15 @@ import React from "react"
 import Page from "../components/Page"
 import { graphql } from "gatsby"
 import Markdown from "../components/markdown/Markdown"
+import SEOHelmet from "../components/SEOHelmet"
 
 export default function Writing({ data }) {
     return (
         <Page>
+            <SEOHelmet
+                title={data.mdx.frontmatter.title + " - breq.dev"}
+                description={data.mdx.frontmatter.description}
+            />
             <div>
                 <section className="h-screen flex flex-col items-center justify-center font-display bg-black text-white">
                     <h1 className="text-5xl md:text-7xl text-center p-8">

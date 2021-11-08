@@ -33,7 +33,12 @@ function Paragraph(props) {
     }
 
     return (
-        <p className="my-4 text-lg font-body max-w-4xl mx-auto">
+        <p
+            className={
+                "my-4 text-lg font-body max-w-4xl mx-auto " +
+                (props.center && "text-center")
+            }
+        >
             {props.children}
         </p>
     )
@@ -181,6 +186,25 @@ function Indent(props) {
     return <div className="ml-12">{props.children}</div>
 }
 
+function Half(props) {
+    return (
+        <Paragraph>
+            <p
+                className={
+                    "w-2/3 " +
+                    (props.left
+                        ? "mr-auto"
+                        : props.right
+                        ? "ml-auto text-right"
+                        : "mx-auto text-center")
+                }
+            >
+                {props.children}
+            </p>
+        </Paragraph>
+    )
+}
+
 const shortcodes = {
     p: Paragraph,
     ul: List,
@@ -202,6 +226,7 @@ const shortcodes = {
     Caption,
     Poem,
     Indent,
+    Half,
 }
 
 export default function Markdown(props) {
