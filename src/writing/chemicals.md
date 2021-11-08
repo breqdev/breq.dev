@@ -3,6 +3,7 @@ title: The Problem That Needs Fixing Is With The Chemicals In My Brain
 date: 2021-10-04
 description: |
     Sertraline tablets are a prescription medication used to treat Major Depressive Disorder, OCD, Panic Disorder, PTSD, and Social Anxiety Disorder. It is important to talk with your healthcare provider about the risks of treating depression and also the risks of not treating it.
+pdf: /pdfs/chemicals.pdf
 ---
 
 # i. selective serotonin reuptake inhibitor
