@@ -13,7 +13,7 @@ module.exports = {
             },
             colors: {
                 panpink: {
-                    DEFAULT: "#FF1B8D",
+                    DEFAULT: "#ff42a1",
                 },
                 panblue: {
                     DEFAULT: "#1BB3FF",
