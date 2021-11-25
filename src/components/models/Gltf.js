@@ -1,15 +1,15 @@
 import React, { useMemo, useState } from "react"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"
 
-const Gltf = React.forwardRef((props, ref) => {
+const Gltf = React.forwardRef(({ url, onLoad, ...props }, ref) => {
     const [gltf, setGltf] = useState()
     useMemo(
         () =>
-            new GLTFLoader().load(props.url, (gltf) => {
+            new GLTFLoader().load(url, (gltf) => {
                 setGltf(gltf)
-                props.onLoad && props.onLoad(gltf)
+                onLoad?.(gltf)
             }),
-        [props.url, props.onLoad]
+        [url, onLoad]
     )
 
     return gltf ? <primitive object={gltf.scene} ref={ref} {...props} /> : null
