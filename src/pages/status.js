@@ -1,3 +1,5 @@
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import useSWR from "swr"
 
@@ -44,9 +46,23 @@ export default function Status() {
     return (
         <Page>
             <SEOHelmet title="status dashboard" />
-            <h1 className="font-display text-center text-5xl m-6">
+            <h1 className="font-display text-center text-5xl m-8">
                 status dashboard
             </h1>
+            <p className="font-body max-w-2xl text-center mx-auto text-xl">
+                check the uptime status of one of my gazillion side projects.
+                <br />
+                or, alternatively, view historical data on{" "}
+                <a
+                    href="https://stats.uptimerobot.com/ZvOXKhMG1x"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-panblue-dark focus:bg-panyellow"
+                >
+                    uptimerobot <FontAwesomeIcon icon={faExternalLinkAlt} />
+                </a>
+                .
+            </p>
             <MonitorGrid data={data?.monitors} />
         </Page>
     )
