@@ -14,11 +14,11 @@ function Post(props) {
             className="block bg-white text-black p-4 rounded-2xl outline-none border-4 border-black focus:border-panpink"
         >
             <section className="flex flex-col h-full">
-                <h2 className="text-2xl flex-grow mb-4">
-                    {props.frontmatter.title}
-                </h2>
+                <h2 className="text-2xl mb-2">{props.frontmatter.title}</h2>
                 <p>{date}</p>
-                <hr className="my-2 border-black" />
+                <div className="flex-grow flex flex-col justify-center">
+                    <hr className="my-1 border-black " />
+                </div>
                 <p>{props.excerpt}</p>
             </section>
         </Link>

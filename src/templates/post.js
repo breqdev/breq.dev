@@ -11,16 +11,19 @@ function PostHeader({ data }) {
     const date = parseDate(data.mdx.slug)
 
     return (
-        <section className="bg-black text-white rounded-xl text-center font-display p-8">
-            <SEOHelmet
-                title={data.mdx.frontmatter.title + " - breq.dev"}
-                description={data.mdx.excerpt.replace("\n", " ")}
-            />
-            <h1 className="text-4xl md:text-6xl">
-                {data.mdx.frontmatter.title}
-            </h1>
-            <p className="text-2xl">{date}</p>
-        </section>
+        <div className="relative z-0">
+            <section className="bg-black text-white rounded-xl text-center font-display p-8 mb-8 z-10 relative">
+                <SEOHelmet
+                    title={data.mdx.frontmatter.title + " - breq.dev"}
+                    description={data.mdx.excerpt.replace("\n", " ")}
+                />
+                <h1 className="text-4xl md:text-6xl mb-4">
+                    {data.mdx.frontmatter.title}
+                </h1>
+                <p className="text-2xl">{date}</p>
+            </section>
+            <div className="absolute inset-0 z-0 rounded-xl bg-panpink transform translate-x-3 translate-y-2" />
+        </div>
     )
 }
 
@@ -31,6 +34,7 @@ export default function Post({ data }) {
                 <PostHeader data={data} />
                 <Markdown>{data.mdx.body}</Markdown>
             </article>
+            <hr className="max-w-4xl mx-auto border-black border-1 my-4" />
             <Comments />
         </Page>
     )
