@@ -33,7 +33,7 @@ function ScrollDownHint() {
             ref={iconRef}
         >
             <button
-                className="focus:text-panpink outline-none"
+                className="focus:text-panyellow outline-none transition-colors duration-300"
                 onClick={handleScroll}
             >
                 <FontAwesomeIcon icon={faChevronDown} />
