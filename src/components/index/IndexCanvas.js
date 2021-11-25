@@ -8,6 +8,7 @@ import About from "./About"
 
 export default function Background() {
     const [sceneIndex, setSceneIndex] = useState(0)
+    const [logoLoaded, setLogoLoaded] = useState(false)
 
     useScroll(
         (scroll) => {
@@ -28,12 +29,22 @@ export default function Background() {
     }, [])
 
     return (
-        <div className="fixed inset-0 -z-10">
+        <div
+            className={
+                "fixed inset-0 -z-10 transition-opacity duration-500 " +
+                (logoLoaded ? "opacity-100" : "opacity-0")
+            }
+        >
             <Canvas
                 camera={{ fov: 10, near: 0.1, far: 1000, position: [0, 0, 50] }}
             >
                 {scenes.map((Scene, i) =>
-                    Scene ? <Scene visible={i === sceneIndex} /> : null
+                    Scene ? (
+                        <Scene
+                            visible={i === sceneIndex}
+                            onLoad={() => setLogoLoaded(true)}
+                        />
+                    ) : null
                 )}
             </Canvas>
         </div>

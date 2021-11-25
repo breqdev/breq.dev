@@ -23,6 +23,7 @@ function InnerLogo(props) {
             ref={model}
             scale={[0.5, 0.5, 0.5]}
             visible={props.visible}
+            onLoad={props.onLoad}
         />
     )
 }
@@ -72,10 +73,10 @@ function ThreeLights({ visible }) {
     )
 }
 
-export default function Greeting({ visible }) {
+export default function Greeting({ visible, onLoad }) {
     return (
         <>
-            <InnerLogo visible={visible} />
+            <InnerLogo visible={visible} onLoad={onLoad} />
             <ThreeLights visible={visible} />
         </>
     )
