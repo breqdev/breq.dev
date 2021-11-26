@@ -34,7 +34,12 @@ export default function Page({ children, className }) {
                 description="welcome to my little patch of internet. here you'll find my projects over the years."
             />
             <Navbar />
-            <article className={"flex-grow " + (className ? className : "")}>
+            <article
+                className={
+                    "flex-grow selection:bg-panyellow " +
+                    (className ? className : "")
+                }
+            >
                 {children}
             </article>
             <Footer />
