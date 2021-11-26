@@ -65,5 +65,8 @@
     },
     "devDependencies": {
         "raw-loader": "^4.0.2"
+    },
+    "engines": {
+        "node": ">=16.0.0"
     }
 }
