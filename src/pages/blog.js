@@ -11,7 +11,7 @@ function Post(props) {
     return (
         <Link
             /* eslint-disable-next-line no-useless-escape */
-            to={"/" + props.slug.replace(/\-/, "/")}
+            to={"/" + props.slug.replace(/\-/g, "/")}
             /* not useless since it's inside a regex */
             className="block bg-white text-black p-4 rounded-2xl outline-none border-4 border-black focus:border-panpink"
         >
