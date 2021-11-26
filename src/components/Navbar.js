@@ -108,7 +108,7 @@ export default function Navbar() {
         writing: "/writing",
         blog: "/blog",
         contact: "/contact",
-        status: "/status",
+        etc: "/etc",
     }
 
     const [expanded, setExpanded] = useState(false)

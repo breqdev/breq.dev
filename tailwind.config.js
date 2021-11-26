@@ -26,7 +26,10 @@ module.exports = {
         },
     },
     variants: {
-        extend: {},
+        extend: {
+            translate: ["group-hover", "group-focus"],
+            borderColor: ["group-focus"],
+        },
     },
     plugins: [require("@tailwindcss/aspect-ratio")],
 }
