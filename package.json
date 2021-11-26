@@ -60,7 +60,7 @@
         "remark-html-katex": "^4.0.1",
         "remark-math": "^3.0.1",
         "swr": "^1.0.1",
-        "tailwindcss": "^2.2.7",
+        "tailwindcss": "^2.2.19",
         "three": "^0.131.3"
     },
     "devDependencies": {

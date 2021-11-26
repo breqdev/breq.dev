@@ -31,7 +31,7 @@ export default function Background() {
     return (
         <div
             className={
-                "fixed inset-0 -z-10 transition-opacity duration-500 " +
+                "fixed inset-0 z-[-10] transition-opacity duration-500 " +
                 (logoLoaded ? "opacity-100" : "opacity-0")
             }
         >

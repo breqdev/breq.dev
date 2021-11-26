@@ -1,5 +1,6 @@
 module.exports = {
     purge: ["./src/**/*.{js,jsx,ts,tsx}"],
+    mode: "jit",
     darkMode: false, // or 'media' or 'class'
     theme: {
         fontFamily: {
@@ -8,9 +9,6 @@ module.exports = {
             mono: ['"Ubuntu Mono"', "ui-monospace", "monospace"],
         },
         extend: {
-            zIndex: {
-                "-10": "-10",
-            },
             colors: {
                 panpink: {
                     DEFAULT: "#ff42a1",
@@ -25,11 +23,6 @@ module.exports = {
             },
         },
     },
-    variants: {
-        extend: {
-            translate: ["group-hover", "group-focus"],
-            borderColor: ["group-focus"],
-        },
-    },
+    variants: {},
     plugins: [require("@tailwindcss/aspect-ratio")],
 }
