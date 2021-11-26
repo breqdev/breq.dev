@@ -28,7 +28,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
             // https://breq.dev/2021/02/10/dokku
 
             const slug =
-                "/" + path.parse(node.fileAbsolutePath).name.replace(/\-/g, "/")
+                "/" + path.parse(node.fileAbsolutePath).name.replace(/-/g, "/")
 
             createNodeField({
                 node,

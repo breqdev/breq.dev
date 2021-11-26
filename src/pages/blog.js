@@ -10,7 +10,7 @@ function Post(props) {
 
     return (
         <Link
-            to={"/" + props.slug.replace(/\-/, "/")}
+            to={"/" + props.slug.replace(/-/, "/")}
             className="block bg-white text-black p-4 rounded-2xl outline-none border-4 border-black focus:border-panpink"
         >
             <section className="flex flex-col h-full">
