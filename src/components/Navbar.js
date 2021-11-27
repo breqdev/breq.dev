@@ -107,7 +107,7 @@ export default function Navbar() {
         projects: "/projects",
         writing: "/writing",
         blog: "/blog",
-        contact: "/contact",
+        music: "/music",
         etc: "/etc",
     }
 
