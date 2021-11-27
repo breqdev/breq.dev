@@ -118,7 +118,7 @@ export default function Contact() {
                         who you are!
                     </p>
                     <p className="text-2xl my-4 font-body">
-                        <span className="font-mono">Breq#8296</span>, by the
+                        <span className="font-mono">breq#8296</span>, by the
                         way.
                     </p>
                 </ContactBadge>

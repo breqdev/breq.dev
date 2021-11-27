@@ -7,12 +7,12 @@ import SEOHelmet from "./SEOHelmet"
 export default function Page({ children, className }) {
     useEffect(() => {
         const handler = (event) => {
-            if (window.scrollY <= 100) {
+            if (window.scrollY <= 500) {
                 document.body.classList.add("bg-panpink")
                 document.body.classList.remove("bg-panblue")
             } else if (
                 window.scrollY >=
-                document.body.scrollHeight - window.innerHeight - 100
+                document.body.scrollHeight - window.innerHeight - 500
             ) {
                 document.body.classList.remove("bg-panpink")
                 document.body.classList.add("bg-panblue")
@@ -36,7 +36,7 @@ export default function Page({ children, className }) {
             <Navbar />
             <article
                 className={
-                    "flex-grow selection:bg-panyellow " +
+                    "flex-grow selection:bg-panyellow/75 " +
                     (className ? className : "")
                 }
             >

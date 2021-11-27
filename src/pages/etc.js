@@ -25,10 +25,16 @@ export default function Etc() {
                 <h1 className="text-5xl font-display text-center">
                     all the other things
                 </h1>
-                <div className="flex flex-col gap-8 my-8">
+                <div className="flex flex-col gap-8 my-8 mx-2">
                     <EtcBlock title="status page" page="/status">
                         view the uptime status of any of my gazillion side
                         projects.
+                    </EtcBlock>
+                    <EtcBlock title="design reference" page="/design">
+                        fonts, colors, names, and other for my brand.
+                    </EtcBlock>
+                    <EtcBlock title="contact me" page="/contact">
+                        ways to contact me.
                     </EtcBlock>
                 </div>
             </div>
