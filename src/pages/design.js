@@ -53,17 +53,29 @@ function ThreeLights() {
 }
 
 function Callout(props) {
+    const [copied, setCopied] = React.useState(false)
+
     return (
-        <span
+        <button
             className={
                 props.className +
-                " -my-2 px-2 py-1 rounded-xl " +
+                " relative group -my-2 px-2 py-1 rounded-xl " +
                 (props.dark ? "text-white" : "text-black")
             }
             style={{ backgroundColor: props.color || "#ffffff" }}
+            onClick={() => {
+                setCopied(true)
+                setTimeout(() => {
+                    setCopied(false)
+                }, 2000)
+                navigator.clipboard.writeText(props.children)
+            }}
         >
             {props.children}
-        </span>
+            <span className="absolute bg-white text-black text-sm left-0 right-0 bottom-0 rounded-full group-hover:opacity-90 opacity-0 pointer-events-none transition duration-300 group-hover:translate-y-6">
+                {copied ? "copied!" : "click to copy"}
+            </span>
+        </button>
     )
 }
 
@@ -217,12 +229,13 @@ export default function Design() {
                             <span className="font-mono">.glb</span> from this
                             page for a GLTF format, or get some nice renders
                             from my{" "}
-                            <Callout>
-                                <a href="https://keybase.pub/breq/branding/">
-                                    keybase&nbsp;page&nbsp;
-                                    <FontAwesomeIcon icon={faExternalLinkAlt} />
-                                </a>
-                            </Callout>
+                            <a
+                                href="https://keybase.pub/breq/branding/"
+                                className="-my-2 px-2 py-1 rounded-xl bg-white text-black"
+                            >
+                                keybase&nbsp;page&nbsp;
+                                <FontAwesomeIcon icon={faExternalLinkAlt} />
+                            </a>
                             .
                         </p>
                     </section>
