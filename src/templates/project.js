@@ -1,10 +1,14 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Page from "../components/Page"
 import Markdown from "../components/markdown/Markdown"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCalendarAlt, faLaptopCode } from "@fortawesome/free-solid-svg-icons"
+import {
+    faCalendarAlt,
+    faLaptopCode,
+    faTag,
+} from "@fortawesome/free-solid-svg-icons"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import SEOHelmet from "../components/SEOHelmet"
 import Comments from "../components/Comments"
@@ -29,6 +33,26 @@ function ProjectInfoItem({ name, icon, value, link }) {
                 )}
             </span>
         </div>
+    )
+}
+
+function TagInfo({ tags }) {
+    return (
+        <span className="flex gap-2 items-center">
+            <FontAwesomeIcon icon={faTag} />
+            <ul className="list-none flex gap-2">
+                {tags.map((tag) => (
+                    <li className="inline" key={tag}>
+                        <Link
+                            className="bg-white text-black rounded-full px-2 py-0.5"
+                            to={`/tags/${tag}`}
+                        >
+                            {tag}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+        </span>
     )
 }
 
@@ -60,6 +84,7 @@ function ProjectInfo({ data }) {
     return (
         <div className="flex justify-center text-lg gap-4 flex-wrap">
             {infoItems}
+            <TagInfo tags={data.mdx.frontmatter.tags} />
         </div>
     )
 }
@@ -110,6 +135,7 @@ export const query = graphql`
                         }
                     }
                 }
+                tags
             }
         }
     }
