@@ -123,4 +123,22 @@ exports.createPages = async ({ graphql, actions }) => {
             context: { id: node.id },
         })
     })
+
+    const tags = await graphql(`
+        {
+            allMdx {
+                group(field: frontmatter___tags) {
+                    fieldValue
+                }
+            }
+        }
+    `)
+
+    tags.data.allMdx.group.forEach((tag) => {
+        createPage({
+            path: `/tags/${tag.fieldValue}`,
+            component: path.resolve("./src/templates/tag.js"),
+            context: { tag: tag.fieldValue },
+        })
+    })
 }

@@ -5,6 +5,7 @@ subtitle: A canvas-based web game.
 image: "../images/website/gemini.png"
 demo: https://breq.dev/apps/gemini.html
 created: "2016"
+tags: [canvas, javascript]
 ---
 
 <div className="text-center my-4 text-2xl">View the <a href="https://breq.dev/apps/gemini.html">live demo</a>!</div>

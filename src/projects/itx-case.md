@@ -4,6 +4,7 @@ title: Mini-ITX Computer Case
 subtitle: My custom-built PC case that fit in my backpack.
 image: "../images/pc-case/photo.jpg"
 created: "2018-19"
+tags: [hardware]
 ---
 
 ![](../images/pc-case/photo.jpg)

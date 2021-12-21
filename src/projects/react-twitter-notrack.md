@@ -6,6 +6,7 @@ image: "../images/react-twitter-notrack.png"
 created: "2021"
 repo: Breq16/react-twitter-notrack
 demo: https://github.breq.dev/react-twitter-notrack
+tags: [javascript, serverless, react]
 ---
 
 <Tweet id="1431392146339377152" />

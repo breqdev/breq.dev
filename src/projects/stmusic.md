@@ -6,6 +6,7 @@ image: "../images/default.png"
 video: /videos/music-game.480p.webm
 created: "2020"
 repo: Breq16/STMusic
+tags: [c++, hardware, music]
 ---
 
 <div class="max-w-2xl mx-auto bg-red-100 rounded-xl my-4 p-2">

@@ -189,6 +189,7 @@ export const query = graphql`
                     frontmatter {
                         title
                         subtitle
+                        tags
                         image {
                             absolutePath
                             childImageSharp {

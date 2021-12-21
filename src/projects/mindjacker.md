@@ -6,6 +6,7 @@ image: "../images/default.png"
 created: "2017"
 repo: Breq16/mindjacker
 status: old
+tags: [python, hardware]
 ---
 
 # Overview

@@ -6,6 +6,7 @@ image: "../images/default.png"
 created: "2020"
 repo: Breq16/redditor
 demo: /apps/redditor.html
+tags: [python, flask, reddit]
 ---
 
 # Overview

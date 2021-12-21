@@ -6,6 +6,7 @@ image: "../images/breqbot/website.png"
 created: "2020"
 repo: Breq16/breqbot
 demo: https://bot.breq.dev/
+tags: [discord, python, redis]
 ---
 
 ![](../images/breqbot/8ball.png)

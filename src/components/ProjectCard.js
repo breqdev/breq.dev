@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTag } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
@@ -47,6 +49,19 @@ export default function Project(props) {
                 </div>
                 <div className="w-full h-60 flex rounded-lg overflow-hidden">
                     {media}
+                </div>
+                <div className="flex mt-3 items-center gap-2">
+                    <FontAwesomeIcon icon={faTag} className="text-lg" />
+                    <div className="flex overflow-x-auto gap-2">
+                        {props.frontmatter.tags.map((tag) => (
+                            <span
+                                key={tag}
+                                className="inline-block bg-panblue text-white px-2 py-1 rounded-full text-sm"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
                 </div>
             </section>
         </Link>

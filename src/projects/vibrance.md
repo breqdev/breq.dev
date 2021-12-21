@@ -6,6 +6,7 @@ image: "../images/default.png"
 video: /videos/vibrance.480p.webm
 created: "2020"
 repo: Breq16/vibrance
+tags: [python, music]
 ---
 
 <YouTube id="uvB-t6f3MoE" />

@@ -6,6 +6,7 @@ image: "../images/default.png"
 video: /videos/letmein.480p.webm
 created: "2021"
 repo: Breq16/letmein
+tags: [puppeteer, node]
 ---
 
 <YouTube id="zk6Bb-aY_Yo" />

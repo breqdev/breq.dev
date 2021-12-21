@@ -6,6 +6,7 @@ image: "../images/default.png"
 created: "2020"
 repo: Breq16/snowflake
 demo: /apps/snowflake.html
+tags: [python, redis]
 ---
 
 # Overview

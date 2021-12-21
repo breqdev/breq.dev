@@ -6,6 +6,7 @@ image: "../images/blockchat.png"
 created: "2018"
 repo: Breq16/blockchat
 status: old
+tags: [blockchain, python]
 ---
 
 ![](../images/blockchat.png)
