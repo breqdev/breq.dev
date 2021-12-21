@@ -108,6 +108,7 @@ export default function Navbar() {
         writing: "/writing",
         blog: "/blog",
         music: "/music",
+        tags: "/tags",
         etc: "/etc",
     }
 
