@@ -6,6 +6,7 @@ image: "../images/default.png"
 video: /videos/matrix.480p.webm
 created: "2021"
 repo: Breq16/wallmatrix
+tags: [python, hardware]
 ---
 
 <YouTube id="o5zavmZU38s" />

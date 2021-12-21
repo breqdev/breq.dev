@@ -6,6 +6,7 @@ image: "../images/archives/makergamer.jpg"
 created: "2016-17"
 repo: Breq16/makergamer
 status: old
+tags: [python, scratch, javascript]
 ---
 
 ![](../images/archives/makergamer.jpg)

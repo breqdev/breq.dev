@@ -6,6 +6,7 @@ image: "../images/default.png"
 video: ../videos/lps.480p.webm
 created: "2020"
 repo: Breq16/lps
+tags: [python, math]
 ---
 
 <YouTube id="4wxjDMXGJJ0" />

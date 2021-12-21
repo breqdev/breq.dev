@@ -6,6 +6,7 @@ image: "../images/card.png"
 created: "2020"
 repo: Breq16/cards
 demo: https://cards.breq.dev/
+tags: [python, flask, puppeteer]
 ---
 
 <iframe className="block mx-auto my-8 rounded-2xl mt-4" height="300" width="500" src="https://cards.api.breq.dev/card/219156620534663947.html"></iframe>

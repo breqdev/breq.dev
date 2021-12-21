@@ -5,6 +5,7 @@ subtitle: A simple homepage for my school laptop.
 image: "../images/website/bounce.png"
 demo: https://breq.dev/apps/bounce.html
 created: "2017"
+tags: [canvas, javascript]
 ---
 
 <div className="text-center my-4 text-2xl">View the <a href="https://breq.dev/apps/bounce.html">live demo</a>!</div>

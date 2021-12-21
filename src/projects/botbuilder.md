@@ -6,6 +6,7 @@ image: "../images/botbuilder.png"
 created: "2021"
 repo: Breq16/botbuilder
 demo: https://botbuilder.breq.dev/
+tags: [discord, python, flask, web]
 ---
 
 ![](../images/botbuilder.png)
