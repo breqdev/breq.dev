@@ -94,6 +94,17 @@ module.exports = {
             },
         },
         "gatsby-plugin-styled-components",
-        "gatsby-plugin-csp",
+        {
+            resolve: "gatsby-plugin-csp",
+            options: {
+                directives: {
+                    "style-src": "'self' fonts.googleapis.com",
+                    "font-src": "'self' data: fonts.gstatic.com",
+                    "script-src": "'self' static.cloudflareinsights.com",
+                    "connect-src":
+                        "'self' *.algolia.net cloudflareinsights.com",
+                },
+            },
+        },
     ],
 }
