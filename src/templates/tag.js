@@ -12,14 +12,14 @@ export default function Tag({ data, pageContext }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-stretch m-8">
                     {data.allMdx.edges.map(({ node }) => (
                         <Link
-                            className="bg-white text-black rounded-3xl p-4 flex flex-col"
+                            className="bg-white text-black rounded-3xl p-4 flex flex-col gap-2"
                             key={node.id}
                             to={node.fields.slug}
                         >
                             <h2 className="text-2xl">
                                 {node.frontmatter.title}
                             </h2>
-                            <p>{node.frontmatter.subtitle}</p>
+                            <p>{node.frontmatter.subtitle || node.excerpt}</p>
                         </Link>
                     ))}
                 </div>
@@ -41,6 +41,7 @@ export const query = graphql`
                         title
                         subtitle
                     }
+                    excerpt
                     fields {
                         slug
                         type
