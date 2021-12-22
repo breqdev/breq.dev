@@ -39,6 +39,7 @@ export default function Page({ children, className }) {
                     "flex-grow selection:bg-panyellow/75 " +
                     (className ? className : "")
                 }
+                id="main"
             >
                 {children}
             </article>
