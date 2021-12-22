@@ -1,6 +1,9 @@
 import React from "react"
 import Page from "../components/Page"
 import SEOHelmet from "../components/SEOHelmet"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHeart } from "@fortawesome/free-regular-svg-icons"
+import { StaticImage } from "gatsby-plugin-image"
 
 const SPONSORS = ["EpocDotFr"]
 
@@ -31,6 +34,29 @@ export default function Sponsors() {
                             {sponsor}
                         </a>
                     ))}
+                </div>
+                <div className="flex mt-16 font-display text-2xl gap-4">
+                    <a
+                        href="https://github.com/sponsors/Breq16"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="flex-grow w-full text-center bg-gray-200 text-black py-4 px-6 rounded-full flex items-center"
+                    >
+                        <span className="flex-grow">GitHub Sponsors</span>
+                        <FontAwesomeIcon icon={faHeart} />
+                    </a>
+                    <a
+                        href="https://ko-fi.com/breq16"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="flex-grow w-full text-center bg-panblue text-black py-4 px-6 rounded-full flex items-center"
+                    >
+                        <span className="flex-grow">Ko-Fi</span>
+                        <StaticImage
+                            src="../images/logo/ko-fi.png"
+                            className="w-12 -my-2"
+                        />
+                    </a>
                 </div>
             </div>
         </Page>
