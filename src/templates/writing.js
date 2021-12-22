@@ -55,13 +55,13 @@ export default function Writing({ data }) {
                             </p>
                             <div className="flex gap-4">
                                 <button
-                                    className="flex-grow bg-panpink p-4 rounded-xl border-2 border-black"
+                                    className="flex-grow bg-panpink p-4 rounded-xl border-2 border-black focus:border-white outline-none"
                                     onClick={() => setAcknowledged(true)}
                                 >
                                     Yes
                                 </button>
                                 <Link
-                                    className="flex-grow p-4 rounded-xl border-2 border-black"
+                                    className="flex-grow p-4 rounded-xl border-2 border-black focus:border-white outline-none"
                                     to="/"
                                 >
                                     No
