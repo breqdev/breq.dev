@@ -7,7 +7,7 @@ import Search from "./Search"
 function SkipNavigation() {
     return (
         <a
-            className="absolute left-0 top-0 z-10 ml-10 -translate-y-full focus:translate-y-0 transition-transform bg-panblue text-black underline border-black border-x-2 border-b-2 rounded-b-xl p-2"
+            className="absolute left-0 top-0 ml-10 -translate-y-full focus:translate-y-0 transition-transform bg-panblue text-black underline border-black border-x-2 border-b-2 rounded-b-xl p-2"
             href="#main"
         >
             skip navigation
@@ -30,7 +30,7 @@ export default function Navbar() {
     const handleSelect = () => setExpanded(false)
 
     return (
-        <nav className="sticky top-0 bg-panpink p-4 font-display z-20">
+        <nav className="sticky top-0 bg-panpink p-4 font-display z-50">
             <SkipNavigation />
 
             <div className="flex flex-col md:flex-row mx-auto w-full max-w-7xl gap-4">
