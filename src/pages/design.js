@@ -59,10 +59,12 @@ function Callout(props) {
         <button
             className={
                 props.className +
-                " relative group -my-2 px-2 py-1 rounded-xl " +
+                " relative group -my-2 px-2 py-0.5 rounded-xl border-4 border-transparent focus:border-panpink outline-none " +
                 (props.dark ? "text-white" : "text-black")
             }
-            style={{ backgroundColor: props.color || "#ffffff" }}
+            style={{
+                backgroundColor: props.color || "#ffffff",
+            }}
             onClick={() => {
                 setCopied(true)
                 setTimeout(() => {
@@ -72,7 +74,7 @@ function Callout(props) {
             }}
         >
             {props.children}
-            <span className="absolute bg-white text-black text-sm left-0 right-0 bottom-0 rounded-full group-hover:opacity-90 opacity-0 pointer-events-none transition duration-300 group-hover:translate-y-6">
+            <span className="absolute bg-white text-black text-sm left-0 right-0 bottom-0 z-20 border border-black rounded-full group-hover:opacity-90 group-focus:opacity-90 opacity-0 pointer-events-none transition duration-300 group-hover:translate-y-8 group-focus:translate-y-8">
                 {copied ? "copied!" : "click to copy"}
             </span>
         </button>
@@ -231,7 +233,7 @@ export default function Design() {
                             from my{" "}
                             <a
                                 href="https://keybase.pub/breq/branding/"
-                                className="-my-2 px-2 py-1 rounded-xl bg-white text-black"
+                                className="-my-2 px-2 py-0.5 rounded-xl bg-white text-black border-white border-4 focus:border-panpink outline-none"
                             >
                                 keybase&nbsp;page&nbsp;
                                 <FontAwesomeIcon icon={faExternalLinkAlt} />
