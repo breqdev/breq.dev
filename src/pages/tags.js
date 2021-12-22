@@ -15,7 +15,7 @@ export default function Tag({ data }) {
                         .map(({ tag, totalCount }) => (
                             <Link
                                 key={tag}
-                                className="flex flex-col bg-white text-black rounded-2xl p-4"
+                                className="flex flex-col bg-white text-black rounded-2xl p-4 border-black border-4 focus:border-panpink"
                                 to={`/tags/${tag}`}
                             >
                                 <h2 className="font-bold text-3xl self-start">
