@@ -29,7 +29,7 @@ export default function Sponsors() {
                             <img
                                 src={`https://github.com/${sponsor}.png`}
                                 alt=""
-                                className="w-32"
+                                className="w-32 h-32"
                             />
                             {sponsor}
                         </a>
