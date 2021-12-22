@@ -44,7 +44,7 @@ function TagInfo({ tags }) {
                 {tags.map((tag) => (
                     <li className="inline" key={tag}>
                         <Link
-                            className="bg-white text-black rounded-full px-2 py-0.5"
+                            className="bg-white text-black rounded-full px-2 py-0.5 focus:bg-panblue outline-none"
                             to={`/tags/${tag}`}
                         >
                             {tag}
