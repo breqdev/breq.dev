@@ -23,15 +23,20 @@ export default function Writing({ data }) {
                         {data.mdx.frontmatter.title}
                     </h1>
                     <h2 className="text-xl">{data.mdx.frontmatter.date}</h2>
-                    <a
-                        className="absolute bottom-0 right-0 m-4 p-4 text-gray-200 hover:underline focus:underline focus:bg-panblue focus:text-white rounded-full outline-none"
-                        href={data.mdx.frontmatter.pdf}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        original pdf edition
-                        <FontAwesomeIcon className="ml-2" icon={faDownload} />
-                    </a>
+                    {data.mdx.frontmatter.pdf && (
+                        <a
+                            className="absolute bottom-0 right-0 m-4 p-4 text-gray-200 hover:underline focus:underline focus:bg-panblue focus:text-white rounded-full outline-none"
+                            href={data.mdx.frontmatter.pdf}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            original pdf edition
+                            <FontAwesomeIcon
+                                className="ml-2"
+                                icon={faDownload}
+                            />
+                        </a>
+                    )}
                 </section>
                 {acknowledged ? (
                     <article className="p-4">
