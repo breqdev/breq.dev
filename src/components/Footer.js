@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faHeart,
@@ -23,6 +23,14 @@ export default function Footer() {
     const linkStyles =
         "hover:underline outline-none focus:underline focus:bg-panyellow"
 
+    const dateQuery = useStaticQuery(graphql`
+        query {
+            site {
+                buildTime(formatString: "YYYY")
+            }
+        }
+    `)
+
     return (
         <footer className="bg-panblue text-lg font-display z-10">
             <div className="max-w-7xl mx-auto px-4 py-16 md:pb-32 flex flex-col gap-8">
@@ -30,7 +38,8 @@ export default function Footer() {
                     made with <FontAwesomeIcon icon={faHeart} />
                     <span className="sr-only">love</span> by breq,{" "}
                     <FontAwesomeIcon icon={faCopyright} />
-                    <span className="sr-only">copyright</span>&nbsp;2021,{" "}
+                    <span className="sr-only">copyright</span>&nbsp;
+                    {dateQuery.site.buildTime},{" "}
                     <FontAwesomeIcon icon={faGithub} />
                     &nbsp;
                     <span className="sr-only">github</span>
