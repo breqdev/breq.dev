@@ -44,7 +44,7 @@
      * Style override for remark-abcjs
      */
 
-    @apply mx-auto w-max overflow-x-auto;
+    @apply mx-auto w-max max-w-full overflow-x-auto !important;
   }
 
   .font-display strong {
