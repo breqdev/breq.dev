@@ -19,7 +19,7 @@ export function Paragraph(props) {
     return (
         <p
             className={
-                "my-4 text-lg font-body max-w-4xl mx-auto " +
+                "my-4 text-lg font-body max-w-prose mx-auto " +
                 (props.center && "text-center")
             }
         >

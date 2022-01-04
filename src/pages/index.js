@@ -133,7 +133,7 @@ export default function Index({ data }) {
 
                 <div
                     style={{ height: "200vh" }}
-                    className="max-w-3xl mx-auto px-8 font-display text-2xl"
+                    className="max-w-prose mx-auto px-8 font-display text-2xl"
                 >
                     <p>
                         hey, i'm brooke, and i'm here to learn, create, and
