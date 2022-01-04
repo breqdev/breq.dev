@@ -29,7 +29,7 @@ module.exports = {
             },
           },
         ],
-        remarkPlugins: [require("remark-math")],
+        remarkPlugins: [require("remark-math"), require("remark-abcjs")],
         rehypePlugins: [require("rehype-slug"), require("rehype-katex")],
         extensions: [".mdx", ".md"],
       },

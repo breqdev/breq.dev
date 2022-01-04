@@ -190,14 +190,6 @@ export default function Terminal() {
     return null;
   }
 
-  // We need to prevent the .terminalContainer style from being purged from
-  // CSS, since we need to use it to apply our own override styles to remove
-  // the terminal style.
-  // See /src/styles/global.css for more info.
-
-  // eslint-disable-next-line no-unused-vars
-  const classNameInUse = "terminalContainer";
-
   return (
     <div className="max-w-5xl mx-auto font-mono p-8">
       <ReactTerminal
