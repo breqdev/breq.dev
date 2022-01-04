@@ -47,7 +47,7 @@ export default function Project(props) {
           <h2 className="text-3xl">{props.frontmatter.title}</h2>
           <h3 className="mb-2">{props.frontmatter.subtitle}</h3>
         </div>
-        <div className="w-full h-60 flex rounded-lg overflow-hidden">
+        <div className="w-full h-52 flex rounded-lg overflow-hidden">
           {media}
         </div>
         <div className="flex mt-3 items-center gap-2">

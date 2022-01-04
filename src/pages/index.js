@@ -68,13 +68,11 @@ function Projects({ data }) {
 
   return (
     <div
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-y-hidden gap-x-8"
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-y-hidden gap-8 bg-black rounded-2xl"
       tabIndex="-1"
     >
       {projects.slice(0, numProjects).map((project, idx) => (
-        <div className="mb-8" key={idx}>
-          {project}
-        </div>
+        <div key={idx}>{project}</div>
       ))}
     </div>
   );
