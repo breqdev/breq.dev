@@ -157,8 +157,7 @@ In order to do this, however, the system needs to keep track of each marker. In 
 
 There is another type of marker with 2 black squares. These are labels, and they contain additional squares below the marker to identify it. These squares are read the same way as the squares inside the marker. As shown in the readout, this label has the number “1”. Labels show up with their number on both the raw plot and the smooth plot, and are identified by their number through the API.
 
-![](../images/lps/labels-2.png)
-![](../images/lps/labels-3.png)
+![](../images/lps/labels-2.png) ![](../images/lps/labels-3.png)
 
 I made a sheet of all possible labels. It’s difficult to see each one on the camera view, but the two plots show each label from 0 to 15.
 

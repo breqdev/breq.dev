@@ -23,13 +23,7 @@ In 2017, I left my hometown and went to a boarding school in Limestone, Maine. T
 
 _My dad was a big Pearl Jam fan growing up. When we would make the five hour journey up to the school for him to drop me off, once the cell service cut out, Vs. was one of the only albums we had downloaded._
 
-> I seem to recognize your face<br />
-> Haunting familiar, yet I can't seem to place it<br />
-> Cannot find the candle of thought to light your name<br />
-> Lifetimes are catching up with me<br />
-> All these changes taking place<br />
-> I wish I'd seen the place<br />
-> But no one's ever taken me<br />
+> I seem to recognize your face<br /> Haunting familiar, yet I can't seem to place it<br /> Cannot find the candle of thought to light your name<br /> Lifetimes are catching up with me<br /> All these changes taking place<br /> I wish I'd seen the place<br /> But no one's ever taken me<br />
 
 <Caption>Pearl Jam, “Elderly Woman Behind the Counter in a Small Town”</Caption>
 
@@ -105,8 +99,7 @@ that no longer flows to the heart of the city it used to dominate.
 
 I can hear that train’s horn from my house, when I’m staying up late and it feels as if no one else in the world is awake, at 1:35 AM, at 2:33 AM, at 3:47 AM, that characteristic rumble.
 
-The train shown on the map, passing through those tracks, may be frozen in time over a century ago, but the sound of it echos through my room today.
-</Poem>
+The train shown on the map, passing through those tracks, may be frozen in time over a century ago, but the sound of it echos through my room today. </Poem>
 
 # Weinman Rd
 
@@ -118,13 +111,7 @@ A year after my first visit to Loring, my anthropology teacher offered to ride w
 
 I never understood this song when I was growing up. At home, there was an endless supply of places I’d never been before, people I’d never met, and things to do I’d never done. It wasn’t until I spent time in Limestone that this song finally clicked for me.
 
-> I swear I recognize your breath<br />
-> Memories, like fingerprints, are slowly raising<br />
-> Me you wouldn't recall for I'm not my former<br />
-> It's hard when you're stuck upon the shelf<br />
-> I changed by not changing at all<br />
-> Small town predicts my fate<br />
-> Perhaps that's what no one wants to see<br />
+> I swear I recognize your breath<br /> Memories, like fingerprints, are slowly raising<br /> Me you wouldn't recall for I'm not my former<br /> It's hard when you're stuck upon the shelf<br /> I changed by not changing at all<br /> Small town predicts my fate<br /> Perhaps that's what no one wants to see<br />
 
 <Caption>Pearl Jam, “Elderly Woman Behind the Counter in a Small Town”</Caption>
 
@@ -150,14 +137,11 @@ Too small to see, yet feared through the town.
 
 The train isn’t coming anymore,
 
-And everything is turned upside down.
-</Poem>
+And everything is turned upside down. </Poem>
 
 # W Gate Rd
 
-It’s 2019, and my first day going to classes in the early college program. I had spent months deliberating before deciding to try this. I had talked with the early college advisor and with my professors. I had done everything I possibly could do to prepare for this day. But despite all that, it was taking all my strength to keep breathing while I was hurrying through the building and searching for the room number that I had written down on a sticky note. Eventually, I find the door.
-I glance around the room and quietly, cautiously, take a seat near the entrance. I set my backpack under my chair, careful to take up no more space than I absolutely need to. I feel inadequate, almost apologetic for my presence in the class. My breathing becomes harder to control. The pencil in my hands starts to tremble.
-But then, I look out the window of the fifth floor lecture hall, and see the recognizable skyline of Monument Square, with the Time and Temperature Building flashing in the distance. This is my home. This is the city that I’m from. This is the place where I belong. And a wave of calm rushes over me, just as my professor walks into the room.
+It’s 2019, and my first day going to classes in the early college program. I had spent months deliberating before deciding to try this. I had talked with the early college advisor and with my professors. I had done everything I possibly could do to prepare for this day. But despite all that, it was taking all my strength to keep breathing while I was hurrying through the building and searching for the room number that I had written down on a sticky note. Eventually, I find the door. I glance around the room and quietly, cautiously, take a seat near the entrance. I set my backpack under my chair, careful to take up no more space than I absolutely need to. I feel inadequate, almost apologetic for my presence in the class. My breathing becomes harder to control. The pencil in my hands starts to tremble. But then, I look out the window of the fifth floor lecture hall, and see the recognizable skyline of Monument Square, with the Time and Temperature Building flashing in the distance. This is my home. This is the city that I’m from. This is the place where I belong. And a wave of calm rushes over me, just as my professor walks into the room.
 
 When I first saw the map from the Osher Map Library, I started to look for Monument Square almost immediately, following Congress Street until… was that really it? No monument, no tall buildings? The area so central to Portland today looked almost unrecognizable except for the distinctive street layout. But that doesn’t matter. The city may have grown around the square, but it’s the same city, and it’s the same square, Theseus and his ship be damned. It was a welcoming place then, and it’s a welcoming place now. It was important to people then, and it’s important to people now. It felt like home then, and it feels like home now.
 

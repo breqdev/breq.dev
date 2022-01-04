@@ -40,8 +40,7 @@ content:
 
 “It's a chemical imbalance.”
 
-“It's a chemical imbalance.”
-</Poem>
+“It's a chemical imbalance.” </Poem>
 
 ---
 
@@ -51,34 +50,19 @@ content:
 A fear of driving across tall bridges.
 <Indent>
 
-A fear of driving alone.
-<Indent>
-A fear of driving alone, late at night, when there's nobody but me and the stars, and yet I'm speeding along in a metal box, just hurdling along, faster and faster, and the void of the ditch ahead calling, faster, faster, faster, just me, and nobody else, nobody to interfere, nothing to stop me, alone with myself and all the shouting voices in my head...
-</Indent></Indent>
+A fear of driving alone. <Indent> A fear of driving alone, late at night, when there's nobody but me and the stars, and yet I'm speeding along in a metal box, just hurdling along, faster and faster, and the void of the ditch ahead calling, faster, faster, faster, just me, and nobody else, nobody to interfere, nothing to stop me, alone with myself and all the shouting voices in my head... </Indent></Indent>
 
-A fear of public spaces.
-<Indent>
+A fear of public spaces. <Indent>
 
-A fear of parties and events.
-<Indent>
-A fear of places, even ones where I know I'll have friends, because I know I just won't be able to shake that feeling, the feeling of being separated from the world, like a hologram, visible and audible only in the most literal sense of the words, and as soon as anyone looked closer, they'd find out I'm not really there...
-</Indent></Indent>
+A fear of parties and events. <Indent> A fear of places, even ones where I know I'll have friends, because I know I just won't be able to shake that feeling, the feeling of being separated from the world, like a hologram, visible and audible only in the most literal sense of the words, and as soon as anyone looked closer, they'd find out I'm not really there... </Indent></Indent>
 
-A fear of loneliness.
-<Indent>
+A fear of loneliness. <Indent>
 
-A fear of being alone at night and unable to fall asleep.
-<Indent>
-A fear of being alone, alone with just me and my thoughts, thinking about the questions that keep reappearing in my brain, do I want to keep living? do I deserve to live? do I think that life is worthwhile?, and struggling to find the answers, laying awake, my thoughts racing, my body exhausted but unable to rest...
-</Indent></Indent>
+A fear of being alone at night and unable to fall asleep. <Indent> A fear of being alone, alone with just me and my thoughts, thinking about the questions that keep reappearing in my brain, do I want to keep living? do I deserve to live? do I think that life is worthwhile?, and struggling to find the answers, laying awake, my thoughts racing, my body exhausted but unable to rest... </Indent></Indent>
 
-A fear of sharp objects.
-<Indent>
+A fear of sharp objects. <Indent>
 
-A fear of knives and blades.
-<Indent>
-A fear of being by myself, with anything sharp enough to pierce my skin, because, what if I can't control myself, what if the urges overwhelm me again, what if I can't keep my head up...
-</Indent></Indent>
+A fear of knives and blades. <Indent> A fear of being by myself, with anything sharp enough to pierce my skin, because, what if I can't control myself, what if the urges overwhelm me again, what if I can't keep my head up... </Indent></Indent>
 
 <br />
 
@@ -130,8 +114,7 @@ Is that even what I want?
 
 I don't like to give up on people,
 
-and it's still a part of me.
-</Poem>
+and it's still a part of me. </Poem>
 
 <br />
 
@@ -152,8 +135,7 @@ Reasoning: If I go to bed every night exhausted at 3 AM, I'll be too tired to di
 
 Reasoning: If I can cover my walls with medals and certificates from things I've done, I'll have a sense of who I am.
 
-Reasoning: If I spend my life rushing from place to place, from responsibility to responsibility, I won't find myself lingering outside of my comfort zone.
-</Indent>
+Reasoning: If I spend my life rushing from place to place, from responsibility to responsibility, I won't find myself lingering outside of my comfort zone. </Indent>
 
 <br />
 
