@@ -7,6 +7,7 @@ import artistic from "./Artistic"
 import headings from "./Headings"
 import lists from "./Lists"
 import tables from "./Tables"
+import Code from "./Code"
 import embeds from "../embeds"
 
 const shortcodes = {
@@ -16,6 +17,7 @@ const shortcodes = {
     ...lists,
     ...tables,
     ...embeds,
+    code: Code,
 }
 
 export default function Markdown(props) {

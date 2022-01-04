@@ -28,12 +28,6 @@ module.exports = {
                             withAvif: true,
                         },
                     },
-                    {
-                        resolve: "gatsby-remark-prismjs",
-                        options: {
-                            classPrefix: "language-",
-                        },
-                    },
                 ],
                 remarkPlugins: [require("remark-math")],
                 rehypePlugins: [
