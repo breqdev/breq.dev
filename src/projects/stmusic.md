@@ -57,9 +57,9 @@ After figuring out how to synthesize the song, I needed to figure out how to sto
 
 I decided early on to try to fit the information for each beat into a small integer and store these integers in an array. I looked into what information I would need to store:
 
--   Note pitch (7 bits when stored as MIDI note number)
--   Drum sound (2 bits - kick, drum, or neither)
--   Indicator (1 bit)
+- Note pitch (7 bits when stored as MIDI note number)
+- Drum sound (2 bits - kick, drum, or neither)
+- Indicator (1 bit)
 
 To store each note pitch, I decided to use MIDI note numbers. These only use 7 bits per note, and they can be converted to frequencies using a basic formula, so this was a much better solution than trying to store the note frequency or wavelength.
 

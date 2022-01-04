@@ -1,25 +1,25 @@
-import React from "react"
+import React from "react";
 
 function Table(props) {
-    return (
-        <table className="mx-auto border-black border-2 rounded-xl border-separate border-spacing-0 overflow-hidden">
-            {props.children}
-        </table>
-    )
+  return (
+    <table className="mx-auto border-black border-2 rounded-xl border-separate border-spacing-0 overflow-hidden">
+      {props.children}
+    </table>
+  );
 }
 
 function Th(props) {
-    return <th className="border-black border p-2">{props.children}</th>
+  return <th className="border-black border p-2">{props.children}</th>;
 }
 
 function Td(props) {
-    return <td className="border-gray-500 border p-2">{props.children}</td>
+  return <td className="border-gray-500 border p-2">{props.children}</td>;
 }
 
 const shortcodes = {
-    table: Table,
-    th: Th,
-    td: Td,
-}
+  table: Table,
+  th: Th,
+  td: Td,
+};
 
-export default shortcodes
+export default shortcodes;

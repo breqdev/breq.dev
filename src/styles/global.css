@@ -8,21 +8,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
 
 @layer base {
-    body,
-    html {
-        scroll-behavior: smooth;
-    }
+  body,
+  html {
+    scroll-behavior: smooth;
+  }
 
-    .math {
-        /*
+  .math {
+    /*
          * KaTeX equations should scroll horizontally if not enough room is available
          * this prevents overflow on mobile screens
          */
-        @apply overflow-x-auto;
-    }
+    @apply overflow-x-auto;
+  }
 
-    .terminalContainer {
-        /*
+  .terminalContainer {
+    /*
          * Style override for https://github.com/rohanchandra/react-terminal-component/
          *
          * By default, the terminal always has a scrollbar
@@ -36,16 +36,16 @@
          * Make sure the ".terminalContainer" class name is present in a JS file,
          * so that it doesn't get purged! We need this rule to stick around.
          */
-        @apply overflow-y-auto !important;
-    }
+    @apply overflow-y-auto !important;
+  }
 
-    .font-display strong {
-        font-weight: 700;
-    }
+  .font-display strong {
+    font-weight: 700;
+  }
 }
 
 @layer utilities {
-    .border-spacing-0 {
-        border-spacing: 0;
-    }
+  .border-spacing-0 {
+    border-spacing: 0;
+  }
 }

@@ -22,22 +22,22 @@ const pageQuery = `
         }
     }
 }
-`
+`;
 
 function pageToAlgoliaRecord({ node: { id, fields, frontmatter, ...rest } }) {
-    return {
-        objectID: id,
-        ...fields,
-        ...frontmatter,
-        ...rest,
-    }
+  return {
+    objectID: id,
+    ...fields,
+    ...frontmatter,
+    ...rest,
+  };
 }
 
 module.exports = [
-    {
-        query: pageQuery,
-        transformer: ({ data }) => data.allMdx.edges.map(pageToAlgoliaRecord),
-        indexName: "breq.dev",
-        settings: { attributesToSnippet: [`excerpt:20`] },
-    },
-]
+  {
+    query: pageQuery,
+    transformer: ({ data }) => data.allMdx.edges.map(pageToAlgoliaRecord),
+    indexName: "breq.dev",
+    settings: { attributesToSnippet: [`excerpt:20`] },
+  },
+];

@@ -2,7 +2,7 @@
 title: Liminal
 date: 2021-05-01
 description: |
-    I look at the sketch looking down on Portland. Wharfs line the southern coast, and railroads loop and dart across the landscape. Although the map is from 1876, the street names are instantly recognizable...
+  I look at the sketch looking down on Portland. Wharfs line the southern coast, and railroads loop and dart across the landscape. Although the map is from 1876, the street names are instantly recognizable...
 pdf: /pdfs/liminal.pdf
 content:
 ---

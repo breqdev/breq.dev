@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useEffect } from "react";
 
 /*
 <script src="https://utteranc.es/client.js"
@@ -12,22 +12,22 @@ import React, { useRef, useEffect } from "react"
 */
 
 export default function Comments(props) {
-    const commentBox = useRef(null)
+  const commentBox = useRef(null);
 
-    useEffect(() => {
-        const script = document.createElement("script")
+  useEffect(() => {
+    const script = document.createElement("script");
 
-        script.async = true
-        script.src = "https://utteranc.es/client.js"
-        script.crossOrigin = "anonymous"
+    script.async = true;
+    script.src = "https://utteranc.es/client.js";
+    script.crossOrigin = "anonymous";
 
-        script.setAttribute("repo", "Breq16/breq.dev")
-        script.setAttribute("issue-term", "pathname")
-        script.setAttribute("label", "Utterances")
-        script.setAttribute("theme", "github-light")
+    script.setAttribute("repo", "Breq16/breq.dev");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("label", "Utterances");
+    script.setAttribute("theme", "github-light");
 
-        commentBox.current.appendChild(script)
-    }, [])
+    commentBox.current.appendChild(script);
+  }, []);
 
-    return <div ref={commentBox} />
+  return <div ref={commentBox} />;
 }

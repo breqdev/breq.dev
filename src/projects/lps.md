@@ -63,11 +63,11 @@ In the past, I have more or less given up on systems which do not accumulate err
 
 I set the following criteria for such a system:
 
--   Work well in scenarios where multiple robots are present
--   Not require complex processing on each robot
--   Be simple to set up in a given area (not requiring calibration)
--   Be relatively inexpensive and use commonly available parts
--   Not accumulate error over time
+- Work well in scenarios where multiple robots are present
+- Not require complex processing on each robot
+- Be simple to set up in a given area (not requiring calibration)
+- Be relatively inexpensive and use commonly available parts
+- Not accumulate error over time
 
 I decided to primarily target a scenario with multiple tracked objects in a single area. Putting the heavy processing outside of the robot allows for more inexpensive robots powered by basic microcontrollers. Additionally, this allows passive objects in the scene to be tracked, allowing robots to interact with them.
 
