@@ -27,6 +27,13 @@ export default function Background() {
     );
   }, []);
 
+  // This must be memo'd, since a change to the identity of the onLoad function
+  // will trigger the Gltf component to recreate the GltfLoader with the "new"
+  // onLoad function, causing an extra network request for the same model.
+  const onLogoLoad = React.useCallback(() => {
+    setLogoLoaded(true);
+  }, []);
+
   return (
     <div
       className={
@@ -39,7 +46,7 @@ export default function Background() {
           Scene ? (
             <Scene
               visible={i === sceneIndex}
-              onLoad={() => setLogoLoaded(true)}
+              onLoad={i === 0 ? onLogoLoad : null}
             />
           ) : null
         )}

@@ -7,10 +7,11 @@ import ProjectCard from "../components/ProjectCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-import Background from "../components/index/IndexCanvas";
-import Terminal from "../components/index/Terminal";
 import SEOHelmet from "../components/SEOHelmet";
 import { graphql } from "gatsby";
+
+const Background = React.lazy(() => import("../components/index/IndexCanvas"));
+const Terminal = React.lazy(() => import("../components/index/Terminal"));
 
 function ScrollDownHint() {
   const iconRef = useRef();
@@ -159,8 +160,13 @@ export default function Index({ data }) {
           </p>
         </div>
 
-        <Terminal />
-        <Background />
+        <React.Suspense fallback={<div />}>
+          <Terminal />
+        </React.Suspense>
+
+        <React.Suspense fallback={<div />}>
+          <Background />
+        </React.Suspense>
       </div>
     </Page>
   );
