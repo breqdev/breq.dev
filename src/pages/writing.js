@@ -7,7 +7,7 @@ function Card(props) {
   return (
     <Link
       to={"/writing/" + props.slug}
-      className="block bg-white text-black p-4 rounded-2xl border-black border-4 focus:border-panpink"
+      className="block bg-white dark:bg-gray-800 text-black dark:text-white p-4 rounded-2xl border-black border-4 focus:border-panpink outline-none"
     >
       <section className="font-display">
         <h2 className="text-3xl">{props.frontmatter.title}</h2>

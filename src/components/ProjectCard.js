@@ -40,7 +40,7 @@ export default function Project(props) {
   return (
     <Link
       to={"/projects/" + props.slug}
-      className="block bg-white text-black p-4 rounded-2xl border-black border-4 focus:border-panpink"
+      className="block bg-white text-black dark:bg-gray-800 dark:text-white p-4 rounded-2xl border-black border-4 focus:border-panpink"
     >
       <section>
         <div className="font-display h-32 overflow-hidden">
@@ -56,7 +56,7 @@ export default function Project(props) {
             {props.frontmatter.tags.map((tag) => (
               <span
                 key={tag}
-                className="inline-block bg-panblue text-white px-2 py-1 rounded-full text-sm"
+                className="inline-block bg-panblue-light text-black px-3 py-1 rounded-full text-sm"
               >
                 {tag}
               </span>

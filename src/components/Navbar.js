@@ -36,7 +36,7 @@ export default function Navbar() {
       <div className="flex flex-col md:flex-row mx-auto w-full max-w-7xl gap-4">
         <div className="flex w-full md:w-max justify-between">
           <Link
-            className="text-5xl hover:text-white outline-none focus:text-white focus:underline"
+            className="text-5xl text-black hover:text-white outline-none focus:text-white focus:underline"
             to="/"
           >
             breq.dev
@@ -63,7 +63,7 @@ export default function Navbar() {
             {Object.entries(navLinks).map(([name, url]) => (
               <li className="text-lg" key={url}>
                 <Link
-                  className="hover:text-white outline-none focus:text-white focus:underline"
+                  className="text-black hover:text-white outline-none focus:text-white focus:underline"
                   to={url}
                   onClick={handleSelect}
                 >

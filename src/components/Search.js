@@ -11,7 +11,7 @@ import {
 } from "react-instantsearch-dom";
 
 const SearchBox = connectSearchBox(({ refine, currentRefinement, onFocus }) => (
-  <form className="flex items-center px-2 md:px-0 border-b-2 border-black focus-within:border-white transition-all duration-300">
+  <form className="flex items-center px-2 md:px-0 border-b-2 border-black focus-within:border-white transition-all duration-300 text-black">
     <input
       type="text"
       className="bg-panpink outline-none pb-2 z-20 flex-grow"
@@ -26,7 +26,7 @@ const SearchBox = connectSearchBox(({ refine, currentRefinement, onFocus }) => (
 
 function Hit({ hit, ...props }) {
   return (
-    <li className="border-black focus-within:border-white border-2 rounded-xl">
+    <li className="border-black focus-within:border-white border-2 rounded-xl text-black">
       <Link
         to={hit.slug}
         className="block p-4 outline-none"

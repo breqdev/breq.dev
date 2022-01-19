@@ -13,7 +13,7 @@ import SEOHelmet from "../components/SEOHelmet";
 
 function ContactBadge(props) {
   const className =
-    "block border-2 border-black focus:border-panpink focus:border-4 rounded-xl px-4 outline-none";
+    "block border-2 border-black dark:border-white rounded-xl px-4 outline-none";
 
   return <div className={className}>{props.children}</div>;
 }

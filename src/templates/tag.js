@@ -12,7 +12,7 @@ export default function Tag({ data, pageContext }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-stretch m-8">
           {data.allMdx.edges.map(({ node }) => (
             <Link
-              className="bg-white text-black rounded-3xl p-4 flex flex-col gap-2 border-2 border-black focus:border-panpink"
+              className="bg-white dark:bg-gray-800 text-black dark:text-white rounded-3xl p-4 flex flex-col gap-2 border-2 border-black focus:border-panpink"
               key={node.id}
               to={node.fields.slug}
             >
@@ -30,7 +30,7 @@ export const query = graphql`
   query ($tag: String) {
     allMdx(
       filter: { frontmatter: { tags: { eq: $tag } } }
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { fields: [frontmatter___created, frontmatter___date], order: DESC }
     ) {
       edges {
         node {

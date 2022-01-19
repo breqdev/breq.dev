@@ -91,7 +91,7 @@ function ProjectInfo({ data }) {
 
 function ProjectHeader({ data }) {
   return (
-    <section className="font-display text-center bg-black text-white rounded-xl p-8">
+    <section className="font-display text-center bg-black dark:bg-gray-800 text-white rounded-xl p-8">
       <SEOHelmet
         title={data.mdx.frontmatter.title + " - breq.dev"}
         description={data.mdx.frontmatter.subtitle}

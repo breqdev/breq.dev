@@ -12,7 +12,7 @@ function PostHeader({ data }) {
 
   return (
     <div className="relative z-0">
-      <section className="bg-black text-white rounded-xl text-center font-display p-8 mb-8 z-10 relative">
+      <section className="bg-black dark:bg-gray-800 text-white rounded-xl text-center font-display p-8 mb-8 z-10 relative">
         <SEOHelmet
           title={data.mdx.frontmatter.title + " - breq.dev"}
           description={data.mdx.excerpt.replace("\n", " ")}

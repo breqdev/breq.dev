@@ -24,7 +24,7 @@ export default function Comments(props) {
     script.setAttribute("repo", "Breq16/breq.dev");
     script.setAttribute("issue-term", "pathname");
     script.setAttribute("label", "Utterances");
-    script.setAttribute("theme", "github-light");
+    script.setAttribute("theme", "preferred-color-scheme");
 
     commentBox.current.appendChild(script);
   }, []);

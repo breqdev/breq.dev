@@ -9,7 +9,7 @@ export function Paragraph(props) {
 
   // Detect if we're wrapping a Gatsby image
   if (props.children?.props?.className?.startsWith?.("gatsby-resp-image")) {
-    return <p className="my-4">{props.children}</p>;
+    return <p className="my-4 rounded-2xl overflow-hidden">{props.children}</p>;
   }
 
   if (poemContext.poem) {
@@ -35,7 +35,7 @@ function A(props) {
     return (
       <a
         href={props.href}
-        className="text-panblue-dark hover:underline outline-none focus:bg-panyellow"
+        className="text-panblue-dark dark:text-panblue hover:underline outline-none focus:bg-panyellow"
         target="_blank"
         rel="noopener noreferrer"
       >

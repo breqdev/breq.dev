@@ -2,14 +2,18 @@ import React from "react";
 
 function Table(props) {
   return (
-    <table className="mx-auto border-black border-2 rounded-xl border-separate border-spacing-0 overflow-hidden">
+    <table className="mx-auto border-black dark:border-white border-2 rounded-xl border-separate border-spacing-0 overflow-hidden">
       {props.children}
     </table>
   );
 }
 
 function Th(props) {
-  return <th className="border-black border p-2">{props.children}</th>;
+  return (
+    <th className="border-black dark:border-white border p-2">
+      {props.children}
+    </th>
+  );
 }
 
 function Td(props) {
