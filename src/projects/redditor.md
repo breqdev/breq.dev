@@ -1,7 +1,7 @@
 ---
 layout: project
 title: AutoRedditor
-subtitle: A service for caching and providing random Reddit posts.
+description: A service for caching and providing random Reddit posts.
 image: "../images/default.png"
 created: "2020"
 repo: Breq16/redditor

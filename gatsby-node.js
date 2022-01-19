@@ -82,7 +82,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 //         type Frontmatter {
 //             created: String
 //             title: String
-//             subtitle: String
+//             description: String
 //             repo: String
 //             demo: String
 //             image: File

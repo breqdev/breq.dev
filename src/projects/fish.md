@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Motion Sickness Fish
-subtitle: Billy Bass fish modified to sing a Phoebe Bridgers song
+description: Billy Bass fish modified to sing a Phoebe Bridgers song
 image: "../images/fish.jpg"
 video: /videos/fish.480p.webm
 created: "2020"

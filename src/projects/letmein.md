@@ -1,7 +1,7 @@
 ---
 layout: project
 title: LetMeIn
-subtitle: Automate unlocking doors at Northeastern's IV dorm.
+description: Automate unlocking doors at Northeastern's IV dorm.
 image: "../images/default.png"
 video: /videos/letmein.480p.webm
 created: "2021"

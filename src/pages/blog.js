@@ -19,7 +19,7 @@ function Post(props) {
         <div className="flex-grow flex flex-col justify-center">
           <hr className="my-1 border-black " />
         </div>
-        <p>{props.excerpt}</p>
+        <p>{props.frontmatter.description}</p>
       </section>
     </Link>
   );
@@ -53,9 +53,9 @@ export const query = graphql`
         node {
           id
           slug
-          excerpt
           frontmatter {
             title
+            description
           }
         }
       }

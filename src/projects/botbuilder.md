@@ -1,7 +1,7 @@
 ---
 layout: project
 title: BotBuilder
-subtitle: A build-your-own Discord bot service.
+description: A build-your-own Discord bot service.
 image: "../images/botbuilder.png"
 created: "2021"
 repo: Breq16/botbuilder

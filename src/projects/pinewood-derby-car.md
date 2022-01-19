@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Pinewood Derby Car
-subtitle: A model car full of blinkenlights that I programmed when I was a smol child.
+description: A model car full of blinkenlights that I programmed when I was a smol child.
 image: "../images/default.png"
 video: /videos/pinewood-derby-car.480p.webm
 created: "2014"

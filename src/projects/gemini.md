@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Gemini
-subtitle: A canvas-based web game.
+description: A canvas-based web game.
 image: "../images/website/gemini.png"
 demo: https://breq.dev/apps/gemini.html
 created: "2016"

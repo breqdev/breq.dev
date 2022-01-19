@@ -1,7 +1,7 @@
 ---
 layout: project
 title: flowspace
-subtitle: A social network.
+description: A social network.
 image: ../images/flowspace/login.png
 created: "2021"
 repo: Breq16/flowspace

@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Bounce Homepage
-subtitle: A simple homepage for my school laptop.
+description: A simple homepage for my school laptop.
 image: "../images/website/bounce.png"
 demo: https://breq.dev/apps/bounce.html
 created: "2017"

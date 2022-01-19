@@ -1,7 +1,7 @@
 ---
 layout: project
 title: BlockChat
-subtitle: A simple Blockchain-based chat app.
+description: A simple Blockchain-based chat app.
 image: "../images/blockchat.png"
 created: "2018"
 repo: Breq16/blockchat

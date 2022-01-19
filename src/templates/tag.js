@@ -17,7 +17,7 @@ export default function Tag({ data, pageContext }) {
               to={node.fields.slug}
             >
               <h2 className="text-2xl">{node.frontmatter.title}</h2>
-              <p>{node.frontmatter.subtitle || node.excerpt}</p>
+              <p>{node.frontmatter.description}</p>
             </Link>
           ))}
         </div>
@@ -37,9 +37,8 @@ export const query = graphql`
           id
           frontmatter {
             title
-            subtitle
+            description
           }
-          excerpt
           fields {
             slug
             type

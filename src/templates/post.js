@@ -15,7 +15,7 @@ function PostHeader({ data }) {
       <section className="bg-black dark:bg-gray-800 text-white rounded-xl text-center font-display p-8 mb-8 z-10 relative">
         <SEOHelmet
           title={data.mdx.frontmatter.title + " - breq.dev"}
-          description={data.mdx.excerpt.replace("\n", " ")}
+          description={data.mdx.frontmatter.description}
         />
         <h1 className="text-4xl md:text-6xl mb-4">
           {data.mdx.frontmatter.title}
@@ -45,9 +45,9 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       body
       slug
-      excerpt
       frontmatter {
         title
+        description
       }
     }
   }

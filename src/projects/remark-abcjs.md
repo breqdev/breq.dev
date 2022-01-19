@@ -1,7 +1,7 @@
 ---
 layout: project
 title: remark-abcjs
-subtitle: A Remark plugin to format music notation.
+description: A Remark plugin to format music notation.
 image: "../images/remark-abcjs.png"
 created: "2022"
 repo: Breq16/remark-abcjs

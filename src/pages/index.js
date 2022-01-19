@@ -178,7 +178,7 @@ export const query = graphql`
           slug
           frontmatter {
             title
-            subtitle
+            description
             tags
             image {
               absolutePath

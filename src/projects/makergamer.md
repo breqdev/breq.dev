@@ -1,7 +1,7 @@
 ---
 layout: project
 title: MakerGamer
-subtitle: A "fantasy console" built for tinkering.
+description: A "fantasy console" built for tinkering.
 image: "../images/archives/makergamer.jpg"
 created: "2016-17"
 repo: Breq16/makergamer

@@ -1,7 +1,7 @@
 ---
 layout: project
 title: McStatus.js
-subtitle: A JavaScript library to embed information about a Minecraft server into a website.
+description: A JavaScript library to embed information about a Minecraft server into a website.
 image: "../images/logo/minecraft.jpg"
 created: "2020"
 repo: Breq16/mcstatus

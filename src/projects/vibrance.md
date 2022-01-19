@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Vibrance
-subtitle: Vibrance synchronizes computers and smartphones to display configurable animations and effects.
+description: Vibrance synchronizes computers and smartphones to display configurable animations and effects.
 image: "../images/default.png"
 video: /videos/vibrance.480p.webm
 created: "2020"

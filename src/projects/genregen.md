@@ -1,7 +1,7 @@
 ---
 layout: project
 title: GenReGen
-subtitle: A mashup generator.
+description: A mashup generator.
 image: ../images/genregen.png
 created: "2021"
 repo: Breq16/genregen

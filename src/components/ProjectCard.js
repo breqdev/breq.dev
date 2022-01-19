@@ -45,7 +45,7 @@ export default function Project(props) {
       <section>
         <div className="font-display h-32 overflow-hidden">
           <h2 className="text-3xl">{props.frontmatter.title}</h2>
-          <h3 className="mb-2">{props.frontmatter.subtitle}</h3>
+          <h3 className="mb-2">{props.frontmatter.description}</h3>
         </div>
         <div className="w-full h-52 flex rounded-lg overflow-hidden">
           {media}

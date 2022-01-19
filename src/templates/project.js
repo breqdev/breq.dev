@@ -94,12 +94,12 @@ function ProjectHeader({ data }) {
     <section className="font-display text-center bg-black dark:bg-gray-800 text-white rounded-xl p-8">
       <SEOHelmet
         title={data.mdx.frontmatter.title + " - breq.dev"}
-        description={data.mdx.frontmatter.subtitle}
+        description={data.mdx.frontmatter.description}
         image={data.mdx.frontmatter.image.childImageSharp.fixed.src}
       />
       <h1 className="text-5xl">{data.mdx.frontmatter.title}</h1>
       <h2 className="text-3xl text-gray-300 mb-4">
-        {data.mdx.frontmatter.subtitle}
+        {data.mdx.frontmatter.description}
       </h2>
       <ProjectInfo data={data} />
     </section>
@@ -124,7 +124,7 @@ export const query = graphql`
       body
       frontmatter {
         title
-        subtitle
+        description
         created
         repo
         demo

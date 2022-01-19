@@ -24,6 +24,9 @@ const SearchBox = connectSearchBox(({ refine, currentRefinement, onFocus }) => (
   </form>
 ));
 
+const truncate = (length, input) =>
+  input.length > length ? `${input.substring(0, length)}...` : input;
+
 function Hit({ hit, ...props }) {
   return (
     <li className="border-black focus-within:border-white border-2 rounded-xl text-black">
@@ -36,11 +39,7 @@ function Hit({ hit, ...props }) {
           {hit.title}
           <span className="text-gray-700 italic"> - {hit.type}</span>
         </h3>
-        <h4 className="text-base">
-          {hit.subtitle ||
-            hit.description ||
-            hit.excerpt.substring(0, 100) + "..."}
-        </h4>
+        <h4 className="text-base">{truncate(100, hit.description)}</h4>
       </Link>
     </li>
   );
