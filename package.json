@@ -65,6 +65,7 @@
     "three": "^0.135.0"
   },
   "devDependencies": {
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.26",
     "raw-loader": "^4.0.2",
     "unist-util-inspect": "^6.0.1"
   }
