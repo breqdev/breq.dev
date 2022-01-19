@@ -10,6 +10,8 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import SEOHelmet from "../components/SEOHelmet";
 import { graphql } from "gatsby";
 
+import LazyWrapper from "../utils/LazyWrapper";
+
 const Background = React.lazy(() => import("../components/index/IndexCanvas"));
 const Terminal = React.lazy(() => import("../components/index/Terminal"));
 
@@ -160,13 +162,13 @@ export default function Index({ data }) {
           </p>
         </div>
 
-        <React.Suspense fallback={<div />}>
+        <LazyWrapper>
           <Terminal />
-        </React.Suspense>
+        </LazyWrapper>
 
-        <React.Suspense fallback={<div />}>
+        <LazyWrapper>
           <Background />
-        </React.Suspense>
+        </LazyWrapper>
       </div>
     </Page>
   );
