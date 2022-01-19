@@ -10,10 +10,10 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import SEOHelmet from "../components/SEOHelmet";
 import { graphql } from "gatsby";
 
+import TerminalWrapper from "../components/index/TerminalWrapper";
 import LazyWrapper from "../utils/LazyWrapper";
 
 const Background = React.lazy(() => import("../components/index/IndexCanvas"));
-const Terminal = React.lazy(() => import("../components/index/Terminal"));
 
 function ScrollDownHint() {
   const iconRef = useRef();
@@ -162,9 +162,7 @@ export default function Index({ data }) {
           </p>
         </div>
 
-        <LazyWrapper>
-          <Terminal />
-        </LazyWrapper>
+        <TerminalWrapper />
 
         <LazyWrapper>
           <Background />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import {
   EmulatorState,
   FileSystem,
@@ -11,58 +11,10 @@ import ReactTerminal from "react-terminal-component";
 import README from "./terminalContent/README.txt";
 import CREDITS from "./terminalContent/CREDITS.txt";
 
-const konamiCode = [
-  "ArrowUp",
-  "ArrowUp",
-  "ArrowDown",
-  "ArrowDown",
-  "ArrowLeft",
-  "ArrowRight",
-  "ArrowLeft",
-  "ArrowRight",
-  "KeyB",
-  "KeyA",
-  "Enter",
-];
-
-function useKonamiCode() {
-  const [count, setCount] = useState(0);
-  const [success, setSuccess] = useState(false);
-
-  useEffect(() => {
-    const keyDownHandler = ({ code }) => {
-      if (success) {
-        return;
-      }
-
-      if (code === konamiCode[count]) {
-        setCount(count + 1);
-      } else {
-        setCount(0);
-      }
-    };
-
-    window.addEventListener("keydown", keyDownHandler);
-
-    return () => {
-      window.removeEventListener("keydown", keyDownHandler);
-    };
-  }, [count, success]);
-
-  if (count === konamiCode.length && !success) {
-    setSuccess(true);
-  }
-
-  return success;
-}
-
 export default function Terminal() {
-  const [terminalShown, setTerminalShown] = useState(false);
-
-  // poor woman's ref
-  const [socket] = useState({ current: null });
-  const [chatName] = useState({ current: "" });
-  const [inbox] = useState({ current: [] });
+  const socket = useRef();
+  const chatName = useRef("");
+  const inbox = useRef([]);
 
   const emulatorState = useMemo(
     () =>
@@ -171,24 +123,6 @@ export default function Terminal() {
       }),
     [chatName, socket, inbox]
   );
-
-  const konamiCodeSuccess = useKonamiCode();
-
-  useEffect(() => {
-    let timeout;
-
-    if (konamiCodeSuccess) {
-      timeout = setTimeout(() => setTerminalShown(true), 500);
-    }
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  });
-
-  if (!terminalShown) {
-    return null;
-  }
 
   return (
     <div className="max-w-5xl mx-auto font-mono p-8">
