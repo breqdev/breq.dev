@@ -7,25 +7,15 @@ import Projects from "./Projects";
 import About from "./About";
 
 export default function Background() {
-  const [sceneIndex, setSceneIndex] = useState(0);
+  const [scroll, setScroll] = useState(0);
   const [logoLoaded, setLogoLoaded] = useState(false);
 
-  useScroll(
-    (scroll) => {
-      setSceneIndex(Math.floor(scroll / (window.innerHeight * 2)));
-    },
-    { global: true }
-  );
+  useScroll(setScroll, { global: true });
+
+  const sceneIndex = Math.floor(scroll / (window.innerHeight * 2));
+  const peekTo = Math.floor(scroll / (window.innerHeight * 2) + 1.5);
 
   const scenes = [Greeting, Projects, null, About];
-
-  useEffect(() => {
-    setSceneIndex(
-      Math.floor(
-        -document.body.getBoundingClientRect().top / (window.innerHeight * 2)
-      )
-    );
-  }, []);
 
   // This must be memo'd, since a change to the identity of the onLoad function
   // will trigger the Gltf component to recreate the GltfLoader with the "new"
@@ -42,14 +32,16 @@ export default function Background() {
       }
     >
       <Canvas camera={{ fov: 10, near: 0.1, far: 1000, position: [0, 0, 50] }}>
-        {scenes.map((Scene, i) =>
-          Scene ? (
-            <Scene
-              visible={i === sceneIndex}
-              onLoad={i === 0 ? onLogoLoad : null}
-            />
-          ) : null
-        )}
+        {scenes
+          .slice(0, peekTo)
+          .map((Scene, i) =>
+            Scene ? (
+              <Scene
+                visible={i === sceneIndex}
+                onLoad={i === 0 ? onLogoLoad : null}
+              />
+            ) : null
+          )}
       </Canvas>
     </div>
   );
