@@ -62,7 +62,7 @@
     "remark-math": "^3.0.1",
     "swr": "^1.1.1",
     "tailwindcss": "^3.0.7",
-    "three": "^0.135.0"
+    "three": "^0.137.0"
   },
   "devDependencies": {
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.26",
