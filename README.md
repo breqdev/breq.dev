@@ -1,54 +1,45 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# hey, i'm brooke, and this is my website.
 
-## 🚀 Quick start
+if you're just here to browse, you'll have a much better experience over on [breq.dev](https://breq.dev/).
 
-1.  **Create a Gatsby site.**
+but i've opened this up to let you peek into the internals if you'd like. look at my use of [gatsby plugins](gatsby-config.js), skim through how i [generate nodes](gatsby-node.js), glance through how i made that [3D scrolling](src/components/index/Greeting.js) effect, or understand how i theme the [code snippets](src/components/markdown/Code.js). or, you could always spoil the [easter egg](src/components/index/TerminalWrapper.js) for yourself. nobody's gonna know you cheated but you.
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+## stack details
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+- react + gatsby (primary framework)
+- unified + mdx (content)
+- font awesome (icons)
+- three.js + react-three-fiber (3d animation)
+- algolia + react-instantsearch-dom (search)
+- katex + remark-math + rehype-katex (math typesetting)
+- postcss + tailwind (styling)
+- javascript-terminal + react-terminal-component (easter egg)
+- lite-youtube-embed + react-twitter-notrack\* (embeds)
+- remark-abcjs\* (music typesetting)
+- swr (data fetching)
+- prismjs + prism-react-renderer (code styling)
 
-2.  **Start developing.**
+\* denotes my own packages
 
-    Navigate into your new site’s directory and start it up.
+## model attribution
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+a few 3D models in this page were made by some fine folks on GrabCAD.
 
-3.  **Open the code and start customizing!**
+- RPi: https://grabcad.com/library/raspberry-pi-4-model-b-5 by Mateusz Zelek
+- Arduino: https://grabcad.com/library/arduino-uno-r3-8 by Dũng Phan
 
-    Your site is now running at http://localhost:8000!
+## structure
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+content on the site is structured into the following categories:
 
-4.  **Learn more**
+- pages (one-offs written in JSX like [/contact](https://breq.dev/contact))
+- posts (blog entries, [/blog](https://breq.dev/blog) and [/2022/01/03/unified](https://breq.dev/2022/01/03/unified) etc)
+- projects (project writeups, [/projects](https://breq.dev/projects))
+- writing (creative writing, [/writing](https://breq.dev/writing))
+- music (coming soon?)
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## license
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+[mpl 2.0](https://choosealicense.com/licenses/mpl-2.0/) for code, [cc-by-nc-sa 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) for content.
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+made with <3 by breq.
