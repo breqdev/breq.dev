@@ -5,6 +5,7 @@ module.exports = {
     siteUrl: "https://breq.dev",
     title: "breq.dev",
   },
+  trailingSlash: "always",
   plugins: [
     "gatsby-plugin-postcss",
     "gatsby-plugin-image",
