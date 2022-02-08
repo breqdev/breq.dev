@@ -54,7 +54,11 @@ export default function Sponsors() {
             )) || []),
           ]}
         </div>
-        <div className="flex mt-16 font-display text-2xl gap-4">
+        <p className="text-2xl font-body mt-16">
+          If you've gotten value from my work, and you have the means, consider
+          supporting my work on one of these platforms:
+        </p>
+        <div className="flex my-6 font-display text-2xl gap-4">
           <a
             href="https://github.com/sponsors/Breq16"
             target="_blank"

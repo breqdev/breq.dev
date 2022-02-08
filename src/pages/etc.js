@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "gatsby";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
+import useSWR from "swr";
+
+const fetcher = (url) => fetch(url).then((r) => r.json());
 
 function EtcBlock(props) {
   return (
@@ -18,6 +21,11 @@ function EtcBlock(props) {
 }
 
 export default function Etc() {
+  const { data: sponsors } = useSWR(
+    "https://sponsors.breq.workers.dev/",
+    fetcher
+  );
+
   return (
     <Page>
       <SEOHelmet title="all the other things." />
@@ -35,9 +43,11 @@ export default function Etc() {
           <EtcBlock title="contact me" page="/contact">
             ways to contact me.
           </EtcBlock>
-          <EtcBlock title="sponsors" page="/sponsors">
-            supporters of my work. thank you!
-          </EtcBlock>
+          {sponsors?.length && (
+            <EtcBlock title="sponsors" page="/sponsors">
+              supporters of my work. thank you!
+            </EtcBlock>
+          )}
         </div>
       </div>
     </Page>
