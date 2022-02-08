@@ -178,7 +178,7 @@ export default function Design() {
             <p>
               my full name is Brooke Madeline Chalmers. in most common usage, i
               leave out the middle name, but you're welcome to include it.
-              friends, strangers, and my Starbucks barista call me Brooke.
+              friends, strangers, and the barista at Starbucks call me Brooke.
             </p>
             <p>
               previously, i went by a different name. it's not hard to find, but
@@ -193,10 +193,11 @@ export default function Design() {
               AVR assembly instruction BREQ, signifying branch-if-equal. feel
               free to credit me as{" "}
               <Callout className="font-mono">(c)&nbsp;breq</Callout> in source
-              files and the like. you can also call me breq IRL if you'd like,
-              although nobody else does. generally, stylizing "breq" in entirely
-              lowercase is preferred, but entirely uppercase is acceptable. no
-              canonical pronunciation exists, be creative.
+              files and the like. you can also call me breq in person if you'd
+              like, although nobody else does. generally, stylizing "breq" in
+              entirely lowercase is preferred, but entirely uppercase is
+              acceptable. no canonical pronunciation exists, be creative. or
+              don't.
             </p>
           </section>
           <section className="flex flex-col gap-8">
