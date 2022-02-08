@@ -77,12 +77,21 @@ function Hr(props) {
   return <div className="border-black border max-w-xl w-full mx-auto my-8" />;
 }
 
+function InlineCode(props) {
+  return (
+    <span className="font-mono bg-gray-200 -my-1 -mx-0.5 p-1 rounded-xl">
+      {props.children}
+    </span>
+  );
+}
+
 const shortcodes = {
   p: Paragraph,
   a: A,
   blockquote: BlockQuote,
   kbd: Kbd,
   hr: Hr,
+  inlineCode: InlineCode,
 };
 
 export default shortcodes;
