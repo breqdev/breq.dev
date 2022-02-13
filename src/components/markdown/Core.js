@@ -79,7 +79,7 @@ function Hr(props) {
 
 function InlineCode(props) {
   return (
-    <span className="font-mono bg-gray-200 -my-1 -mx-0.5 p-1 rounded-xl">
+    <span className="font-mono bg-gray-200 dark:bg-gray-800 -my-1 -mx-0.5 p-1 rounded-xl">
       {props.children}
     </span>
   );
