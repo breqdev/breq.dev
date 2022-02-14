@@ -6,13 +6,18 @@ import { Canvas } from "@react-three/fiber";
 import Gltf from "../components/models/Gltf";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { useMediaQuery } from "react-responsive";
 
 function InnerLogo(props) {
   const model = React.useRef();
 
+  const motionSafe = useMediaQuery({
+    query: "(prefers-reduced-motion: no-preference)",
+  });
+
   React.useEffect(() => {
     const listener = (event) => {
-      if (model.current) {
+      if (model.current && motionSafe) {
         model.current.rotation.y = 2e-3 * window.scrollY;
       }
     };
@@ -22,7 +27,7 @@ function InnerLogo(props) {
     return () => {
       window.removeEventListener("scroll", listener);
     };
-  }, []);
+  }, [motionSafe]);
 
   return (
     <Gltf
