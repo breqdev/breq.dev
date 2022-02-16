@@ -15,6 +15,7 @@ export default function Comments(props) {
   const commentBox = useRef(null);
 
   useEffect(() => {
+    const box = commentBox.current;
     const script = document.createElement("script");
 
     script.async = true;
@@ -26,8 +27,12 @@ export default function Comments(props) {
     script.setAttribute("label", "Utterances");
     script.setAttribute("theme", "preferred-color-scheme");
 
-    commentBox.current.appendChild(script);
+    box.appendChild(script);
+
+    return () => {
+      box.removeChild(script);
+    };
   }, []);
 
-  return <div ref={commentBox} />;
+  return <div className="mb-12" ref={commentBox} />;
 }

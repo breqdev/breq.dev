@@ -13,6 +13,7 @@ import {
   faKeybase,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import Fursona from "./index/fursona/Fursona";
 
 export default function Footer() {
   const contactLinks = [
@@ -33,7 +34,7 @@ export default function Footer() {
   `);
 
   return (
-    <footer className="bg-panblue text-gray-800 text-lg font-display z-10">
+    <footer className="relative bg-panblue text-gray-800 text-lg font-display z-10">
       <div className="max-w-7xl mx-auto px-4 py-16 md:pb-32 flex flex-col gap-8">
         <p>
           made with <FontAwesomeIcon icon={faCode} />{" "}
@@ -79,6 +80,8 @@ export default function Footer() {
             <FontAwesomeIcon icon={faChevronRight} />
           </Link>
         </p>
+
+        <Fursona />
       </div>
     </footer>
   );
