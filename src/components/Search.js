@@ -11,10 +11,10 @@ import {
 } from "react-instantsearch-dom";
 
 const SearchBox = connectSearchBox(({ refine, currentRefinement, onFocus }) => (
-  <form className="flex items-center px-2 md:px-0 border-b-2 border-black focus-within:border-white transition-all duration-300 text-black">
+  <form className="flex items-center border-b-2 border-black px-2 text-black transition-all duration-300 focus-within:border-white md:px-0">
     <input
       type="text"
-      className="bg-panpink outline-none pb-2 z-20 flex-grow"
+      className="z-20 flex-grow bg-panpink pb-2 outline-none"
       value={currentRefinement}
       onFocus={onFocus}
       onChange={(e) => refine(e.target.value)}
@@ -29,7 +29,7 @@ const truncate = (length, input) =>
 
 function Hit({ hit, ...props }) {
   return (
-    <li className="border-black focus-within:border-white border-2 rounded-xl text-black">
+    <li className="rounded-xl border-2 border-black text-black focus-within:border-white">
       <Link
         to={hit.slug}
         className="block p-4 outline-none"
@@ -37,7 +37,7 @@ function Hit({ hit, ...props }) {
       >
         <h3 className="text-xl">
           {hit.title}
-          <span className="text-gray-700 italic"> - {hit.type}</span>
+          <span className="italic text-gray-700"> - {hit.type}</span>
         </h3>
         <h4 className="text-base">{truncate(100, hit.description)}</h4>
       </Link>
@@ -46,7 +46,7 @@ function Hit({ hit, ...props }) {
 }
 
 const Hits = connectHits(({ hits, ...props }) => (
-  <div className="absolute top-0 left-0 right-0 my-12 md:my-16 bg-panpink p-4">
+  <div className="absolute top-0 left-0 right-0 my-12 bg-panpink p-4 md:my-16">
     {hits.length > 0 ? (
       <ul className="flex flex-col gap-4">
         {hits.map((hit) => (
@@ -84,7 +84,7 @@ export default function Search(props) {
   };
 
   return (
-    <div className="relative md:w-1/2 p-2">
+    <div className="relative mx-auto w-full max-w-sm p-2 lg:mx-0">
       <InstantSearch
         searchClient={searchClient}
         indexName="breq.dev"
