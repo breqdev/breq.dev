@@ -1,9 +1,9 @@
 import React from "react";
-import { PoemContext, Paragraph } from "./Core";
+import { MarkdownContext, Paragraph } from "./Core";
 
 function Caption(props) {
   return (
-    <p className="text-center font-body mx-auto max-w-xl mb-8">
+    <p className="mx-auto mb-8 max-w-xl text-center font-body">
       {props.children}
     </p>
   );
@@ -11,10 +11,10 @@ function Caption(props) {
 
 function Poem(props) {
   return (
-    <PoemContext.Provider value={{ poem: true }}>
+    <MarkdownContext.Provider value={{ poem: true }}>
       <section
         className={
-          "mx-auto max-w-3xl pl-16 text-lg font-body " +
+          "mx-auto max-w-3xl pl-16 font-body text-lg " +
           (props.center ? " mx-auto" : "")
         }
         style={{
@@ -24,7 +24,7 @@ function Poem(props) {
       >
         {props.children}
       </section>
-    </PoemContext.Provider>
+    </MarkdownContext.Provider>
   );
 }
 

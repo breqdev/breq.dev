@@ -78,6 +78,14 @@ module.exports = {
       __key: "writing",
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "friends",
+        path: "./src/friends/",
+      },
+      __key: "friends",
+    },
+    {
       resolve: "gatsby-plugin-algolia",
       options: {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,

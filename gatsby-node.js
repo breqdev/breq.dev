@@ -117,11 +117,13 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
 
   pages.data.allMdx.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: templates[node.fields.type],
-      context: { id: node.id },
-    });
+    if (node.fields?.slug) {
+      createPage({
+        path: node.fields.slug,
+        component: templates[node.fields.type],
+        context: { id: node.id },
+      });
+    }
   });
 
   const tags = await graphql(`

@@ -66,6 +66,8 @@
   },
   "devDependencies": {
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.26",
+    "prettier": "^2.5.1",
+    "prettier-plugin-tailwindcss": "^0.1.8",
     "raw-loader": "^4.0.2",
     "unist-util-inspect": "^6.0.1"
   }

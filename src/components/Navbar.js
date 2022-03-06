@@ -7,7 +7,7 @@ import Search from "./Search";
 function SkipNavigation() {
   return (
     <a
-      className="absolute left-0 top-0 ml-10 -translate-y-full focus:translate-y-0 transition-transform bg-panblue text-black underline border-black border-x-2 border-b-2 rounded-b-xl p-2"
+      className="absolute left-0 top-0 ml-10 -translate-y-full rounded-b-xl border-x-2 border-b-2 border-black bg-panblue p-2 text-black underline transition-transform focus:translate-y-0"
       href="#main"
     >
       skip navigation
@@ -22,6 +22,7 @@ export default function Navbar() {
     blog: "/blog",
     music: "/music",
     tags: "/tags",
+    friends: "/friends",
     etc: "/etc",
   };
 
@@ -30,20 +31,20 @@ export default function Navbar() {
   const handleSelect = () => setExpanded(false);
 
   return (
-    <nav className="sticky top-0 bg-panpink p-4 font-display z-50">
+    <nav className="sticky top-0 z-50 bg-panpink p-4 font-display">
       <SkipNavigation />
 
-      <div className="flex flex-col md:flex-row mx-auto w-full max-w-7xl gap-4">
-        <div className="flex w-full md:w-max justify-between">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 md:flex-row">
+        <div className="flex w-full justify-between md:w-max">
           <Link
-            className="text-5xl text-black hover:text-white outline-none focus:text-white focus:underline"
+            className="text-5xl text-black outline-none hover:text-white focus:text-white focus:underline"
             to="/"
           >
             breq.dev
           </Link>
 
           <button
-            className="border-4 border-black text-black rounded-xl p-2 md:hidden text-lg"
+            className="rounded-xl border-4 border-black p-2 text-lg text-black md:hidden"
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
@@ -55,15 +56,15 @@ export default function Navbar() {
 
         <div
           className={
-            "md:flex absolute md:static left-0 mt-16 md:mt-0 w-full bg-panpink " +
+            "absolute left-0 mt-16 w-full bg-panpink md:static md:mt-0 md:flex " +
             (expanded ? "" : "hidden")
           }
         >
-          <ul className="flex gap-2 p-4 md:p-0 flex-col md:flex-row">
+          <ul className="flex flex-col gap-2 p-4 md:flex-row md:p-0">
             {Object.entries(navLinks).map(([name, url]) => (
               <li className="text-lg" key={url}>
                 <Link
-                  className="text-black hover:text-white outline-none focus:text-white focus:underline"
+                  className="text-black outline-none hover:text-white focus:text-white focus:underline"
                   to={url}
                   onClick={handleSelect}
                 >

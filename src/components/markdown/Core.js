@@ -1,25 +1,25 @@
 import React from "react";
 import { Link } from "gatsby";
 
-export const PoemContext = React.createContext({ poem: false });
+export const MarkdownContext = React.createContext({ poem: false });
 
 export function Paragraph(props) {
   // Detect if we're inside a poem
-  const poemContext = React.useContext(PoemContext);
+  const context = React.useContext(MarkdownContext);
 
   // Detect if we're wrapping a Gatsby image
   if (props.children?.props?.className?.startsWith?.("gatsby-resp-image")) {
-    return <p className="my-4 rounded-2xl overflow-hidden">{props.children}</p>;
+    return <p className="my-4 overflow-hidden rounded-2xl">{props.children}</p>;
   }
 
-  if (poemContext.poem) {
+  if (context.poem) {
     return <p className="my-1">{props.children}</p>;
   }
 
   return (
     <p
       className={
-        "my-4 text-lg font-body max-w-prose mx-auto " +
+        "my-4 mx-auto max-w-prose font-body text-lg " +
         (props.center && "text-center")
       }
     >
@@ -31,11 +31,17 @@ export function Paragraph(props) {
 function A(props) {
   const ExtLinkRegex = new RegExp("^(?:[a-z]+:)?//", "i");
 
+  const context = React.useContext(MarkdownContext);
+
+  const colors = context.dark
+    ? "text-white underline"
+    : "text-panblue-dark dark:text-panblue focus:bg-panyellow outline-none";
+
   if (ExtLinkRegex.test(props.href)) {
     return (
       <a
         href={props.href}
-        className="text-panblue-dark dark:text-panblue hover:underline outline-none focus:bg-panyellow"
+        className={`hover:underline ${colors}`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -46,7 +52,7 @@ function A(props) {
     return (
       <Link
         to={props.href}
-        className="text-panblue-dark hover:underline outline-none focus:bg-panyellow"
+        className="text-panblue-dark outline-none hover:underline focus:bg-panyellow"
       >
         {props.children}
       </Link>
@@ -57,7 +63,7 @@ function A(props) {
 function BlockQuote(props) {
   return (
     <blockquote
-      className="italic max-w-3xl mx-auto"
+      className="mx-auto max-w-3xl italic"
       style={{ maxWidth: "min(max-content, 100%)" }}
     >
       {props.children}
@@ -67,19 +73,19 @@ function BlockQuote(props) {
 
 function Kbd(props) {
   return (
-    <kbd className="bg-gray-200 border-black border-2 rounded p-1">
+    <kbd className="rounded border-2 border-black bg-gray-200 p-1">
       {props.children}
     </kbd>
   );
 }
 
 function Hr(props) {
-  return <div className="border-black border max-w-xl w-full mx-auto my-8" />;
+  return <div className="mx-auto my-8 w-full max-w-xl border border-black" />;
 }
 
 function InlineCode(props) {
   return (
-    <span className="font-mono bg-gray-200 dark:bg-gray-800 -my-1 -mx-0.5 p-1 rounded-xl">
+    <span className="-my-1 -mx-0.5 rounded-xl bg-gray-200 p-1 font-mono dark:bg-gray-800">
       {props.children}
     </span>
   );

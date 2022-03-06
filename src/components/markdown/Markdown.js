@@ -2,7 +2,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
 import React from "react";
 
-import core, { PoemContext } from "./Core";
+import core, { MarkdownContext } from "./Core";
 import artistic from "./Artistic";
 import headings from "./Headings";
 import lists from "./Lists";
@@ -22,12 +22,12 @@ const shortcodes = {
 
 export default function Markdown(props) {
   return (
-    <PoemContext.Provider value={{ poem: false }}>
+    <MarkdownContext.Provider value={{ poem: false, dark: props.dark }}>
       <MDXProvider components={shortcodes}>
         <div className="font-body">
           <MDXRenderer>{props.children}</MDXRenderer>
         </div>
       </MDXProvider>
-    </PoemContext.Provider>
+    </MarkdownContext.Provider>
   );
 }
