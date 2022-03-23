@@ -1,6 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Image from "next/image";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
@@ -28,7 +27,7 @@ export default function Friends({ data }) {
         {data.allMdx.nodes.map(
           ({ frontmatter: { name, pronouns, image, links }, body }) => (
             <div className="flex w-full flex-col overflow-hidden rounded-2xl bg-gray-800 text-white md:flex-row">
-              <GatsbyImage className="w-full" image={getImage(image)} />
+              <Image className="w-full" image={image} />
               <div className="flex w-full flex-col p-8">
                 <h2 className="font-display text-3xl">{name}</h2>
                 {pronouns && (
@@ -59,29 +58,29 @@ export default function Friends({ data }) {
   );
 }
 
-export const query = graphql`
-  query MyQuery {
-    allMdx(filter: { fileAbsolutePath: { regex: "/src/friends/" } }) {
-      nodes {
-        frontmatter {
-          name
-          pronouns
-          image {
-            childImageSharp {
-              gatsbyImageData(
-                width: 1000
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
-            }
-          }
-          links {
-            icon
-            link
-          }
-        }
-        body
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query MyQuery {
+//     allMdx(filter: { fileAbsolutePath: { regex: "/src/friends/" } }) {
+//       nodes {
+//         frontmatter {
+//           name
+//           pronouns
+//           image {
+//             childImageSharp {
+//               gatsbyImageData(
+//                 width: 1000
+//                 placeholder: BLURRED
+//                 formats: [AUTO, WEBP, AVIF]
+//               )
+//             }
+//           }
+//           links {
+//             icon
+//             link
+//           }
+//         }
+//         body
+//       }
+//     }
+//   }
+// `;

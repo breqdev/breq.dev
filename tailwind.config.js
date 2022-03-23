@@ -1,5 +1,8 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx,md,mdx}"],
+  content: [
+    "./components/**/*.{js,jsx,ts,tsx,md,mdx}",
+    "./pages/**/*.{js,jsx,ts,tsx,md,mdx}",
+  ],
   theme: {
     fontFamily: {
       display: ["Nunito", "sans-serif"],

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import Link from "next/link";
 
 export const MarkdownContext = React.createContext({ poem: false });
 
@@ -50,11 +50,10 @@ function A(props) {
     );
   } else {
     return (
-      <Link
-        to={props.href}
-        className="text-panblue-dark outline-none hover:underline focus:bg-panyellow"
-      >
-        {props.children}
+      <Link href={props.href}>
+        <a className="text-panblue-dark outline-none hover:underline focus:bg-panyellow">
+          {props.children}
+        </a>
       </Link>
     );
   }

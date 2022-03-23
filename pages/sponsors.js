@@ -3,7 +3,7 @@ import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { StaticImage } from "gatsby-plugin-image";
+import Image from "next/image";
 import useSWR from "swr";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
@@ -17,13 +17,13 @@ export default function Sponsors() {
   return (
     <Page className="bg-black text-white">
       <SEOHelmet title="Sponsors" />
-      <div className="max-w-xl mx-auto w-full py-8">
-        <h1 className="text-6xl font-display text-center">Sponsors</h1>
-        <p className="text-2xl my-4 font-body mt-8">
+      <div className="mx-auto w-full max-w-xl py-8">
+        <h1 className="text-center font-display text-6xl">Sponsors</h1>
+        <p className="my-4 mt-8 font-body text-2xl">
           Generous contributions from these people help support my work. Thank
           you!
         </p>
-        <div className="flex flex-row flex-wrap gap-4 justify-center mt-16">
+        <div className="mt-16 flex flex-row flex-wrap justify-center gap-4">
           {[
             ...(data?.sponsors?.map?.((sponsor) => (
               <a
@@ -31,12 +31,12 @@ export default function Sponsors() {
                 target="_blank"
                 rel="noreferrer noopener"
                 href={`https://github.com/${sponsor}`}
-                className="bg-white text-black p-4 rounded-2xl flex flex-col items-center gap-4 text-lg"
+                className="flex flex-col items-center gap-4 rounded-2xl bg-white p-4 text-lg text-black"
               >
                 <img
                   src={`https://github.com/${sponsor}.png`}
                   alt=""
-                  className="w-28 h-28"
+                  className="h-28 w-28"
                 />
                 {sponsor}
               </a>
@@ -44,9 +44,9 @@ export default function Sponsors() {
             ...(KOFI_SPONSORS?.map?.((sponsor) => (
               <div
                 key={sponsor}
-                className="bg-white text-black p-4 rounded-2xl flex flex-col items-center gap-4 text-lg"
+                className="flex flex-col items-center gap-4 rounded-2xl bg-white p-4 text-lg text-black"
               >
-                <div className="w-28 h-28 flex items-center justify-center text-6xl text-panpink">
+                <div className="flex h-28 w-28 items-center justify-center text-6xl text-panpink">
                   <FontAwesomeIcon icon={faHeart} />
                 </div>
                 {sponsor}
@@ -54,16 +54,16 @@ export default function Sponsors() {
             )) || []),
           ]}
         </div>
-        <p className="text-2xl font-body mt-16">
+        <p className="mt-16 font-body text-2xl">
           If you've gotten value from my work, and you have the means, consider
           supporting my work on one of these platforms:
         </p>
-        <div className="flex my-6 font-display text-2xl gap-4">
+        <div className="my-6 flex gap-4 font-display text-2xl">
           <a
             href="https://github.com/sponsors/Breq16"
             target="_blank"
             rel="noreferrer noopener"
-            className="flex-grow w-full text-center bg-gray-200 text-black py-4 px-6 rounded-full flex items-center"
+            className="flex w-full flex-grow items-center rounded-full bg-gray-200 py-4 px-6 text-center text-black"
           >
             <span className="flex-grow">GitHub Sponsors</span>
             <FontAwesomeIcon icon={faHeart} />
@@ -72,13 +72,10 @@ export default function Sponsors() {
             href="https://ko-fi.com/breq16"
             target="_blank"
             rel="noreferrer noopener"
-            className="flex-grow w-full text-center bg-panblue text-black py-4 px-6 rounded-full flex items-center"
+            className="flex w-full flex-grow items-center rounded-full bg-panblue py-4 px-6 text-center text-black"
           >
             <span className="flex-grow">Ko-Fi</span>
-            <StaticImage
-              src="../images/logo/ko-fi.png"
-              className="w-12 -my-2"
-            />
+            <Image src="../images/logo/ko-fi.png" className="-my-2 w-12" />
           </a>
         </div>
       </div>

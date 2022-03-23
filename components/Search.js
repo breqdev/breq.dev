@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "gatsby";
+import Link from "next/link";
 import algoliasearch from "algoliasearch";
 import {
   InstantSearch,
@@ -30,16 +30,14 @@ const truncate = (length, input) =>
 function Hit({ hit, ...props }) {
   return (
     <li className="rounded-xl border-2 border-black text-black focus-within:border-white">
-      <Link
-        to={hit.slug}
-        className="block p-4 outline-none"
-        onClick={props.onSelect}
-      >
-        <h3 className="text-xl">
-          {hit.title}
-          <span className="italic text-gray-700"> - {hit.type}</span>
-        </h3>
-        <h4 className="text-base">{truncate(100, hit.description)}</h4>
+      <Link href={hit.slug} onClick={props.onSelect}>
+        <a className="block p-4 outline-none">
+          <h3 className="text-xl">
+            {hit.title}
+            <span className="italic text-gray-700"> - {hit.type}</span>
+          </h3>
+          <h4 className="text-base">{truncate(100, hit.description)}</h4>
+        </a>
       </Link>
     </li>
   );

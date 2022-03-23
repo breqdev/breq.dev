@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeart,
@@ -25,17 +25,17 @@ export default function Footer() {
   const linkStyles =
     "hover:underline outline-none focus:underline focus:bg-panyellow";
 
-  const dateQuery = useStaticQuery(graphql`
-    query {
-      site {
-        buildTime(formatString: "YYYY")
-      }
-    }
-  `);
+  // const dateQuery = useStaticQuery(graphql`
+  //   query {
+  //     site {
+  //       buildTime(formatString: "YYYY")
+  //     }
+  //   }
+  // `);
 
   return (
-    <footer className="relative bg-panblue text-gray-800 text-lg font-display z-10">
-      <div className="max-w-7xl mx-auto px-4 py-16 md:pb-32 flex flex-col gap-8">
+    <footer className="relative z-10 bg-panblue font-display text-lg text-gray-800">
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-16 md:pb-32">
         <p>
           made with <FontAwesomeIcon icon={faCode} />{" "}
           <span className="sr-only">code</span> and{" "}
@@ -43,7 +43,7 @@ export default function Footer() {
           <span className="sr-only">love</span> by breq,{" "}
           <FontAwesomeIcon icon={faCopyright} />
           <span className="sr-only">copyright</span>&nbsp;
-          {dateQuery.site.buildTime}, <FontAwesomeIcon icon={faGithub} />
+          {new Date().getFullYear()}, <FontAwesomeIcon icon={faGithub} />
           &nbsp;
           <span className="sr-only">github</span>
           <a
@@ -75,9 +75,11 @@ export default function Footer() {
               {" • "}
             </React.Fragment>
           ))}
-          <Link to="/contact" className={linkStyles}>
-            more <span className="sr-only">ways to contact me </span>
-            <FontAwesomeIcon icon={faChevronRight} />
+          <Link href="/contact">
+            <a className={linkStyles}>
+              more <span className="sr-only">ways to contact me </span>
+              <FontAwesomeIcon icon={faChevronRight} />
+            </a>
           </Link>
         </p>
 

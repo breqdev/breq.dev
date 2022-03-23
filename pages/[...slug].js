@@ -1,5 +1,4 @@
 import React from "react";
-import { graphql } from "gatsby";
 
 import Page from "../components/Page";
 import Markdown from "../components/markdown/Markdown";
@@ -12,17 +11,17 @@ function PostHeader({ data }) {
 
   return (
     <div className="relative z-0">
-      <section className="bg-black dark:bg-gray-800 text-white rounded-xl text-center font-display p-8 mb-8 z-10 relative">
+      <section className="relative z-10 mb-8 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800">
         <SEOHelmet
           title={data.mdx.frontmatter.title + " - breq.dev"}
           description={data.mdx.frontmatter.description}
         />
-        <h1 className="text-4xl md:text-6xl mb-4">
+        <h1 className="mb-4 text-4xl md:text-6xl">
           {data.mdx.frontmatter.title}
         </h1>
         <p className="text-2xl">{date}</p>
       </section>
-      <div className="absolute inset-0 z-0 rounded-xl bg-panpink transform translate-x-3 translate-y-2" />
+      <div className="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink" />
     </div>
   );
 }
@@ -30,25 +29,25 @@ function PostHeader({ data }) {
 export default function Post({ data }) {
   return (
     <Page>
-      <article className="max-w-6xl mx-auto p-4">
+      <article className="mx-auto max-w-6xl p-4">
         <PostHeader data={data} />
         <Markdown>{data.mdx.body}</Markdown>
       </article>
-      <hr className="max-w-4xl mx-auto border-black border-1 my-4" />
+      <hr className="border-1 mx-auto my-4 max-w-4xl border-black" />
       <Comments />
     </Page>
   );
 }
 
-export const query = graphql`
-  query ($id: String) {
-    mdx(id: { eq: $id }) {
-      body
-      slug
-      frontmatter {
-        title
-        description
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query ($id: String) {
+//     mdx(id: { eq: $id }) {
+//       body
+//       slug
+//       frontmatter {
+//         title
+//         description
+//       }
+//     }
+//   }
+// `;

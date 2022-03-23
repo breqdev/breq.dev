@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHamburger } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "gatsby";
+import Link from "next/link";
 import Search from "./Search";
 
 function SkipNavigation() {
@@ -36,11 +36,10 @@ export default function Navbar() {
 
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 lg:flex-row">
         <div className="flex w-full justify-between lg:w-max">
-          <Link
-            className="text-5xl text-black outline-none hover:text-white focus:text-white focus:underline"
-            to="/"
-          >
-            breq.dev
+          <Link href="/">
+            <a className="text-5xl text-black outline-none hover:text-white focus:text-white focus:underline">
+              breq.dev
+            </a>
           </Link>
 
           <button
@@ -63,12 +62,10 @@ export default function Navbar() {
           <ul className="flex flex-col gap-2 p-4 lg:flex-row lg:p-0">
             {Object.entries(navLinks).map(([name, url]) => (
               <li className="text-lg" key={url}>
-                <Link
-                  className="text-black outline-none hover:text-white focus:text-white focus:underline"
-                  to={url}
-                  onClick={handleSelect}
-                >
-                  {name}
+                <Link href={url} onClick={handleSelect}>
+                  <a className="text-black outline-none hover:text-white focus:text-white focus:underline">
+                    {name}
+                  </a>
                 </Link>
               </li>
             ))}
