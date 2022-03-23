@@ -1,13 +1,12 @@
 import React from "react";
 
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+
 export default function YouTube(props) {
   return (
-    <div className="my-4 aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden">
-      <lite-youtube videoid={props.id} class="max-w-full" params="rel=0">
-        <button className="lty-playbtn">
-          <span className="sr-only">Play</span>
-        </button>
-      </lite-youtube>
+    <div className="aspect-w-16 aspect-h-9 my-4 overflow-hidden rounded-2xl">
+      <LiteYouTubeEmbed id={props.id} />
     </div>
   );
 }

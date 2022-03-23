@@ -2,7 +2,7 @@
 layout: project
 title: LPS System
 description: A simple, calibration-free, vision-based local positioning system.
-image: "../images/default.png"
+image: "images/default.png"
 video: ../videos/lps.480p.webm
 created: "2020"
 repo: Breq16/lps
@@ -39,11 +39,9 @@ By placing encoders on wheels, a robot can track its movement over time. VRC tea
 
 GPS can work well for tracking a robot’s general position in a large area. However, common receivers have an accuracy of only about 3 meters, and while modules with centimeter-level accuracy are available, they are prohibitively expensive.
 
-![](../images/lps/pattern_wall.png)
+![](images/lps/pattern_wall.png)
 
-<Caption>
-The "Vex GPS": An example of the "Pattern Wall" approach to localization.
-</Caption>
+<Caption>The "Vex GPS": An example of the "Pattern Wall" approach to localization.</Caption>
 
 ### Pattern Wall
 
@@ -77,7 +75,7 @@ I decided to try implementing a solution that worked outside the plane that the 
 
 ## 1. Image Scanning
 
-![](../images/lps/image-scanning-1.png)
+![](images/lps/image-scanning-1.png)
 
 The system starts with a picture of the scene (left image). I’ve placed a computer vision marker in the scene along with a bunch of random objects.
 
@@ -85,11 +83,11 @@ Markers have a blue border around them to distinguish them from the environment.
 
 This mask is shown in the right image. The marker is plainly visible here, and almost all of the other objects in the scene have been filtered out. The pencil and textbook happen to have the same hue, but they will be filtered out later.
 
-![](../images/lps/image-scanning-2.png)
+![](images/lps/image-scanning-2.png)
 
 The first step in handling the masked areas is to determine their boundary. OpenCV has a convenient function for tracing the border of each region of interest.
 
-![](../images/lps/image-scanning-3.png)
+![](images/lps/image-scanning-3.png)
 
 Now, we have a series of points tracing the boundary of the marker. This isn’t a perfect quadrilateral for a variety of reasons (the camera introduces noise to the image, the lens introduces distortion, the marker isn’t completely square, the image resolution is low so the image is a bit blurry, etc). To approximate this boundary to four points, with one at each corner, we can use the Douglas-Peucker algorithm (conveniently also implemented by OpenCV).
 
@@ -101,13 +99,13 @@ The next step is to figure out what type of marker this is, and what its orienta
 
 Using the bounding quadrilateral of the marker, we can calculate where we expect the squares to be. To do this, we need to calculate the transformation between the basis of the picture (i.e., with the origin at the top-left pixel, x-axis as the top row of pixels, and y-axis as the left row of pixels) and the basis of the scene. For reading the squares, it’s convenient to set the origin of the scene at the center of the marker, choose x and y axes arbitrarily, and set the length of each square to 1 unit.
 
-![](../images/lps/transformation-calculation-1.png)
+![](images/lps/transformation-calculation-1.png)
 
 It’s apparent that the sides of the marker aren’t parallel lines in the image, even though they are parallel in real life. Because the camera is a perspective camera, we need to use a perspective transformation (in which parallelism isn’t preserved). In order to calculate this type of transformation, we need to know the coordinates of four points in each basis. Conveniently, our quadrilateral bounding the marker has four points which we know the image coordinates of, and we know the real-life position of the marker’s corners relative to its center as well.
 
 In order to compute a perspective transformation, we need a new coordinate system. Consider a point which appears on the horizon: it would be mapped an infinitely far distance away. Representing this isn’t possible with only X and Y coordinates, so we need a third coordinate.
 
-![](../images/lps/transformation-calculation-2.png)
+![](images/lps/transformation-calculation-2.png)
 
 The solution is a system known as homogeneous coordinates. To map our existing cartesian coordinates to homogeneous ones, we just include a 1 as the third coordinate. To map them back to cartesian coordinates, divide the X and Y coordinates by the third coordinate. This solves our horizon-point problem: Points with a third coordinate of 0 will have no defined equivalent cartesian coordinate.
 
@@ -117,7 +115,7 @@ Using our new homogenous coordinates, we can calculate a transformation matrix w
 
 ## 3. Marker Identification
 
-![](../images/lps/marker-identification-1.png)
+![](images/lps/marker-identification-1.png)
 
 Because we know the real-life coordinates of the corners of each square, we can use the transformation matrix to map them to coordinates of pixels in the picture. The yellow grid in the image shows where the squares are expected to be.
 
@@ -125,11 +123,11 @@ At least one square is guaranteed to be each color. In order to compensate for v
 
 No pattern of squares is rotationally symmetrical, so the orientation of the pattern can be used to determine the orientation of the marker. The system can now draw the position and orientation of the marker over the camera feed.
 
-![](../images/lps/marker-identification-2.png)
+![](images/lps/marker-identification-2.png)
 
 ## 4. Global Reference
 
-![](../images/lps/global-reference-1.png)
+![](images/lps/global-reference-1.png)
 
 I’ve added a few new markers into the scene. These markers have a different code on them: one black square and three white squares. I’ve also placed down a ruler for scale.
 
@@ -141,11 +139,11 @@ Mathematically, the hard work is already done: we can use the transformation mat
 
 The system plots an overhead-view grid of each visible marker. Note that the orientation and position of each marker is visible. Additionally, the size of each marker is known: smaller markers have a shorter arrow.
 
-![](../images/lps/global-reference-2.png)
+![](images/lps/global-reference-2.png)
 
 ## 5. Post-Processing and API
 
-![](../images/lps/post-processing-1.png)
+![](images/lps/post-processing-1.png)
 
 The raw plot can be kind of jittery because of image noise, low camera resolution, etc. The system will average the position of each marker over time to get a more stable and accurate plot. This smooth plot is also available using a REST API for other devices to use.
 
@@ -153,15 +151,15 @@ In order to do this, however, the system needs to keep track of each marker. In 
 
 ## Additional Feature: Labels
 
-![](../images/lps/labels-1.png)
+![](images/lps/labels-1.png)
 
 There is another type of marker with 2 black squares. These are labels, and they contain additional squares below the marker to identify it. These squares are read the same way as the squares inside the marker. As shown in the readout, this label has the number “1”. Labels show up with their number on both the raw plot and the smooth plot, and are identified by their number through the API.
 
-![](../images/lps/labels-2.png) ![](../images/lps/labels-3.png)
+![](images/lps/labels-2.png) ![](images/lps/labels-3.png)
 
 I made a sheet of all possible labels. It’s difficult to see each one on the camera view, but the two plots show each label from 0 to 15.
 
-![](../images/lps/labels-4.png)
+![](images/lps/labels-4.png)
 
 # Results
 
@@ -179,7 +177,7 @@ In order to increase the precision of the system, multiple reference markers sho
 
 Because the system detects markers based on color, any other blue objects in the scene may cause markers to be detected which aren’t actually markers. Additionally, color detection is unreliable because changes in lighting type and strength can influence how colors appear.
 
-![](../images/lps/qr_pattern.png)
+![](images/lps/qr_pattern.png)
 
 <Caption>
 An excerpt from the QR code specification describing how the "Finder Pattern" can be recognized.
@@ -191,7 +189,7 @@ However, using a method such as this one would require more processing power, ma
 
 ## Poor Coverage Area
 
-![](../images/lps/coverage_area.png)
+![](images/lps/coverage_area.png)
 
 <Caption>
 A diagram of the effective coverage area of my camera-based LPS system.

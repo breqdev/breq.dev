@@ -12,6 +12,7 @@ import {
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import SEOHelmet from "../../components/SEOHelmet";
 import Comments from "../../components/Comments";
+import { getAllFiles, getContent } from "../../lib/api";
 
 function ProjectInfoItem({ name, icon, value, link }) {
   return (
@@ -60,19 +61,19 @@ function ProjectInfo({ data }) {
     {
       name: "created",
       icon: faCalendarAlt,
-      value: data.mdx.frontmatter.created,
+      value: data.created,
     },
     {
       name: "repo",
       icon: faGithub,
-      value: data.mdx.frontmatter.repo,
-      link: `https://github.com/${data.mdx.frontmatter.repo}`,
+      value: data.repo,
+      link: `https://github.com/${data.repo}`,
     },
     {
       name: "demo",
       icon: faLaptopCode,
-      value: data.mdx.frontmatter.demo,
-      link: data.mdx.frontmatter.demo,
+      value: data.demo,
+      link: data.demo,
     },
   ];
 
@@ -83,7 +84,7 @@ function ProjectInfo({ data }) {
   return (
     <div className="flex flex-wrap justify-center gap-4 text-lg">
       {infoItems}
-      <TagInfo tags={data.mdx.frontmatter.tags} />
+      <TagInfo tags={data.tags} />
     </div>
   );
 }
@@ -92,50 +93,46 @@ function ProjectHeader({ data }) {
   return (
     <section className="rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800">
       <SEOHelmet
-        title={data.mdx.frontmatter.title + " - breq.dev"}
-        description={data.mdx.frontmatter.description}
-        image={data.mdx.frontmatter.image.childImageSharp.fixed.src}
+        title={data.title + " - breq.dev"}
+        description={data.description}
+        image={data.image}
       />
-      <h1 className="text-5xl">{data.mdx.frontmatter.title}</h1>
-      <h2 className="mb-4 text-3xl text-gray-300">
-        {data.mdx.frontmatter.description}
-      </h2>
+      <h1 className="text-5xl">{data.title}</h1>
+      <h2 className="mb-4 text-3xl text-gray-300">{data.description}</h2>
       <ProjectInfo data={data} />
     </section>
   );
 }
 
-export default function Project({ data }) {
+export async function getStaticPaths() {
+  const files = await getAllFiles("./projects");
+
+  const paths = files.map((slug) => ({
+    params: {
+      slug,
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  return {
+    props: await getContent("projects", params.slug),
+  };
+}
+
+export default function Project({ data, content }) {
   return (
     <Page>
       <article className="mx-auto max-w-6xl p-4">
         <ProjectHeader data={data} />
-        <Markdown>{data.mdx.body}</Markdown>
+        <Markdown content={content} />
       </article>
       <Comments />
     </Page>
   );
 }
-
-// export const query = graphql`
-//   query ($id: String) {
-//     mdx(id: { eq: $id }) {
-//       body
-//       frontmatter {
-//         title
-//         description
-//         created
-//         repo
-//         demo
-//         image {
-//           childImageSharp {
-//             fixed {
-//               src
-//             }
-//           }
-//         }
-//         tags
-//       }
-//     }
-//   }
-// `;

@@ -7,11 +7,6 @@ export function Paragraph(props) {
   // Detect if we're inside a poem
   const context = React.useContext(MarkdownContext);
 
-  // Detect if we're wrapping a Gatsby image
-  if (props.children?.props?.className?.startsWith?.("gatsby-resp-image")) {
-    return <p className="my-4 overflow-hidden rounded-2xl">{props.children}</p>;
-  }
-
   if (context.poem) {
     return <p className="my-1">{props.children}</p>;
   }
@@ -96,7 +91,7 @@ const shortcodes = {
   blockquote: BlockQuote,
   kbd: Kbd,
   hr: Hr,
-  inlineCode: InlineCode,
+  code: InlineCode,
 };
 
 export default shortcodes;
