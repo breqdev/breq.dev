@@ -12,7 +12,7 @@ function ProjectVideo(props) {
       muted
       loop
       disablePictureInPicture
-      className="object-cover w-full"
+      className="w-full object-cover"
       tabIndex="-1"
     >
       <source src={props.src} type="video/webm" />
@@ -40,23 +40,23 @@ export default function Project(props) {
   return (
     <Link
       to={"/projects/" + props.slug}
-      className="block bg-white text-black dark:bg-gray-800 dark:text-white p-4 rounded-2xl border-black border-4 focus:border-panpink"
+      className="block rounded-2xl border-4 border-black bg-white p-4 text-black focus:border-panpink dark:bg-gray-800 dark:text-white"
     >
       <section>
-        <div className="font-display h-32 overflow-hidden">
+        <div className="h-32 overflow-hidden font-display">
           <h2 className="text-3xl">{props.frontmatter.title}</h2>
           <h3 className="mb-2">{props.frontmatter.description}</h3>
         </div>
-        <div className="w-full h-52 flex rounded-lg overflow-hidden">
+        <div className="flex h-52 w-full overflow-hidden rounded-lg">
           {media}
         </div>
-        <div className="flex mt-3 items-center gap-2">
+        <div className="mt-3 flex items-center gap-2">
           <FontAwesomeIcon icon={faTag} className="text-lg" />
-          <div className="flex overflow-x-auto gap-2">
-            {props.frontmatter.tags.map((tag) => (
+          <div className="flex gap-2 overflow-x-auto">
+            {props.frontmatter.tags?.map((tag) => (
               <span
                 key={tag}
-                className="inline-block bg-panblue-light text-black px-3 py-1 rounded-full text-sm"
+                className="inline-block rounded-full bg-panblue-light px-3 py-1 text-sm text-black"
               >
                 {tag}
               </span>
