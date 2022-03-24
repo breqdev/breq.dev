@@ -24,7 +24,7 @@ export default function Friends({ data }) {
           cool people that i know!
         </h2>
       </div>
-      <div className="mx-auto flex max-w-2xl flex-col px-4 py-8">
+      <div className="mx-auto flex max-w-2xl flex-col gap-8 px-4 py-8">
         {data.allMdx.nodes.map(
           ({ frontmatter: { name, pronouns, image, links }, body }) => (
             <div className="flex w-full flex-col overflow-hidden rounded-2xl bg-gray-800 text-white md:flex-row">
