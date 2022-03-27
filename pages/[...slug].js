@@ -30,8 +30,8 @@ export default function Post({ data }) {
   return (
     <Page>
       <article className="mx-auto max-w-6xl p-4">
-        <PostHeader data={data} />
-        <Markdown>{data.mdx.body}</Markdown>
+        {/* <PostHeader data={data} />
+        <Markdown>{data.mdx.body}</Markdown> */}
       </article>
       <hr className="border-1 mx-auto my-4 max-w-4xl border-black" />
       <Comments />
