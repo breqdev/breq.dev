@@ -9,6 +9,7 @@ import Markdown from "../components/markdown/Markdown";
 import fs from "fs/promises";
 import matter from "gray-matter";
 import imageSize from "image-size";
+import { serialize } from "next-mdx-remote/serialize";
 
 const ICONS = {
   url: faLink,
@@ -40,7 +41,7 @@ export async function getStaticProps() {
 
       return {
         ...frontmatter,
-        body,
+        body: await serialize(body),
         image: frontmatter.image
           ? {
               src: frontmatter.image,
@@ -82,7 +83,7 @@ export default function Friends({ friends }) {
                   {pronouns}
                 </h3>
               )}
-              {/* <Markdown dark>{body}</Markdown> */}
+              {body && <Markdown content={body} dark />}
               <div className="flex-grow" />
               <div className="flex flex-row gap-4 text-lg">
                 {links?.map(({ icon, link }) => (
