@@ -1,27 +1,38 @@
 import React from "react";
-import Page from "../components/Page";
 import Link from "next/link";
+import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
+import { listContentFiles, loadMarkdown } from "../utils/api";
 
-function Card(props) {
+function Card({ title, date, description, slug }) {
   return (
-    <Link href={"/writing/" + props.slug}>
+    <Link href={"/writing/" + slug}>
       <a className="block rounded-2xl border-4 border-black bg-white p-4 text-black outline-none focus:border-panpink dark:bg-gray-800 dark:text-white">
         <section className="font-display">
-          <h2 className="text-3xl">{props.frontmatter.title}</h2>
-          <p className="italic">{props.frontmatter.date}</p>
+          <h2 className="text-3xl">{title}</h2>
+          <p className="italic">{date}</p>
           <hr className="my-2 border-black" />
-          <p>{props.frontmatter.description}</p>
+          <p>{description}</p>
         </section>
       </a>
     </Link>
   );
 }
 
+export async function getStaticProps() {
+  const posts = await listContentFiles("writing");
+
+  const data = await Promise.all(posts.map(loadMarkdown));
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
 export default function Writing({ data }) {
-  const writing = data.allMdx.edges.map(({ node }) => (
-    <Card key={node.id} {...node} />
-  ));
+  const writing = data.map((data) => <Card key={data.filename} {...data} />);
 
   return (
     <Page className="bg-black text-white">

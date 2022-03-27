@@ -1,9 +1,5 @@
-import fs from "fs/promises";
 import React from "react";
 import Image from "next/image";
-import { serialize } from "next-mdx-remote/serialize";
-import matter from "gray-matter";
-import imageSize from "image-size";
 
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,6 +9,8 @@ import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
 import Markdown from "../components/markdown/Markdown";
 
+import { listContentFiles, loadMarkdown } from "../utils/api";
+
 const ICONS = {
   url: faLink,
   spotify: faSpotify,
@@ -20,44 +18,10 @@ const ICONS = {
 };
 
 export async function getStaticProps() {
-  const files = (await fs.readdir("./friends", { withFileTypes: true }))
-    .filter((file) => file.isFile())
-    .filter((file) => file.name.endsWith(".md"))
-    .map((file) => file.name);
-
+  const files = await listContentFiles("friends");
   const friends = await Promise.all(
-    files.map(async (file) => {
-      const filedata = await fs.readFile(`./friends/${file}`, "utf8");
-
-      const { data: frontmatter, content: body } = matter(filedata);
-
-      const { width, height } = await new Promise((resolve, reject) => {
-        if (frontmatter.image) {
-          imageSize(`public${frontmatter.image}`, (err, dimensions) => {
-            if (err) reject(err);
-            resolve(dimensions);
-          });
-        } else {
-          resolve({});
-        }
-      });
-
-      return {
-        ...frontmatter,
-        filename: file,
-        body: await serialize(body),
-        image: frontmatter.image
-          ? {
-              src: frontmatter.image,
-              width,
-              height,
-            }
-          : null,
-      };
-    })
+    files.map((file) => loadMarkdown(file, { loadBody: true }))
   );
-
-  console.log(friends);
 
   return {
     props: {
