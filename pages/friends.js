@@ -44,6 +44,7 @@ export async function getStaticProps() {
 
       return {
         ...frontmatter,
+        filename: file,
         body: await serialize(body),
         image: frontmatter.image
           ? {
@@ -76,8 +77,11 @@ export default function Friends({ friends }) {
         </h2>
       </div>
       <div className="mx-auto flex max-w-2xl flex-col px-4 py-8">
-        {friends.map(({ name, pronouns, image, links, body }) => (
-          <div className="flex w-full flex-col overflow-hidden rounded-2xl bg-gray-800 text-white md:flex-row">
+        {friends.map(({ filename, name, pronouns, image, links, body }) => (
+          <div
+            className="flex w-full flex-col overflow-hidden rounded-2xl bg-gray-800 text-white md:flex-row"
+            key={filename}
+          >
             {image && <Image className="w-full" {...image} />}
             <div className="flex w-full flex-col p-8">
               <h2 className="font-display text-3xl">{name}</h2>
@@ -95,6 +99,7 @@ export default function Friends({ friends }) {
                     className="text-2xl text-gray-300 transition-colors duration-300 hover:text-white"
                     target="_blank"
                     rel="noopener noreferrer"
+                    key={icon}
                   >
                     <FontAwesomeIcon icon={ICONS[icon]} />
                   </a>
