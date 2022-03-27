@@ -1,7 +1,7 @@
 ---
 name: "Max Michael"
 pronouns: "they/them"
-image: ../images/friends/maxmichael.png
+image: /images/friends/maxmichael.png
 links:
   - icon: url
     link: "https://www.maxmichaelmusic.com/"
