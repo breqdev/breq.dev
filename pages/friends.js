@@ -1,15 +1,17 @@
+import fs from "fs/promises";
 import React from "react";
 import Image from "next/image";
-import Page from "../components/Page";
-import SEOHelmet from "../components/SEOHelmet";
+import { serialize } from "next-mdx-remote/serialize";
+import matter from "gray-matter";
+import imageSize from "image-size";
+
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faSpotify } from "@fortawesome/free-brands-svg-icons";
+
+import Page from "../components/Page";
+import SEOHelmet from "../components/SEOHelmet";
 import Markdown from "../components/markdown/Markdown";
-import fs from "fs/promises";
-import matter from "gray-matter";
-import imageSize from "image-size";
-import { serialize } from "next-mdx-remote/serialize";
 
 const ICONS = {
   url: faLink,
@@ -20,6 +22,7 @@ const ICONS = {
 export async function getStaticProps() {
   const files = (await fs.readdir("./friends", { withFileTypes: true }))
     .filter((file) => file.isFile())
+    .filter((file) => file.name.endsWith(".md"))
     .map((file) => file.name);
 
   const friends = await Promise.all(
@@ -104,30 +107,3 @@ export default function Friends({ friends }) {
     </Page>
   );
 }
-
-// export const query = graphql`
-//   query MyQuery {
-//     allMdx(filter: { fileAbsolutePath: { regex: "/src/friends/" } }) {
-//       nodes {
-//         frontmatter {
-//           name
-//           pronouns
-//           image {
-//             childImageSharp {
-//               gatsbyImageData(
-//                 width: 1000
-//                 placeholder: BLURRED
-//                 formats: [AUTO, WEBP, AVIF]
-//               )
-//             }
-//           }
-//           links {
-//             icon
-//             link
-//           }
-//         }
-//         body
-//       }
-//     }
-//   }
-// `;
