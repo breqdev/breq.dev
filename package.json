@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -55,6 +56,8 @@
     "three": "^0.135.0"
   },
   "devDependencies": {
+    "eslint": "8.13.0",
+    "eslint-config-next": "12.1.5",
     "prettier": "^2.5.1",
     "prettier-plugin-tailwindcss": "^0.1.8",
     "unist-util-inspect": "^6.0.1"

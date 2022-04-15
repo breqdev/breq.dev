@@ -9,6 +9,7 @@ import {
   connectHits,
   Configure,
 } from "react-instantsearch-dom";
+import Image from "next/image";
 
 const SearchBox = connectSearchBox(({ refine, currentRefinement, onFocus }) => (
   <form className="flex items-center border-b-2 border-black px-2 text-black transition-all duration-300 focus-within:border-white md:px-0">
@@ -48,14 +49,14 @@ const Hits = connectHits(({ hits, ...props }) => (
     {hits.length > 0 ? (
       <ul className="flex flex-col gap-4">
         {hits.map((hit) => (
-          <Hit hit={hit} onSelect={props.onSelect} />
+          <Hit hit={hit} onSelect={props.onSelect} key={hit.objectID} />
         ))}
       </ul>
     ) : (
       <p className="text-center">No results found</p>
     )}
     <a href="https://www.algolia.com/">
-      <img
+      <Image
         className="mx-auto mt-2"
         src="/search-by-algolia-light-background.svg"
         alt="search powered by Algolia"

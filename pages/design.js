@@ -51,6 +51,7 @@ function ThreeLights() {
           angle={angle}
           position={[10 * Math.cos(angle), 10 * Math.sin(angle), 10]}
           intensity={1}
+          key={i}
         />
       ))}
     </>
@@ -64,7 +65,7 @@ function Callout(props) {
     <button
       className={
         props.className +
-        " relative group -my-2 px-2 py-0.5 rounded-xl border-4 border-transparent focus:border-panpink outline-none " +
+        " group relative -my-2 rounded-xl border-4 border-transparent px-2 py-0.5 outline-none focus:border-panpink " +
         (props.dark ? "text-white" : "text-black")
       }
       style={{
@@ -79,7 +80,7 @@ function Callout(props) {
       }}
     >
       {props.children}
-      <span className="absolute bg-white text-black text-sm left-0 right-0 bottom-0 z-20 border border-black rounded-full group-hover:opacity-90 group-focus:opacity-90 opacity-0 pointer-events-none transition duration-300 group-hover:translate-y-8 group-focus:translate-y-8">
+      <span className="pointer-events-none absolute left-0 right-0 bottom-0 z-20 rounded-full border border-black bg-white text-sm text-black opacity-0 transition duration-300 group-hover:translate-y-8 group-hover:opacity-90 group-focus:translate-y-8 group-focus:opacity-90">
         {copied ? "copied!" : "click to copy"}
       </span>
     </button>
@@ -95,14 +96,14 @@ export default function Design() {
         title="design language."
         description="colors, fonts, and logos that i use."
       />
-      <div className="bg-black flex-grow max-w-6xl w-full mx-auto flex flex-col md:flex-row">
+      <div className="mx-auto flex w-full max-w-6xl flex-grow flex-col bg-black md:flex-row">
         <div
           className={
             "w-full transition-opacity duration-300 " +
             (loaded ? "opacity-100" : "opacity-0")
           }
         >
-          <div className="sticky h-64 md:h-96 top-32 w-full">
+          <div className="sticky top-32 h-64 w-full md:h-96">
             <Canvas
               camera={{
                 fov: 10,
@@ -116,7 +117,7 @@ export default function Design() {
             </Canvas>
           </div>
         </div>
-        <div className="w-full text-white text-center py-16 pb-96 px-2 flex flex-col gap-64 font-body text-2xl">
+        <div className="flex w-full flex-col gap-64 py-16 px-2 pb-96 text-center font-body text-2xl text-white">
           <section className="flex flex-col gap-8">
             <h1 className="font-display text-5xl">design language</h1>
             <p>i like to keep things consistent.</p>
@@ -218,7 +219,7 @@ export default function Design() {
               format, or get some nice renders from my{" "}
               <a
                 href="https://keybase.pub/breq/branding/"
-                className="-my-2 px-2 py-0.5 rounded-xl bg-white text-black border-white border-4 focus:border-panpink outline-none"
+                className="-my-2 rounded-xl border-4 border-white bg-white px-2 py-0.5 text-black outline-none focus:border-panpink"
               >
                 keybase&nbsp;page&nbsp;
                 <FontAwesomeIcon icon={faExternalLinkAlt} />

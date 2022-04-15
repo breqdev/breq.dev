@@ -46,7 +46,7 @@ export default function Friends({ friends }) {
             className="flex w-full flex-col overflow-hidden rounded-2xl bg-gray-800 text-white md:flex-row"
             key={filename}
           >
-            {image && <Image className="w-full" {...image} />}
+            {image && <Image className="w-full" {...image} alt="" />}
             <div className="flex w-full flex-col p-8">
               <h2 className="font-display text-3xl">{name}</h2>
               {pronouns && (

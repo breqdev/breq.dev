@@ -138,9 +138,13 @@ export default function Code(props) {
       {({ tokens, getLineProps, getTokenProps }) => (
         <pre className="mx-auto my-2 w-max min-w-[min(100%,42rem)] max-w-full overflow-x-auto rounded-2xl bg-[#fff5fc] py-2 pl-4 pr-8 font-mono text-lg dark:bg-gray-800">
           {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })} className="">
+            <div {...getLineProps({ line, key: i })} className="" key={i}>
               {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} className="" />
+                <span
+                  {...getTokenProps({ token, key })}
+                  className=""
+                  key={token}
+                />
               ))}
             </div>
           ))}

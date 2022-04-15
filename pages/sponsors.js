@@ -33,10 +33,11 @@ export default function Sponsors() {
                 href={`https://github.com/${sponsor}`}
                 className="flex flex-col items-center gap-4 rounded-2xl bg-white p-4 text-lg text-black"
               >
-                <img
+                <Image
                   src={`https://github.com/${sponsor}.png`}
                   alt=""
-                  className="h-28 w-28"
+                  width={112}
+                  height={112}
                 />
                 {sponsor}
               </a>
@@ -75,7 +76,11 @@ export default function Sponsors() {
             className="flex w-full flex-grow items-center rounded-full bg-panblue py-4 px-6 text-center text-black"
           >
             <span className="flex-grow">Ko-Fi</span>
-            <Image src="../images/logo/ko-fi.png" className="-my-2 w-12" />
+            <Image
+              src="../images/logo/ko-fi.png"
+              className="-my-2 w-12"
+              alt=""
+            />
           </a>
         </div>
       </div>
