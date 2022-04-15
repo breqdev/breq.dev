@@ -12,7 +12,8 @@ import {
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import SEOHelmet from "../../components/SEOHelmet";
 import Comments from "../../components/Comments";
-import { getAllFiles, getContent } from "../../lib/api";
+import { listContentFiles, loadMarkdown } from "../../utils/api";
+import { parse } from "path";
 
 function ProjectInfoItem({ name, icon, value, link }) {
   return (
@@ -42,7 +43,7 @@ function TagInfo({ tags }) {
     <span className="flex items-center gap-2">
       <FontAwesomeIcon icon={faTag} />
       <ul className="flex list-none gap-2">
-        {tags.map((tag) => (
+        {tags?.map((tag) => (
           <li className="inline" key={tag}>
             <Link href={`/tags/${tag}`}>
               <a className="rounded-full bg-white px-2 py-0.5 text-black outline-none focus:bg-panblue">
@@ -56,24 +57,24 @@ function TagInfo({ tags }) {
   );
 }
 
-function ProjectInfo({ data }) {
+function ProjectInfo(props) {
   const items = [
     {
       name: "created",
       icon: faCalendarAlt,
-      value: data.created,
+      value: props.created,
     },
     {
       name: "repo",
       icon: faGithub,
-      value: data.repo,
-      link: `https://github.com/${data.repo}`,
+      value: props.repo,
+      link: `https://github.com/${props.repo}`,
     },
     {
       name: "demo",
       icon: faLaptopCode,
-      value: data.demo,
-      link: data.demo,
+      value: props.demo,
+      link: props.demo,
     },
   ];
 
@@ -84,53 +85,47 @@ function ProjectInfo({ data }) {
   return (
     <div className="flex flex-wrap justify-center gap-4 text-lg">
       {infoItems}
-      <TagInfo tags={data.tags} />
+      <TagInfo tags={props.tags} />
     </div>
   );
 }
 
-function ProjectHeader({ data }) {
+function ProjectHeader(props) {
   return (
     <section className="rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800">
       <SEOHelmet
-        title={data.title + " - breq.dev"}
-        description={data.description}
-        image={data.image}
+        title={props.title + " - breq.dev"}
+        description={props.description}
+        image={props.image}
       />
-      <h1 className="text-5xl">{data.title}</h1>
-      <h2 className="mb-4 text-3xl text-gray-300">{data.description}</h2>
-      <ProjectInfo data={data} />
+      <h1 className="text-5xl">{props.title}</h1>
+      <h2 className="mb-4 text-3xl text-gray-300">{props.description}</h2>
+      <ProjectInfo {...props} />
     </section>
   );
 }
 
 export async function getStaticPaths() {
-  const files = await getAllFiles("./projects");
-
-  const paths = files.map((slug) => ({
-    params: {
-      slug,
-    },
-  }));
+  const files = await listContentFiles("projects");
 
   return {
-    paths,
+    paths: files.map((file) => ({ params: { slug: parse(file).name } })),
     fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
   return {
-    props: await getContent("projects", params.slug),
+    props: await loadMarkdown(`projects/${params.slug}.md`, { loadBody: true }),
   };
 }
 
-export default function Project({ data, content }) {
+export default function Project(props) {
   return (
     <Page>
       <article className="mx-auto max-w-6xl p-4">
-        <ProjectHeader data={data} />
-        <Markdown content={content} />
+        <ProjectHeader {...props} />
+        <Markdown content={props.body} />
       </article>
       <Comments />
     </Page>

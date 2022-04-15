@@ -9,7 +9,7 @@ status: old
 tags: [python, scratch, javascript]
 ---
 
-![](../images/archives/makergamer.jpg)
+![](archives/makergamer.jpg)
 
 <Caption>
 MakerGamer running on a PocketCHIP

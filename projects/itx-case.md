@@ -7,7 +7,7 @@ created: "2018-19"
 tags: [hardware]
 ---
 
-![](../images/pc-case/photo.jpg)
+![](pc-case/photo.jpg)
 
 <Caption>
 The finished product had about the same footprint as my laptop.
@@ -33,15 +33,15 @@ I decided to build my own case, with a goal of making something no larger than a
 
 The case consists of three wooden panels (the top, bottom, and front) that all screw into the 3D-printed interior structure. Because my 3D printer has only 120mm of build plate space, the interior is split into 6 separate sections which are held together by their mutual attachment to the wooden panels.
 
-![](../images/pc-case/exploded.jpg)
+![](pc-case/exploded.jpg)
 
 The case contains two distinct airflow zones--one for the GPU and one for the CPU. The GPU slots into the left side of the case, connecting to the motherboard using a riser. The PSU sits directly underneath it. Additionyally, there is space for an SSD alongside the fan.
 
-![](../images/pc-case/rightside.jpg)
+![](pc-case/rightside.jpg)
 
 On the left side, a hard drive sits underneath the motherboard, and there is space for an additional drawer for storing USB cables or other small parts. Above these, the motherboard sits on standoffs, and an SSD can attach to the front. This area has its own fan which blows air mostly above the motherboard, but some goes towards the hard drive as well.
 
-![](../images/pc-case/leftside.jpg)
+![](pc-case/leftside.jpg)
 
 In the far corner of the render, you can see a small keyhole shape. This is a place where power button, status LED, or other types of modules can be inserted. I only ever made one such module, a simple on/off switch.
 

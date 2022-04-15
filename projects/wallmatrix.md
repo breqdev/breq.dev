@@ -53,15 +53,15 @@ I've written four basic sources so far.
 
 **ColorBars**: Shows the basic color bar test image on the screen.
 
-![](../images/wallmatrix/weather.jpg)
+![](wallmatrix/weather.jpg)
 
 **Weather**: Shows the current time, temperature, and weather on the screen, using the OpenWeatherMap API.
 
-![](../images/wallmatrix/crypto.jpg)
+![](wallmatrix/crypto.jpg)
 
 **Crypto**: Shows the current price and 24-hour percent change of a cryptocurrency (defaults to ETH), using the CoinMarketCap API.
 
-![](../images/wallmatrix/mbta.jpg)
+![](wallmatrix/mbta.jpg)
 
 **MBTA**: Shows the next northbound Green Line and Orange Line trains passing through the Northeastern University campus, using the MBTA's official API.
 
@@ -69,7 +69,7 @@ These sources inherit from a base `Source` class, which has some data caching lo
 
 ### The Client
 
-![](../images/wallmatrix/client.png)
+![](wallmatrix/client.png)
 
 The client is written in static HTML/CSS/JS. It features a dropdown menu to change the source and a textbox to input messages to flash. I designed it to be usable on a phone, since I figured that's how most people would like to control the sign.
 

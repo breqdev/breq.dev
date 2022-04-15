@@ -9,7 +9,7 @@ demo: https://genregen.breq.dev/
 tags: [javascript, serverless]
 ---
 
-![](../images/genregen.png)
+![](genregen.png)
 
 # Overview
 

@@ -7,7 +7,7 @@ created: "2021"
 tags: [hardware, python]
 ---
 
-![](../images/light-tower.jpg)
+![](light-tower.jpg)
 
 <Caption>NeoPixels never look good on camera.</Caption>
 

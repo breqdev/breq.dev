@@ -9,7 +9,7 @@ demo: https://botbuilder.breq.dev/
 tags: [discord, python, flask, web]
 ---
 
-![](../images/botbuilder.png)
+![](botbuilder.png)
 
 <Caption>A couple demo commands built using Blockly.</Caption>
 

@@ -9,7 +9,7 @@ demo: https://flowspace.breq.dev/
 tags: [node, react, sql]
 ---
 
-![](../images/flowspace/login.png)
+![](flowspace/login.png)
 
 <Caption>
 The login screen for the flowspace web app.
@@ -19,7 +19,7 @@ The login screen for the flowspace web app.
 
 flowspace is a social network website. It has a few basic features, such as direct messaging, friend requests, and public and private posts. Notably, there are two "tiers" of friends--the "wave" tier includes anyone you acknowledge and allow to message you, and the "follow" tier puts that person's posts into your feed. This outer tier maintains a gate around private messaging, helping to reduce the potential for harassment, but it also doesn't require someone to be shown every post from someone just to exchange messages.
 
-![](../images/flowspace/feed.png)
+![](flowspace/feed.png)
 
 <Caption>
 The primary feed, containing posts of people you follow.
@@ -41,7 +41,7 @@ The client app is a static single-page-application built with React and create-r
 
 Authentication is handled through JWTs stored in localStorage. Upon login, a user will get two tokens: an access token and a refresh token. The refresh token will allow generating a new access token for up to seven days, letting users stay logged in for a while. Tokens are signed using both a secret key and the user's password hash, ensuring that if a user resets their password, any existing tokens will be automatically invalidated. Password resets and email verification is handled through [SendGrid](https://sendgrid.com/). (Gotta love free tiers, amirite?)
 
-![](../images/flowspace/messages.png)
+![](flowspace/messages.png)
 
 <Caption>
 The messages page.
@@ -53,7 +53,7 @@ In addition to the REST API, a WebSocket "Gateway" endpoint is provided. This al
 
 It works! And while it's far from complete, the feature set is pretty good. I don't think I'm going to work more on it, considering it's first and foremost a learning project for myself and nobody else is using it much.
 
-![](../images/flowspace/profile.png)
+![](flowspace/profile.png)
 
 I hadn't worked with NodeJS in the backend before. Previously, my go-to was always Flask for these kinds of APIs, and I'd been tinkering with [Quart](https://pgjones.gitlab.io/quart/) as well (which is a reimplementation of Flask that uses an event loop via Python's asyncio library). Eventually, I asked myself why I was using this small fork of Flask just for the event loop feature when NodeJS was famous for its event loop and I was already familiar with JavaScript on the client side. I wasn't sure how long it would take to get up to speed with NodeJS, but I found it pretty easy to learn from a client-side background. (Having Node APIs not match Web APIs was a bit jarring, and I'd like to look into [Deno](https://deno.land/) at some point, but it just doesn't seem like the ecosystem is there yet.)
 

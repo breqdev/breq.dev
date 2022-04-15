@@ -34,8 +34,6 @@ export async function loadImage(src) {
     });
   });
 
-  console.log(join("public", "images", src), width, height);
-
   return {
     src: "/" + join("images", src),
     width,
@@ -53,14 +51,12 @@ export async function loadMarkdown(path, { loadBody = false }) {
           remarkPlugins: [remarkMath, remarkAbcjs, remarkUnwrapImages],
           rehypePlugins: [
             rehypeKatex,
-            [rehypeImgSize, { dir: "public" }],
+            [rehypeImgSize, { dir: "public/images" }],
             rehypeSlug,
           ],
         },
       })
     : null;
-
-  console.log(path);
 
   return {
     ...frontmatter,

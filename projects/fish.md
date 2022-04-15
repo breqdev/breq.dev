@@ -21,7 +21,7 @@ For those of you lucky enough to not know what the Billy Bass fish is, let me en
 
 And here's the song I loaded on:
 
-<div style="display: flex; justify-content: center;">
+<div style={{display: "flex", justifyContent: "center"}}>
     <iframe src="https://open.spotify.com/embed/track/6LxcPUqx6noURdA5qc4BAT" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 </div>
 
@@ -53,7 +53,7 @@ Here I faced a dilemma. I wanted the electronics to be small, so that they could
 
 However, I wasn't sure if the larger Arduino form factor would fit. I considered rigging something up with a custom perfboard to attach a voltage regulator to the Feather... but I eventually decided against it. I needed to play by the rules of the ecosystem so that I could take advantage of its ease-of-use. I bought the VS1053 and the motor driver for the Arduino.
 
-![](../images/fish.jpg)
+![](fish.jpg)
 
 <Caption>
 Here's the finished product! You can see the Adafruit Metro (Arduino clone),

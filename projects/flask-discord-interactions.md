@@ -9,7 +9,7 @@ demo: https://breqbot-lite.breq.dev/
 tags: [python, flask, discord]
 ---
 
-![](../images/breqbot-lite.png)
+![](breqbot-lite.png)
 
 <Caption>
 Some commands for Breqbot Lite, a bot I made with this library.

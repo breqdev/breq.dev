@@ -9,7 +9,7 @@ status: old
 tags: [blockchain, python]
 ---
 
-![](../images/blockchat.png)
+![](blockchat.png)
 
 # Description
 

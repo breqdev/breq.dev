@@ -44,11 +44,11 @@ Using an official Twitter widget as a model, I tried to emulate the design as be
 
 Then came the data fetching. I noticed that the official Twitter embed was sending a request to `cdn.syndication.twimg.com`:
 
-![](../images/twitter/network-request.png)
+![](twitter/network-request.png)
 
 ...and getting back a response with info about the tweet:
 
-![](../images/twitter/response.png)
+![](twitter/response.png)
 
 So, just call this endpoint from the React component and we're good, right?
 
