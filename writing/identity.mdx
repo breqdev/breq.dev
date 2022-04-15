@@ -10,16 +10,6 @@ content:
   - discussion of anatomy
 ---
 
-export function DsmTitle({ char, children }) {
-  return (
-    <div className="text-center text-2xl max-w-3xl mx-auto my-8 font-display">
-      <span className="text-7xl">{char}</span>
-      <br />
-      {children}
-    </div>
-  );
-}
-
 <DsmTitle char="A">
   A marked incongruence between one’s experienced/expressed gender and assigned
   gender, of at least 6 months’ duration, as manifested by at least two of the
@@ -117,15 +107,15 @@ Do I have a “strong desire” to be rid of my “sex characteristics”? Do I 
 
 Perhaps?
 
-**Lemma 1.** $$\forall P, woman(p) \implies penis(p)$$.
+**Lemma 1.** $\forall P, woman(p) \implies penis(p)$.
 
 For all people, if a person is a woman, then she does not have a dick. That’s what we’re taught by society, ever since middle school sex ed. Therefore, if I “want to be a woman,” then I should cut off my penis, Q.E.D.
 
-**Lemma 2.** $$\exists P : woman(p) \wedge penis(p)$$.
+**Lemma 2.** $\exists P : woman(p) \wedge penis(p)$.
 
 But there exists a person, who is confident in her identity as a woman, but has a penis. She is me. Disproof by counterexample, Q.E.D.
 
-**Lemma 3.** $$\neg (C(m) \wedge C(s) \wedge C(c)) \implies \neg C(m) \vee \neg C(s) \vee \neg C(c)$$.
+**Lemma 3.** $\neg (C(m) \wedge C(s) \wedge C(c)) \implies \neg C(m) \vee \neg C(s) \vee \neg C(c)$.
 
 Mathematicians state that the rules of logic are consistent, in that a contradiction cannot exist. I don’t doubt the rules of mathematics. Therefore, the inconsistency must lie between reality and culture, Q.E.D. And if I was one to bet, I’d guess the latter of the <span className="font-bold">two</span>.
 
@@ -324,30 +314,26 @@ The Pain Scale already shows us that:
 
 ...but I’ve already taken a leap of faith in blocking out expectations and placing confidence in my own feelings.
 
-...and I don’t need an absolute measure. I have an initial state, $$p_0$$, of my pain before transitioning. I have a final state, $$p_c$$, of my pain after transitioning. Even with a measurement error of $$M$$, we can still arrive at a precise delta.
+...and I don’t need an absolute measure. I have an initial state, $p_0$, of my pain before transitioning. I have a final state, $p_c$, of my pain after transitioning. Even with a measurement error of $M$, we can still arrive at a precise delta.
 
-$$
-(p_c+M)-(p_0+M)=(p_c-p_0)+(M-M)=p_c-p_0=p
-$$
+$$(p_c+M)-(p_0+M)=(p_c-p_0)+(M-M)=p_c-p_0=p$$
 
 So, with both confidence in my algebra and apologies to Eula Biss, I’ll proceed.
 
-**January 1, 2019.** As much as I tried to chase after a sense of purpose, it never seemed to manifest itself. I threw myself into schoolwork and extracurriculars, trying to find something that could take away the numbness of life. Let $$p_0=6$$.
+**January 1, 2019.** As much as I tried to chase after a sense of purpose, it never seemed to manifest itself. I threw myself into schoolwork and extracurriculars, trying to find something that could take away the numbness of life. Let $p_0=6$.
 
-**January 1, 2020.** I started to feel that transition was probably my best shot at happiness, but it just seemed like such a far-away possibility. I felt powerless. Let $$p_1=8$$.
+**January 1, 2020.** I started to feel that transition was probably my best shot at happiness, but it just seemed like such a far-away possibility. I felt powerless. Let $p_1=8$.
 
-**January 1, 2021.** I had begun talking to my friends about my gender identity. By hanging out with them, I finally started to feel how incredible life could be if I lived as myself. But this only confirmed my belief that things weren’t going to get better unless I continued to transition. Despite those brief periods of wonderful emotion, the numbness was growing. I started cutting to cope with it, and quickly found myself unable to stop. Let $$p_2=10$$.
+**January 1, 2021.** I had begun talking to my friends about my gender identity. By hanging out with them, I finally started to feel how incredible life could be if I lived as myself. But this only confirmed my belief that things weren’t going to get better unless I continued to transition. Despite those brief periods of wonderful emotion, the numbness was growing. I started cutting to cope with it, and quickly found myself unable to stop. Let $p_2=10$.
 
-**Present day.** Finally, I wear the clothes I want to wear, I use the name I want to use, and I live my life as myself. I feel incredible. Every day I wake up excited to experience my own life, instead of the life society tried to force upon me. And yet, I’m spending my first months in an unfamiliar place, without support from my parents. At least I don’t have to worry about homesickness. Let $$p_c=3$$.
+**Present day.** Finally, I wear the clothes I want to wear, I use the name I want to use, and I live my life as myself. I feel incredible. Every day I wake up excited to experience my own life, instead of the life society tried to force upon me. And yet, I’m spending my first months in an unfamiliar place, without support from my parents. At least I don’t have to worry about homesickness. Let $p_c=3$.
 
-...but that isn’t the final measurement. It’s $$p_c$$, not $$p_f$$. My current state of pain is not necessarily my final state of pain. And algebra can’t help me find that.
+...but that isn’t the final measurement. It’s $p_c$, not $p_f$. My current state of pain is not necessarily my final state of pain. And algebra can’t help me find that.
 
-Maybe calculus can, though. Every day, I’m feeling more and more confident in myself. The first time I wore a skirt, my hands were shaking for the entire day. Today, it’s just another Tuesday. The pain is decreasing. Let $$\frac{d}{dt} p_t <0$$.
+Maybe calculus can, though. Every day, I’m feeling more and more confident in myself. The first time I wore a skirt, my hands were shaking for the entire day. Today, it’s just another Tuesday. The pain is decreasing. Let $\frac{d}{dt} p_t < 0$.
 
 But how will things be in the future? The derivative is less than zero, so the function cannot approach a value greater than 3.
 
-$$
-0 < p_t < 3
-$$
+$$0 < p_t < 3$$
 
 I might never reach zero pain. Yet, every day, I feel more and more alive.

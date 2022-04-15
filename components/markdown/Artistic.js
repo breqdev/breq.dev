@@ -51,11 +51,23 @@ function Half(props) {
   );
 }
 
+// Used in "Identity"
+function DsmTitle({ char, children }) {
+  return (
+    <div className="mx-auto my-8 max-w-3xl text-center font-display text-2xl">
+      <span className="text-7xl">{char}</span>
+      <br />
+      {children}
+    </div>
+  );
+}
+
 const shortcodes = {
   Caption,
   Poem,
   Indent,
   Half,
+  DsmTitle,
 };
 
 export default shortcodes;
