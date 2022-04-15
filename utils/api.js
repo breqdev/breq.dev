@@ -62,6 +62,7 @@ export async function loadMarkdown(path, { loadBody = false }) {
     ...frontmatter,
     filename: path,
     slug: parse(path).name,
+    source: parse(path).dir,
     body: mdx,
     image: await loadImage(frontmatter.image),
     date: frontmatter.date
