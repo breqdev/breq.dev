@@ -34,34 +34,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-// export const query = graphql`
-//   query {
-//     allMdx(
-//       filter: { fileAbsolutePath: { regex: "/projects/" } }
-//       sort: { fields: [frontmatter___created], order: DESC }
-//     ) {
-//       edges {
-//         node {
-//           id
-//           slug
-//           frontmatter {
-//             title
-//             description
-//             tags
-//             image {
-//               childImageSharp {
-//                 gatsbyImageData(
-//                   width: 1000
-//                   placeholder: BLURRED
-//                   formats: [AUTO, WEBP, AVIF]
-//                 )
-//               }
-//             }
-//             video
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;

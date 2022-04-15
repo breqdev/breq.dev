@@ -11,6 +11,7 @@ import SEOHelmet from "../components/SEOHelmet";
 
 import TerminalWrapper from "../components/index/TerminalWrapper";
 import LazyWrapper from "../utils/LazyWrapper";
+import { listContentFiles, loadMarkdown } from "../utils/api";
 
 const Background = React.lazy(() => import("../components/index/IndexCanvas"));
 
@@ -45,21 +46,30 @@ function ScrollDownHint() {
   );
 }
 
+export async function getStaticProps() {
+  const projects = await listContentFiles("projects");
+
+  const data = await Promise.all(projects.map(loadMarkdown));
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
 function Projects({ data }) {
-  const projects = data.allMdx.edges
-    .filter(({ node }) => {
-      if (node.frontmatter.video) {
+  const projects = data
+    .filter((data) => {
+      if (data.video) {
         return true;
-      } else if (
-        node.frontmatter.image &&
-        !/\/default/.test(node.frontmatter.image.absolutePath)
-      ) {
+      } else if (data.image && !/\/default/.test(data.image.src)) {
         return true;
       } else {
         return false;
       }
     })
-    .map(({ node }) => <ProjectCard key={node.id} {...node} />);
+    .map((data) => <ProjectCard key={data.filename} {...data} />);
 
   const isDoubleWide = useMediaQuery({ query: "(min-width: 768px)" });
   const isTripleWide = useMediaQuery({ query: "(min-width: 1024px)" });
@@ -80,7 +90,7 @@ function Projects({ data }) {
   );
 }
 
-export default function Index({ data }) {
+export default function Index(props) {
   return (
     <Page>
       <SEOHelmet
@@ -115,7 +125,7 @@ export default function Index({ data }) {
           style={{ height: "200vh" }}
           className="relative z-10 mx-auto max-w-6xl px-8 py-32 text-center font-display"
         >
-          {/* <Projects data={data} /> */}
+          <Projects {...props} />
         </div>
 
         <div
