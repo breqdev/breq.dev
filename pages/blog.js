@@ -3,6 +3,7 @@ import React from "react";
 
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
+import { listContentFiles, loadMarkdown } from "../utils/api";
 import parseDate from "../utils/parseDate";
 
 function Post(props) {
@@ -12,22 +13,32 @@ function Post(props) {
     <Link href={"/" + props.slug.replace(/-/g, "/")}>
       <a className="block rounded-2xl border-4 border-black bg-white p-4 text-black outline-none focus:border-panpink">
         <section className="flex h-full flex-col">
-          <h2 className="mb-2 text-2xl">{props.frontmatter.title}</h2>
+          <h2 className="mb-2 text-2xl">{props.title}</h2>
           <p>{date}</p>
           <div className="flex flex-grow flex-col justify-center">
             <hr className="my-1 border-black " />
           </div>
-          <p>{props.frontmatter.description}</p>
+          <p>{props.description}</p>
         </section>
       </a>
     </Link>
   );
 }
 
+export async function getStaticProps() {
+  const posts = await listContentFiles("posts");
+
+  const data = await Promise.all(posts.map(loadMarkdown));
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
 export default function Posts({ data }) {
-  const posts = data.allMdx.edges.map(({ node }) => (
-    <Post key={node.id} {...node} />
-  ));
+  const posts = data.map((data) => <Post key={data.filename} {...data} />);
 
   return (
     <Page className="bg-black text-white">
@@ -41,23 +52,3 @@ export default function Posts({ data }) {
     </Page>
   );
 }
-
-// export const query = graphql`
-//   query {
-//     allMdx(
-//       filter: { fileAbsolutePath: { regex: "/posts/" } }
-//       sort: { fields: slug, order: DESC }
-//     ) {
-//       edges {
-//         node {
-//           id
-//           slug
-//           frontmatter {
-//             title
-//             description
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;

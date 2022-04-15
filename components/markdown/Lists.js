@@ -2,17 +2,17 @@ import React from "react";
 
 function Ul(props) {
   return (
-    <p className="max-w-prose mx-auto text-lg">
-      <ul className="list-disc ml-8">{props.children}</ul>
-    </p>
+    <div className="mx-auto max-w-prose text-lg">
+      <ul className="ml-8 list-disc">{props.children}</ul>
+    </div>
   );
 }
 
 function Ol(props) {
   return (
-    <p className="max-w-prose mx-auto text-lg">
-      <ol className="list-decimal ml-8">{props.children}</ol>
-    </p>
+    <div className="mx-auto max-w-prose text-lg">
+      <ol className="ml-8 list-decimal">{props.children}</ol>
+    </div>
   );
 }
 

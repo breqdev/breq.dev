@@ -46,24 +46,3 @@ export default function Writing({ data }) {
     </Page>
   );
 }
-
-// export const query = graphql`
-//   query {
-//     allMdx(
-//       filter: { fileAbsolutePath: { regex: "/writing/" } }
-//       sort: { fields: [frontmatter___date], order: DESC }
-//     ) {
-//       edges {
-//         node {
-//           id
-//           slug
-//           frontmatter {
-//             title
-//             date(formatString: "MMMM DD, YYYY")
-//             description
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
