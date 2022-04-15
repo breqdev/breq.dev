@@ -2,8 +2,8 @@
 layout: project
 title: Wall Matrix
 description: A small, flashy display I made to hang on the wall.
-image: "../images/default.png"
-video: /videos/matrix.480p.webm
+image: default.png
+video: matrix.480p.webm
 created: "2021"
 repo: Breq16/wallmatrix
 tags: [python, hardware]

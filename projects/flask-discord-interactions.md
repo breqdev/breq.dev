@@ -2,7 +2,7 @@
 layout: project
 title: Flask Discord Interactions
 description: A Python library for making HTTP-based Discord bots with Flask.
-image: "../images/breqbot-lite.png"
+image: breqbot-lite.png
 created: "2021"
 repo: Breq16/flask-discord-interactions
 demo: https://breqbot-lite.breq.dev/

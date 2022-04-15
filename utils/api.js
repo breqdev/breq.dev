@@ -25,14 +25,19 @@ export async function loadImage(src) {
   }
 
   const { width, height } = await new Promise((resolve, reject) => {
-    imageSize(join("public", src), (err, dimensions) => {
-      if (err) reject(err);
+    imageSize(join("public", "images", src), (err, dimensions) => {
+      if (err) {
+        console.log("error loading image", err);
+        reject(err);
+      }
       resolve(dimensions);
     });
   });
 
+  console.log(join("public", "images", src), width, height);
+
   return {
-    src,
+    src: "/" + join("images", src),
     width,
     height,
   };
@@ -54,6 +59,8 @@ export async function loadMarkdown(path, { loadBody = false }) {
         },
       })
     : null;
+
+  console.log(path);
 
   return {
     ...frontmatter,

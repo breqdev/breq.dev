@@ -2,7 +2,7 @@
 layout: project
 title: Snowflake
 description: A scalable service to generate time-ordered, unique ID numbers.
-image: "../images/default.png"
+image: default.png
 created: "2020"
 repo: Breq16/snowflake
 demo: /apps/snowflake.html

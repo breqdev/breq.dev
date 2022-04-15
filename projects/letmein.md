@@ -2,8 +2,8 @@
 layout: project
 title: LetMeIn
 description: Automate unlocking doors at Northeastern's IV dorm.
-image: "../images/default.png"
-video: /videos/letmein.480p.webm
+image: default.png
+video: letmein.480p.webm
 created: "2021"
 repo: Breq16/letmein
 tags: [puppeteer, node]

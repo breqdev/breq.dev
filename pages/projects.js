@@ -3,10 +3,11 @@ import SEOHelmet from "../components/SEOHelmet";
 
 import Page from "../components/Page";
 import ProjectCard from "../components/ProjectCard";
+import { listContentFiles, loadMarkdown } from "../utils/api";
 
 export default function Projects({ data }) {
-  const projects = data.allMdx.edges.map(({ node }) => (
-    <ProjectCard key={node.id} {...node} />
+  const projects = data.map((data) => (
+    <ProjectCard key={data.filename} {...data} />
   ));
 
   return (
@@ -20,6 +21,18 @@ export default function Projects({ data }) {
       </div>
     </Page>
   );
+}
+
+export async function getStaticProps() {
+  const projects = await listContentFiles("projects");
+
+  const data = await Promise.all(projects.map(loadMarkdown));
+
+  return {
+    props: {
+      data,
+    },
+  };
 }
 
 // export const query = graphql`

@@ -2,7 +2,7 @@
 layout: project
 title: Mini-ITX Computer Case
 description: My custom-built PC case that fit in my backpack.
-image: "../images/pc-case/photo.jpg"
+image: pc-case/photo.jpg
 created: "2018-19"
 tags: [hardware]
 ---

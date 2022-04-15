@@ -2,7 +2,7 @@
 layout: project
 title: Mindjacker
 description: A Python library wrapper to interact with the NXT
-image: "../images/default.png"
+image: default.png
 created: "2017"
 repo: Breq16/mindjacker
 status: old

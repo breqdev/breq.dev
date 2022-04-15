@@ -2,7 +2,7 @@
 layout: project
 title: 3D Printer Light Tower
 description: An indicator to represent 3D printer status.
-image: "../images/light-tower.jpg"
+image: light-tower.jpg
 created: "2021"
 tags: [hardware, python]
 ---

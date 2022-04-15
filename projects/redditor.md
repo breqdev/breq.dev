@@ -2,7 +2,7 @@
 layout: project
 title: AutoRedditor
 description: A service for caching and providing random Reddit posts.
-image: "../images/default.png"
+image: default.png
 created: "2020"
 repo: Breq16/redditor
 demo: /apps/redditor.html

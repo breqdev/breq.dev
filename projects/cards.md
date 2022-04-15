@@ -2,7 +2,7 @@
 layout: project
 title: Cards
 description: Generate and embed digital cards featuring custom images and text.
-image: "../images/card.png"
+image: card.png
 created: "2020"
 repo: Breq16/cards
 demo: https://cards.breq.dev/

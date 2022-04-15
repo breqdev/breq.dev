@@ -2,7 +2,7 @@
 layout: project
 title: flowspace
 description: A social network.
-image: ../images/flowspace/login.png
+image: flowspace/login.png
 created: "2021"
 repo: Breq16/flowspace
 demo: https://flowspace.breq.dev/

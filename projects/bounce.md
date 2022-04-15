@@ -2,7 +2,7 @@
 layout: project
 title: Bounce Homepage
 description: A simple homepage for my school laptop.
-image: "../images/website/bounce.png"
+image: website/bounce.png
 demo: https://breq.dev/apps/bounce.html
 created: "2017"
 tags: [canvas, javascript]
