@@ -29,7 +29,7 @@ I wanted to make a light show like the Coldplay concert that would cost almost n
 
 The Vibrance system has three main parts: the _controller_, the _relay_, and the _clients_. Working backwards from the clients:
 
-<img className="mx-auto" src="/diagrams/vibrance_simple.svg" />
+![](diagrams/vibrance_simple.svg)
 
 ## Clients
 
@@ -75,7 +75,7 @@ A variety of example scripts are provided by Vibrance.
 
 ## Block Diagram
 
-<img src="/diagrams/vibrance.svg" />
+![](diagrams/vibrance.svg)
 
 # Results
 
