@@ -43,7 +43,7 @@ export default function Navbar() {
           </Link>
 
           <button
-            className="rounded-xl border-4 border-black p-2 text-lg text-black lg:hidden"
+            className="flex h-12 w-12 items-center justify-center rounded-xl border-4 border-black text-lg text-black lg:hidden"
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
