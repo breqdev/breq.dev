@@ -36,7 +36,7 @@ function ScrollDownHint() {
       ref={iconRef}
     >
       <button
-        className="focus:text-panyellow outline-none transition-colors duration-300"
+        className="outline-none transition-colors duration-300 focus:text-panyellow"
         onClick={handleScroll}
       >
         <FontAwesomeIcon icon={faChevronDown} />
@@ -71,7 +71,7 @@ function Projects({ data }) {
 
   return (
     <div
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-y-hidden gap-8 bg-black rounded-2xl"
+      className="grid grid-cols-1 gap-8 overflow-y-hidden rounded-2xl bg-black md:grid-cols-2 lg:grid-cols-3"
       tabIndex="-1"
     >
       {projects.slice(0, numProjects).map((project, idx) => (
@@ -88,16 +88,16 @@ export default function Index({ data }) {
         title="breq.dev. hey, i'm brooke."
         description="welcome to my little patch of internet. view my projects, posts, and miscellaneous experiments here."
       />
-      <div className="bg-black text-white relative z-10">
+      <div className="relative z-10 bg-black text-white">
         <div
           style={{ height: "200vh" }}
-          className="max-w-6xl mx-auto px-16 text-right font-display"
+          className="mx-auto max-w-6xl px-16 text-right font-display"
         >
-          <div className="h-screen relative">
+          <div className="relative h-screen">
             <ScrollDownHint />
           </div>
 
-          <h1 className="text-7xl mb-2">
+          <h1 className="mb-2 text-7xl">
             hey, i'm brooke.
             <br />
             <span className="text-gray-500">she/her.</span>
@@ -107,28 +107,28 @@ export default function Index({ data }) {
 
         <div
           style={{ height: "200vh" }}
-          className="max-w-6xl mx-auto px-8 py-32 text-center font-display relative"
+          className="relative mx-auto max-w-6xl px-8 py-32 text-center font-display"
         >
-          <h2 className="text-6xl mb-2 sticky top-0 py-32">projects</h2>
+          <h2 className="sticky top-0 mb-2 py-32 text-6xl">projects</h2>
         </div>
 
         <div
           style={{ height: "200vh" }}
-          className="max-w-6xl mx-auto px-8 py-32 text-center font-display relative z-10"
+          className="relative z-10 mx-auto max-w-6xl px-8 py-32 text-center font-display"
         >
           <Projects data={data} />
         </div>
 
         <div
           style={{ height: "200vh" }}
-          className="max-w-6xl mx-auto px-8 py-32 text-center font-display"
+          className="mx-auto max-w-6xl px-8 py-32 text-center font-display"
         >
-          <h2 className="text-6xl mb-2 sticky top-0 py-32">about me</h2>
+          <h2 className="sticky top-0 mb-2 py-32 text-6xl">about me</h2>
         </div>
 
         <div
           style={{ height: "200vh" }}
-          className="max-w-prose mx-auto px-8 font-display text-2xl"
+          className="mx-auto max-w-prose px-8 font-display text-2xl"
         >
           <p>
             hey, i'm brooke, and i'm here to learn, create, and enjoy it.
@@ -138,8 +138,8 @@ export default function Index({ data }) {
             dev.
             <br />
             <br />
-            my favorite tools are python, react, redis, and linux. someday i
-            want to learn rust.
+            my favorite tools are python, react, redis, and linux. i've also
+            started learning rust.
             <br />
             <br />
             i believe that the only way to learn something fully is to be
@@ -147,9 +147,8 @@ export default function Index({ data }) {
             applying it to a problem yourself.
             <br />
             <br />
-            i'm a transgender woman, and i'm still learning to love myself. i
-            want to be myself and leave an impact on the world that i can be
-            proud of.
+            i'm a trans woman, and i'm still learning to love myself. i want to
+            be myself and leave an impact on the world that i can be proud of.
             <br />
             <br />
             technology should be for everyone. i think it's important to create
