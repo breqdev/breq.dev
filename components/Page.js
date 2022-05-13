@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SEOHelmet from "./SEOHelmet";
+import Script from "next/script";
 
 export default function Page({ children, className }) {
   useEffect(() => {
@@ -28,7 +29,7 @@ export default function Page({ children, className }) {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-black dark:text-white">
+    <div className="flex min-h-screen flex-col bg-white dark:bg-black dark:text-white">
       <SEOHelmet
         title="hey, i'm brooke."
         description="welcome to my little patch of internet. here you'll find my projects over the years."
@@ -43,6 +44,10 @@ export default function Page({ children, className }) {
         {children}
       </article>
       <Footer />
+      <Script
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "e735a672f6cc409684d4fcc9df92b84c"}'
+      />
     </div>
   );
 }

@@ -96,7 +96,7 @@ function ProjectHeader(props) {
       <SEOHelmet
         title={props.title + " - breq.dev"}
         description={props.description}
-        image={props.image}
+        image={props.image.src}
       />
       <h1 className="text-5xl">{props.title}</h1>
       <h2 className="mb-4 text-3xl text-gray-300">{props.description}</h2>
