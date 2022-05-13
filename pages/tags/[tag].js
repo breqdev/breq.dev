@@ -28,7 +28,7 @@ export async function getStaticProps({ params }) {
 
 const href = (data) => {
   if (data.source == "posts") {
-    return `/${data.slug.replaceAll("-", "/")}`;
+    return `/${data.slug.replace(/-/, "/")}`;
   } else {
     return `/projects/${data.slug}`;
   }
