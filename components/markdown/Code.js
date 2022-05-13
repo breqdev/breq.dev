@@ -1,5 +1,13 @@
 import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
+import Prism from "prism-react-renderer/prism";
+
+// https://github.com/FormidableLabs/prism-react-renderer#faq
+(() => {
+  (typeof global !== "undefined" ? global : window).Prism = Prism;
+
+  require("prismjs/components/prism-rust");
+})();
 
 const lightTheme = {
   blue: "#1bb3ff",

@@ -6,6 +6,7 @@ image: default.png
 video: matrix.480p.webm
 created: "2021"
 repo: Breq16/wallmatrix
+demo: https://matrix.breq.dev/
 tags: [python, hardware]
 ---
 

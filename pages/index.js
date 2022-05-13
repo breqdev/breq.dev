@@ -147,8 +147,8 @@ export default function Index(props) {
             dev.
             <br />
             <br />
-            my favorite tools are python, react, redis, and linux. someday i
-            want to learn rust.
+            my favorite tools are python, react, redis, and linux. i've also
+            started learning rust.
             <br />
             <br />
             i believe that the only way to learn something fully is to be
@@ -156,9 +156,8 @@ export default function Index(props) {
             applying it to a problem yourself.
             <br />
             <br />
-            i'm a transgender woman, and i'm still learning to love myself. i
-            want to be myself and leave an impact on the world that i can be
-            proud of.
+            i'm a trans woman, and i'm still learning to love myself. i want to
+            be myself and leave an impact on the world that i can be proud of.
             <br />
             <br />
             technology should be for everyone. i think it's important to create
