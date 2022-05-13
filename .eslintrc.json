@@ -1,0 +1,7 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "react/no-unescaped-entities": "off", // allow typing ' etc
+    "@next/next/no-css-tags": "off" // required for web font optimization
+  }
+}
