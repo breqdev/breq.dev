@@ -73,7 +73,7 @@ export default function Navbar() {
 
           <div className="flex-grow" />
 
-          <Search onSelect={handleSelect} />
+          {/* <Search onSelect={handleSelect} /> */}
         </div>
       </div>
     </nav>
