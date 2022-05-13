@@ -30,7 +30,9 @@ export default function Comments(props) {
     box.appendChild(script);
 
     return () => {
-      box.removeChild(script);
+      if (box.contains(script)) {
+        box.removeChild(script);
+      }
     };
   }, []);
 
