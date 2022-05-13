@@ -77,9 +77,11 @@ export default function Sponsors() {
           >
             <span className="flex-grow">Ko-Fi</span>
             <Image
-              src="../images/logo/ko-fi.png"
+              src="/images/logo/ko-fi.png"
               className="-my-2 w-12"
               alt=""
+              width={12 * 4}
+              height={12 * 4}
             />
           </a>
         </div>
