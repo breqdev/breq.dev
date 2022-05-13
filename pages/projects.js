@@ -28,9 +28,13 @@ export async function getStaticProps() {
 
   const data = await Promise.all(projects.map(loadMarkdown));
 
+  const sorted = data.sort(
+    (a, b) => parseFloat(b.created) - parseFloat(a.created)
+  );
+
   return {
     props: {
-      data,
+      data: sorted,
     },
   };
 }

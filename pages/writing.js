@@ -24,9 +24,11 @@ export async function getStaticProps() {
 
   const data = await Promise.all(posts.map(loadMarkdown));
 
+  const sorted = data.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+
   return {
     props: {
-      data,
+      data: sorted,
     },
   };
 }
