@@ -16,6 +16,8 @@ export default function SEOHelmet(props) {
       <meta name="og:url" content="https://breq.dev/" />
       <meta name="og:site_name" content="breq.dev" />
       <meta name="og:type" content="website" />
+
+      <meta name="twitter:card" content="summary_large_image" />
     </Head>
   );
 }
