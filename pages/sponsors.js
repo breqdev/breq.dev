@@ -70,7 +70,7 @@ export default function Sponsors() {
             <FontAwesomeIcon icon={faHeart} />
           </a>
           <a
-            href="https://ko-fi.com/breq16"
+            href="https://ko-fi.com/breqdev"
             target="_blank"
             rel="noreferrer noopener"
             className="flex w-full flex-grow items-center rounded-full bg-panblue py-4 px-6 text-center text-black"
