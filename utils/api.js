@@ -19,13 +19,13 @@ export async function listContentFiles(path) {
     .map((file) => join(path, file));
 }
 
-export async function loadImage(src) {
+export async function loadImage(src, { dir = "images" } = {}) {
   if (!src) {
     return {};
   }
 
   const { width, height } = await new Promise((resolve, reject) => {
-    imageSize(join("public", "images", src), (err, dimensions) => {
+    imageSize(join("public", dir, src), (err, dimensions) => {
       if (err) {
         console.log("error loading image", err);
         reject(err);
@@ -35,13 +35,13 @@ export async function loadImage(src) {
   });
 
   return {
-    src: "/" + join("images", src),
+    src: "/" + join(dir, src),
     width,
     height,
   };
 }
 
-export async function loadMarkdown(path, { loadBody = false }) {
+export async function loadMarkdown(path, { loadBody = false } = {}) {
   const filedata = await fs.readFile(path, "utf8");
   const { data: frontmatter, content: body } = matter(filedata);
 
