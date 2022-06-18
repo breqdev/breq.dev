@@ -53,6 +53,7 @@ export async function loadImage(src, { dir = "images" } = {}) {
   const exif = await new Promise((resolve, reject) => {
     if (!src.endsWith(".jpg")) {
       resolve(null);
+      return;
     }
 
     try {
@@ -62,7 +63,9 @@ export async function loadImage(src, { dir = "images" } = {}) {
           reject(err);
         }
 
-        const camera = `${data.image.Make} ${data.image.Model}`;
+        const camera = data.image
+          ? `${data.image.Make} ${data.image.Model}`
+          : "";
 
         const capturedOn = formatExifDate(data.exif.DateTimeOriginal);
         const editedOn = formatExifDate(data.image.ModifyDate);
