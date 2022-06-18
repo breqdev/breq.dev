@@ -3,6 +3,10 @@ import { join } from "path";
 import { ExifImage } from "exif";
 
 function formatExifDate(dateString) {
+  if (!dateString) {
+    return "";
+  }
+
   let [date, time] = dateString.split(" ");
   date = date.replace(/:/g, "-");
   time = time.split(":").slice(0, 2).join(":");
@@ -15,6 +19,10 @@ function dmsToDecimal(dms) {
 }
 
 function formatExifGPS(lat, lon) {
+  if (!lat || !lon) {
+    return ["", ""];
+  }
+
   lat = dmsToDecimal(lat);
   lon = dmsToDecimal(lon);
 
