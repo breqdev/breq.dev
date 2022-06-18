@@ -6,9 +6,9 @@ import { loadImage } from "./images";
 const PHOTOS_PATH = "public/photos";
 
 export async function getPhotoSets() {
-  const folders = (
-    await fs.readdir(PHOTOS_PATH, { withFileTypes: true })
-  ).filter((f) => f.isDirectory());
+  const folders = (await fs.readdir(PHOTOS_PATH, { withFileTypes: true }))
+    .filter((f) => f.isDirectory())
+    .reverse();
 
   const sets = await Promise.all(
     folders.map(async (folder) => {
