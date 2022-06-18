@@ -67,8 +67,9 @@ export async function loadImage(src, { dir = "images" } = {}) {
     try {
       new ExifImage({ image: join("public", dir, src) }, (err, data) => {
         if (err) {
-          console.log("error loading image exif", err);
+          console.warn("error loading image exif", err);
           reject(err);
+          return;
         }
 
         const camera = data.image
