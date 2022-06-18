@@ -1,6 +1,7 @@
 import fs from "fs/promises";
-import { join, parse } from "path";
-import { loadImage, loadMarkdown } from "./api";
+import { join } from "path";
+import { loadMarkdown } from "./api";
+import { loadImage } from "./images";
 
 const PHOTOS_PATH = "public/photos";
 

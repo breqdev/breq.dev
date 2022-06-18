@@ -6,7 +6,13 @@ import SEOHelmet from "../components/SEOHelmet";
 import { getPhotoSets } from "../utils/photos";
 import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendarAlt,
+  faCamera,
+  faMapMarkerAlt,
+  faPencilAlt,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 
 Modal.setAppElement("#__next");
 
@@ -23,6 +29,60 @@ function SetHeading({ set }) {
     <div className="mx-auto mt-12 mb-8 flex max-w-xl flex-col gap-4 rounded-3xl border-2 border-white p-8">
       <h2 className="text-center font-display text-4xl">{set.title}</h2>
       <Markdown content={set.body} dark />
+    </div>
+  );
+}
+
+function ExifItem({ icon, text, link }) {
+  return (
+    <div className="flex flex-row items-center font-body text-gray-300">
+      <span className="w-4">
+        <FontAwesomeIcon icon={icon} />
+      </span>
+      <span className="ml-2">
+        {link ? (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            {text}
+          </a>
+        ) : (
+          text
+        )}
+      </span>
+    </div>
+  );
+}
+
+function PhotoDetail({ photo, onClose }) {
+  return (
+    <div className="flex max-w-5xl border-2 border-white bg-black text-white">
+      <div className="aspect-square h-full">
+        <Image
+          src={photo.src}
+          width={photo.width}
+          height={photo.height}
+          alt={photo.description}
+          className=""
+        />
+      </div>
+      <div className="flex w-full max-w-md flex-col gap-2 px-4">
+        <button className="self-end py-4 px-2 text-7xl" onClick={onClose}>
+          <FontAwesomeIcon icon={faTimes} />
+        </button>
+        <p className="font-body">{photo.description}</p>
+        <ExifItem icon={faCamera} text={photo.exif.camera} />
+        <ExifItem icon={faCalendarAlt} text={photo.exif.capturedOn} />
+        <ExifItem icon={faPencilAlt} text={photo.exif.editedOn} />
+        <ExifItem
+          icon={faMapMarkerAlt}
+          text={photo.exif.gps}
+          link={photo.exif.mapsLink}
+        />
+      </div>
     </div>
   );
 }
@@ -58,26 +118,7 @@ export default function Photos({ sets }) {
                   overlayClassName="bg-black/25 opacity-100 fixed inset-0 z-50 pt-48 px-16 pb-32"
                   onRequestClose={() => setOpen(null)}
                 >
-                  <div className="flex max-w-5xl border-2 border-white bg-black text-white">
-                    <div className="aspect-square h-full">
-                      <Image
-                        src={photo.src}
-                        width={photo.width}
-                        height={photo.height}
-                        alt={photo.description}
-                        className=""
-                      />
-                    </div>
-                    <div className="flex w-full max-w-md flex-col gap-4 ">
-                      <button
-                        className="self-end py-4 px-6 text-7xl"
-                        onClick={() => setOpen(null)}
-                      >
-                        <FontAwesomeIcon icon={faTimes} />
-                      </button>
-                      <p className="p-4">{photo.description}</p>
-                    </div>
-                  </div>
+                  <PhotoDetail photo={photo} onClose={() => setOpen(null)} />
                 </Modal>
               </>
             ))}
