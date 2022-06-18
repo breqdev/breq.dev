@@ -68,7 +68,7 @@ export async function loadImage(src, { dir = "images" } = {}) {
       new ExifImage({ image: join("public", dir, src) }, (err, data) => {
         if (err) {
           console.warn("error loading image exif", err);
-          reject(err);
+          resolve(null);
           return;
         }
 
@@ -94,7 +94,7 @@ export async function loadImage(src, { dir = "images" } = {}) {
       });
     } catch (err) {
       console.log("error loading image exif", err);
-      reject(err);
+      resolve(null);
     }
   });
 
