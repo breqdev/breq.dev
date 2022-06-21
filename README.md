@@ -2,15 +2,14 @@
 
 if you're just here to browse, you'll have a much better experience over on [breq.dev](https://breq.dev/).
 
-but i've opened this up to let you peek into the internals if you'd like. look at my use of [gatsby plugins](gatsby-config.js), skim through how i [generate nodes](gatsby-node.js), glance through how i made that [3D scrolling](src/components/index/Greeting.js) effect, or understand how i theme the [code snippets](src/components/markdown/Code.js). or, you could always spoil the [easter egg](src/components/index/TerminalWrapper.js) for yourself. nobody's gonna know you cheated but you.
+but i've opened this up to let you peek into the internals if you'd like. look at my use of [nextjs plugins](next.config.js), skim through how i [manage tags](utils/tags.js), glance through how i made that [3D scrolling](src/components/index/Greeting.js) effect, or understand how i theme the [code snippets](src/components/markdown/Code.js). or, you could always spoil the [easter egg](src/components/index/TerminalWrapper.js) for yourself. nobody's gonna know you cheated but you.
 
 ## stack details
 
-- react + gatsby (primary framework)
-- unified + mdx (content)
+- react + nextjs (primary framework)
+- mdx (content)
 - font awesome (icons)
 - three.js + react-three-fiber (3d animation)
-- algolia + react-instantsearch-dom (search)
 - katex + remark-math + rehype-katex (math typesetting)
 - postcss + tailwind (styling)
 - javascript-terminal + react-terminal-component (easter egg)
@@ -36,7 +35,7 @@ content on the site is structured into the following categories:
 - posts (blog entries, [/blog](https://breq.dev/blog) and [/2022/01/03/unified](https://breq.dev/2022/01/03/unified) etc)
 - projects (project writeups, [/projects](https://breq.dev/projects))
 - writing (creative writing, [/writing](https://breq.dev/writing))
-- music (coming soon?)
+- photos (taken by me on trips or wherever, [/photos](https://breq.dev/photos))
 
 ## license
 
