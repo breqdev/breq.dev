@@ -90,7 +90,7 @@ function PhotoDetail({ photo, onClose, open }) {
         </div>
         <div className="flex flex-grow flex-col gap-2 overflow-auto px-4 py-4 md:w-72 md:max-w-md md:flex-shrink-0 md:py-0">
           <button
-            className="hidden self-end py-4 px-2 text-7xl outline-none focus:text-panpink md:block"
+            className="hidden self-end py-4 px-2 text-7xl outline-none focus-visible:text-panpink md:block"
             onClick={onClose}
             ref={closeButton}
           >
@@ -135,7 +135,7 @@ export default function Photos({ sets }) {
                     height={photo.height}
                     alt={photo.description}
                   />
-                  <div className="absolute inset-0 z-20 -m-1 hidden border-8 border-panpink group-focus:block" />
+                  <div className="absolute inset-0 z-20 -m-1 hidden border-8 border-panpink group-focus-visible:block" />
                 </button>
                 <PhotoDetail
                   photo={photo}
