@@ -20,9 +20,8 @@ export default function Navbar() {
     projects: "/projects",
     writing: "/writing",
     blog: "/blog",
-    music: "/music",
     tags: "/tags",
-    friends: "/friends",
+    photos: "/photos",
     etc: "/etc",
   };
 

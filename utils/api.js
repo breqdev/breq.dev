@@ -1,7 +1,6 @@
 import fs from "fs/promises";
 import { serialize } from "next-mdx-remote/serialize";
 import matter from "gray-matter";
-import imageSize from "image-size";
 import { join, parse } from "path";
 
 import remarkMath from "remark-math";
@@ -10,6 +9,7 @@ import remarkUnwrapImages from "remark-unwrap-images";
 import rehypeSlug from "rehype-slug";
 import rehypeKatex from "rehype-katex";
 import rehypeImgSize from "rehype-img-size";
+import { loadImage } from "./images";
 
 export async function listContentFiles(path) {
   return (await fs.readdir(path, { withFileTypes: true }))
@@ -19,29 +19,7 @@ export async function listContentFiles(path) {
     .map((file) => join(path, file));
 }
 
-export async function loadImage(src) {
-  if (!src) {
-    return {};
-  }
-
-  const { width, height } = await new Promise((resolve, reject) => {
-    imageSize(join("public", "images", src), (err, dimensions) => {
-      if (err) {
-        console.log("error loading image", err);
-        reject(err);
-      }
-      resolve(dimensions);
-    });
-  });
-
-  return {
-    src: "/" + join("images", src),
-    width,
-    height,
-  };
-}
-
-export async function loadMarkdown(path, { loadBody = false }) {
+export async function loadMarkdown(path, { loadBody = false } = {}) {
   const filedata = await fs.readFile(path, "utf8");
   const { data: frontmatter, content: body } = matter(filedata);
 

@@ -45,6 +45,9 @@ export default function Etc() {
           <EtcBlock title="contact me" page="/contact">
             ways to contact me.
           </EtcBlock>
+          <EtcBlock title="friends" page="/friends">
+            cool people that i know.
+          </EtcBlock>
           {sponsors?.length && (
             <EtcBlock title="sponsors" page="/sponsors">
               supporters of my work. thank you!
