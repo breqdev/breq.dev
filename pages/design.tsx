@@ -9,15 +9,15 @@ import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import { useMediaQuery } from "react-responsive";
 import { Object3D } from "three";
 
-function InnerLogo(props) {
-  const model = React.useRef<Object3D>();
+function InnerLogo({ onLoad }: { onLoad: () => void }) {
+  const model = React.useRef<Object3D>(null);
 
   const motionSafe = useMediaQuery({
     query: "(prefers-reduced-motion: no-preference)",
   });
 
   React.useEffect(() => {
-    const listener = (event) => {
+    const listener = () => {
       if (model.current && motionSafe) {
         model.current.rotation.y = 2e-3 * window.scrollY;
       }
@@ -35,7 +35,7 @@ function InnerLogo(props) {
       url="/models/inner_logo.glb"
       ref={model}
       scale={[0.8, 0.8, 0.8]}
-      onLoad={props.onLoad}
+      onLoad={onLoad}
     />
   );
 }
@@ -59,28 +59,38 @@ function ThreeLights() {
   );
 }
 
-function Callout(props) {
+function Callout({
+  className,
+  dark,
+  color,
+  children,
+}: {
+  className?: string;
+  dark?: boolean;
+  color?: string;
+  children: string;
+}) {
   const [copied, setCopied] = React.useState(false);
 
   return (
     <button
       className={
-        props.className +
+        (className || "") +
         " group relative -my-2 rounded-xl border-4 border-transparent px-2 py-0.5 outline-none focus:border-panpink " +
-        (props.dark ? "text-white" : "text-black")
+        (dark ? "text-white" : "text-black")
       }
       style={{
-        backgroundColor: props.color || "#ffffff",
+        backgroundColor: color || "#ffffff",
       }}
       onClick={() => {
         setCopied(true);
         setTimeout(() => {
           setCopied(false);
         }, 2000);
-        navigator.clipboard.writeText(props.children);
+        navigator.clipboard.writeText(children);
       }}
     >
-      {props.children}
+      {children}
       <span className="pointer-events-none absolute left-0 right-0 bottom-0 z-20 rounded-full border border-black bg-white text-sm text-black opacity-0 transition duration-300 group-hover:translate-y-8 group-hover:opacity-90 group-focus:translate-y-8 group-focus:opacity-90">
         {copied ? "copied!" : "click to copy"}
       </span>

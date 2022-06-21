@@ -6,10 +6,10 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import useSWR from "swr";
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 // Ko-fi has no API
-const KOFI_SPONSORS = null;
+const KOFI_SPONSORS: string[] | null = null;
 
 export default function Sponsors() {
   const { data } = useSWR("https://sponsors.breq.workers.dev/", fetcher);
@@ -25,7 +25,7 @@ export default function Sponsors() {
         </p>
         <div className="mt-16 flex flex-row flex-wrap justify-center gap-4">
           {[
-            ...(data?.sponsors?.map?.((sponsor) => (
+            ...(data?.sponsors?.map?.((sponsor: string) => (
               <a
                 key={sponsor}
                 target="_blank"
@@ -42,7 +42,7 @@ export default function Sponsors() {
                 {sponsor}
               </a>
             )) || []),
-            ...(KOFI_SPONSORS?.map?.((sponsor) => (
+            ...(KOFI_SPONSORS?.map?.((sponsor: string) => (
               <div
                 key={sponsor}
                 className="flex flex-col items-center gap-4 rounded-2xl bg-white p-4 text-lg text-black"

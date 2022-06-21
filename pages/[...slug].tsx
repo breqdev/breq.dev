@@ -5,10 +5,16 @@ import Markdown from "../components/markdown/Markdown";
 import SEOHelmet from "../components/SEOHelmet";
 import Comments from "../components/Comments";
 import parseDate from "../utils/parseDate";
-import { listContentFiles, loadMarkdown } from "../utils/api";
+import {
+  BasicMarkdownInfo,
+  listContentFiles,
+  loadMarkdown,
+} from "../utils/api";
 import { parse } from "path";
+import { PostInfo } from "../utils/posts";
+import { GetStaticPaths, GetStaticProps } from "next";
 
-function PostHeader(props) {
+function PostHeader(props: BasicMarkdownInfo & PostInfo) {
   const date = parseDate(props.slug);
 
   return (
@@ -26,7 +32,7 @@ function PostHeader(props) {
   );
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const files = await listContentFiles("posts");
   const names = files.map((file) => parse(file).name);
   const paths = names.map((name) => name.split("-"));
@@ -35,17 +41,19 @@ export async function getStaticPaths() {
     paths: paths.map((slug) => ({ params: { slug } })),
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = (params?.slug as string[]).join("-");
+
   return {
-    props: await loadMarkdown(`posts/${params.slug.join("-")}.md`, {
+    props: await loadMarkdown<PostInfo>(`posts/${slug}.md`, {
       loadBody: true,
     }),
   };
-}
+};
 
-export default function Post(props) {
+export default function Post(props: BasicMarkdownInfo & PostInfo) {
   return (
     <Page>
       <article className="mx-auto max-w-6xl p-4">

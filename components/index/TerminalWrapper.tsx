@@ -22,7 +22,7 @@ function useKonamiCode() {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    const keyDownHandler = ({ code }) => {
+    const keyDownHandler = ({ code }: { code: string }) => {
       if (success) {
         return;
       }
@@ -54,15 +54,13 @@ export default function TerminalWrapper() {
   const konamiCodeSuccess = useKonamiCode();
 
   useEffect(() => {
-    let timeout;
-
     if (konamiCodeSuccess) {
-      timeout = setTimeout(() => setTerminalShown(true), 500);
-    }
+      let timeout = setTimeout(() => setTerminalShown(true), 500);
 
-    return () => {
-      clearTimeout(timeout);
-    };
+      return () => {
+        clearTimeout(timeout);
+      };
+    }
   }, [konamiCodeSuccess]);
 
   return terminalShown ? (

@@ -2,9 +2,10 @@ import React, { useRef } from "react";
 import { Object3D } from "three";
 import Gltf from "../models/Gltf";
 import useScroll from "../models/useScroll";
+import { SceneProps } from "./Scene";
 
-function Desk({ visible }) {
-  const model = useRef<Object3D>();
+function Desk({ visible }: SceneProps) {
+  const model = useRef<Object3D>(null);
 
   useScroll((scroll, height) => {
     if (model.current) {
@@ -26,7 +27,7 @@ function Desk({ visible }) {
   );
 }
 
-export default function About({ visible }) {
+export default function About({ visible }: SceneProps) {
   return (
     <>
       <Desk visible={visible} />

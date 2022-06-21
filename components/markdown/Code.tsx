@@ -4,12 +4,20 @@ import Prism from "prism-react-renderer/prism";
 
 // https://github.com/FormidableLabs/prism-react-renderer#faq
 (() => {
-  (typeof global !== "undefined" ? global : window).Prism = Prism;
+  ((typeof global !== "undefined" ? global : window) as any).Prism = Prism;
 
   require("prismjs/components/prism-rust");
 })();
 
-const lightTheme = {
+type Colors = {
+  blue: string;
+  pink: string;
+  gray: string;
+  purple: string;
+  dark: string;
+};
+
+const lightTheme: Colors = {
   blue: "#1bb3ff",
   pink: "#ff218c",
   gray: "#9CA3AF",
@@ -17,7 +25,7 @@ const lightTheme = {
   dark: "#404040",
 };
 
-const darkTheme = {
+const darkTheme: Colors = {
   blue: "#1bb3ff",
   pink: "#ff218c",
   gray: "#9CA3AF",
@@ -25,7 +33,7 @@ const darkTheme = {
   dark: "#cccccc",
 };
 
-function theme(colors): PrismTheme {
+function theme(colors: Colors): PrismTheme {
   return {
     plain: {
       color: colors.dark,
@@ -118,7 +126,7 @@ function theme(colors): PrismTheme {
   };
 }
 
-export default function Code(props) {
+export default function Code({ children }: { children: React.ReactElement }) {
   const [dark, setDark] = React.useState(false);
 
   React.useLayoutEffect(() => {
@@ -131,8 +139,8 @@ export default function Code(props) {
   }, []);
 
   if (
-    props.children.props.originalType !== "code" ||
-    typeof props.children.props.children !== "string"
+    children.props.originalType !== "code" ||
+    typeof children.props.children !== "string"
   ) {
     console.error("Code component must wrap a <code> tag with a string inside");
     return null;
@@ -142,8 +150,8 @@ export default function Code(props) {
     <Highlight
       {...defaultProps}
       theme={theme(dark ? darkTheme : lightTheme)}
-      code={props.children.props.children.trim()}
-      language={props.children.props.className?.replace("language-", "")}
+      code={children.props.children.trim()}
+      language={children.props.className?.replace("language-", "")}
     >
       {({ tokens, getLineProps, getTokenProps }) => (
         <pre className="mx-auto my-2 w-max min-w-[min(100%,42rem)] max-w-full overflow-x-auto rounded-2xl bg-[#fff5fc] py-2 pl-4 pr-8 font-mono text-lg dark:bg-gray-800">

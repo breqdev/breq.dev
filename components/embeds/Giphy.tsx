@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Giphy({ id }) {
+export default function Giphy({ id }: { id: string }) {
   return (
     <iframe
       title="gif from giphy"

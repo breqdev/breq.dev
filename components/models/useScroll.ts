@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 
-export default function useScroll(callback, options = null) {
+type ScrollCallback = (position: number, innerHeight: number) => void;
+type ScrollOptions = { global?: boolean };
+
+export default function useScroll(
+  callback: ScrollCallback,
+  options: ScrollOptions = {}
+) {
   useEffect(() => {
     const listener = () => {
       let scroll = -document.body.getBoundingClientRect().top;

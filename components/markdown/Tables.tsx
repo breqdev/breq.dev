@@ -1,23 +1,21 @@
 import React from "react";
 
-function Table(props) {
+function Table({ children }: { children: React.ReactNode }) {
   return (
-    <table className="mx-auto border-black dark:border-white border-2 rounded-xl border-separate border-spacing-0 overflow-hidden">
-      {props.children}
+    <table className="border-spacing-0 mx-auto border-separate overflow-hidden rounded-xl border-2 border-black dark:border-white">
+      {children}
     </table>
   );
 }
 
-function Th(props) {
+function Th({ children }: { children: React.ReactNode }) {
   return (
-    <th className="border-black dark:border-white border p-2">
-      {props.children}
-    </th>
+    <th className="border border-black p-2 dark:border-white">{children}</th>
   );
 }
 
-function Td(props) {
-  return <td className="border-gray-500 border p-2">{props.children}</td>;
+function Td({ children }: { children: React.ReactNode }) {
+  return <td className="border border-gray-500 p-2">{children}</td>;
 }
 
 const shortcodes = {

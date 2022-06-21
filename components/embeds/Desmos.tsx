@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Desmos({ id }) {
+export default function Desmos({ id }: { id: string }) {
   return (
     <div className="aspect-w-3 aspect-h-3 md:aspect-h-2 max-w-6xl">
       <iframe

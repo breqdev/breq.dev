@@ -11,13 +11,17 @@ import React, { useRef, useEffect } from "react";
 </script>
 */
 
-export default function Comments(props) {
-  const commentBox = useRef(null);
+export default function Comments() {
+  const commentBox = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const box = commentBox.current;
-    const script = document.createElement("script");
 
+    if (!box) {
+      return;
+    }
+
+    const script = document.createElement("script");
     script.async = true;
     script.src = "https://utteranc.es/client.js";
     script.crossOrigin = "anonymous";

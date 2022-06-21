@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import { join } from "path";
-import { loadMarkdown } from "./api";
-import { loadImage } from "./images";
+import { BasicMarkdownInfo, loadMarkdown } from "./api";
+import { ImageInfo, loadImage } from "./images";
 
 const PHOTOS_PATH = "public/photos";
 
@@ -10,7 +10,14 @@ type PhotoSetMetadata = {
   descriptions: string[];
 };
 
-export async function getPhotoSets() {
+export type PhotoSetInfo = {
+  title: string;
+  photos: (ImageInfo & { description: string })[];
+};
+
+export async function getPhotoSets(): Promise<
+  (PhotoSetInfo & BasicMarkdownInfo)[]
+> {
   const folders = (await fs.readdir(PHOTOS_PATH, { withFileTypes: true }))
     .filter((f) => f.isDirectory())
     .reverse();
@@ -50,7 +57,7 @@ export async function getPhotoSets() {
           ...photo,
           description: descriptions[i],
         })),
-      };
+      } as PhotoSetInfo & BasicMarkdownInfo;
     })
   );
 

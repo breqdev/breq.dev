@@ -6,24 +6,32 @@ import SEOHelmet from "../../components/SEOHelmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { parse } from "path";
-import { listContentFiles, loadMarkdown } from "../../utils/api";
+import {
+  BasicMarkdownInfo,
+  listContentFiles,
+  loadMarkdown,
+} from "../../utils/api";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { WritingInfo } from "../../utils/writing";
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const files = await listContentFiles("writing");
 
   return {
     paths: files.map((file) => ({ params: { slug: parse(file).name } })),
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
-    props: await loadMarkdown(`writing/${params.slug}.mdx`, { loadBody: true }),
+    props: await loadMarkdown<WritingInfo>(`writing/${params?.slug}.mdx`, {
+      loadBody: true,
+    }),
   };
-}
+};
 
-export default function Writing(props) {
+export default function Writing(props: BasicMarkdownInfo & WritingInfo) {
   const [acknowledged, setAcknowledged] = React.useState(
     props.content === null
   );
@@ -89,17 +97,3 @@ export default function Writing(props) {
     </Page>
   );
 }
-
-// export const query = graphql`
-//   query ($id: String) {
-//     mdx(id: { eq: $id }) {
-//       body
-//       frontmatter {
-//         title
-//         pdf
-//         date(formatString: "MMMM DD, YYYY")
-//         content
-//       }
-//     }
-//   }
-// `;

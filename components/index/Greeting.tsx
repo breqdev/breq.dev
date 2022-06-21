@@ -2,9 +2,10 @@ import React, { useRef } from "react";
 import { Light, Object3D } from "three";
 import Gltf from "../models/Gltf";
 import useScroll from "../models/useScroll";
+import { SceneProps } from "./Scene";
 
-function InnerLogo({ visible, onLoad }) {
-  const model = useRef<Object3D>();
+function InnerLogo({ visible, onLoad }: SceneProps) {
+  const model = useRef<Object3D>(null);
 
   useScroll((scroll, height) => {
     const movement_start = height * (0 / 6);
@@ -32,7 +33,7 @@ function InnerLogo({ visible, onLoad }) {
 
       model.current.rotation.y = 2e-3 * scroll;
     }
-  }, model);
+  });
 
   return (
     <Gltf
@@ -45,7 +46,14 @@ function InnerLogo({ visible, onLoad }) {
   );
 }
 
-function DimmingLight({ color, angle, visible }) {
+function DimmingLight({
+  color,
+  angle,
+  visible,
+}: {
+  color: string;
+  angle: number;
+} & SceneProps) {
   const position: [number, number, number] = [
     10 * Math.cos(angle),
     10 * Math.sin(angle),
@@ -69,21 +77,21 @@ function DimmingLight({ color, angle, visible }) {
   );
 }
 
-function ThreeLights({ visible }) {
+function ThreeLights({ visible }: { visible: boolean }) {
   return (
     <>
       <DimmingLight
-        color={0xff1b8d}
+        color="#ff1b8d"
         angle={(Math.PI * 3) / 6}
         visible={visible}
       />
       <DimmingLight
-        color={0xffda00}
+        color="#ffda00"
         angle={(Math.PI * 7) / 6}
         visible={visible}
       />
       <DimmingLight
-        color={0x1bb3ff}
+        color="#1bb3ff"
         angle={(Math.PI * 11) / 6}
         visible={visible}
       />
@@ -91,7 +99,7 @@ function ThreeLights({ visible }) {
   );
 }
 
-export default function Greeting({ visible, onLoad }) {
+export default function Greeting({ visible, onLoad }: SceneProps) {
   return (
     <>
       <InnerLogo visible={visible} onLoad={onLoad} />

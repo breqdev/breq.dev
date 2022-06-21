@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import Markdown from "../components/markdown/Markdown";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
-import { getPhotoSets } from "../utils/photos";
+import { getPhotoSets, PhotoSetInfo } from "../utils/photos";
 import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,19 +12,23 @@ import {
   faMapMarkerAlt,
   faPencilAlt,
   faTimes,
+  IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
+import { BasicMarkdownInfo } from "../utils/api";
+import { ImageInfo } from "../utils/images";
+import { GetStaticProps } from "next";
 
 Modal.setAppElement("#__next");
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       sets: await getPhotoSets(),
     },
   };
-}
+};
 
-function SetHeading({ set }) {
+function SetHeading({ set }: { set: PhotoSetInfo & BasicMarkdownInfo }) {
   return (
     <article className="mx-4">
       <div className="mx-auto mt-12 mb-8 flex max-w-xl flex-col gap-4 rounded-3xl border-2 border-white p-4 md:p-8">
@@ -35,7 +39,15 @@ function SetHeading({ set }) {
   );
 }
 
-function ExifItem({ icon, text, link = null }) {
+function ExifItem({
+  icon,
+  text,
+  link,
+}: {
+  icon: IconDefinition;
+  text: string;
+  link?: string;
+}) {
   return (
     <div className="flex flex-row items-center font-body text-gray-300">
       <span className="w-4">
@@ -59,8 +71,16 @@ function ExifItem({ icon, text, link = null }) {
   );
 }
 
-function PhotoDetail({ photo, onClose, open }) {
-  const closeButton = useRef(null);
+function PhotoDetail({
+  photo,
+  onClose,
+  open,
+}: {
+  photo: ImageInfo & { description: string };
+  onClose: () => void;
+  open: string | null;
+}) {
+  const closeButton = useRef<HTMLButtonElement>(null);
 
   return (
     <Modal
@@ -69,7 +89,7 @@ function PhotoDetail({ photo, onClose, open }) {
       overlayClassName="bg-black/25 opacity-100 fixed inset-0 z-50 pt-32 md:pt-48 px-8 sm:px-16 pb-32"
       onRequestClose={onClose}
       onAfterOpen={() => {
-        closeButton.current.focus();
+        closeButton.current?.focus();
       }}
     >
       <div className="flex max-w-5xl flex-col border-2 border-white bg-black text-white md:flex-row">
@@ -97,22 +117,30 @@ function PhotoDetail({ photo, onClose, open }) {
             <FontAwesomeIcon icon={faTimes} />
           </button>
           <p className="font-body">{photo.description}</p>
-          <ExifItem icon={faCamera} text={photo.exif.camera} />
-          <ExifItem icon={faCalendarAlt} text={photo.exif.capturedOn} />
-          <ExifItem icon={faPencilAlt} text={photo.exif.editedOn} />
-          <ExifItem
-            icon={faMapMarkerAlt}
-            text={photo.exif.gps}
-            link={photo.exif.mapsLink}
-          />
+          {photo.exif && (
+            <>
+              <ExifItem icon={faCamera} text={photo.exif.camera} />
+              <ExifItem icon={faCalendarAlt} text={photo.exif.capturedOn} />
+              <ExifItem icon={faPencilAlt} text={photo.exif.editedOn} />
+              <ExifItem
+                icon={faMapMarkerAlt}
+                text={photo.exif.gps}
+                link={photo.exif.mapsLink}
+              />
+            </>
+          )}
         </div>
       </div>
     </Modal>
   );
 }
 
-export default function Photos({ sets }) {
-  const [open, setOpen] = useState(null);
+export default function Photos({
+  sets,
+}: {
+  sets: (BasicMarkdownInfo & PhotoSetInfo)[];
+}) {
+  const [open, setOpen] = useState<string | null>(null);
 
   return (
     <Page className="bg-black text-white">

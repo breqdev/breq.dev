@@ -14,7 +14,7 @@ import CREDITS from "./terminalContent/CREDITS.txt";
 export default function Terminal() {
   const socket = useRef<WebSocket>();
   const chatName = useRef("");
-  const inbox = useRef([]);
+  const inbox = useRef<{ content: string; nickname: string }[]>([]);
 
   const emulatorState = useMemo(
     () =>
@@ -31,7 +31,7 @@ export default function Terminal() {
         commandMapping: CommandMapping.create({
           ...defaultCommandMapping,
           connect: {
-            function: (state, ops) => {
+            function: (state: any, ops: string[]) => {
               chatName.current = ops[0];
 
               if (!ops[0]) {
@@ -59,8 +59,8 @@ export default function Terminal() {
             optDef: {},
           },
           connection: {
-            function: (state, ops) => {
-              if (socket.current.readyState === WebSocket.OPEN) {
+            function: (state: any, ops: string[]) => {
+              if (socket.current?.readyState === WebSocket.OPEN) {
                 return {
                   output: OutputFactory.makeTextOutput(
                     "connected as " + chatName.current
@@ -78,8 +78,8 @@ export default function Terminal() {
             optDef: {},
           },
           send: {
-            function: (state, ops) => {
-              if (socket.current.readyState !== WebSocket.OPEN) {
+            function: (state: any, ops: string[]) => {
+              if (socket.current?.readyState !== WebSocket.OPEN) {
                 return {
                   output: OutputFactory.makeErrorOutput({
                     source: "send",
@@ -103,7 +103,7 @@ export default function Terminal() {
             optDef: {},
           },
           inbox: {
-            function: (state, ops) => {
+            function: (state: any, ops: string[]) => {
               const newMessages = inbox.current.slice();
               inbox.current = [];
 

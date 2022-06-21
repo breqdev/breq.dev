@@ -38,7 +38,7 @@ export default function Background() {
             Scene ? (
               <Scene
                 visible={i === sceneIndex}
-                onLoad={i === 0 ? onLogoLoad : null}
+                onLoad={i === 0 ? onLogoLoad : undefined}
               />
             ) : null
           )}

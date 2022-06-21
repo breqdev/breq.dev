@@ -2,7 +2,7 @@ import imageSize from "image-size";
 import { join } from "path";
 import { ExifImage } from "exif";
 
-function formatExifDate(dateString) {
+function formatExifDate(dateString?: string) {
   if (!dateString) {
     return "";
   }
@@ -13,34 +13,39 @@ function formatExifDate(dateString) {
   return `${date} ${time}`;
 }
 
-function dmsToDecimal(dms) {
+function dmsToDecimal(dms: [number, number, number]) {
   const [degrees, minutes, seconds] = dms;
   return degrees + minutes / 60 + seconds / 3600;
 }
 
-function formatExifGPS(lat, lon) {
-  if (!lat || !lon) {
+function formatExifGPS(
+  latDMS?: [number, number, number],
+  lonDMS?: [number, number, number]
+) {
+  if (!latDMS || !lonDMS) {
     return ["", ""];
   }
 
-  lat = dmsToDecimal(lat);
-  lon = dmsToDecimal(lon);
+  let lat = dmsToDecimal(latDMS);
+  let lon = dmsToDecimal(lonDMS);
 
   const mapsLink = `http://www.google.com/maps/place/${lat},${-lon}/@${lat},${-lon},17z/data=!3m1!1e3`;
 
+  let latString: string, lonString: string;
+
   if (lat < 0) {
-    lat = `${-lat.toFixed(5)}°S`;
+    latString = `${-lat.toFixed(5)}°S`;
   } else {
-    lat = `${lat.toFixed(5)}°N`;
+    latString = `${lat.toFixed(5)}°N`;
   }
 
   if (lon < 0) {
-    lon = `${-lon.toFixed(5)}°E`;
+    lonString = `${-lon.toFixed(5)}°E`;
   } else {
-    lon = `${lon.toFixed(5)}°W`;
+    lonString = `${lon.toFixed(5)}°W`;
   }
 
-  return [`${lat}, ${lon}`, mapsLink];
+  return [`${latString}, ${lonString}`, mapsLink];
 }
 
 export type ExifInfo = {
@@ -59,7 +64,7 @@ export type ImageInfo = {
 };
 
 export async function loadImage(
-  src,
+  src: string,
   { dir = "images" } = {}
 ): Promise<ImageInfo | null> {
   if (!src) {
@@ -68,15 +73,16 @@ export async function loadImage(
 
   const { width, height } = await new Promise((resolve, reject) => {
     imageSize(join("public", dir, src), (err, dimensions) => {
-      if (err) {
+      if (err || !dimensions) {
         console.log("error loading image", err);
         reject(err);
+        return;
       }
       resolve(dimensions);
     });
   });
 
-  const exif: ExifInfo = await new Promise((resolve, reject) => {
+  const exif: ExifInfo | null = await new Promise((resolve, reject) => {
     if (!src.endsWith(".jpg")) {
       resolve(null);
       return;
@@ -98,8 +104,8 @@ export async function loadImage(
         const editedOn = formatExifDate(data.image.ModifyDate);
 
         const [gps, mapsLink] = formatExifGPS(
-          data.gps.GPSLatitude,
-          data.gps.GPSLongitude
+          data.gps.GPSLatitude as [number, number, number],
+          data.gps.GPSLongitude as [number, number, number]
         );
 
         resolve({

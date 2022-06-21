@@ -9,7 +9,13 @@ import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
 import Markdown from "../components/markdown/Markdown";
 
-import { listContentFiles, loadMarkdown } from "../utils/api";
+import {
+  BasicMarkdownInfo,
+  listContentFiles,
+  loadMarkdown,
+} from "../utils/api";
+import { ImageInfo } from "../utils/images";
+import { GetStaticProps } from "next";
 
 const ICONS = {
   url: faLink,
@@ -17,10 +23,20 @@ const ICONS = {
   instagram: faInstagram,
 };
 
-export async function getStaticProps() {
+type FriendInfo = {
+  name: string;
+  pronouns?: string;
+  image?: ImageInfo;
+  links: {
+    icon: keyof typeof ICONS;
+    link: string;
+  }[];
+};
+
+export const getStaticProps: GetStaticProps = async () => {
   const files = await listContentFiles("friends");
   const friends = await Promise.all(
-    files.map((file) => loadMarkdown(file, { loadBody: true }))
+    files.map((file) => loadMarkdown<FriendInfo>(file, { loadBody: true }))
   );
 
   return {
@@ -28,9 +44,13 @@ export async function getStaticProps() {
       friends,
     },
   };
-}
+};
 
-export default function Friends({ friends }) {
+export default function Friends({
+  friends,
+}: {
+  friends: (BasicMarkdownInfo & FriendInfo)[];
+}) {
   return (
     <Page className="bg-black">
       <SEOHelmet title="cool people i know!" />

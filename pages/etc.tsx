@@ -4,9 +4,13 @@ import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
 import useSWR from "swr";
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
-function EtcBlock(props) {
+function EtcBlock(props: {
+  page: string;
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <Link href={props.page}>
       <a className="group relative z-0 outline-none">

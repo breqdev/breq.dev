@@ -1,23 +1,23 @@
 import React from "react";
 
-function Ul(props) {
+function Ul({ children }: { children: React.ReactNode }) {
   return (
     <div className="mx-auto max-w-prose text-lg">
-      <ul className="ml-8 list-disc">{props.children}</ul>
+      <ul className="ml-8 list-disc">{children}</ul>
     </div>
   );
 }
 
-function Ol(props) {
+function Ol({ children }: { children: React.ReactNode }) {
   return (
     <div className="mx-auto max-w-prose text-lg">
-      <ol className="ml-8 list-decimal">{props.children}</ol>
+      <ol className="ml-8 list-decimal">{children}</ol>
     </div>
   );
 }
 
-function Li(props) {
-  return <li className="my-2 pl-2">{props.children}</li>;
+function Li({ children }: { children: React.ReactNode }) {
+  return <li className="my-2 pl-2">{children}</li>;
 }
 
 const shortcodes = {

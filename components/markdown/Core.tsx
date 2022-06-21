@@ -6,27 +6,33 @@ export const MarkdownContext = React.createContext({
   dark: false,
 });
 
-export function Paragraph(props) {
+export function Paragraph({
+  center,
+  children,
+}: {
+  center?: boolean;
+  children: React.ReactNode;
+}) {
   // Detect if we're inside a poem
   const context = React.useContext(MarkdownContext);
 
   if (context.poem) {
-    return <p className="my-1">{props.children}</p>;
+    return <p className="my-1">{children}</p>;
   }
 
   return (
     <p
       className={
         "my-4 mx-auto max-w-prose font-body text-lg " +
-        (props.center ? "text-center" : "")
+        (center ? "text-center" : "")
       }
     >
-      {props.children}
+      {children}
     </p>
   );
 }
 
-function A(props) {
+function A({ href, children }: { href: string; children: React.ReactNode }) {
   const ExtLinkRegex = new RegExp("^(?:[a-z]+:)?//", "i");
 
   const context = React.useContext(MarkdownContext);
@@ -35,55 +41,55 @@ function A(props) {
     ? "text-white underline"
     : "text-panblue-dark dark:text-panblue focus:bg-panyellow outline-none";
 
-  if (ExtLinkRegex.test(props.href)) {
+  if (ExtLinkRegex.test(href)) {
     return (
       <a
-        href={props.href}
+        href={href}
         className={`hover:underline ${colors}`}
         target="_blank"
         rel="noopener noreferrer"
       >
-        {props.children}
+        {children}
       </a>
     );
   } else {
     return (
-      <Link href={props.href}>
+      <Link href={href}>
         <a className="text-panblue-dark outline-none hover:underline focus:bg-panyellow">
-          {props.children}
+          {children}
         </a>
       </Link>
     );
   }
 }
 
-function BlockQuote(props) {
+function BlockQuote({ children }: { children: React.ReactNode }) {
   return (
     <blockquote
       className="mx-auto max-w-3xl italic"
       style={{ maxWidth: "min(max-content, 100%)" }}
     >
-      {props.children}
+      {children}
     </blockquote>
   );
 }
 
-function Kbd(props) {
+function Kbd({ children }: { children: React.ReactNode }) {
   return (
     <kbd className="rounded border-2 border-black bg-gray-200 p-1">
-      {props.children}
+      {children}
     </kbd>
   );
 }
 
-function Hr(props) {
+function Hr() {
   return <div className="mx-auto my-8 w-full max-w-xl border border-black" />;
 }
 
-function InlineCode(props) {
+function InlineCode({ children }: { children: React.ReactNode }) {
   return (
     <span className="-my-1 -mx-0.5 rounded-xl bg-gray-200 p-1 font-mono dark:bg-gray-800">
-      {props.children}
+      {children}
     </span>
   );
 }

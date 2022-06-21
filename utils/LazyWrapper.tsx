@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function LazyWrapper({ children }) {
+export default function LazyWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   // Needed to avoid using Suspense with SSR
   const [isMounted, setIsMounted] = React.useState(false);
 

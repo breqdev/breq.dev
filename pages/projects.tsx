@@ -3,9 +3,15 @@ import SEOHelmet from "../components/SEOHelmet";
 
 import Page from "../components/Page";
 import ProjectCard from "../components/ProjectCard";
-import { getSortedProjects } from "../utils/projects";
+import { getSortedProjects, ProjectInfo } from "../utils/projects";
+import { BasicMarkdownInfo } from "../utils/api";
+import { GetStaticProps } from "next";
 
-export default function Projects({ data }) {
+export default function Projects({
+  data,
+}: {
+  data: (BasicMarkdownInfo & ProjectInfo)[];
+}) {
   const projects = data.map((data) => (
     <ProjectCard key={data.filename} {...data} />
   ));
@@ -23,10 +29,10 @@ export default function Projects({ data }) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       data: await getSortedProjects(),
     },
   };
-}
+};

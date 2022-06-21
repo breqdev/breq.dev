@@ -1,18 +1,21 @@
 import React from "react";
 import Head from "next/head";
 
-export default function SEOHelmet(props) {
+type SEOProps = {
+  title: string;
+  description?: string;
+  image?: string;
+};
+
+export default function SEOHelmet({ title, description, image }: SEOProps) {
   return (
     <Head>
-      <title>{props.title}</title>
-      <meta name="description" content={props.description} />
+      <title>{title}</title>
+      <meta name="description" content={description} />
 
-      <meta name="og:title" content={props.title} />
-      <meta name="og:description" content={props.description} />
-      <meta
-        name="og:image"
-        content={props.image || "/opengraph/pansexual.jpg"}
-      />
+      <meta name="og:title" content={title} />
+      <meta name="og:description" content={description} />
+      <meta name="og:image" content={image || "/opengraph/pansexual.jpg"} />
       <meta name="og:url" content="https://breq.dev/" />
       <meta name="og:site_name" content="breq.dev" />
       <meta name="og:type" content="website" />

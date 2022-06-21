@@ -11,14 +11,22 @@ import React from "react";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
 
-function ContactBadge(props) {
+function ContactBadge({ children }: { children: React.ReactNode }) {
   const className =
     "block border-2 border-black dark:border-white rounded-xl px-4 outline-none";
 
-  return <div className={className}>{props.children}</div>;
+  return <div className={className}>{children}</div>;
 }
 
-const ExtLink = ({ href, className = "", children }) => (
+const ExtLink = ({
+  href,
+  className,
+  children,
+}: {
+  href: string;
+  className?: string;
+  children: React.ReactNode;
+}) => (
   <a
     href={href}
     className={

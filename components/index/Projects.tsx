@@ -2,9 +2,10 @@ import React, { useRef } from "react";
 import { Object3D } from "three";
 import Gltf from "../models/Gltf";
 import useScroll from "../models/useScroll";
+import { SceneProps } from "./Scene";
 
-function Arduino({ visible }) {
-  const model = useRef<Object3D>();
+function Arduino({ visible }: SceneProps) {
+  const model = useRef<Object3D>(null);
 
   useScroll((scroll, height) => {
     if (model.current) {
@@ -29,8 +30,8 @@ function Arduino({ visible }) {
   );
 }
 
-function RasPi({ visible }) {
-  const model = useRef<Object3D>();
+function RasPi({ visible }: SceneProps) {
+  const model = useRef<Object3D>(null);
 
   useScroll((scroll, height) => {
     if (model.current) {
@@ -55,8 +56,8 @@ function RasPi({ visible }) {
   );
 }
 
-function Div({ visible }) {
-  const model = useRef<Object3D>();
+function Div({ visible }: SceneProps) {
+  const model = useRef<Object3D>(null);
 
   useScroll((scroll, height) => {
     if (model.current) {
@@ -80,7 +81,7 @@ function Div({ visible }) {
   );
 }
 
-function ProjectLight({ visible }) {
+function ProjectLight({ visible }: SceneProps) {
   const light = useRef();
 
   return (
@@ -93,7 +94,7 @@ function ProjectLight({ visible }) {
   );
 }
 
-export default function Projects({ visible }) {
+export default function Projects({ visible }: SceneProps) {
   return (
     <>
       <Arduino visible={visible} />

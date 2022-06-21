@@ -6,29 +6,32 @@ import useSWR from "swr";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
 
-const fetcher = (url) => fetch(url, { method: "POST" }).then((r) => r.json());
+const fetcher = (url: string) =>
+  fetch(url, { method: "POST" }).then((r) => r.json());
 
-function Monitor({ monitor }) {
+type MonitorInfo = { status: number; friendly_name: string; id: number };
+
+function Monitor({ monitor }: { monitor: MonitorInfo }) {
   const color = monitor.status === 2 ? "bg-green-300" : "bg-red-500";
   const message = monitor.status === 2 ? "up!" : "down!";
 
   return (
-    <div className="border-2 border-black rounded-xl p-4 flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center gap-4 rounded-xl border-2 border-black p-4">
       <div
-        className={`h-32 w-32 ${color} rounded-full flex items-center justify-center`}
+        className={`h-32 w-32 ${color} flex items-center justify-center rounded-full`}
       >
         <span className="font-display text-5xl text-black">{message}</span>
       </div>
-      <span className="font-display text-xl text-center">
+      <span className="text-center font-display text-xl">
         {monitor.friendly_name}
       </span>
     </div>
   );
 }
 
-function MonitorGrid({ data }) {
+function MonitorGrid({ data }: { data: MonitorInfo[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-6xl mx-auto p-8 gap-4">
+    <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 p-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {data?.map((monitor) => (
         <Monitor key={monitor.id} monitor={monitor} />
       ))}
@@ -46,10 +49,10 @@ export default function Status() {
   return (
     <Page>
       <SEOHelmet title="status dashboard" />
-      <h1 className="font-display text-center text-5xl m-8">
+      <h1 className="m-8 text-center font-display text-5xl">
         status dashboard
       </h1>
-      <p className="font-body max-w-2xl text-center mx-auto text-xl">
+      <p className="mx-auto max-w-2xl text-center font-body text-xl">
         check the uptime status of one of my gazillion side projects.
         <br />
         or, alternatively, view historical data on{" "}

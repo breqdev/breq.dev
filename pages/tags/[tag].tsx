@@ -3,20 +3,23 @@ import Page from "../../components/Page";
 import SEOHelmet from "../../components/SEOHelmet";
 import { getPostsByTag, getTags } from "../../utils/tags";
 import Link from "next/link";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { BasicMarkdownInfo } from "../../utils/api";
+import { ProjectInfo } from "../../utils/projects";
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const tags = await getTags();
 
   return {
     paths: Object.keys(tags).map((tag) => ({ params: { tag } })),
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ params }) {
-  const { tag } = params;
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { tag } = params!;
 
-  const posts = await getPostsByTag(tag);
+  const posts = await getPostsByTag(tag as string);
 
   return {
     props: {
@@ -24,9 +27,9 @@ export async function getStaticProps({ params }) {
       posts,
     },
   };
-}
+};
 
-const href = (data) => {
+const href = (data: BasicMarkdownInfo) => {
   if (data.source == "posts") {
     return `/${data.slug.replace(/-/, "/")}`;
   } else {
@@ -34,7 +37,13 @@ const href = (data) => {
   }
 };
 
-export default function Tag({ tag, posts }) {
+export default function Tag({
+  tag,
+  posts,
+}: {
+  tag: string;
+  posts: (BasicMarkdownInfo & ProjectInfo)[];
+}) {
   return (
     <Page className="bg-black text-white">
       <SEOHelmet title={`${tag} - the archives of breq`} />

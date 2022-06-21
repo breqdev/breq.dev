@@ -1,7 +1,16 @@
 import { listContentFiles, loadMarkdown } from "./api";
+import { ImageInfo } from "./images";
 
-type ProjectInfo = {
+export type ProjectInfo = {
   created: string;
+  video?: string;
+  image?: ImageInfo;
+  title: string;
+  slug: string;
+  description: string;
+  tags: string[];
+  demo?: string;
+  repo?: string;
 };
 
 export async function getSortedProjects() {

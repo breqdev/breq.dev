@@ -12,7 +12,7 @@ import rehypeImgSize from "rehype-img-size";
 import { ImageInfo, loadImage } from "./images";
 import { MDXRemoteSerializeResult } from "next-mdx-remote/dist/types";
 
-export async function listContentFiles(path) {
+export async function listContentFiles(path: string) {
   return (await fs.readdir(path, { withFileTypes: true }))
     .filter((file) => file.isFile())
     .filter((file) => file.name.endsWith(".md") || file.name.endsWith(".mdx"))
@@ -20,7 +20,7 @@ export async function listContentFiles(path) {
     .map((file) => join(path, file));
 }
 
-type BasicMarkdownInfo = {
+export type BasicMarkdownInfo = {
   filename: string;
   slug: string;
   source: string;
@@ -29,7 +29,7 @@ type BasicMarkdownInfo = {
 };
 
 export async function loadMarkdown<FrontmatterType extends {}>(
-  path,
+  path: string,
   { loadBody = false } = {}
 ): Promise<BasicMarkdownInfo & FrontmatterType> {
   const filedata = await fs.readFile(path, "utf8");

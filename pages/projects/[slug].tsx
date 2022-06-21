@@ -8,14 +8,28 @@ import {
   faCalendarAlt,
   faLaptopCode,
   faTag,
+  IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import SEOHelmet from "../../components/SEOHelmet";
 import Comments from "../../components/Comments";
-import { listContentFiles, loadMarkdown } from "../../utils/api";
+import {
+  BasicMarkdownInfo,
+  listContentFiles,
+  loadMarkdown,
+} from "../../utils/api";
 import { parse } from "path";
+import { ProjectInfo } from "../../utils/projects";
+import { GetStaticPaths, GetStaticProps } from "next";
 
-function ProjectInfoItem({ name, icon, value, link = null }) {
+type ProjectInfoItemProps = {
+  name: string;
+  icon: IconDefinition;
+  value: string;
+  link?: string;
+};
+
+function ProjectInfoItem({ name, icon, value, link }: ProjectInfoItemProps) {
   return (
     <div className="flex items-center gap-2">
       <span className="sr-only">{name}</span>
@@ -38,7 +52,7 @@ function ProjectInfoItem({ name, icon, value, link = null }) {
   );
 }
 
-function TagInfo({ tags }) {
+function TagInfo({ tags }: { tags: string[] }) {
   return (
     <span className="flex items-center gap-2">
       <FontAwesomeIcon icon={faTag} />
@@ -57,7 +71,7 @@ function TagInfo({ tags }) {
   );
 }
 
-function ProjectInfo(props) {
+function ProjectInfo(props: ProjectInfo) {
   const items = [
     {
       name: "created",
@@ -79,8 +93,10 @@ function ProjectInfo(props) {
   ];
 
   const infoItems = items
-    .filter((item) => item.value)
-    .map((item) => <ProjectInfoItem key={item.name} {...item} />);
+    .filter((item) => item.value !== undefined)
+    .map((item) => (
+      <ProjectInfoItem key={item.name} {...item} value={item.value!} />
+    ));
 
   return (
     <div className="flex flex-wrap justify-center gap-4 text-lg">
@@ -90,13 +106,13 @@ function ProjectInfo(props) {
   );
 }
 
-function ProjectHeader(props) {
+function ProjectHeader(props: ProjectInfo) {
   return (
     <section className="rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800">
       <SEOHelmet
         title={props.title + " - breq.dev"}
         description={props.description}
-        image={props.image.src}
+        image={props.image?.src}
       />
       <h1 className="text-5xl">{props.title}</h1>
       <h2 className="mb-4 text-3xl text-gray-300">{props.description}</h2>
@@ -105,22 +121,24 @@ function ProjectHeader(props) {
   );
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const files = await listContentFiles("projects");
 
   return {
     paths: files.map((file) => ({ params: { slug: parse(file).name } })),
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
-    props: await loadMarkdown(`projects/${params.slug}.md`, { loadBody: true }),
+    props: await loadMarkdown<ProjectInfo>(`projects/${params?.slug}.md`, {
+      loadBody: true,
+    }),
   };
-}
+};
 
-export default function Project(props) {
+export default function Project(props: ProjectInfo & BasicMarkdownInfo) {
   return (
     <Page>
       <article className="mx-auto max-w-6xl p-4">

@@ -5,9 +5,15 @@ import Footer from "./Footer";
 import SEOHelmet from "./SEOHelmet";
 import Script from "next/script";
 
-export default function Page({ children, className = "" }) {
+export default function Page({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   useEffect(() => {
-    const handler = (event = null) => {
+    const handler = () => {
       if (window.scrollY <= 500) {
         document.body.classList.add("bg-panpink");
         document.body.classList.remove("bg-panblue");

@@ -21,11 +21,17 @@ const shortcodes = {
   img: MarkdownImage,
 };
 
-export default function Markdown(props) {
+export default function Markdown({
+  content,
+  dark,
+}: {
+  content: any;
+  dark?: boolean;
+}) {
   return (
-    <MarkdownContext.Provider value={{ poem: false, dark: props.dark }}>
+    <MarkdownContext.Provider value={{ poem: false, dark: dark || false }}>
       <div className="font-body">
-        <MDXRemote components={shortcodes} {...props.content} />
+        <MDXRemote components={shortcodes} {...content} />
       </div>
     </MarkdownContext.Provider>
   );

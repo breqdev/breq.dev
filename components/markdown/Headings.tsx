@@ -2,55 +2,73 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 
-function HoverLink(props) {
+function HoverLink({
+  id,
+  children,
+}: {
+  id: string;
+  children: React.ReactNode;
+}) {
   return (
     <span className="relative">
       <span className="absolute left-0 top-0 bottom-0 -ml-8">
         <a
-          href={`#${props.id}`}
-          className="text-xl outline-none opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity duration-200"
+          href={`#${id}`}
+          className="text-xl opacity-0 outline-none transition-opacity duration-200 focus:opacity-100 group-hover:opacity-100"
         >
           <FontAwesomeIcon icon={faLink} />
           <span className="sr-only">Link to this section </span>
         </a>
       </span>
-      <span>{props.children}</span>
+      <span>{children}</span>
     </span>
   );
 }
 
-function Heading(props) {
+function Heading({ id, children }: { id: string; children: React.ReactNode }) {
   return (
     <h2
-      className="max-w-4xl mx-auto text-4xl font-display text-center mt-8 mb-4 group focus-within:text-panblue-dark"
+      className="group mx-auto mt-8 mb-4 max-w-4xl text-center font-display text-4xl focus-within:text-panblue-dark"
       style={{ scrollMarginTop: "100px" }}
-      id={props.id}
+      id={id}
     >
-      <HoverLink id={props.id}>{props.children}</HoverLink>
+      <HoverLink id={id}>{children}</HoverLink>
     </h2>
   );
 }
 
-function SubHeading(props) {
+function SubHeading({
+  id,
+  children,
+}: {
+  id: string;
+  children: React.ReactNode;
+}) {
   return (
     <h3
-      className="text-3xl font-display text-center mt-8 mb-4 italic group focus-within:text-panblue-dark"
+      className="group mt-8 mb-4 text-center font-display text-3xl italic focus-within:text-panblue-dark"
       style={{ scrollMarginTop: "100px" }}
-      id={props.id}
+      id={id}
     >
-      <HoverLink id={props.id}>{props.children}</HoverLink>
+      <HoverLink id={id}>{children}</HoverLink>
     </h3>
   );
 }
 
-function SubSubHeading(props) {
+function SubSubHeading({
+  id,
+  children,
+}: {
+  id: string;
+  children: React.ReactNode;
+}) {
   return (
     <h4
-      className="text-2xl font-display text-center mt-8 -mb-2 underline group focus-within:text-panblue-dark"
+      className="group mt-8 -mb-2 text-center font-display text-2xl underline focus-within:text-panblue-dark"
       style={{ scrollMarginTop: "100px" }}
-      id={props.id}
+      id={id}
     >
-      <HoverLink id={props.id}>{props.children}</HoverLink>
+      <HoverLink id={id}>{children}</HoverLink>
     </h4>
   );
 }

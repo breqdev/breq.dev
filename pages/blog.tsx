@@ -3,10 +3,15 @@ import React from "react";
 
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
-import { listContentFiles, loadMarkdown } from "../utils/api";
+import {
+  BasicMarkdownInfo,
+  listContentFiles,
+  loadMarkdown,
+} from "../utils/api";
 import parseDate from "../utils/parseDate";
+import { PostInfo } from "../utils/posts";
 
-function Post(props) {
+function Post(props: PostInfo & BasicMarkdownInfo) {
   const date = parseDate(props.slug);
 
   return (
@@ -28,7 +33,9 @@ function Post(props) {
 export async function getStaticProps() {
   const posts = await listContentFiles("posts");
 
-  const data = await Promise.all(posts.map((post) => loadMarkdown(post)));
+  const data = await Promise.all(
+    posts.map((post) => loadMarkdown<PostInfo>(post))
+  );
 
   const sorted = data.sort(
     (a, b) =>
@@ -42,7 +49,11 @@ export async function getStaticProps() {
   };
 }
 
-export default function Posts({ data }) {
+export default function Posts({
+  data,
+}: {
+  data: (PostInfo & BasicMarkdownInfo)[];
+}) {
   const posts = data.map((data) => <Post key={data.filename} {...data} />);
 
   return (

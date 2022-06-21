@@ -11,12 +11,14 @@ import SEOHelmet from "../components/SEOHelmet";
 
 import TerminalWrapper from "../components/index/TerminalWrapper";
 import LazyWrapper from "../utils/LazyWrapper";
-import { getSortedProjects } from "../utils/projects";
+import { getSortedProjects, ProjectInfo } from "../utils/projects";
+import { GetStaticProps } from "next";
+import { BasicMarkdownInfo } from "../utils/api";
 
 const Background = React.lazy(() => import("../components/index/IndexCanvas"));
 
 function ScrollDownHint() {
-  const iconRef = useRef<HTMLDivElement>();
+  const iconRef = useRef<HTMLDivElement>(null);
 
   useScroll((scroll) => {
     if (iconRef.current) {
@@ -46,15 +48,15 @@ function ScrollDownHint() {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       data: await getSortedProjects(),
     },
   };
-}
+};
 
-function Projects({ data }) {
+function Projects({ data }: { data: (BasicMarkdownInfo & ProjectInfo)[] }) {
   const projects = data
     .filter((data) => {
       if (data.video) {
@@ -86,7 +88,9 @@ function Projects({ data }) {
   );
 }
 
-export default function Index(props) {
+export default function Index(props: {
+  data: (BasicMarkdownInfo & ProjectInfo)[];
+}) {
   return (
     <Page>
       <SEOHelmet

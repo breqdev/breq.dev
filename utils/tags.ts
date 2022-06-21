@@ -24,12 +24,12 @@ export async function getTags(): Promise<Record<string, number>> {
     });
 
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
 
   return tags;
 }
 
-export async function getPostsByTag(tag) {
+export async function getPostsByTag(tag: string) {
   const projects = [
     ...(await listContentFiles("projects")),
     ...(await listContentFiles("posts")),

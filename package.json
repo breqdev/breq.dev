@@ -58,8 +58,10 @@
     "three": "^0.135.0"
   },
   "devDependencies": {
+    "@types/exif": "^0.6.3",
     "@types/node": "^18.0.0",
     "@types/react": "^17.0.47",
+    "@types/react-modal": "^3.13.1",
     "@types/three": "^0.141.0",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.5",

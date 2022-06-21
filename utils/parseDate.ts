@@ -1,4 +1,4 @@
-export default function parseDate(url) {
+export default function parseDate(url: string) {
   const [year, month, day] = url.split("-");
 
   const months = [

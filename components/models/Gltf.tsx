@@ -1,7 +1,11 @@
 import React, { useMemo, useState } from "react";
+import { Object3D } from "three";
 import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-function Gltf({ url, onLoad, ...props }, ref) {
+const Gltf = React.forwardRef<
+  Object3D,
+  { url: string; onLoad: (gltf: GLTF) => void } & any
+>(function Gltf({ url, onLoad, ...props }, ref) {
   const [gltf, setGltf] = useState<GLTF>();
   useMemo(
     () =>
@@ -13,6 +17,6 @@ function Gltf({ url, onLoad, ...props }, ref) {
   );
 
   return gltf ? <primitive object={gltf.scene} ref={ref} {...props} /> : null;
-}
+});
 
-export default React.forwardRef(Gltf);
+export default Gltf;
