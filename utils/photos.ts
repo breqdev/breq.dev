@@ -5,6 +5,11 @@ import { loadImage } from "./images";
 
 const PHOTOS_PATH = "public/photos";
 
+type PhotoSetMetadata = {
+  title: string;
+  descriptions: string[];
+};
+
 export async function getPhotoSets() {
   const folders = (await fs.readdir(PHOTOS_PATH, { withFileTypes: true }))
     .filter((f) => f.isDirectory())
@@ -24,12 +29,13 @@ export async function getPhotoSets() {
         .filter((f) => f.isFile())
         .filter((f) => f.name.endsWith(".md"))[0];
 
-      const { title, body, descriptions } = await loadMarkdown(
-        join(PHOTOS_PATH, folder.name, metadata.name),
-        {
-          loadBody: true,
-        }
-      );
+      const { title, body, descriptions } =
+        await loadMarkdown<PhotoSetMetadata>(
+          join(PHOTOS_PATH, folder.name, metadata.name),
+          {
+            loadBody: true,
+          }
+        );
 
       const photosWithSizes = await Promise.all(
         photos.map((photo) =>

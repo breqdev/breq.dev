@@ -9,7 +9,8 @@ import remarkUnwrapImages from "remark-unwrap-images";
 import rehypeSlug from "rehype-slug";
 import rehypeKatex from "rehype-katex";
 import rehypeImgSize from "rehype-img-size";
-import { loadImage } from "./images";
+import { ImageInfo, loadImage } from "./images";
+import { MDXRemoteSerializeResult } from "next-mdx-remote/dist/types";
 
 export async function listContentFiles(path) {
   return (await fs.readdir(path, { withFileTypes: true }))
@@ -19,7 +20,18 @@ export async function listContentFiles(path) {
     .map((file) => join(path, file));
 }
 
-export async function loadMarkdown(path, { loadBody = false } = {}) {
+type BasicMarkdownInfo = {
+  filename: string;
+  slug: string;
+  source: string;
+  body: MDXRemoteSerializeResult | null;
+  image: ImageInfo | null;
+};
+
+export async function loadMarkdown<FrontmatterType extends {}>(
+  path,
+  { loadBody = false } = {}
+): Promise<BasicMarkdownInfo & FrontmatterType> {
   const filedata = await fs.readFile(path, "utf8");
   const { data: frontmatter, content: body } = matter(filedata);
 
@@ -28,7 +40,7 @@ export async function loadMarkdown(path, { loadBody = false } = {}) {
         mdxOptions: {
           remarkPlugins: [remarkMath, remarkAbcjs, remarkUnwrapImages],
           rehypePlugins: [
-            rehypeKatex,
+            rehypeKatex as any,
             [rehypeImgSize, { dir: "public/images" }],
             rehypeSlug,
           ],
@@ -37,7 +49,7 @@ export async function loadMarkdown(path, { loadBody = false } = {}) {
     : null;
 
   return {
-    ...frontmatter,
+    ...(frontmatter as FrontmatterType),
     filename: path,
     slug: parse(path).name,
     source: parse(path).dir,

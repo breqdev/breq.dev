@@ -43,9 +43,27 @@ function formatExifGPS(lat, lon) {
   return [`${lat}, ${lon}`, mapsLink];
 }
 
-export async function loadImage(src, { dir = "images" } = {}) {
+export type ExifInfo = {
+  camera: string;
+  capturedOn: string;
+  editedOn: string;
+  gps: string;
+  mapsLink: string;
+};
+
+export type ImageInfo = {
+  width: number;
+  height: number;
+  src: string;
+  exif: ExifInfo | null;
+};
+
+export async function loadImage(
+  src,
+  { dir = "images" } = {}
+): Promise<ImageInfo | null> {
   if (!src) {
-    return {};
+    return null;
   }
 
   const { width, height } = await new Promise((resolve, reject) => {
@@ -58,7 +76,7 @@ export async function loadImage(src, { dir = "images" } = {}) {
     });
   });
 
-  const exif = await new Promise((resolve, reject) => {
+  const exif: ExifInfo = await new Promise((resolve, reject) => {
     if (!src.endsWith(".jpg")) {
       resolve(null);
       return;
