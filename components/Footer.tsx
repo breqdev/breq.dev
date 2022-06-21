@@ -6,6 +6,7 @@ import {
   faEnvelope,
   faChevronRight,
   faCode,
+  IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -16,7 +17,7 @@ import {
 import Fursona from "./index/fursona/Fursona";
 
 export default function Footer() {
-  const contactLinks = [
+  const contactLinks: [IconDefinition, string, string][] = [
     [faEnvelope, "breq@breq.dev", "mailto:breq@breq.dev"],
     [faTwitter, "breqdev", "https://twitter.com/breqdev"],
     [faKeybase, "breq", "https://keybase.io/breq"],
@@ -24,14 +25,6 @@ export default function Footer() {
 
   const linkStyles =
     "hover:underline outline-none focus:underline focus:bg-panyellow";
-
-  // const dateQuery = useStaticQuery(graphql`
-  //   query {
-  //     site {
-  //       buildTime(formatString: "YYYY")
-  //     }
-  //   }
-  // `);
 
   return (
     <footer className="relative z-10 bg-panblue font-display text-lg text-gray-800">

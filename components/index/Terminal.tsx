@@ -12,7 +12,7 @@ import README from "./terminalContent/README.txt";
 import CREDITS from "./terminalContent/CREDITS.txt";
 
 export default function Terminal() {
-  const socket = useRef();
+  const socket = useRef<WebSocket>();
   const chatName = useRef("");
   const inbox = useRef([]);
 
@@ -125,7 +125,7 @@ export default function Terminal() {
   );
 
   return (
-    <div className="max-w-5xl mx-auto font-mono p-8">
+    <div className="mx-auto max-w-5xl p-8 font-mono">
       <ReactTerminal
         theme={{
           background: "#000",

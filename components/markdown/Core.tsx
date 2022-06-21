@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
 
-export const MarkdownContext = React.createContext({ poem: false });
+export const MarkdownContext = React.createContext({
+  poem: false,
+  dark: false,
+});
 
 export function Paragraph(props) {
   // Detect if we're inside a poem

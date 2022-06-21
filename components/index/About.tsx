@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
+import { Object3D } from "three";
 import Gltf from "../models/Gltf";
 import useScroll from "../models/useScroll";
 
 function Desk({ visible }) {
-  const model = useRef();
+  const model = useRef<Object3D>();
 
   useScroll((scroll, height) => {
     if (model.current) {

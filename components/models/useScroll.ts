@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-export default function useScroll(callback, options) {
+export default function useScroll(callback, options = null) {
   useEffect(() => {
-    const listener = window.addEventListener("scroll", () => {
+    const listener = () => {
       let scroll = -document.body.getBoundingClientRect().top;
 
       if (scroll < 0) {
@@ -16,7 +16,9 @@ export default function useScroll(callback, options) {
       }
 
       callback(scroll, window.innerHeight);
-    });
+    };
+
+    window.addEventListener("scroll", listener);
 
     return () => {
       window.removeEventListener("scroll", listener);

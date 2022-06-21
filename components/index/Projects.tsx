@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
+import { Object3D } from "three";
 import Gltf from "../models/Gltf";
 import useScroll from "../models/useScroll";
 
 function Arduino({ visible }) {
-  const model = useRef();
+  const model = useRef<Object3D>();
 
   useScroll((scroll, height) => {
     if (model.current) {
@@ -29,7 +30,7 @@ function Arduino({ visible }) {
 }
 
 function RasPi({ visible }) {
-  const model = useRef();
+  const model = useRef<Object3D>();
 
   useScroll((scroll, height) => {
     if (model.current) {
@@ -55,7 +56,7 @@ function RasPi({ visible }) {
 }
 
 function Div({ visible }) {
-  const model = useRef();
+  const model = useRef<Object3D>();
 
   useScroll((scroll, height) => {
     if (model.current) {

@@ -11,7 +11,7 @@ function Caption(props) {
 
 function Poem(props) {
   return (
-    <MarkdownContext.Provider value={{ poem: true }}>
+    <MarkdownContext.Provider value={{ poem: true, dark: false }}>
       <section
         className={
           "mx-auto max-w-3xl pl-16 font-body text-lg " +

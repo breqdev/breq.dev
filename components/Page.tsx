@@ -7,7 +7,7 @@ import Script from "next/script";
 
 export default function Page({ children, className = "" }) {
   useEffect(() => {
-    const handler = (event) => {
+    const handler = (event = null) => {
       if (window.scrollY <= 500) {
         document.body.classList.add("bg-panpink");
         document.body.classList.remove("bg-panblue");

@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
+import { Light, Object3D } from "three";
 import Gltf from "../models/Gltf";
 import useScroll from "../models/useScroll";
 
-function InnerLogo(props) {
-  const model = useRef();
+function InnerLogo({ visible, onLoad }) {
+  const model = useRef<Object3D>();
 
   useScroll((scroll, height) => {
     const movement_start = height * (0 / 6);
@@ -38,15 +39,19 @@ function InnerLogo(props) {
       url="/models/inner_logo.glb"
       ref={model}
       scale={[0.5, 0.5, 0.5]}
-      visible={props.visible}
-      onLoad={props.onLoad}
+      visible={visible}
+      onLoad={onLoad}
     />
   );
 }
 
 function DimmingLight({ color, angle, visible }) {
-  const position = [10 * Math.cos(angle), 10 * Math.sin(angle), 10];
-  const light = useRef();
+  const position: [number, number, number] = [
+    10 * Math.cos(angle),
+    10 * Math.sin(angle),
+    10,
+  ];
+  const light = useRef<Light>();
 
   useScroll((scroll) => {
     if (light.current) {

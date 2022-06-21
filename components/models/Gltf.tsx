@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from "react";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 function Gltf({ url, onLoad, ...props }, ref) {
-  const [gltf, setGltf] = useState();
+  const [gltf, setGltf] = useState<GLTF>();
   useMemo(
     () =>
       new GLTFLoader().load(url, (gltf) => {

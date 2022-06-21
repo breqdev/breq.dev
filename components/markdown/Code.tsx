@@ -1,5 +1,5 @@
 import React from "react";
-import Highlight, { defaultProps } from "prism-react-renderer";
+import Highlight, { defaultProps, PrismTheme } from "prism-react-renderer";
 import Prism from "prism-react-renderer/prism";
 
 // https://github.com/FormidableLabs/prism-react-renderer#faq
@@ -25,96 +25,98 @@ const darkTheme = {
   dark: "#cccccc",
 };
 
-const theme = (colors) => ({
-  plain: {
-    color: colors.dark,
-  },
-  styles: [
-    {
-      types: ["changed"],
-      style: {
-        color: colors.purple,
-        fontStyle: "italic",
-      },
+function theme(colors): PrismTheme {
+  return {
+    plain: {
+      color: colors.dark,
     },
-    {
-      types: ["deleted"],
-      style: {
-        color: colors.pink,
-        fontStyle: "italic",
+    styles: [
+      {
+        types: ["changed"],
+        style: {
+          color: colors.purple,
+          fontStyle: "italic",
+        },
       },
-    },
-    {
-      types: ["inserted", "attr-name"],
-      style: {
-        color: colors.blue,
-        fontStyle: "italic",
+      {
+        types: ["deleted"],
+        style: {
+          color: colors.pink,
+          fontStyle: "italic",
+        },
       },
-    },
-    {
-      types: ["comment"],
-      style: {
-        color: colors.gray,
-        fontStyle: "italic",
+      {
+        types: ["inserted", "attr-name"],
+        style: {
+          color: colors.blue,
+          fontStyle: "italic",
+        },
       },
-    },
-    {
-      types: ["string", "builtin", "char", "constant", "url"],
-      style: {
-        color: colors.blue,
+      {
+        types: ["comment"],
+        style: {
+          color: colors.gray,
+          fontStyle: "italic",
+        },
       },
-    },
-    {
-      types: ["variable"],
-      style: {
-        color: colors.pink,
+      {
+        types: ["string", "builtin", "char", "constant", "url"],
+        style: {
+          color: colors.blue,
+        },
       },
-    },
-    {
-      types: ["number"],
-      style: {
-        color: colors.purple,
+      {
+        types: ["variable"],
+        style: {
+          color: colors.pink,
+        },
       },
-    },
-    {
-      types: ["punctuation"],
-      style: {
-        color: colors.pink,
+      {
+        types: ["number"],
+        style: {
+          color: colors.purple,
+        },
       },
-    },
-    {
-      types: ["function", "selector", "doctype"],
-      style: {
-        color: colors.pink,
-        fontStyle: "italic",
+      {
+        types: ["punctuation"],
+        style: {
+          color: colors.pink,
+        },
       },
-    },
-    {
-      types: ["class-name"],
-      style: {
-        color: colors.dark,
+      {
+        types: ["function", "selector", "doctype"],
+        style: {
+          color: colors.pink,
+          fontStyle: "italic",
+        },
       },
-    },
-    {
-      types: ["tag"],
-      style: {
-        color: colors.pink,
+      {
+        types: ["class-name"],
+        style: {
+          color: colors.dark,
+        },
       },
-    },
-    {
-      types: ["operator", "property", "keyword", "namespace"],
-      style: {
-        color: colors.purple,
+      {
+        types: ["tag"],
+        style: {
+          color: colors.pink,
+        },
       },
-    },
-    {
-      types: ["boolean"],
-      style: {
-        color: colors.purple,
+      {
+        types: ["operator", "property", "keyword", "namespace"],
+        style: {
+          color: colors.purple,
+        },
       },
-    },
-  ],
-});
+      {
+        types: ["boolean"],
+        style: {
+          color: colors.purple,
+        },
+      },
+    ],
+  };
+}
 
 export default function Code(props) {
   const [dark, setDark] = React.useState(false);
@@ -151,7 +153,7 @@ export default function Code(props) {
                 <span
                   {...getTokenProps({ token, key })}
                   className=""
-                  key={token}
+                  key={key}
                 />
               ))}
             </div>

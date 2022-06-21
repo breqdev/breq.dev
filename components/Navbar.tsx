@@ -26,8 +26,6 @@ export default function Navbar() {
 
   const [expanded, setExpanded] = useState(false);
 
-  const handleSelect = () => setExpanded(false);
-
   return (
     <nav className="sticky top-0 z-50 bg-panpink p-4 font-display">
       <SkipNavigation />
@@ -60,8 +58,11 @@ export default function Navbar() {
           <ul className="flex flex-col gap-2 p-4 lg:flex-row lg:p-0">
             {Object.entries(navLinks).map(([name, url]) => (
               <li className="text-lg" key={url}>
-                <Link href={url} onClick={handleSelect}>
-                  <a className="text-black outline-none hover:text-white focus:text-white focus:underline">
+                <Link href={url}>
+                  <a
+                    className="text-black outline-none hover:text-white focus:text-white focus:underline"
+                    onClick={() => setExpanded(false)}
+                  >
                     {name}
                   </a>
                 </Link>
@@ -70,8 +71,6 @@ export default function Navbar() {
           </ul>
 
           <div className="flex-grow" />
-
-          {/* <Search onSelect={handleSelect} /> */}
         </div>
       </div>
     </nav>
