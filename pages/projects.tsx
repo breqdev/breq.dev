@@ -3,7 +3,7 @@ import SEOHelmet from "../components/SEOHelmet";
 
 import Page from "../components/Page";
 import ProjectCard from "../components/ProjectCard";
-import { listContentFiles, loadMarkdown } from "../utils/api";
+import { getSortedProjects } from "../utils/projects";
 
 export default function Projects({ data }) {
   const projects = data.map((data) => (
@@ -24,17 +24,9 @@ export default function Projects({ data }) {
 }
 
 export async function getStaticProps() {
-  const projects = await listContentFiles("projects");
-
-  const data = await Promise.all(projects.map(loadMarkdown));
-
-  const sorted = data.sort(
-    (a, b) => parseFloat(b.created) - parseFloat(a.created)
-  );
-
   return {
     props: {
-      data: sorted,
+      data: await getSortedProjects(),
     },
   };
 }

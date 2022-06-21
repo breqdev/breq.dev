@@ -18,7 +18,7 @@ function ContactBadge(props) {
   return <div className={className}>{props.children}</div>;
 }
 
-const ExtLink = ({ href, className, children }) => (
+const ExtLink = ({ href, className = "", children }) => (
   <a
     href={href}
     className={

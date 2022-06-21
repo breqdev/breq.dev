@@ -19,10 +19,16 @@ function Card({ title, date, description, slug }) {
   );
 }
 
+type WritingContent = {
+  date: string;
+};
+
 export async function getStaticProps() {
   const posts = await listContentFiles("writing");
 
-  const data = await Promise.all(posts.map(loadMarkdown));
+  const data = await Promise.all(
+    posts.map((file) => loadMarkdown<WritingContent>(file))
+  );
 
   const sorted = data.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
 

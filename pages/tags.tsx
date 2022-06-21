@@ -12,7 +12,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Tag({ tags }) {
+export default function Tag({ tags }: { tags: Record<string, number> }) {
   return (
     <Page className="bg-black text-white">
       <SEOHelmet title="the archives by tag: projects, posts, and more i've made, with <3." />

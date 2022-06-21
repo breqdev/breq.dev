@@ -28,7 +28,7 @@ function Post(props) {
 export async function getStaticProps() {
   const posts = await listContentFiles("posts");
 
-  const data = await Promise.all(posts.map(loadMarkdown));
+  const data = await Promise.all(posts.map((post) => loadMarkdown(post)));
 
   const sorted = data.sort(
     (a, b) =>

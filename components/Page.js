@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import SEOHelmet from "./SEOHelmet";
 import Script from "next/script";
 
-export default function Page({ children, className }) {
+export default function Page({ children, className = "" }) {
   useEffect(() => {
     const handler = (event) => {
       if (window.scrollY <= 500) {

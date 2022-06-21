@@ -15,7 +15,7 @@ import Comments from "../../components/Comments";
 import { listContentFiles, loadMarkdown } from "../../utils/api";
 import { parse } from "path";
 
-function ProjectInfoItem({ name, icon, value, link }) {
+function ProjectInfoItem({ name, icon, value, link = null }) {
   return (
     <div className="flex items-center gap-2">
       <span className="sr-only">{name}</span>

@@ -35,7 +35,7 @@ function SetHeading({ set }) {
   );
 }
 
-function ExifItem({ icon, text, link }) {
+function ExifItem({ icon, text, link = null }) {
   return (
     <div className="flex flex-row items-center font-body text-gray-300">
       <span className="w-4">

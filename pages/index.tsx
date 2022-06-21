@@ -11,19 +11,19 @@ import SEOHelmet from "../components/SEOHelmet";
 
 import TerminalWrapper from "../components/index/TerminalWrapper";
 import LazyWrapper from "../utils/LazyWrapper";
-import { listContentFiles, loadMarkdown } from "../utils/api";
+import { getSortedProjects } from "../utils/projects";
 
 const Background = React.lazy(() => import("../components/index/IndexCanvas"));
 
 function ScrollDownHint() {
-  const iconRef = useRef();
+  const iconRef = useRef<HTMLDivElement>();
 
   useScroll((scroll) => {
     if (iconRef.current) {
       if (scroll > 1) {
-        iconRef.current.style.opacity = 0;
+        iconRef.current.style.opacity = "0";
       } else {
-        iconRef.current.style.opacity = 1;
+        iconRef.current.style.opacity = "1";
       }
     }
   });
@@ -47,17 +47,9 @@ function ScrollDownHint() {
 }
 
 export async function getStaticProps() {
-  const projects = await listContentFiles("projects");
-
-  const data = await Promise.all(projects.map(loadMarkdown));
-
-  const sorted = data.sort(
-    (a, b) => parseFloat(b.created) - parseFloat(a.created)
-  );
-
   return {
     props: {
-      data: sorted,
+      data: await getSortedProjects(),
     },
   };
 }
@@ -85,7 +77,7 @@ function Projects({ data }) {
   return (
     <div
       className="grid grid-cols-1 gap-8 overflow-y-hidden rounded-2xl bg-black md:grid-cols-2 lg:grid-cols-3"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       {projects.slice(0, numProjects).map((project, idx) => (
         <div key={idx}>{project}</div>

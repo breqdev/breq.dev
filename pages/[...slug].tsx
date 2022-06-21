@@ -57,16 +57,3 @@ export default function Post(props) {
     </Page>
   );
 }
-
-// export const query = graphql`
-//   query ($id: String) {
-//     mdx(id: { eq: $id }) {
-//       body
-//       slug
-//       frontmatter {
-//         title
-//         description
-//       }
-//     }
-//   }
-// `;

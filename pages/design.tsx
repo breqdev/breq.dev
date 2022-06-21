@@ -7,9 +7,10 @@ import Gltf from "../components/models/Gltf";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import { useMediaQuery } from "react-responsive";
+import { Object3D } from "three";
 
 function InnerLogo(props) {
-  const model = React.useRef();
+  const model = React.useRef<Object3D>();
 
   const motionSafe = useMediaQuery({
     query: "(prefers-reduced-motion: no-preference)",

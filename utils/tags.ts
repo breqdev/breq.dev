@@ -4,7 +4,7 @@ type TaggedContent = {
   tags: string[];
 };
 
-export async function getTags() {
+export async function getTags(): Promise<Record<string, number>> {
   const projects = [
     ...(await listContentFiles("projects")),
     ...(await listContentFiles("posts")),
