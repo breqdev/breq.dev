@@ -26,10 +26,12 @@ export async function getStaticProps() {
 
 function SetHeading({ set }) {
   return (
-    <div className="mx-auto mt-12 mb-8 flex max-w-xl flex-col gap-4 rounded-3xl border-2 border-white p-8">
-      <h2 className="text-center font-display text-4xl">{set.title}</h2>
-      <Markdown content={set.body} dark />
-    </div>
+    <article className="mx-4">
+      <div className="mx-auto mt-12 mb-8 flex max-w-xl flex-col gap-4 rounded-3xl border-2 border-white p-4 md:p-8">
+        <h2 className="text-center font-display text-4xl">{set.title}</h2>
+        <Markdown content={set.body} dark />
+      </div>
+    </article>
   );
 }
 
@@ -59,8 +61,8 @@ function ExifItem({ icon, text, link }) {
 
 function PhotoDetail({ photo, onClose }) {
   return (
-    <div className="flex max-w-5xl border-2 border-white bg-black text-white">
-      <div className="aspect-square h-full">
+    <div className="flex max-w-5xl flex-col border-2 border-white bg-black text-white md:flex-row">
+      <div className="relative -mb-2 aspect-square max-h-full">
         <Image
           src={photo.src}
           width={photo.width}
@@ -68,9 +70,18 @@ function PhotoDetail({ photo, onClose }) {
           alt={photo.description}
           className=""
         />
+        <button
+          className="absolute top-0 right-0 px-4 py-2 text-5xl md:hidden"
+          onClick={onClose}
+        >
+          <FontAwesomeIcon icon={faTimes} />
+        </button>
       </div>
-      <div className="flex w-full max-w-md flex-col gap-2 px-4">
-        <button className="self-end py-4 px-2 text-7xl" onClick={onClose}>
+      <div className="flex flex-grow flex-col gap-2 overflow-auto px-4 py-4 md:w-72 md:max-w-md md:flex-shrink-0 md:py-0">
+        <button
+          className="hidden self-end py-4 px-2 text-7xl md:block"
+          onClick={onClose}
+        >
           <FontAwesomeIcon icon={faTimes} />
         </button>
         <p className="font-body">{photo.description}</p>
@@ -114,8 +125,8 @@ export default function Photos({ sets }) {
                 </button>
                 <Modal
                   isOpen={open === photo.src}
-                  className="flex h-full justify-center"
-                  overlayClassName="bg-black/25 opacity-100 fixed inset-0 z-50 pt-48 px-16 pb-32"
+                  className="flex max-h-full justify-center"
+                  overlayClassName="bg-black/25 opacity-100 fixed inset-0 z-50 pt-32 md:pt-48 px-8 sm:px-16 pb-32"
                   onRequestClose={() => setOpen(null)}
                 >
                   <PhotoDetail photo={photo} onClose={() => setOpen(null)} />
