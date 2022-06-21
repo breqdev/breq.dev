@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Markdown from "../components/markdown/Markdown";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
@@ -59,42 +59,55 @@ function ExifItem({ icon, text, link }) {
   );
 }
 
-function PhotoDetail({ photo, onClose }) {
+function PhotoDetail({ photo, onClose, open }) {
+  const closeButton = useRef(null);
+
   return (
-    <div className="flex max-w-5xl flex-col border-2 border-white bg-black text-white md:flex-row">
-      <div className="relative -mb-2 aspect-square max-h-full">
-        <Image
-          src={photo.src}
-          width={photo.width}
-          height={photo.height}
-          alt={photo.description}
-          className=""
-        />
-        <button
-          className="absolute top-0 right-0 px-4 py-2 text-5xl md:hidden"
-          onClick={onClose}
-        >
-          <FontAwesomeIcon icon={faTimes} />
-        </button>
+    <Modal
+      isOpen={open === photo.src}
+      className="flex max-h-full justify-center"
+      overlayClassName="bg-black/25 opacity-100 fixed inset-0 z-50 pt-32 md:pt-48 px-8 sm:px-16 pb-32"
+      onRequestClose={onClose}
+      onAfterOpen={() => {
+        closeButton.current.focus();
+      }}
+    >
+      <div className="flex max-w-5xl flex-col border-2 border-white bg-black text-white md:flex-row">
+        <div className="relative -mb-2 aspect-square max-h-full">
+          <Image
+            src={photo.src}
+            width={photo.width}
+            height={photo.height}
+            alt={photo.description}
+            className=""
+          />
+          <button
+            className="absolute top-0 right-0 px-4 py-2 text-5xl md:hidden"
+            onClick={onClose}
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+        </div>
+        <div className="flex flex-grow flex-col gap-2 overflow-auto px-4 py-4 md:w-72 md:max-w-md md:flex-shrink-0 md:py-0">
+          <button
+            className="hidden self-end py-4 px-2 text-7xl outline-none focus:text-panpink md:block"
+            onClick={onClose}
+            ref={closeButton}
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+          <p className="font-body">{photo.description}</p>
+          <ExifItem icon={faCamera} text={photo.exif.camera} />
+          <ExifItem icon={faCalendarAlt} text={photo.exif.capturedOn} />
+          <ExifItem icon={faPencilAlt} text={photo.exif.editedOn} />
+          <ExifItem
+            icon={faMapMarkerAlt}
+            text={photo.exif.gps}
+            link={photo.exif.mapsLink}
+          />
+        </div>
       </div>
-      <div className="flex flex-grow flex-col gap-2 overflow-auto px-4 py-4 md:w-72 md:max-w-md md:flex-shrink-0 md:py-0">
-        <button
-          className="hidden self-end py-4 px-2 text-7xl md:block"
-          onClick={onClose}
-        >
-          <FontAwesomeIcon icon={faTimes} />
-        </button>
-        <p className="font-body">{photo.description}</p>
-        <ExifItem icon={faCamera} text={photo.exif.camera} />
-        <ExifItem icon={faCalendarAlt} text={photo.exif.capturedOn} />
-        <ExifItem icon={faPencilAlt} text={photo.exif.editedOn} />
-        <ExifItem
-          icon={faMapMarkerAlt}
-          text={photo.exif.gps}
-          link={photo.exif.mapsLink}
-        />
-      </div>
-    </div>
+    </Modal>
   );
 }
 
@@ -113,7 +126,7 @@ export default function Photos({ sets }) {
               <>
                 <button
                   key={photo.src}
-                  className="group relative aspect-square min-h-0"
+                  className="group relative aspect-square min-h-0 outline-none"
                   onClick={() => setOpen(photo.src)}
                 >
                   <Image
@@ -122,15 +135,13 @@ export default function Photos({ sets }) {
                     height={photo.height}
                     alt={photo.description}
                   />
+                  <div className="absolute inset-0 z-20 -m-1 hidden border-8 border-panpink group-focus:block" />
                 </button>
-                <Modal
-                  isOpen={open === photo.src}
-                  className="flex max-h-full justify-center"
-                  overlayClassName="bg-black/25 opacity-100 fixed inset-0 z-50 pt-32 md:pt-48 px-8 sm:px-16 pb-32"
-                  onRequestClose={() => setOpen(null)}
-                >
-                  <PhotoDetail photo={photo} onClose={() => setOpen(null)} />
-                </Modal>
+                <PhotoDetail
+                  photo={photo}
+                  open={open}
+                  onClose={() => setOpen(null)}
+                />
               </>
             ))}
           </div>
