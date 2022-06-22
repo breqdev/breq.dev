@@ -18,7 +18,7 @@ export default function Tag({ tags }: { tags: Record<string, number> }) {
       <SEOHelmet title="the archives by tag: projects, posts, and more i've made, with <3." />
       <div className="mx-auto max-w-7xl text-center font-display">
         <h1 className="my-8 text-6xl">tags</h1>
-        <div className="place-stretch m-8 grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4">
+        <div className="place-stretch m-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {Object.entries(tags)
             .sort(([, a], [, b]) => b - a)
             .map(([tag, count]) => (
