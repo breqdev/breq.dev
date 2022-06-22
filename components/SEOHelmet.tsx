@@ -21,6 +21,10 @@ export default function SEOHelmet({ title, description, image }: SEOProps) {
       <meta name="og:type" content="website" />
 
       <meta name="twitter:card" content="summary_large_image" />
+      <meta
+        name="twitter:image"
+        content={image || "/opengraph/pansexual.jpg"}
+      />
     </Head>
   );
 }
