@@ -8,7 +8,7 @@ type SEOProps = {
 };
 
 export default function SEOHelmet({ title, description, image }: SEOProps) {
-  const imageOrDefault = image || "opengraph.jpg";
+  const imageOrDefault = image || "/opengraph.jpg";
 
   return (
     <Head>
@@ -27,7 +27,7 @@ export default function SEOHelmet({ title, description, image }: SEOProps) {
       <meta name="twitter:creator" content="@breqdev" />
       <meta
         name="twitter:image"
-        content={"https://breq.dev/" + imageOrDefault}
+        content={"https://breq.dev" + imageOrDefault}
       />
     </Head>
   );
