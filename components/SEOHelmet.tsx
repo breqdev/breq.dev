@@ -21,7 +21,12 @@ export default function SEOHelmet({ title, description, image }: SEOProps) {
       <meta name="og:type" content="website" />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content={image || "/opengraph.jpg"} />
+      <meta name="twitter:site" content="@breqdev" />
+      <meta name="twitter:creator" content="@breqdev" />
+      <meta
+        name="twitter:image"
+        content={image || "https://breq.dev/opengraph.jpg"}
+      />
     </Head>
   );
 }
