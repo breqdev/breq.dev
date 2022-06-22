@@ -24,7 +24,7 @@ export default class MyDocument extends Document {
           />
           <link rel="manifest" href="/site.webmanifest" />
           <meta name="msapplication-TileColor" content="#9f00a7" />
-          <meta name="theme-color" content="#ffffff" />
+          <meta name="theme-color" content="#ff42a1" />
 
           <link
             href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
