@@ -51,7 +51,7 @@ export default function Navbar() {
 
         <div
           className={
-            "absolute left-0 mt-16 w-full overflow-hidden bg-panpink transition-[max-height] duration-500 lg:static lg:mt-0 lg:flex " +
+            "absolute left-0 mt-16 w-full overflow-hidden bg-panpink transition-[max-height] duration-500 md:static md:mt-0 md:flex " +
             (expanded ? "max-h-96" : " max-h-0 md:max-h-96")
           }
         >
