@@ -17,10 +17,10 @@ function SkipNavigation() {
 export default function Navbar() {
   const navLinks = {
     projects: "/projects",
-    writing: "/writing",
     blog: "/blog",
-    tags: "/tags",
     photos: "/photos",
+    writing: "/writing",
+    tags: "/tags",
     etc: "/etc",
   };
 
