@@ -88,9 +88,21 @@ function Projects({ data }: { data: (BasicMarkdownInfo & ProjectInfo)[] }) {
   );
 }
 
+function usePronouns() {
+  const [pronouns, setPronouns] = React.useState("");
+
+  React.useEffect(() => {
+    setPronouns(Math.random() > 0.95 ? "she/they" : "she/her");
+  }, []);
+
+  return pronouns;
+}
+
 export default function Index(props: {
   data: (BasicMarkdownInfo & ProjectInfo)[];
 }) {
+  const pronouns = usePronouns();
+
   return (
     <Page>
       <SEOHelmet
@@ -109,7 +121,7 @@ export default function Index(props: {
           <h1 className="mb-2 text-7xl">
             hey, i'm brooke.
             <br />
-            <span className="text-gray-500">she/her.</span>
+            <span className="text-gray-500">{pronouns}.</span>
           </h1>
           <h2 className="text-4xl">welcome to my little patch of internet.</h2>
         </div>
