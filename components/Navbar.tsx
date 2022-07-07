@@ -30,8 +30,8 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-panpink p-4 font-display">
       <SkipNavigation />
 
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 lg:flex-row">
-        <div className="flex w-full justify-between lg:w-max">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 md:flex-row">
+        <div className="flex w-full justify-between md:w-max">
           <Link href="/">
             <a className="text-5xl text-black outline-none hover:text-white focus:text-white focus:underline">
               breq.dev
@@ -39,7 +39,7 @@ export default function Navbar() {
           </Link>
 
           <button
-            className="flex h-12 w-12 items-center justify-center rounded-xl border-4 border-black text-lg text-black lg:hidden"
+            className="flex h-12 w-12 items-center justify-center rounded-xl border-4 border-black text-lg text-black md:hidden"
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
@@ -55,7 +55,7 @@ export default function Navbar() {
             (expanded ? "max-h-96" : " max-h-0 md:max-h-96")
           }
         >
-          <ul className="flex flex-col gap-2 p-4 lg:flex-row lg:p-0">
+          <ul className="flex flex-col gap-2 p-4 md:flex-row md:p-0">
             {Object.entries(navLinks).map(([name, url]) => (
               <li className="text-lg" key={url}>
                 <Link href={url}>
