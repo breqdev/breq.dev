@@ -168,6 +168,7 @@ export default function Photos({
                 <PhotoDetail
                   photo={photo}
                   open={open}
+                  key={photo.src}
                   onClose={() => setOpen(null)}
                 />
               </>
