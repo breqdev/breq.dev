@@ -46,6 +46,9 @@ export default function Etc() {
           <EtcBlock title="design reference" page="/design">
             fonts, colors, names, and other for my brand.
           </EtcBlock>
+          <EtcBlock title="names and numbers" page="/numbers">
+            pgp/ssh keys, callsigns, licence info.
+          </EtcBlock>
           <EtcBlock title="contact me" page="/contact">
             ways to contact me.
           </EtcBlock>

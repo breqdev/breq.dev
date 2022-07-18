@@ -1,0 +1,2 @@
+# MacBook Pro (M1, 2020)
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN1fRaVN/y/+nZ/g4lo697nKXqmwcDSOH45UDOtXMPnN breq@breq.dev
