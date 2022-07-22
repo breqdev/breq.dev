@@ -1,3 +1,4 @@
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN1fRaVN/y/+nZ/g4lo697nKXqmwcDSOH45UDOtXMPnN breq@breq.dev (MacBook Pro, M1, 2020)
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICqhi0gHawZp/+f8SeQDZwpC2kIhfqA54hg96/FCIdZ4 breq@breq.dev (Windows 10, Ryzen)
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIENYpkpCTwtRMRVPSBYq5LVU2d9y0RSO1t9TFbL9UwUQ breq@breq.dev (Windows 10, Ryzen, WSL)
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINj8nxchQSbfug4VdtMo10MR+8rElDlGen9SQyuTCyOd breq@breq.dev (Linux, Ryzen)
