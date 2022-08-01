@@ -33,7 +33,8 @@ export default function Sponsors() {
                 href={`https://github.com/${sponsor}`}
                 className="flex flex-col items-center gap-4 rounded-2xl bg-white p-4 text-lg text-black"
               >
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={`https://github.com/${sponsor}.png`}
                   alt=""
                   width={112}

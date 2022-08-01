@@ -27,10 +27,9 @@ function EtcBlock(props: {
 }
 
 export default function Etc() {
-  const { data: sponsors } = useSWR(
-    "https://sponsors.breq.workers.dev/",
-    fetcher
-  );
+  const {
+    data: { sponsors },
+  } = useSWR("https://sponsors.breq.workers.dev/", fetcher);
 
   return (
     <Page>
