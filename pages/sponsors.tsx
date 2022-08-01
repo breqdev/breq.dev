@@ -17,9 +17,9 @@ export default function Sponsors() {
   return (
     <Page className="bg-black text-white">
       <SEOHelmet title="Sponsors" />
-      <div className="mx-auto w-full max-w-xl py-8">
+      <div className="mx-auto w-full max-w-xl py-8 px-2">
         <h1 className="text-center font-display text-6xl">Sponsors</h1>
-        <p className="my-4 mt-8 font-body text-2xl">
+        <p className="my-4 mt-8 font-body text-xl">
           Generous contributions from these people help support my work. Thank
           you!
         </p>
@@ -56,11 +56,11 @@ export default function Sponsors() {
             )) || []),
           ]}
         </div>
-        <p className="mt-16 font-body text-2xl">
+        <p className="mt-16 font-body text-xl">
           If you've gotten value from my work, and you have the means, consider
           supporting my work on one of these platforms:
         </p>
-        <div className="my-6 flex gap-4 font-display text-2xl">
+        <div className="my-6 flex flex-col gap-4 font-display text-2xl sm:flex-row">
           <a
             href="https://github.com/sponsors/Breq16"
             target="_blank"
