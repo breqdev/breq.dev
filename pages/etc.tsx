@@ -27,9 +27,7 @@ function EtcBlock(props: {
 }
 
 export default function Etc() {
-  const {
-    data: { sponsors },
-  } = useSWR("https://sponsors.breq.workers.dev/", fetcher);
+  const { data } = useSWR("https://sponsors.breq.workers.dev/", fetcher);
 
   return (
     <Page>
@@ -51,7 +49,7 @@ export default function Etc() {
           <EtcBlock title="contact me" page="/contact">
             ways to contact me.
           </EtcBlock>
-          {sponsors?.length && (
+          {data?.sponsors?.length && (
             <EtcBlock title="sponsors" page="/sponsors">
               supporters of my work. thank you!
             </EtcBlock>
