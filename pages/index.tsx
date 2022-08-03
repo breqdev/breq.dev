@@ -89,11 +89,9 @@ function Projects({ data }: { data: (BasicMarkdownInfo & ProjectInfo)[] }) {
 }
 
 function usePronouns() {
-  const [pronouns, setPronouns] = React.useState("");
-
-  React.useEffect(() => {
-    setPronouns(Math.random() > 0.95 ? "she/they" : "she/her");
-  }, []);
+  const [pronouns] = React.useState(() =>
+    Math.random() > 0.95 ? "she/they" : "she/her"
+  );
 
   return pronouns;
 }
