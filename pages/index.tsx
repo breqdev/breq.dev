@@ -108,20 +108,27 @@ export default function Index(props: {
         description="welcome to my little patch of internet. view my projects, posts, and miscellaneous experiments here."
       />
       <div className="relative z-10 bg-black text-white">
-        <div
-          style={{ height: "200vh" }}
-          className="mx-auto max-w-6xl px-16 text-right font-display"
-        >
+        <div className="height-[200vh] mx-auto max-w-6xl px-8 font-display sm:px-16">
           <div className="relative h-screen">
             <ScrollDownHint />
           </div>
 
-          <h1 className="mb-2 text-7xl">
-            hey, i'm brooke.
-            <br />
-            <span className="text-gray-500">{pronouns}.</span>
-          </h1>
-          <h2 className="text-4xl">welcome to my little patch of internet.</h2>
+          <div className="flex justify-end">
+            <div
+              className="flex flex-col"
+              style={{ textShadow: "#000 0 0 30px" }}
+            >
+              <h1 className="text-7xl">
+                hey, i'm
+                <br />
+                <span className="text-panpink">brooke chalmers</span>.
+              </h1>
+              <p className="text-right text-6xl text-gray-500">({pronouns}).</p>
+              <h2 className="mt-12 text-right text-3xl">
+                welcome to my little patch of internet.
+              </h2>
+            </div>
+          </div>
         </div>
 
         <div
