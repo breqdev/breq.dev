@@ -104,8 +104,8 @@ export default function Index(props: {
   return (
     <Page>
       <SEOHelmet
-        title="breq.dev. hey, i'm brooke."
-        description="welcome to my little patch of internet. view my projects, posts, and miscellaneous experiments here."
+        title="hey, i'm brooke chalmers."
+        description="welcome to my little patch of internet. view my projects, posts, and experiments here."
       />
       <div className="relative z-10 bg-black text-white">
         <div className="height-[200vh] mx-auto max-w-6xl px-8 font-display sm:px-16">
