@@ -121,7 +121,7 @@ export default function Index(props: {
               <h1 className="text-7xl">
                 hey, i'm
                 <br />
-                <span className="text-panpink">brooke chalmers</span>.
+                <span className="text-panpink">brooke chalmers.</span>
               </h1>
               <p className="text-right text-6xl text-gray-500">({pronouns}).</p>
               <h2 className="mt-12 text-right text-3xl">
