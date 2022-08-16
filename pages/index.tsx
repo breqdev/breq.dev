@@ -108,7 +108,7 @@ export default function Index(props: {
         description="welcome to my little patch of internet. view my projects, posts, and experiments here."
       />
       <div className="relative z-10 bg-black text-white">
-        <div className="height-[200vh] mx-auto max-w-6xl px-8 font-display sm:px-16">
+        <div className="mx-auto h-[200vh] max-w-6xl px-8 font-display sm:px-16">
           <div className="relative h-screen">
             <ScrollDownHint />
           </div>
