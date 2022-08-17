@@ -75,7 +75,7 @@ export default function Footer() {
             </a>
           </Link>
         </p>
-        <p>
+        <p className="hidden md:block">
           footer art by the wonderful <FontAwesomeIcon icon={faTwitter} />{" "}
           <a
             href="https://twitter.com/nyashidos"
