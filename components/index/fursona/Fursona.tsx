@@ -2,13 +2,21 @@ import Image from "next/image";
 import React from "react";
 import fursona from "./fursona.png";
 import tamagotchi from "./tamagotchi.png";
+import quartz from "./quartz.png";
 
 function Fursona() {
   return <Image src={fursona} alt="Fursona" />;
 }
 
 function Tamagotchi() {
-  return <Image src={tamagotchi} alt="Tamagotchi" />;
+  return (
+    <>
+      <Image src={tamagotchi} alt="Tamagotchi" />
+      <div className="absolute top-24 left-5 -z-10 w-20 transition-transform duration-200 group-hover:-translate-x-20 group-hover:-rotate-12">
+        <Image src={quartz} alt="Quartz" />
+      </div>
+    </>
+  );
 }
 
 const CHARACTERS = [
@@ -32,7 +40,7 @@ export default function Character() {
 
   return (
     <div
-      className="absolute bottom-0 right-0 mr-6 hidden w-48 transform overflow-hidden transition-transform duration-200 hover:-rotate-6 hover:scale-105 md:block"
+      className="group absolute bottom-0 right-0 mr-6 hidden w-48 transform transition-transform duration-200 hover:-rotate-6 hover:scale-105 md:block"
       style={{ marginBottom: character.marginBottom }}
     >
       <button onClick={() => setIndex((index + 1) % CHARACTERS.length)}>
