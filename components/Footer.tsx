@@ -75,6 +75,18 @@ export default function Footer() {
             </a>
           </Link>
         </p>
+        <p>
+          footer art by the wonderful <FontAwesomeIcon icon={faTwitter} />{" "}
+          <a
+            href="https://twitter.com/nyashidos"
+            className={linkStyles}
+            target="_blank"
+            rel="noreferrer"
+          >
+            nyashidos
+          </a>
+          !
+        </p>
 
         <Character />
       </div>
