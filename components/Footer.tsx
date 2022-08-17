@@ -14,7 +14,7 @@ import {
   faKeybase,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { Tamagotchi } from "./index/fursona/Fursona";
+import Character from "./index/fursona/Fursona";
 
 export default function Footer() {
   const contactLinks: [IconDefinition, string, string][] = [
@@ -76,7 +76,7 @@ export default function Footer() {
           </Link>
         </p>
 
-        <Tamagotchi />
+        <Character />
       </div>
     </footer>
   );
