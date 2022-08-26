@@ -30,7 +30,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-panpink p-4 font-display">
       <SkipNavigation />
 
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 md:flex-row">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 md:flex-row md:gap-2">
         <div className="flex w-full justify-between md:w-max">
           <Link href="/">
             <a className="text-5xl text-black outline-none hover:text-white focus:text-white focus:underline">
