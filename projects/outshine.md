@@ -4,7 +4,7 @@ description: A NeoPixel driver project, a companion Android app, and a stylish L
 image: outshine/choker.jpg
 video: rave-choker.480p.webm
 created: "2022"
-repo: Breq16/outshine
+repo: breqdev/outshine
 tags: [arduino, c++, hardware, react]
 ---
 
@@ -15,8 +15,8 @@ tags: [arduino, c++, hardware, react]
 
 This project consists of three parts:
 
-- [outshine](https://github.com/Breq16/outshine), an Arduino program that displays animations on a NeoPixel strand
-- [OutshineApp](https://github.com/Breq16/OutshineApp), an Android app to communicate with an Arduino running Outshine via USB serial
+- [outshine](https://github.com/breqdev/outshine), an Arduino program that displays animations on a NeoPixel strand
+- [OutshineApp](https://github.com/breqdev/OutshineApp), an Android app to communicate with an Arduino running Outshine via USB serial
 - the rave choker, the physical device that I built which runs Outshine firmware
 
 # Motivation

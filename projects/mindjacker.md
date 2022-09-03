@@ -4,7 +4,7 @@ title: Mindjacker
 description: A Python library wrapper to interact with the NXT
 image: default.png
 created: "2017"
-repo: Breq16/mindjacker
+repo: breqdev/mindjacker
 status: old
 tags: [python, hardware]
 ---

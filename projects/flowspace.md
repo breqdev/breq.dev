@@ -4,7 +4,7 @@ title: flowspace
 description: A social network.
 image: flowspace/login.png
 created: "2021"
-repo: Breq16/flowspace
+repo: breqdev/flowspace
 demo: https://flowspace.breq.dev/
 tags: [node, react, sql]
 ---

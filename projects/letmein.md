@@ -5,7 +5,7 @@ description: Automate unlocking doors at Northeastern's IV dorm.
 image: default.png
 video: letmein.480p.webm
 created: "2021"
-repo: Breq16/letmein
+repo: breqdev/letmein
 tags: [puppeteer, node]
 ---
 

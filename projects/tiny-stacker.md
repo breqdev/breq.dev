@@ -4,7 +4,7 @@ description: A simple stacking game running on a low-power Atmel chip.
 image: tiny-stacker.jpg
 video: tiny-stacker.480p.webm
 created: "2020"
-repo: Breq16/tiny-stacker
+repo: breqdev/tiny-stacker
 tags: [arduino, hardware, power]
 ---
 

@@ -4,7 +4,7 @@ title: GenReGen
 description: A mashup generator.
 image: genregen.png
 created: "2021"
-repo: Breq16/genregen
+repo: breqdev/genregen
 demo: https://genregen.breq.dev/
 tags: [javascript, serverless]
 ---

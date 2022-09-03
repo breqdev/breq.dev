@@ -3,7 +3,7 @@ title: Picto
 description: A Pictochat clone built on Web technologies.
 image: picto.png
 created: "2021"
-repo: Breq16/pictochat
+repo: breqdev/pictochat
 demo: https://picto.breq.dev/
 tags: [react, node]
 ---
@@ -30,9 +30,9 @@ I grew up with a Nintendo DS, so it's no surprise I have a ton of nostalgia for 
 
 # Technical Description
 
-The project is mostly just a React single-page-application (although there's a small WebSocket server component [here](https://github.com/Breq16/pictoserver/blob/main/index.js) to rebroadcast messages).
+The project is mostly just a React single-page-application (although there's a small WebSocket server component [here](https://github.com/breqdev/pictoserver/blob/main/index.js) to rebroadcast messages).
 
-I didn't strip any assets from Pictochat itself, and I'm not much of a sound or icon designer, so I made do with what I could find. I picked similar sounds from [material.io](https://github.com/Breq16/pictoserver/blob/main/index.js) and icons from [Font Awesome](https://fontawesome.com/). Some of them are a better match than others, but overall, they match up pretty well.
+I didn't strip any assets from Pictochat itself, and I'm not much of a sound or icon designer, so I made do with what I could find. I picked similar sounds from [material.io](https://github.com/breqdev/pictoserver/blob/main/index.js) and icons from [Font Awesome](https://fontawesome.com/). Some of them are a better match than others, but overall, they match up pretty well.
 
 I made an effort to have usable keyboard navigation. The original DS allowed using either the stylus or control pad for navigating the interface, so I wanted this project to have a similar experience.
 

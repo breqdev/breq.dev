@@ -3,7 +3,7 @@ title: Artificial Soundscapes
 description: Sounds generated from historical weather data of different cities.
 image: soundscapes.png
 created: "2022"
-repo: Breq16/soundscapes
+repo: breqdev/soundscapes
 tags: [python, music]
 ---
 

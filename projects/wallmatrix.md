@@ -5,7 +5,7 @@ description: A small, flashy display I made to hang on the wall.
 image: default.png
 video: matrix.480p.webm
 created: "2021"
-repo: Breq16/wallmatrix
+repo: breqdev/wallmatrix
 demo: https://matrix.breq.dev/
 tags: [python, hardware]
 ---

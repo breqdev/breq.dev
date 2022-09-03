@@ -5,7 +5,7 @@ description: Billy Bass fish modified to sing a Phoebe Bridgers song
 image: fish.jpg
 video: fish.480p.webm
 created: "2020"
-repo: Breq16/bigmouth
+repo: breqdev/bigmouth
 tags: [hardware, arduino, music]
 ---
 

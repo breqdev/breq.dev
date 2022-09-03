@@ -4,7 +4,7 @@ title: remark-abcjs
 description: A Remark plugin to format music notation.
 image: remark-abcjs.png
 created: "2022"
-repo: Breq16/remark-abcjs
+repo: breqdev/remark-abcjs
 tags: [javascript]
 ---
 

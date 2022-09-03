@@ -58,7 +58,7 @@ export default function Contact() {
           </h2>
           <p className="my-4 font-body text-2xl">
             the best way to reach me with code-related questions is on{" "}
-            <ExtLink href="https://github.com/Breq16">GitHub</ExtLink>. if
+            <ExtLink href="https://github.com/breqdev">GitHub</ExtLink>. if
             you're having trouble, don't hesitate to open an issue in the
             relevant project repo!
           </p>

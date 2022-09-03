@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 
 /*
 <script src="https://utteranc.es/client.js"
-        repo="Breq16/breq.dev"
+        repo="breqdev/breq.dev"
         issue-term="pathname"
         label="Utterances"
         theme="github-light"
@@ -26,7 +26,7 @@ export default function Comments() {
     script.src = "https://utteranc.es/client.js";
     script.crossOrigin = "anonymous";
 
-    script.setAttribute("repo", "Breq16/breq.dev");
+    script.setAttribute("repo", "breqdev/breq.dev");
     script.setAttribute("issue-term", "pathname");
     script.setAttribute("label", "Utterances");
     script.setAttribute("theme", "preferred-color-scheme");

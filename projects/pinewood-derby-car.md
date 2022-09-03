@@ -5,7 +5,7 @@ description: A model car full of blinkenlights that I programmed when I was a sm
 image: default.png
 video: pinewood-derby-car.480p.webm
 created: "2014"
-repo: Breq16/pinewood-derby-car
+repo: breqdev/pinewood-derby-car
 status: old
 tags: [arduino, hardware]
 ---

@@ -40,12 +40,12 @@ export default function Footer() {
           &nbsp;
           <span className="sr-only">github</span>
           <a
-            href="https://github.com/Breq16/breq.dev"
+            href="https://github.com/breqdev/breq.dev"
             className={linkStyles}
             target="_blank"
             rel="noreferrer"
           >
-            Breq16/breq.dev
+            breqdev/breq.dev
           </a>
         </p>
         <p>

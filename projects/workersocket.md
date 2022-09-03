@@ -3,7 +3,7 @@ title: WorkerSocket
 description: A JavaScript library to run a WebSocket inside of a Web Worker.
 image: default.png
 created: "2022"
-repo: Breq16/workersocket
+repo: breqdev/workersocket
 tags: [javascript, networking]
 ---
 
@@ -17,7 +17,7 @@ This is a library I made to run a WebSocket inside of a Web Worker in the browse
 
 # Motivation
 
-I wrote this while implementing my [fork of roslib](https://github.com/Breq16/roslib/), a library for communicating with a [`ros`](https://www.ros.org/) server through the [`rosbridge`](http://wiki.ros.org/rosbridge_suite) protocol. `roslib` is typically used to build a web-based monitoring UI for some type of robot.
+I wrote this while implementing my [fork of roslib](https://github.com/breqdev/roslib/), a library for communicating with a [`ros`](https://www.ros.org/) server through the [`rosbridge`](http://wiki.ros.org/rosbridge_suite) protocol. `roslib` is typically used to build a web-based monitoring UI for some type of robot.
 
 The original `roslib` hijacked a browserify library called [`webworkify`](https://github.com/browserify/webworkify) to run a WebSocket through a Web Worker, but `webworkify` doesn't bundle with Vite or Webpack 5.
 

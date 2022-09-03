@@ -3,7 +3,7 @@ title: MOTD Necklace
 description: Display a different message every day on an e-Ink necklace.
 image: motd/square.jpg
 created: "2022"
-repo: Breq16/motd
+repo: breqdev/motd
 tags: [arduino, c++, hardware]
 ---
 

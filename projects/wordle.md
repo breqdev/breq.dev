@@ -3,7 +3,7 @@ title: Wordle Clones
 description: Two clones of Wordle, written in TypeScript and Rust.
 image: wordle/typescript.png
 created: "2022"
-repo: Breq16/rust_wordle
+repo: breqdev/rust_wordle
 demo: https://wordle.breq.dev/
 tags: [javascript, rust]
 ---
@@ -26,7 +26,7 @@ The Rust clone was written because I wanted to learn more about Rust. I figured 
 
 ![](wordle/typescript_complete.png)
 
-_Code is available at [Breq16/wordle](https://github.com/Breq16/wordle)._
+_Code is available at [breqdev/wordle](https://github.com/breqdev/wordle)._
 
 I built this project in React, but I wanted to ensure the game logic was sufficiently decoupled from the rendered result. I wrote this logic in two pure TypeScript functions, `rowColoring` and `keyboardColoring`.
 
@@ -106,7 +106,7 @@ export function keyboardColoring(guesses: string[], target: string) {
 
 ## Rust
 
-_Code is available at [Breq16/rust_wordle](https://github.com/Breq16/rust_wordle)._
+_Code is available at [breqdev/rust_wordle](https://github.com/breqdev/rust_wordle)._
 
 ![](wordle/rust.png)
 

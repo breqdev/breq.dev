@@ -3,7 +3,7 @@ title: Dynamic Music
 description: Navigate and manipulate a virtual environment of sound sources.
 image: dynamic-music.png
 created: "2021"
-repo: Breq16/dynamic-music
+repo: breqdev/dynamic-music
 demo: https://music.breq.dev/
 tags: [javascript, three, music]
 ---

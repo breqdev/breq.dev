@@ -4,7 +4,7 @@ title: Snowflake
 description: A scalable service to generate time-ordered, unique ID numbers.
 image: default.png
 created: "2020"
-repo: Breq16/snowflake
+repo: breqdev/snowflake
 demo: /apps/snowflake.html
 tags: [python, redis]
 ---
@@ -21,7 +21,7 @@ I wanted to get more experience working with the [12 Factor App](https://12facto
 
 The "Snowflake" ID format was designed at Twitter for identifying tweets, so its scalability is its main selling point. Each Snowflake is a 64-bit integer composed of a timestamp in milliseconds (42 bits), worker ID (10 bits), and increment (12 bits).
 
-The format can support 1024 possible worker IDs -- too many to hardcode by hand, but too few to assign randomly. So, I made a second app, "SnowCloud," that handles the assignment of these worker IDs to the Snowflake server instances. When a Snowflake server comes online, it will request a worker ID from a SnowCloud server. Then, it will periodically renew the worker ID with the SnowCloud server. The pool of worker IDs are stored as a Redis set, sorted by how recently each was used. In addition, each Snowflake server is identified by a UUID, and these UUIDs are tracked to ensure Snowflake servers can only renew their own assignments. (For reference, the SnowCloud repo is at, predictably, [Breq16/snowcloud](https://github.com/Breq16/snowcloud).)
+The format can support 1024 possible worker IDs -- too many to hardcode by hand, but too few to assign randomly. So, I made a second app, "SnowCloud," that handles the assignment of these worker IDs to the Snowflake server instances. When a Snowflake server comes online, it will request a worker ID from a SnowCloud server. Then, it will periodically renew the worker ID with the SnowCloud server. The pool of worker IDs are stored as a Redis set, sorted by how recently each was used. In addition, each Snowflake server is identified by a UUID, and these UUIDs are tracked to ensure Snowflake servers can only renew their own assignments. (For reference, the SnowCloud repo is at, predictably, [breqdev/snowcloud](https://github.com/breqdev/snowcloud).)
 
 # Results
 

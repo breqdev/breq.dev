@@ -62,7 +62,7 @@ export default function Sponsors() {
         </p>
         <div className="my-6 flex flex-col gap-4 font-display text-2xl sm:flex-row">
           <a
-            href="https://github.com/sponsors/Breq16"
+            href="https://github.com/sponsors/breqdev"
             target="_blank"
             rel="noreferrer noopener"
             className="flex w-full flex-grow items-center rounded-full bg-gray-200 py-4 px-6 text-center text-black"

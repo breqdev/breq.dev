@@ -4,7 +4,7 @@ title: AutoRedditor
 description: A service for caching and providing random Reddit posts.
 image: default.png
 created: "2020"
-repo: Breq16/redditor
+repo: breqdev/redditor
 demo: /apps/redditor.html
 tags: [python, flask, reddit]
 ---

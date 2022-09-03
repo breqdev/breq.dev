@@ -5,7 +5,7 @@ description: Vibrance synchronizes computers and smartphones to display configur
 image: default.png
 video: vibrance.480p.webm
 created: "2020"
-repo: Breq16/vibrance
+repo: breqdev/vibrance
 tags: [python, music]
 ---
 

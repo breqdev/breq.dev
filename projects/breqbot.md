@@ -4,7 +4,7 @@ title: Breqbot
 description: A Discord bot with minigames and utilities.
 image: breqbot/website.png
 created: "2020"
-repo: Breq16/breqbot
+repo: breqdev/breqbot
 demo: https://bot.breq.dev/
 tags: [discord, python, redis]
 ---

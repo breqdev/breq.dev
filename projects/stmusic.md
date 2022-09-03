@@ -5,7 +5,7 @@ description: A Guitar-Hero-style game built for the ST Discovery board.
 image: default.png
 video: music-game.480p.webm
 created: "2020"
-repo: Breq16/STMusic
+repo: breqdev/STMusic
 tags: [c++, hardware, music]
 ---
 

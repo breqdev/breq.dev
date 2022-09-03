@@ -4,7 +4,7 @@ title: React Twitter NoTrack
 description: A React component library for embedding Tweets without Twitter's tracking script.
 image: react-twitter-notrack.png
 created: "2021"
-repo: Breq16/react-twitter-notrack
+repo: breqdev/react-twitter-notrack
 demo: https://github.breq.dev/react-twitter-notrack
 tags: [javascript, serverless, react]
 ---
