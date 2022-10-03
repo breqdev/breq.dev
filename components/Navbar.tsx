@@ -6,7 +6,7 @@ import Link from "next/link";
 function SkipNavigation() {
   return (
     <a
-      className="absolute left-0 top-0 ml-10 -translate-y-full rounded-b-xl border-x-2 border-b-2 p-2 underline transition-transform focus:translate-y-0 focus:border-black focus:bg-panblue focus:text-black"
+      className="absolute left-0 top-0 ml-10 -translate-y-full rounded-b-xl border-x-2 border-b-2 border-black bg-panblue p-2 text-black underline transition-transform focus:translate-y-0"
       href="#main"
     >
       skip navigation
