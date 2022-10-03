@@ -129,7 +129,7 @@ function theme(colors: Colors): PrismTheme {
 export default function Code({ children }: { children: React.ReactElement }) {
   const [dark, setDark] = React.useState(false);
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
     setDark(prefersDarkMode.matches);
 
