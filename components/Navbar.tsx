@@ -14,6 +14,46 @@ function SkipNavigation() {
   );
 }
 
+function Wordmark({
+  flipped,
+  onClick,
+}: {
+  flipped: boolean;
+  onClick?: () => void;
+}) {
+  const className =
+    "flex text-5xl text-black outline-none " +
+    (onClick ? "" : "hover:text-white focus:text-white focus:underline");
+
+  const inner = (
+    <>
+      <span
+        className={
+          "inline-block transition-transform " +
+          (flipped ? "translate-y-2 rotate-180" : "")
+        }
+      >
+        breq
+      </span>
+      .dev
+    </>
+  );
+
+  if (onClick) {
+    return (
+      <button className={className} onClick={onClick}>
+        {inner}
+      </button>
+    );
+  } else {
+    return (
+      <Link href="/">
+        <a className={className}>{inner}</a>
+      </Link>
+    );
+  }
+}
+
 export default function Navbar() {
   const navLinks = {
     projects: "/projects",
@@ -24,7 +64,9 @@ export default function Navbar() {
     etc: "/etc",
   };
 
+  const [flipped, setFlipped] = useState(true);
   const [expanded, setExpanded] = useState(false);
+  const onHomepage = globalThis.location?.pathname === "/";
 
   return (
     <nav className="sticky top-0 z-50 bg-panpink p-4 font-display">
@@ -32,11 +74,10 @@ export default function Navbar() {
 
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 md:flex-row md:gap-2">
         <div className="flex w-full justify-between md:w-max">
-          <Link href="/">
-            <a className="text-5xl text-black outline-none hover:text-white focus:text-white focus:underline">
-              breq.dev
-            </a>
-          </Link>
+          <Wordmark
+            onClick={onHomepage ? () => setFlipped(!flipped) : undefined}
+            flipped={flipped && onHomepage}
+          />
 
           <button
             className="flex h-12 w-12 items-center justify-center rounded-xl border-4 border-black text-lg text-black md:hidden"

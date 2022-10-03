@@ -36,7 +36,7 @@ export default function Etc() {
         <h1 className="text-center font-display text-5xl">
           all the other things
         </h1>
-        <div className="my-8 mx-2 flex flex-col gap-8">
+        <div className="my-8 mx-4 flex flex-col gap-8">
           <EtcBlock title="status page" page="/status">
             view the uptime status of any of my gazillion side projects.
           </EtcBlock>
@@ -49,11 +49,11 @@ export default function Etc() {
           <EtcBlock title="contact me" page="/contact">
             ways to contact me.
           </EtcBlock>
-          {data?.sponsors?.length && (
+          {data?.sponsors?.length ? (
             <EtcBlock title="sponsors" page="/sponsors">
               supporters of my work. thank you!
             </EtcBlock>
-          )}
+          ) : null}
         </div>
       </div>
     </Page>
