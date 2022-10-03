@@ -3,11 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  body,
-  html {
-    scroll-behavior: smooth;
-  }
-
   /* FART (Flash of inAccurate coloR Theme) */
   @media (prefers-color-scheme: dark) {
     body {
