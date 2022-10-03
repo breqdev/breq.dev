@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHamburger } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
@@ -6,7 +6,7 @@ import Link from "next/link";
 function SkipNavigation() {
   return (
     <a
-      className="absolute left-0 top-0 ml-10 -translate-y-full rounded-b-xl border-x-2 border-b-2 border-black bg-panblue p-2 text-black underline transition-transform focus:translate-y-0"
+      className="absolute left-0 top-0 ml-10 -translate-y-full rounded-b-xl border-x-2 border-b-2 p-2 underline transition-transform focus:translate-y-0 focus:border-black focus:bg-panblue focus:text-black"
       href="#main"
     >
       skip navigation
@@ -64,9 +64,13 @@ export default function Navbar() {
     etc: "/etc",
   };
 
-  const [flipped, setFlipped] = useState(true);
+  const [flipped, setFlipped] = useState(false);
   const [expanded, setExpanded] = useState(false);
-  const onHomepage = globalThis.location?.pathname === "/";
+  const [onHomepage, setOnHomepage] = useState(false);
+
+  useEffect(() => {
+    setOnHomepage(window.location.pathname === "/");
+  }, []);
 
   return (
     <nav className="sticky top-0 z-50 bg-panpink p-4 font-display">
