@@ -72,9 +72,7 @@
   },
   "overrides": {
     "react-terminal-component": {
-      "dependencies": {
-        "react": "^17.0.0"
-      }
+      "react": "^17.0.0"
     }
   }
 }
