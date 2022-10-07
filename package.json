@@ -69,5 +69,12 @@
     "prettier-plugin-tailwindcss": "^0.1.8",
     "typescript": "^4.7.4",
     "unist-util-inspect": "^6.0.1"
+  },
+  "overrides": {
+    "react-terminal-component": {
+      "dependencies": {
+        "react": "^17.0.0"
+      }
+    }
   }
 }
