@@ -21,7 +21,8 @@ export default function Badges() {
           style={{ imageRendering: "pixelated", width: 88, height: 31 }}
           className="outline-4 outline-panpink focus:outline"
         >
-          <Image width={88} height={31} src={image} alt={name} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img width={88} height={31} src={image} alt={name} />
         </a>
       ))}
     </div>
