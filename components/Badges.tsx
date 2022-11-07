@@ -18,7 +18,8 @@ export default function Badges() {
           rel="noreferrer noopener"
           href={url}
           key={name}
-          style={{ imageRendering: "pixelated" }}
+          style={{ imageRendering: "pixelated", width: 88, height: 31 }}
+          className="outline-4 outline-panpink focus:outline"
         >
           <Image width={88} height={31} src={image} alt={name} />
         </a>
