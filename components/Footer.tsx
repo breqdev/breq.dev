@@ -15,6 +15,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import Character from "./index/fursona/Fursona";
+import Badges from "./Badges";
 
 export default function Footer() {
   const contactLinks: [IconDefinition, string, string][] = [
@@ -87,6 +88,7 @@ export default function Footer() {
           </a>
           !
         </p>
+        <Badges />
 
         <Character />
       </div>
