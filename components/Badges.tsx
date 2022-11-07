@@ -19,7 +19,7 @@ export default function Badges() {
           href={url}
           key={name}
           style={{ imageRendering: "pixelated", width: 88, height: 31 }}
-          className="outline-4 outline-panpink focus:outline"
+          className="outline-4 outline-panpink focus-visible:outline"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img width={88} height={31} src={image} alt={name} />
