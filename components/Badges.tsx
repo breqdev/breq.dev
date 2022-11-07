@@ -7,11 +7,16 @@ const BADGES = [
     image: "/branding/88x31.png",
     url: "https://breq.dev/",
   },
+  {
+    name: "eggy (ezgi bas)",
+    image: "/badges/eggy.png",
+    url: "https://twitter.com/ezgiburglar69",
+  },
 ];
 
 export default function Badges() {
   return (
-    <div className="flex">
+    <div className="flex gap-2">
       {BADGES.map(({ name, image, url }) => (
         <a
           target="_blank"
