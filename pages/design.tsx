@@ -137,6 +137,8 @@ function DesignFiles() {
     "blue_yellow.png",
     "pink_green.png",
     "pink_purple.png",
+    "88x31.png",
+    "88x31.xcf",
   ];
 
   return (
