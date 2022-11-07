@@ -29,7 +29,7 @@ export default function Footer() {
 
   return (
     <footer className="relative z-10 bg-panblue font-display text-lg text-gray-800">
-      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-16 md:pb-32">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 pt-12 pb-16">
         <p>
           made with <FontAwesomeIcon icon={faCode} />{" "}
           <span className="sr-only">code</span> and{" "}
