@@ -13,7 +13,13 @@ export default function Badges() {
   return (
     <div className="flex">
       {BADGES.map(({ name, image, url }) => (
-        <a target="_blank" rel="noreferrer noopener" href={url} key={name}>
+        <a
+          target="_blank"
+          rel="noreferrer noopener"
+          href={url}
+          key={name}
+          style={{ imageRendering: "pixelated" }}
+        >
           <Image width={88} height={31} src={image} alt={name} />
         </a>
       ))}
