@@ -224,8 +224,8 @@ function DesignContent() {
         <h1 className="font-display text-5xl">names</h1>
         <p>
           my full name is Brooke Madeline Chalmers. in most common usage, i
-          leave out the middle name, but you're welcome to include it. friends,
-          strangers, and the barista at Starbucks call me Brooke.
+          leave out the middle name, but you're welcome to include it. friends
+          and strangers call me Brooke.
         </p>
         <p>
           previously, i went by a different name. it's not hard to find, but
