@@ -12,6 +12,11 @@ const BADGES = [
     image: "/badges/eggy.png",
     url: "https://twitter.com/ezgiburglar69",
   },
+  {
+    name: "vivi (vivian hafener)",
+    image: "/badges/vivi.png",
+    url: "https://www.vhafener.com/",
+  },
 ];
 
 export default function Badges() {
