@@ -160,12 +160,13 @@ export default function Index(props: {
             hey, i'm brooke, and i'm here to learn, create, and enjoy it.
             <br />
             <br />
-            i'm passionate about embedded systems, backend engineering, and web
-            dev.
+            i'm passionate about embedded systems, backend engineering, web
+            dev, and bodging things together in creative ways.
             <br />
             <br />
-            my favorite tools are python, react, redis, and linux. i've also
-            started learning rust.
+            my favorite tools are python, react, rust, and linux. most of my
+            work nowadays is completely digital, but i'm still comfortable with
+            a soldering iron and a breadboard.
             <br />
             <br />
             i believe that the only way to learn something fully is to be
