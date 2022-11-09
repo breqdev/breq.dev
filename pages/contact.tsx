@@ -32,8 +32,6 @@ const ExtLink = ({
     className={
       "text-panblue-dark outline-none focus:bg-panyellow " + (className || "")
     }
-    target="_blank"
-    rel="noopener noreferrer"
   >
     {children}
   </a>

@@ -39,8 +39,6 @@ function ProjectInfoItem({ name, icon, value, link }: ProjectInfoItemProps) {
           <a
             href={link}
             className="outline-none hover:underline focus:bg-panyellow focus:text-black focus:underline"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             {value}
           </a>

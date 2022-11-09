@@ -24,8 +24,6 @@ export default function Badges() {
     <div className="flex gap-2">
       {BADGES.map(({ name, image, url }) => (
         <a
-          target="_blank"
-          rel="noreferrer noopener"
           href={url}
           key={name}
           style={{ imageRendering: "pixelated", width: 88, height: 31 }}

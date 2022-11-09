@@ -43,8 +43,6 @@ export default function Footer() {
           <a
             href="https://github.com/breqdev/breq.dev"
             className={linkStyles}
-            target="_blank"
-            rel="noreferrer"
           >
             breqdev/breq.dev
           </a>
@@ -58,8 +56,6 @@ export default function Footer() {
                 <a
                   href={href}
                   className={linkStyles}
-                  target="_blank"
-                  rel="noreferrer"
                 >
                   {text}
                 </a>
@@ -81,8 +77,6 @@ export default function Footer() {
           <a
             href="https://twitter.com/nyashidos"
             className={linkStyles}
-            target="_blank"
-            rel="noreferrer"
           >
             nyashidos
           </a>

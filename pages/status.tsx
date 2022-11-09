@@ -58,8 +58,6 @@ export default function Status() {
         or, alternatively, view historical data on{" "}
         <a
           href="https://stats.uptimerobot.com/ZvOXKhMG1x"
-          target="_blank"
-          rel="noopener noreferrer"
           className="text-panblue-dark focus:bg-panyellow"
         >
           uptimerobot <FontAwesomeIcon icon={faExternalLinkAlt} />

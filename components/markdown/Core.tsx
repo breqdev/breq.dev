@@ -46,8 +46,6 @@ function A({ href, children }: { href: string; children: React.ReactNode }) {
       <a
         href={href}
         className={`hover:underline ${colors}`}
-        target="_blank"
-        rel="noopener noreferrer"
       >
         {children}
       </a>
