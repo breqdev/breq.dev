@@ -8,6 +8,11 @@ const BADGES = [
     url: "https://breq.dev/",
   },
   {
+    name: "ava (ava silver)",
+    image: "/badges/ava.png",
+    url: "https://avasilver.dev/",
+  },
+  {
     name: "eggy (ezgi bas)",
     image: "/badges/eggy.png",
     url: "https://twitter.com/ezgiburglar69",
