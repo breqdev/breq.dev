@@ -47,6 +47,11 @@
   .font-display strong {
     font-weight: 700;
   }
+
+  .twitter-tweet {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @layer utilities {

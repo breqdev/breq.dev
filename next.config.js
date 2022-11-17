@@ -7,23 +7,19 @@ const withMDX = require("@next/mdx")({
   },
 });
 
-const withTM = require("next-transpile-modules")(["react-twitter-notrack"]);
+module.exports = withMDX({
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    config.module.rules.push({
+      test: /\.txt/,
+      type: "asset/source",
+    });
 
-module.exports = withTM(
-  withMDX({
-    webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-      config.module.rules.push({
-        test: /\.txt/,
-        type: "asset/source",
-      });
+    // config.module.rules.push({
+    //   test: /\.svg/,
+    //   type: "asset",
+    // });
 
-      // config.module.rules.push({
-      //   test: /\.svg/,
-      //   type: "asset",
-      // });
-
-      return config;
-    },
-    pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-  })
-);
+    return config;
+  },
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+});

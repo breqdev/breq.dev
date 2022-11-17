@@ -10,7 +10,7 @@ tags: [arduino, c++, hardware, react]
 
 <Giphy id="WHmc9HI2lXWgnEgY7Y" />
 <Caption>
-  The choker, displaying a simple back-and-forth animation.
+  The first revision of the choker, displaying a simple back-and-forth animation.
 </Caption>
 
 This project consists of three parts:
@@ -52,6 +52,10 @@ I tried to use the [WebSerial API](https://developer.mozilla.org/en-US/docs/Web/
 <Tweet id="1476122496319606787" />
 
 As such, I switched to a native app. I built it in React Native, because I already had some familiarity with React.
+
+## Redesign
+
+Tragically, this first revision of the choker was left slightly trampled after I went a little too hard in a [food house](https://twitter.com/fo0dhouse) moshpit. I was able to quickly repair the broken solder joints, and the LED strip was barely damaged (somehow only the red channel of the last pixel was broken), but I still realized that I needed to rethink the design.
 
 # Technical Description
 
