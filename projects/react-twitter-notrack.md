@@ -11,7 +11,9 @@ tags: [javascript, serverless, react]
 
 <Tweet id="1431392146339377152" />
 
-`react-twitter-notrack` does exactly what it says on the tin: allow you to embed Tweets as React components without exposing your users to tracking. You can install it from [npm](https://www.npmjs.com/package/react-twitter-notrack) with `npm i react-twitter-notrack`.
+`react-twitter-notrack` does exactly what it says on the tin: allow you to embed Tweets as React components without exposing your users to tracking. ~~You can install it from [npm](https://www.npmjs.com/package/react-twitter-notrack) with `npm i react-twitter-notrack`.~~
+
+_Unfortunately, things seem to have stopped working, probably as a result of Twitter improving their bot detection or shutting down their API. There were enough tradeoffs inherent in this project that I don't intend to continue maintaining it. Thus, it is no longer usable._
 
 ```js
 import { Tweet } from "react-twitter-notrack"
@@ -60,4 +62,4 @@ With that out of the way, I just had to fetch the data from the proxy. I used tr
 
 # Results
 
-This library doesn't produce embeds with as much polish as the official Twitter ones -- they don't show the original tweet when embedding a reply or quote tweet, and they don't show more than one image at a time for now. But overall, I think this resulted in something usable and more performant than the official embed. I'm currently using it for all the Twitter embeds on this website, and it checks all the boxes. I don't know if anyone else will find it useful, butI'm still happy that I shared my work on NPM.
+This library doesn't produce embeds with as much polish as the official Twitter ones -- they don't show the original tweet when embedding a reply or quote tweet, and they don't show more than one image at a time for now. But overall, I think this resulted in something usable and more performant than the official embed. For a while, I used it for all the Twitter embeds on this website, and it checked all the boxes. I don't know if anyone else ever found it useful, but I'm still happy that I shared my work on NPM.
