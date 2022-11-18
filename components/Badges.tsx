@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 const BADGES = [
@@ -6,6 +5,11 @@ const BADGES = [
     name: "breq (brooke chalmers)",
     image: "/branding/88x31.png",
     url: "https://breq.dev/",
+  },
+  {
+    name: "quartz!",
+    image: "/badges/quartz.png",
+    url: "https://twitter.com/piezo_electric",
   },
   {
     name: "ava (ava silver)",
