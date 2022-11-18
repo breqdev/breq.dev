@@ -5,7 +5,7 @@ import useScroll from "../components/models/useScroll";
 import Page from "../components/Page";
 import ProjectCard from "../components/ProjectCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 import SEOHelmet from "../components/SEOHelmet";
 
@@ -14,6 +14,7 @@ import LazyWrapper from "../utils/LazyWrapper";
 import { getSortedProjects, ProjectInfo } from "../utils/projects";
 import { GetStaticProps } from "next";
 import { BasicMarkdownInfo } from "../utils/api";
+import Link from "next/link";
 
 const Background = React.lazy(() => import("../components/index/IndexCanvas"));
 
@@ -74,7 +75,7 @@ function Projects({ data }: { data: (BasicMarkdownInfo & ProjectInfo)[] }) {
   const isExtraRow = useMediaQuery({ query: "(min-width: 1280px)" });
 
   const numColumns = isTripleWide ? 3 : isDoubleWide ? 2 : 1;
-  const numProjects = numColumns * (isExtraRow ? 5 : 4);
+  const numProjects = numColumns * (!isDoubleWide ? 3 : isExtraRow ? 5 : 4);
 
   return (
     <div
@@ -84,6 +85,13 @@ function Projects({ data }: { data: (BasicMarkdownInfo & ProjectInfo)[] }) {
       {projects.slice(0, numProjects).map((project, idx) => (
         <div key={idx}>{project}</div>
       ))}
+      {!isDoubleWide && (
+        <Link href="/projects">
+          <a className="rounded-2xl border-2 border-black bg-white p-8 text-xl text-black focus-visible:border-panpink">
+            more <FontAwesomeIcon icon={faArrowRight} />
+          </a>
+        </Link>
+      )}
     </div>
   );
 }
@@ -160,8 +168,8 @@ export default function Index(props: {
             hey, i'm brooke, and i'm here to learn, create, and enjoy it.
             <br />
             <br />
-            i'm passionate about embedded systems, backend engineering, web
-            dev, and bodging things together in creative ways.
+            i'm passionate about embedded systems, backend engineering, web dev,
+            and bodging things together in creative ways.
             <br />
             <br />
             my favorite tools are python, react, rust, and linux. most of my
