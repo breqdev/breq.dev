@@ -160,10 +160,7 @@ export default function Index(props: {
           <h2 className="sticky top-0 mb-2 py-32 text-6xl">about me</h2>
         </div>
 
-        <div
-          style={{ height: "200vh" }}
-          className="mx-auto max-w-prose px-8 font-display text-2xl"
-        >
+        <div className="mx-auto max-w-prose px-8 pb-16 font-display text-2xl">
           <p>
             hey, i'm brooke, and i'm here to learn, create, and enjoy it.
             <br />
