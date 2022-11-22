@@ -12,12 +12,12 @@ const BADGES = [
     url: "https://twitter.com/piezo_electric",
   },
   {
-    name: "ava (ava silver)",
+    name: "ava silver",
     image: "/badges/ava.png",
     url: "https://avasilver.dev/",
   },
   {
-    name: "ffoorrggg (kel weaver)",
+    name: "kel weaver",
     image: "/badges/kel.png",
     url: "https://weaverkel.com/",
   },
@@ -25,6 +25,11 @@ const BADGES = [
     name: "eggy (ezgi bas)",
     image: "/badges/eggy.png",
     url: "https://twitter.com/ezgiburglar69",
+  },
+  {
+    name: "ula bit (nyashidos!)",
+    image: "/badges/ula.png",
+    url: "https://twitter.com/oh_jeez_bees",
   },
   {
     name: "vivi (vivian hafener)",
@@ -35,18 +40,20 @@ const BADGES = [
 
 export default function Badges() {
   return (
-    <div className="grid grid-cols-[repeat(6,88px)] justify-start gap-2 overflow-x-scroll">
-      {BADGES.map(({ name, image, url }) => (
-        <a
-          href={url}
-          key={name}
-          style={{ imageRendering: "pixelated", width: 88, height: 31 }}
-          className="outline-4 outline-panpink focus-visible:outline"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img width={88} height={31} src={image} alt={name} />
-        </a>
-      ))}
+    <div className="md:pr-60">
+      <div className="flex flex-wrap items-start justify-center gap-2 sm:justify-start">
+        {BADGES.map(({ name, image, url }) => (
+          <a
+            href={url}
+            key={name}
+            style={{ imageRendering: "pixelated", width: 88, height: 31 }}
+            className="flex-shrink-0 outline-4 outline-panpink focus-visible:outline"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img width={88} height={31} src={image} alt={name} />
+          </a>
+        ))}
+      </div>
     </div>
   );
 }
