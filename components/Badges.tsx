@@ -17,6 +17,11 @@ const BADGES = [
     url: "https://avasilver.dev/",
   },
   {
+    name: "ffoorrggg (kel weaver)",
+    image: "/badges/kel.png",
+    url: "https://weaverkel.com/",
+  },
+  {
     name: "eggy (ezgi bas)",
     image: "/badges/eggy.png",
     url: "https://twitter.com/ezgiburglar69",
@@ -30,7 +35,7 @@ const BADGES = [
 
 export default function Badges() {
   return (
-    <div className="flex gap-2">
+    <div className="grid grid-cols-[repeat(6,88px)] justify-start gap-2 overflow-x-scroll">
       {BADGES.map(({ name, image, url }) => (
         <a
           href={url}
