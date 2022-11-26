@@ -2,11 +2,14 @@
 title: Emulation Project - Call for Collaborators!
 description: Something exciting I've had in the works, and how you can help!
 tags: [rust, emulation]
+image: noentiendo/pet.png
 ---
 
 I'm trying to emulate a bunch of 6502-based systems -- the Commodore PET, VIC-20, and 64, the Apple IIe, and the NES. I'm writing it in Rust, currently targeting desktop and WebAssembly but with plans to support mobile and embedded, too. Right now, I've got the PET working, and you can try it out [here](/noentiendo/index.html).
 
 This is an ambitious project, and I'm seeing some exciting results, but **I need your help** if I'm going to have a chance at getting all of this working within a reasonable timeframe. If you like Rust, are interested in old hardware, and might have some free time soon, [let me know](/contact).
+
+![A screenshot of a Commodore PET running BASIC.](noentiendo/pet.png)
 
 # The Premise
 
@@ -81,9 +84,13 @@ I did still have to implement the keyboard, which proved slightly difficult. The
 
 ## `--target wasm32-unknown-unknown`
 
+![A screenshot of a Commodore PET emulator running in a browser.](noentiendo/wasm.png)
+
 This is when I added support for WebAssembly. In a browser, the emulator draws to a `<canvas>` element, also using `winit`. (I'm thinking of transitioning away from `winit` and just directly setting up the `<canvas>` through JavaScript bindings.) The Easy6502 implementation works fine, and so does the PET. (The text-mode stuff also works, albeit through `alert()` and `input()` calls.)
 
 ## `--system vic`
+
+![A screenshot of a VIC-20 displaying the BASIC startup screen.](noentiendo/vic.png)
 
 My most recent work has been trying to emulate the VIC-20. The VIC-20 is named after the _VIC chip_, or the Video Interface Chip. (Specifically, it's the MOS 6560 or 6561 in NTSC and PAL regions respectively.) This chip manages the background and border colors, the sound output, the light pen, and a few other miscellaneous video-related features.
 

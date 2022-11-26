@@ -23,6 +23,7 @@ function PostHeader(props: BasicMarkdownInfo & PostInfo) {
         <SEOHelmet
           title={props.title + " - breq.dev"}
           description={props.description}
+          image={props.image?.src || undefined}
         />
         <h1 className="mb-4 text-4xl md:text-6xl">{props.title}</h1>
         <p className="text-2xl">{date}</p>
