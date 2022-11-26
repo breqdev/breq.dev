@@ -7,6 +7,7 @@ import Prism from "prism-react-renderer/prism";
   ((typeof global !== "undefined" ? global : window) as any).Prism = Prism;
 
   require("prismjs/components/prism-rust");
+  require("prismjs/components/prism-asm6502");
 })();
 
 type Colors = {
