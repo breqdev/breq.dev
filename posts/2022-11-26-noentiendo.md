@@ -167,7 +167,7 @@ Other potential 6502-bsed systems include:
 
 In the long term, it might be nice to add support for additional CPUs. Potential candidates include:
 
-**WDC 65C02, WDC 65C816, Ricoh 5A22:** This family was based on the original 6502. The 65C02 removed some undocumented opcodes, added some new opcodes, and fixed some errata from the old silicon. The 65C816
+**WDC 65C02, WDC 65C816, Ricoh 5A22:** This family was based on the original 6502. The 65C02 removed some undocumented opcodes, added some new opcodes, and fixed some errata from the old silicon. The 65C816 made even more extensions, including 16-bit registers, but maintains binary compatibility with the 6502. Finally, the Ricoh 5A22 is a clone of the 65C816, similar to how the Ricoh 2A03 clones the 6502.
 
 - WDC 65C02: _Apple IIc_, _Enhanced Apple IIe_, _BBC Master_, _Atari Lynx_
 - WDC 65C816: _Apple IIGS_

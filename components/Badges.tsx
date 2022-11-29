@@ -3,7 +3,7 @@ import React from "react";
 const BADGES = [
   {
     name: "breq (brooke chalmers)",
-    image: "/branding/88x31.png",
+    image: "/badges/breq.png",
     url: "https://breq.dev/",
   },
   {
@@ -29,7 +29,7 @@ const BADGES = [
   {
     name: "ula bit (nyashidos!)",
     image: "/badges/ula.png",
-    url: "https://twitter.com/oh_jeez_bees",
+    url: "https://ohjeezbees.carrd.co/",
   },
   {
     name: "vivi (vivian hafener)",
