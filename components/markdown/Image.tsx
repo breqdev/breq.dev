@@ -3,7 +3,14 @@ import { ImageInfo } from "../../utils/images";
 
 export default function MarkdownImage(props: ImageInfo) {
   return (
-    <div className="my-4 mx-auto flex w-full max-w-5xl justify-center overflow-hidden rounded-2xl">
+    <div
+      className="my-4 mx-auto"
+      style={{
+        aspectRatio: `${props.width}/${props.height}`,
+        maxWidth: "48rem",
+        maxHeight: "48rem",
+      }}
+    >
       <Image alt="" {...props} src={"/images/" + props.src} />
     </div>
   );
