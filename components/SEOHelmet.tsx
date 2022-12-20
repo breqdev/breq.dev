@@ -29,6 +29,8 @@ export default function SEOHelmet({ title, description, image }: SEOProps) {
         name="twitter:image"
         content={"https://breq.dev" + imageOrDefault}
       />
+
+      <a rel="me" href="https://tacobelllabs.net/@breq" className="hidden"></a>
     </Head>
   );
 }
