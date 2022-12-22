@@ -42,6 +42,7 @@ export default function Background() {
           .map((Scene, i) =>
             Scene ? (
               <Scene
+                key={i}
                 visible={i === activeScene}
                 onLoad={i === 0 ? onLogoLoad : undefined}
               />
