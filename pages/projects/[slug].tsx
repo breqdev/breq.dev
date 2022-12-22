@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Balancer from "react-wrap-balancer";
 
 import Page from "../../components/Page";
 import Markdown from "../../components/markdown/Markdown";
@@ -59,10 +60,9 @@ function TagInfo({ tags }: { tags: string[] }) {
           <li className="inline" key={tag}>
             <Link
               href={`/tags/${tag}`}
-              className="rounded-full bg-white px-2 py-0.5 text-black outline-none focus:bg-panblue">
-
+              className="rounded-full bg-white px-2 py-0.5 text-black outline-none focus:bg-panblue"
+            >
               {tag}
-
             </Link>
           </li>
         ))}
@@ -114,8 +114,12 @@ function ProjectHeader(props: ProjectInfo) {
         description={props.description}
         image={props.image?.src}
       />
-      <h1 className="text-5xl">{props.title}</h1>
-      <h2 className="mb-4 text-3xl text-gray-300">{props.description}</h2>
+      <h1 className="text-5xl">
+        <Balancer>{props.title}</Balancer>
+      </h1>
+      <h2 className="mb-4 text-3xl text-gray-300">
+        <Balancer>{props.description}</Balancer>
+      </h2>
       <ProjectInfo {...props} />
     </section>
   );
