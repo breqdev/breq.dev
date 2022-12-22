@@ -102,8 +102,9 @@ function PhotoDetail({
             className=""
             style={{
               maxWidth: "100%",
-              height: "auto"
-            }} />
+              height: "auto",
+            }}
+          />
           <button
             className="absolute top-0 right-0 px-4 py-2 text-5xl md:hidden"
             onClick={onClose}
@@ -167,8 +168,9 @@ export default function Photos({
                     alt={photo.description}
                     style={{
                       maxWidth: "100%",
-                      height: "auto"
-                    }} />
+                      height: "auto",
+                    }}
+                  />
                   <div className="absolute inset-0 z-20 -m-1 hidden border-8 border-panpink group-focus-visible:block" />
                 </button>
                 <PhotoDetail

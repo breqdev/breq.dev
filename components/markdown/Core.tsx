@@ -43,22 +43,18 @@ function A({ href, children }: { href: string; children: React.ReactNode }) {
 
   if (ExtLinkRegex.test(href)) {
     return (
-      <a
-        href={href}
-        className={`hover:underline ${colors}`}
-      >
+      <a href={href} className={`hover:underline ${colors}`}>
         {children}
       </a>
     );
   } else {
     return (
-      (<Link
+      <Link
         href={href}
-        className="text-panblue-dark outline-none hover:underline focus:bg-panyellow">
-
+        className="text-panblue-dark outline-none hover:underline focus:bg-panyellow"
+      >
         {children}
-
-      </Link>)
+      </Link>
     );
   }
 }

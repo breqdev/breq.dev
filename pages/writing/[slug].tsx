@@ -86,10 +86,9 @@ export default function Writing(props: BasicMarkdownInfo & WritingInfo) {
                 </button>
                 <Link
                   href="/"
-                  className="flex-grow rounded-xl border-2 border-black p-4 outline-none focus:border-white">
-                  
-                    No
-                  
+                  className="flex-grow rounded-xl border-2 border-black p-4 outline-none focus:border-white"
+                >
+                  No
                 </Link>
               </div>
             </div>

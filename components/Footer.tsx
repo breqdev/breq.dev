@@ -40,10 +40,7 @@ export default function Footer() {
           {new Date().getFullYear()}, <FontAwesomeIcon icon={faGithub} />
           &nbsp;
           <span className="sr-only">github</span>
-          <a
-            href="https://github.com/breqdev/breq.dev"
-            className={linkStyles}
-          >
+          <a href="https://github.com/breqdev/breq.dev" className={linkStyles}>
             breqdev/breq.dev
           </a>
         </p>
@@ -53,10 +50,7 @@ export default function Footer() {
               <FontAwesomeIcon icon={icon} />
               &nbsp;
               {href ? (
-                <a
-                  href={href}
-                  className={linkStyles}
-                >
+                <a href={href} className={linkStyles}>
                   {text}
                 </a>
               ) : (
@@ -68,15 +62,11 @@ export default function Footer() {
           <Link href="/contact" className={linkStyles}>
             more<span className="sr-only">ways to contact me </span>
             <FontAwesomeIcon icon={faChevronRight} />
-
           </Link>
         </p>
         <p className="hidden md:block">
           footer art by the wonderful <FontAwesomeIcon icon={faTwitter} />{" "}
-          <a
-            href="https://twitter.com/nyashidos"
-            className={linkStyles}
-          >
+          <a href="https://twitter.com/nyashidos" className={linkStyles}>
             nyashidos
           </a>
           !

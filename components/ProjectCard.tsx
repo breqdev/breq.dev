@@ -35,21 +35,24 @@ export default function ProjectCard({
   if (video) {
     media = <ProjectVideo src={video} />;
   } else if (image) {
-    media = <Image
-      src={image}
-      alt={title}
-      style={{
-        maxWidth: "100%",
-        height: "auto",
-        objectFit: "cover"
-      }} />;
+    media = (
+      <Image
+        src={image}
+        alt={title}
+        style={{
+          maxWidth: "100%",
+          height: "auto",
+          objectFit: "cover",
+        }}
+      />
+    );
   }
 
   return (
-    (<Link
+    <Link
       href={"/projects/" + slug}
-      className="block rounded-2xl border-4 border-black bg-white p-4 text-black focus:border-panpink dark:bg-gray-800 dark:text-white">
-
+      className="block rounded-2xl border-4 border-black bg-white p-4 text-black focus:border-panpink dark:bg-gray-800 dark:text-white"
+    >
       <section>
         <div className="h-32 overflow-hidden font-display">
           <h2 className="text-3xl">
@@ -76,7 +79,6 @@ export default function ProjectCard({
           </div>
         </div>
       </section>
-
-    </Link>)
+    </Link>
   );
 }

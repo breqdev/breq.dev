@@ -106,10 +106,9 @@ export default function Navbar() {
                 <Link
                   href={url}
                   className="text-black outline-none hover:text-white focus:text-white focus:underline"
-                  onClick={() => setExpanded(false)}>
-
+                  onClick={() => setExpanded(false)}
+                >
                   {name}
-
                 </Link>
               </li>
             ))}
