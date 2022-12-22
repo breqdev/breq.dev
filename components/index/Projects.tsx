@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Object3D } from "three";
+import { Object3D, SpotLight } from "three";
 import Gltf from "../models/Gltf";
 import useScroll from "../models/useScroll";
 import { SceneProps } from "./Scene";
@@ -35,7 +35,7 @@ function RasPi({ visible }: SceneProps) {
 
   useScroll((scroll, height) => {
     if (model.current) {
-      const x = 10 - (scroll / height) * 10;
+      const x = 12 - (scroll / height) * 12;
       const y = 1 - (scroll / height) * 0.5;
       model.current.position.set(x, y, 0);
 
@@ -82,7 +82,7 @@ function Div({ visible }: SceneProps) {
 }
 
 function ProjectLight({ visible }: SceneProps) {
-  const light = useRef();
+  const light = useRef<SpotLight>(null);
 
   return (
     <spotLight
