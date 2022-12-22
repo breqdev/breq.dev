@@ -15,8 +15,10 @@ function Post(props: PostInfo & BasicMarkdownInfo) {
   const date = parseDate(props.slug);
 
   return (
-    <Link href={"/" + props.slug.replace(/-/g, "/")}>
-      <a className="block rounded-2xl border-4 border-black bg-white p-4 text-black outline-none focus:border-panpink">
+    <Link
+        href={"/" + props.slug.replace(/-/g, "/")}
+        className="block rounded-2xl border-4 border-black bg-white p-4 text-black outline-none focus:border-panpink">
+
         <section className="flex h-full flex-col">
           <h2 className="mb-2 text-2xl">{props.title}</h2>
           <p>{date}</p>
@@ -25,8 +27,8 @@ function Post(props: PostInfo & BasicMarkdownInfo) {
           </div>
           <p>{props.description}</p>
         </section>
-      </a>
-    </Link>
+
+      </Link>
   );
 }
 

@@ -57,10 +57,12 @@ function TagInfo({ tags }: { tags: string[] }) {
       <ul className="flex list-none gap-2">
         {tags?.map((tag) => (
           <li className="inline" key={tag}>
-            <Link href={`/tags/${tag}`}>
-              <a className="rounded-full bg-white px-2 py-0.5 text-black outline-none focus:bg-panblue">
-                {tag}
-              </a>
+            <Link
+              href={`/tags/${tag}`}
+              className="rounded-full bg-white px-2 py-0.5 text-black outline-none focus:bg-panblue">
+
+              {tag}
+
             </Link>
           </li>
         ))}

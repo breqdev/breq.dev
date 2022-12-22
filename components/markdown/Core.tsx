@@ -52,11 +52,13 @@ function A({ href, children }: { href: string; children: React.ReactNode }) {
     );
   } else {
     return (
-      <Link href={href}>
-        <a className="text-panblue-dark outline-none hover:underline focus:bg-panyellow">
-          {children}
-        </a>
-      </Link>
+      (<Link
+        href={href}
+        className="text-panblue-dark outline-none hover:underline focus:bg-panyellow">
+
+        {children}
+
+      </Link>)
     );
   }
 }

@@ -84,10 +84,12 @@ export default function Writing(props: BasicMarkdownInfo & WritingInfo) {
                 >
                   Yes
                 </button>
-                <Link href="/">
-                  <a className="flex-grow rounded-xl border-2 border-black p-4 outline-none focus:border-white">
+                <Link
+                  href="/"
+                  className="flex-grow rounded-xl border-2 border-black p-4 outline-none focus:border-white">
+                  
                     No
-                  </a>
+                  
                 </Link>
               </div>
             </div>

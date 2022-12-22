@@ -79,7 +79,10 @@ export default function Sponsors() {
               alt=""
               width={12 * 4}
               height={12 * 4}
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </a>
         </div>
       </div>

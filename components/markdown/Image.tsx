@@ -11,7 +11,14 @@ export default function MarkdownImage(props: ImageInfo) {
         maxHeight: "48rem",
       }}
     >
-      <Image alt="" {...props} src={"/images/" + props.src} />
+      <Image
+        alt=""
+        {...props}
+        src={"/images/" + props.src}
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
     </div>
   );
 }

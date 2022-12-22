@@ -65,11 +65,10 @@ export default function Footer() {
               {" • "}
             </React.Fragment>
           ))}
-          <Link href="/contact">
-            <a className={linkStyles}>
-              more <span className="sr-only">ways to contact me </span>
-              <FontAwesomeIcon icon={faChevronRight} />
-            </a>
+          <Link href="/contact" className={linkStyles}>
+            more<span className="sr-only">ways to contact me </span>
+            <FontAwesomeIcon icon={faChevronRight} />
+
           </Link>
         </p>
         <p className="hidden md:block">

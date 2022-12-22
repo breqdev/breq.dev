@@ -86,11 +86,12 @@ function Projects({ data }: { data: (BasicMarkdownInfo & ProjectInfo)[] }) {
         <div key={idx}>{project}</div>
       ))}
       {!isDoubleWide && (
-        <Link href="/projects">
-          <a className="rounded-2xl border-2 border-black bg-white p-8 text-xl text-black focus-visible:border-panpink">
-            more <FontAwesomeIcon icon={faArrowRight} />
-          </a>
-        </Link>
+        (<Link
+          href="/projects"
+          className="rounded-2xl border-2 border-black bg-white p-8 text-xl text-black focus-visible:border-panpink">
+          more<FontAwesomeIcon icon={faArrowRight} />
+
+        </Link>)
       )}
     </div>
   );

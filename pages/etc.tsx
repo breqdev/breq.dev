@@ -12,17 +12,17 @@ function EtcBlock(props: {
   children: React.ReactNode;
 }) {
   return (
-    <Link href={props.page}>
-      <a className="group relative z-0 outline-none">
-        <div className="relative z-10 rounded-xl border-2 border-black bg-white p-4 text-black group-focus:border-panpink">
-          <h2 className="mb-2 text-center font-display text-3xl">
-            {props.title}
-          </h2>
-          <p className="text-center font-body">{props.children}</p>
-        </div>
-        <div className="absolute inset-0 transform rounded-xl bg-panpink transition-transform group-hover:translate-x-3 group-hover:translate-y-2 group-focus:translate-x-3 group-focus:translate-y-2" />
-      </a>
-    </Link>
+    (<Link href={props.page} className="group relative z-0 outline-none">
+
+      <div className="relative z-10 rounded-xl border-2 border-black bg-white p-4 text-black group-focus:border-panpink">
+        <h2 className="mb-2 text-center font-display text-3xl">
+          {props.title}
+        </h2>
+        <p className="text-center font-body">{props.children}</p>
+      </div>
+      <div className="absolute inset-0 transform rounded-xl bg-panpink transition-transform group-hover:translate-x-3 group-hover:translate-y-2 group-focus:translate-x-3 group-focus:translate-y-2" />
+
+    </Link>)
   );
 }
 
