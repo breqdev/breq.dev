@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { Light, Object3D } from "three";
+import { useRef } from "react";
+import { Object3D, SpotLight } from "three";
 import Gltf from "../models/Gltf";
 import useScroll from "../models/useScroll";
 import { SceneProps } from "./Scene";
@@ -59,7 +59,7 @@ function DimmingLight({
     10 * Math.sin(angle),
     10,
   ];
-  const light = useRef<Light>();
+  const light = useRef<SpotLight>(null);
 
   useScroll((scroll) => {
     if (light.current) {
