@@ -139,10 +139,7 @@ export default function Code({ children }: { children: React.ReactElement }) {
     });
   }, []);
 
-  if (
-    children.props.originalType !== "code" ||
-    typeof children.props.children !== "string"
-  ) {
+  if (typeof children.props.children !== "string") {
     console.error("Code component must wrap a <code> tag with a string inside");
     return null;
   }

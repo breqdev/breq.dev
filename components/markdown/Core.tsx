@@ -84,9 +84,9 @@ function Hr() {
 
 function InlineCode({ children }: { children: React.ReactNode }) {
   return (
-    <span className="-my-1 -mx-0.5 rounded-xl bg-gray-200 p-1 font-mono dark:bg-gray-800">
+    <code className="-my-1 -mx-0.5 rounded-xl bg-gray-200 p-1 font-mono dark:bg-gray-800">
       {children}
-    </span>
+    </code>
   );
 }
 
