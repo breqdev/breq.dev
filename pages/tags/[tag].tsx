@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 const href = (data: BasicMarkdownInfo) => {
   if (data.source == "posts") {
-    return `/${data.slug.replaceAll("-", "/")}`;
+    return `/${data.slug.replace(/-/g, "/")}`;
   } else {
     return `/projects/${data.slug}`;
   }
