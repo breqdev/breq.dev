@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-import { useMediaQuery } from "react-responsive";
+import React, { useEffect, useRef } from "react";
 import useScroll from "../components/models/useScroll";
 
 import Page from "../components/Page";
@@ -70,26 +69,41 @@ function Projects({ data }: { data: (BasicMarkdownInfo & ProjectInfo)[] }) {
     })
     .map((data) => <ProjectCard key={data.filename} {...data} />);
 
-  const isDoubleWide = useMediaQuery({ query: "(min-width: 768px)" });
-  const isTripleWide = useMediaQuery({ query: "(min-width: 1024px)" });
-  const isExtraRow = useMediaQuery({ query: "(min-width: 1280px)" });
+  const [displayedProjects, setDisplayedProjects] = React.useState(4);
 
-  const numColumns = isTripleWide ? 3 : isDoubleWide ? 2 : 1;
-  const numProjects = numColumns * (!isDoubleWide ? 3 : isExtraRow ? 5 : 4);
+  useEffect(() => {
+    const handleResize = () => {
+      const isDoubleWide = window.innerWidth >= 768;
+      const isTripleWide = window.innerWidth >= 1024;
+      const isExtraRow = window.innerWidth >= 1280;
+
+      const numColumns = isTripleWide ? 3 : isDoubleWide ? 2 : 1;
+      const numProjects = numColumns * (!isDoubleWide ? 3 : isExtraRow ? 5 : 4);
+
+      setDisplayedProjects(numProjects);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  });
 
   return (
     <div
       className="grid grid-cols-1 gap-8 overflow-y-hidden rounded-2xl bg-black md:grid-cols-2 lg:grid-cols-3"
       tabIndex={-1}
     >
-      {projects.slice(0, numProjects).map((project, idx) => (
+      {projects.slice(0, displayedProjects).map((project, idx) => (
         <div key={idx}>{project}</div>
       ))}
-      {!isDoubleWide && (
-        <Link href="/projects">
-          <a className="rounded-2xl border-2 border-black bg-white p-8 text-xl text-black focus-visible:border-panpink">
-            more <FontAwesomeIcon icon={faArrowRight} />
-          </a>
+      {displayedProjects < 6 && (
+        <Link
+          href="/projects"
+          className="rounded-2xl border-2 border-black bg-white p-8 text-xl text-black focus-visible:border-panpink"
+        >
+          more
+          <FontAwesomeIcon icon={faArrowRight} />
         </Link>
       )}
     </div>

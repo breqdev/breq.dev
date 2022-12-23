@@ -47,8 +47,8 @@ function Wordmark({
     );
   } else {
     return (
-      <Link href="/">
-        <a className={className}>{inner}</a>
+      <Link href="/" className={className}>
+        {inner}
       </Link>
     );
   }
@@ -103,13 +103,12 @@ export default function Navbar() {
           <ul className="flex flex-col gap-2 p-4 md:flex-row md:p-0">
             {Object.entries(navLinks).map(([name, url]) => (
               <li className="text-lg" key={url}>
-                <Link href={url}>
-                  <a
-                    className="text-black outline-none hover:text-white focus:text-white focus:underline"
-                    onClick={() => setExpanded(false)}
-                  >
-                    {name}
-                  </a>
+                <Link
+                  href={url}
+                  className="text-black outline-none hover:text-white focus:text-white focus:underline"
+                  onClick={() => setExpanded(false)}
+                >
+                  {name}
                 </Link>
               </li>
             ))}

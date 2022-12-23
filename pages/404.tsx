@@ -14,8 +14,8 @@ const NotFoundPage = () => {
           <p>page not found.</p>
           <p>
             go{" "}
-            <Link href="/">
-              <a className="text-panblue hover:underline">home?</a>
+            <Link href="/" className="text-panblue hover:underline">
+              home?
             </Link>
           </p>
         </div>

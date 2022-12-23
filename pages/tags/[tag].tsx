@@ -6,6 +6,7 @@ import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { BasicMarkdownInfo } from "../../utils/api";
 import { ProjectInfo } from "../../utils/projects";
+import Balancer from "react-wrap-balancer";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const tags = await getTags();
@@ -31,7 +32,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 const href = (data: BasicMarkdownInfo) => {
   if (data.source == "posts") {
-    return `/${data.slug.replace(/-/, "/")}`;
+    return `/${data.slug.replace(/-/g, "/")}`;
   } else {
     return `/projects/${data.slug}`;
   }
@@ -51,11 +52,17 @@ export default function Tag({
         <h1 className="my-8 text-6xl">{tag} - entries</h1>
         <div className="place-stretch m-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((data) => (
-            <Link key={data.filename} href={href(data)}>
-              <a className="flex flex-col gap-2 rounded-3xl border-2 border-black bg-white p-4 text-black focus:border-panpink dark:bg-gray-800 dark:text-white">
-                <h2 className="text-2xl">{data.title}</h2>
-                <p>{data.description}</p>
-              </a>
+            <Link
+              key={data.filename}
+              href={href(data)}
+              className="flex flex-col gap-2 rounded-3xl border-2 border-black bg-white p-4 text-black focus:border-panpink dark:bg-gray-800 dark:text-white"
+            >
+              <h2 className="text-2xl">
+                <Balancer>{data.title}</Balancer>
+              </h2>
+              <p>
+                <Balancer>{data.description}</Balancer>
+              </p>
             </Link>
           ))}
         </div>

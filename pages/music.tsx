@@ -4,9 +4,9 @@ import SEOHelmet from "../components/SEOHelmet";
 
 export default function Music() {
   return (
-    <Page className="bg-black text-white flex justify-center items-center">
+    <Page className="flex items-center justify-center bg-black text-white">
       <SEOHelmet title="music, made with <3 by breq." />
-      <div className="mx-auto max-w-xl my-8 font-display text-center flex flex-col gap-8">
+      <div className="mx-auto my-8 flex max-w-xl flex-col gap-8 text-center font-display">
         <h1 className="text-7xl">music</h1>
         <h2 className="text-4xl">and miscellaneous sounds</h2>
         <p className="text-xl">coming soon...</p>

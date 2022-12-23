@@ -17,15 +17,16 @@ function Card({
   slug,
 }: BasicMarkdownInfo & WritingInfo) {
   return (
-    <Link href={"/writing/" + slug}>
-      <a className="block rounded-2xl border-4 border-black bg-white p-4 text-black outline-none focus:border-panpink dark:bg-gray-800 dark:text-white">
-        <section className="font-display">
-          <h2 className="text-3xl">{title}</h2>
-          <p className="italic">{date}</p>
-          <hr className="my-2 border-black" />
-          <p>{description}</p>
-        </section>
-      </a>
+    <Link
+      href={"/writing/" + slug}
+      className="block rounded-2xl border-4 border-black bg-white p-4 text-black outline-none focus:border-panpink dark:bg-gray-800 dark:text-white"
+    >
+      <section className="font-display">
+        <h2 className="text-3xl">{title}</h2>
+        <p className="italic">{date}</p>
+        <hr className="my-2 border-black" />
+        <p>{description}</p>
+      </section>
     </Link>
   );
 }

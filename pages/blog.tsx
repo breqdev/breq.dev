@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import Balancer from "react-wrap-balancer";
 
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
@@ -15,17 +16,22 @@ function Post(props: PostInfo & BasicMarkdownInfo) {
   const date = parseDate(props.slug);
 
   return (
-    <Link href={"/" + props.slug.replace(/-/g, "/")}>
-      <a className="block rounded-2xl border-4 border-black bg-white p-4 text-black outline-none focus:border-panpink">
-        <section className="flex h-full flex-col">
-          <h2 className="mb-2 text-2xl">{props.title}</h2>
-          <p>{date}</p>
-          <div className="flex flex-grow flex-col justify-center">
-            <hr className="my-1 border-black " />
-          </div>
-          <p>{props.description}</p>
-        </section>
-      </a>
+    <Link
+      href={"/" + props.slug.replace(/-/g, "/")}
+      className="block rounded-2xl border-4 border-black bg-white p-4 text-black outline-none focus:border-panpink"
+    >
+      <section className="flex h-full flex-col">
+        <h2 className="mb-2 text-2xl">
+          <Balancer>{props.title}</Balancer>
+        </h2>
+        <p>{date}</p>
+        <div className="flex flex-grow flex-col justify-center">
+          <hr className="my-1 border-black " />
+        </div>
+        <p>
+          <Balancer>{props.description}</Balancer>
+        </p>
+      </section>
     </Link>
   );
 }

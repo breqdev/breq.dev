@@ -22,13 +22,15 @@ export default function Tag({ tags }: { tags: Record<string, number> }) {
           {Object.entries(tags)
             .sort(([, a], [, b]) => b - a)
             .map(([tag, count]) => (
-              <Link key={tag} href={`/tags/${tag}`}>
-                <a className="flex flex-col rounded-2xl border-4 border-black bg-white p-4 text-black focus:border-panpink dark:bg-gray-800 dark:text-white">
-                  <h2 className="self-start text-4xl">{tag}</h2>
-                  <p className="self-end text-gray-500">
-                    ({count} {count === 1 ? "entry" : "entries"})
-                  </p>
-                </a>
+              <Link
+                key={tag}
+                href={`/tags/${tag}`}
+                className="flex flex-col rounded-2xl border-4 border-black bg-white p-4 text-black focus:border-panpink dark:bg-gray-800 dark:text-white"
+              >
+                <h2 className="self-start text-4xl">{tag}</h2>
+                <p className="self-end text-gray-500">
+                  ({count} {count === 1 ? "entry" : "entries"})
+                </p>
               </Link>
             ))}
         </div>

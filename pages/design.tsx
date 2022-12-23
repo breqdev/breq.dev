@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
 import { Canvas } from "@react-three/fiber";
@@ -6,20 +6,25 @@ import { Canvas } from "@react-three/fiber";
 import Gltf from "../components/models/Gltf";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
-import { useMediaQuery } from "react-responsive";
 import { Object3D } from "three";
 import Link from "next/link";
 
 function InnerLogo({ onLoad }: { onLoad: () => void }) {
   const model = React.useRef<Object3D>(null);
 
-  const motionSafe = useMediaQuery({
-    query: "(prefers-reduced-motion: no-preference)",
-  });
+  const [allowMotion, setAllowMotion] = useState(false);
+
+  useEffect(() => {
+    let mediaQuery = window.matchMedia(
+      "(prefers-reduced-motion: no-preference)"
+    );
+
+    setAllowMotion(mediaQuery.matches);
+  }, []);
 
   React.useEffect(() => {
     const listener = () => {
-      if (model.current && motionSafe) {
+      if (model.current && allowMotion) {
         model.current.rotation.y = 2e-3 * window.scrollY;
       }
     };
@@ -29,7 +34,7 @@ function InnerLogo({ onLoad }: { onLoad: () => void }) {
     return () => {
       window.removeEventListener("scroll", listener);
     };
-  }, [motionSafe]);
+  }, [allowMotion]);
 
   return (
     <Gltf

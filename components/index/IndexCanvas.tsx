@@ -13,6 +13,11 @@ export default function Background() {
   useScroll(setScroll, { global: true });
 
   const sceneIndex = Math.floor(scroll / (window.innerHeight * 2));
+  const onBoundary =
+    (scroll / (window.innerHeight * 2)) % 1 < 0.05 ||
+    (scroll / (window.innerHeight * 2)) % 1 > 0.95;
+  const isTopOfPage = scroll < window.innerHeight;
+  const activeScene = onBoundary && !isTopOfPage ? -1 : sceneIndex;
   const peekTo = Math.floor(scroll / (window.innerHeight * 2) + 1.5);
 
   const scenes = [Greeting, Projects, null, About];
@@ -37,7 +42,8 @@ export default function Background() {
           .map((Scene, i) =>
             Scene ? (
               <Scene
-                visible={i === sceneIndex}
+                key={i}
+                visible={i === activeScene}
                 onLoad={i === 0 ? onLogoLoad : undefined}
               />
             ) : null
