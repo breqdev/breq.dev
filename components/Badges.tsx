@@ -36,6 +36,16 @@ const BADGES = [
     image: "/badges/vivi.png",
     url: "https://www.vhafener.com/",
   },
+  {
+    name: "nkizz (nathan kiesman)",
+    image: "/badges/nkizz.png",
+    url: "https://nkizz.com/",
+  },
+  {
+    name: "dillydally (dillon scott)",
+    image: "/badges/dillydally.png",
+    url: "https://dillydally414.github.io/",
+  },
 ];
 
 export default function Badges() {
