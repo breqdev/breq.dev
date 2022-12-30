@@ -37,6 +37,11 @@ const BADGES = [
     url: "https://www.vhafener.com/",
   },
   {
+    name: "philomena",
+    placeholder: "philo",
+    url: "https://philo.gay/",
+  },
+  {
     name: "nkizz (nathan kiesman)",
     image: "/badges/nkizz.png",
     url: "https://nkizz.com/",
@@ -47,9 +52,9 @@ const BADGES = [
     url: "https://dillydally414.github.io/",
   },
   {
-    name: "philomena",
-    placeholder: "philo",
-    url: "https://philo.gay/",
+    name: "luke taylor",
+    image: "/badges/luke.png",
+    url: "https://lukefelixtaylor.com/",
   },
 ];
 
