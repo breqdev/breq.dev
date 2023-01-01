@@ -178,7 +178,7 @@ export default function Index(props: {
 
         <div className="mx-auto max-w-prose px-8 pb-16 font-display text-2xl">
           <p>
-            hey, i'm brooke, and i'm here to learn, create, and enjoy it.
+            hey, i'm brooke, and i'm here to learn, create, and have fun.
             <br />
             <br />
             i'm passionate about embedded systems, backend engineering, web dev,
