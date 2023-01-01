@@ -60,7 +60,7 @@ export default function Navbar() {
     blog: "/blog",
     photos: "/photos",
     writing: "/writing",
-    tags: "/tags",
+    contact: "/contact",
     etc: "/etc",
   };
 

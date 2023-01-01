@@ -44,8 +44,8 @@ export default function Etc() {
           <EtcBlock title="names and numbers" page="/numbers">
             pgp/ssh keys, callsigns, licence info.
           </EtcBlock>
-          <EtcBlock title="contact me" page="/contact">
-            ways to contact me.
+          <EtcBlock title="browse tags" page="/tags">
+            projects and blog posts, categorized by tag.
           </EtcBlock>
           {data?.sponsors?.length ? (
             <EtcBlock title="sponsors" page="/sponsors">

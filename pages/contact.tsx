@@ -3,6 +3,7 @@ import {
   faGithub,
   faInstagram,
   faKeybase,
+  faLinkedin,
   faMastodon,
   faReddit,
   faTwitter,
@@ -45,8 +46,8 @@ export default function Contact() {
   return (
     <Page>
       <SEOHelmet title="contact me. if you want to." />
-      <div className="mx-auto my-8 flex max-w-2xl flex-col gap-8 px-4 text-center font-display text-lg">
-        <h1 className="text-6xl">get in touch...</h1>
+      <div className="mx-auto my-8 flex max-w-4xl flex-col gap-8 px-4 text-center font-display text-lg">
+        <h1 className="mx-auto max-w-2xl text-6xl ">get in touch...</h1>
 
         <div className="grid grid-cols-[repeat(auto-fill,15rem)] justify-center gap-8">
           <ContactItem
@@ -118,6 +119,13 @@ export default function Contact() {
             username="@breqdev"
             label="Venmo"
             description="venmo"
+          />
+          <ContactItem
+            url="https://www.linkedin.com/in/breqdev"
+            icon={faLinkedin}
+            username="in/breqdev"
+            label="Linkedin"
+            description="jobs"
           />
         </div>
       </div>
