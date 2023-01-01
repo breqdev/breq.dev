@@ -1,6 +1,13 @@
 import React from "react";
 
-const BADGES = [
+type Badge = {
+  name: string;
+  url: string;
+  image?: string;
+  placeholder?: string;
+};
+
+const BADGES: Badge[] = [
   {
     name: "breq (brooke chalmers)",
     image: "/badges/breq.png",
@@ -37,8 +44,8 @@ const BADGES = [
     url: "https://www.vhafener.com/",
   },
   {
-    name: "philomena",
-    placeholder: "philo",
+    name: "flaming_spork (philomena)",
+    image: "/badges/philo.png",
     url: "https://philo.gay/",
   },
   {
