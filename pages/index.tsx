@@ -100,7 +100,7 @@ function Projects({ data }: { data: (BasicMarkdownInfo & ProjectInfo)[] }) {
       {displayedProjects < 6 && (
         <Link
           href="/projects"
-          className="rounded-2xl border-2 border-black bg-white p-8 text-xl text-black focus-visible:border-panpink"
+          className="flex items-center justify-center gap-2 rounded-2xl border-2 border-black bg-white p-8 text-xl text-black focus-visible:border-panpink"
         >
           more
           <FontAwesomeIcon icon={faArrowRight} />
