@@ -11,7 +11,7 @@ import {
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import {
   faGithub,
-  faKeybase,
+  faMastodon,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import Character from "./index/fursona/Fursona";
@@ -21,7 +21,7 @@ export default function Footer() {
   const contactLinks: [IconDefinition, string, string][] = [
     [faEnvelope, "breq@breq.dev", "mailto:breq@breq.dev"],
     [faTwitter, "breqdev", "https://twitter.com/breqdev"],
-    [faKeybase, "breq", "https://keybase.io/breq"],
+    [faMastodon, "@breq@tacobelllabs.net", "https://tacobelllabs.net/@breq"],
   ];
 
   const linkStyles =
