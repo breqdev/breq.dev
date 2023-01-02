@@ -14,6 +14,7 @@ export default function SEOHelmet({ title, description, image }: SEOProps) {
     <>
       <Head>
         <title>{title}</title>
+        <meta name="author" content="Brooke Chalmers" />
         <meta name="description" content={description} />
 
         <meta name="og:title" content={title} />
