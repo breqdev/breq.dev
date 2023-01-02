@@ -37,7 +37,7 @@ function ContactItem({
 }) {
   return (
     <a href={url}>
-      <div className="flex flex-col items-center rounded-2xl border-2 border-black p-6">
+      <div className="flex flex-col items-center rounded-2xl border-2 border-black p-6 dark:border-white dark:bg-gray-800">
         <FontAwesomeIcon icon={icon} className="mb-2 text-5xl" title={label} />
         <h2 className="font-mono text-xl">{username}</h2>
         <p>{description}</p>
