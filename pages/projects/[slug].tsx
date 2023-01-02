@@ -108,19 +108,22 @@ function ProjectInfo(props: ProjectInfo) {
 
 function ProjectHeader(props: ProjectInfo) {
   return (
-    <section className="rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800">
-      <SEOHelmet
-        title={props.title + " - breq.dev"}
-        description={props.description}
-        image={props.image?.src}
-      />
-      <h1 className="text-5xl">
-        <Balancer>{props.title}</Balancer>
-      </h1>
-      <h2 className="mb-4 text-3xl text-gray-300">
-        <Balancer>{props.description}</Balancer>
-      </h2>
-      <ProjectInfo {...props} />
+    <section className="relative">
+      <div className="relative z-10 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800">
+        <SEOHelmet
+          title={props.title + " - breq.dev"}
+          description={props.description}
+          image={props.image?.src}
+        />
+        <h1 className="text-5xl">
+          <Balancer>{props.title}</Balancer>
+        </h1>
+        <h2 className="mb-4 text-3xl text-gray-300">
+          <Balancer>{props.description}</Balancer>
+        </h2>
+        <ProjectInfo {...props} />
+      </div>
+      <div className="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink" />
     </section>
   );
 }
