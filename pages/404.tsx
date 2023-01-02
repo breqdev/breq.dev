@@ -7,7 +7,7 @@ import Page from "../components/Page";
 const NotFoundPage = () => {
   return (
     <Page>
-      <SEOHelmet title="oopsie. page not found." />
+      <SEOHelmet title="page not found." />
       <div className="mx-auto my-8 flex justify-center gap-4 font-display">
         <h1 className="text-8xl">404</h1>
         <div className="my-2 text-2xl">
