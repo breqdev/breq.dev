@@ -91,12 +91,10 @@ function Projects({ data }: { data: (BasicMarkdownInfo & ProjectInfo)[] }) {
 
   return (
     <div
-      className="grid grid-cols-1 gap-8 overflow-y-hidden rounded-2xl bg-black md:grid-cols-2 lg:grid-cols-3"
+      className="grid grid-cols-1 gap-8 rounded-2xl bg-black md:grid-cols-2 lg:grid-cols-3"
       tabIndex={-1}
     >
-      {projects.slice(0, displayedProjects).map((project, idx) => (
-        <div key={idx}>{project}</div>
-      ))}
+      {projects.slice(0, displayedProjects)}
       {displayedProjects < 6 && (
         <Link
           href="/projects"

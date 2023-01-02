@@ -51,9 +51,9 @@ export default function ProjectCard({
   return (
     <Link
       href={"/projects/" + slug}
-      className="block rounded-2xl border-4 border-black bg-white p-4 text-black focus:border-panpink dark:bg-gray-800 dark:text-white"
+      className="group relative z-20 outline-none"
     >
-      <section>
+      <section className="relative z-30 rounded-2xl border-4 border-black bg-white p-4 text-black group-focus:border-panpink dark:bg-gray-800 dark:text-white">
         <div className="h-32 overflow-hidden font-display">
           <h2 className="text-3xl">
             <Balancer>{title}</Balancer>
@@ -79,6 +79,7 @@ export default function ProjectCard({
           </div>
         </div>
       </section>
+      <div className="absolute inset-0 m-1 transform rounded-2xl bg-panpink transition-transform group-hover:translate-x-3 group-hover:translate-y-3 group-focus:translate-x-4 group-focus:translate-y-2" />
     </Link>
   );
 }
