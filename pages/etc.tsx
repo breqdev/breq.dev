@@ -62,9 +62,6 @@ export default function Etc() {
           <EtcBlock title="status page" page="/status">
             view the uptime status of any of my gazillion side projects.
           </EtcBlock>
-          <EtcBlock title="names and numbers" page="/numbers">
-            pgp/ssh keys, callsigns, licence info.
-          </EtcBlock>
           <EtcBlock title="design reference" page="/design">
             fonts, colors, names, and other for my brand.
           </EtcBlock>
