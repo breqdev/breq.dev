@@ -12,6 +12,7 @@ import {
   faC,
   faEnvelope,
   faMoneyBillTransfer,
+  faRadio,
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -126,6 +127,13 @@ export default function Contact() {
             username="in/breqdev"
             label="Linkedin"
             description="jobs"
+          />
+          <ContactItem
+            url="https://wireless2.fcc.gov/UlsApp/UlsSearch/license.jsp?licKey=4576848"
+            icon={faRadio}
+            username="KC1QYG"
+            label="Ham Radio"
+            description="radio"
           />
         </div>
       </div>

@@ -2,8 +2,6 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
   faArrowUpRightFromSquare,
   faKey,
-  faPlaneUp,
-  faRadio,
   faServer,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -96,18 +94,6 @@ export default function Numbers() {
           displayValue="(click to copy)"
           value={sshKey}
           command="curl https://breq.dev/keys/ssh.txt | cat >> ~/.ssh/authorized_keys"
-        />
-        <NumberBlock
-          icon={faRadio}
-          label="FCC Amateur Callsign"
-          value="KC1QYG"
-          url="https://wireless2.fcc.gov/UlsApp/UlsSearch/license.jsp?licKey=4576848"
-          urlLabel="view license information"
-        />
-        <NumberBlock
-          icon={faPlaneUp}
-          label="FAA Drone License"
-          value="FA3LMCNCYL"
         />
       </div>
     </Page>
