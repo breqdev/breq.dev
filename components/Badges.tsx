@@ -63,6 +63,11 @@ const BADGES: Badge[] = [
     image: "/badges/luke.png",
     url: "https://lukefelixtaylor.com/",
   },
+  {
+    name: "brye andersen",
+    image: "/badges/brye.png",
+    url: "https://twitter.com/BryeAndersen",
+  },
 ];
 
 export default function Badges() {
