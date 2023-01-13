@@ -66,7 +66,7 @@ const BADGES: Badge[] = [
   {
     name: "brye andersen",
     image: "/badges/brye.png",
-    url: "https://twitter.com/BryeAndersen",
+    url: "https://bryndr.sn/",
   },
 ];
 
