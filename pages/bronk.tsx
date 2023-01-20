@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import SEOHelmet from "../components/SEOHelmet";
 
 import Page from "../components/Page";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 export default function Bronk() {
   const [ears, setEars] = useState(0);
@@ -101,6 +103,13 @@ export default function Bronk() {
           <path d="m371.473,154.917c-4.717.709-5.905,5.181-8.656,8-6.822,6.989-9.103,15.771-10.09,25.052-.178,1.673-.447,3.483.978,4.998.684.727,2.014,1.857.379,2.802-1.07.618-2.346.068-3.13-.943-1.775-2.292-2.087-4.948-1.801-7.743,1.949-19.006,12.777-32.14,28.209-42.194,3.805-2.479,6.891-5.732,10.171-8.791,1.328-1.239,2.839-3.843,4.694-1.864,1.417,1.511-.692,3.496-1.952,4.831-4.164,4.41-9.308,7.58-14.392,10.79-1.705,1.077-4.121,1.418-3.558,4.291-.258.281-.543.54-.852.773Z" />
         </g>
       </svg>
+      <p className="mb-16 text-center">
+        art by <FontAwesomeIcon icon={faTwitter} />{" "}
+        <a href="https://twitter.com/nyashidos" className="underline">
+          nyashidos
+        </a>
+        !
+      </p>
     </Page>
   );
 }
