@@ -68,6 +68,11 @@ const BADGES: Badge[] = [
     image: "/badges/brye.png",
     url: "https://bryndr.sn/",
   },
+  {
+    name: "anthony su (fish)",
+    image: "/badges/fish.png",
+    url: "https://ays36.crd.co/",
+  },
 ];
 
 export default function Badges() {
