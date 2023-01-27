@@ -8,6 +8,7 @@ module.exports = {
       display: ["Nunito", "sans-serif"],
       body: ["Montserrat", "sans-serif"],
       mono: ['"Ubuntu Mono"', "ui-monospace", "monospace"],
+      sans: ["Nunito Sans", "sans-serif"],
     },
     extend: {
       colors: {

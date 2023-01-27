@@ -188,6 +188,10 @@ function DesignContent() {
           other monospace text.
         </p>
         <p>
+          <Callout className="font-sans">Nunito&nbsp;Sans</Callout> on my resume
+          for that extra-professional first impression.
+        </p>
+        <p>
           both Nunito and Montserrat are licensed under the SIL Open Font
           License. Ubuntu Mono is licensed under the Ubuntu Font License, which
           is quite similar to the SIL Open Font License. All three are available
