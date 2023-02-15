@@ -184,7 +184,7 @@ function DesignContent() {
           <Callout>Montserrat</Callout> in body text, for readability.
         </p>
         <p>
-          <Callout className="font-mono">Ubuntu&nbsp;Mono</Callout> in code or
+          <Callout className="font-mono">Fira&nbsp;Code</Callout> in code or
           other monospace text.
         </p>
         <p>
@@ -192,10 +192,8 @@ function DesignContent() {
           for that extra-professional first impression.
         </p>
         <p>
-          both Nunito and Montserrat are licensed under the SIL Open Font
-          License. Ubuntu Mono is licensed under the Ubuntu Font License, which
-          is quite similar to the SIL Open Font License. All three are available
-          from Google Fonts for free, and the licenses permit self-hosting.
+          all three are available under the SIL Open Font License and are listed
+          on Google Fonts.
         </p>
       </section>
       <section className="flex flex-col gap-8">

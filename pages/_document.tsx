@@ -39,7 +39,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <link
-            href="ttps://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
             rel="stylesheet"
           />
           <link

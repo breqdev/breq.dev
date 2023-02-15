@@ -135,7 +135,7 @@ export default function Terminal() {
           errorOutputColor: "#FF1B8D",
           fontSize: "1rem",
           spacing: "1%",
-          fontFamily: "'Ubuntu Mono', ui-monospace, monospace",
+          fontFamily: "'Fira Code', ui-monospace, monospace",
           width: "100%",
         }}
         promptSymbol="breq@breq.dev$ "
