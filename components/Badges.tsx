@@ -36,7 +36,7 @@ const BADGES: Badge[] = [
   {
     name: "ula bit (nyashidos!)",
     image: "/badges/ula.png",
-    url: "https://ulawebsite.vercel.app/",
+    url: "https://www.ulabit.dev/",
   },
   {
     name: "vivi (vivian hafener)",
