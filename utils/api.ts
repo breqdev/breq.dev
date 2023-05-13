@@ -3,6 +3,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import matter from "gray-matter";
 import { join, parse } from "path";
 
+import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkAbcjs from "remark-abcjs";
 import remarkUnwrapImages from "remark-unwrap-images";
@@ -38,7 +39,12 @@ export async function loadMarkdown<FrontmatterType extends {}>(
   const mdx = loadBody
     ? await serialize(body, {
         mdxOptions: {
-          remarkPlugins: [remarkMath, remarkAbcjs, remarkUnwrapImages],
+          remarkPlugins: [
+            remarkGfm,
+            remarkMath,
+            remarkAbcjs,
+            remarkUnwrapImages,
+          ],
           rehypePlugins: [
             rehypeKatex as any,
             [rehypeImgSize, { dir: "public/images" }],
