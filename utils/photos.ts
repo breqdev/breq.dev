@@ -30,7 +30,12 @@ export async function getPhotoSets(): Promise<
 
       const photos = files
         .filter((f) => f.isFile())
-        .filter((f) => f.name.endsWith(".jpg") || f.name.endsWith(".png"));
+        .filter(
+          (f) =>
+            f.name.endsWith(".jpg") ||
+            f.name.endsWith(".png") ||
+            f.name.endsWith(".JPG")
+        );
 
       const metadata = files
         .filter((f) => f.isFile())
