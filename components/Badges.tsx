@@ -14,29 +14,9 @@ const BADGES: Badge[] = [
     url: "https://breq.dev/",
   },
   {
-    name: "quartz!",
-    image: "/badges/quartz.png",
-    url: "https://twitter.com/piezo_electric",
-  },
-  {
     name: "ava silver",
     image: "/badges/ava.png",
     url: "https://avasilver.dev/",
-  },
-  {
-    name: "kel weaver",
-    image: "/badges/kel.png",
-    url: "https://weaverkel.com/",
-  },
-  {
-    name: "eggy (ezgi bas)",
-    image: "/badges/eggy.png",
-    url: "https://twitter.com/ezgiburglar69",
-  },
-  {
-    name: "ula bit (nyashidos!)",
-    image: "/badges/ula.png",
-    url: "https://www.ulabit.dev/",
   },
   {
     name: "vivi (vivian hafener)",
@@ -54,9 +34,24 @@ const BADGES: Badge[] = [
     url: "https://nkizz.com/",
   },
   {
-    name: "dillydally (dillon scott)",
-    image: "/badges/dillydally.png",
-    url: "https://dillydally414.github.io/",
+    name: "eggy (ezgi bas)",
+    image: "/badges/eggy.png",
+    url: "https://twitter.com/ezgiburglar69",
+  },
+  {
+    name: "kel weaver",
+    image: "/badges/kel.png",
+    url: "https://weaverkel.com/",
+  },
+  {
+    name: "ula bit (nyashidos!)",
+    image: "/badges/ula.png",
+    url: "https://www.ulabit.dev/",
+  },
+  {
+    name: "quartz!",
+    image: "/badges/quartz.png",
+    url: "https://twitter.com/piezo_electric",
   },
   {
     name: "luke taylor",
@@ -72,6 +67,11 @@ const BADGES: Badge[] = [
     name: "anthony su (fish)",
     image: "/badges/fish.png",
     url: "https://ays36.crd.co/",
+  },
+  {
+    name: "dillydally (dillon scott)",
+    image: "/badges/dillydally.png",
+    url: "https://dillydally414.github.io/",
   },
 ];
 

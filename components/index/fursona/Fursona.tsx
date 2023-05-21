@@ -19,26 +19,14 @@ function Fursona() {
 
 function Tamagotchi() {
   return (
-    <>
-      <Image
-        src={tamagotchi}
-        alt="Tamagotchi"
-        style={{
-          maxWidth: "100%",
-          height: "auto",
-        }}
-      />
-      <div className="absolute top-24 left-5 -z-10 w-20 transition-transform duration-200 group-hover:-translate-x-20 group-hover:-rotate-12">
-        <Image
-          src={quartz}
-          alt="Quartz"
-          style={{
-            maxWidth: "100%",
-            height: "auto",
-          }}
-        />
-      </div>
-    </>
+    <Image
+      src={tamagotchi}
+      alt="Tamagotchi"
+      style={{
+        maxWidth: "100%",
+        height: "auto",
+      }}
+    />
   );
 }
 
