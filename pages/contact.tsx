@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faC,
+  faCloud,
   faEnvelope,
   faLock,
   faMoneyBillTransfer,
@@ -74,7 +75,7 @@ export default function Contact() {
           <ContactItem
             url="https://discord.com/users/386352037723635712"
             icon={faDiscord}
-            username="breq#8296"
+            username="breq"
             label="Discord"
             description="voice or video call"
           />
@@ -95,9 +96,9 @@ export default function Contact() {
           <ContactItem
             url="https://wireless2.fcc.gov/UlsApp/UlsSearch/license.jsp?licKey=4576848"
             icon={faRadio}
-            username="KC1QYG"
+            username="K9BRQ"
             label="Ham Radio"
-            description="radio"
+            description="2m and 70cm bands"
           />
           <ContactItem
             url="/keys/pgp.txt"
@@ -129,9 +130,9 @@ export default function Contact() {
           <ContactItem
             url="https://tacobelllabs.net/@breq"
             icon={faMastodon}
-            username="@breq@tacobelllabs.net"
+            username={"@breq\n@tacobelllabs.net"}
             label="Mastodon"
-            description="fediverse"
+            description=""
           />
           <ContactItem
             url="https://twitter.com/breqdev"
@@ -167,6 +168,13 @@ export default function Contact() {
             username="in/breqdev"
             label="Linkedin"
             description="jobs ig"
+          />
+          <ContactItem
+            url="https://bsky.app/profile/breq.dev"
+            icon={faCloud}
+            username="breq.dev"
+            label="BlueSky"
+            description="bluesky"
           />
         </ContactCategory>
 
