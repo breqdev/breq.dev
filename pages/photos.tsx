@@ -94,17 +94,19 @@ function PhotoDetail({
     >
       <div className="flex max-w-5xl flex-col border-2 border-white bg-black text-white md:flex-row">
         <div className="relative -mb-2 aspect-square max-h-full">
-          <Image
-            src={photo.src}
-            width={photo.width}
-            height={photo.height}
-            alt={photo.description}
-            className=""
-            style={{
-              maxWidth: "100%",
-              height: "auto",
-            }}
-          />
+          <a href={photo.src}>
+            <Image
+              src={photo.src}
+              width={photo.width}
+              height={photo.height}
+              alt={photo.description}
+              className=""
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
+            />
+          </a>
           <button
             className="absolute top-0 right-0 px-4 py-2 text-5xl md:hidden"
             onClick={onClose}
