@@ -41,7 +41,7 @@ const BADGES: Badge[] = [
   {
     name: "kel weaver",
     image: "/badges/kel.png",
-    url: "https://weaverkel.com/",
+    url: "https://keleats.rocks/",
   },
   {
     name: "ula bit (nyashidos!)",
