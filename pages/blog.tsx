@@ -17,7 +17,13 @@ function Post(props: PostInfo & BasicMarkdownInfo) {
 
   return (
     <Link
-      href={"/" + props.slug.replace(/-/g, "/")}
+      href={
+        "/" +
+        props.slug
+          .replace("-", "/")
+          .replace("-", "/")
+          .replace("-", "/") /* replace exactly 3 times for the date */
+      }
       className="block rounded-2xl border-4 border-black bg-white p-4 text-black outline-none focus:border-panpink"
     >
       <section className="flex h-full flex-col">

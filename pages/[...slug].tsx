@@ -39,7 +39,10 @@ function PostHeader(props: BasicMarkdownInfo & PostInfo) {
 export const getStaticPaths: GetStaticPaths = async () => {
   const files = await listContentFiles("posts");
   const names = files.map((file) => parse(file).name);
-  const paths = names.map((name) => name.split("-"));
+  const paths = names.map((name) => {
+    let parts = name.split("-");
+    return [parts[0], parts[1], parts[2], parts.slice(3).join("-")];
+  });
 
   return {
     paths: paths.map((slug) => ({ params: { slug } })),

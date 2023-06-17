@@ -62,7 +62,7 @@ function A({ href, children }: { href: string; children: React.ReactNode }) {
 function BlockQuote({ children }: { children: React.ReactNode }) {
   return (
     <blockquote
-      className="mx-auto max-w-3xl italic"
+      className="mx-auto -my-1 max-w-3xl border-l-8 border-gray-400 py-1 pl-4 italic"
       style={{ maxWidth: "min(max-content, 100%)" }}
     >
       {children}
