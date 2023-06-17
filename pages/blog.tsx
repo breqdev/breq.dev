@@ -24,9 +24,9 @@ function Post(props: PostInfo & BasicMarkdownInfo) {
           .replace("-", "/")
           .replace("-", "/") /* replace exactly 3 times for the date */
       }
-      className="block rounded-2xl border-4 border-black bg-white p-4 text-black outline-none focus:border-panpink"
+      className="group relative outline-none"
     >
-      <section className="flex h-full flex-col">
+      <section className="relative z-20 flex h-full flex-col rounded-2xl border-4 border-black bg-white p-4 text-black group-focus:border-panpink">
         <h2 className="mb-2 text-2xl">
           <Balancer>{props.title}</Balancer>
         </h2>
@@ -38,6 +38,7 @@ function Post(props: PostInfo & BasicMarkdownInfo) {
           <Balancer>{props.description}</Balancer>
         </p>
       </section>
+      <div className="absolute inset-0 z-10 transform rounded-2xl bg-panpink transition-transform group-hover:translate-x-3 group-hover:translate-y-3 group-focus:translate-x-4 group-focus:translate-y-2" />
     </Link>
   );
 }
