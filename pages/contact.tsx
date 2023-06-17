@@ -7,6 +7,8 @@ import {
   faLinkedin,
   faMastodon,
   faReddit,
+  faStackExchange,
+  faTelegram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -15,6 +17,7 @@ import {
   faEnvelope,
   faLock,
   faMoneyBillTransfer,
+  faPlane,
   faRadio,
   faServer,
   IconDefinition,
@@ -92,6 +95,13 @@ export default function Contact() {
             username="@breq"
             label="Keybase"
             description="encrypted channel"
+          />
+          <ContactItem
+            url="https://t.me/breqdev"
+            icon={faTelegram}
+            username="@breqdev"
+            label="Telegram"
+            description="for furries"
           />
           <ContactItem
             url="https://wireless2.fcc.gov/UlsApp/UlsSearch/license.jsp?licKey=4576848"
@@ -172,9 +182,16 @@ export default function Contact() {
           <ContactItem
             url="https://bsky.app/profile/breq.dev"
             icon={faCloud}
-            username="breq.dev"
+            username="@breq.dev"
             label="BlueSky"
             description="bluesky"
+          />
+          <ContactItem
+            url="https://stackexchange.com/users/12968408/brooke-chalmers"
+            icon={faStackExchange}
+            username="brooke-chalmers"
+            label="StackExchange"
+            description="stackexchange"
           />
         </ContactCategory>
 
@@ -192,6 +209,13 @@ export default function Contact() {
             username="breq@breq.dev"
             label="SSH keys"
             description=".ssh/authorized_keys"
+          />
+          <ContactItem
+            url=""
+            icon={faPlane}
+            username="FA3LMCNCYL"
+            label="FAA Drone"
+            description="drone license"
           />
         </ContactCategory>
       </div>
