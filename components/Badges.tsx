@@ -1,5 +1,11 @@
 import React from "react";
 import { BADGES } from "../utils/badges";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronRight,
+  faFastForward,
+} from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 export default function Badges() {
   return (
@@ -27,6 +33,12 @@ export default function Badges() {
             )}
           </a>
         ))}
+        <Link
+          className="hidden h-[31px] items-center pl-1 sm:flex"
+          href="/directory"
+        >
+          directory <FontAwesomeIcon icon={faChevronRight} />
+        </Link>
       </div>
     </div>
   );
