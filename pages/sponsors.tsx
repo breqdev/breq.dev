@@ -16,7 +16,7 @@ export default function Sponsors() {
 
   return (
     <Page className="bg-black text-white">
-      <SEOHelmet title="Sponsors" />
+      <SEOHelmet title="Sponsors of my work" />
       <div className="mx-auto w-full max-w-xl py-8 px-2">
         <h1 className="text-center font-display text-6xl">Sponsors</h1>
         <p className="my-4 mt-8 font-body text-xl">

@@ -47,7 +47,7 @@ export default function Tag({
 }) {
   return (
     <Page className="bg-black text-white">
-      <SEOHelmet title={`${tag} - the archives of breq`} />
+      <SEOHelmet title={`${tag} - from the breq.dev archives`} />
       <div className="mx-auto max-w-7xl text-center font-display">
         <h1 className="my-8 text-6xl">{tag} - entries</h1>
         <div className="place-stretch m-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">

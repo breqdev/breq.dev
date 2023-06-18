@@ -9,8 +9,8 @@ export default function Directory() {
   return (
     <Page>
       <SEOHelmet
-        title="brooke's friends."
-        description="a directory of cool people i know."
+        title="Directory - breq.dev"
+        description="A directory of cool people I know."
       />
       <h1 className="mx-auto my-16 max-w-2xl text-center font-display text-6xl">
         friends of breq

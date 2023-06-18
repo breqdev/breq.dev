@@ -71,9 +71,9 @@ export default function Posts({
 
   return (
     <Page className="bg-black text-white">
-      <SEOHelmet title="blog. ramblings about nothing in particular." />
+      <SEOHelmet title="Brooke's Blog: posts about tinkering with anything and everything" />
       <div className="mx-auto max-w-7xl text-center font-display">
-        <h1 className="my-8 text-6xl">posts</h1>
+        <h1 className="my-8 text-6xl">blog</h1>
         <div className="place-stretch m-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts}
         </div>

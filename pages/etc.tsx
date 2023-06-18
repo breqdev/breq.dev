@@ -47,7 +47,7 @@ export default function Etc() {
 
   return (
     <Page>
-      <SEOHelmet title="all the other things." />
+      <SEOHelmet title="Everything Else - breq.dev" />
       <div className="mx-auto my-8 max-w-xl">
         <h1 className="text-center font-display text-5xl">
           all the other things

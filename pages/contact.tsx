@@ -70,9 +70,9 @@ function ContactCategory({
 export default function Contact() {
   return (
     <Page>
-      <SEOHelmet title="brooke's accounts" />
+      <SEOHelmet title="Contact - breq.dev" />
       <div className="mx-auto my-8 flex max-w-4xl flex-col gap-8 px-4 text-center font-display text-lg">
-        <h1 className="mx-auto max-w-2xl text-6xl">where i am</h1>
+        <h1 className="mx-auto max-w-2xl text-6xl">contact me</h1>
 
         <ContactCategory title="messaging">
           <ContactItem

@@ -5,7 +5,7 @@ export default function Lite() {
   return (
     <Page>
       <SEOHelmet
-        title="hey, i'm brooke chalmers."
+        title="Hey, I'm Brooke Chalmers."
         description="welcome to my little patch of internet. view my projects, posts, and experiments here."
       />
       <div className="flex flex-col">

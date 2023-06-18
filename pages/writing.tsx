@@ -56,7 +56,7 @@ export default function Writing({
 
   return (
     <Page className="bg-black text-white">
-      <SEOHelmet title="words i've written, with <3." />
+      <SEOHelmet title="Words I've written, with <3." />
       <div className="mx-auto max-w-7xl text-center font-display">
         <h1 className="my-8 text-6xl">writing</h1>
         <div className="place-stretch m-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">

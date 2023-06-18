@@ -126,8 +126,8 @@ export default function Index(props: {
   return (
     <Page>
       <SEOHelmet
-        title="hey, i'm brooke chalmers."
-        description="welcome to my little patch of internet. view my projects, posts, and experiments here."
+        title="Hey, I'm Brooke Chalmers."
+        description="Welcome to my little patch of internet. View my projects, posts, and experiments here."
       />
       <div className="relative z-10 bg-black text-white">
         <div className="mx-auto h-[200vh] max-w-6xl px-8 font-display sm:px-16">

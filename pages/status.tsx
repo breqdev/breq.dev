@@ -48,7 +48,7 @@ export default function Status() {
 
   return (
     <Page>
-      <SEOHelmet title="status dashboard" />
+      <SEOHelmet title="Brooke's Status Dashboard" />
       <h1 className="m-8 text-center font-display text-5xl">
         status dashboard
       </h1>

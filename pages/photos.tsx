@@ -150,7 +150,7 @@ export default function Photos({
 
   return (
     <Page className="bg-black text-white">
-      <SEOHelmet title="photos by breq with <3" />
+      <SEOHelmet title="Photos by Brooke, taken with <3." />
       <h1 className="mt-16 text-center font-display text-7xl">photos</h1>
       {sets.map((set) => (
         <div key={set.title} className="my-8">

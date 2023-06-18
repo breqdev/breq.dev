@@ -18,7 +18,7 @@ export default function Projects({
 
   return (
     <Page className="bg-black text-white">
-      <SEOHelmet title="projects i've made, with <3." />
+      <SEOHelmet title="Projects I've made, with <3." />
       <div className="mx-auto max-w-7xl text-center font-display">
         <h1 className="my-8 text-6xl">projects</h1>
         <div className="place-stretch m-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">

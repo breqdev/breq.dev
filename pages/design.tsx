@@ -272,7 +272,7 @@ export default function Design() {
   return (
     <Page className="flex flex-col bg-black">
       <SEOHelmet
-        title="design language."
+        title="breq.dev design language"
         description="colors, fonts, and logos that i use."
       />
       <div className="mx-auto flex w-full max-w-6xl flex-grow flex-col bg-black md:flex-row">
