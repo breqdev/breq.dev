@@ -9,21 +9,14 @@ import {
   listContentFiles,
   loadMarkdown,
 } from "../utils/api";
-import parseDate from "../utils/parseDate";
-import { PostInfo } from "../utils/posts";
+import { getDateLabel, getURL, PostInfo, slugComparator } from "../utils/posts";
 
 function Post(props: PostInfo & BasicMarkdownInfo) {
-  const date = parseDate(props.slug);
+  const date = getDateLabel(props.slug);
 
   return (
     <Link
-      href={
-        "/" +
-        props.slug
-          .replace("-", "/")
-          .replace("-", "/")
-          .replace("-", "/") /* replace exactly 3 times for the date */
-      }
+      href={"/" + getURL(props.slug)}
       className="group relative outline-none"
     >
       <section className="relative z-20 flex h-full flex-col rounded-2xl border-4 border-black bg-white p-4 text-black group-focus:border-panpink">
@@ -50,10 +43,7 @@ export async function getStaticProps() {
     posts.map((post) => loadMarkdown<PostInfo>(post))
   );
 
-  const sorted = data.sort(
-    (a, b) =>
-      parseFloat(b.slug.replace(/-/, "")) - parseFloat(a.slug.replace(/-/, ""))
-  );
+  const sorted = data.sort(slugComparator);
 
   return {
     props: {

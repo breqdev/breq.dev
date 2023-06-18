@@ -5,7 +5,7 @@ import Page from "../components/Page";
 import Markdown from "../components/markdown/Markdown";
 import SEOHelmet from "../components/SEOHelmet";
 import Comments from "../components/Comments";
-import parseDate from "../utils/parseDate";
+import { getDateLabel } from "../utils/posts";
 import {
   BasicMarkdownInfo,
   listContentFiles,
@@ -16,7 +16,7 @@ import { PostInfo } from "../utils/posts";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 function PostHeader(props: BasicMarkdownInfo & PostInfo) {
-  const date = parseDate(props.slug);
+  const date = getDateLabel(props.slug);
 
   return (
     <div className="relative z-0">
