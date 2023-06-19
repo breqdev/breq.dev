@@ -1,11 +1,17 @@
 import RSS from "rss";
 import fs from "fs/promises";
-import { PostInfo, getDateObject, getURL } from "./posts";
-import { BasicMarkdownInfo } from "./api";
+import { PostInfo, getDateObject, getURL, slugComparator } from "./posts";
+import { listContentFiles, loadMarkdown } from "./api";
 
-export default async function generateRssFeed(
-  posts: (PostInfo & BasicMarkdownInfo)[]
-) {
+export default async function generateRssFeed() {
+  const posts = await listContentFiles("posts");
+
+  const data = await Promise.all(
+    posts.map((post) => loadMarkdown<PostInfo>(post))
+  );
+
+  const sorted = data.sort(slugComparator);
+
   const feedOptions = {
     title: "breq.dev - Brooke Chalmers",
     description: "Posts about tinkering with anything and everything!",
@@ -18,7 +24,7 @@ export default async function generateRssFeed(
 
   const feed = new RSS(feedOptions);
 
-  posts.forEach((post) => {
+  sorted.forEach((post) => {
     feed.item({
       title: post.title,
       description: post.description,

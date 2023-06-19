@@ -14,6 +14,7 @@ import { getSortedProjects, ProjectInfo } from "../utils/projects";
 import { GetStaticProps } from "next";
 import { BasicMarkdownInfo } from "../utils/api";
 import Link from "next/link";
+import generateRssFeed from "../utils/generateRSS";
 
 const Background = React.lazy(() => import("../components/index/IndexCanvas"));
 
@@ -49,6 +50,8 @@ function ScrollDownHint() {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  await generateRssFeed();
+
   return {
     props: {
       data: await getSortedProjects(),
