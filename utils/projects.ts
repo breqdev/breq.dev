@@ -11,7 +11,7 @@ export type ProjectInfo = {
   tags: string[];
   demo?: string;
   repo?: string;
-  writeup: Date;
+  writeup: string; // ISO date
 };
 
 export async function getSortedProjects() {
