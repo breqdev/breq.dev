@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[breq.dev - Brooke Chalmers]]></title>
+        <description><![CDATA[Posts about tinkering with anything and everything!]]></description>
+        <link>https://breq.dev</link>
+        <image>
+            <url>https://breq.dev/opengraph.jpg</url>
+            <title>breq.dev - Brooke Chalmers</title>
+            <link>https://breq.dev</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Mon, 19 Jun 2023 01:54:35 GMT</lastBuildDate>
+        <atom:link href="https://breq.dev/rss.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Mon, 19 Jun 2023 01:54:35 GMT</pubDate>
+        <copyright><![CDATA[All rights reserved, Brooke Chalmers 2023]]></copyright>
+        <item>
+            <title><![CDATA[LDSP: low-level audio programming with rooted Android phones]]></title>
+            <description><![CDATA[Or, "How I Helped Author A Paper By Messing Around With Build Systems"]]></description>
+            <link>/2023/06/17/ldsp</link>
+            <guid isPermaLink="true">/2023/06/17/ldsp</guid>
+            <category><![CDATA[android]]></category>
+            <category><![CDATA[audio]]></category>
+            <pubDate>Sat, 17 Jun 2023 04:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[How To Reverse an Android App]]></title>
+            <description><![CDATA[I really wanted to unlock the 🎈 emoji without spending $25]]></description>
+            <link>/2023/06/16/transitapp-reversing</link>
+            <guid isPermaLink="true">/2023/06/16/transitapp-reversing</guid>
+            <category><![CDATA[android]]></category>
+            <category><![CDATA[emulation]]></category>
+            <pubDate>Fri, 16 Jun 2023 04:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Emulation Project - Call for Collaborators!]]></title>
+            <description><![CDATA[Something exciting I've had in the works, and how you can help!]]></description>
+            <link>/2022/11/26/noentiendo</link>
+            <guid isPermaLink="true">/2022/11/26/noentiendo</guid>
+            <category><![CDATA[rust]]></category>
+            <category><![CDATA[emulation]]></category>
+            <pubDate>Sat, 26 Nov 2022 05:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Universal Hooks]]></title>
+            <description><![CDATA[Reimplementing some core React Hooks in userspace.]]></description>
+            <link>/2022/01/19/hooks</link>
+            <guid isPermaLink="true">/2022/01/19/hooks</guid>
+            <category><![CDATA[javascript]]></category>
+            <category><![CDATA[react]]></category>
+            <pubDate>Wed, 19 Jan 2022 05:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Building a text processing pipeline with Unified]]></title>
+            <description><![CDATA[Spellcheck, grammar check, Markdown, HTML, and more!]]></description>
+            <link>/2022/01/03/unified</link>
+            <guid isPermaLink="true">/2022/01/03/unified</guid>
+            <category><![CDATA[javascript]]></category>
+            <pubDate>Mon, 03 Jan 2022 05:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Tunneling, Routing, and NATting my way to smuggle IPv6 into Northeastern]]></title>
+            <description><![CDATA[Northeastern's dorms have good WiFi... for most people. But I'll always find a reason to tinker.]]></description>
+            <link>/2021/09/06/inv6</link>
+            <guid isPermaLink="true">/2021/09/06/inv6</guid>
+            <category><![CDATA[networking]]></category>
+            <pubDate>Mon, 06 Sep 2021 04:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[PocKey - RP2040, SH1107, and lessons from a failed project]]></title>
+            <description><![CDATA[I invested countless hours into this project and I have nothing to show for it but a story.]]></description>
+            <link>/2021/08/29/pockey</link>
+            <guid isPermaLink="true">/2021/08/29/pockey</guid>
+            <category><![CDATA[c++]]></category>
+            <category><![CDATA[python]]></category>
+            <category><![CDATA[hardware]]></category>
+            <pubDate>Sun, 29 Aug 2021 04:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Building My Online Presence]]></title>
+            <description><![CDATA[For much of my life, my identity has been, for lack of a better word, unstable. This is an outlet for me to keep track of what makes me who I am. It's a place where I can post things that I'm proud of.]]></description>
+            <link>/2021/08/26/website</link>
+            <guid isPermaLink="true">/2021/08/26/website</guid>
+            <category><![CDATA[web]]></category>
+            <category><![CDATA[javascript]]></category>
+            <pubDate>Thu, 26 Aug 2021 04:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[5F3759DF: An explanation of the world's most infamous magic number]]></title>
+            <description><![CDATA[Here's a famous function in the Quake III source code. Can you guess what it does?]]></description>
+            <link>/2021/03/17/5F3759DF</link>
+            <guid isPermaLink="true">/2021/03/17/5F3759DF</guid>
+            <category><![CDATA[c++]]></category>
+            <category><![CDATA[math]]></category>
+            <pubDate>Wed, 17 Mar 2021 04:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[How I Use Dokku]]></title>
+            <description><![CDATA[A one-stop-shop for building, deploying, and hosting apps on a budget.]]></description>
+            <link>/2021/02/10/dokku</link>
+            <guid isPermaLink="true">/2021/02/10/dokku</guid>
+            <category><![CDATA[docker]]></category>
+            <category><![CDATA[networking]]></category>
+            <pubDate>Wed, 10 Feb 2021 05:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

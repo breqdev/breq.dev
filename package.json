@@ -51,6 +51,7 @@
     "remark-html-katex": "^4.0.1",
     "remark-math": "^5.1.1",
     "remark-unwrap-images": "^3.0.1",
+    "rss": "^1.2.2",
     "swr": "^2.0.0",
     "tailwindcss": "^3.2.4",
     "three": "^0.148.0"
@@ -60,6 +61,7 @@
     "@types/node": "^18.0.0",
     "@types/react": "^17.0.47",
     "@types/react-modal": "^3.13.1",
+    "@types/rss": "^0.0.30",
     "@types/three": "^0.141.0",
     "eslint": "8.13.0",
     "eslint-config-next": "^13.1.0",

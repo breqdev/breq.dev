@@ -3,6 +3,7 @@ import { BasicMarkdownInfo } from "./api";
 export type PostInfo = {
   title: string;
   description: string;
+  tags?: string[];
 };
 
 export function parseSlug(slug: string) {

@@ -10,6 +10,7 @@ import {
   loadMarkdown,
 } from "../utils/api";
 import { getDateLabel, getURL, PostInfo, slugComparator } from "../utils/posts";
+import generateRssFeed from "../utils/generateRSS";
 
 function Post(props: PostInfo & BasicMarkdownInfo) {
   const date = getDateLabel(props.slug);
@@ -41,6 +42,8 @@ export async function getStaticProps() {
   );
 
   const sorted = data.sort(slugComparator);
+
+  await generateRssFeed(sorted);
 
   return {
     props: {
