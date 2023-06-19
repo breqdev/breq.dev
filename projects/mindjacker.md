@@ -7,6 +7,7 @@ created: "2017"
 repo: breqdev/mindjacker
 status: old
 tags: [python, hardware]
+writeup: 2020-06-13
 ---
 
 # Overview

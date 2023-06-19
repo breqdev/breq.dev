@@ -6,6 +6,7 @@ video: tiny-stacker.480p.webm
 created: "2020"
 repo: breqdev/tiny-stacker
 tags: [arduino, hardware, power]
+writeup: 2022-05-13
 ---
 
 <YouTube id="dYO6Px-RuYo" />

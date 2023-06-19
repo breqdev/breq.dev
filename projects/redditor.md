@@ -7,6 +7,7 @@ created: "2020"
 repo: breqdev/redditor
 demo: /apps/redditor.html
 tags: [python, flask, reddit]
+writeup: 2020-12-06
 ---
 
 # Overview

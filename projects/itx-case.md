@@ -5,6 +5,7 @@ description: My custom-built PC case that fit in my backpack.
 image: pc-case/photo.jpg
 created: "2018-19"
 tags: [hardware]
+writeup: 2022-03-23
 ---
 
 ![](pc-case/photo.jpg)

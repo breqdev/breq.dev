@@ -7,6 +7,7 @@ created: "2020"
 repo: breqdev/snowflake
 demo: /apps/snowflake.html
 tags: [python, redis]
+writeup: 2020-12-04
 ---
 
 # Overview

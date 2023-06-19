@@ -7,6 +7,7 @@ created: "2021"
 repo: breqdev/botbuilder
 demo: https://botbuilder.breq.dev/
 tags: [discord, python, flask, web]
+writeup: 2022-03-23
 ---
 
 ![](botbuilder.png)

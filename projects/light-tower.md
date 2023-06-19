@@ -5,6 +5,7 @@ description: An indicator to represent 3D printer status.
 image: light-tower.jpg
 created: "2021"
 tags: [hardware, python]
+writeup: 2022-03-23
 ---
 
 ![](light-tower.jpg)

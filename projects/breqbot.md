@@ -7,6 +7,7 @@ created: "2020"
 repo: breqdev/breqbot
 demo: https://bot.breq.dev/
 tags: [discord, python, redis]
+writeup: 2020-10-08
 ---
 
 ![](breqbot/8ball.png)

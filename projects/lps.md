@@ -7,6 +7,7 @@ video: ../videos/lps.480p.webm
 created: "2020"
 repo: breqdev/lps
 tags: [python, math]
+writeup: 2020-09-01
 ---
 
 <YouTube id="4wxjDMXGJJ0" />

@@ -6,6 +6,7 @@ video: rave-choker-v2.480p.webm
 created: "2022"
 repo: breqdev/outshine
 tags: [arduino, c++, hardware, react]
+writeup: 2022-02-13
 ---
 
 <Giphy id="Ztwx0SfEd2tgDE7J2w" />

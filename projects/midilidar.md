@@ -6,6 +6,7 @@ video: midilidar.480p.webm
 created: "2022"
 repo: breqdev/midilidar
 tags: [python, music]
+writeup: 2022-05-13
 ---
 
 <YouTube id="mgYmrErOh_Y" />

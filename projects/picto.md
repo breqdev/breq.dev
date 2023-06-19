@@ -6,6 +6,7 @@ created: "2021"
 repo: breqdev/pictochat
 demo: https://picto.breq.dev/
 tags: [react, node]
+writeup: 2022-03-23
 ---
 
 ![](picto.png)

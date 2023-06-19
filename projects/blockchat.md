@@ -7,6 +7,7 @@ created: "2018"
 repo: breqdev/blockchat
 status: old
 tags: [blockchain, python]
+writeup: 2020-10-09
 ---
 
 ![](blockchat.png)

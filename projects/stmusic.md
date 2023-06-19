@@ -7,6 +7,7 @@ video: music-game.480p.webm
 created: "2020"
 repo: breqdev/STMusic
 tags: [c++, hardware, music]
+writeup: 2020-10-09
 ---
 
 <div class="max-w-2xl mx-auto bg-red-100 rounded-xl my-4 p-2">

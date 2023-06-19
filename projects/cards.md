@@ -7,6 +7,7 @@ created: "2020"
 repo: breqdev/cards
 demo: https://cards.breq.dev/
 tags: [python, flask, puppeteer]
+writeup: 2022-03-23
 ---
 
 <iframe className="block mx-auto my-8 rounded-2xl mt-4" height="300" width="500" src="https://cards.api.breq.dev/card/219156620534663947.html"></iframe>

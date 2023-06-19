@@ -8,6 +8,7 @@ created: "2014"
 repo: breqdev/pinewood-derby-car
 status: old
 tags: [arduino, hardware]
+writeup: 2020-10-09
 ---
 
 <YouTube id="X23kVwWfueI" />

@@ -6,6 +6,7 @@ created: "2021"
 repo: breqdev/dynamic-music
 demo: https://music.breq.dev/
 tags: [javascript, three, music]
+writeup: 2022-05-13
 ---
 
 ![](dynamic-music.png)

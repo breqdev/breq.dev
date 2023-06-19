@@ -6,6 +6,7 @@ image: remark-abcjs.png
 created: "2022"
 repo: breqdev/remark-abcjs
 tags: [javascript]
+writeup: 2022-01-04
 ---
 
 ```abc

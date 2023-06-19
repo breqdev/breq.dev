@@ -61,6 +61,10 @@ export async function loadMarkdown<FrontmatterType extends {}>(
     source: parse(path).dir,
     body: mdx,
     image: await loadImage(frontmatter.image),
+    writeup:
+      frontmatter.writeup instanceof Date
+        ? frontmatter.writeup.toISOString()
+        : frontmatter.writeup || null,
     date: frontmatter.date
       ? new Date(frontmatter.date).toLocaleDateString("en-US", {
           year: "numeric",

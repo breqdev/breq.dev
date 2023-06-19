@@ -7,6 +7,7 @@ video: fish.480p.webm
 created: "2020"
 repo: breqdev/bigmouth
 tags: [hardware, arduino, music]
+writeup: 2021-06-08
 ---
 
 <YouTube id="iX1t1ADwkrk" />

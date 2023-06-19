@@ -7,6 +7,7 @@ created: "2021"
 repo: breqdev/genregen
 demo: https://genregen.breq.dev/
 tags: [javascript, serverless]
+writeup: 2021-08-26
 ---
 
 ![](genregen.png)

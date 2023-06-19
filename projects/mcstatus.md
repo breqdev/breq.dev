@@ -7,6 +7,7 @@ created: "2020"
 repo: breqdev/mcstatus
 demo: /apps/mcstatus.html
 tags: [python, flask]
+writeup: 2020-08-16
 ---
 
 # Overview

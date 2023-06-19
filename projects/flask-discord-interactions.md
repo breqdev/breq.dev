@@ -7,6 +7,7 @@ created: "2021"
 repo: breqdev/flask-discord-interactions
 demo: https://breqbot-lite.breq.dev/
 tags: [python, flask, discord]
+writeup: 2022-03-23
 ---
 
 ![](breqbot-lite.png)

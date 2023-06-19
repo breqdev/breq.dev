@@ -8,6 +8,7 @@ created: "2021"
 repo: breqdev/wallmatrix
 demo: https://matrix.breq.dev/
 tags: [python, hardware]
+writeup: 2021-08-26
 ---
 
 <YouTube id="o5zavmZU38s" />

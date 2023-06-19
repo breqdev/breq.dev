@@ -7,6 +7,7 @@ created: "2021"
 repo: breqdev/react-twitter-notrack
 demo: https://github.breq.dev/react-twitter-notrack
 tags: [javascript, serverless, react]
+writeup: 2021-08-27
 ---
 
 <Tweet id="1431392146339377152" />

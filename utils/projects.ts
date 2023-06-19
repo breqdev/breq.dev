@@ -11,6 +11,7 @@ export type ProjectInfo = {
   tags: string[];
   demo?: string;
   repo?: string;
+  writeup: Date;
 };
 
 export async function getSortedProjects() {

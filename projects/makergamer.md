@@ -7,6 +7,7 @@ created: "2016-17"
 repo: breqdev/makergamer
 status: old
 tags: [python, scratch, javascript]
+writeup: 2022-03-23
 ---
 
 ![](archives/makergamer.jpg)

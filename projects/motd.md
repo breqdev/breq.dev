@@ -5,6 +5,7 @@ image: motd/square.jpg
 created: "2022"
 repo: breqdev/motd
 tags: [arduino, c++, hardware]
+writeup: 2022-05-13
 ---
 
 ![](motd/both.jpg)

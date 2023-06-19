@@ -7,6 +7,7 @@ video: letmein.480p.webm
 created: "2021"
 repo: breqdev/letmein
 tags: [puppeteer, node]
+writeup: 2021-12-19
 ---
 
 <YouTube id="zk6Bb-aY_Yo" />

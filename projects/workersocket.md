@@ -5,6 +5,7 @@ image: default.png
 created: "2022"
 repo: breqdev/workersocket
 tags: [javascript, networking]
+writeup: 2022-02-09
 ---
 
 ```bash

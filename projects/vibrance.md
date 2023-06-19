@@ -7,6 +7,7 @@ video: vibrance.480p.webm
 created: "2020"
 repo: breqdev/vibrance
 tags: [python, music]
+writeup: 2020-06-15
 ---
 
 <YouTube id="uvB-t6f3MoE" />

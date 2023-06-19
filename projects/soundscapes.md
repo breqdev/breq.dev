@@ -5,6 +5,7 @@ image: soundscapes.png
 created: "2022"
 repo: breqdev/soundscapes
 tags: [python, music]
+writeup: 2022-05-13
 ---
 
 ![](soundscapes.png)

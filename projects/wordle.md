@@ -6,6 +6,7 @@ created: "2022"
 repo: breqdev/rust_wordle
 demo: https://wordle.breq.dev/
 tags: [javascript, rust]
+writeup: 2022-05-13
 ---
 
 ![](wordle/typescript.png)
