@@ -1,7 +1,7 @@
 import { AppProps } from "next/app";
 
-import "../styles/globals.css";
 import "katex/dist/katex.min.css";
+import "../styles/globals.css";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";

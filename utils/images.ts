@@ -1,6 +1,7 @@
 import imageSize from "image-size";
 import { join } from "path";
 import { ExifImage } from "exif";
+import { ISizeCalculationResult } from "image-size/dist/types/interface";
 
 function formatExifDate(dateString?: string) {
   if (!dateString) {
@@ -71,16 +72,18 @@ export async function loadImage(
     return null;
   }
 
-  const { width, height } = await new Promise((resolve, reject) => {
-    imageSize(join("public", dir, src), (err, dimensions) => {
-      if (err || !dimensions) {
-        console.log("error loading image", err);
-        reject(err);
-        return;
-      }
-      resolve(dimensions);
-    });
-  });
+  const { width, height } = await new Promise<ISizeCalculationResult>(
+    (resolve, reject) => {
+      imageSize(join("public", dir, src), (err, dimensions) => {
+        if (err || !dimensions) {
+          console.log("error loading image", err);
+          reject(err);
+          return;
+        }
+        resolve(dimensions);
+      });
+    }
+  );
 
   const exif: ExifInfo | null = await new Promise((resolve, reject) => {
     if (!src.endsWith(".jpg")) {
@@ -124,8 +127,8 @@ export async function loadImage(
 
   return {
     src: "/" + join(dir, src),
-    width,
-    height,
+    width: width as number,
+    height: height as number,
     exif,
   };
 }

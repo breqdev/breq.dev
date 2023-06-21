@@ -74,3 +74,5 @@ export async function loadMarkdown<FrontmatterType extends {}>(
       : null,
   };
 }
+
+("math");
