@@ -76,9 +76,9 @@ export const BADGES: Badge[] = [
     bio: "design, CS, web development",
   },
   {
-    name: "brye andersen",
-    image: "/badges/brye.png",
-    url: "https://bryndr.sn/",
+    name: "maeve andersen",
+    image: "/badges/maeve.png",
+    url: "https://ndr.sn/",
     bio: "politics, CS, bicycles, chonkpad",
   },
   {
