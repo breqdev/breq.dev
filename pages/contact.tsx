@@ -9,9 +9,12 @@ import {
   faReddit,
   faStackExchange,
   faTelegram,
+  faTumblr,
   faTwitter,
+  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import {
+  faAt,
   faC,
   faCloud,
   faEnvelope,
@@ -78,7 +81,7 @@ export default function Contact() {
           <ContactItem
             url="https://discord.com/users/386352037723635712"
             icon={faDiscord}
-            username="breq"
+            username="@breq"
             label="Discord"
             description="voice or video call"
           />
@@ -104,7 +107,7 @@ export default function Contact() {
             description="for furries"
           />
           <ContactItem
-            url="https://wireless2.fcc.gov/UlsApp/UlsSearch/license.jsp?licKey=4576848"
+            url="https://wireless2.fcc.gov/UlsApp/UlsSearch/license.jsp?licKey=4768613"
             icon={faRadio}
             username="K9BRQ"
             label="Ham Radio"
@@ -134,16 +137,16 @@ export default function Contact() {
             label="GitLab"
             description="rover projects"
           />
+          <ContactItem
+            url="https://stackexchange.com/users/12968408/brooke-chalmers"
+            icon={faStackExchange}
+            username="brooke-chalmers"
+            label="StackExchange"
+            description="stackexchange"
+          />
         </ContactCategory>
 
-        <ContactCategory title="social">
-          <ContactItem
-            url="https://tacobelllabs.net/@breq"
-            icon={faMastodon}
-            username={"@breq\n@tacobelllabs.net"}
-            label="Mastodon"
-            description=""
-          />
+        <ContactCategory title="twitters">
           <ContactItem
             url="https://twitter.com/breqdev"
             icon={faTwitter}
@@ -152,11 +155,18 @@ export default function Contact() {
             description="until twitter dies"
           />
           <ContactItem
-            url="https://instagram.com/breqdev"
-            icon={faInstagram}
-            username="@breqdev"
-            label="Instagram"
-            description="view my photos"
+            url="https://tacobelllabs.net/@breq"
+            icon={faMastodon}
+            username={"@breq\n@tacobelllabs.net"}
+            label="Mastodon"
+            description=""
+          />
+          <ContactItem
+            url="https://tumblr.breq.dev/"
+            icon={faTumblr}
+            username="breq"
+            label="Tumblr"
+            description="gay people"
           />
           <ContactItem
             url="https://cohost.org/breq"
@@ -166,11 +176,28 @@ export default function Contact() {
             description="cohost"
           />
           <ContactItem
-            url="https://reddit.com/u/breqdev"
-            icon={faReddit}
-            username="u/breqdev"
-            label="Reddit"
-            description="i don't use this"
+            url="https://bsky.app/profile/breq.dev"
+            icon={faCloud}
+            username="@breq.dev"
+            label="BlueSky"
+            description="bluesky"
+          />
+          <ContactItem
+            url="https://www.threads.net/@breqdev"
+            icon={faAt}
+            username="@breqdev"
+            label="Threads"
+            description="threads"
+          />
+        </ContactCategory>
+
+        <ContactCategory title="socials">
+          <ContactItem
+            url="https://instagram.com/breqdev"
+            icon={faInstagram}
+            username="@breqdev"
+            label="Instagram"
+            description="view my photos"
           />
           <ContactItem
             url="https://www.linkedin.com/in/breqdev"
@@ -180,18 +207,18 @@ export default function Contact() {
             description="jobs ig"
           />
           <ContactItem
-            url="https://bsky.app/profile/breq.dev"
-            icon={faCloud}
-            username="@breq.dev"
-            label="BlueSky"
-            description="bluesky"
+            url="https://reddit.com/u/breqdev"
+            icon={faReddit}
+            username="u/breqdev"
+            label="Reddit"
+            description="i don't use this"
           />
           <ContactItem
-            url="https://stackexchange.com/users/12968408/brooke-chalmers"
-            icon={faStackExchange}
-            username="brooke-chalmers"
-            label="StackExchange"
-            description="stackexchange"
+            url="https://www.youtube.com/@breqdev"
+            icon={faYoutube}
+            username="@breqdev"
+            label="YouTube"
+            description="videos"
           />
         </ContactCategory>
 
