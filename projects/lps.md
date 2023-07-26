@@ -18,8 +18,6 @@ A quick demonstration of the system in action.
 
 # Overview
 
-_The following is adapted from [this document](https://docs.google.com/document/d/1GBooxXnvndxPmWwFXSiqQRPsxmN0NLmFtbzJHfWmCzk/edit?usp=sharing) that I initially wrote describing the system._
-
 The LPS (Local Positioning System) is a system to help robots determine their location in a predefined area. This system uses a camera and colored markers to determine the position of robots and other objects in a scene, then relays that information to robots over a network connection.
 
 # Motivation
