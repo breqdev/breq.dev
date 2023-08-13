@@ -179,15 +179,16 @@ export default function Index(props: {
 
         <div className="mx-auto max-w-prose px-8 pb-16 font-display text-2xl">
           <p>
-            hey, i'm brooke, and i'm here to learn, create, and have fun.
+            <span className="font-bold text-panpink">hey, i'm brooke</span>, and
+            i'm here to learn, create, and have fun.
             <br />
             <br />
             i'm passionate about embedded systems, backend engineering, web dev,
-            and bodging things together in creative ways.
+            audio, and bodging things together in creative ways.
             <br />
             <br />
-            my favorite tools are python, react, rust, and linux. most of my
-            work nowadays is completely digital, but i'm still comfortable with
+            my favorite tools are Python, React, Rust, and Linux. most of my
+            work nowadays is completely digital, but I'm still comfortable with
             a soldering iron and a breadboard.
             <br />
             <br />
@@ -197,13 +198,11 @@ export default function Index(props: {
             <br />
             <br />
             i'm a trans woman, and i'm still learning to love myself. i want to
-            be myself and leave an impact on the world that i can be proud of.
+            leave an impact on the world that i can be proud of.
             <br />
             <br />
             technology should be for everyone. i think it's important to create
-            tools and resources that help people express themselves
-            creatively—whether that's with code, or something else entirely. (we
-            can't all spend our lives making websites with too much javascript.)
+            tools and resources that help people express themselves creatively.
             <br />
             <br />
             be excellent to each other.
