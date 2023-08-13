@@ -5,6 +5,7 @@ export type Badge = {
   image?: string;
   placeholder?: string;
   bio: string;
+  callsign?: string;
 };
 
 export const BADGES: Badge[] = [
@@ -14,6 +15,7 @@ export const BADGES: Badge[] = [
     image: "/badges/breq.png",
     url: "https://breq.dev/",
     bio: "",
+    callsign: "K9BRQ",
   },
   {
     name: "ava silver",
@@ -27,6 +29,7 @@ export const BADGES: Badge[] = [
     image: "/badges/vivi.png",
     url: "https://www.vhafener.com/",
     bio: "photographer, HPC researcher, good puppy",
+    callsign: "K9VIV",
   },
   {
     tag: "flaming_spork",
@@ -34,6 +37,7 @@ export const BADGES: Badge[] = [
     image: "/badges/philo.png",
     url: "https://philo.gay/",
     bio: "network engineering witch, photographer, transit nerd",
+    callsign: "KC1TGK",
   },
   {
     tag: "nkizz",

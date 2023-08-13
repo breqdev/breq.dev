@@ -15,7 +15,7 @@ export default function Directory() {
       </h1>
       <div className="mx-auto my-16 flex w-full max-w-2xl flex-col gap-4 px-4">
         {BADGES.filter((b) => b.tag !== "breq").map(
-          ({ name, image, url, placeholder, tag, bio }) => (
+          ({ name, image, url, placeholder, tag, bio, callsign }) => (
             <a
               href={url}
               className="flex flex-col items-center gap-4 md:flex-row"
@@ -38,14 +38,20 @@ export default function Directory() {
                 )}
               </div>
               <div className="flex flex-grow flex-col items-center md:items-start">
-                <div className="flex items-center gap-1">
+                <div className="flex flex-wrap items-center gap-1">
+                  <span className="text-2xl font-bold">{name}</span>
                   {tag && (
                     <>
-                      <span className="font-mono text-xl">{tag}</span>
                       <span>•</span>
+                      <span className="font-mono text-xl">{tag}</span>
                     </>
                   )}
-                  <span className="text-2xl font-bold">{name}</span>
+                  {callsign && (
+                    <>
+                      <span>•</span>
+                      <span className="font-mono text-xl">{callsign}</span>
+                    </>
+                  )}
                 </div>
                 <span>{bio}</span>
               </div>
