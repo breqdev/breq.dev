@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
+import Balancer from "react-wrap-balancer";
 
 function HoverLink({
   id,
@@ -20,7 +21,7 @@ function HoverLink({
           <span className="sr-only">Link to this section </span>
         </a>
       </span>
-      <span>{children}</span>
+      {children}
     </span>
   );
 }
@@ -32,7 +33,9 @@ function Heading({ id, children }: { id: string; children: React.ReactNode }) {
       style={{ scrollMarginTop: "100px" }}
       id={id}
     >
-      <HoverLink id={id}>{children}</HoverLink>
+      <HoverLink id={id}>
+        <Balancer>{children}</Balancer>
+      </HoverLink>
     </h2>
   );
 }
@@ -50,7 +53,9 @@ function SubHeading({
       style={{ scrollMarginTop: "100px" }}
       id={id}
     >
-      <HoverLink id={id}>{children}</HoverLink>
+      <HoverLink id={id}>
+        <Balancer>{children}</Balancer>
+      </HoverLink>
     </h3>
   );
 }
@@ -68,7 +73,9 @@ function SubSubHeading({
       style={{ scrollMarginTop: "100px" }}
       id={id}
     >
-      <HoverLink id={id}>{children}</HoverLink>
+      <HoverLink id={id}>
+        <Balancer>{children}</Balancer>
+      </HoverLink>
     </h4>
   );
 }
