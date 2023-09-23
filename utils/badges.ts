@@ -6,6 +6,7 @@ export type Badge = {
   placeholder?: string;
   bio: string;
   callsign?: string;
+  color: string;
 };
 
 export const BADGES: Badge[] = [
@@ -16,12 +17,14 @@ export const BADGES: Badge[] = [
     url: "https://breq.dev/",
     bio: "",
     callsign: "K9BRQ",
+    color: "#1BB3FF",
   },
   {
     name: "ava silver",
     image: "/badges/ava.png",
     url: "https://avasilver.dev/",
     bio: "SWE @ DataDog, catgirl, celeste speedrunner, music enjoyer",
+    color: "#9C15E2",
   },
   {
     tag: "vivi",
@@ -30,6 +33,7 @@ export const BADGES: Badge[] = [
     url: "https://www.vhafener.com/",
     bio: "photographer, HPC researcher, good puppy",
     callsign: "K9VIV",
+    color: "#A876BD",
   },
   {
     tag: "flaming_spork",
@@ -38,6 +42,7 @@ export const BADGES: Badge[] = [
     url: "https://philo.gay/",
     bio: "network engineering witch, photographer, transit nerd",
     callsign: "KC1TGK",
+    color: "#E20000",
   },
   {
     tag: "tris",
@@ -45,6 +50,7 @@ export const BADGES: Badge[] = [
     image: "/badges/tris.png",
     url: "https://tris.fyi/",
     bio: "infrastructure enjoyer, OSM fan, photo taker",
+    color: "#282828",
   },
   {
     tag: "nkizz",
@@ -52,6 +58,7 @@ export const BADGES: Badge[] = [
     image: "/badges/nkizz.png",
     url: "https://nkizz.com/",
     bio: "electrical engineer, retro computing",
+    color: "#FFFFFF",
   },
   {
     tag: "eggy",
@@ -59,12 +66,14 @@ export const BADGES: Badge[] = [
     image: "/badges/eggy.png",
     url: "https://twitter.com/ezgiburglar69",
     bio: "CS, math major, turkish",
+    color: "#F0D75D",
   },
   {
     name: "kel weaver",
     image: "/badges/kel.png",
     url: "https://keleats.rocks/",
     bio: "CS + environmental sustainability, rocks, fiddle, radio",
+    color: "#ADC9A5",
   },
   {
     tag: "nyashidos",
@@ -72,6 +81,7 @@ export const BADGES: Badge[] = [
     image: "/badges/ula.png",
     url: "https://www.ulabit.dev/",
     bio: "CS + media arts, web dev, game dev, VR",
+    color: "#FFE2B1",
   },
   {
     tag: "shockedquartz",
@@ -79,18 +89,21 @@ export const BADGES: Badge[] = [
     image: "/badges/quartz.png",
     url: "https://twitter.com/piezo_electric",
     bio: "magic the gathering, CS, rocks, arizona iced tea",
+    color: "#000000",
   },
   {
     name: "luke felix taylor",
     image: "/badges/luke.png",
     url: "https://lukefelixtaylor.com/",
     bio: "design, CS, web development",
+    color: "#EB43A3",
   },
   {
     name: "maeve andersen",
     image: "/badges/maeve.png",
     url: "https://ndr.sn/",
     bio: "politics, CS, bicycles, chonkpad",
+    color: "#E61E26",
   },
   {
     tag: "fish",
@@ -98,6 +111,7 @@ export const BADGES: Badge[] = [
     image: "/badges/fish.png",
     url: "https://ays36.crd.co/",
     bio: "CS, illustration, crochet",
+    color: "#1F2DDD",
   },
   {
     tag: "dillydally",
@@ -105,5 +119,6 @@ export const BADGES: Badge[] = [
     image: "/badges/dillydally.png",
     url: "https://dillydally414.github.io/",
     bio: "CS + biology, lana del rey, boba tea",
+    color: "#004A00",
   },
 ];

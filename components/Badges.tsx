@@ -4,13 +4,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
-export default function Badges() {
+export default function Badges({
+  onChangeColor,
+}: {
+  onChangeColor: (color: string) => void;
+}) {
   return (
     <div className="md:pr-60">
       <div className="flex flex-wrap items-start justify-center gap-2 sm:justify-start">
-        {BADGES.map(({ name, image, url, placeholder, tag }) => (
+        {BADGES.map(({ name, image, url, placeholder, tag, color }) => (
           <a
             href={url}
+            onMouseOver={() => onChangeColor(color)}
             key={name}
             style={{ imageRendering: "pixelated", width: 88, height: 31 }}
             className="flex-shrink-0 outline-4 outline-panpink focus-visible:outline"

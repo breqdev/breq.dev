@@ -4,10 +4,7 @@ import SEOHelmet from "../components/SEOHelmet";
 import { Canvas } from "@react-three/fiber";
 
 import Gltf from "../components/models/Gltf";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import { Object3D } from "three";
-import Link from "next/link";
 
 function InnerLogo({ onLoad }: { onLoad: () => void }) {
   const model = React.useRef<Object3D>(null);
