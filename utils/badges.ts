@@ -61,6 +61,14 @@ export const BADGES: Badge[] = [
     color: "#FFFFFF",
   },
   {
+    tag: "prismaticwolf",
+    name: "maxine vollertsen",
+    image: "/badges/max.png",
+    url: "https://prsmaticwolf.itch.io/",
+    bio: "game design, wolf",
+    color: "#1735DE",
+  },
+  {
     tag: "eggy",
     name: "ezgi bas",
     image: "/badges/eggy.png",
