@@ -40,6 +40,13 @@ export const BADGES: Badge[] = [
     callsign: "KC1TGK",
   },
   {
+    tag: "tris",
+    name: "tris emmy wilson",
+    image: "/badges/tris.png",
+    url: "https://tris.fyi/",
+    bio: "infrastructure enjoyer, OSM fan, photo taker",
+  },
+  {
     tag: "nkizz",
     name: "nathan kiesman",
     image: "/badges/nkizz.png",
@@ -74,7 +81,7 @@ export const BADGES: Badge[] = [
     bio: "magic the gathering, CS, rocks, arizona iced tea",
   },
   {
-    name: "luke taylor",
+    name: "luke felix taylor",
     image: "/badges/luke.png",
     url: "https://lukefelixtaylor.com/",
     bio: "design, CS, web development",

@@ -1,10 +1,7 @@
 import React from "react";
 import { BADGES } from "../utils/badges";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronRight,
-  faFastForward,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
 export default function Badges() {
