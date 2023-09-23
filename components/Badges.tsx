@@ -36,7 +36,7 @@ export default function Badges({
           </a>
         ))}
         <Link
-          className="hidden h-[31px] items-center pl-1 sm:flex"
+          className="hidden h-[31px] w-[88px] items-center justify-center outline-none hover:underline focus:bg-panyellow focus:underline sm:flex"
           href="/directory"
         >
           directory <FontAwesomeIcon icon={faChevronRight} />
