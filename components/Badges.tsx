@@ -19,6 +19,8 @@ export default function Badges({
             key={name}
             style={{ imageRendering: "pixelated", width: 88, height: 31 }}
             className="flex-shrink-0 outline-4 outline-panpink focus-visible:outline"
+            target="_blank"
+            rel="noreferrer noopener"
           >
             {image /* eslint-disable-next-line @next/next/no-img-element */ && (
               <img
