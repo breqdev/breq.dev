@@ -188,7 +188,7 @@ export default function Index(props: {
             <br />
             <br />
             my favorite tools are Python, React, Rust, and Linux. most of my
-            work nowadays is completely digital, but I'm still comfortable with
+            work nowadays is completely digital, but i'm still comfortable with
             a soldering iron and a breadboard.
             <br />
             <br />
