@@ -10,6 +10,7 @@ import ReactTerminal from "react-terminal-component";
 
 import README from "./terminalContent/README.txt";
 import CREDITS from "./terminalContent/CREDITS.txt";
+import USAGE from "./terminalContent/USAGE.txt";
 
 export default function Terminal() {
   const socket = useRef<WebSocket>();
@@ -26,6 +27,9 @@ export default function Terminal() {
           },
           "/home/CREDITS": {
             content: CREDITS,
+          },
+          "/home/USAGE": {
+            content: USAGE,
           },
         }),
         commandMapping: CommandMapping.create({
