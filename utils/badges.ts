@@ -92,14 +92,6 @@ export const BADGES: Badge[] = [
     color: "#FFE2B1",
   },
   {
-    tag: "shockedquartz",
-    name: "quartz",
-    image: "/badges/quartz.png",
-    url: "https://twitter.com/piezo_electric",
-    bio: "magic the gathering, CS, rocks, arizona iced tea",
-    color: "#000000",
-  },
-  {
     name: "luke felix taylor",
     image: "/badges/luke.png",
     url: "https://lukefelixtaylor.com/",
@@ -112,14 +104,6 @@ export const BADGES: Badge[] = [
     url: "https://ndr.sn/",
     bio: "politics, CS, bicycles, chonkpad",
     color: "#E61E26",
-  },
-  {
-    tag: "fish",
-    name: "anthony su",
-    image: "/badges/fish.png",
-    url: "https://ays36.crd.co/",
-    bio: "CS, illustration, crochet",
-    color: "#1F2DDD",
   },
   {
     tag: "dillydally",
