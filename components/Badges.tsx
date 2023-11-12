@@ -41,7 +41,8 @@ export default function Badges({
           className="hidden h-[31px] w-[88px] items-center justify-center outline-none hover:underline focus:bg-panyellow focus:underline sm:flex"
           href="/directory"
         >
-          directory <FontAwesomeIcon icon={faChevronRight} />
+          directory
+          <FontAwesomeIcon className="ml-1" icon={faChevronRight} />
         </Link>
       </div>
     </div>

@@ -27,7 +27,6 @@ export const BADGES: Badge[] = [
     color: "#9C15E2",
   },
   {
-    tag: "vivi",
     name: "vivian hafener",
     image: "/badges/vivi.png",
     url: "https://www.vhafener.com/",
@@ -45,7 +44,6 @@ export const BADGES: Badge[] = [
     color: "#E20000",
   },
   {
-    tag: "tris",
     name: "tris emmy wilson",
     image: "/badges/tris.png",
     url: "https://tris.fyi/",
@@ -59,6 +57,14 @@ export const BADGES: Badge[] = [
     url: "https://nkizz.com/",
     bio: "electrical engineer, retro computing",
     color: "#FFFFFF",
+  },
+  {
+    tag: "adryd",
+    name: "ariana [redacted]",
+    image: "/badges/adryd.png",
+    url: "https://adryd.com/",
+    bio: "technology witch, designer, software dev",
+    color: "#793A80",
   },
   {
     tag: "prismaticwolf",

@@ -72,11 +72,10 @@ export default function Footer() {
             breqdev/breq.dev
           </a>
         </p>
-        <p>
+        <p className="flex flex-row flex-wrap">
           {contactLinks.map(([icon, text, href]) => (
-            <React.Fragment key={text}>
-              <FontAwesomeIcon icon={icon} />
-              &nbsp;
+            <span key={text} className="whitespace-nowrap">
+              <FontAwesomeIcon icon={icon} className="mx-1" />
               {href ? (
                 <a href={href} className={linkStyles}>
                   {text}
@@ -85,11 +84,12 @@ export default function Footer() {
                 text
               )}
               {" • "}
-            </React.Fragment>
+            </span>
           ))}
           <Link href="/contact" className={linkStyles}>
-            more<span className="sr-only">ways to contact me </span>
-            <FontAwesomeIcon icon={faChevronRight} />
+            <span className="ml-1" />
+            more<span className="sr-only"> ways to contact me </span>
+            <FontAwesomeIcon className="ml-1" icon={faChevronRight} />
           </Link>
         </p>
         <p className="hidden md:block">
