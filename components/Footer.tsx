@@ -18,7 +18,7 @@ import Character from "./index/fursona/Fursona";
 import Badges from "./Badges";
 
 // https://stackoverflow.com/a/41491220
-function useDarkText(bgColor: string) {
+export function useDarkText(bgColor: string) {
   var color = bgColor.charAt(0) === "#" ? bgColor.substring(1, 7) : bgColor;
   var r = parseInt(color.substring(0, 2), 16); // hexToR
   var g = parseInt(color.substring(2, 4), 16); // hexToG
