@@ -66,7 +66,7 @@ function Font({ name, comment }: { name: string; comment: string }) {
   return (
     <div className="group relative w-full" style={{ fontFamily: name }}>
       <p className="overflow-y-hidden overflow-x-scroll whitespace-nowrap p-2 text-8xl text-gray-400 transition-colors duration-300 group-hover:text-white md:overflow-x-hidden md:text-ellipsis">
-        The quick brown fox jumps over the lazy dog...
+        The quick brown fox jumps over the lazy dog
       </p>
       <div
         className="mx-auto w-full max-w-md p-8 md:absolute md:right-40 md:top-0 md:bottom-0"
