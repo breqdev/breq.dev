@@ -67,6 +67,13 @@ export const BADGES: Badge[] = [
     color: "#793A80",
   },
   {
+    name: "julia violet",
+    image: "/badges/julia.png",
+    url: "https://juliaviolet.dev/",
+    bio: "robotics, graphics, trumpet",
+    color: "#fc6fc4",
+  },
+  {
     tag: "prismaticwolf",
     name: "maxine vollertsen",
     image: "/badges/max.png",
