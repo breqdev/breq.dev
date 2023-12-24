@@ -67,6 +67,7 @@ export const BADGES: Badge[] = [
     color: "#793A80",
   },
   {
+    tag: "MusicalArtist12",
     name: "julia violet",
     image: "/badges/julia.png",
     url: "https://juliaviolet.dev/",
