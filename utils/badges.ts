@@ -52,7 +52,7 @@ export const BADGES: Badge[] = [
   },
   {
     tag: "nkizz",
-    name: "nathan kiesman",
+    name: "mia kiesman",
     image: "/badges/nkizz.png",
     url: "https://nkizz.com/",
     bio: "electrical engineer, retro computing",
@@ -126,5 +126,12 @@ export const BADGES: Badge[] = [
     url: "https://dillydally414.github.io/",
     bio: "CS + biology, lana del rey, boba tea",
     color: "#004A00",
+  },
+  {
+    name: "eightyeightthirty.one",
+    image: "/badges/eightyeightthirtyone.png",
+    url: "https://eightyeightthirty.one/",
+    bio: "graph of the 88x31 network",
+    color: "#000000",
   },
 ];
