@@ -11,7 +11,7 @@ writeup: 2023-12-26
 
 ![](eightyeightthirtyone/graph.png)
 
-<Caption>The entire mapped network of 26450 pages, as of 2023-12-26.</Caption>
+<Caption>The entire mapped network of 16,000+ pages, as of 2023-12-26.</Caption>
 
 This project was a joint effort by myself and a few friends:
 
