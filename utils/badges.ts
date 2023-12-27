@@ -67,6 +67,14 @@ export const BADGES: Badge[] = [
     color: "#793A80",
   },
   {
+    tag: "notnite",
+    name: "julian [redacted]",
+    image: "/badges/notnite.png",
+    url: "https://notnite.com/",
+    bio: "programmer, game modder, shitposter",
+    color: "#282828",
+  },
+  {
     tag: "MusicalArtist12",
     name: "julia violet",
     image: "/badges/julia.png",
