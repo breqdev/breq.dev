@@ -136,6 +136,14 @@ export const BADGES: Badge[] = [
     color: "#004A00",
   },
   {
+    tag: "xenozane",
+    name: "zane (the wizard)",
+    image: "/badges/dfbadge.gif",
+    url: "https://darkforestwrbb.com/",
+    bio: "the dark warlock from WRBB",
+    color: "#281d23",
+  },
+  {
     name: "eightyeightthirty.one",
     image: "/badges/eightyeightthirtyone.png",
     url: "https://eightyeightthirty.one/",
