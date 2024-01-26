@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SEOHelmet from "./SEOHelmet";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function Page({
   children,
@@ -54,6 +55,7 @@ export default function Page({
         src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"token": "e735a672f6cc409684d4fcc9df92b84c"}'
       />
+      <Analytics />
     </div>
   );
 }
