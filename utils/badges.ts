@@ -51,12 +51,12 @@ export const BADGES: Badge[] = [
     color: "#282828",
   },
   {
-    tag: "nkizz",
+    tag: "miakizz",
     name: "mia kiesman",
-    image: "/badges/nkizz.png",
-    url: "https://nkizz.com/",
+    image: "/badges/miakizz.png",
+    url: "https://miakizz.quest/",
     bio: "electrical engineer, retro computing",
-    color: "#FFFFFF",
+    color: "#A80C30",
   },
   {
     tag: "adryd",
