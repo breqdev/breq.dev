@@ -15,7 +15,6 @@ module.exports = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
 };
 
-
 // Injected content via Sentry wizard below
 
 const { withSentryConfig } = require("@sentry/nextjs");
@@ -28,8 +27,8 @@ module.exports = withSentryConfig(
 
     // Suppresses source map uploading logs during build
     silent: true,
-    org: "na-drr",
-    project: "javascript-nextjs",
+    org: "breq",
+    project: "breqdev",
   },
   {
     // For all available options, see:
