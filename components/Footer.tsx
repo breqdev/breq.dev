@@ -64,7 +64,7 @@ export default function Footer() {
     ) {
       document.querySelector<HTMLDivElement>("#oneko-trigger")!.style.display =
         "none";
-      oneko(0, 0);
+      oneko(32, 32, false);
       ONEKO_HAS_LOADED = true;
     }
   }, []);
@@ -129,7 +129,7 @@ export default function Footer() {
                 "#oneko-trigger"
               )!.style.display = "none";
               console.log(bbox);
-              oneko(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2);
+              oneko(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2, true);
               ONEKO_HAS_LOADED = true;
             }}
           />

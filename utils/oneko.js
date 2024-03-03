@@ -2,7 +2,7 @@ import { BADGES } from "./badges";
 
 // oneko.js: https://github.com/adryd325/oneko.js (webring variant)
 
-export default function oneko(startx, starty) {
+export default function oneko(startX, startY, startAlert) {
   const isReducedMotion =
     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
     window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
@@ -30,8 +30,8 @@ export default function oneko(startx, starty) {
       if (result && result[1]) return parseInt(result[1]);
     }
 
-    nekoPosX = posFind("catx") || startx;
-    nekoPosY = posFind("caty") || starty;
+    nekoPosX = posFind("catx") || startX;
+    nekoPosY = posFind("caty") || startY;
     mousePosX = posFind("catdx") || 0;
     mousePosY = posFind("catdy") || 0;
   } catch (e) {
@@ -188,6 +188,11 @@ export default function oneko(startx, starty) {
   function setSprite(name, frame) {
     const sprite = spriteSets[name][frame % spriteSets[name].length];
     nekoEl.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
+  }
+
+  if (startAlert) {
+    setSprite("alert", 0);
+    idleTime = 6;
   }
 
   function resetIdleAnimation() {
