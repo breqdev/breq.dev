@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,8 +14,10 @@ import {
   faMastodon,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import Character from "./index/fursona/Fursona";
 import Badges from "./Badges";
+
+// @ts-ignore
+import oneko from "../utils/oneko.js";
 
 // https://stackoverflow.com/a/41491220
 export function useDarkText(bgColor: string) {
@@ -34,6 +36,8 @@ export function useDarkText(bgColor: string) {
   return L > 0.179;
 }
 
+let ONEKO_HAS_LOADED: boolean = false;
+
 export default function Footer() {
   const contactLinks: [IconDefinition, string, string][] = [
     [faEnvelope, "breq@breq.dev", "mailto:breq@breq.dev"],
@@ -49,6 +53,22 @@ export default function Footer() {
     ? "text-gray-800"
     : "text-white";
 
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (
+      url.searchParams.has("catx") &&
+      url.searchParams.has("caty") &&
+      url.searchParams.has("catdx") &&
+      url.searchParams.has("catdy") &&
+      !ONEKO_HAS_LOADED
+    ) {
+      document.querySelector<HTMLDivElement>("#oneko-trigger")!.style.display =
+        "none";
+      oneko(0, 0);
+      ONEKO_HAS_LOADED = true;
+    }
+  }, []);
+
   return (
     <footer
       className={
@@ -57,7 +77,7 @@ export default function Footer() {
       }
       style={{ backgroundColor }}
     >
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 pt-12 pb-16">
+      <div className="relative mx-auto flex max-w-7xl flex-col gap-6 px-4 pb-16 pt-12">
         <p>
           made with <FontAwesomeIcon icon={faCode} />{" "}
           <span className="sr-only">code</span> and{" "}
@@ -92,16 +112,28 @@ export default function Footer() {
             <FontAwesomeIcon className="ml-1" icon={faChevronRight} />
           </Link>
         </p>
-        <p className="hidden md:block">
-          footer art by the wonderful <FontAwesomeIcon icon={faTwitter} />{" "}
-          <a href="https://twitter.com/nyashidos" className={linkStyles}>
-            nyashidos
-          </a>
-          !
-        </p>
         <Badges onChangeColor={setBackgroundColor} />
 
-        <Character />
+        {ONEKO_HAS_LOADED ? null : (
+          <div
+            className="absolute bottom-8 right-4 h-[32px] w-[32px]"
+            style={{
+              imageRendering: "pixelated",
+              backgroundImage: "url(/oneko.gif)",
+              backgroundPosition: `${-3 * 32}px ${-3 * 32}px`,
+            }}
+            id="oneko-trigger"
+            onClick={(e) => {
+              const bbox = e.currentTarget.getBoundingClientRect();
+              document.querySelector<HTMLDivElement>(
+                "#oneko-trigger"
+              )!.style.display = "none";
+              console.log(bbox);
+              oneko(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2);
+              ONEKO_HAS_LOADED = true;
+            }}
+          />
+        )}
       </div>
     </footer>
   );
