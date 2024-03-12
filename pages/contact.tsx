@@ -7,6 +7,7 @@ import {
   faLinkedin,
   faMastodon,
   faReddit,
+  faSignalMessenger,
   faStackExchange,
   faTelegram,
   faTumblr,
@@ -93,10 +94,10 @@ export default function Contact() {
             description="when in doubt"
           />
           <ContactItem
-            url="https://keybase.io/breq"
-            icon={faKeybase}
-            username="@breq"
-            label="Keybase"
+            url="https://signal.me/#eu/65D91kL+LwalfvCf/DWfyl1gpsswnqel4gW79DDNxcZJEJjLoe9AWoZF98GvTQaG"
+            icon={faSignalMessenger}
+            username="@breq.16"
+            label="Signal"
             description="encrypted channel"
           />
           <ContactItem
