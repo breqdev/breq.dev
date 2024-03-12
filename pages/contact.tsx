@@ -147,7 +147,7 @@ export default function Contact() {
           />
         </ContactCategory>
 
-        <ContactCategory title="twitters">
+        <ContactCategory title="microblogging">
           <ContactItem
             url="https://twitter.com/breqdev"
             icon={faTwitter}
@@ -168,27 +168,6 @@ export default function Contact() {
             username="breq"
             label="Tumblr"
             description="gay people"
-          />
-          <ContactItem
-            url="https://cohost.org/breq"
-            icon={faC}
-            username="@breq"
-            label="Cohost"
-            description="cohost"
-          />
-          <ContactItem
-            url="https://bsky.app/profile/breq.dev"
-            icon={faCloud}
-            username="@breq.dev"
-            label="BlueSky"
-            description="bluesky"
-          />
-          <ContactItem
-            url="https://www.threads.net/@breqdev"
-            icon={faAt}
-            username="@breqdev"
-            label="Threads"
-            description="threads"
           />
         </ContactCategory>
 
