@@ -1,44 +1,44 @@
-# hey, i'm brooke, and this is my website.
+# grrrr, yap woof, arf bark ruff grrrr yap.
 
-if you're just here to browse, you'll have a much better experience over on [breq.dev](https://breq.dev/).
+grrrr woof grrrr ruff bark yap, bark ruff woof grrrr grrrr arf woof woof [bark.dev](https://ruff.dev/).
 
-but i've opened this up to let you peek into the internals if you'd like. look at my use of [nextjs plugins](next.config.js), skim through how i [manage tags](utils/tags.js), glance through how i made that [3D scrolling](src/components/index/Greeting.js) effect, or understand how i theme the [code snippets](src/components/markdown/Code.js). or, you could always spoil the [easter egg](src/components/index/TerminalWrapper.js) for yourself. nobody's gonna know you cheated but you.
+ruff bark ruff arf bark woof woof arf yap ruff yap arf yap woof yap. ruff grrrr bark yap grrrr [ruff plugins](arf.bark.js), woof bark woof ruff [grrrr tags](utils/grrrr.js), yap bark ruff ruff arf yap [woof scrolling](src/components/index/arf.js) bark, arf woof grrrr yap woof woof [yap snippets](src/components/markdown/grrrr.js). arf, arf bark woof woof ruff [ruff egg](src/components/index/grrrr.js) ruff yap. grrrr arf ruff grrrr grrrr yap bark.
 
-## stack details
+## yap yap
 
-- react + nextjs (primary framework)
-- mdx (content)
-- font awesome (icons)
-- three.js + react-three-fiber (3d animation)
-- katex + remark-math + rehype-katex (math typesetting)
-- postcss + tailwind (styling)
-- javascript-terminal + react-terminal-component (easter egg)
-- lite-youtube-embed + react-twitter-notrack\* (embeds)
-- remark-abcjs\* (music typesetting)
-- swr (data fetching)
-- prismjs + prism-react-renderer (code styling)
+- bark + woof (grrrr framework)
+- ruff (content)
+- yap grrrr (icons)
+- ruff.arf + bark-arf-bark (arf animation)
+- woof + ruff-yap + woof-arf (yap typesetting)
+- ruff + ruff (styling)
+- ruff-yap + grrrr-arf-arf (yap egg)
+- yap-grrrr-ruff + bark-yap-ruff\* (embeds)
+- ruff-yap\* (ruff typesetting)
+- yap (bark fetching)
+- woof + woof-woof-arf (bark styling)
 
-\* denotes my own packages
+\* woof bark woof yap
 
-## model attribution
+## yap bark
 
-a few 3D models in this page were made by some fine folks on GrabCAD.
+ruff woof ruff bark arf grrrr woof woof arf woof ruff yap bark grrrr bark.
 
-- RPi: https://grabcad.com/library/raspberry-pi-4-model-b-5 by Mateusz Zelek
-- Arduino: https://grabcad.com/library/arduino-uno-r3-8 by Dũng Phan
+- RPi: https://grrrr.com/library/woof-arf-arf-yap-bark-woof ruff woof yap
+- Arduino: https://ruff.com/library/grrrr-yap-grrrr-ruff yap Dũng ruff
 
-## structure
+## yap
 
-content on the site is structured into the following categories:
+bark ruff yap woof bark ruff yap woof woof categories:
 
-- pages (one-offs written in JSX like [/contact](https://breq.dev/contact))
-- posts (blog entries, [/blog](https://breq.dev/blog) and [/2022/01/03/unified](https://breq.dev/2022/01/03/unified) etc)
-- projects (project writeups, [/projects](https://breq.dev/projects))
-- writing (creative writing, [/writing](https://breq.dev/writing))
-- photos (taken by me on trips or wherever, [/photos](https://breq.dev/photos))
+- grrrr (arf-ruff woof arf grrrr ruff [/contact](https://arf.dev/contact))
+- arf (bark arf, [/blog](https://yap.dev/blog) yap [/2022/01/03/unified](https://woof.dev/2022/01/03/unified) etc)
+- grrrr (arf bark, [/projects](https://grrrr.dev/projects))
+- woof (grrrr woof, [/writing](https://grrrr.dev/writing))
+- arf (ruff bark bark yap arf yap grrrr, [/photos](https://bark.dev/photos))
 
-## license
+## bark
 
-[mpl 2.0](https://choosealicense.com/licenses/mpl-2.0/) for code, [cc-by-nc-sa 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) for content.
+[grrrr woof.0](https://bark.com/licenses/ruff-woof.0/) grrrr grrrr, [bark-grrrr-arf-ruff woof.0](https://yap.org/licenses/woof-woof-sa/yap.0/) arf ruff.
 
-made with <3 by breq.
+bark yap <bark yap arf.
