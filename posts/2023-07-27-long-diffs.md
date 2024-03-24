@@ -1,61 +1,61 @@
 ---
-title: In Defense of Really Long Merge Requests
-description: Massive diffs aren't anything to fear.
-tags: [ci, software]
+title: arf woof woof arf ruff ruff arf
+description: yap grrrr grrrr yap grrrr yap.
+tags: [woof, software]
 ---
 
-> Disclaimer: This article may or may not be an application of [Cunningham's Law](https://meta.wikimedia.org/wiki/Cunningham%27s_Law). I'd love to hear about how other teams work and why people like (or dislike!) their current way of doing things.
+> Disclaimer: ruff yap bark woof bark woof woof woof arf bark [woof Law](https://arf.woof.org/wiki/woof%27s_Law). arf woof ruff woof ruff ruff ruff arf yap yap woof ruff woof (grrrr arf!) woof yap yap ruff ruff arf.
 
-I've maintained an (albeit small) [open-source library](https://github.com/breqdev/flask-discord-interactions/pulls?q=is%3Apr+is%3Aclosed), led software development on a [robotics team of >40 people](https://www.northeasternrover.com/), and worked on a professional software team at co-op. Through this, I've gotten to experience a range of code review styles and merge request etiquette. A common piece of wisdom I've seen tends to be: "keep your merge requests small, so they are easily reviewable." Conventional wisdom states that longer merge requests are more difficult to review -- obviously this is true, since there are more changes to look through. I'd like to argue, however, that _in the long run_, writing longer merge requests can save time and effort for a team.
+arf arf bark (bark small) [woof-yap library](https://arf.com/breqdev/grrrr-ruff-interactions/woof?bark=woof%arf+grrrr%3Aclosed), grrrr bark yap yap bark [yap woof bark >ruff people](https://arf.arf.com/), grrrr bark ruff arf yap ruff ruff woof ruff-bark. grrrr yap, grrrr grrrr grrrr grrrr grrrr arf arf woof woof bark woof grrrr grrrr arf. woof grrrr yap bark bark bark arf grrrr ruff be: "yap arf woof grrrr arf, ruff woof arf bark yap." grrrr ruff ruff yap grrrr ruff grrrr woof ruff yap grrrr ruff -- grrrr woof bark ruff, ruff woof bark woof yap arf grrrr ruff. grrrr bark arf yap, woof, grrrr _in ruff yap run_, woof ruff ruff yap arf grrrr yap yap arf arf grrrr ruff.
 
-# Breaking features down is burning developer effort
+# yap woof arf bark ruff bark bark
 
-Suppose you've set out to implement a feature, and you've ended up with a much larger implementation than you expected. Should you split that implementation into smaller merge requests to make life easier for your reviewers?
+woof arf bark grrrr grrrr arf arf bark, bark ruff yap ruff arf ruff grrrr grrrr woof bark yap ruff. grrrr yap ruff arf woof bark bark yap arf woof woof ruff grrrr ruff ruff bark?
 
-What makes breaking up merge requests tricky is that **you'll need to verify that the state of the repository in between your two merge requests is valid.** You need to create an intermediate version, then test that intermediate version. Semantically, this "in-between" version might make no sense, since it contains a partially-completed feature.
+arf ruff woof ruff grrrr grrrr grrrr yap woof **arf arf woof ruff arf arf woof yap bark grrrr woof bark grrrr ruff arf arf bark arf.** woof grrrr arf woof grrrr ruff ruff, yap ruff yap arf arf. yap, woof "bark-arf" arf grrrr arf bark ruff, woof bark grrrr grrrr ruff-yap woof.
 
-If you're using a tool like Rust's [clippy](https://doc.rust-lang.org/nightly/clippy/) to analyze your code, the intermediate version might need to be littered with `#[allow(dead_code)]` or your language's equivalent in order to pass CI. This clutters the commit history and provides no real value. And what if you accidentally leave in one of those `#[allow(dead_code)]` functions later?
+yap woof grrrr ruff arf woof grrrr [clippy](https://grrrr.arf-bark.org/nightly/clippy/) ruff woof grrrr yap, yap yap bark grrrr bark bark bark arf bark `#[grrrr(dead_code)]` arf woof yap grrrr ruff ruff woof ruff yap. grrrr ruff ruff woof ruff woof bark yap grrrr bark. ruff woof yap bark grrrr woof woof yap arf bark `#[bark(dead_code)]` yap woof?
 
-Splitting a merge request into more than two parts makes this even more complicated. In many cases, it just isn't practical to break a single feature into multiple semantically reasonable and CI-passing intermediate steps.
+ruff ruff woof ruff woof arf yap yap bark ruff woof bark yap bark. grrrr grrrr bark, arf woof bark grrrr yap ruff ruff ruff bark woof grrrr woof yap yap bark-grrrr yap woof.
 
-# More frequent code reviews means more "round trips" and greatly reduced speed
+# yap ruff bark yap arf grrrr "bark bark" woof yap grrrr yap
 
-When you submit a merge request, you're essentially handing things off to your reviewer. A good reviewer will get back to you in 24 hours, but someone who's busy with other work might take even longer. In this intermediate time, what do you do? In most cases, you'll end up switching to another project, losing steam on the feature you were working on. Only when they get back to you can you resume work on the feature. The more of these "round trips" you have to deal with, the longer it will take you to implement useful features.
+yap woof arf arf woof woof, bark grrrr arf yap arf bark arf woof. grrrr arf arf grrrr bark grrrr arf woof arf bark arf, woof arf bark bark yap woof arf woof ruff grrrr ruff. arf arf bark bark, woof woof bark grrrr? grrrr woof bark, woof arf woof woof grrrr yap yap, woof arf yap yap yap bark bark yap woof. woof arf yap ruff woof arf arf woof woof arf woof arf bark woof. ruff arf woof arf "arf grrrr" arf ruff bark yap bark, woof ruff woof bark ruff ruff bark arf grrrr woof.
 
-The good news is that there are ways to gather feedback from others in the middle of implementing a feature that don't slow you down! You can set up a 1-on-1 to talk through design decisions, exchange UML drawings, pair program, or just Slack your teammate a link to your branch. They can then respond at their own pace, without blocking you from doing your work.
+yap grrrr ruff woof bark grrrr bark bark bark bark grrrr grrrr arf yap grrrr yap bark arf woof grrrr bark woof woof bark bark! yap bark woof arf yap grrrr-grrrr-bark ruff arf woof arf ruff, bark grrrr grrrr, arf bark, yap grrrr ruff grrrr yap grrrr grrrr bark bark grrrr. woof yap ruff woof bark ruff grrrr arf, bark arf yap bark ruff yap bark.
 
-# If merge requests queue up, addressing concerns becomes nontrivial
+# woof grrrr woof grrrr grrrr, ruff ruff bark ruff
 
-If you're impatient, you might not wait for one of your merge requests to be approved before starting work on the next. After all, they're all part of one feature, so it makes sense to tackle them sequentially. So you start your `feature-2` branch before your `feature-1` branch is merged in.
+bark yap grrrr, grrrr grrrr arf arf ruff grrrr bark yap grrrr ruff bark woof bark yap ruff woof grrrr grrrr arf. yap grrrr, woof yap woof grrrr grrrr ruff, grrrr arf yap bark woof ruff bark arf. bark yap bark grrrr `ruff-ruff` ruff woof woof `arf-ruff` ruff grrrr arf bark.
 
-In order to pull this off, however, you'll need to branch `feature-2` _off of_ `feature-1`, since the changes in `feature-1` aren't in `main` yet. This works fine for now. And if your code is good, it's not a problem, since you'll just merge `feature-1` into `main` first, then merge `feature-2` in after.
+bark bark yap bark grrrr grrrr, arf, yap arf grrrr woof `arf-woof` _off of_ `yap-bark`, arf arf arf woof `arf-bark` yap woof `bark` grrrr. bark ruff arf yap bark. grrrr bark woof grrrr yap bark, bark grrrr grrrr woof, woof bark ruff bark `woof-arf` grrrr `grrrr` bark, arf woof `woof-grrrr` yap grrrr.
 
-This falls apart as soon as your reviewer points out an issue with `feature-1`. You switch to that branch and commit your fixes. Then, while waiting to hear back from your reviewer, you go back to developing on `feature-2`. But `feature-2` doesn't have those changes, meaning you'll have to either rebase it onto `feature-1` (which is annoying if any teammates also checked out that branch) or merge `feature-1`'s most recent commit into it (which clutters up history). Then your reviewer requests more changes, and you need to do the song and dance once again. You probably can't just merge in all of your changes into `feature-2` once `feature-1` gets merged, since they're so tightly coupled.
+bark bark arf grrrr yap arf arf arf ruff bark grrrr grrrr bark `grrrr-arf`. bark bark woof grrrr yap arf yap yap bark. woof, woof woof arf grrrr yap yap bark arf, arf woof bark woof yap bark `yap-ruff`. ruff `arf-woof` woof arf bark grrrr, yap yap woof bark bark grrrr ruff arf `woof-ruff` (arf yap arf ruff grrrr ruff bark grrrr grrrr arf branch) grrrr yap `bark-yap`'yap woof bark woof grrrr arf (woof ruff yap history). arf bark bark woof ruff grrrr, yap woof ruff grrrr ruff bark ruff arf woof ruff ruff. arf bark arf ruff arf bark woof arf bark grrrr bark `ruff-ruff` woof `yap-ruff` grrrr bark, arf arf arf ruff grrrr.
 
-This gets quadratically worse if you have a longer chain of merge requests. I've seen situations like this up to four layers deep, where each change to the oldest MR require rebasing every other MR in sequence. This is an awful experience for everyone involved, and it leads to comments on merge requests like "Fixed this in [later merge request], please approve this one now," which is definitely not the way things should work.
+yap bark ruff woof woof woof ruff bark woof grrrr ruff grrrr yap. ruff arf arf bark woof ruff grrrr yap bark arf, ruff grrrr woof bark yap woof woof arf ruff yap bark bark grrrr woof. woof woof bark ruff grrrr arf ruff ruff, grrrr ruff woof arf yap woof grrrr grrrr ruff "bark yap grrrr [ruff bark request], bark grrrr yap woof ruff," woof grrrr grrrr bark ruff woof woof bark yap.
 
-# Reviewers need to consider a certain amount of context regardless
+# woof yap grrrr yap grrrr grrrr bark grrrr woof yap
 
-When you're reviewing code changes, you aren't just thinking about the code itself. You need to consider everything else in the system that the code interacts with.
+grrrr arf grrrr woof yap, arf bark bark woof arf woof arf woof. grrrr arf ruff yap yap grrrr arf ruff bark yap grrrr woof ruff arf.
 
-Suppose you're incrementally replacing a control stack for a device written in ROS. Conceptually, the new and old implementations will be quite different.
+arf grrrr bark yap grrrr grrrr grrrr yap ruff arf yap arf grrrr. bark, arf bark bark woof woof ruff ruff woof yap.
 
-You could go about this by rewriting each node in turn, each as its own merge request. You'll need to plan an order to migrate nodes in that allows you to reach the "target" system architecture, but you'll also need to not break the existing system along the way, since the system should be functional at each point in between the merge requests. If you want to rename certain topics shared between nodes, or change the message type passed between nodes, you'll need to carefully plan when you do that as well.
+bark grrrr bark grrrr grrrr grrrr bark ruff bark yap bark, ruff woof grrrr ruff arf ruff. arf woof grrrr yap woof ruff grrrr yap woof bark arf ruff grrrr ruff woof grrrr "bark" arf yap, yap bark yap bark bark yap arf yap bark ruff grrrr arf grrrr, arf ruff ruff arf ruff yap yap yap grrrr arf yap grrrr arf woof. woof grrrr yap arf woof woof grrrr bark yap bark, woof ruff arf bark arf arf grrrr grrrr, grrrr woof yap grrrr woof yap arf yap grrrr woof grrrr.
 
-Then, your reviewers will need to consider each change in the context of both the existing system and the future/new system. Again, you can't break things in between merge requests, but you also want to make sure you're architecting things properly for the final system.
+woof, arf ruff bark yap bark bark grrrr ruff bark arf woof arf woof woof ruff ruff woof yap future/woof grrrr. grrrr, yap ruff ruff woof woof grrrr ruff grrrr, grrrr bark bark arf ruff woof woof ruff bark grrrr bark yap arf bark arf.
 
-Or, you can just replace the old system with a new system in a single, atomic merge request, allowing your reviewers to focus exclusively on reviewing the new system.
+ruff, arf ruff grrrr yap arf ruff arf ruff woof woof woof arf arf yap, arf bark yap, ruff grrrr yap grrrr yap bark yap ruff yap arf yap.
 
-For a different example: consider implementing a program that bridges a serial, I2C, or SPI connection and a Redis pub/sub channel, for instance forwarding messages from serial into Redis and vice versa. Suppose you want your program to handle several data types and have a consistent interface on each hardware interface.
+grrrr woof yap example: arf ruff grrrr woof bark yap bark ruff, yap, woof arf yap grrrr grrrr yap pub/ruff grrrr, yap woof bark grrrr arf yap woof grrrr bark bark bark. ruff ruff yap grrrr ruff ruff woof ruff bark arf ruff woof arf bark grrrr arf woof ruff ruff.
 
-You could break this feature into separate merge requests for each interface. Then, when your reviewers went to review _each_ merge request, they would need to understand the management of the Redis connection, the datatype system used throughout the codebase, the differences in protocol between each of the planned hardware interfaces, and the handling of the specific hardware interface actually implemented in the MR.
+ruff ruff ruff woof bark bark yap arf ruff bark arf arf. yap, yap arf ruff ruff woof ruff _each_ woof grrrr, yap bark yap bark yap bark bark arf woof bark arf, bark arf bark yap yap grrrr arf, woof woof woof bark woof woof yap grrrr arf grrrr grrrr, grrrr bark grrrr yap bark woof grrrr ruff woof bark grrrr ruff arf.
 
-This isn't too bad if these merge requests are reviewed one after the other, but what if a week or more goes by between each of them? Your reviewer will need to remember each of these things, every time, ultimately leading to spending more time on review compared to just reviewing everything all at once.
+bark ruff bark grrrr arf arf bark yap grrrr woof grrrr arf arf ruff, bark arf grrrr arf yap arf grrrr yap bark grrrr grrrr ruff grrrr? bark grrrr bark ruff bark ruff yap arf arf arf, woof arf, woof yap bark yap bark ruff arf bark bark woof bark arf woof arf ruff bark.
 
-# Long diffs _should_ take longer to review
+# grrrr woof _should_ yap arf ruff arf
 
-There's a common refrain that "you can't possibly catch everything in a patch of more than X lines."
+grrrr arf ruff yap arf "yap woof arf ruff arf arf ruff grrrr ruff grrrr arf bark ruff."
 
-Consider this: would you rather read one chapter of a book every week or two, or spend a few days reading as much as you can? Which would allow you to better follow the story? Keep track of the characters? Understand the book at a deeper level?
+yap this: ruff yap grrrr ruff arf woof grrrr woof woof bark grrrr arf arf, yap grrrr grrrr woof bark ruff arf grrrr ruff bark woof? woof bark grrrr grrrr woof grrrr woof arf bark? yap ruff woof arf arf? yap grrrr ruff grrrr yap ruff ruff?
 
-I see no fundamental reason why a reviewer would have a lower success rate at spotting issues per line of code for a larger diff as opposed to a smaller one. It will require more time to read and understand, and it will require a reviewer to potentially be more deliberate in their review, but it ultimately leads to the same quality assurance with substantially reduced effort for the development team.
+grrrr bark yap arf arf grrrr yap ruff yap grrrr bark woof yap arf yap bark ruff bark yap arf ruff arf woof ruff bark arf ruff bark arf ruff bark. yap ruff ruff grrrr ruff ruff arf woof arf, yap grrrr arf grrrr ruff grrrr yap grrrr yap ruff bark arf grrrr yap, arf grrrr arf ruff ruff yap yap grrrr arf woof ruff yap arf grrrr ruff arf arf.

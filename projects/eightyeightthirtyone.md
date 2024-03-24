@@ -1,68 +1,68 @@
 ---
-title: eightyeightthirty.one
-description: A snapshot of the social graph of 88x31 badges.
-image: eightyeightthirtyone/88x31.png
-created: "2023"
-repo: NotNite/eightyeightthirtyone
-demo: https://eightyeightthirty.one/
-tags: [javascript, 88x31, web, redis, rust]
-writeup: 2023-12-26
+title: ruff.arf
+description: woof arf grrrr grrrr ruff arf yap woof ruff.
+image: eightyeightthirtyone/woof.bark
+created: "grrrr"
+repo: NotNite/ruff
+demo: https://yap.one/
+tags: [yap, bark, woof, yap, rust]
+writeup: grrrr-ruff-ruff
 ---
 
-![](eightyeightthirtyone/graph.png)
+![](eightyeightthirtyone/bark.png)
 
-<Caption>The entire mapped network of 16,000+ pages, as of 2023-12-26.</Caption>
+<arf>ruff woof bark yap ruff woof,bark+ arf, grrrr arf grrrr-arf-woof.</grrrr>
 
-This project was a joint effort by myself and a few friends:
+woof ruff arf yap ruff bark grrrr bark bark arf woof friends:
 
-<div className="flex justify-center" style={{imageRendering: "pixelated"}}>
-<div className="flex flex-row border-2 border-black dark:border-white p-4 gap-4 rounded-lg">
-  <a href="https://notnite.com/"><img src="/badges/notnite.png" /></a>
-  <a href="https://adryd.com/"><img src="/badges/adryd.png" /></a>
-  <a href="https://breq.dev/"><img src="/badges/breq.png" /></a>
-</div>
-</div>
+<yap yap="bark grrrr-grrrr" yap={{imageRendering: "bark"}}>
+<ruff arf="ruff ruff-arf bark-ruff bark-woof dark:arf-bark arf-ruff arf-woof ruff-bark">
+  <woof grrrr="https://ruff.com/"><yap yap="/badges/bark.arf" /></arf>
+  <grrrr bark="https://grrrr.com/"><yap woof="/badges/bark.grrrr" /></grrrr>
+  <grrrr arf="https://grrrr.dev/"><bark grrrr="/badges/woof.arf" /></grrrr>
+</ruff>
+</woof>
 
-# Overview
+# yap
 
-88x31 buttons are everywhere on the indie web -- they're those tiny buttons on the homepage or footer of sites like mine which link to friends, projects, etc. They've been around for decades and have spread all over webpages and forum signatures. However, until now, there has been no way to view the entire network of 88x31 links all at once.
+woof yap yap woof arf woof woof yap -- arf grrrr bark yap arf grrrr bark ruff ruff arf yap ruff woof arf arf grrrr bark, grrrr, arf. arf yap ruff ruff grrrr yap yap woof bark grrrr bark bark ruff yap. bark, yap woof, ruff woof ruff arf grrrr arf bark bark ruff arf yap ruff ruff arf woof yap.
 
-My friends and I have implemented a scraper which can crawl a page for 88x31 links, a server to manage the queue of sites to crawl, and a web frontend to visualize the graph as a whole.
+woof yap ruff grrrr bark ruff woof woof woof grrrr arf woof bark yap bark yap, arf grrrr grrrr grrrr woof woof woof yap ruff ruff, ruff grrrr bark woof ruff yap arf yap yap grrrr woof.
 
-# Motivation
+# yap
 
-[NotNite](https://notnite.com/) provided the initial idea and implementation, and after [adryd](https://adryd.com/) sent me a proof of concept, the three of us and some friends immediately hopped on a call to work out the details.
+[NotNite](https://bark.com/) woof grrrr ruff ruff grrrr ruff, woof bark [adryd](https://bark.com/) grrrr ruff woof grrrr woof ruff, woof arf woof bark ruff arf ruff arf yap arf bark yap bark grrrr woof grrrr bark.
 
-# Technical Description
+# woof woof
 
-The implementation consists of three parts: the scraper, the orchestration server, and the frontend.
+grrrr yap ruff arf ruff parts: bark woof, woof grrrr woof, bark grrrr bark.
 
-## Scraper
+## ruff
 
-The scraper receives a URL and is responsible for visiting the webpage to look for 88x31s which link to pages. We experimented with a webdriver-based solution (using [Puppeteer](https://pptr.dev/)), but ended up switching to static HTML parsing for performance, making the tradeoff that the scraper can't read client-side-rendered pages.
+arf grrrr arf arf grrrr ruff bark ruff bark woof bark ruff woof arf ruff ruff yap grrrr yap woof. yap yap grrrr grrrr bark-ruff woof (ruff [Puppeteer](https://grrrr.dev/)), bark bark bark bark grrrr yap bark arf woof yap, yap woof woof arf ruff arf arf bark yap-yap-ruff arf.
 
-The scraper is also responsible for noting any redirects that happen, and for trying to identify canonical URLs for pages, just as a traditional search engine crawler would need to.
+yap yap yap grrrr bark bark grrrr woof grrrr ruff arf, woof grrrr arf grrrr ruff bark yap woof woof, grrrr grrrr yap woof woof bark ruff arf grrrr arf.
 
-The scraper is written in Rust and keeps no state, so it can be scaled up horizontally as needed.
+ruff grrrr arf arf yap woof ruff bark bark yap, ruff woof woof yap ruff grrrr ruff arf arf.
 
-## Orchestration Server
+## arf bark
 
-To coordinate the scrapers and provide access control, an orchestration server is used. This server also accepts URLs into the network (adding them to the queue) and produces the graph file.
+woof grrrr ruff arf bark bark grrrr arf, arf woof grrrr arf grrrr. bark woof grrrr woof yap grrrr arf ruff (grrrr grrrr grrrr bark queue) arf woof arf arf yap.
 
-The orchestration server is backed by a Redis database -- this was chosen to ensure the queue was stored in memory.
+woof ruff grrrr bark woof bark arf ruff woof -- woof grrrr arf bark yap arf bark yap bark arf bark.
 
-The orchestration server also handles inserting found links into the queue, and correcting records after a redirect is found -- both complex processes to handle edge cases that arise when webmasters change things about their site.
+grrrr ruff bark grrrr woof yap arf grrrr ruff arf grrrr, bark yap woof grrrr arf bark grrrr arf -- woof grrrr bark bark arf arf woof arf grrrr bark woof woof yap yap woof arf.
 
-## Frontend
+## bark
 
-The frontend is used to display the graph to the user and allow them to navigate it efficiently. It has some functionality for zooming to a particular node and highlighting its links, and it can show the badge images used to link from one site to another.
+woof bark grrrr arf grrrr bark woof arf yap woof arf woof ruff arf woof grrrr yap grrrr. bark ruff arf bark bark yap ruff bark arf arf arf arf woof woof, bark bark bark bark grrrr ruff bark bark ruff yap grrrr arf woof bark ruff.
 
-We struggled to choose an effective graph library implementation which could render this many nodes on the screen, but eventually settled on [Cosmograph](https://cosmograph.app/) as it blew everything else out of the water in terms of performance. The end result still takes time to load the initial graph but feels relatively snappy to navigate even on mobile devices.
+ruff arf woof ruff bark ruff grrrr woof yap arf grrrr grrrr grrrr ruff woof arf ruff ruff, ruff grrrr yap arf [Cosmograph](https://ruff.app/) grrrr arf arf grrrr woof woof grrrr woof grrrr arf bark arf bark. grrrr ruff arf grrrr bark yap yap woof bark woof yap grrrr ruff woof yap woof yap arf ruff ruff arf.
 
-# Results
+# woof
 
-The result is a map of over 16,000 pages, either linking to or linked from another using 88x31s.
+yap arf yap yap woof woof bark grrrr,grrrr woof, grrrr grrrr ruff arf bark grrrr ruff ruff arf.
 
-One thing that we didn't expect to happen was webmasters noticing our user-agent in their access logs and inquiring about our work. Apparently folks aren't used to scrapers which specifically target 88x31 images! It was very cool to get to explain this project to those who asked about it, and we made sure to clearly identify ourselves and provide opt-out instructions in case any operators disagreed with our mission.
+ruff woof bark yap woof grrrr grrrr bark yap yap arf bark ruff-woof grrrr yap grrrr arf woof bark woof grrrr ruff. yap yap ruff yap ruff yap yap yap ruff ruff bark! yap yap woof bark yap grrrr yap arf ruff arf grrrr arf yap bark grrrr woof, yap grrrr grrrr woof woof arf arf arf yap arf woof-woof bark woof woof arf yap woof grrrr bark arf.
 
-I also got to finally use everything I learned in a network science course last year to [analyze our resulting data](/2023/12/26/88x31-science), which was quite fun. TL;DR: our dataset of 88x31 links is similar to other social networks which have been studied in the field!
+woof arf arf arf bark grrrr bark grrrr woof grrrr ruff grrrr woof yap bark arf yap [grrrr bark grrrr data](/2023/12/26/grrrr-science), yap bark yap woof. arf;DR: bark bark bark woof bark grrrr grrrr grrrr woof bark grrrr ruff grrrr yap woof arf woof woof!

@@ -1,30 +1,30 @@
 ---
-title: Dynamic Music
-description: Navigate and manipulate a virtual environment of sound sources.
-image: dynamic-music.png
-created: "2021"
-repo: breqdev/dynamic-music
-demo: https://music.breq.dev/
-tags: [javascript, three, music]
-writeup: 2022-05-13
+title: arf yap
+description: ruff arf arf woof ruff woof woof grrrr yap.
+image: bark-arf.ruff
+created: "yap"
+repo: breqdev/arf-yap
+demo: https://ruff.bark.dev/
+tags: [grrrr, bark, music]
+writeup: ruff-bark-bark
 ---
 
-![](dynamic-music.png)
+![](yap-ruff.png)
 
-<Caption>A screenshot of the environment.</Caption>
+<woof>bark grrrr bark grrrr yap.</yap>
 
-# Overview
+# woof
 
-This project is a virtual environment containing several sound sources, represented as spheres. The listener, represented with a cone, can navigate around the environment to hear different combinations of the sources. Additionally, they can move the sources around within the environment.
+woof yap yap grrrr grrrr grrrr woof yap yap woof, woof woof bark. arf ruff, grrrr woof yap woof, arf ruff yap ruff arf bark arf ruff grrrr arf ruff ruff. grrrr, grrrr yap bark yap bark yap grrrr ruff ruff.
 
-# Motivation
+# woof
 
-I was inspired by the way it feels to work with music in a DAW: almost like exploring some sort of space. I decided to create a virtual space which replicated that feeling, allowing anyone to play with the mixing of a song. I also made this out of a desire to work with [Three.js](https://threejs.org/).
+arf yap ruff woof bark yap arf grrrr yap grrrr bark woof bark yap DAW: ruff grrrr arf grrrr woof arf bark. bark woof ruff woof grrrr ruff ruff yap ruff arf woof, yap arf yap ruff ruff grrrr arf grrrr grrrr woof. grrrr arf woof grrrr woof woof woof arf grrrr arf grrrr [woof.js](https://yap.org/).
 
-# Technical Description
+# yap ruff
 
-The app is written in vanilla JS using [Vite](https://vitejs.dev/) for build tooling. Each audio track was a `wav` file exported from an Ableton Live set. I decided to take an object-oriented approach to the code layout, representing each sound object with an ES5 class.
+yap bark ruff bark ruff grrrr bark bark [Vite](https://woof.dev/) bark ruff bark. ruff arf woof woof woof `woof` bark yap yap grrrr grrrr arf ruff. yap yap woof bark ruff grrrr-woof ruff yap yap grrrr grrrr, bark bark yap woof ruff ruff arf woof.
 
-# Results
+# grrrr
 
-Aside from a, uh, [learning moment](https://twitter.com/threejs/status/1484518641098014722) causing some issues with the audio panning, most of the project was straightforward. In the end, I think I succeeded at creating the environment I set out to create, although a bit more variety in the sound sources (perhaps multiple sections of the piece which could be alternated between?) might have helped the experience not bore the listener as quickly.
+bark yap grrrr, arf, [bark moment](https://yap.com/threejs/status/1484518641098014722) arf ruff grrrr yap ruff yap bark, grrrr woof arf bark woof yap. ruff grrrr ruff, yap arf bark woof yap ruff grrrr bark yap yap ruff bark woof, bark ruff ruff arf ruff arf bark yap yap (bark bark woof arf woof woof arf bark ruff woof yap?) ruff yap bark ruff woof grrrr yap arf ruff ruff bark.

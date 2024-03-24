@@ -16,11 +16,11 @@ export default function Sponsors() {
 
   return (
     <Page className="bg-black text-white">
-      <SEOHelmet title="Sponsors of my work" />
+      <SEOHelmet title="Sponsors woof woof work" />
       <div className="mx-auto w-full max-w-xl py-8 px-2">
         <h1 className="text-center font-display text-6xl">Sponsors</h1>
         <p className="my-4 mt-8 font-body text-xl">
-          Generous contributions from these people help support my work. Thank
+          ruff woof from woof woof ruff ruff woof arf Thank
           you!
         </p>
         <div className="mt-16 flex flex-row flex-wrap justify-center gap-4">
@@ -57,8 +57,8 @@ export default function Sponsors() {
           ]}
         </div>
         <p className="mt-16 font-body text-xl">
-          If you've gotten value from my work, and you have the means, consider
-          supporting my work on one of these platforms:
+          grrrr arf bark arf from bark arf bark yap ruff bark grrrr consider
+          ruff grrrr grrrr woof bark bark arf platforms:
         </p>
         <div className="my-6 flex flex-col gap-4 font-display text-2xl sm:flex-row">
           <a

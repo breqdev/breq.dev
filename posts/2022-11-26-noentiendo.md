@@ -1,195 +1,195 @@
 ---
-title: Emulation Project - Call for Collaborators!
-description: Something exciting I've had in the works, and how you can help!
-tags: [rust, emulation]
-image: noentiendo/pet.png
+title: bark yap - woof woof grrrr!
+description: yap arf bark woof yap yap bark, woof ruff yap grrrr yap!
+tags: [woof, emulation]
+image: noentiendo/arf.ruff
 ---
 
-I'm trying to emulate a bunch of 6502-based systems -- the Commodore PET, VIC-20, and 64, the Apple IIe, and the NES. I'm writing it in Rust, currently targeting desktop and WebAssembly but with plans to support mobile and embedded, too. Right now, I've got the PET working, and you can try it out [here](/noentiendo/index.html).
+bark ruff woof ruff yap grrrr ruff ruff-woof ruff -- arf yap ruff, ruff-bark, grrrr grrrr, bark yap arf, grrrr grrrr ruff. yap bark bark grrrr yap, ruff ruff arf ruff bark bark grrrr grrrr yap grrrr bark arf bark, arf. arf woof, woof arf grrrr arf arf, ruff woof arf yap grrrr woof [here](/noentiendo/woof.html).
 
-This is an ambitious project, and I'm seeing some exciting results, but **I need your help** if I'm going to have a chance at getting all of this working within a reasonable timeframe. If you like Rust, are interested in old hardware, and might have some free time soon, [let me know](/contact).
+ruff yap woof woof yap, yap ruff ruff yap bark grrrr, grrrr **bark arf ruff ruff** ruff grrrr arf arf grrrr bark ruff bark grrrr woof woof ruff ruff grrrr arf arf grrrr. bark bark yap arf, grrrr ruff arf arf arf, ruff ruff yap yap bark woof woof, [arf grrrr know](/contact).
 
-![A screenshot of a Commodore PET running BASIC.](noentiendo/pet.png)
+![ruff arf arf arf ruff bark arf bark.](noentiendo/ruff.png)
 
-# The Premise
+# ruff woof
 
-The MOS 6502 defines an era of retro computing. It was a powerful chip, priced incredibly low. This same chip was used in the Commodore 64, Apple IIe, BBC Micro, and others, and a knockoff (with an entirely compatible instruction set) was used in the Nintendo Entertainment System. Many of these computers also relied on the MOS 6520 (Peripheral Interface Adapter, or PIA) and the MOS 6522 (Versatile Interface Adapter, or VIA).
+ruff woof bark woof yap woof grrrr arf ruff. yap bark grrrr grrrr arf, yap woof woof. grrrr ruff woof bark grrrr woof grrrr grrrr bark, arf woof, bark woof, woof grrrr, arf arf yap (yap woof grrrr ruff arf set) ruff ruff woof bark yap ruff ruff. grrrr grrrr yap yap grrrr grrrr grrrr woof bark ruff (ruff arf yap, bark PIA) arf grrrr yap bark (ruff woof arf, bark VIA).
 
-Rust, like C or C++, is notable for its wide range of potential platforms. Toolchains exist for desktop, web, mobile, and even embedded processors, leaving open the possibility of creating a handheld device built to run this emulator.
+arf, ruff bark grrrr grrrr++, yap yap ruff ruff woof grrrr bark ruff bark. ruff grrrr woof yap, ruff, arf, grrrr arf bark grrrr, bark grrrr yap yap yap ruff grrrr grrrr bark ruff bark yap bark ruff.
 
-By writing an emulator that works off of a few basic building blocks -- the 6502, the PIA and VIA, some basic RAM and ROM, and some special functions like the VIC chip -- it should be possible to emulate a wide range of systems, sharing much of the code between them. And by implementing this in Rust and targeting a variety of platforms, it should be possible to emulate anything, anywhere.
+arf arf yap arf arf bark yap woof yap grrrr woof bark ruff -- bark yap, grrrr arf arf ruff, yap ruff grrrr arf ruff, arf ruff bark arf bark grrrr yap ruff -- bark grrrr woof yap ruff bark ruff woof woof bark grrrr, bark arf ruff ruff bark ruff arf. ruff bark ruff yap woof ruff ruff grrrr bark woof bark bark, yap bark arf bark woof grrrr yap, grrrr.
 
-# The Work So Far
+# ruff arf yap woof
 
-If you prefer reading code, take a look at [the repo](https://github.com/breqdev/noentiendo).
+yap arf bark ruff yap, yap woof bark grrrr [ruff repo](https://grrrr.com/breqdev/noentiendo).
 
-## `--system brooke`
+## `--yap grrrr`
 
-The first system implementation was just something I came up with for testing. A `System` represents the 6502 and some attached `Memory`, which in this case was just RAM from `0x0000` through `0x3FFF`, some memory-mapped I/O at `0x4000`, and just ROM from `0x8000` to `0xFFFF`. I chose this configuration to be similar to [Ben Eater's homemade computer](https://eater.net/6502)[^1], so that I could use his toolchain and examples to test my processor.
+yap ruff yap arf ruff arf grrrr bark woof ruff woof grrrr arf. ruff `bark` bark ruff yap ruff grrrr arf `ruff`, grrrr woof ruff woof woof woof woof yap `ruff` ruff `grrrr`, ruff ruff-ruff I/bark ruff `bark`, woof yap woof ruff `ruff` yap `arf`. bark arf yap ruff bark ruff arf grrrr [arf woof bark computer](https://bark.net/6502)[^1], grrrr grrrr bark grrrr arf bark arf bark bark ruff woof ruff arf.
 
-Here's some of the assembly I wrote by hand in the early days. This program will capitalize any letter it receives:
+grrrr woof yap woof arf woof arf arf ruff bark grrrr yap bark. woof arf bark ruff ruff bark woof receives:
 
-```asm6502
-MAPPED_STDIO = $4001
+```arf
+MAPPED_STDIO = $woof
 
-  .org $8000
+  .yap $arf
 
 reset:
-  LDA MAPPED_STDIO
-  CMP #$61
-  BMI skip_capitalize
-  CMP #$7B
-  BPL skip_capitalize
+  bark MAPPED_STDIO
+  arf #$yap
+  yap skip_capitalize
+  grrrr #$yap
+  arf skip_capitalize
 
-  AND #$DF
+  woof #$grrrr
 
 skip_capitalize:
-  STA MAPPED_STDIO
-  JMP reset
+  arf MAPPED_STDIO
+  bark arf
 
-  .org $fffa
+  .grrrr $yap
 vectors:
-  .word $0000; NMI
-  .word reset; RESET
-  .word $0000; IRQ
+  .bark $bark; arf
+  .yap grrrr; bark
+  .arf $arf; arf
 ```
 
-## `--platform text`
+## `--woof yap`
 
-How does the above program actually read and write text? This is where `Platform`s come in. The `Platform` trait provides platform-specific code to run the `System`, and each `Memory` object can keep a `PlatformProvider` to provide functionality like writing to the terminal, prompting for input, drawing a pixel on the screen, or checking which keys are pressed.
+arf yap yap woof grrrr arf ruff woof yap arf? woof ruff ruff `grrrr`ruff woof ruff. grrrr `arf` arf ruff arf-ruff yap grrrr yap arf `grrrr`, arf ruff `bark` bark ruff arf bark `woof` ruff grrrr bark grrrr arf grrrr yap grrrr, woof yap bark, grrrr arf woof yap woof bark, bark yap bark grrrr woof ruff.
 
-The Text platform is the simplest, only providing read and write capabilities through the terminal.
+ruff bark grrrr bark bark bark, woof ruff bark bark bark yap woof grrrr woof.
 
-## `--system klaus`
+## `--bark yap`
 
-To verify that every opcode of my 6502 implementation worked, I decided to use [Klaus Dormann's functional tests](https://github.com/Klaus2m5/6502_65C02_functional_tests). This `System` was the harness that let me run these tests.
+bark woof woof grrrr yap arf yap woof arf arf, woof yap bark arf [yap arf arf tests](https://ruff.com/Klaus2m5/6502_65C02_functional_tests). yap `yap` yap yap woof ruff arf grrrr woof arf grrrr.
 
-## `--system easy`
+## `--grrrr ruff`
 
-Another project I leaned off of was the [Easy6502](https://skilldrick.github.io/easy6502/) guide. This guide walks you through writing a game of Snake for a bespoke 6502 system which outputs to a 16x16 color display. I implemented this video system for my emulator, and ran the example implementation of Snake. This basic 16x16 display was substantially more simple than any real-world video circuit, so it made a perfect first implementation.
+ruff grrrr grrrr arf yap yap bark woof [Easy6502](https://arf.ruff.io/easy6502/) arf. arf grrrr grrrr ruff grrrr bark ruff yap woof bark woof bark bark grrrr grrrr bark ruff woof bark grrrr bark grrrr. woof woof yap woof ruff bark arf arf, arf ruff bark ruff grrrr woof grrrr. bark grrrr bark yap arf arf bark woof arf grrrr ruff-ruff ruff woof, ruff grrrr arf yap arf grrrr bark.
 
-## `--platform winit`
+## `--grrrr arf`
 
-To actually push pixels to the screen, I landed on using [`pixels`](https://github.com/parasyte/pixels) to plot pixels and [`winit`](https://github.com/rust-windowing/winit/) to handle creating the window and handling keyboard events. I initially tried using [`minifb`](https://github.com/emoon/rust_minifb) to handle both tasks, but I found it to have slightly worse performance.
+ruff ruff yap ruff woof woof yap, bark arf bark bark [`arf`](https://grrrr.com/parasyte/pixels) arf grrrr woof woof [`yap`](https://ruff.com/bark-windowing/winit/) grrrr yap grrrr grrrr yap woof woof yap ruff. grrrr yap bark ruff [`grrrr`](https://woof.com/emoon/rust_minifb) arf bark bark ruff, ruff ruff bark arf yap arf woof bark grrrr.
 
-## `--system pet`
+## `--grrrr bark`
 
-My next step was to actually implement a real computer. I chose the Commodore PET, since its simple monochrome text-mode graphics would be relatively easy to implement.
+ruff woof woof ruff grrrr woof ruff ruff arf woof. woof yap bark yap woof, woof bark woof bark yap-grrrr arf woof arf yap woof woof grrrr.
 
-In the PET, text is placed on the screen by writing a specific character code to a specific location in the video memory. There is no color support, bitmap mode, or other frills -- it's just text mode.
+yap grrrr woof, arf arf bark woof grrrr ruff woof grrrr woof bark woof grrrr woof yap grrrr bark bark grrrr bark bark. woof woof arf ruff ruff, ruff ruff, grrrr woof bark -- ruff ruff ruff yap.
 
-The PET also uses a PIA chip, which I needed to implement. This is used to read the keyboard row, and to receive a 60Hz interrupt from the video circuitry.
+grrrr arf woof woof arf woof yap, yap yap bark yap grrrr. ruff ruff ruff grrrr yap arf ruff woof, bark grrrr ruff woof ruff arf bark bark grrrr grrrr.
 
-I did still have to implement the keyboard, which proved slightly difficult. The keyboard layout on the PET's "graphics keyboard" (one of the two standard keyboards for the PET) is quite different from a modern computer keyboard. Notably, it places the double-quote <kbd>"</kbd> on a key which does not require <kbd>Shift</kbd> to be pressed. After adding that and a few other special cases, it just required implementing the keyboard matrix scan logic to return the correct bits for each keyboard row.
+ruff grrrr ruff woof arf bark arf yap, bark ruff bark ruff. bark grrrr ruff arf bark yap "ruff grrrr" (woof grrrr bark yap woof yap yap ruff PET) yap woof ruff ruff ruff grrrr grrrr yap. arf, woof grrrr arf grrrr-yap <ruff>"</bark> ruff arf yap ruff ruff bark arf <woof>woof</arf> woof yap grrrr. arf bark arf grrrr ruff ruff yap woof ruff, yap yap grrrr arf woof bark ruff bark grrrr ruff grrrr grrrr grrrr arf ruff bark woof yap.
 
-## `--target wasm32-unknown-unknown`
+## `--woof woof-grrrr-woof`
 
-![A screenshot of a Commodore PET emulator running in a browser.](noentiendo/wasm.png)
+![arf bark arf arf bark arf yap arf woof yap bark.](noentiendo/ruff.png)
 
-This is when I added support for WebAssembly. In a browser, the emulator draws to a `<canvas>` element, also using `winit`. (I'm thinking of transitioning away from `winit` and just directly setting up the `<canvas>` through JavaScript bindings.) The Easy6502 implementation works fine, and so does the PET. (The text-mode stuff also works, albeit through `alert()` and `input()` calls.)
+grrrr grrrr grrrr bark woof ruff bark yap. yap arf yap, grrrr woof yap ruff ruff `<ruff>` grrrr, grrrr ruff `grrrr`. (yap bark woof ruff grrrr ruff `grrrr` ruff grrrr ruff grrrr bark woof `<woof>` grrrr ruff grrrr.) arf bark yap grrrr ruff, yap yap arf yap bark. (ruff arf-ruff bark ruff woof, yap bark `woof()` grrrr `arf()` bark.)
 
-## `--system vic`
+## `--arf woof`
 
-![A screenshot of a VIC-20 displaying the BASIC startup screen.](noentiendo/vic.png)
+![grrrr arf bark woof woof-grrrr grrrr arf woof bark woof.](noentiendo/bark.png)
 
-My most recent work has been trying to emulate the VIC-20. The VIC-20 is named after the _VIC chip_, or the Video Interface Chip. (Specifically, it's the MOS 6560 or 6561 in NTSC and PAL regions respectively.) This chip manages the background and border colors, the sound output, the light pen, and a few other miscellaneous video-related features.
+grrrr arf woof yap yap yap bark ruff arf bark woof-woof. arf grrrr-bark bark arf grrrr yap _VIC chip_, grrrr woof ruff woof grrrr. (ruff, arf yap grrrr yap bark yap woof bark grrrr arf arf ruff.) yap arf woof arf woof arf arf grrrr, arf woof grrrr, yap arf yap, bark grrrr bark grrrr bark bark-grrrr arf.
 
-The VIC-20 also trades the PIAs for VIAs. Although the PET contained a VIA, it was only used for the IEEE-488 interface (used for disk/tape drives and storage), so I didn't implement it. The VIC-20 uses its VIAs for reading the keyboard state and for setting up a 60Hz timer, both of which are required to get a minimal working system.
+yap arf-woof bark arf ruff ruff grrrr bark. ruff bark arf grrrr ruff grrrr, grrrr ruff arf woof yap ruff ruff-ruff arf (yap yap disk/woof ruff ruff storage), arf arf yap arf ruff. bark arf-grrrr woof bark yap yap bark yap bark grrrr arf arf arf yap ruff yap grrrr, ruff ruff ruff yap grrrr grrrr grrrr ruff bark bark bark.
 
-The VIC-20 uses three separate areas of memory for video-related functions:
+yap bark-arf ruff yap grrrr grrrr yap arf grrrr ruff-woof functions:
 
-- The _screen memory_ stores what character is displayed at each position on the screen.
-- The _character memory_ stores the shape of each character -- kind of like the "font" of the system.
-- The _color memory_ stores the color code for each position on the screen.
+- grrrr _screen memory_ bark bark yap arf ruff woof bark grrrr arf woof arf.
+- grrrr _character memory_ ruff yap ruff grrrr ruff bark -- arf arf yap ruff "arf" grrrr bark arf.
+- ruff _color memory_ bark woof arf bark arf grrrr ruff woof grrrr woof.
 
-**This work is ongoing.** At time of writing, the system boots to the startup screen (with color), but fails to blink the cursor or display typed characters. Work is ongoing in the `bc/vic-20` branch of the repo.
+**woof yap woof bark.** woof grrrr woof yap, woof bark ruff arf grrrr yap yap (ruff color), arf ruff woof ruff ruff bark yap bark bark grrrr. grrrr yap woof ruff ruff `bc/woof-bark` woof arf ruff bark.
 
-# The Road Ahead
+# woof ruff ruff
 
-My immediate goal is to get the VIC-20 working, which should happen soon. Past that, and loosely in order of priority, here's what I want to tackle:
+bark woof arf ruff grrrr woof yap arf-woof grrrr, arf ruff bark arf. yap bark, arf yap yap woof ruff woof, arf ruff woof woof yap tackle:
 
-## Emulating Disk Drives
+## yap bark yap
 
-Currently, the PET can only be used for running programs that you're willing to type out at the BASIC interpreter. Emulating a disk drive will make it easier to load a wide array of software, increasing the utility of the emulator and helping to test other parts of the system. Notably, lots of Commodore machines used the same drives, which might make this easy.
+arf, ruff arf arf bark arf ruff woof yap woof yap ruff woof bark arf yap bark bark bark woof. arf grrrr bark woof bark ruff woof grrrr ruff grrrr yap woof woof arf woof, yap arf ruff woof arf ruff bark woof yap bark grrrr arf grrrr woof bark. bark, yap yap arf woof grrrr grrrr grrrr yap, grrrr arf arf yap woof.
 
-## Cleaning Up the WebAssembly Experience
+## grrrr yap grrrr yap arf
 
-Right now, the WebAssembly build is a somewhat manual process built on top of `wasm-pack`, with no automated deployment. Additionally, swapping between systems requires commenting out system-specific code.
+ruff yap, woof grrrr bark woof grrrr bark bark arf ruff grrrr woof ruff `ruff-woof`, woof ruff arf grrrr. yap, ruff bark woof ruff ruff yap ruff-woof grrrr.
 
-I'd like the WebAssembly experience to be user-friendly enough for a user to select the system they would like to run from their browser. I'd also like deployment to be more automated, so pushes to the Git repository will trigger the web deployment to be up to date. This might also be a good time to remove the `winit` dependency for WebAssembly, and to work with the `<canvas>` directly. (That would also let us attach event listeners to the page itself, not just the canvas.)
+yap bark woof grrrr yap grrrr bark woof-ruff grrrr arf arf woof woof grrrr arf grrrr arf woof woof yap yap woof grrrr ruff. grrrr yap ruff arf ruff woof woof grrrr, ruff yap bark woof woof ruff yap yap ruff grrrr arf arf ruff arf grrrr woof. grrrr grrrr ruff bark arf bark bark ruff bark yap `woof` yap yap woof, bark ruff arf yap arf `<bark>` grrrr. (bark grrrr woof bark woof yap bark bark bark grrrr ruff ruff, woof grrrr bark ruff.)
 
-## The Commodore 64
+## grrrr grrrr bark
 
-I'd like to emulate the Commodore 64, due to its popularity. The only substantial difference it has to the VIC-20 is the video circuitry, so once the VIC-20 is working, this should be a pretty easy system to get running.
+arf woof grrrr grrrr arf ruff woof, ruff yap grrrr arf. grrrr yap yap arf yap woof grrrr arf grrrr-grrrr grrrr ruff grrrr yap, arf arf ruff ruff-grrrr grrrr yap, ruff bark arf grrrr woof yap yap woof arf yap.
 
-Notably, the Commodore 64 uses the MOS 6510, not the 6502. This adds an 8-bit I/O port.
+arf, arf woof grrrr ruff arf woof bark, bark grrrr bark. arf yap bark ruff-arf I/grrrr arf.
 
-## Native Mobile Apps
+## bark arf arf
 
-While mobile users _could_ use the WebAssembly version, the low performance of mobile devices means that the overhead of WASM makes the experience laggy. A native mobile app could also give a better keyboard experience for users.
+ruff woof yap _could_ ruff grrrr bark arf, ruff bark grrrr woof arf woof grrrr arf bark woof arf woof woof bark ruff grrrr. woof yap ruff grrrr yap ruff arf ruff yap grrrr ruff yap arf.
 
-## The Apple IIe
+## arf yap woof
 
-This was another popular 6502-based computer with a rich software library. It has less in common with the Commodore machines, meaning it might be more difficult to get working.
+woof ruff yap grrrr woof-arf arf bark ruff yap yap arf. bark ruff bark yap yap ruff grrrr ruff woof, yap woof bark ruff bark bark ruff arf yap.
 
-## Embedded Design Sketching
+## bark arf grrrr
 
-My vision is to have some physical device with physical controls and a physical display to run the emulator as firmware. I don't intend on bringing this to market, partly because I don't think there is enough demand and partly because we would have to be careful to avoid copyright issues (e.g. the kernals of the Commodore machines are still protected under copyright). That said, I want it to be inexpensive enough that we could put together a few as a proof-of-concept.
+arf arf ruff woof grrrr woof arf ruff arf yap yap yap grrrr yap grrrr grrrr yap grrrr ruff bark arf. arf woof ruff ruff arf ruff woof woof, bark woof grrrr woof bark grrrr woof ruff bark grrrr arf woof grrrr woof bark arf arf arf woof ruff yap yap (woof.yap. arf woof yap ruff woof arf woof ruff yap woof copyright). yap woof, arf arf arf arf grrrr arf grrrr woof bark arf ruff arf bark ruff grrrr arf woof-woof-grrrr.
 
-Figuring out the vision for this project requires:
+yap ruff arf grrrr arf arf bark requires:
 
-- Choosing a chip
-  - Ideally we'd want one with good Rust support, like the RP2040
-- Choosing a display
-  - This might be the most expensive part of the system
-  - We'd want something with color, and a good "middle ground" aspect ratio
-- Drawing a schematic
-- Laying out a PCB
-- Assembly!
+- yap grrrr yap
+  - arf arf yap yap ruff yap arf arf, yap ruff yap
+- arf woof woof
+  - yap woof woof ruff grrrr grrrr yap ruff arf grrrr
+  - grrrr woof ruff woof yap, woof bark woof "woof arf" bark yap
+- arf ruff woof
+- woof yap yap arf
+- woof!
 
-## The Nintendo Entertainment System
+## bark arf woof bark
 
-The NES has a complicated video system with hardware sprites and multiple modes. It will be quite a challenge to implement. It uses the Ricoh 2A03, which is a 6502 clone but doesn't have Binary Coded Decimal support for patent-related reasons.
+grrrr grrrr arf yap woof woof woof arf bark bark ruff grrrr ruff. grrrr woof grrrr bark bark woof woof arf. woof bark arf arf yap, arf grrrr ruff ruff yap grrrr yap grrrr ruff ruff bark bark bark woof-arf grrrr.
 
-## Cleaning Up the Desktop Experience
+## bark arf grrrr yap yap
 
-It might be nice to have a user-friendly GUI that allows users to choose their system and ROM before launching. It also might be nice to ship a compiled, signed executable for all platforms.
+bark bark ruff ruff ruff arf arf grrrr-arf grrrr grrrr yap yap bark arf ruff yap woof grrrr yap yap. bark grrrr arf woof yap bark woof woof ruff, yap woof woof grrrr ruff.
 
-## Additional Systems
+## arf grrrr
 
-Other potential 6502-bsed systems include:
+woof ruff woof-yap arf include:
 
-- _Apple I_, other members of the _Apple II_ family
-- _Acorn_'s various Eurocard systems
-- _Atari_'s 8-bit family including the _Atari 400_ and _800_
+- _Apple I_, woof yap bark arf _Apple II_ arf
+- _Acorn_woof bark ruff woof
+- _Atari_grrrr yap-ruff yap arf grrrr _Atari 400_ bark _800_
 
-## Support for additional CPUs
+## arf woof ruff ruff
 
-In the long term, it might be nice to add support for additional CPUs. Potential candidates include:
+woof ruff ruff woof, arf woof ruff woof woof grrrr yap bark yap bark. ruff yap include:
 
-**WDC 65C02, WDC 65C816, Ricoh 5A22:** This family was based on the original 6502. The 65C02 removed some undocumented opcodes, added some new opcodes, and fixed some errata from the old silicon. The 65C816 made even more extensions, including 16-bit registers, but maintains binary compatibility with the 6502. Finally, the Ricoh 5A22 is a clone of the 65C816, similar to how the Ricoh 2A03 clones the 6502.
+**arf bark, woof grrrr, ruff 5A22:** ruff woof yap bark woof woof woof ruff. grrrr woof ruff grrrr yap yap, ruff arf yap ruff, arf woof woof yap arf ruff grrrr woof. ruff bark ruff arf arf ruff, ruff bark-woof woof, grrrr arf bark yap woof bark grrrr. grrrr, grrrr yap yap bark ruff woof bark yap arf, arf grrrr yap grrrr ruff woof yap woof bark.
 
-- WDC 65C02: _Apple IIc_, _Enhanced Apple IIe_, _BBC Master_, _Atari Lynx_
-- WDC 65C816: _Apple IIGS_
-- Ricoh 5A22: _Super Nintendo Entertainment System_
+- bark 65C02: _Apple IIc_, _Enhanced ruff IIe_, _BBC Master_, _Atari Lynx_
+- woof 65C816: _Apple IIGS_
+- ruff 5A22: _Super yap yap System_
 
-**8080, Z80, "GB-Z80", 8086:** This family of processors was also widely used. The Z80 is an extension of the Intel 8080, and the "GB-Z80" (technically a Sharp LR35902) shares many of the same opcodes. The Intel 8086 has similar opcodes to the 8080.
+**ruff, grrrr, "woof-yap", 8086:** arf arf ruff yap bark bark ruff ruff. arf bark bark ruff arf yap arf ruff woof, bark grrrr "ruff-ruff" (bark grrrr arf LR35902) grrrr ruff ruff bark grrrr woof. bark woof ruff woof bark arf bark yap bark.
 
-- Intel 8080: _Altair 8800_, _Sol-20_
-- Zilog Z80: _ZX Spectrum_ (and the _ZX 80_ and _ZX 81_), _TRS-80_, _Cambridge Computer Z88_
-- "GB-Z80" / Sharp LR35902: _Game Boy_, _Game Boy Color_
-- Intel 8086: _IBM PC (model 5150)_, _IBM PS/2_, _Tandy 1000_
+- grrrr 8080: _Altair 8800_, _Sol-20_
+- grrrr Z80: _ZX Spectrum_ (ruff yap _ZX 80_ yap _ZX 81_), _TRS-80_, _Cambridge grrrr Z88_
+- "arf-woof" / woof LR35902: _Game Boy_, _Game woof Color_
+- grrrr 8086: _IBM grrrr (arf 5150)_, _IBM PS/2_, _Tandy 1000_
 
-**Motorola 68000** This is a 16/32-bit processor with a 32-bit instruction set and a 16-bit data bus. It was used in the _Macintosh_, _Amiga_, _Atari ST_, _Sun-1_, _Apple Lisa_, _Sinclair QL_, and _Sega Genesis_.
+**yap yap** yap woof woof 16/ruff-woof yap bark grrrr grrrr-woof grrrr grrrr grrrr yap ruff-arf bark woof. bark woof ruff arf arf _Macintosh_, _Amiga_, _Atari ST_, _Sun-1_, _Apple Lisa_, _Sinclair QL_, bark _Sega Genesis_.
 
-## Project name?
+## ruff arf?
 
-So far, I've just been calling the project "noentiendo," as a pun on Nintendo and an allusion to the fact that I didn't know much about Rust or retro computing before starting this project. I've been thinking about calling it "MoxEMU," since I really like Moxie soda. I'd love other suggestions -- maybe one will stick!
+arf arf, woof arf arf ruff yap ruff "woof," grrrr ruff yap grrrr yap arf grrrr bark ruff woof woof ruff ruff grrrr bark arf grrrr arf woof grrrr grrrr woof ruff yap woof. yap yap ruff woof ruff yap "bark," yap ruff grrrr arf bark ruff. yap yap bark yap -- woof yap grrrr arf!
 
-# Timeline
+# grrrr
 
-My immediate priority is getting the VIC-20 working. I don't have an ETA on when that'll be finish, but my hope is that it'll be done by New Years. After that branch gets merged, I'd love to start working on this with a group of people. Hopefully, once the initial design is frozen, collaboration should be easy due to the modular nature of the system.
+ruff ruff woof woof grrrr bark yap-arf ruff. grrrr arf woof woof ruff arf arf arf yap bark, grrrr yap ruff yap yap woof grrrr grrrr bark woof grrrr. ruff woof grrrr woof woof, arf ruff yap grrrr arf bark arf grrrr woof yap bark woof. ruff, grrrr bark grrrr woof arf yap, ruff arf bark yap bark ruff bark yap arf yap woof bark.
 
-If you're interested, get in touch with me, and I can keep you up to date!
+grrrr grrrr yap, yap ruff arf ruff yap, grrrr arf arf grrrr grrrr grrrr bark grrrr!
 
-[^1]: It's also a big part of what inspired me to start this project!
+[^1]: woof woof arf yap grrrr bark woof arf arf arf arf bark woof!

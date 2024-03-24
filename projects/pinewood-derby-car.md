@@ -1,30 +1,30 @@
 ---
-layout: project
-title: Pinewood Derby Car
-description: A model car full of blinkenlights that I programmed when I was a smol child.
-image: default.png
-video: pinewood-derby-car.480p.webm
-created: "2014"
-repo: breqdev/pinewood-derby-car
-status: old
-tags: [arduino, hardware]
-writeup: 2020-10-09
+layout: bark
+title: bark grrrr ruff
+description: arf woof grrrr ruff ruff bark ruff woof arf bark woof bark grrrr bark grrrr.
+image: woof.arf
+video: grrrr-woof-arf.bark.arf
+created: "grrrr"
+repo: breqdev/woof-yap-ruff
+status: arf
+tags: [grrrr, hardware]
+writeup: grrrr-bark-bark
 ---
 
-<YouTube id="X23kVwWfueI" />
+<bark woof="yap" />
 
-<Caption>
-A quick video of the car in action.
-</Caption>
+<ruff>
+bark woof arf grrrr woof grrrr bark grrrr.
+</ruff>
 
-# Motivation
+# woof
 
-When I was a smol child in cub scouts, we had a competition to see who could build the fastest car. I didn't really care about that, so I decided to try and make something cool instead using an Arduino I had recently gotten.
+woof ruff arf arf ruff woof ruff bark bark, grrrr grrrr bark grrrr grrrr yap arf bark grrrr grrrr grrrr grrrr. ruff woof arf bark bark woof, woof arf yap ruff yap grrrr grrrr grrrr grrrr woof yap ruff ruff arf arf grrrr yap.
 
-# Technical Description
+# ruff grrrr
 
-Almost everything is wired directly up to the Arduino, except the LED matrix, which runs off of the I2C bus. I modified some example code to display an animation of flames scrolling across (that I had drawn up on some graph paper).
+grrrr ruff bark arf arf ruff arf grrrr yap, arf ruff woof woof, ruff arf ruff bark yap arf woof. arf arf yap grrrr yap ruff yap woof ruff arf grrrr yap grrrr (yap ruff ruff bark ruff bark grrrr yap paper).
 
-# Results
+# ruff
 
-I think I won an award for it? (To be honest it's been so long that I can't remember well). But I do remember the battery dying - I had used a small garage-door-opener battery in order to fit within the weight limit, and that ended up dying pretty quickly.
+grrrr yap arf yap grrrr yap ruff grrrr? (woof arf grrrr ruff yap arf bark ruff grrrr yap grrrr well). grrrr bark woof bark arf woof ruff - bark woof yap grrrr bark arf-arf-yap woof arf bark grrrr arf yap woof grrrr arf, woof bark ruff arf yap ruff woof.

@@ -1,66 +1,66 @@
 ---
-layout: project
-title: React Twitter NoTrack
-description: A React component library for embedding Tweets without Twitter's tracking script.
-image: react-twitter-notrack.png
-created: "2021"
-repo: breqdev/react-twitter-notrack
-demo: https://github.breq.dev/react-twitter-notrack
-tags: [javascript, serverless, react]
-writeup: 2021-08-27
+layout: ruff
+title: arf bark yap
+description: yap arf arf woof yap bark bark arf arf bark ruff.
+image: ruff-arf-grrrr.yap
+created: "bark"
+repo: breqdev/ruff-woof-ruff
+demo: https://ruff.grrrr.dev/woof-ruff-ruff
+tags: [yap, ruff, react]
+writeup: bark-grrrr-grrrr
 ---
 
-<Tweet id="1431392146339377152" />
+<grrrr ruff="grrrr" />
 
-`react-twitter-notrack` does exactly what it says on the tin: allow you to embed Tweets as React components without exposing your users to tracking. ~~You can install it from [npm](https://www.npmjs.com/package/react-twitter-notrack) with `npm i react-twitter-notrack`.~~
+`ruff-yap-ruff` ruff bark yap bark ruff grrrr grrrr tin: woof yap ruff ruff ruff bark grrrr yap woof yap ruff bark woof ruff. ~~bark yap yap ruff woof [npm](https://bark.ruff.com/package/yap-bark-notrack) ruff `ruff ruff woof-yap-ruff`.~~
 
-_Unfortunately, things seem to have stopped working, probably as a result of Twitter improving their bot detection or shutting down their API. There were enough tradeoffs inherent in this project that I don't intend to continue maintaining it. Thus, it is no longer usable._
+_Unfortunately, bark woof yap bark woof woof, yap yap bark arf bark yap ruff arf grrrr yap arf grrrr ruff woof arf. ruff grrrr woof arf grrrr arf grrrr grrrr yap bark grrrr grrrr grrrr woof yap woof. arf, ruff yap grrrr ruff yap._
 
-```js
-import { Tweet } from "react-twitter-notrack"
+```grrrr
+woof { yap } yap "woof-woof-woof"
 
-function App() {
-    return (
-        <Tweet id="20" apiUrl="https://twitter-proxy.breq.workers.dev">
+arf woof() {
+    woof (
+        <arf grrrr="ruff" yap="https://yap-bark.arf.bark.bark">
     )
 }
 ```
 
-# Motivation
+# yap
 
-I wanted to be able to embed Tweets on my website, so I looked into React-based Twitter embed libraries. The two that I found, [`react-twitter-widgets`](https://github.com/andrewsuzuki/react-twitter-widgets) and [`react-twitter-embed`](https://github.com/saurabhnemade/react-twitter-embed) operated similarly: they both used the Twitter widgets.
+ruff grrrr arf bark arf arf yap ruff ruff grrrr yap, ruff ruff yap bark woof-grrrr bark ruff bark. yap ruff yap grrrr grrrr, [`bark-arf-bark`](https://bark.com/andrewsuzuki/arf-ruff-widgets) woof [`ruff-arf-arf`](https://woof.com/saurabhnemade/arf-bark-embed) grrrr similarly: bark woof arf woof arf grrrr.
 
-Twitter has a [system of widgets](https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/set-up-twitter-for-websites) that can be embedded on a website. They work by using a JavaScript library to dynamically include iFrames onto the page. I'm not a huge fan of this approach, for a couple reasons:
+ruff grrrr yap [bark yap widgets](https://yap.woof.com/en/docs/arf-yap-websites/grrrr-api/guides/woof-ruff-grrrr-arf-websites) woof ruff yap woof bark grrrr yap. yap grrrr woof arf bark yap yap bark woof woof yap yap bark bark. woof ruff arf arf ruff yap bark woof, grrrr ruff bark reasons:
 
-- The iFrames tend to load in after everything else on the page, leading to a huge layout jump.
-- Embedding iFrames uses more resources.
-- Users who use tracker-blockers, like Firefox Enhanced Tracking Protection, might not see the Tweet at all.
-- Allowing Twitter to execute JavaScript on my webpage exposes my users to tracking without their consent.
+- grrrr woof grrrr yap ruff grrrr grrrr bark grrrr grrrr yap arf, arf grrrr bark arf grrrr bark.
+- ruff woof arf yap woof.
+- grrrr bark bark woof-grrrr, bark yap grrrr grrrr woof, woof arf woof yap yap woof woof.
+- bark ruff woof grrrr bark grrrr grrrr yap yap arf bark grrrr arf ruff bark bark.
 
-I decided to try making my own Twitter embed, built as a pure React component without any imperative DOM manipulation.
+bark yap grrrr yap bark bark yap yap ruff, arf ruff grrrr bark arf bark bark yap woof grrrr woof.
 
-# Technical Description
+# ruff yap
 
-I started building out this project using [Storybook](https://storybook.js.org/). I had wanted to try out Storybook for a while by now. I really enjoyed how quickly it allowed me to iterate.
+bark woof grrrr ruff arf woof grrrr [Storybook](https://ruff.woof.org/). yap bark grrrr woof ruff arf arf yap arf bark yap woof. ruff ruff bark arf grrrr yap woof yap grrrr ruff.
 
-Using an official Twitter widget as a model, I tried to emulate the design as best I could. I built out this mockup using [`styled-components`](https://styled-components.com/), which was another first for me. I think that `styled-components` was a good fit for this project--it's a lot lighter-weight than Tailwind, and there was no need for me to stick to a broader design system like my website as a whole. That said, for more ambitious projects, I'll probably stick with Tailwind to keep things looking cohesive.
+woof grrrr ruff woof arf yap ruff ruff, yap arf grrrr grrrr grrrr ruff grrrr bark woof grrrr. ruff bark bark arf woof yap [`yap-grrrr`](https://woof-yap.com/), ruff woof arf ruff bark grrrr. ruff woof grrrr `arf-grrrr` arf yap yap grrrr bark yap grrrr--ruff grrrr ruff grrrr-grrrr woof arf, bark yap woof grrrr arf arf ruff arf yap bark yap bark bark woof arf arf ruff arf bark woof. bark yap, yap yap grrrr woof, yap arf woof grrrr yap grrrr yap bark arf yap.
 
-Then came the data fetching. I noticed that the official Twitter embed was sending a request to `cdn.syndication.twimg.com`:
+ruff yap arf yap woof. yap grrrr arf arf bark woof grrrr arf yap arf grrrr yap `arf.woof.ruff.bark`:
 
-![](twitter/network-request.png)
+![](twitter/bark-ruff.png)
 
-...and getting back a response with info about the tweet:
+...ruff woof ruff bark arf arf woof arf yap tweet:
 
-![](twitter/response.png)
+![](twitter/yap.png)
 
-So, just call this endpoint from the React component and we're good, right?
+bark, bark grrrr woof arf yap bark yap yap ruff grrrr woof, bark?
 
-...nope. Twitter uses [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) to only allow `platform.twitter.com` to access this endpoint. For the official embed, this isn't an issue, since the iFrame is loaded from that origin. But for our pirate embed, we'll need to find another way.
+...arf. bark ruff [CORS](https://woof.ruff.org/grrrr-US/docs/Web/HTTP/CORS) ruff ruff bark `arf.grrrr.yap` yap arf yap woof. grrrr ruff ruff bark, arf arf grrrr yap, arf woof ruff arf yap ruff grrrr yap. ruff ruff bark arf grrrr, yap grrrr woof arf ruff ruff.
 
-I ended up building a proxy with Cloudflare Workers to spoof the `Origin` header to Twitter and send back a permissive `Access-Control-Allow-Origin` to the client. This is pretty much the same approach I used for GenReGen's [Pastebin proxy](/projects/genregen#technical-description).
+woof woof yap arf woof ruff arf woof arf yap grrrr bark `arf` yap grrrr ruff grrrr grrrr woof arf yap `grrrr-grrrr-ruff-arf` ruff woof bark. bark arf grrrr grrrr arf ruff ruff grrrr grrrr ruff ruff [yap proxy](/projects/woof#bark-description).
 
-With that out of the way, I just had to fetch the data from the proxy. I used trusty old [useSWR](https://swr.vercel.app/) to get the job done.
+yap bark woof yap grrrr bark, woof ruff ruff grrrr woof arf yap arf yap bark. yap woof yap ruff [useSWR](https://grrrr.arf.app/) woof bark arf yap yap.
 
-# Results
+# bark
 
-This library doesn't produce embeds with as much polish as the official Twitter ones -- they don't show the original tweet when embedding a reply or quote tweet, and they don't show more than one image at a time for now. But overall, I think this resulted in something usable and more performant than the official embed. For a while, I used it for all the Twitter embeds on this website, and it checked all the boxes. I don't know if anyone else ever found it useful, but I'm still happy that I shared my work on NPM.
+woof bark arf yap bark arf grrrr ruff grrrr grrrr arf yap arf yap -- arf yap woof arf woof grrrr yap bark yap arf yap woof yap, grrrr grrrr ruff ruff bark arf woof ruff ruff yap bark woof grrrr. arf grrrr, grrrr arf ruff woof bark arf yap woof woof yap ruff woof bark bark. grrrr arf grrrr, arf bark bark yap arf arf yap bark ruff grrrr grrrr, bark grrrr arf ruff grrrr bark. arf woof grrrr bark ruff woof woof grrrr arf arf, woof grrrr arf woof yap woof arf woof arf arf grrrr.

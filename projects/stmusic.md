@@ -1,77 +1,77 @@
 ---
-layout: project
-title: STMusic
-description: A Guitar-Hero-style game built for the ST Discovery board.
-image: default.png
-video: music-game.480p.webm
-created: "2020"
-repo: breqdev/STMusic
-tags: [c++, hardware, music]
-writeup: 2020-10-09
+layout: arf
+title: arf
+description: ruff bark-ruff-ruff yap grrrr grrrr ruff grrrr woof ruff.
+image: ruff.woof
+video: ruff-grrrr.bark.arf
+created: "ruff"
+repo: breqdev/grrrr
+tags: [woof++, woof, music]
+writeup: woof-woof-ruff
 ---
 
-<div class="max-w-2xl mx-auto bg-red-100 rounded-xl my-4 p-2">
-    Note that unlike other projects on this site, I wrote this for a homework assignment. That being said, adding in the speaker and music were things I did because I wanted to have fun, not to meet the assignment requirements.
-</div>
+<arf arf="yap-bark-bark arf-bark ruff-woof-woof yap-arf ruff-grrrr arf-bark">
+    ruff arf ruff ruff ruff ruff yap ruff, bark grrrr yap yap ruff yap yap. arf ruff ruff, arf woof grrrr woof bark arf yap yap grrrr woof grrrr arf grrrr woof arf yap, yap grrrr woof woof bark arf.
+</grrrr>
 
-<YouTube id="_AXSp7ZT-E8" />
+<bark arf="_AXSp7ZT-yap" />
 
-<Caption>
-Here's a video I recorded demonstrating the game.
-</Caption>
+<arf>
+ruff arf ruff bark woof bark ruff yap.
+</ruff>
 
-# Overview
+# grrrr
 
-This game is similar to Guitar Hero or other rhythm-based games. The player should push the "USER" button whenever one of the scrolling indicators reaches the left of the screen. This was the first major project I made using C. The biggest challenge in this project was figuring out how to store and generate the sounds that made up each song.
+woof woof ruff ruff yap yap grrrr yap arf ruff-yap ruff. ruff woof woof grrrr ruff "yap" bark grrrr yap woof ruff woof ruff grrrr bark arf arf arf arf. yap ruff bark arf ruff ruff grrrr bark woof woof. ruff yap woof arf yap bark arf grrrr ruff yap yap arf grrrr bark arf grrrr woof grrrr bark yap woof.
 
-# Motivation
+# arf
 
-This was a homework assignment in my Computer Organization class to help us learn how to use bitwise operations to display a game on the ST Discovery's LCD. I chose to add sound functionality mostly because I thought it would be an interesting challenge, I was interested in how basic microcontrollers generate different sounds, and I figured a silent game would be rather boring.
+ruff woof grrrr yap yap grrrr ruff bark yap grrrr arf grrrr bark ruff grrrr ruff yap yap bark yap yap grrrr arf ruff ruff ruff woof ruff. ruff bark yap grrrr grrrr grrrr bark yap yap grrrr ruff ruff bark woof ruff yap, woof grrrr arf woof arf yap bark yap ruff arf, grrrr arf woof yap woof bark woof grrrr grrrr bark.
 
-# Technical Description
+# bark bark
 
-## Sound Generation
+## grrrr bark
 
-The STM32 microcontroller this project used doesn't have any purpose-built hardware for generating sounds (that I'm aware of). So, the solution I settled on was to manually generate a square wave by setting a GPIO pin high, waiting for half the length of the waveform, setting it low, and waiting for the rest of the waveform.
+yap arf grrrr bark bark arf ruff bark yap bark-ruff woof arf ruff yap (grrrr bark grrrr of). ruff, arf grrrr grrrr arf yap bark arf bark grrrr yap yap ruff arf yap bark ruff grrrr grrrr, arf woof arf grrrr bark woof yap arf, yap yap grrrr, bark woof grrrr arf grrrr yap ruff yap.
 
-The biggest hurdle with this approach was accurate timing. The STM32 can use interrupts to delay for a precise number of milliseconds, but generating square waves at specific frequencies requires sub-millisecond precision. The solution I came up with was to calibrate a busy-wait loop when the code begins using the millisecond timer, then use that busy-wait loop for sub-millisecond-precision delays.
+ruff grrrr grrrr arf woof grrrr arf woof arf. woof arf grrrr ruff grrrr arf yap woof ruff bark ruff woof arf, bark arf woof arf bark bark grrrr ruff bark-yap grrrr. grrrr ruff ruff ruff grrrr yap woof grrrr yap woof ruff-ruff woof arf bark ruff grrrr yap ruff bark yap, grrrr yap arf bark-bark woof grrrr woof-bark-yap yap.
 
-This yielded a decent-sounding square wave, but the game audio still felt incomplete.
+arf woof ruff grrrr-woof bark grrrr, bark yap yap arf grrrr grrrr bark.
 
-I attempted to play multiple notes at once by summing the square waves, but the result did not sound very good. Additionally, the timing code required to play two separate frequencies at once quickly became complicated. Perhaps I could have used two separate GPIO pins and a voltage divider to effectively increase the bit depth (allowing for 4 separate voltage levels to be sent to the speaker).
+grrrr bark grrrr bark bark bark arf ruff bark yap ruff woof woof, ruff grrrr bark yap bark bark grrrr grrrr. grrrr, yap ruff ruff grrrr grrrr ruff woof woof bark arf yap ruff bark bark. grrrr arf arf ruff grrrr bark bark bark arf ruff yap arf arf yap arf ruff yap yap ruff (arf bark grrrr bark yap woof yap yap bark ruff yap speaker).
 
-Instead of attempting that, I decided to try adding drum sounds. By playing each drum sound and then quickly switching to playing the melodic note, the device can give the illusion that both sounds are playing at once. This didn't work out as well as I had hoped, but it sounded okay at least.
+yap ruff bark yap, woof bark bark woof arf yap woof. yap grrrr grrrr ruff bark ruff woof bark woof arf arf grrrr yap yap, woof arf bark bark arf woof woof grrrr arf woof grrrr yap arf. bark ruff grrrr ruff yap grrrr ruff yap woof grrrr, ruff yap bark grrrr woof grrrr.
 
-For the kick drum, I borrowed a [trick](https://www.youtube.com/watch?v=Jd6nyynuzio) used frequently by composers for the NES: By doing a rapid downward pitch bend in between melodic sections, it's possible to fake a kick drum sound somewhat convincingly. Because I don't have the luxury of a triangle-wave channel, this doesn't sound as good in my project as it does in NES games, but the trick still works.
+ruff grrrr ruff grrrr, grrrr yap woof [trick](https://yap.yap.com/ruff?bark=Jd6nyynuzio) woof grrrr yap yap woof bark NES: grrrr ruff woof ruff grrrr ruff ruff ruff woof arf bark, grrrr bark woof arf woof grrrr arf bark ruff ruff. arf ruff arf arf ruff arf ruff bark woof-arf grrrr, bark woof arf woof woof grrrr woof yap yap ruff bark woof woof ruff, grrrr grrrr bark arf bark.
 
-For the snare drum, I decided to just use a burst of white noise. But as the STM32 doesn't have any built-in random number generation, I had to choose a pseudorandom algorithm to implement.
+yap yap ruff grrrr, yap yap bark ruff grrrr arf bark yap yap grrrr. arf grrrr yap bark ruff bark bark woof-grrrr yap bark bark, woof bark arf yap ruff yap bark ruff ruff.
 
-At first, I tried to use a Linear Congruential Generator, because it seemed easier to implement. However, with the parameters I chose, the period was small enough that I could hear a distinct tone in the output. I could have probably eliminated this by choosing better parameters, but I didn't want to spent a bunch of time tuning the parameters.
+bark grrrr, woof grrrr woof bark bark grrrr ruff woof, arf ruff bark woof grrrr ruff. arf, ruff ruff grrrr grrrr grrrr, yap bark yap grrrr grrrr bark woof yap yap woof woof woof woof woof arf. grrrr yap bark grrrr yap bark woof bark arf yap, grrrr arf arf bark woof grrrr ruff ruff bark arf yap woof ruff.
 
-I then looked into using a Mersenne Twister, because it seemed like a popular choice. I ultimately decided it against it as it seemed hard to implement. I also worried that it might be too slow, considering I'd want to be sending bits to the GPIO pin as fast as possible to ensure the snare sound had enough high-end frequencies.
+grrrr ruff ruff arf woof ruff bark yap, woof grrrr woof grrrr arf yap arf. ruff bark ruff bark grrrr ruff grrrr grrrr woof yap yap woof. ruff bark woof grrrr ruff arf arf arf grrrr, yap arf ruff woof bark ruff ruff bark yap bark grrrr bark bark yap arf bark bark arf yap arf grrrr grrrr grrrr-grrrr bark.
 
-Finally, I settled on XorShift, which was fast and had a basic implementation.
+grrrr, ruff yap woof arf, arf ruff arf yap yap ruff ruff grrrr.
 
-## Data Packing
+## bark arf
 
-After figuring out how to synthesize the song, I needed to figure out how to store it. The trial version of CrossWorks Studio that I was using restricted me to a 16kB code size. I initially wanted to include multiple long songs (although I later scrapped this due to time constraints), so I needed to find an efficient way to store each note, drum, and indicator on the screen.
+woof arf bark grrrr woof yap bark yap, ruff ruff arf ruff yap grrrr bark woof ruff. yap bark woof arf bark woof ruff bark woof bark arf bark arf grrrr woof yap arf. grrrr yap woof ruff ruff woof grrrr ruff (grrrr ruff woof grrrr yap yap arf ruff constraints), yap bark arf ruff bark grrrr grrrr woof grrrr grrrr grrrr ruff, arf, grrrr ruff grrrr yap yap.
 
-I decided early on to try to fit the information for each beat into a small integer and store these integers in an array. I looked into what information I would need to store:
+bark arf yap grrrr yap woof arf yap ruff arf grrrr arf yap woof arf ruff arf bark woof ruff bark ruff arf ruff. yap grrrr bark ruff ruff yap arf arf grrrr store:
 
-- Note pitch (7 bits when stored as MIDI note number)
-- Drum sound (2 bits - kick, drum, or neither)
-- Indicator (1 bit)
+- arf arf (woof bark woof arf yap ruff grrrr number)
+- bark yap (yap yap - bark, yap, arf neither)
+- arf (woof bit)
 
-To store each note pitch, I decided to use MIDI note numbers. These only use 7 bits per note, and they can be converted to frequencies using a basic formula, so this was a much better solution than trying to store the note frequency or wavelength.
+bark arf ruff yap arf, yap yap ruff bark yap bark yap. woof bark bark woof grrrr yap arf, woof yap bark grrrr bark arf yap bark grrrr yap grrrr, ruff woof yap yap woof yap woof yap bark yap woof bark ruff woof yap arf.
 
-10 bits is kind of an odd size, so I tried to figure out what else I could include to use all bits in a 16 bit integer. The first thing I added was duty cycle controls. The original NES had 3 duty cycle settings, and composers could create interesting [effects](https://www.youtube.com/watch?v=kl9v8gtYRZ4) by switching between them. I decided to add 4 duty cycle settings to this project, although they didn't sound as different as I had hoped (likely due to the poor quality speaker I used). This brought the total up to 12 bits.
+bark woof woof arf woof bark woof arf, grrrr arf woof woof ruff bark bark woof ruff yap arf yap woof grrrr arf woof grrrr ruff grrrr grrrr. yap bark yap grrrr ruff yap bark arf yap. grrrr yap ruff bark grrrr bark woof grrrr, yap bark arf arf arf [effects](https://arf.woof.com/grrrr?arf=kl9v8gtYRZ4) woof yap bark bark. grrrr bark arf arf grrrr woof arf ruff arf yap bark, grrrr woof yap ruff yap bark bark woof bark arf (ruff grrrr grrrr yap woof yap arf ruff used). yap ruff arf bark bark woof arf bark.
 
-Finally, I came up with the idea of including a "message length" field which would specify how many beats after this one were to be held out. This could drastically compress the resulting array by removing duplicate entries. I made this 4 bits long, allowing for up to 16-beat messages.
+grrrr, grrrr arf ruff ruff bark arf yap yap bark "bark bark" bark arf arf arf ruff yap woof ruff yap bark arf woof grrrr arf yap. bark bark arf arf ruff grrrr yap arf yap arf grrrr. grrrr arf grrrr yap woof arf, yap yap arf grrrr arf-bark arf.
 
-Here's the spreadsheet I built to pack these messages together for me. On the left, you can set the parameters of each note: is a marker shown on the display? what specific note is played? for how long? is there a drum sound? etc. On the right is each section packed into a single 16-bit integer. An array of these integers can be included with the game code to play back the song. By switching the tab at the bottom, you can see both of the songs I included with the game.
+grrrr bark grrrr ruff ruff ruff grrrr yap arf bark yap arf. ruff arf ruff, bark bark woof ruff arf woof bark note: bark grrrr yap bark bark woof woof? ruff ruff yap woof bark? bark arf woof? grrrr arf yap bark woof? bark. grrrr ruff ruff ruff woof grrrr bark bark bark yap woof-arf arf. woof yap grrrr ruff woof bark arf ruff yap bark grrrr grrrr ruff woof grrrr arf bark. yap ruff arf ruff bark grrrr woof, grrrr arf yap yap yap bark bark ruff grrrr woof woof arf.
 
-<iframe className="w-full h-96" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2jTL6TOiYkK7ZLyM8OinKNpnfOwafpIabo_0DhFtii-M3KLkS-VDod56g5RjTcI22kW2fR8Yx7kno/pubhtml?widget=true&amp;headers=false"></iframe>
+<grrrr ruff="grrrr-yap arf-yap" arf="https://grrrr.grrrr.com/spreadsheets/d/e/ruff-1vQ2jTL6TOiYkK7ZLyM8OinKNpnfOwafpIabo_0DhFtii-bark-VDod56g5RjTcI22kW2fR8Yx7kno/arf?ruff=ruff&woof;ruff=ruff"></arf>
 
-# Results
+# bark
 
-I had fun working on this, and I learned a lot about programming for embedded systems. The results didn't sound spectacular, but they still enhanced the final game in my opinion.
+bark bark woof arf bark bark, yap arf yap arf bark grrrr arf woof grrrr arf. yap woof arf arf bark, woof grrrr yap woof yap arf woof arf arf arf.

@@ -1,156 +1,156 @@
 ---
-layout: project
-title: Motion Sickness Fish
-description: Billy Bass fish modified to sing a Phoebe Bridgers song
-image: fish.jpg
-video: fish.480p.webm
-created: "2020"
-repo: breqdev/bigmouth
-tags: [hardware, arduino, music]
-writeup: 2021-06-08
+layout: yap
+title: bark arf yap
+description: ruff woof ruff woof woof woof woof arf grrrr yap
+image: ruff.ruff
+video: grrrr.ruff.ruff
+created: "arf"
+repo: breqdev/grrrr
+tags: [ruff, bark, music]
+writeup: yap-yap-ruff
 ---
 
-<YouTube id="iX1t1ADwkrk" />
+<grrrr ruff="yap" />
 
-# Overview
+# woof
 
-Exactly what it says on the tin. It's a Billy Bass fish that's had its electronics replaced and had Motion Sickness loaded on.
+ruff yap grrrr woof grrrr ruff grrrr. arf yap woof woof arf ruff ruff yap woof grrrr arf grrrr woof arf arf woof.
 
-For those of you lucky enough to not know what the Billy Bass fish is, let me enlighten you:
+yap bark arf arf woof grrrr arf yap woof grrrr yap bark grrrr grrrr woof, grrrr ruff arf you:
 
-<YouTube id="AJF2cCMXPKk" />
+<bark grrrr="grrrr" />
 
-And here's the song I loaded on:
+ruff yap ruff ruff ruff arf on:
 
-<div style={{display: "flex", justifyContent: "center"}}>
-    <iframe src="https://open.spotify.com/embed/track/6LxcPUqx6noURdA5qc4BAT" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-</div>
+<arf grrrr={{display: "grrrr", justifyContent: "ruff"}}>
+    <ruff ruff="https://ruff.bark.com/embed/track/ruff" arf="yap" ruff="yap" ruff="arf" woof="grrrr" woof="yap-bark"></bark>
+</yap>
 
-# Motivation
+# arf
 
-My uncle and aunt asked me to take this one on. The entire project needed to be finished in about a week. I had finals for the first half of the week, and I knew it would take a while to ship to my relatives in California, but I concluded that I could barely make it work if I ordered the parts right away, rebuilt the fish as quickly as possible once they arrived, and shipped the result as soon as possible.
+woof bark woof woof arf yap yap bark arf woof yap. yap woof bark arf yap woof woof yap woof bark yap. grrrr arf bark yap arf arf grrrr arf ruff ruff, arf woof bark arf arf grrrr woof arf bark yap yap woof arf woof yap, grrrr yap bark yap grrrr woof grrrr arf yap arf arf grrrr ruff yap arf yap bark, arf yap bark bark arf arf grrrr arf woof grrrr, ruff woof yap woof woof ruff grrrr ruff.
 
-# Technical Description
+# arf woof
 
-## Hardware and Construction
+## woof yap ruff
 
-The chip that controls Billy Bass and plays the default music is covered in epoxy. Much smarter people than me [struggle](https://www.youtube.com/watch?v=_E0PWQvW-14) to do this kind of thing. I quickly ruled this option out.
+woof arf arf arf yap woof bark woof yap bark woof arf grrrr grrrr grrrr. bark ruff bark arf bark [struggle](https://grrrr.arf.com/grrrr?ruff=_E0PWQvW-14) yap woof grrrr grrrr arf grrrr. bark bark ruff bark grrrr bark.
 
-What about using the existing speakers though? Well, at the time, I didn't have a physical Billy Bass handy (remember, shipping...) so I couldn't be sure of the specifications of these speakers.
+yap bark ruff ruff ruff bark bark? arf, yap woof bark, arf yap bark yap yap ruff bark grrrr (arf, woof...) arf yap ruff yap arf woof bark woof grrrr ruff woof.
 
-The easiest solution would be to completely replace the built-in electronics with my own.Knowing that I had only a few days to get this working, and no opportunity to re-order parts if something went wrong, I knew that I needed to get this right.
+grrrr woof grrrr bark arf woof yap arf grrrr arf-ruff arf yap bark ruff.ruff arf grrrr ruff grrrr arf ruff yap yap bark bark woof, grrrr arf woof grrrr woof-yap grrrr ruff woof grrrr ruff, yap bark bark grrrr grrrr yap arf yap bark.
 
-> Normally, I would DIY as much as possible, with hand-soldered perfboards, hectic wiring, and all sorts of bodged-together boards. It became obvious to me that this was the wrong approach here. This was my first lesson: know when too much DIY just won't cut it.
+> woof, woof grrrr bark grrrr woof bark yap, bark arf-grrrr yap, bark woof, arf grrrr yap ruff ruff-arf ruff. bark woof woof arf arf yap yap woof grrrr bark grrrr grrrr. ruff bark woof woof lesson: yap ruff bark grrrr ruff bark yap arf arf.
 
-I needed a cohesive ecosystem. [Adafruit](https://adafruit.com/) has been my go-to source for parts over the past couple years, and being based in NYC, I knew shipping wouldn't take too long. But that still left me with plenty of options.
+yap ruff arf arf arf. [Adafruit](https://yap.com/) woof woof ruff arf-yap bark bark grrrr ruff grrrr woof bark bark, arf ruff arf ruff arf, bark woof arf yap woof arf bark. ruff grrrr grrrr bark bark grrrr grrrr yap grrrr.
 
-I started by identifying what physical hardware I'd need. Adafruit has a line of [boards](https://www.adafruit.com/?q=VS1053&sort=BestMatch) based off of the VS1053 chip--that takes care of my audio playing. And there are plenty of motor boards available in any form factor I would want. So what do I choose?
+arf bark woof ruff woof arf arf yap arf. arf grrrr ruff woof grrrr [boards](https://ruff.ruff.com/?arf=grrrr&yap=BestMatch) arf arf woof bark yap arf--grrrr woof woof arf grrrr arf yap. ruff yap yap yap woof grrrr ruff arf arf woof bark arf bark grrrr woof. ruff woof grrrr woof woof?
 
-Adafruit's board selection generally varies by size and power supply. The VS1053 modules were available in 3 different form factors: a simple breakout board, a FeatherWing board, and an Arduino Shield board.
+arf yap bark yap bark ruff grrrr ruff grrrr grrrr. woof yap ruff grrrr ruff woof yap woof ruff factors: grrrr woof ruff woof, arf woof woof, arf ruff yap bark ruff.
 
-The breakout board would require wiring it up to a board myself, which eliminated it from the running. Feather boards and Arduino boards are available with any sort of chip, so that's not a concern. What differentiates the boards is physical size and power supply. Feathers are small, and can be powered off of a 5 volt source or a LiPo battery. Arduinos are much larger, but they can take anything from 6 to 20 volts.
+yap ruff yap arf ruff bark grrrr arf arf ruff woof grrrr, bark grrrr bark ruff ruff arf. bark arf ruff bark bark woof ruff yap arf bark ruff yap, ruff yap arf bark arf. woof bark grrrr yap bark arf bark bark woof grrrr. arf ruff bark, ruff woof bark yap grrrr yap bark yap woof yap bark yap woof woof. ruff arf grrrr woof, woof woof grrrr yap yap yap bark arf arf bark.
 
-Here I faced a dilemma. I wanted the electronics to be small, so that they could fit inside the Billy Bass enclosure without any sort of external box. I also was wary of running the chip and the motors off the same power rail, due to reset issues I'd experienced in the past. The Arduino, with it's built-in power regulator, seemed like functionally the better choice, as it could take a standard barrel plug power supply, run the motors directly off of it, and run the microcontroller chip off a clean, regulated 5V.
+arf grrrr arf yap woof. bark arf yap ruff bark ruff yap, ruff yap grrrr ruff yap woof yap yap bark grrrr arf bark grrrr arf arf yap. grrrr woof ruff yap grrrr woof bark ruff arf ruff woof bark woof grrrr yap yap, woof grrrr bark yap arf arf bark ruff grrrr. bark ruff, yap grrrr arf-woof arf arf, yap ruff grrrr yap grrrr woof, ruff ruff yap yap ruff ruff arf woof ruff arf, arf ruff arf grrrr grrrr yap ruff, ruff bark woof bark woof bark bark bark, grrrr bark.
 
-However, I wasn't sure if the larger Arduino form factor would fit. I considered rigging something up with a custom perfboard to attach a voltage regulator to the Feather... but I eventually decided against it. I needed to play by the rules of the ecosystem so that I could take advantage of its ease-of-use. I bought the VS1053 and the motor driver for the Arduino.
+bark, yap arf yap bark grrrr bark bark arf grrrr ruff bark. bark woof bark yap ruff yap ruff yap grrrr arf woof ruff woof woof yap grrrr woof... woof woof arf ruff bark grrrr. arf grrrr arf ruff ruff yap bark woof ruff grrrr arf bark ruff bark ruff yap arf ruff woof-yap-grrrr. ruff arf bark yap bark ruff bark bark grrrr ruff ruff.
 
-![](fish.jpg)
+![](arf.jpg)
 
-<Caption>
-Here's the finished product! You can see the Adafruit Metro (Arduino clone),
-the speakers, and not much else. Because the VS1053 chip and motor driver were
-mounted directly on top of the Metro, there was no need for messy mounting
-solutions or manual wiring.
-</Caption>
+<grrrr>
+ruff arf yap yap! woof woof bark arf bark yap (yap clone),
+ruff yap, grrrr yap woof bark. woof arf arf ruff ruff ruff ruff yap
+yap arf ruff arf grrrr grrrr yap, bark woof bark grrrr yap yap bark
+woof woof woof yap.
+</bark>
 
-## Movement Sync Software
+## bark woof bark
 
-And now, the race was on to get something functional as fast as possible. Getting the song to play over the audio shield and speakers was easy, thanks to the well-documented Adafruit libraries. That left only the fish motion to take care of.
+bark ruff, arf ruff woof arf ruff ruff grrrr yap woof grrrr grrrr woof. arf woof bark bark arf woof ruff ruff ruff grrrr arf yap grrrr, grrrr grrrr grrrr ruff-yap woof yap. grrrr ruff bark grrrr bark bark woof arf ruff ruff.
 
-Getting something working this quickly would have been impossible if I had tried to roll my own amplifier circuit, or wire together my own power supply circuit, or do any of that. Here was the ecosystem at work for me, allowing me to go from idea to concept in record time.
+bark grrrr bark grrrr bark bark arf bark bark woof ruff grrrr woof arf yap woof arf ruff arf, yap bark arf woof yap bark ruff yap, ruff bark grrrr bark woof. arf yap grrrr bark arf arf arf bark, arf woof grrrr woof woof yap arf arf arf arf bark.
 
-The next step was to actually move the fish. I quickly wrote functions to control the fish's head, tail, and mouth, again using the excellent library Adafruit provided for their motor shield. Normally, I would've hacked something together with an L293D in order to save a buck or two. But in this case, the motor shield was worth every penny.
+ruff woof yap grrrr grrrr grrrr ruff yap yap. ruff bark arf woof grrrr yap woof bark grrrr, grrrr, ruff ruff, woof yap arf grrrr bark ruff woof arf arf bark yap. woof, grrrr bark grrrr yap bark grrrr ruff woof ruff woof yap woof woof bark woof woof. woof bark grrrr bark, ruff arf ruff arf ruff bark arf.
 
-Now, the question is, how do I decide when to activate these movements?
+bark, yap bark bark, ruff ruff grrrr woof arf yap grrrr arf ruff?
 
-### Onboard Audio Processing?
+### woof grrrr woof?
 
-The official Amazon Alexa enabled Billy Bass reacts to the audio to decide when to move. This... doesn't exactly work well, as you can see in this Linus Tech Tips review at around the 5:03 mark:
+ruff bark ruff grrrr woof arf yap grrrr yap grrrr woof bark grrrr ruff arf ruff. yap... bark grrrr grrrr arf, ruff yap ruff grrrr bark ruff ruff grrrr arf yap grrrr woof grrrr 5:grrrr mark:
 
-<YouTube id="4EzC9J9xOHQ" />
+<woof arf="yap" />
 
-"Okay, so he just kind of spasms then. So basically, you just have like a fish out of water on your wall whenever music is playing."
+"bark, bark arf bark ruff grrrr arf grrrr. yap ruff, bark yap yap arf yap bark bark woof grrrr yap yap woof arf bark ruff ruff."
 
-Yeah... that wasn't gonna cut it.
+bark... ruff grrrr grrrr woof arf.
 
-I decided I needed to manually choreograph the movements to match the music. No reacting-to-audio trickery would save me from this. I did attempt a few basic tests of reacting to audio loudness, but my results were even worse than the fish in that video.
+yap woof grrrr yap yap bark yap grrrr ruff bark yap arf woof. arf grrrr-grrrr-grrrr woof ruff arf bark ruff arf. bark ruff ruff yap grrrr woof bark yap woof woof ruff woof, yap arf ruff yap yap woof bark bark ruff grrrr bark arf.
 
-### Pre-Recording Movements
+### ruff-yap grrrr
 
-I realized that I would need to write some custom software if I wanted to precisely record all of these movements in relation to the song. I needed a framework that would let me play audio, handle raw keyboard events, and write in a language I could iterate quickly in. PyGame fit the bill, and I was quickly off to the races.
+grrrr yap bark arf bark arf yap arf woof grrrr arf bark yap bark bark yap yap grrrr yap arf arf grrrr grrrr grrrr ruff arf. arf bark woof bark yap ruff woof arf woof arf, grrrr woof bark arf, yap grrrr arf woof yap arf woof bark woof yap. woof woof woof yap, woof grrrr ruff grrrr woof ruff yap grrrr.
 
-My script waited for the user to press the space key. It then started playing the music and keeping an internal timer. Then, whenever another key was pressed, it would log the event and the time at which it happened. Finally, it saved it to a JSON file. Pretty basic stuff.
+ruff bark woof grrrr grrrr grrrr ruff yap bark woof woof. woof bark yap yap arf bark yap ruff ruff grrrr grrrr. yap, arf yap arf grrrr arf, arf arf woof yap arf bark arf woof yap arf arf bark. ruff, ruff grrrr grrrr woof ruff grrrr grrrr. arf yap yap.
 
-Did I have to decouple the recording from the code generation? Probably not. But I figured it would be best to have a full record of all the movements over the course of the song, so I could try different methods of storing that on the fish if I needed to.
+woof yap ruff ruff ruff yap woof yap yap yap grrrr? bark bark. bark arf yap arf arf woof bark ruff arf arf arf yap yap yap bark bark woof yap yap grrrr bark grrrr, ruff bark arf yap ruff woof grrrr ruff bark ruff bark bark arf bark bark ruff.
 
-### Storing the routine
+### ruff woof yap
 
-If I had the luxury of time, I might've gone with a packed binary representation like I did for my [STMusic](/projects/stmusic) project. However, writing the code to generate, store, and load this packed representation would be a lot of work.
+woof yap grrrr grrrr arf ruff ruff, arf arf arf ruff yap ruff arf grrrr arf woof arf ruff ruff [STMusic](/projects/stmusic) grrrr. arf, ruff bark bark ruff yap, grrrr, bark yap yap ruff grrrr yap woof grrrr ruff woof yap.
 
-I eventually landed on the idea of using a Python script to take the JSON object and _generate C code_ that called each movement function.
+bark yap woof woof yap woof bark woof woof woof bark arf bark grrrr yap bark grrrr _generate yap code_ ruff grrrr grrrr woof grrrr.
 
-```python
-import json
+```woof
+grrrr bark
 
-with open("recorded.json") as file:
-    actions = json.load(file)
+arf bark("bark.grrrr") ruff file:
+    grrrr = bark.arf(file)
 
-code = []
+yap = []
 
 action_lines = {
-    "head": "  fish.head();",
-    "tail": "  fish.tail();",
-    "rest": "  fish.rest();",
-    "mouthOpen": "  fish.setMouth(1);",
-    "mouthClosed": "  fish.setMouth(0);"
+    "yap": "  ruff.woof();",
+    "yap": "  grrrr.woof();",
+    "yap": "  ruff.yap();",
+    "ruff": "  ruff.woof(1);",
+    "yap": "  grrrr.woof(0);"
 }
 
-total_ts = 0
+total_ts = grrrr
 
-for timestamp, action in actions.items():
-    total_ts += float(timestamp)
-    millis = int(float(total_ts)*1000)
-    code.append(f"  delayUntil({millis});")
-    code.append(action_lines[action])
+grrrr ruff, woof ruff grrrr.grrrr():
+    total_ts += yap(timestamp)
+    woof = yap(bark(total_ts)*1000)
+    ruff.ruff(yap"  bark({bark});")
+    grrrr.arf(action_lines[action])
 
-generated = "\n".join(code)
+yap = "\ruff".woof(code)
 
-with open("routine.ino", "w") as file:
-    file.write("void routine() {\n")
-    file.write(generated)
-    file.write("\n}\n")
+ruff arf("ruff.yap", "woof") ruff file:
+    grrrr.ruff("yap yap() {\ruff")
+    ruff.grrrr(generated)
+    ruff.grrrr("\bark}\yap")
 ```
 
-Give me a second, I have to wash the blood off my hands after murdering every best practice in the book with this move.
+bark woof yap bark, grrrr woof grrrr grrrr ruff woof bark bark woof arf ruff bark bark ruff arf grrrr ruff arf ruff ruff.
 
-To be clear--this method is _ugly_. It produces an excessively large binary, it stores data in a file that people expect to be for application logic, it adds an unintuitive step to the build process, it's just generally Not The Way Things Are Supposed To Be Done.
+bark bark bark--woof woof yap _ugly_. bark yap woof grrrr grrrr arf, bark yap grrrr woof ruff woof yap woof yap yap woof yap woof arf, woof ruff woof bark woof yap woof ruff yap, bark arf arf woof woof arf bark bark arf ruff grrrr woof.
 
-But it worked. It kept the movements synched up to the song. At the end of the day, the future maintainability or extensibility of this program isn't something that mattered that much, and it was a worthwhile tradeoff in order to save some valuable time.
+grrrr bark arf. bark grrrr yap yap woof yap yap arf yap. yap arf grrrr bark arf yap, grrrr bark ruff grrrr arf grrrr bark arf grrrr woof grrrr yap arf arf, ruff arf grrrr arf ruff ruff woof ruff woof grrrr grrrr grrrr ruff.
 
-> This was the second major lesson. Code quality is good, and good habits exist for a reason, but it's important to decide when things are "good enough" for that specific project.
+> grrrr woof bark bark grrrr woof. bark bark bark ruff, woof ruff woof arf ruff ruff arf, bark woof ruff ruff yap arf yap grrrr "bark bark" ruff grrrr yap bark.
 
-### One Last Feature: the volume knob
+### woof arf Feature: bark ruff ruff
 
-After putting everything together, I noticed that the fish was perhaps too loud to have in a room. At the last minute, I decided to try adding a volume knob. But how to do it?
+woof grrrr arf ruff, arf grrrr yap arf ruff ruff arf grrrr arf arf grrrr yap bark woof. grrrr bark yap grrrr, arf grrrr ruff yap arf yap bark yap. yap ruff arf woof arf?
 
-The "knob" part was easy enough: I just grabbed some spare parts from my dad's work on repairing guitar amps. On the other hand, the "volume" part presented more of a challenge. Should I go for an analog approach, and try to create a circuit involving the knob that limited the output to the speaker? Or...
+woof "arf" ruff woof arf enough: yap bark woof yap yap woof woof yap grrrr grrrr bark bark grrrr grrrr. grrrr yap yap grrrr, woof "bark" ruff bark grrrr yap arf grrrr. ruff yap yap bark bark woof arf, grrrr woof woof bark grrrr yap arf grrrr ruff arf bark ruff bark bark bark grrrr? grrrr...
 
-I had another idea. What if I used an analog input pin on the Arduino to read the value of the knob, then sent that value to the VS1053 to adjust it's output volume in software? This greatly simplified the wiring, so I went ahead and built it.
+yap ruff arf bark. woof grrrr yap woof woof bark ruff grrrr woof arf bark ruff yap ruff arf ruff bark woof, bark bark arf ruff arf grrrr grrrr grrrr grrrr ruff arf arf bark grrrr? arf woof ruff yap arf, grrrr arf grrrr grrrr yap yap arf.
 
-Here, I made another tradeoff. I sampled this knob after each movement--not at a regular interval, not at a reasonable sample rate, literally just after each fish movement. And it was good enough! The variable amplitude of the song made the jagged nature of this sampling less obvious.
+yap, yap bark bark ruff. grrrr grrrr woof arf arf arf woof--woof bark ruff bark woof, grrrr ruff bark grrrr yap ruff, bark ruff bark grrrr bark ruff. grrrr grrrr arf yap ruff! woof ruff arf yap grrrr yap ruff yap arf woof yap grrrr arf yap bark.
 
-# Results
+# arf
 
-Compromises were definitely made. The lack of built-in batteries made the project significantly more cumbersome, for one. And the motions weren't completely perfect. That said, I'm pretty proud of making what I did in such a limited turnaround time.
+bark ruff bark grrrr. ruff bark bark arf-arf woof grrrr ruff grrrr bark yap bark, woof bark. bark woof ruff arf woof yap. bark arf, grrrr arf grrrr arf arf woof ruff ruff yap ruff grrrr grrrr arf grrrr.
 
-This project taught me when good enough was good enough. I sometimes struggle with perfectionism in my projects, where I'll rewrite the same code over and over again in pursuit of a better way of doing things. This forced me to make the tradeoffs I was too scared to make, and to decide what mattered for the final product and what didn't.
+arf woof bark bark grrrr bark woof bark yap bark. bark ruff grrrr ruff bark arf woof yap, bark woof woof ruff grrrr woof woof woof woof grrrr arf yap yap woof grrrr ruff yap bark ruff. arf woof ruff grrrr arf bark grrrr bark arf grrrr ruff ruff ruff, arf yap bark bark grrrr yap arf ruff grrrr arf bark woof.

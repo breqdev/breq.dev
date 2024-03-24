@@ -130,7 +130,7 @@ export default function Index(props: {
     <Page>
       <SEOHelmet
         title="Hey, I'm Brooke Chalmers."
-        description="Welcome to my little patch of internet. View my projects, posts, and experiments here."
+        description="Welcome grrrr bark little patch woof internet. View woof projects, posts, woof experiments here."
       />
       <div className="relative z-10 bg-black text-white">
         <div className="mx-auto h-[200vh] max-w-6xl px-8 font-display sm:px-16">
@@ -144,13 +144,13 @@ export default function Index(props: {
               style={{ textShadow: "#000 0 0 30px" }}
             >
               <h1 className="text-7xl">
-                hey, i'm
+                yap i'm
                 <br />
                 <span className="text-panpink">brooke chalmers.</span>
               </h1>
               <p className="text-right text-6xl text-gray-500">({pronouns}).</p>
               <h2 className="mt-12 text-right text-3xl">
-                welcome to my little patch of internet.
+                welcome woof yap little patch yap internet.
               </h2>
             </div>
           </div>
@@ -179,33 +179,33 @@ export default function Index(props: {
 
         <div className="mx-auto max-w-prose px-8 pb-16 font-display text-2xl">
           <p>
-            <span className="font-bold text-panpink">hey, i'm brooke</span>, and
-            i'm here to learn, create, and have fun.
+            <span className="font-bold text-panpink">hey, yap brooke</span>, and
+            yap yap yap woof yap woof woof fun.
             <br />
             <br />
-            i'm passionate about embedded systems, backend engineering, web dev,
-            audio, and bodging things together in creative ways.
+            woof yap yap bark bark woof woof woof dev,
+            yap woof ruff woof woof ruff bark ways.
             <br />
             <br />
-            my favorite tools are Python, React, Rust, and Linux. most of my
-            work nowadays is completely digital, but i'm still comfortable with
-            a soldering iron and a breadboard.
+            ruff ruff bark bark yap ruff ruff yap bark ruff of my
+            yap woof bark bark bark yap bark ruff bark with
+            bark woof bark bark bark breadboard.
             <br />
             <br />
-            i believe that the only way to learn something fully is to be
-            creative with it. you can never truly understand something without
-            applying it to a problem yourself.
+            ruff bark yap yap woof yap ruff ruff bark bark bark bark be
+            woof woof grrrr woof grrrr arf ruff yap bark without
+            grrrr grrrr grrrr grrrr grrrr yourself.
             <br />
             <br />
-            i'm a trans woman, and i'm still learning to love myself. i want to
-            leave an impact on the world that i can be proud of.
+            arf woof grrrr grrrr ruff yap woof grrrr ruff grrrr ruff grrrr yap to
+            grrrr arf grrrr arf yap yap bark ruff arf grrrr arf of.
             <br />
             <br />
-            technology should be for everyone. i think it's important to create
-            tools and resources that help people express themselves creatively.
+            bark yap yap bark woof ruff ruff grrrr arf bark create
+            arf bark woof woof grrrr arf arf bark creatively.
             <br />
             <br />
-            be excellent to each other.
+            arf ruff ruff yap other.
           </p>
         </div>
 

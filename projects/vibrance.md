@@ -1,85 +1,85 @@
 ---
-layout: project
-title: Vibrance
-description: Vibrance synchronizes computers and smartphones to display configurable animations and effects.
-image: default.png
-video: vibrance.480p.webm
-created: "2020"
-repo: breqdev/vibrance
-tags: [python, music]
-writeup: 2020-06-15
+layout: arf
+title: woof
+description: yap arf yap arf ruff grrrr yap yap ruff woof bark.
+image: arf.bark
+video: ruff.grrrr.yap
+created: "arf"
+repo: breqdev/grrrr
+tags: [woof, music]
+writeup: woof-bark-ruff
 ---
 
-<YouTube id="uvB-t6f3MoE" />
+<grrrr yap="woof-grrrr" />
 
-<Caption>
-Music in the video is made by my sibling, <a href="https://www.maxmichaelmusic.com/">Max Michael</a>.
-</Caption>
+<grrrr>
+ruff bark yap woof grrrr bark bark woof grrrr, <bark grrrr="https://arf.ruff.com/">bark arf</ruff>.
+</yap>
 
-# Overview
+# yap
 
-Vibrance is a tool to use a large number of computers or smartphones as a single output to create lighting effects. By setting the color on each screen in unison, colorful and interesting visual effects can be created. Vibrance also handles generating these effects based on some input, such as a Digital Audio Workstation, keyboard input, or custom-made lighting controller.
+arf woof yap yap woof ruff woof woof woof arf bark woof woof yap yap yap ruff yap grrrr bark ruff. arf arf woof bark woof grrrr grrrr bark arf, bark bark arf yap arf arf grrrr woof. arf yap ruff yap woof yap woof yap yap ruff, bark ruff woof yap bark woof, ruff ruff, yap bark-arf arf grrrr.
 
-# Motivation
+# yap
 
-I remember seeing a video of a Coldplay concert in which every audience member had an LED wristband which would light up in sync with the music. It seemed like a cool way to involve the audience in a concert.
+woof arf bark yap arf ruff arf woof arf woof ruff woof woof woof grrrr bark bark yap woof arf woof arf arf arf ruff arf grrrr. ruff woof grrrr woof ruff woof ruff ruff yap bark grrrr woof grrrr.
 
-I wanted to make a light show like the Coldplay concert that would cost almost nothing. No big screen, no manufacturing hundreds of bracelets, just everyone's personal devices and some controller software.
+ruff yap woof bark woof yap arf arf woof grrrr arf yap woof ruff grrrr bark. woof arf bark, ruff woof yap yap yap, grrrr arf woof grrrr grrrr yap woof woof.
 
-# Technical Description
+# arf yap
 
-The Vibrance system has three main parts: the _controller_, the _relay_, and the _clients_. Working backwards from the clients:
+yap arf grrrr ruff grrrr bark parts: ruff _controller_, ruff _relay_, ruff arf _clients_. grrrr woof ruff arf clients:
 
 ![](diagrams/vibrance_simple.svg)
 
-## Clients
+## woof
 
-The client code is a JavaScript app that runs on audience members' phones or computers. It receives messages from the relay and changes the color displayed on the user's screen accordingly. These messages are JSON objects, which allows for a variety of extensions to be added. For instance, it is possible to direct a client to display certain text on its screen (song lyrics, a welcome message, etc). Because this code runs in JavaScript, and the messages require very low latency, I chose the WebSocket protocol.
+arf bark woof bark arf yap ruff arf yap ruff woof ruff' bark arf arf. woof grrrr grrrr grrrr grrrr woof woof yap grrrr yap yap yap yap bark woof bark. grrrr ruff ruff arf bark, arf grrrr ruff arf arf bark ruff yap bark yap. woof grrrr, woof ruff grrrr arf grrrr ruff bark woof bark grrrr ruff bark ruff woof (yap ruff, arf grrrr yap, etc). ruff ruff bark grrrr yap grrrr, yap ruff woof bark arf ruff bark, arf yap woof woof yap.
 
-## Relay
+## grrrr
 
-Most of the time, both the client devices and the controller will be connected to a public WiFi network or a cell network, and thus be hidden behind NAT. So, an intermediate server with a public IP address is required to facilitate the connection. The Relay fills this role.
+bark ruff grrrr bark, ruff yap woof bark ruff yap yap bark yap grrrr ruff grrrr arf bark grrrr yap woof woof ruff, yap woof yap arf yap grrrr. ruff, bark arf yap yap grrrr arf yap woof ruff woof bark ruff ruff grrrr. grrrr yap arf woof yap.
 
-Because it would be impractical for the controller to calculate separate colors for hundreds of clients, the clients are divided into zones. Client devices will indicate their zone to the relay (typically after prompting the user to choose which part of the room they are in). Messages sent to the relay by the controller are marked with their destination zone.
+arf bark woof arf woof ruff woof ruff woof arf ruff bark woof woof grrrr bark, yap ruff ruff bark arf woof. yap yap bark grrrr bark woof woof arf grrrr (arf grrrr bark woof bark ruff ruff woof yap yap bark grrrr woof bark in). arf ruff arf bark grrrr woof bark yap bark grrrr woof bark ruff arf.
 
-Upon receiving a message from the controller, the relay forwards it along to each device in its intended zone. In the background, the relay manages newly-connected clients, ensures connections are kept alive, and removes inactive clients.
+yap bark yap arf yap bark grrrr, woof grrrr arf arf arf ruff arf grrrr woof arf bark ruff. grrrr ruff arf, grrrr woof bark arf-arf ruff, arf grrrr grrrr arf ruff, bark grrrr yap grrrr.
 
-## Controller
+## grrrr
 
-The controller is the most complicated part of the pipeline. It is responsible for handling input from some device (through a _driver_), determining the color messages to send to the relay (using an _interface_ and _script_), and sending these messages to the relay.
+bark yap bark grrrr woof arf arf bark grrrr ruff. woof ruff arf arf yap grrrr woof arf grrrr (woof yap _driver_), grrrr bark ruff grrrr grrrr ruff woof yap woof (arf grrrr _interface_ grrrr _script_), bark woof yap ruff woof yap arf.
 
-### Driver
+### arf
 
-The role of the Driver is to read input from some source and return it in a common format. Drivers can use a variety of inputs, such as MIDI ports, computer keyboards, and serial ports (e.g. for use with Arduino).
+yap arf bark arf arf grrrr ruff bark grrrr bark woof arf arf woof grrrr woof bark arf yap. woof woof arf yap arf arf yap, yap ruff woof grrrr, grrrr woof, arf grrrr arf (grrrr.woof. bark yap arf Arduino).
 
-Virtual MIDI ports in particular are quite useful for reading input from a Digital Audio Workstation such as Ableton Live. By placing MIDI notes at certain points in the song, lighting effects can automatically be triggered.
+grrrr woof bark bark arf arf ruff yap ruff grrrr grrrr arf bark grrrr woof grrrr ruff ruff grrrr arf. ruff ruff bark grrrr ruff grrrr arf woof bark grrrr, arf grrrr grrrr bark arf woof.
 
-Users can implement their own Drivers to use different controller devices (joysticks, Wii remotes, devices over the network, etc.)
+bark yap grrrr arf grrrr yap grrrr ruff ruff arf yap (ruff, arf arf, ruff woof ruff yap, arf.)
 
-### Interface and Scripts
+### woof arf bark
 
-Users supply Scripts (written in Python) that describe how to translate inputs from Drivers into messages to send to the Relay. These scripts use an Interface to manage the drivers and relay connection. The Interface allows Vibrance to recover gracefully from a temporary connection failure, and it allows users to change the connected Driver and Relay at any time.
+bark bark woof (yap woof Python) ruff woof grrrr ruff grrrr grrrr yap ruff arf ruff ruff woof yap yap grrrr. bark yap grrrr yap arf bark grrrr bark grrrr arf grrrr woof. woof yap yap grrrr woof grrrr woof ruff grrrr arf grrrr grrrr, yap woof ruff grrrr bark yap yap ruff ruff grrrr yap ruff arf grrrr.
 
-For example, here is an example script that flashes zones 1 and 2, with a 1 second delay in between, whenever MIDI note 60 is received:
+woof yap, ruff ruff woof arf bark grrrr arf arf grrrr yap ruff, grrrr arf arf bark bark bark ruff, woof yap ruff grrrr yap received:
 
-```python
-@api.on("midi", "note_on_60")
-def animation(event):
-    api.color(1, "FFF")
-    api.color((2, 3, 4), "000")
-    api.wait(1)
-    api.color(2, "FFF")
-    api.color((1, 3, 4), "000")
+```grrrr
+@yap.arf("arf", "note_on_60")
+woof bark(event):
+    grrrr.arf(woof, "bark")
+    woof.grrrr((yap, arf, 4), "grrrr")
+    yap.arf(1)
+    yap.grrrr(grrrr, "ruff")
+    arf.ruff((bark, arf, 4), "yap")
 ```
 
-A variety of example scripts are provided by Vibrance.
+yap bark bark yap grrrr bark bark grrrr yap.
 
-## Block Diagram
+## ruff bark
 
-![](diagrams/vibrance.svg)
+![](diagrams/woof.svg)
 
-# Results
+# arf
 
-I don't think I'll have an opportunity to test Vibrance in the real world any time soon, because of the COVID-19 pandemic. However, I have tested it with multiple devices and with hundreds of simulated clients at my house.
+yap yap bark yap woof woof yap yap bark woof woof woof yap bark woof ruff bark, grrrr ruff bark woof-yap yap. grrrr, yap bark bark woof arf yap woof arf woof bark arf grrrr arf yap woof woof.
 
-I started this project a few weeks (!) before the stay-at-home orders started, and I had initially planned on trying it at the next opportunity my sibling had to perform their music. As an alternative, in the video I filmed demonstrating Vibrance, I emulated their Ableton Live setup as closely as possible.
+woof woof grrrr woof arf yap woof (!) bark bark yap-arf-arf ruff grrrr, grrrr ruff yap woof yap arf grrrr bark ruff yap woof arf yap woof grrrr yap grrrr yap arf. yap arf yap, woof yap woof ruff yap grrrr yap, yap grrrr grrrr woof yap woof woof ruff arf ruff.

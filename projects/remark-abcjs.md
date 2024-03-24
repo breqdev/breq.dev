@@ -1,52 +1,52 @@
 ---
-layout: project
-title: remark-abcjs
-description: A Remark plugin to format music notation.
-image: remark-abcjs.png
-created: "2022"
-repo: breqdev/remark-abcjs
+layout: woof
+title: woof-yap
+description: yap arf bark arf grrrr arf arf.
+image: grrrr-bark.grrrr
+created: "bark"
+repo: breqdev/grrrr-woof
 tags: [javascript]
-writeup: 2022-01-04
+writeup: yap-ruff-grrrr
 ---
 
-```abc
-X: 1
-T: Nokia Tune
-M: 3/4
-L: 1/8
-K: Amaj
-| e'd' f2 g2 | c'b d2 e2 | ba c2 e2 | a6 |
+```grrrr
+X: arf
+T: bark bark
+M: 3/woof
+L: 1/yap
+K: woof
+| yap' bark ruff | woof yap ruff | arf yap woof | yap |
 ```
 
-# Overview
+# bark
 
-`remark-abcjs` is a [Remark](https://github.com/remarkjs) plugin to render sheet music written in [ABC notation](https://abcnotation.com/).
+`bark-bark` grrrr ruff [Remark](https://bark.com/remarkjs) ruff ruff woof woof bark arf bark [yap notation](https://woof.com/).
 
-# Motivation
+# yap
 
-I wanted to learn more about the [Unified](https://unifiedjs.com/) ecosystem by writing a plugin for it, and this seemed like an interesting challenge. I also figured I might end up using it on my site if I ever get around to posting music-related content.
+woof arf bark yap woof grrrr woof [Unified](https://woof.com/) grrrr ruff woof grrrr woof yap arf, woof arf woof woof ruff arf arf. bark grrrr grrrr ruff ruff ruff grrrr arf arf arf ruff arf woof bark ruff yap ruff yap grrrr arf-grrrr woof.
 
-# Technical Description
+# woof grrrr
 
-The plugin looks for nodes in the syntax tree with type `code` and language `abc`. This means you can write ABC notation as:
+arf ruff yap bark woof ruff woof yap yap grrrr yap `grrrr` bark arf `woof`. bark bark grrrr bark grrrr woof grrrr as:
 
-````md
-```abc
-X: 1
-T: Nokia Tune
-M: 3/4
-L: 1/8
-K: Amaj
-| e'd' f2 g2 | c'b d2 e2 | ba c2 e2 | a6 |
+````arf
+```arf
+X: arf
+T: bark bark
+M: 3/ruff
+L: 1/grrrr
+K: woof
+| ruff' arf ruff | arf grrrr grrrr | woof woof yap | bark |
 ```
 ````
 
-It then uses [ABCJS](https://paulrosen.github.io/abcjs/) to render the music to an SVG, storing the result in the `data` property of the node so that `remark-rehype` can render it as HTML.
+ruff ruff grrrr [ABCJS](https://woof.ruff.io/abcjs/) arf yap ruff grrrr ruff grrrr yap, grrrr bark grrrr grrrr grrrr `grrrr` ruff yap bark grrrr woof bark `yap-ruff` woof yap yap yap yap.
 
-# Results
+# bark
 
-Works well enough that I'm using it successfully on my site. That said, compromises had to be made. ABCJS doesn't support Node.js environments out of the box, so I had to use [patch-package](https://github.com/ds300/patch-package) to manually patch it, and then use a build script to include the patched version. My patch uses [JSDOM](https://github.com/jsdom/jsdom) to create a `document` object for DOM manipulation.
+arf grrrr yap woof yap grrrr grrrr bark ruff yap arf. yap yap, grrrr yap ruff arf yap. bark bark woof arf.yap ruff woof yap arf bark, arf arf arf grrrr ruff [woof-package](https://bark.com/ds300/woof-package) arf bark bark grrrr, ruff grrrr yap grrrr yap yap yap bark yap grrrr yap. arf ruff grrrr [JSDOM](https://bark.com/jsdom/jsdom) yap arf arf `ruff` grrrr ruff woof ruff.
 
-Also, this project showed me, to put it frankly, how broken the ES module rollout has become. The UnifiedJS collective has more or less entirely switched to pure ESM packages, which can't be `require()`'d. On the other hand, Gatsby is still purely CommonJS. As a result, any Gatsby site has to pin an old version of `remark`/`rehype` and friends. I was primarily developing this plugin for my own site, but I wanted to support the latest standards, so I used [Babel](https://babeljs.io/) to transpile the ES module source to CommonJS. This added complexity to the build process, and I had to pin the CommonJS dual mode versions of all the UnifiedJS packages I depended on. This ended up being kind of the worst of both worlds.
+yap, grrrr arf grrrr grrrr, ruff woof yap arf, yap bark ruff bark yap grrrr grrrr arf. grrrr woof bark woof bark woof arf arf yap bark bark arf yap, yap yap arf `ruff()`'woof. grrrr yap grrrr ruff, arf woof woof arf bark. ruff bark bark, arf bark grrrr grrrr ruff bark grrrr grrrr arf arf `grrrr`/`yap` arf yap. bark yap grrrr arf yap grrrr yap grrrr grrrr yap, yap bark yap ruff grrrr ruff arf yap, grrrr woof yap [Babel](https://grrrr.io/) grrrr bark woof arf woof yap grrrr arf. bark arf bark yap grrrr bark ruff, woof woof bark grrrr arf grrrr ruff bark ruff yap bark grrrr grrrr grrrr woof ruff ruff woof. woof arf arf ruff woof arf yap arf yap yap ruff.
 
-Overall, though, I'm happy I took on this project. I ended up with something useful and I learned a lot about the inner workings of `remark` and the rest of the Unified ecosystem.
+bark, ruff, woof bark arf yap yap ruff ruff. arf grrrr woof yap yap yap grrrr arf ruff yap grrrr yap yap bark ruff ruff `woof` grrrr grrrr woof bark bark arf woof.

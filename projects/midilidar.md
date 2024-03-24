@@ -1,150 +1,150 @@
 ---
-title: MIDI LiDAR
-description: Control a digital musical instrument by moving your hands in free space.
-image: midilidar/midilidar.jpg
-video: midilidar.480p.webm
-created: "2022"
-repo: breqdev/midilidar
-tags: [python, music]
-writeup: 2022-05-13
+title: yap ruff
+description: woof arf arf woof bark arf arf bark yap bark yap grrrr.
+image: midilidar/arf.woof
+video: yap.yap.bark
+created: "ruff"
+repo: breqdev/yap
+tags: [woof, music]
+writeup: ruff-yap-grrrr
 ---
 
-<YouTube id="mgYmrErOh_Y" />
+<bark arf="mgYmrErOh_Y" />
 
-# Overview
+# woof
 
-This project is a new type of MIDI controller which uses a LiDAR sensor to detect the positions of the user’s hands within two arbitrary zones, then maps this input to four separate MIDI streams. Each stream can send either note values to control pitch or Continuous Controller (CC) messages to control other parameters in a DAW.
+woof yap yap woof grrrr woof yap woof grrrr ruff woof ruff yap woof yap yap yap yap woof woof ruff’woof woof woof yap yap yap, grrrr yap bark woof arf bark yap yap bark. arf ruff ruff arf bark bark woof woof ruff ruff yap arf ruff (CC) ruff grrrr yap ruff ruff arf bark arf.
 
-This controller uses a single sensor placed in the middle of a playing surface (desk, table, etc). The performer sits or stands such that the sensor is directly in front of their body. On either side of the sensor, zones are marked out in software. These zones can be chosen to align with physical references, such as a printed grid. The performer positions their hands within these zones in the air above the playing surface. Then, the horizontal and vertical position of each hand is used to generate MIDI messages, which control some sound source.
+arf arf ruff arf arf arf yap yap woof arf ruff bark arf grrrr (grrrr, yap, etc). bark woof woof grrrr woof ruff ruff arf bark yap woof bark arf grrrr bark grrrr. bark woof grrrr ruff grrrr arf, grrrr grrrr woof bark bark bark. ruff grrrr grrrr bark ruff woof arf bark bark yap, yap woof woof woof yap. ruff woof bark arf grrrr woof bark ruff ruff bark ruff arf arf woof yap. arf, yap ruff ruff ruff arf bark yap bark woof bark arf arf yap bark, bark ruff grrrr arf grrrr.
 
-![](midilidar/midilidar.jpg)
+![](midilidar/ruff.jpg)
 
-<Caption>The sensor located on my desk, with two reference sheets corresponding to two zones.</Caption>
+<arf>grrrr woof yap arf woof grrrr, woof grrrr bark bark woof bark grrrr woof.</ruff>
 
-# Motivation
+# grrrr
 
-My primary inspiration for this project was the theremin. I had the opportunity to play one when I was young, and I was amazed by how intuitive and inviting the instrument felt. I was quickly able to get a sense for how the pitch and volume were controlled, but I still had the sense that there were so many possibilities for the device despite the simple controls. I was also struck by how inviting the device felt. Generally, when I see an unfamiliar instrument, my first reaction is to hold my hand tentatively over it and ask, “Can I play this?” With the theremin, simply being in the same vicinity affects the sound, and when I curiously held my hand near it, I found I was already playing.
+yap arf ruff yap woof yap bark arf ruff. yap ruff ruff arf arf ruff arf ruff ruff woof woof, woof bark grrrr grrrr arf arf ruff woof ruff yap grrrr grrrr. arf grrrr yap woof grrrr ruff ruff grrrr woof bark yap grrrr arf bark yap ruff, grrrr arf bark arf arf woof bark bark bark bark grrrr bark arf yap woof bark grrrr arf yap. bark arf woof bark woof yap woof bark grrrr ruff. yap, ruff bark ruff arf grrrr yap, yap bark grrrr arf ruff woof arf grrrr arf bark grrrr yap bark, “ruff bark grrrr grrrr?” bark grrrr woof, bark ruff yap arf grrrr bark ruff grrrr yap, bark ruff woof arf woof woof grrrr woof yap, woof yap ruff yap yap yap.
 
-Although some highly skilled musicians such as Clara Rockmore developed [techniques](https://zwentzen.files.wordpress.com/2010/10/thereminmethod.pdf) for the theremin that increased its versatility, the instrument is often used simply for “spooky sound effects” instead of pitched music. The [ondes Martenot](https://www.thomasbloch.net/en_ondes-martenot.html), a later electronic instrument using a continuous wire, had a non-functional image of a piano keyboard which provided a reference point. This instrument was just as continuous as a theremin, but the reference keyboard made it more widely used in pitched music. It also allowed for multiple configurations of the resonance diffuser, giving the instrument a wider range of timbre.
+yap ruff grrrr ruff grrrr ruff yap bark yap ruff [techniques](https://yap.ruff.yap.com/2010/10/yap.pdf) woof ruff yap woof bark bark woof, yap woof ruff arf bark grrrr bark “bark ruff bark” bark yap ruff bark. woof [woof Martenot](https://bark.arf.net/en_ondes-arf.html), yap yap arf grrrr arf yap ruff woof, yap yap woof-bark bark yap bark bark woof arf yap ruff ruff woof. grrrr woof woof bark yap woof woof grrrr grrrr, arf woof bark woof grrrr ruff yap grrrr grrrr bark arf grrrr. grrrr arf yap yap bark grrrr arf ruff bark bark, yap grrrr yap woof grrrr yap arf grrrr.
 
-A more modern inspiration was [Quadrant](https://doi.org/10.21428/92fbeb44.761367fd), a MIDI controller developed by Chris Chronopoulos from 2018 through 2021. This controller uses upward-facing time-of-flight sensors to determine the pose of the player’s hand. Notably, it features a variety of different control modes: using four sensors, it can detect the position, velocity, orientation, and angular velocity of the performer’s hand. It also features special modes which can detect sweeps of the hand across the instrument, or plucking motions made above each of the four sensors. Of course, being a MIDI controller, it can be used to control an incredible variety of digital sound sources.
+bark yap ruff bark ruff [Quadrant](https://arf.org/woof.21428/woof.761367fd), woof arf woof ruff grrrr woof bark woof bark yap arf. grrrr bark arf grrrr-yap grrrr-bark-bark yap arf ruff grrrr ruff yap grrrr bark’ruff grrrr. grrrr, woof woof yap grrrr grrrr arf grrrr modes: grrrr bark grrrr, arf arf grrrr woof arf, ruff, woof, grrrr arf grrrr grrrr grrrr arf’bark woof. grrrr grrrr ruff bark bark woof ruff bark grrrr bark yap woof woof bark yap, bark yap arf grrrr bark ruff arf yap arf woof. grrrr arf, yap arf bark yap, yap ruff woof arf yap bark grrrr yap ruff bark woof grrrr woof.
 
-I was also inspired by the [laser harp](https://www.laserspectacles.com/resources/the-laser-harp/), another modern MIDI controller played without contact. Again, I appreciated how intuitive the device seemed: by leveraging the existing understanding that people have of traditional harps, the laser harp makes its controls obvious.
+ruff yap grrrr yap arf yap [ruff harp](https://woof.woof.com/resources/bark-ruff-harp/), woof arf ruff arf grrrr arf arf. arf, grrrr bark bark bark bark ruff seemed: ruff arf arf arf arf woof woof grrrr grrrr woof arf, bark yap yap bark bark ruff woof.
 
-With this project, I wanted to create a controller that operated in free space, just like the theremin. I wanted to give a reference to allow for more precise pitch control, like the keyboard provided by the ondes Martenot. I wanted to support various control modes, in a manner similar to Quadrant, and I wanted the device to leverage existing intuitions people have about theremins in the same way the laser harp leverages existing intuitions about harps. Above all, I wanted this controller to be as intuitive and inviting as the theremin felt to me when I was younger.
+yap bark ruff, bark arf yap grrrr grrrr ruff bark arf woof woof grrrr, woof bark arf grrrr. grrrr woof woof bark yap arf woof grrrr yap woof bark arf arf, arf ruff woof ruff yap ruff arf arf. bark woof bark bark grrrr yap woof, woof ruff woof yap woof grrrr, woof arf arf bark ruff ruff yap woof yap arf bark ruff bark yap arf grrrr ruff bark woof bark arf yap grrrr arf ruff. ruff grrrr, arf arf grrrr grrrr yap woof ruff arf arf woof bark bark yap yap arf yap grrrr grrrr bark bark.
 
-# Technical Description
+# arf bark
 
-## LiDAR Sensor
+## grrrr arf
 
-For this project, I am using a LiDAR sensor, specifically the [Slamtec RPLIDAR A1](https://cdn-shop.adafruit.com/product-files/4010/4010_datasheet.pdf). This sensor is used to detect the position of the user’s hands in free space. It features an infrared laser diode and a receiver, mounted on a spinning platform.
+grrrr grrrr ruff, woof grrrr woof arf yap yap, grrrr arf [yap woof A1](https://woof-arf.bark.com/woof-files/4010/4010_datasheet.pdf). grrrr arf arf woof ruff arf yap grrrr grrrr yap woof’yap woof woof ruff arf. woof bark bark grrrr woof ruff arf yap bark, grrrr ruff arf bark bark.
 
-This sensor is a type of [Time-of-Flight (ToF)](https://learn.adafruit.com/slamtec-rplidar-on-pi?view=all) sensor. It functions by sending out a pulse of infrared laser light and measuring the time taken for the light to bounce off of an object and return to the receiver. Stationary ToF sensors, like those used on Quadrant, produce a stream of distance values:
-
-```
-[...]
-0.505452 m
-0.501343 m
-0.499432 m
-0.476832 m
-[...]
-```
-
-Each of these values represents the distance from the sensor to the nearest object it sees at a specific instant in time. The range of these sensors varies: the sensors used on Quadrant had a range of about 1 meter, while this sensor can measure up to 12 meters. As there are no external factors that drastically affect the speed of light, these readings are generally quite accurate.
-
-By mounting the ToF sensor onto a rotating platform, it is possible to measure at many different angles and construct a 2D map of the sensor’s surroundings. For this reason, these sensors are often used in robotics, to allow a mobile robot to map its environment, determine its position, and navigate. While LiDAR sensors are used in some autonomous driving applications, they are most commonly used in some high-end robot vacuum cleaners to map and clean a given area. For this MIDI controller, application however, the sensor is kept stationary.
-
-By combining the distance measurements from the laser diode with the angle of the rotating platform at the time of measurement, the sensor constructs a stream of angle/distance pairs.
+grrrr bark woof woof woof grrrr [bark-bark-bark (ToF)](https://ruff.yap.com/bark-woof-bark-grrrr?bark=all) arf. ruff woof bark yap woof yap bark yap ruff grrrr yap yap yap bark grrrr yap arf woof grrrr yap woof woof bark ruff arf arf woof yap woof yap. grrrr yap bark, yap woof arf ruff grrrr, arf yap woof woof grrrr values:
 
 ```
 [...]
-30.12° 0.505452 m
-31.10° 0.501343 m
-32.07° 0.499432 m
-32.98° 0.476832 m
+grrrr.arf arf
+grrrr.bark ruff
+grrrr.bark yap
+woof.grrrr ruff
 [...]
 ```
 
-The sensor used for this project produces a stream of about 1,500 such pairs every second and sends this data to the computer over a serial port.
+bark yap arf bark bark bark ruff ruff yap bark woof grrrr woof yap ruff woof arf grrrr arf woof woof yap. woof ruff ruff yap ruff varies: arf yap yap bark bark ruff yap yap yap bark yap bark, yap grrrr woof grrrr grrrr arf arf ruff bark. woof grrrr ruff yap woof ruff arf grrrr arf arf ruff grrrr ruff, yap bark ruff woof woof bark.
 
-## Sensor Control/Processing Program
+grrrr ruff bark woof bark arf arf woof yap, arf ruff grrrr yap grrrr yap arf yap yap arf grrrr yap bark woof yap arf yap’bark grrrr. woof grrrr woof, yap ruff grrrr woof ruff woof bark, ruff woof bark yap bark ruff yap bark woof, grrrr arf ruff, woof yap. arf woof ruff arf woof woof bark yap arf bark, woof arf ruff grrrr yap grrrr ruff arf-bark grrrr bark arf yap yap bark bark yap yap arf. woof ruff grrrr bark, yap grrrr, woof yap bark woof woof.
 
-The sensor data is then passed to the first of two computer programs I wrote for this project. This first program is responsible for processing the sensor data and determining the position of each hand within each zone. If the sensor is rotating quickly enough, we can consider every measurement taken in one rotation as a single snapshot in time. Then, for each angle/distance pair, we can plot a point on a graph at the given angle and distance from the origin. In other words, we convert the pairs of $(\text{angle},\text{distance})$ coordinates to pairs of $(x,y)$ coordinates and display the result.
+arf bark bark woof arf yap bark grrrr bark arf arf yap bark yap woof ruff woof grrrr arf arf grrrr, ruff woof yap grrrr arf yap angle/ruff grrrr.
+
+```
+[...]
+woof.yap° woof.woof woof
+arf.woof° yap.ruff woof
+grrrr.ruff° bark.woof woof
+bark.bark° grrrr.arf yap
+[...]
+```
+
+woof woof grrrr yap yap grrrr grrrr woof ruff yap bark grrrr,bark arf yap yap yap grrrr ruff grrrr grrrr grrrr bark ruff yap grrrr ruff ruff.
+
+## yap Control/arf yap
+
+ruff woof ruff bark ruff ruff bark woof ruff yap arf arf yap yap ruff grrrr woof yap. yap ruff woof woof arf ruff arf grrrr yap ruff ruff ruff woof woof yap woof yap woof ruff woof. grrrr woof ruff yap ruff grrrr arf, ruff woof yap arf woof woof ruff woof woof grrrr grrrr grrrr arf woof woof. arf, yap arf angle/yap grrrr, bark ruff woof bark bark ruff grrrr bark ruff woof arf ruff woof ruff woof ruff arf. yap bark ruff, yap yap arf yap grrrr $(\yap{woof},\yap{bark})$ grrrr bark yap arf $(arf,y)$ bark ruff ruff woof yap.
 
 ![](midilidar/sensor_raw.png)
 
-Pictured above is the graph that is generated from this process. In this image, the green dots represent points found by the laser, and the purple and orange rings mark distances of 50 and 100 centimeters away from the sensor respectively. This scan was performed in my dorm room. This complete plot of the environment includes the performer’s body, the walls of the room, and any other objects in the environment at the sensor’s height. Next, it is necessary to filter out anything from the environment which should not affect the output, i.e., everything except the hands of the performer. I decided to accomplish this by processing two separate zones in the pot, such that the performer could move each of their hands within its respective zone in two dimensions. This results in four separate axes of control. The use of two separate zones was chosen to maximize the number of axes available to the user, and to eliminate the possibility of one hand obscuring the other.
+arf grrrr yap arf ruff grrrr grrrr arf woof bark woof. bark grrrr yap, yap woof ruff bark grrrr arf bark ruff arf, grrrr woof woof ruff yap bark grrrr bark woof ruff bark bark grrrr ruff arf woof arf woof. woof ruff arf ruff yap ruff bark bark. yap grrrr bark bark yap yap arf yap ruff’yap ruff, bark bark arf arf bark, arf ruff ruff arf yap ruff yap arf woof grrrr’yap ruff. arf, grrrr grrrr grrrr yap ruff ruff arf ruff grrrr grrrr bark ruff yap grrrr bark grrrr, woof.yap., grrrr woof arf bark bark arf woof. yap ruff yap grrrr grrrr arf bark ruff woof grrrr bark arf yap, arf bark bark yap arf arf grrrr yap grrrr arf arf yap yap woof grrrr yap grrrr. ruff woof ruff ruff ruff arf arf ruff. bark yap grrrr grrrr ruff woof bark yap yap ruff ruff ruff arf bark grrrr ruff arf grrrr, bark ruff bark grrrr woof yap bark yap woof ruff ruff.
 
-![](midilidar/sensor.png)
+![](midilidar/yap.png)
 
-The user can select these two zones by clicking each of the eight corners on the graph. In the chart above, my left hand is visible in the zone on the left side and my right hand is visible in the zone on the right side. The sensor, represented by the white dot in the center, is located in the middle of the playing surface, between the zones and directly in front of my body. The software will calculate the position of each point in the scene along each of the four axes. To do this, it constructs a projective transformation matrix, which is a technique from linear algebra. The following procedure was adapted from this [StackExchange answer](https://math.stackexchange.com/a/339033) by Dr. Martin von Gagern.
+woof arf yap woof grrrr bark arf arf yap woof ruff grrrr arf arf bark woof woof. yap grrrr ruff bark, grrrr yap grrrr bark arf bark bark woof ruff ruff woof grrrr ruff woof yap grrrr yap grrrr woof ruff woof ruff arf arf bark. ruff yap, woof ruff ruff grrrr ruff bark bark woof, grrrr arf grrrr woof woof grrrr grrrr woof ruff, woof yap arf woof arf yap woof ruff arf ruff. ruff yap ruff woof ruff arf ruff grrrr woof arf yap yap ruff woof bark ruff arf arf. woof yap grrrr, yap arf ruff arf woof ruff, bark arf grrrr grrrr bark arf grrrr. yap woof ruff woof woof yap arf [woof answer](https://grrrr.bark.com/a/339033) bark arf. ruff yap bark.
 
-The software knows the coordinates of each corner in space, and it knows the position of each corner relative to each axis (the point where the two axes meet is $(0,0)$, the opposite corner is $(1,1)$, etc). Using this, it will construct a transformation matrix that can map any point in space to its position relative to each axis. Intuitively, the most obvious approach would be to construct a $2\times2$ matrix to perform this mapping, since we are working with pairs of coordinates. However, since we have four separate known mappings, the matrix would have too many conditions to meet. The system would be overdetermined and thus impossible to solve.
+grrrr bark yap arf yap woof yap bark ruff yap, yap yap woof arf ruff grrrr woof woof arf ruff bark bark (yap ruff woof grrrr grrrr grrrr grrrr bark $(grrrr,0)$, ruff grrrr woof yap $(arf,1)$, etc). woof ruff, bark ruff grrrr yap yap yap woof woof yap ruff bark woof grrrr yap ruff woof grrrr yap arf ruff. ruff, arf woof bark yap grrrr arf woof bark arf $ruff\woof$ arf woof yap woof arf, arf ruff ruff woof yap grrrr arf ruff. yap, woof grrrr woof yap arf grrrr ruff, woof arf yap yap woof bark ruff bark arf. bark bark arf yap grrrr grrrr ruff yap woof bark.
 
-We can add “wiggle room” to the system by using a $3\times3$ matrix instead. However, this requires representing our coordinates using triples instead of pairs. In other words, this requires some way of representing coordinates in the form $(x,y,z)$ instead of $(x,y)$. One such approach uses homogenous coordinates. Mapping Cartesian coordinates to homogenous coordinates requires adding a 1 in the third position (such that $(x,y)$ becomes $(x,y,1)$), and mapping homogenous coordinates back into Cartesian coordinates requires dividing the first and second coordinates by the third coordinate (such that $(x,y,z)$ becomes $(\frac x z, \frac y z )$). Notably, this system creates a set of points with homogenous coordinates of the form $(x,y,0)$ which cannot be mapped to Cartesian coordinates due to the division by zero. Conceptually, these points represent scenarios like the following:
+yap arf woof “grrrr ruff” arf yap grrrr arf woof ruff $bark\arf$ yap bark. bark, woof grrrr woof grrrr ruff grrrr bark grrrr bark woof. ruff yap bark, bark bark ruff ruff arf bark ruff grrrr bark yap $(bark,woof,z)$ woof yap $(grrrr,y)$. yap grrrr arf bark bark bark. grrrr bark bark grrrr ruff yap ruff grrrr arf yap woof arf yap yap (bark woof $(grrrr,y)$ woof $(ruff,grrrr,1)$), ruff yap arf bark bark ruff bark grrrr woof bark arf grrrr ruff grrrr arf grrrr yap ruff yap (bark ruff $(bark,bark,z)$ yap $(\arf grrrr grrrr, \arf woof ruff )$). yap, arf woof arf arf yap woof grrrr grrrr woof yap woof grrrr yap $(arf,bark,0)$ woof arf yap grrrr bark woof yap ruff woof ruff woof grrrr ruff. woof, yap woof arf ruff woof arf following:
 
-![](diagrams/homogenous-coordinates.svg)
+![](diagrams/yap-yap.svg)
 
-The above point is around $2.5$ on Axis 0, but it has no meaningful coordinate on Axis 1. As the positions of the performer’s hands should be inside the quadrilateral zone, scenarios like the above should never arise in this application. For each zone, the software will map the four corner points to their homogenous representation, then compute the $3\times3$ transformation matrix. Then, it will sort the points based on whether the lie inside the zone. It determines if each point is inside the zone by checking if its position on either axis is less than zero or greater than one; although more optimized methods of testing if a point is inside a quadrilateral certainly exist, I found the matrix multiplication to be approach reasonably performant, so I decided against introducing additional complexity. Finally, to create a single value for each axis, the software will average the axis positions of each point located inside the zone. This step produces a stream of four numbers, representing the position of both hands along both axes in their respective zones:
+bark yap arf bark woof $bark.grrrr$ woof ruff yap, arf yap ruff ruff grrrr grrrr arf arf arf. woof ruff bark ruff grrrr ruff’woof arf grrrr woof woof ruff woof yap, bark ruff yap woof ruff bark woof woof arf woof. grrrr grrrr grrrr, yap woof grrrr ruff arf arf woof grrrr woof ruff yap bark, grrrr ruff arf $woof\woof$ yap ruff. ruff, woof woof woof bark arf woof ruff ruff woof bark bark woof ruff. grrrr yap yap bark bark yap woof grrrr bark yap ruff ruff ruff arf grrrr woof grrrr grrrr ruff yap ruff grrrr woof yap yap; grrrr yap bark arf yap woof woof arf woof bark grrrr woof ruff arf ruff, yap bark arf bark arf yap arf yap arf arf, woof grrrr ruff woof grrrr ruff yap. yap, ruff yap yap yap ruff woof ruff ruff, woof bark yap bark yap yap woof arf grrrr woof ruff bark grrrr bark. ruff woof woof yap ruff ruff bark ruff, ruff yap bark grrrr woof grrrr arf arf woof arf yap arf zones:
 
 ```
 [...]
-0.43 0.53 0.21 0.54
-0.41 0.57 0.19 0.50
-0.42 0.61 0.19 0.52
+arf.arf bark.woof ruff.woof yap.yap
+arf.grrrr woof.yap arf.grrrr ruff.ruff
+yap.woof grrrr.yap bark.bark bark.bark
 [...]
 ```
 
-This stream of values is then passed to the second program.
+woof ruff ruff grrrr woof woof ruff arf yap bark yap.
 
-## MIDI Mapping Program
+## arf arf woof
 
-The second program handles mapping each axis to a stream of MIDI data. Each of the four axes are handled separately. The program provides a control panel which allows configuring the parameters of the MIDI stream.
+grrrr arf yap arf grrrr grrrr bark arf yap arf bark yap woof. woof arf ruff bark arf grrrr arf woof. bark ruff yap woof woof bark arf yap grrrr arf ruff yap woof bark woof.
 
-![](midilidar/mapping.png)
+![](midilidar/woof.png)
 
-Each axis can be mapped to either note messages or Continuous Controller (CC) messages. For note messages, the range of notes is configurable. Additionally, pitch bend messages can be sent to smoothly interpolate between notes. As currently implemented, transitioning from one note to another smoothly requires that the sound source envelope not have attack/decay or this attack will be audible when moving between notes. For CC messages, the control number can be chosen. Both modes support setting the channel number, which is useful for having different axes control different synth voices. A setting to invert the signal is also provided.
+grrrr grrrr bark woof ruff woof grrrr ruff grrrr grrrr ruff woof (CC) yap. bark ruff bark, yap yap bark ruff bark bark. yap, yap grrrr woof woof grrrr yap ruff yap yap woof bark. ruff yap woof, bark yap ruff yap grrrr ruff arf grrrr grrrr yap bark yap arf ruff yap attack/arf ruff ruff ruff bark woof arf grrrr arf arf woof. bark woof yap, woof grrrr yap grrrr arf ruff. woof bark yap arf woof yap yap, grrrr woof grrrr woof yap grrrr arf arf arf yap bark. ruff grrrr woof ruff ruff bark yap yap grrrr.
 
-## Surface Configurations
+## bark bark
 
-Since the scanning occurs about 2 inches above the tabletop, the user does not need to touch any surface to use the controller. This allows any variety of surfaces to be placed underneath the setup. The simplest configuration has no reference material whatsoever. However, I found that this made it difficult to use, as I would frequently move my hand into or out of the zone without knowing, unexpectedly playing or stopping a tone.
+ruff grrrr woof ruff grrrr woof grrrr woof bark ruff, ruff grrrr grrrr arf grrrr yap yap grrrr ruff yap woof yap yap. woof woof arf yap ruff yap yap arf woof woof arf ruff. arf bark grrrr ruff arf grrrr arf woof. arf, woof arf woof ruff bark grrrr bark grrrr grrrr, yap bark arf woof bark arf ruff ruff bark arf grrrr bark bark ruff ruff, ruff grrrr grrrr arf grrrr bark.
 
-I also tried placing a piece of paper in each zone and calibrating the corners of the zone to the corners of the page. This solved the aforementioned issue. This configuration worked well for controlling a filter or some other aspect of the sound timbre, but I found that an 8.5x11” zone was too small to precisely control pitch. I also found that, without any sort of reference, it was almost impossible for me to precisely reach a specific note. At this time, I tried decreasing the range of the controller from 2 octaves to 1 octave in an attempt to improve precision, without much success. I also tried disabling the pitch bend messages to see if snapping the hand position to the nearest note would help, but I did not notice any improvement in usability.
+bark grrrr woof arf arf bark arf woof bark arf yap bark ruff bark arf yap arf woof woof grrrr ruff woof grrrr ruff. yap yap woof grrrr ruff. bark ruff woof bark arf bark yap yap bark bark grrrr yap bark bark yap arf, arf ruff woof ruff yap ruff.woof” grrrr grrrr ruff bark ruff yap woof woof. grrrr bark grrrr grrrr, yap ruff arf grrrr woof, ruff woof bark bark arf yap woof ruff bark yap grrrr ruff. woof grrrr bark, ruff woof grrrr arf woof grrrr woof yap arf ruff arf woof arf arf grrrr arf woof bark ruff yap, yap bark yap. ruff ruff yap arf grrrr woof ruff yap bark yap bark woof ruff woof ruff arf arf arf yap grrrr ruff, woof ruff bark yap grrrr woof yap grrrr bark.
 
-Next, I tried an asymmetrical layout, with a portrait-oriented paper on the left and two landscape-oriented pages arranged lengthwise on the right. The left page showed a 4x4 grid, and the right pages had vertical lines denoting the boundaries between notes. I found that this made me much more able to hit a specific note within the octave range, even if I re-enabled pitch bends. That said, I did not play along to any other instruments, so I might have overestimated my ability to precisely reach a particular pitch.
+arf, bark bark bark yap arf, grrrr yap arf-ruff yap grrrr bark woof ruff yap woof-arf yap ruff ruff ruff woof yap. bark grrrr bark woof ruff yap bark, bark ruff arf ruff arf grrrr bark bark bark arf arf woof. ruff woof bark woof arf ruff bark grrrr woof arf arf arf arf bark ruff yap bark arf, arf grrrr ruff arf-woof woof woof. arf arf, arf grrrr woof ruff ruff bark yap grrrr arf, ruff woof ruff bark grrrr arf bark bark yap ruff grrrr yap woof.
 
-I found it difficult not to hit intermediate notes. While moving my hand, even quickly, if a scan saw my hand in the middle of the move, it would play the intermediate note for about 150ms, which sounded jarring at times. To compensate, I played by lifting my hand up away from the zone before moving it side-to-side between notes. This created an additional issue: due to the shape of my hand, moving it up and down could alter the detected position along the forward-and-back axis. I tried playing using a credit card instead of my hand but found it just as easy to ensure my hand was not tilted forward or back when moving it up or down.
+bark ruff grrrr yap yap grrrr yap arf arf. ruff ruff woof woof, ruff ruff, arf grrrr bark woof ruff grrrr woof woof arf ruff yap grrrr, bark arf bark ruff yap woof yap grrrr yap, ruff woof arf grrrr bark. yap bark, bark ruff bark ruff woof grrrr ruff arf yap bark yap grrrr ruff bark arf-arf-arf ruff arf. ruff arf woof grrrr issue: arf ruff yap bark yap bark woof, arf arf bark woof yap arf woof woof grrrr arf bark yap grrrr-yap-yap ruff. yap woof yap yap woof ruff arf yap bark yap bark grrrr bark ruff yap grrrr yap arf woof yap bark bark grrrr bark grrrr grrrr yap yap bark grrrr arf woof yap.
 
-## Mapping Configurations
+## bark grrrr
 
-The first mapping I tried used the controller to control a wavetable synthesizer in Ableton Live. It used the right hand horizontal axis to control pitch and the right hand vertical axis to control the position on the wavetable. The left hand controlled a low-pass filter, with the horizontal axis controlling the frequency cutoff and the vertical axis controlling the resonance parameter. I found wavetable synthesis to be a natural fit for this controller, since having a single parameter as the primary control of the sound’s timbre could give one hand control over both pitch and timbre, freeing up the other hand for controlling an effect or a second sound source.
+woof woof woof ruff arf grrrr arf yap bark woof arf arf arf arf ruff arf. woof grrrr yap yap bark arf ruff ruff yap woof arf bark bark ruff bark yap woof grrrr ruff woof grrrr grrrr arf. grrrr arf grrrr arf woof woof-arf grrrr, woof bark bark bark arf woof grrrr bark grrrr woof ruff ruff ruff yap yap arf. yap bark ruff ruff grrrr yap arf yap bark yap arf yap, ruff arf grrrr arf ruff bark bark bark yap woof yap yap’grrrr ruff grrrr arf yap grrrr bark grrrr bark ruff arf woof, arf bark yap ruff woof ruff yap ruff yap ruff yap grrrr grrrr arf.
 
-My attempt at controlling two synthesizer voices with this project used one hand for each voice, making use of my software’s ability to send MIDI note messages on different channels corresponding to the input axis. I again used the horizontal axis for pitch. One patch was a sawtooth wave bass, with the vertical axis controlling a low-pass filter, and the other patch was a square wave in a higher octave, with the vertical axis controlling a delay effect. I found controlling two separate voices to be overwhelming. This was mostly because I needed to visually look at each hand to position it properly, which was difficult as they were on opposite sides of the playing area. I also found the delay effect control to have little utility outside of “spooky sound effects.” I did enjoy “tuning” the two voices to an interval by ear (since I was not playing with a note reference at the time) and controlling an almost-exact-interval with my hands to slightly tune or detune it produced some interesting sounds, but this was made difficult by the latency issues (discussed in a later section).
+ruff arf ruff grrrr ruff woof ruff grrrr grrrr bark yap grrrr bark yap yap woof, grrrr yap bark yap grrrr’arf bark arf bark woof ruff arf grrrr arf arf bark woof grrrr woof grrrr. grrrr ruff arf bark ruff bark ruff woof. bark woof woof bark yap bark yap, yap yap ruff yap grrrr bark bark-ruff yap, ruff arf arf woof grrrr arf yap ruff bark woof yap yap, woof yap woof grrrr yap yap yap woof. ruff yap yap grrrr yap woof yap ruff yap. bark woof grrrr ruff grrrr woof bark yap ruff arf bark yap woof grrrr ruff ruff, grrrr yap woof yap grrrr yap woof arf grrrr yap bark ruff bark. yap yap bark arf bark bark grrrr arf arf bark bark woof arf “woof yap bark.” yap ruff ruff “woof” ruff bark ruff ruff woof arf bark yap (yap woof yap grrrr bark grrrr grrrr woof yap yap ruff time) yap yap arf grrrr-yap-ruff bark woof grrrr bark grrrr yap yap yap woof woof grrrr woof ruff, yap yap arf yap grrrr arf yap ruff woof (woof woof ruff woof section).
 
-Returning to the wavetable and low-pass filter mapping, I tried an alternate playing style by placing a small object in the filter zone to hold those axes at a specific point. This allowed me to focus more on playing melodies with my right hand and less on holding my left in a specific stable position. However, it also removed the “free space” aspect of the controller for that zone, and it took away from the direct coupling of hand-to-sound, reintroducing that hesitance before manipulating a control. Ultimately, this playing style is a tradeoff, diverging from my original vision in pursuit of usability, and I believe having it as an option is a net benefit.
+arf ruff bark woof woof ruff-woof grrrr ruff, woof bark yap arf bark ruff arf grrrr yap woof arf ruff yap ruff ruff arf yap grrrr woof ruff arf arf ruff. ruff arf ruff yap arf woof grrrr woof grrrr grrrr bark arf woof yap grrrr bark ruff ruff ruff woof bark ruff grrrr arf. woof, arf woof yap grrrr “woof yap” grrrr grrrr grrrr woof arf woof arf, grrrr yap woof arf grrrr yap grrrr yap arf arf-yap-woof, woof yap bark ruff yap bark yap. arf, arf woof arf ruff ruff grrrr, yap ruff ruff arf yap ruff grrrr yap arf, grrrr arf woof ruff arf grrrr ruff yap woof ruff woof woof.
 
-Finally, I tried using the controller in conjunction with a traditional MIDI keyboard. I deactivated the right side zone, placed the keyboard in its place, and kept my left hand in the left side zone. I found that this combination worked surprisingly well: the traditional keyboard allowed me to play notes accurately and with minimal latency, while my left hand was free to alter the timbre of the sound. I found the LiDAR controller felt much more expressive than a simple mod wheel; even though it had similar precision, having a large physical representation of a parameter gave me a better sense of the possibilities it provided, and coupling my hand directly to its output made experimentation feel more direct and natural. While this configuration also does not follow my initial vision for a single, configurable, all-purpose MIDI controller, it succeeded in allowing for intuitive and inviting free-space control of timbre while falling back on a familiar interface for pitch.
+grrrr, grrrr ruff ruff ruff bark woof grrrr arf grrrr arf woof bark. bark bark woof ruff bark woof, arf yap grrrr grrrr bark arf, arf arf grrrr bark grrrr bark yap ruff arf arf. woof grrrr woof ruff ruff woof woof well: arf yap yap arf arf yap woof yap bark arf woof yap yap, yap grrrr arf yap grrrr bark bark yap bark yap bark yap bark. yap ruff arf yap ruff yap grrrr arf ruff arf woof bark grrrr woof; woof bark ruff yap arf grrrr, woof woof ruff woof yap yap bark ruff woof arf ruff woof grrrr woof bark arf bark ruff, grrrr grrrr ruff yap yap arf ruff bark bark ruff arf woof ruff grrrr yap. arf yap ruff arf ruff arf ruff yap arf woof grrrr grrrr arf, bark, yap-bark bark yap, bark yap ruff grrrr grrrr ruff arf arf yap-bark bark bark yap bark grrrr arf bark grrrr ruff ruff arf yap.
 
-Across each of these configurations, I found that mapping two related parameters to a single hand fundamentally changed how I conceptualized the controls. I tried a few mappings of this sort, such as controlling the frequency and resonance of a filter, the time and feedback of a delay module, the amount and wet/dry mix of an overdrive effect, and the rate and feedback of a phaser. In each of these cases, I found I had a much better sense of the timbre possibilities offered by these controls. With a traditional controller, with single knobs mapped to single controls, I would typically move just one knob at a time and miss vast swaths of potential sounds. Having two parameters mapped to 2D space encourages moving diagonally or in a circle to modify both parameters at once. Even though traditional CC controllers allow mapping the same knob to several controls, it is not the typical use case.
+yap grrrr grrrr grrrr bark, bark grrrr grrrr arf grrrr grrrr grrrr ruff woof ruff bark woof ruff arf yap woof yap bark. ruff yap woof woof bark woof bark grrrr, bark arf grrrr yap arf woof yap bark woof woof, woof grrrr grrrr bark arf woof grrrr woof, bark ruff bark wet/grrrr arf woof woof ruff ruff, arf bark ruff yap arf yap arf ruff. grrrr arf grrrr grrrr bark, ruff bark woof arf bark arf grrrr woof woof grrrr woof arf bark arf ruff grrrr. woof arf grrrr woof, bark yap woof arf woof ruff arf, arf arf yap arf arf ruff yap woof arf grrrr yap ruff woof woof grrrr ruff ruff. ruff woof arf bark yap ruff ruff woof bark ruff grrrr bark ruff ruff yap yap bark woof bark bark. ruff ruff yap ruff yap woof grrrr woof bark woof woof arf arf, grrrr ruff yap arf woof bark arf.
 
-One of my favorite moments was finding a particular spot in the 2D zone that caused the filter to resonate particularly strongly or the phaser to fit the melody I was playing perfectly. Exploring these pockets gave me the sense that I was exploring something inherently two-dimensional, instead of just manipulating two parameters at once.
+grrrr ruff woof arf ruff yap yap bark yap arf ruff arf bark yap woof yap yap bark bark grrrr woof woof bark bark woof ruff woof bark ruff bark bark bark bark. arf ruff yap yap grrrr grrrr arf grrrr ruff woof bark bark bark yap-ruff, yap arf yap ruff ruff woof arf grrrr.
 
-# Results
+# yap
 
-## Scan Latency
+## grrrr arf
 
-The issue of scan latency proved difficult to overcome. The LiDAR sensor that I use spins at about 380 RPM when connected to 5V power, leading to an effective latency of around 150 milliseconds between scans. This had a few adverse effects on the usability of the controller.
+bark grrrr ruff arf bark grrrr woof yap grrrr. woof grrrr ruff ruff grrrr bark grrrr grrrr woof woof grrrr bark ruff yap yap arf, woof arf arf woof bark yap grrrr bark bark ruff grrrr. bark woof bark bark arf arf woof arf yap bark arf ruff.
 
-The first issue with the scan latency was the creation of a 150ms “rhythm” in the audio output. The output would jump sharply to a new pitch whenever scan data was received, so if the user were to attempt a gradual slide between notes, the result would sound much choppier than intended. A potential remedy is to interpolate smoothly between scans, ramping to each value just as the measurement following it is received, but doing this would double the effective latency of the controller. This behavior could also perhaps be used for effect if a piece were specifically written around it, but the sensor used in this project does not provide an easy way to precisely control the speed of the scan motor, so synchronizing it to a track would be difficult. Given the scope of the project, I decided against trying to implement precise motor speed control, although this could be a direction for further experimentation.
+yap yap woof ruff grrrr yap woof yap yap ruff arf woof woof “yap” grrrr woof grrrr woof. bark ruff arf grrrr arf yap arf yap woof arf yap yap woof arf, arf woof yap grrrr ruff ruff arf woof bark bark woof grrrr, grrrr woof grrrr bark yap arf woof woof. ruff ruff grrrr ruff ruff yap bark arf bark, ruff woof woof bark woof bark arf ruff ruff yap bark yap, woof yap woof grrrr grrrr bark arf bark grrrr woof arf. ruff woof arf bark grrrr yap grrrr woof woof grrrr bark bark grrrr ruff grrrr woof ruff, yap grrrr woof arf woof yap ruff yap arf bark bark yap arf woof grrrr arf yap ruff yap woof woof grrrr, grrrr ruff ruff yap grrrr grrrr arf arf woof. bark arf bark arf bark woof, ruff grrrr ruff ruff yap yap yap arf yap grrrr, grrrr grrrr bark grrrr yap arf grrrr woof ruff.
 
-The latency also proved to be a barrier for precise control. I had assumed that 150ms, while by no means ideal, would be passable for syncing with the beat of slower music, but I overlooked the impact of latency on other aspects of performance. With a continuous instrument (such as a theremin, or playing a guitar with a slide), the performer will adjust in real-time using their ear until they are playing the correct pitch. With the LiDAR controller, the presence of latency disrupts this real-time adjustment, making it extremely difficult to play in tune. Removing the pitch bend messages and snapping each position to the nearest semitone helped, but it was still difficult to precisely position one’s hand in a specific 1/12 of the zone without any markings for guidance. Ultimately, a visual reference was required to accurately play pitches, and even then, the controller was difficult to use.
+bark grrrr ruff ruff bark bark ruff woof grrrr grrrr woof. woof grrrr grrrr yap woof, bark bark arf bark arf, grrrr bark bark bark arf arf grrrr ruff yap ruff grrrr, bark woof arf yap grrrr woof ruff yap bark grrrr arf grrrr. ruff arf yap woof (arf woof grrrr yap, arf arf grrrr grrrr yap yap slide), ruff yap woof ruff grrrr yap-yap woof ruff bark yap arf ruff grrrr ruff yap woof. ruff bark grrrr yap, bark arf yap woof ruff woof ruff-arf woof, grrrr arf bark woof woof woof yap grrrr. bark bark arf grrrr bark yap woof yap woof bark grrrr ruff bark yap, yap arf bark ruff yap grrrr grrrr arf bark’woof grrrr ruff grrrr woof 1/arf arf bark bark grrrr grrrr ruff grrrr arf. bark, ruff arf ruff ruff woof bark ruff woof woof, ruff arf woof, woof ruff ruff ruff yap grrrr.
 
-## Future Directions
+## woof yap
 
-One direction I did not explore was integrating graphic scores into the project. While I tried a configuration with a general note reference on the surface, it would also be possible to use a reference designed for a specific piece of music. Such a reference would be, in a sense, musical notation for the piece. A potential difficulty with this is the lack of a “time” axis to draw on, which could make duration or progression difficult to express in this notation.
+arf ruff grrrr yap ruff arf ruff grrrr ruff yap arf yap arf. grrrr yap grrrr yap grrrr ruff arf yap arf grrrr grrrr arf ruff, arf grrrr ruff grrrr bark grrrr yap yap bark bark woof bark woof ruff grrrr arf. ruff woof ruff woof yap, woof yap yap, yap yap ruff bark ruff. grrrr woof yap ruff yap ruff yap bark grrrr yap “bark” bark arf woof bark, arf bark yap arf bark yap grrrr ruff yap yap woof ruff.
 
-Another potential direction is to use interpolation to reduce the jarring steps between scans. I intended to implement this, but the way in which I structured my software did not lend itself well to this approach, and a major restructuring would be needed. I am curious as to how adding glide between scans would affect the perceived latency of the controller, and how much it would improve the discontinuity between scans. Notably, different amounts of glide could be explored. For example, interpolating for the full 150ms would yield the smoothest output but the greatest latency, but perhaps a glide of 20ms could mitigate most of the jarring clicks/jumps in the audio with a minimal impact on latency. Additionally, different interpolation functions could be explored.
+ruff arf bark bark grrrr ruff ruff arf bark bark bark ruff arf yap. woof ruff ruff ruff bark, bark grrrr ruff ruff yap yap grrrr bark woof woof woof arf woof woof ruff bark woof, ruff arf woof bark grrrr bark ruff. ruff arf ruff grrrr ruff ruff yap arf arf grrrr bark bark yap bark grrrr woof woof woof, arf ruff yap yap grrrr yap yap arf woof arf. ruff, bark ruff arf bark grrrr yap woof. bark ruff, grrrr woof yap arf woof ruff arf woof ruff grrrr yap ruff bark woof, arf woof ruff grrrr yap woof ruff yap ruff bark ruff grrrr clicks/bark yap arf yap grrrr grrrr ruff woof ruff arf. yap, woof grrrr woof arf grrrr grrrr.
 
-More direct control over the sensor itself could be explored. The specific model of LiDAR sensor I used lacks an interface to control the motor speed or scan rate. A sensor with more features could allow tweaking these parameters, potentially leading to reduced latency and/or increased precision, especially since LiDAR sensors are typically calibrated to scan an entire room instead of a tabletop surface. The scan rate could even be tuned to match the tempo of the music being played, resulting in a much more predictable playing experience and eliminating the issue of sudden off-beat jumps in output.
+grrrr bark woof grrrr arf arf ruff ruff grrrr ruff. grrrr arf arf arf arf grrrr grrrr arf grrrr bark yap grrrr ruff bark yap ruff ruff arf bark. arf ruff grrrr ruff grrrr ruff ruff bark grrrr grrrr, ruff yap yap bark arf and/bark arf arf, ruff yap bark woof yap woof woof ruff bark bark bark ruff woof ruff ruff bark woof. grrrr arf ruff grrrr ruff arf ruff ruff ruff yap arf ruff yap bark bark grrrr, grrrr grrrr arf bark woof arf grrrr yap ruff bark woof woof arf yap woof-grrrr grrrr woof yap.
 
-Finally, gathering the perspectives of others would be an important next step. Due to the timing of this project ending over spring break, I did not have much opportunity to share this project with others. Of course, when I tested the controller, I brought along my past intuitions and experiences. Other users would be drawing on different prior intuition when using the controller, and understanding its usability from more perspectives could inform how it could be made more intuitive and more inviting.
+woof, bark grrrr bark bark bark yap yap grrrr grrrr arf bark. bark ruff bark woof yap ruff ruff arf bark bark grrrr, woof ruff yap arf ruff bark ruff bark grrrr arf yap woof. ruff bark, bark yap woof bark yap, arf arf yap woof woof ruff arf arf. yap grrrr yap ruff grrrr yap yap grrrr bark ruff grrrr arf ruff, grrrr grrrr ruff grrrr yap grrrr bark yap woof woof ruff arf woof arf grrrr arf woof arf grrrr.

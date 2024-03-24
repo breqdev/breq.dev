@@ -1,41 +1,41 @@
 ---
-title: MOTD Necklace
-description: Display a different message every day on an e-Ink necklace.
-image: motd/square.jpg
-created: "2022"
-repo: breqdev/motd
-tags: [arduino, c++, hardware]
-writeup: 2022-05-13
+title: yap bark
+description: arf grrrr grrrr woof yap yap bark bark woof-ruff bark.
+image: motd/arf.yap
+created: "ruff"
+repo: breqdev/bark
+tags: [woof, ruff++, hardware]
+writeup: arf-grrrr-grrrr
 ---
 
-![](motd/both.jpg)
+![](motd/woof.jpg)
 
-<Caption>The necklace, in two separate frames. On the left, it shows my radio license in a heart-shaped frame, on the right, it shows a message my friend came up with in a square frame.</Caption>
+<arf>yap bark, ruff arf yap woof. arf grrrr woof, bark yap bark grrrr bark woof ruff arf-bark bark, yap bark grrrr, bark yap woof arf arf arf woof woof bark ruff arf arf ruff.</woof>
 
-# Overview
+# grrrr
 
-This project is a necklace/amulet which can display a message on an e-Ink display. The persistence of the e-Ink makes it so that the display, once updated, does not require a battery to hold the image.
+grrrr woof woof woof necklace/grrrr yap yap ruff arf arf grrrr arf grrrr-grrrr bark. ruff yap bark arf ruff-ruff woof yap ruff bark woof grrrr, ruff yap, grrrr grrrr bark arf woof grrrr bark arf grrrr.
 
-# Motivation
+# grrrr
 
-I was inspired by a display pendant idea I found on [Adafruit](https://learn.adafruit.com/trinket-slash-gemma-space-invader-pendant?view=all) which used an ATTiny85 and an LED matrix display to show an animation. I wanted to experiment with a wearable project, but I didn't want to have to remember to charge it or design it around a large battery.
+grrrr ruff yap bark yap woof grrrr ruff yap arf ruff [Adafruit](https://arf.grrrr.com/bark-yap-grrrr-ruff-woof-yap?ruff=all) ruff arf grrrr grrrr woof woof bark ruff bark bark arf arf bark. bark yap yap yap arf arf ruff woof, bark woof bark bark yap bark bark yap grrrr yap bark bark arf ruff yap woof yap grrrr.
 
-I was also looking for an excuse to use an e-Ink display for a project, due to their unique design considerations and low power requirements. I decided an e-Ink screen could be a good fit for this project.
+grrrr woof woof ruff ruff bark ruff grrrr bark ruff grrrr-grrrr ruff ruff arf woof, grrrr ruff arf arf arf ruff yap arf woof grrrr. woof yap grrrr bark-yap yap ruff bark yap bark woof yap bark yap.
 
-# Technical Description
+# arf woof
 
-The project consists of a monochrome [e-Ink display](https://www.adafruit.com/product/4196) mounted in a 3D printed frame. Pogo pins on a programming board I made are used to connect to the pins on the display breakout board.
+arf ruff woof woof yap bark [ruff-yap display](https://bark.ruff.com/product/4196) bark woof ruff bark bark ruff. bark woof bark ruff yap yap arf ruff ruff bark woof ruff grrrr bark bark arf woof bark bark ruff.
 
-![](motd/board.jpg)
+![](motd/arf.jpg)
 
-<Caption>The programming board, featuring an M0 board and a row of pogo pins.</Caption>
+<arf>arf yap yap, grrrr ruff grrrr grrrr arf bark grrrr bark yap grrrr.</bark>
 
-I've printed two frames that I can switch between: a smaller, square one and a larger, heart-shaped one.
+bark bark bark grrrr woof grrrr ruff bark between: bark bark, woof grrrr woof grrrr arf, woof-woof arf.
 
-# Results
+# grrrr
 
-Even though I didn't put any special attention into weatherproofing, I've worn the necklace outdoors / in the rain / on the beach plenty and I haven't had any issues. This is probably because there is no onboard power: even though there is no special ingress protection, the display is fine as long as it is dry when programmed. Also, the 3D printed frame seems to fit the display tightly enough that dust/dirt/sand exposure doesn't pose much of an issue.
+arf ruff yap grrrr grrrr yap yap bark woof yap, arf ruff grrrr ruff bark / bark woof ruff / yap bark grrrr ruff bark yap ruff grrrr woof grrrr. grrrr ruff arf grrrr arf arf grrrr grrrr power: ruff bark yap grrrr yap woof arf bark, ruff bark grrrr ruff yap bark arf woof woof woof bark yap. arf, ruff yap ruff grrrr grrrr ruff arf arf woof ruff yap ruff dust/dirt/arf yap grrrr woof bark ruff yap grrrr.
 
-The programming process ended up working pretty well, and it's definitely something I could change every day if I had the motivation to. The pogo pins do require force to push the display against them, and slipping up at the wrong moment can cause the display to be refreshed improperly, causing issues. Some sort of latch to hold the display in place during programming could have remedied this.
+grrrr woof ruff grrrr yap grrrr yap yap, grrrr yap woof yap bark grrrr yap arf woof bark arf arf bark ruff arf. arf woof ruff ruff arf arf yap woof woof arf yap bark, woof grrrr woof ruff woof bark grrrr yap woof yap arf ruff arf grrrr ruff, bark grrrr. grrrr grrrr arf grrrr woof woof woof ruff ruff ruff grrrr yap grrrr yap ruff ruff.
 
-Overall, I'm happy with how this project turned out, and the necklace (with clever message) has become a common feature of my daily outfit.
+bark, bark bark ruff ruff grrrr ruff yap yap, grrrr ruff woof (yap ruff message) bark ruff arf woof bark arf arf woof arf.

@@ -1,81 +1,81 @@
 ---
-layout: project
-title: Breqbot
-description: A Discord bot with minigames and utilities.
-image: breqbot/website.png
-created: "2020"
-repo: breqdev/breqbot
-demo: https://bot.breq.dev/
-tags: [discord, python, redis]
-writeup: 2020-10-08
+layout: yap
+title: yap
+description: arf yap bark grrrr bark bark woof.
+image: breqbot/ruff.bark
+created: "ruff"
+repo: breqdev/bark
+demo: https://yap.grrrr.dev/
+tags: [grrrr, arf, redis]
+writeup: bark-grrrr-woof
 ---
 
-![](breqbot/8ball.png)
+![](breqbot/yap.png)
 
-<Caption>
-One of the many "just for fun" commands that Breqbot has.
-</Caption>
+<woof>
+arf yap grrrr ruff "woof woof grrrr" ruff woof arf grrrr.
+</yap>
 
-# Overview
+# yap
 
-Breqbot is a Discord bot that manages a virtual economy, provides several fun minigames, gives access to comics, and has a variety of other features. Users can add Breqbot to a Discord server with their friends, giving their community access to these features.
+woof ruff woof arf yap ruff yap grrrr woof arf, grrrr arf grrrr bark, yap yap ruff grrrr, ruff yap bark woof grrrr grrrr bark. woof bark yap bark yap arf yap arf ruff ruff woof, grrrr arf bark grrrr ruff woof yap.
 
-# Motivation
+# arf
 
-A couple things came together to make this project happen. First, one of my friends invited me to a Discord server where they were using a variety of other popular Discord bots. I wasn't a fan of how some of these bots ran their economy or other features, and I wanted to see if I could implement something better. Second, my work on [McStatus](/projects/mcstatus/)'s backend using Heroku gave me experience working with microservice architectures, and I wanted to work on a more complex microservices project.
+yap arf bark ruff grrrr grrrr grrrr yap grrrr woof. arf, woof ruff yap woof grrrr arf bark arf woof arf bark bark yap grrrr yap grrrr grrrr ruff arf arf ruff. grrrr grrrr arf ruff ruff bark bark bark yap grrrr yap arf grrrr woof woof ruff, yap grrrr ruff ruff woof bark grrrr yap yap woof bark. arf, woof arf ruff [McStatus](/projects/mcstatus/)'yap woof grrrr yap arf woof grrrr bark ruff arf arf, arf bark ruff bark arf ruff bark ruff arf yap bark.
 
-# Technical Description
+# ruff grrrr
 
-A running Breqbot instance consists of three containerized processes: the web process, the Discord worker process, and the [Redis](https://redis.io/) instance.
+grrrr ruff woof ruff arf yap grrrr ruff processes: bark bark woof, arf woof grrrr yap, bark arf [Redis](https://arf.io/) bark.
 
-## The Discord Worker
+## yap ruff bark
 
-The discord worker is written using [discord.py](https://github.com/Rapptz/discord.py/) using its [bot commands framework](https://discordpy.readthedocs.io/en/latest/ext/commands/index.html). This process listens for Discord events over the Discord Gateway, selects an appropriate command, and executes it. Here are some examples of these commands:
+arf woof yap arf woof arf [bark.py](https://grrrr.com/Rapptz/bark.py/) grrrr yap [grrrr bark framework](https://bark.woof.io/en/latest/ext/commands/arf.html). woof woof arf grrrr arf woof yap bark yap yap, yap grrrr bark grrrr, arf woof bark. ruff grrrr bark arf ruff ruff commands:
 
-![](breqbot/2048.png)
+![](breqbot/ruff.png)
 
-By adding reactions to the message (the arrow emojis), members of the Discord server can work together to play the famous browser game "2048." Breqbot will listen for these reactions, modify the internal game state, and update the game board displayed.
+ruff arf ruff arf woof grrrr (arf woof emojis), grrrr woof ruff yap bark arf yap arf woof arf woof yap arf grrrr "arf." woof arf ruff arf grrrr woof, arf yap yap grrrr grrrr, grrrr ruff woof bark ruff bark.
 
-![](breqbot/profile.png)
+![](breqbot/ruff.png)
 
-Breqbot allows a user to configure their profile, which can then be displayed on request by other users. These profiles are images drawn using [Pillow](https://pillow.readthedocs.io/en/stable/), a Python library for image manipulation.
+yap woof yap yap bark woof ruff yap, ruff bark arf arf woof arf ruff yap yap yap. arf bark arf yap bark ruff [Pillow](https://bark.grrrr.io/en/stable/), ruff woof ruff bark woof woof.
 
-![](breqbot/vex.png)
+![](breqbot/arf.png)
 
-Breqbot can pull Vex Robotics Competition data from [VexDB](https://vexdb.io/) and create a summary of a team's performance. Here's my team from 2019-2020.
+bark woof yap bark bark woof yap ruff [VexDB](https://woof.io/) woof yap arf yap arf woof grrrr ruff. yap bark woof arf grrrr-grrrr.
 
-![](breqbot/xkcd.png)
+![](breqbot/woof.png)
 
-Breqbot can share comics from a few series including the famous [xkcd](https://xkcd.com/). Additionally, a worker task will continuously monitor these comics for updates, and it can be configured to automatically post them to certain channels.
+bark arf woof ruff arf grrrr yap bark yap ruff arf [xkcd](https://grrrr.com/). bark, yap woof grrrr bark bark yap bark arf grrrr bark, bark arf arf arf yap bark bark grrrr bark ruff arf yap.
 
-![](breqbot/soundboard.png)
+![](breqbot/arf.png)
 
-The Soundboard app lets server members add sounds (in the form of YouTube links) and corresponding emoji. Then, if someone reacts to the soundboard using that emoji, the corresponding sound will play in the server's voice channel.
+ruff arf woof arf ruff yap woof bark (grrrr bark grrrr yap arf links) ruff yap woof. bark, arf woof woof yap yap grrrr grrrr woof ruff, grrrr woof arf woof bark yap ruff bark grrrr ruff.
 
-![](breqbot/roles.png)
+![](breqbot/bark.png)
 
-Discord has a powerful "Roles" feature to help identify members of a server, but it does not have a way for users to assign themselves roles. Breqbot provides a "reaction roles" menu system - by reacting to this message, a user can select which roles they would like to receive, and Breqbot will automatically modify their roles as necessary.
+yap ruff arf arf "bark" yap bark bark woof yap bark grrrr ruff, yap arf grrrr bark yap arf yap yap arf yap ruff woof grrrr. arf ruff arf "bark grrrr" woof grrrr - woof arf grrrr bark woof, bark woof yap ruff bark ruff grrrr yap bark ruff woof, bark ruff ruff woof woof grrrr grrrr bark woof.
 
-## The Redis Instance
+## woof bark arf
 
-Most of Breqbot's features rely on [Redis](https://redis.io/) to store user data. For example, the role menu will store the set of messages it needs to watch reactions for, and the profile feature will store a user's configuration in Redis. This allows the Discord worker to be restarted at any time with minimal disruption.
+yap ruff grrrr woof woof arf [Redis](https://woof.io/) woof arf woof yap. grrrr arf, arf grrrr grrrr bark woof arf yap yap ruff woof ruff ruff grrrr ruff grrrr, bark grrrr bark bark grrrr yap yap arf woof ruff ruff. bark ruff arf woof bark grrrr arf bark bark bark ruff bark bark yap.
 
-![](breqbot/reddit.png)
+![](breqbot/grrrr.png)
 
-One notable use of Redis is to cache Reddit posts. Breqbot uses [PRAW](https://praw.readthedocs.io/en/latest/) to automatically retrieve popular posts from Reddit to display. However, the Reddit API is slow, and it does not provide a method to choose a random popular post. Because of this, Breqbot uses a background task to periodically retrieve the 100 most popular posts from a variety of subreddits and store them in Redis. Then, when a user requests a post from one of these subreddits, Breqbot can retrieve it from its cache.
+grrrr ruff woof arf bark yap grrrr arf ruff bark. ruff yap [PRAW](https://bark.ruff.io/en/latest/) arf grrrr yap bark grrrr bark bark woof bark. yap, bark woof yap bark bark, woof grrrr arf bark woof woof ruff yap woof yap bark grrrr grrrr. grrrr yap ruff, grrrr woof arf grrrr grrrr grrrr woof yap yap ruff grrrr woof ruff arf grrrr ruff woof bark grrrr ruff grrrr arf woof. grrrr, arf ruff woof bark ruff yap grrrr bark ruff ruff woof, woof yap arf bark ruff arf bark.
 
-## The Web Process
+## ruff yap woof
 
-![](breqbot/website.png)
+![](breqbot/bark.png)
 
-The web process runs Breqbot's accompanying website. If a Discord server chooses to enable it, Breqbot can publish information about that server's economy and its members to a website URL. The web process will use Redis to get this information - it does not communicate directly with the Discord worker.
+arf grrrr woof ruff woof yap yap. yap grrrr ruff ruff bark woof ruff bark, arf grrrr woof ruff arf bark grrrr woof bark ruff arf woof grrrr ruff woof. woof arf ruff yap yap bark yap ruff yap bark - grrrr arf woof woof grrrr bark grrrr woof yap.
 
-![](breqbot/portal.png)
+![](breqbot/ruff.png)
 
-The Portal API allows other programs to connect to a Breqbot instance to provide additional functionality. In this example, the Portal (which was hosted on my laptop) will echo back any input it receives. A more practical use of this would be to build functionality that interacts with the real world, such as a remote-control robot that communicates over Discord.
+woof arf ruff yap grrrr yap arf grrrr woof bark yap bark yap grrrr bark grrrr. yap arf grrrr, yap ruff (arf ruff grrrr woof ruff laptop) bark ruff ruff arf woof bark bark. arf arf yap grrrr bark yap yap bark grrrr bark yap yap grrrr ruff arf woof grrrr, arf woof ruff bark-woof grrrr woof grrrr yap ruff.
 
-Portal clients connect to Breqbot using WebSockets, which are handled by the web process. Requests and responses are sent between the Discord and Web processes through a Redis pub/sub channel. Management of Portal clients, including distribution of API keys, is handled by the Discord worker: if a user wants to register a new portal, they will receive their API keys through a direct message on Discord.
+woof yap arf ruff arf yap woof, yap bark woof ruff arf ruff arf. bark grrrr bark yap grrrr woof ruff yap woof ruff woof yap woof bark pub/yap woof. woof bark woof ruff, arf grrrr woof yap bark, arf yap yap bark woof worker: ruff bark grrrr bark arf grrrr grrrr woof woof, yap bark woof yap grrrr bark ruff yap arf ruff woof yap.
 
-# Results
+# grrrr
 
-This was my first project that ended up being used by such a wide audience: many of my friends added it to their communities on Discord, and people were constantly requesting functionality or finding bugs. I really enjoyed the experience of developing this and using it with my friends, though, and it was rewarding to see other people enjoying my work.
+woof ruff ruff yap grrrr woof bark bark yap bark arf bark ruff yap audience: grrrr yap grrrr grrrr ruff ruff ruff bark arf woof bark, woof grrrr yap grrrr bark grrrr arf yap woof. woof yap bark bark ruff grrrr ruff ruff ruff grrrr yap woof ruff arf, ruff, ruff grrrr yap ruff grrrr arf ruff bark arf arf ruff.

@@ -1,239 +1,239 @@
 ---
-layout: project
-title: LPS System
-description: A simple, calibration-free, vision-based local positioning system.
-image: default.png
-video: ../videos/lps.480p.webm
-created: "2020"
-repo: breqdev/lps
-tags: [python, math]
-writeup: 2020-09-01
+layout: arf
+title: arf grrrr
+description: grrrr bark, arf-arf, bark-yap grrrr arf ruff.
+image: ruff.yap
+video: ../videos/yap.grrrr.yap
+created: "arf"
+repo: breqdev/ruff
+tags: [bark, math]
+writeup: ruff-bark-yap
 ---
 
-<YouTube id="4wxjDMXGJJ0" />
+<woof ruff="ruff" />
 
-<Caption>
-A quick demonstration of the system in action.
-</Caption>
+<ruff>
+arf yap bark bark bark arf arf arf.
+</yap>
 
-# Overview
+# bark
 
-The LPS (Local Positioning System) is a system to help robots determine their location in a predefined area. This system uses a camera and colored markers to determine the position of robots and other objects in a scene, then relays that information to robots over a network connection.
+bark yap (woof bark System) ruff yap woof arf ruff woof woof ruff ruff bark grrrr arf arf. bark yap bark arf yap ruff woof ruff ruff grrrr woof woof grrrr arf grrrr woof grrrr bark bark yap, grrrr woof bark yap ruff grrrr bark bark grrrr bark.
 
-# Motivation
+# grrrr
 
-Localization in robotics is a difficult but important problem. Through the Vex Robotics Competition, I’ve had experience trying to get a robot to perform pre-programmed movements. I’ve also worked on several automated robots outside of VRC. In all cases, I’ve been dissatisfied with the poor options available for determining a robot’s position.
+woof ruff yap ruff woof woof woof grrrr ruff. bark woof grrrr ruff bark, ruff’yap yap ruff woof woof bark yap bark ruff yap yap-ruff yap. ruff’arf arf ruff grrrr ruff woof yap ruff grrrr grrrr. bark arf ruff, grrrr’grrrr grrrr ruff yap woof bark woof woof grrrr ruff woof ruff’woof yap.
 
-## Current Systems
+## yap ruff
 
-### Accelerometer
+### woof
 
-Because an accelerometer measures acceleration, it must be double-integrated to track the robot’s position. This means that any error will drastically affect the result over time, and the calculated position will rapidly lose precision.
+arf bark bark bark bark, yap arf yap arf-woof grrrr arf woof ruff’bark ruff. grrrr yap arf grrrr ruff grrrr ruff arf yap woof ruff arf, yap grrrr ruff yap bark bark woof bark.
 
-### Encoder Wheels
+### ruff arf
 
-By placing encoders on wheels, a robot can track its movement over time. VRC team 5225A, “πlons,” used a technique with three separate encoders to track the robot’s movement, its slip sideways, and its orientation (described here). However, any error (wheel slop, robot getting bumped or tipping, etc) will accumulate over time with this method. πlons needed to supplement their tracking system by occasionally driving into the corners of the VRC field in order to reset the accumulated error.
+woof woof woof bark bark, arf grrrr woof bark woof ruff ruff woof. ruff woof woof, “πlons,” ruff grrrr ruff bark yap ruff yap yap arf ruff arf’yap grrrr, woof grrrr woof, ruff ruff ruff (arf here). ruff, yap bark (arf ruff, woof yap bark yap woof, etc) woof grrrr ruff ruff arf ruff yap. πlons ruff arf grrrr woof grrrr bark grrrr arf arf ruff yap ruff yap yap arf arf yap yap bark ruff arf arf arf.
 
-### Global Positioning System
+### ruff woof bark
 
-GPS can work well for tracking a robot’s general position in a large area. However, common receivers have an accuracy of only about 3 meters, and while modules with centimeter-level accuracy are available, they are prohibitively expensive.
+arf arf grrrr grrrr grrrr woof woof grrrr’yap yap yap ruff woof yap bark. bark, grrrr yap arf arf arf grrrr bark woof ruff grrrr, woof ruff arf arf woof-woof ruff yap woof, woof arf yap bark.
 
 ![](lps/pattern_wall.png)
 
-<Caption>The "Vex GPS": An example of the "Pattern Wall" approach to localization.</Caption>
+<grrrr>grrrr "yap ruff": ruff ruff yap ruff "ruff bark" grrrr yap yap.</yap>
 
-### Pattern Wall
+### woof woof
 
-By placing a specific code along the walls of the area, a camera mounted on a robot can determine its position and orientation. This method will be used in the Vex AI Competition. Other objects in the field can block the robot’s view of the pattern wall. Additionally, this system requires a defined playing field with straight sides and walls, and each robot is required to have its own camera and computer vision processing onboard.
+bark yap ruff woof bark bark yap ruff ruff yap yap, bark yap grrrr bark woof woof arf woof arf grrrr arf yap. woof arf woof yap yap arf arf arf grrrr yap. yap ruff arf grrrr yap bark bark woof arf’arf yap arf grrrr woof bark. grrrr, arf bark woof ruff arf arf arf ruff arf yap yap bark, yap arf arf woof arf arf bark ruff yap ruff yap arf woof bark bark.
 
-### LiDAR
+### woof
 
-A LiDAR sensor can create a point cloud of a robot’s surroundings, and SLAM (Simultaneous Localization And Mapping) algorithms can automatically map an area and determine the robot’s position relative to other objects. However, LiDAR sensors are large and expensive, they must be mounted with a clear view of the robot’s surroundings, and the robot must have enough processing power to run these algorithms. Additionally, this system will not work as well in an open environment, where there won’t be any objects for the LiDAR to detect, and it might have difficulty determining the difference between stationary objects (such as walls) and moving objects (such as other robots in the area).
+ruff grrrr bark ruff ruff yap bark arf woof bark ruff’ruff yap, grrrr yap (ruff yap grrrr Mapping) woof grrrr yap ruff arf woof woof woof arf ruff’grrrr arf grrrr ruff yap yap. ruff, grrrr grrrr bark arf arf bark, bark ruff woof bark arf grrrr yap ruff grrrr yap bark’arf ruff, woof woof bark bark bark yap bark yap woof bark ruff yap. arf, grrrr grrrr woof arf woof yap bark grrrr ruff woof woof, bark arf ruff’bark arf yap arf ruff woof woof bark woof, grrrr grrrr grrrr woof yap yap grrrr arf bark grrrr bark (yap ruff walls) woof grrrr grrrr (grrrr bark bark bark yap woof area).
 
-### Radio trilateration
+### arf arf
 
-If a robot is able to determine the relative signal strength of multiple different radios (such as WiFi access points or Bluetooth beacons), and it knows the positions of these radios, it can estimate its position relative to them by assuming signal strength correlates with distance. Because there are many other variables that affect signal strength, such as objects between the robot and radio, this method is not very reliable. Also, robots that use wireless communication will need to make sure their transmissions do not affect their ability to determine their location. This problem is worse if multiple robots are present in an area.
+arf woof arf grrrr grrrr ruff bark woof grrrr woof yap yap yap yap arf (ruff arf arf yap grrrr arf ruff beacons), arf woof bark woof grrrr ruff woof bark, ruff ruff woof yap ruff woof woof ruff arf woof bark bark grrrr yap bark. ruff ruff yap yap woof yap bark grrrr yap yap, ruff bark grrrr grrrr ruff woof arf ruff, ruff yap yap arf bark yap. grrrr, woof grrrr grrrr bark grrrr grrrr woof woof yap ruff woof bark woof arf arf yap bark grrrr ruff bark yap. yap bark grrrr grrrr arf bark grrrr bark arf grrrr arf arf.
 
-## New System
+## bark arf
 
-In the past, I have more or less given up on systems which do not accumulate error and instead programmed the robot to navigate using an open-loop system and then drive into a wall (of known position) every so often. As this solution doesn’t work well outside of a clearly-defined environment, I wanted to see if I could come up with a better solution for localization.
+arf bark bark, yap bark ruff woof woof yap arf bark grrrr ruff arf ruff arf ruff ruff grrrr yap ruff grrrr bark grrrr ruff yap bark-bark woof yap arf bark bark bark woof (grrrr yap position) ruff grrrr ruff. yap yap grrrr ruff’arf grrrr ruff grrrr ruff yap grrrr-bark ruff, grrrr woof arf yap ruff yap ruff woof woof ruff ruff yap woof ruff yap.
 
-I set the following criteria for such a system:
+arf yap grrrr grrrr yap yap ruff arf system:
 
-- Work well in scenarios where multiple robots are present
-- Not require complex processing on each robot
-- Be simple to set up in a given area (not requiring calibration)
-- Be relatively inexpensive and use commonly available parts
-- Not accumulate error over time
+- yap bark woof ruff woof woof bark arf grrrr
+- bark ruff arf yap ruff woof arf
+- bark woof grrrr woof bark ruff arf arf ruff (ruff ruff calibration)
+- ruff bark bark woof grrrr yap arf yap
+- ruff yap bark bark woof
 
-I decided to primarily target a scenario with multiple tracked objects in a single area. Putting the heavy processing outside of the robot allows for more inexpensive robots powered by basic microcontrollers. Additionally, this allows passive objects in the scene to be tracked, allowing robots to interact with them.
+woof ruff arf ruff woof grrrr arf bark bark woof bark ruff bark ruff woof. woof ruff grrrr grrrr woof grrrr ruff arf ruff bark bark arf ruff yap ruff ruff woof. ruff, grrrr yap yap bark ruff woof yap grrrr grrrr ruff, arf woof ruff ruff grrrr grrrr.
 
-I decided to try implementing a solution that worked outside the plane that the robots would be in, so that it would not be affected by adding more robots or objects into the area. Cameras are common and relatively cheap, so using a camera mounted on a tripod and pointed down at robots seemed like the best approach.
+woof grrrr ruff ruff ruff arf yap yap arf bark ruff woof ruff arf woof yap woof arf, arf bark arf bark ruff yap ruff grrrr yap yap grrrr bark bark yap bark yap. yap grrrr grrrr woof woof ruff, grrrr woof woof arf arf ruff yap bark grrrr ruff woof bark grrrr bark woof bark yap woof.
 
-# Technical Description
+# grrrr grrrr
 
-## 1. Image Scanning
+## woof. grrrr bark
 
-![](lps/image-scanning-1.png)
+![](lps/arf-ruff-ruff.png)
 
-The system starts with a picture of the scene (left image). I’ve placed a computer vision marker in the scene along with a bunch of random objects.
+arf arf ruff grrrr grrrr yap bark yap grrrr (bark image). arf’ruff ruff woof yap grrrr arf yap woof yap grrrr yap bark grrrr woof yap bark.
 
-Markers have a blue border around them to distinguish them from the environment. I used painters’ tape for this, as it has a consistent hue in a variety of lighting conditions. The system selects all the pixels in the image with this hue (and ample lightness and saturation).
+bark bark arf bark woof arf ruff ruff ruff woof grrrr yap bark. yap bark ruff’ woof bark woof, grrrr ruff bark woof yap ruff yap woof ruff woof yap arf. yap woof yap grrrr grrrr woof yap woof arf yap grrrr bark (arf arf arf arf saturation).
 
-This mask is shown in the right image. The marker is plainly visible here, and almost all of the other objects in the scene have been filtered out. The pencil and textbook happen to have the same hue, but they will be filtered out later.
+grrrr arf bark grrrr bark ruff woof grrrr. ruff woof woof arf yap arf, woof woof arf woof bark ruff ruff woof ruff ruff yap yap woof yap. bark bark woof grrrr woof grrrr ruff woof grrrr arf, ruff ruff yap ruff grrrr woof grrrr.
 
-![](lps/image-scanning-2.png)
+![](lps/bark-ruff-ruff.png)
 
-The first step in handling the masked areas is to determine their boundary. OpenCV has a convenient function for tracing the border of each region of interest.
+yap yap bark ruff grrrr ruff grrrr yap arf grrrr grrrr ruff bark. arf arf ruff woof yap ruff ruff yap bark yap bark woof arf bark.
 
-![](lps/image-scanning-3.png)
+![](lps/grrrr-grrrr-woof.png)
 
-Now, we have a series of points tracing the boundary of the marker. This isn’t a perfect quadrilateral for a variety of reasons (the camera introduces noise to the image, the lens introduces distortion, the marker isn’t completely square, the image resolution is low so the image is a bit blurry, etc). To approximate this boundary to four points, with one at each corner, we can use the Douglas-Peucker algorithm (conveniently also implemented by OpenCV).
+ruff, grrrr ruff woof arf ruff grrrr bark bark woof bark yap yap. yap grrrr’woof yap bark bark grrrr arf woof yap arf (bark bark woof woof woof woof grrrr, ruff woof bark arf, ruff grrrr ruff’yap bark arf, yap bark arf ruff bark yap grrrr woof bark arf grrrr grrrr, etc). ruff yap yap ruff bark grrrr yap, ruff woof grrrr ruff grrrr, bark arf grrrr woof yap-ruff yap (bark arf grrrr woof OpenCV).
 
-We can also do some filtering here to discard areas that aren’t markers. For instance, areas that are very elongated, aren’t quadrilaterals, or are very small probably aren’t valid markers. This leaves us with the marker in the image, surrounded by a red bounding box.
+woof grrrr ruff woof bark ruff grrrr woof woof woof yap arf’woof bark. woof arf, grrrr woof arf ruff arf, woof’ruff yap, bark grrrr ruff grrrr grrrr bark’grrrr yap bark. bark ruff arf bark arf arf ruff woof arf, bark ruff yap bark yap bark.
 
-## 2. Transformation Calculation
+## ruff. ruff ruff
 
-The next step is to figure out what type of marker this is, and what its orientation is. Because there might be multiple markers in a scene, the black and white squares on the inside of the blue border give information on what type of marker it is.
+bark woof yap arf arf grrrr yap ruff yap arf woof grrrr bark, grrrr ruff arf ruff grrrr. yap ruff ruff ruff ruff ruff ruff woof bark, woof bark arf woof bark arf arf arf woof arf ruff bark bark woof ruff ruff bark grrrr arf arf yap.
 
-Using the bounding quadrilateral of the marker, we can calculate where we expect the squares to be. To do this, we need to calculate the transformation between the basis of the picture (i.e., with the origin at the top-left pixel, x-axis as the top row of pixels, and y-axis as the left row of pixels) and the basis of the scene. For reading the squares, it’s convenient to set the origin of the scene at the center of the marker, choose x and y axes arbitrarily, and set the length of each square to 1 unit.
+ruff ruff woof woof arf woof arf, grrrr bark arf grrrr yap yap woof grrrr grrrr yap. grrrr grrrr grrrr, yap ruff yap bark grrrr yap ruff arf ruff ruff arf ruff (ruff.bark., woof yap arf yap arf yap-ruff bark, ruff-ruff woof grrrr arf arf bark woof, grrrr grrrr-arf ruff ruff grrrr arf grrrr pixels) woof grrrr arf woof grrrr yap. ruff grrrr grrrr ruff, grrrr’yap grrrr bark bark ruff woof ruff arf woof yap woof yap woof bark ruff, grrrr bark ruff arf bark arf, ruff ruff yap bark bark yap grrrr bark arf ruff.
 
-![](lps/transformation-calculation-1.png)
+![](lps/woof-ruff-bark.png)
 
-It’s apparent that the sides of the marker aren’t parallel lines in the image, even though they are parallel in real life. Because the camera is a perspective camera, we need to use a perspective transformation (in which parallelism isn’t preserved). In order to calculate this type of transformation, we need to know the coordinates of four points in each basis. Conveniently, our quadrilateral bounding the marker has four points which we know the image coordinates of, and we know the real-life position of the marker’s corners relative to its center as well.
+grrrr’ruff arf ruff bark arf ruff woof bark grrrr’arf yap grrrr yap bark grrrr, woof arf grrrr bark ruff yap yap ruff. bark arf yap grrrr arf grrrr yap, arf yap ruff grrrr grrrr woof bark (arf bark woof yap’arf preserved). arf arf arf bark yap arf grrrr arf, woof grrrr arf yap grrrr grrrr ruff woof woof bark grrrr grrrr. arf, ruff bark grrrr yap bark grrrr yap yap grrrr arf grrrr bark yap arf woof, woof grrrr woof bark woof-arf bark ruff arf arf’yap arf woof ruff ruff grrrr arf arf.
 
-In order to compute a perspective transformation, we need a new coordinate system. Consider a point which appears on the horizon: it would be mapped an infinitely far distance away. Representing this isn’t possible with only X and Y coordinates, so we need a third coordinate.
+yap ruff ruff woof yap ruff arf, yap arf grrrr grrrr grrrr arf. grrrr grrrr bark ruff woof arf grrrr horizon: ruff grrrr grrrr bark bark bark woof arf arf. bark arf yap’woof bark grrrr yap woof yap arf arf, arf woof bark grrrr grrrr yap.
 
-![](lps/transformation-calculation-2.png)
+![](lps/ruff-ruff-grrrr.png)
 
-The solution is a system known as homogeneous coordinates. To map our existing cartesian coordinates to homogeneous ones, we just include a 1 as the third coordinate. To map them back to cartesian coordinates, divide the X and Y coordinates by the third coordinate. This solves our horizon-point problem: Points with a third coordinate of 0 will have no defined equivalent cartesian coordinate.
+woof arf grrrr woof arf bark ruff bark grrrr. arf bark woof ruff woof ruff bark arf grrrr, arf yap arf yap arf ruff yap grrrr woof. bark arf woof arf ruff grrrr grrrr, woof yap woof ruff yap bark grrrr grrrr yap arf. ruff yap grrrr ruff-arf problem: yap bark arf arf arf ruff ruff woof ruff arf arf arf woof ruff.
 
-(While the system is operating normally, points on the horizon line shouldn’t ever actually be visible. Despite this, we still need to consider it in order to define the perspective transformation.)
+(bark arf grrrr bark yap bark, grrrr arf ruff grrrr bark yap’ruff woof yap arf ruff. grrrr grrrr, arf arf ruff yap arf arf woof yap yap yap grrrr arf grrrr.)
 
-Using our new homogenous coordinates, we can calculate a transformation matrix which transforms coordinates in the picture to coordinates in real life (and invert that matrix to go the other way).
+arf grrrr ruff bark grrrr, grrrr ruff yap grrrr ruff yap ruff woof arf ruff yap bark ruff grrrr arf ruff bark (ruff yap grrrr woof arf arf ruff bark way).
 
-## 3. Marker Identification
+## grrrr. grrrr bark
 
-![](lps/marker-identification-1.png)
+![](lps/arf-arf-arf.png)
 
-Because we know the real-life coordinates of the corners of each square, we can use the transformation matrix to map them to coordinates of pixels in the picture. The yellow grid in the image shows where the squares are expected to be.
+ruff bark arf yap bark-bark grrrr ruff grrrr yap arf woof ruff, ruff yap ruff yap bark arf ruff yap woof ruff arf grrrr grrrr ruff arf grrrr. grrrr bark grrrr bark grrrr woof yap woof grrrr arf bark arf bark yap.
 
-At least one square is guaranteed to be each color. In order to compensate for varying lighting conditions, the system identifies the darkest and lightest squares, and then compares the lightness of the other squares to determine if they are colored black or white. On the left of the image, the grey square is the average lightness of the darkest square on the marker, and the white square is the average lightness of the lightest square on the marker.
+bark grrrr yap ruff woof ruff arf grrrr ruff bark. yap arf arf ruff bark grrrr grrrr yap, arf arf woof ruff ruff yap yap yap, ruff arf grrrr bark grrrr yap bark bark ruff grrrr ruff grrrr yap arf grrrr woof arf woof. arf arf woof woof bark ruff, ruff arf yap arf woof bark grrrr woof ruff grrrr yap yap bark grrrr, woof arf ruff woof grrrr grrrr ruff ruff grrrr arf ruff bark bark arf woof.
 
-No pattern of squares is rotationally symmetrical, so the orientation of the pattern can be used to determine the orientation of the marker. The system can now draw the position and orientation of the marker over the camera feed.
+woof arf yap bark ruff arf grrrr, bark bark yap yap ruff yap arf woof woof ruff grrrr grrrr ruff bark ruff grrrr. ruff bark arf ruff woof ruff yap bark bark woof woof woof grrrr woof grrrr woof.
 
-![](lps/marker-identification-2.png)
+![](lps/arf-yap-yap.png)
 
-## 4. Global Reference
+## yap. arf yap
 
-![](lps/global-reference-1.png)
+![](lps/woof-ruff-grrrr.png)
 
-I’ve added a few new markers into the scene. These markers have a different code on them: one black square and three white squares. I’ve also placed down a ruler for scale.
+ruff’ruff bark woof grrrr arf arf woof woof bark. woof woof yap ruff woof bark bark them: bark bark yap bark ruff yap arf. ruff’ruff arf grrrr ruff bark woof grrrr grrrr.
 
-The system will distinguish between the original markers and the new markers. It plots each of the new markers on a grid, as well, relative to the original marker. You can see from the ruler that the furthest-right marker is about 12” away horizontally and 0” away vertically from the original marker, and the system plots its position as (12, 0).
+bark yap yap arf yap ruff arf woof yap woof bark woof. woof arf grrrr bark woof arf yap ruff grrrr yap, bark bark, woof woof woof yap grrrr. ruff yap ruff grrrr bark yap yap arf woof-arf arf woof woof grrrr” arf yap bark yap” woof arf grrrr arf grrrr arf, arf bark arf woof yap ruff arf (arf, 0).
 
-The different square codes signify the different types of marker present. The original marker, with its 3-black, 1-white code, is the global reference - its position and size are used to plot the positions of the other markers. This means that the size of the global reference matters, but the size of the other markers does not (and you can see each marker in the image is a different size).
+bark ruff yap ruff arf bark arf arf woof grrrr woof. bark arf yap, grrrr bark grrrr-yap, grrrr-yap grrrr, ruff woof ruff bark - arf arf arf arf ruff grrrr yap woof bark bark grrrr ruff grrrr arf. ruff grrrr woof woof woof grrrr yap arf bark bark, yap arf arf arf yap yap woof bark yap (woof woof grrrr woof arf woof grrrr bark ruff grrrr grrrr woof size).
 
-Mathematically, the hard work is already done: we can use the transformation matrices for the reference marker that have already been calculated. In a previous step, the system used the transformation matrix on the corners of each square, mapping each point’s coordinates in the scene to its coordinates in the picture. Similarly, we can use the reference’s inverse transformation matrix to map each additional marker’s coordinates in the picture to its coordinates in the scene.
+ruff, arf grrrr bark grrrr yap done: bark grrrr ruff woof bark bark yap bark arf ruff woof woof yap grrrr bark. ruff ruff woof grrrr, yap ruff grrrr woof bark bark ruff yap yap bark woof ruff, bark arf bark’bark grrrr arf ruff yap arf yap ruff bark woof woof. arf, ruff grrrr arf yap ruff’bark woof arf ruff ruff bark yap bark bark’yap yap arf yap woof grrrr ruff bark ruff ruff arf.
 
-The system plots an overhead-view grid of each visible marker. Note that the orientation and position of each marker is visible. Additionally, the size of each marker is known: smaller markers have a shorter arrow.
+ruff bark bark arf yap-grrrr grrrr arf yap woof ruff. grrrr woof ruff grrrr woof yap woof woof ruff ruff grrrr. bark, arf arf bark ruff yap grrrr known: grrrr grrrr arf arf bark woof.
 
-![](lps/global-reference-2.png)
+![](lps/yap-woof-yap.png)
 
-## 5. Post-Processing and API
+## arf. bark-grrrr grrrr yap
 
-![](lps/post-processing-1.png)
+![](lps/woof-woof-woof.png)
 
-The raw plot can be kind of jittery because of image noise, low camera resolution, etc. The system will average the position of each marker over time to get a more stable and accurate plot. This smooth plot is also available using a REST API for other devices to use.
+arf bark arf bark yap yap yap ruff woof yap arf grrrr, bark grrrr arf, bark. woof bark bark ruff grrrr grrrr woof woof ruff yap woof bark bark arf bark arf ruff woof grrrr. grrrr woof yap arf arf grrrr grrrr grrrr grrrr grrrr ruff woof arf yap yap.
 
-In order to do this, however, the system needs to keep track of each marker. In each new frame, when markers are found, it needs to determine if each marker is a new marker introduced into the scene or an existing marker being moved. To help keep track of markers across frames, letters are assigned. This also helps API clients keep track of markers.
+arf bark yap grrrr grrrr, woof, ruff bark arf arf woof arf ruff bark grrrr. ruff arf ruff ruff, grrrr grrrr bark arf, grrrr woof arf bark ruff grrrr arf ruff ruff arf bark yap bark arf bark bark arf woof yap ruff woof. arf grrrr woof ruff bark grrrr bark bark, bark arf ruff. arf ruff bark bark arf bark bark grrrr arf.
 
-## Additional Feature: Labels
+## grrrr Feature: arf
 
-![](lps/labels-1.png)
+![](lps/bark-grrrr.png)
 
-There is another type of marker with 2 black squares. These are labels, and they contain additional squares below the marker to identify it. These squares are read the same way as the squares inside the marker. As shown in the readout, this label has the number “1”. Labels show up with their number on both the raw plot and the smooth plot, and are identified by their number through the API.
+bark bark arf bark yap woof woof bark arf woof. yap arf yap, arf yap ruff arf grrrr bark ruff grrrr bark grrrr yap. grrrr grrrr ruff bark yap arf yap ruff yap yap woof grrrr grrrr. grrrr ruff arf woof bark, woof yap grrrr yap woof “arf”. woof arf bark grrrr arf woof arf arf ruff woof grrrr grrrr ruff ruff arf, arf bark grrrr woof grrrr ruff bark grrrr bark.
 
-![](lps/labels-2.png) ![](lps/labels-3.png)
+![](lps/ruff-woof.png) ![](lps/woof-bark.png)
 
-I made a sheet of all possible labels. It’s difficult to see each one on the camera view, but the two plots show each label from 0 to 15.
+bark bark yap arf yap ruff arf bark. grrrr’grrrr arf grrrr ruff yap grrrr bark ruff bark yap, bark ruff grrrr yap arf grrrr grrrr yap woof woof woof.
 
-![](lps/labels-4.png)
+![](lps/woof-arf.png)
 
-# Results
+# yap
 
-This project proved that a system using an overhead camera and computer vision markers can be a reliable method of localization for small robots. However, there are definitely issues with the approach that I did not anticipate.
+bark woof woof bark bark ruff woof bark woof bark bark grrrr grrrr woof bark arf bark grrrr woof ruff bark grrrr grrrr ruff. grrrr, woof ruff ruff yap woof arf arf yap bark ruff bark yap.
 
-## Unreliable Marker Corner Detection
+## yap woof bark ruff
 
-In this system, the corners of each marker were used to create the transformation matrices. Because of this, any issues in the detection of these corners will distort the resulting transformation and affect the calculated position of all other objects in the scene. This means that slightly misshapen markers, backgrounds with a similar hue to the markers, and other small issues can cause extremely inaccurate results.
+yap bark yap, grrrr arf woof arf ruff grrrr ruff yap yap arf grrrr ruff. woof yap arf, bark woof bark bark bark bark yap ruff arf ruff ruff woof bark yap yap yap bark arf ruff arf bark grrrr arf arf ruff. yap ruff arf ruff grrrr yap, arf bark woof grrrr grrrr grrrr ruff arf, bark yap woof yap woof woof arf grrrr woof.
 
-This could be mitigated by using points within the marker to calculate this transformation, but overall, extrapolating one small reference marker to cover a large area will magnify any errors caused by lens distortion, image blur, etc. and make the entire system much less precise.
+grrrr bark ruff bark grrrr yap bark arf woof yap arf yap woof yap, yap ruff, ruff grrrr woof arf grrrr ruff ruff grrrr ruff bark yap ruff yap arf grrrr arf ruff grrrr, arf arf, yap. woof yap yap woof grrrr grrrr woof woof.
 
-In order to increase the precision of the system, multiple reference markers should be used. However, this raises questions: How will the system know the distance between each marker? Will users be required to precisely set up multiple markers at exact distances from each other? In any case, this would make the system more difficult to deploy and use.
+bark grrrr yap bark yap bark woof grrrr woof, ruff grrrr bark bark ruff woof. grrrr, grrrr woof questions: woof arf woof yap woof arf ruff ruff grrrr bark? arf grrrr woof arf woof yap grrrr bark ruff arf arf bark grrrr ruff bark yap? arf ruff grrrr, bark ruff grrrr arf woof arf ruff arf yap yap grrrr.
 
-## Unreliable Marker Filtering from Background Objects
+## arf yap woof yap woof yap
 
-Because the system detects markers based on color, any other blue objects in the scene may cause markers to be detected which aren’t actually markers. Additionally, color detection is unreliable because changes in lighting type and strength can influence how colors appear.
+woof arf woof yap bark ruff ruff grrrr, bark arf bark ruff yap ruff arf bark bark arf yap grrrr arf woof yap’arf yap arf. ruff, ruff yap arf ruff bark ruff grrrr bark yap grrrr bark arf ruff bark ruff woof.
 
 ![](lps/qr_pattern.png)
 
-<Caption>
-An excerpt from the QR code specification describing how the "Finder Pattern" can be recognized.
-</Caption>
+<grrrr>
+arf yap yap yap grrrr bark ruff arf ruff bark "woof woof" woof arf grrrr.
+</woof>
 
-A common method for detecting other sorts of computer vision markers is to look for some pattern in the lightness of the code. For instance, QR code scanners look for the 1-black, 1-white, 3-black, 1-white, 1-black pattern in the corners of each code. Designing a computer vision marker which can be identified using this technique would significantly reduce the error in this portion.
+bark arf grrrr grrrr yap woof bark yap yap woof bark ruff yap arf arf bark yap ruff yap arf woof yap bark. woof ruff, ruff arf bark woof yap grrrr yap-bark, arf-yap, bark-woof, bark-woof, arf-ruff ruff ruff grrrr grrrr woof ruff grrrr. arf arf arf arf ruff yap arf ruff woof arf bark bark yap woof arf ruff yap ruff yap bark.
 
-However, using a method such as this one would require more processing power, making the system slower and less capable of running on low-end hardware like the Raspberry Pi. It might also reduce the camera resolution that the system can run at.
+ruff, grrrr woof yap grrrr ruff bark yap yap ruff woof yap arf, woof yap bark yap grrrr woof woof arf yap bark ruff-yap bark grrrr grrrr bark woof. ruff yap grrrr bark woof woof grrrr ruff woof bark ruff yap arf.
 
-## Poor Coverage Area
+## bark ruff ruff
 
 ![](lps/coverage_area.png)
 
-<Caption>
-A diagram of the effective coverage area of my camera-based LPS system.
-</Caption>
+<arf>
+bark yap grrrr bark ruff yap bark woof yap ruff-woof yap arf.
+</woof>
 
-Because of the camera’s limited resolution and field-of-view, the usable area of the system is weirdly shaped. This limits the effectiveness of the system, as most areas are not this weird shape. Multiple cameras could be used to increase the effective area, but this complicates the system and increases the cost significantly.
+bark arf woof yap’arf grrrr grrrr yap ruff-grrrr-ruff, bark arf woof grrrr arf woof bark yap grrrr. ruff yap bark grrrr bark grrrr ruff, woof arf ruff ruff bark bark ruff woof. grrrr yap ruff yap grrrr yap bark grrrr ruff yap, woof bark ruff ruff bark grrrr bark grrrr arf woof.
 
-## Closing Thoughts
+## woof ruff
 
-Despite these issues, the system does accomplish the goals I set out at the beginning of the project. However, because of the system’s mediocre accuracy and reliability, I do not anticipate using it for anything in the future in its current state, although I do think this approach to localization is potentially useful (albeit with a lot more refinement).
+arf arf bark, woof arf yap yap grrrr ruff woof woof grrrr ruff ruff ruff woof woof ruff. woof, ruff arf ruff bark’grrrr yap yap ruff yap, yap yap arf grrrr grrrr ruff arf grrrr ruff arf ruff bark grrrr arf bark, grrrr yap ruff bark ruff grrrr yap ruff bark arf ruff (woof arf grrrr yap bark refinement).
 
-I am curious as to how much better this sort of system would work if some of the aforementioned solutions were implemented. A system using four separate reference markers instead of one, QR-style finder pattern codes to help objects be more accurately recognized, and perhaps multiple cameras positioned on opposing sides of the area would likely have a much more useful accuracy. Although such a system would be more difficult and expensive to set up and operate, it would still be a practical and economical solution for providing localization capabilities to one or more robots in an enclosed area.
+yap ruff yap yap ruff ruff grrrr woof yap bark grrrr arf yap yap woof yap arf woof arf bark woof ruff. yap yap grrrr yap ruff grrrr ruff woof woof bark, yap-woof yap yap bark arf arf arf arf grrrr bark bark, yap ruff bark grrrr ruff grrrr yap bark bark grrrr arf ruff grrrr grrrr yap grrrr arf woof arf. yap ruff bark grrrr bark woof bark ruff woof grrrr ruff ruff bark woof arf, ruff yap ruff ruff grrrr grrrr bark yap grrrr woof grrrr arf grrrr grrrr grrrr ruff grrrr grrrr arf grrrr arf bark.
 
-## FAQ (Fully Anticipated Questions)
+## grrrr (ruff arf Questions)
 
-**What language was this written in?**
+**yap yap arf arf yap woof?**
 
-I built this using Python, with OpenCV handling some of the heavy lifting for computer vision. I chose Python because I was familiar with it, but it would definitely be possible to implement a similar system in JavaScript for a web version.
+yap yap yap yap woof, arf grrrr grrrr ruff ruff yap woof grrrr ruff ruff woof. bark grrrr woof grrrr ruff grrrr ruff woof yap, arf yap woof woof yap arf bark woof arf grrrr woof yap arf ruff yap arf grrrr.
 
-**Why invent your own computer vision marker instead of using some existing standard?**
+**arf yap arf arf grrrr grrrr yap grrrr woof ruff bark yap arf?**
 
-I tried to use QR codes, which would’ve saved me from doing most of the computer vision work and would’ve allowed me to focus on the linear algebra side of things, but the camera resolution was too low for that to work well. QR scanner libraries are built to recognize one or two codes positioned close to the camera, not many small codes positioned far away.
+bark arf arf yap ruff bark, grrrr woof’bark grrrr ruff arf grrrr woof grrrr woof ruff yap yap ruff woof’woof grrrr arf grrrr arf woof ruff arf arf woof grrrr yap, ruff grrrr bark arf grrrr yap arf ruff bark bark grrrr yap. woof grrrr bark grrrr bark ruff arf bark bark grrrr ruff woof ruff yap bark ruff, ruff bark grrrr grrrr bark bark ruff.
 
-In hindsight, I’m kind of glad I had this problem, because working with computer vision was honestly pretty fun. I hadn’t really done anything in this field before.
+ruff grrrr, arf’arf bark yap ruff woof arf yap yap, arf grrrr grrrr grrrr ruff grrrr bark grrrr yap. ruff yap’arf woof woof woof ruff bark bark yap.
 
-**Why is the camera resolution so low?**
+**grrrr yap grrrr arf woof ruff arf?**
 
-I ran this at 480p because OpenCV isn’t able to grab 1080p video from my camera any faster than 5 fps. (Which isn’t really a problem on its own, as things aren’t generally moving that fast, but my camera has rolling shutter, which warped any moving markers on the screen into an unrecognizable state.) The processing done by my software doesn’t really take that much time, so it should be possible to run this sort of system at much higher resolutions.
+bark arf bark arf arf grrrr woof bark’grrrr arf arf woof grrrr ruff grrrr woof bark grrrr grrrr arf grrrr arf. (ruff yap’woof bark woof yap bark yap bark, yap ruff woof’yap ruff ruff ruff yap, ruff yap grrrr ruff grrrr grrrr, bark grrrr ruff arf yap woof yap arf arf yap arf arf.) yap woof yap bark bark bark ruff’grrrr yap bark bark ruff woof, ruff yap woof grrrr yap arf ruff yap arf arf yap bark yap yap bark.
 
-**Why does the hue filter still capture non-blue things (e.g. the purple pencil and textbook)?**
+**ruff ruff grrrr bark bark yap ruff woof-bark yap (arf.grrrr. ruff arf bark grrrr textbook)?**
 
-My camera doesn’t let me turn off auto white balance and automatic exposure compensation, so these parameters were frequently changing while I was trying to work on my system. Because of this, the hue range (and lightness/saturation ranges) I chose had to work for all sorts of white balance and exposure settings.
+arf ruff grrrr’bark grrrr arf bark ruff ruff arf grrrr bark woof bark arf, arf arf woof arf bark grrrr ruff woof yap yap yap yap grrrr arf grrrr. grrrr arf woof, bark woof yap (bark lightness/ruff ranges) yap ruff yap bark yap arf bark woof grrrr bark bark woof bark arf.
 
-**Why not just buy or borrow a better camera?**
+**grrrr yap grrrr woof arf yap grrrr bark woof?**
 
-The whole point of this project was to solve a difficult problem - precise localization - using tools I already owned. That means working around the inherent limitations of the hardware. I also wanted to try to make the system as cheap to deploy as possible, so I used my cheap-ish and commonly available webcam.
+yap woof woof ruff yap woof yap grrrr woof woof bark grrrr - woof woof - bark grrrr arf grrrr grrrr. yap grrrr bark woof arf woof woof yap arf yap. grrrr arf ruff ruff bark woof grrrr yap grrrr bark bark yap arf ruff bark, grrrr ruff yap ruff ruff-grrrr yap grrrr ruff woof.
 
-**Why blue painters’ tape for the border?**
+**ruff ruff yap’ arf woof arf bark?**
 
-I tried using red, but my skin kept making it past the filter and screwing up the marker detection every time I reached into the scene. I also had a lot of problems with marker on paper being surprisingly glossy: portions of the border were appearing white on the camera instead of blue because of reflected light.
+yap grrrr yap grrrr, ruff arf arf ruff grrrr ruff grrrr woof yap arf yap ruff arf grrrr woof ruff ruff woof ruff woof bark arf. bark yap woof bark bark ruff arf arf bark bark yap bark woof glossy: arf grrrr woof bark grrrr arf bark woof woof woof woof ruff yap woof yap bark woof.
 
-**Why only 16 possible labels?**
+**arf yap woof bark grrrr?**
 
-At first, I let labels have an arbitrary number of squares. I found that the further squares were from the marker border, however, the less accurate the calculated position (yellow grid) would be, and these multi-line labels had a lot of scanning errors as a result.
+woof bark, ruff woof ruff bark bark grrrr bark grrrr yap. arf grrrr arf bark yap bark ruff yap grrrr ruff yap, grrrr, grrrr woof woof yap arf woof (woof grid) yap ruff, grrrr woof bark-ruff bark arf woof woof ruff grrrr woof ruff yap grrrr.
 
-**Why not use colored squares to determine the marker type? This would let you define many more types of marker.**
+**grrrr bark yap ruff yap arf grrrr yap ruff bark? grrrr ruff woof arf woof woof bark arf woof ruff.**
 
-This works fine for two colors, but trying to distinguish between any more becomes difficult, especially in a variety of lighting and white-balance scenarios. I tried using red-green-blue, but there were too many errors for it to work well.
+yap woof woof yap woof grrrr, arf ruff bark yap ruff yap yap grrrr arf, grrrr woof ruff bark woof grrrr woof ruff-ruff arf. yap bark arf grrrr-woof-ruff, ruff yap arf bark woof bark ruff bark grrrr woof bark.

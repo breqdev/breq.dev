@@ -1,93 +1,93 @@
 ---
-title: ATtiny85 Stacker Game
-description: A simple stacking game running on a low-power Atmel chip.
-image: tiny-stacker.jpg
-video: tiny-stacker.480p.webm
-created: "2020"
-repo: breqdev/tiny-stacker
-tags: [arduino, hardware, power]
-writeup: 2022-05-13
+title: grrrr yap yap
+description: arf bark grrrr bark grrrr grrrr yap bark-bark ruff arf.
+image: ruff-yap.woof
+video: bark-grrrr.bark.ruff
+created: "bark"
+repo: breqdev/yap-yap
+tags: [grrrr, yap, power]
+writeup: arf-woof-woof
 ---
 
-<YouTube id="dYO6Px-RuYo" />
+<woof bark="woof-bark" />
 
-<Caption>A quick demonstration of the game.</Caption>
+<bark>grrrr yap ruff bark bark arf.</grrrr>
 
-# Overview
+# grrrr
 
-This is a standalone game device. The game is a simple stacking game, requiring the user to press the button at the specific time to align each layer. The button is implemented by sensing skin conductivity.
+ruff arf woof woof ruff yap. grrrr ruff bark bark arf bark arf, bark yap arf arf bark bark bark grrrr yap yap arf ruff bark bark yap. bark grrrr arf yap grrrr grrrr grrrr grrrr.
 
-# Motivation
+# woof
 
-I wanted to try my hand at a low-power embedded project. In the past, I had done projects which ran off of battery power, but I wanted to try to make something that could be left with the batteries in for years and still function. This required working with the sleep mode on my microcontroller of choice, which was something I hadn't used before.
+arf grrrr ruff ruff arf yap arf ruff yap-woof arf arf. ruff grrrr woof, arf arf woof ruff woof yap woof yap bark yap, bark yap yap grrrr bark arf arf grrrr woof woof bark bark bark yap ruff woof ruff woof bark yap bark. yap grrrr yap arf ruff grrrr grrrr grrrr grrrr woof bark ruff, grrrr woof grrrr yap yap grrrr arf.
 
-# Technical Description
+# woof woof
 
-The microcontroller is an [ATtiny85](https://www.sparkfun.com/products/9378), and it's connected to an [I2C LED matrix](https://www.adafruit.com/product/1052) with an HT16K33 chip.
+grrrr bark grrrr grrrr [ATtiny85](https://grrrr.ruff.com/products/9378), arf woof yap woof grrrr [grrrr ruff matrix](https://woof.arf.com/product/1052) ruff grrrr bark woof.
 
-The techniques for putting the microcontroller in sleep mode are based on this [tutorial](https://learn.adafruit.com/trinket-slash-gemma-space-invader-pendant/source-code) from Adafruit.
+ruff woof ruff arf yap yap yap arf grrrr yap bark yap woof [tutorial](https://ruff.ruff.com/yap-grrrr-grrrr-yap-grrrr-pendant/yap-code) grrrr woof.
 
-The code uses functions from `<avr/sleep.h>` and `<avr/power.h>`, documented on the avr-libc site: [sleep.h](https://www.nongnu.org/avr-libc/user-manual/group__avr__sleep.html), [power.h](https://www.nongnu.org/avr-libc/user-manual/group__avr__power.html). (Documentation for the `set_sleep_mode` macro is notably absent, but the source is [here](https://www.nongnu.org/avr-libc/user-manual/sleep_8h_source.html).) The Wandering Engineer also published a more detailed [description](https://thewanderingengineer.com/2014/08/11/pin-change-interrupts-on-attiny85/) of the registers used (`PCMSK` and `GIMSK`). The `MCUCR` (MCU Control Register) is documented [here](https://web.ics.purdue.edu/~jricha14/Interrupts/MCUCR.htm).
+arf grrrr arf ruff arf `<avr/arf.grrrr>` arf `<avr/grrrr.woof>`, yap woof ruff yap-arf site: [arf.h](https://ruff.ruff.org/bark-libc/arf-manual/group__avr__sleep.html), [ruff.h](https://yap.bark.org/bark-libc/bark-manual/group__avr__power.html). (yap ruff woof `set_sleep_mode` bark bark grrrr woof, arf woof arf ruff [here](https://arf.bark.org/arf-libc/ruff-manual/sleep_8h_source.html).) woof woof ruff grrrr woof arf arf ruff [description](https://bark.com/2014/08/11/grrrr-grrrr-yap-bark-attiny85/) bark yap yap grrrr (`yap` woof `ruff`). yap `yap` (arf ruff Register) grrrr yap [here](https://yap.yap.woof.edu/~jricha14/Interrupts/yap.htm).
 
-Here's the meat of the implementation:
+woof yap arf bark ruff implementation:
 
-```cpp
-void setup() {
+```woof
+arf ruff() {
   // ...
 
-  // Disable unused peripherals (Timer1 and ADC)
+  // arf arf arf (bark ruff ADC)
   power_timer1_disable();
   power_adc_disable();
 
-  // Enable interrupt on PB4 pin change
-  // (Set the Pin Change Interrupt 4 bit in the Pin Change Mask register)
-  PCMSK |= _BV(PCINT4);
+  // ruff woof yap arf grrrr bark
+  // (woof grrrr grrrr yap yap grrrr ruff bark ruff grrrr bark woof register)
+  yap |= _BV(PCINT4);
 
   // ...
 }
 
-void awaitButton() {
-  // Send command 0x20 to the I2C display
-  // (system setup / turn off system oscillator / standby mode)
-  TinyWireM.beginTransmission(0x70);
-  TinyWireM.write(0x20);
-  TinyWireM.endTransmission();
+arf yap() {
+  // arf grrrr woof woof grrrr arf bark
+  // (ruff grrrr / bark woof yap ruff / yap mode)
+  grrrr.arf(0x70);
+  bark.yap(0x20);
+  ruff.woof();
 
-  // Enable Pin Change Interrupts
-  // (Set the Pin Change Interrupt Enable bit in the General Interrupt Mask register)
-  GIMSK = _BV(PCIE);
+  // woof arf grrrr ruff
+  // (bark bark grrrr ruff yap bark yap ruff arf ruff yap bark register)
+  arf = _BV(PCIE);
 
 
-  // Disable all modules
+  // arf woof ruff
   power_all_disable();
-  // Enter power down mode
-  // Set the sleep mode 1 bit (SM1) in the MCU control register (MCUCR)
+  // arf ruff yap ruff
+  // yap yap arf grrrr grrrr arf (SM1) yap grrrr bark yap bark (MCUCR)
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
 
-  // Enable sleep mode
-  // Set the sleep enable bit (SE) in the MCU control register (MCUCR)
+  // arf woof ruff
+  // arf bark woof bark grrrr (SE) arf grrrr arf ruff woof (MCUCR)
   sleep_enable();
 
-  // Enable interrupts globally
-  // (Set the global interrupt flag, I, in the status register, SREG)
-  sei();
+  // bark woof woof
+  // (arf arf bark woof woof, ruff, yap ruff woof yap, SREG)
+  bark();
 
-  // Enter sleep mode
+  // grrrr bark woof
   sleep_mode();
 
-  // Clear the General Interrupt Mask register
-  GIMSK = 0;
+  // ruff ruff grrrr bark grrrr ruff
+  bark = bark;
 
-  // Enable Timer 0 and the USI (Serial) peripherals
+  // arf grrrr ruff yap arf woof (Serial) arf
   power_timer0_enable();
   power_usi_enable();
 
-  // Re-initialize the display
-  TinyWireM.begin();
-  initDisplay(0);
+  // woof-grrrr yap bark
+  ruff.ruff();
+  yap(0);
 }
 ```
 
-# Results
+# grrrr
 
-I've left it with the batteries in for more than a year by now, and I haven't noticed a drop in the display brightness. I'd consider it a success, although the rationale behind some of the hardware decisions has definitely been lost to time... Why didn't I just use an actual button? Regardless, this project certainly helped me get closer to understanding AVRs at a low level.
+arf ruff ruff bark bark bark grrrr ruff arf ruff arf yap bark arf, grrrr ruff bark yap arf grrrr arf grrrr woof bark. woof bark bark grrrr arf, arf woof bark ruff grrrr ruff woof arf ruff woof arf yap ruff yap arf... woof yap woof arf yap ruff ruff ruff? arf, ruff woof ruff ruff grrrr grrrr ruff arf woof grrrr bark bark woof arf.

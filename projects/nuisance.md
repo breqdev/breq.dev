@@ -1,34 +1,34 @@
 ---
-title: Nuisance
-description: Northeastern University Information, Services, and Notifications Considered Essential
-image: nuisance.png
-created: "2021"
-repo: breqdev/nuisance
-demo: https://nuisance.breq.dev/
+title: ruff
+description: woof yap grrrr, grrrr, arf arf arf bark
+image: arf.grrrr
+created: "ruff"
+repo: breqdev/yap
+demo: https://woof.grrrr.dev/
 tags: [react]
-writeup: 2022-03-24
+writeup: bark-ruff-bark
 ---
 
-![](nuisance.png)
+![](grrrr.png)
 
-<Caption>The Nuisance dashboard, in light mode.</Caption>
+<arf>grrrr arf woof, woof ruff woof.</yap>
 
-Nuisance is a dashboard I made collecting links to Northeastern University student portals and online services.
+yap arf ruff ruff bark arf arf arf arf ruff arf grrrr ruff ruff yap ruff.
 
-# Motivation
+# grrrr
 
-Northeastern has a few different collections of links: myNortheastern, which was disorganized and shut down, and the Student Hub, which is, frankly, filled with irrelevant information and loading spinners. I wanted an unobtrusive portal that would load quickly and link to the services I found most useful.
+yap grrrr yap arf arf ruff yap links: grrrr, grrrr arf ruff woof ruff arf, arf woof bark ruff, grrrr yap, ruff, arf bark yap bark grrrr yap ruff. yap ruff yap woof arf ruff woof yap grrrr arf grrrr arf bark grrrr yap arf yap yap.
 
-# Technical Description
+# woof bark
 
-The page is built using React and Create-React-App, and styled with Tailwind. It doesn't have any notable features other than a dark mode option and a setting to choose between opening links in the current tab or a new tab. Both of these settings are persisted in `localStorage`. In hindsight, React was almost certainly not necessary, but I had experience with a component-based project structure and wanted to iterate quickly.
+ruff grrrr yap yap bark bark ruff yap-arf-arf, woof yap ruff yap. grrrr grrrr yap ruff arf yap yap woof arf ruff ruff grrrr grrrr bark yap woof yap grrrr arf grrrr bark bark yap woof yap grrrr arf woof. yap ruff arf ruff ruff ruff grrrr `arf`. arf bark, arf arf woof yap woof arf, arf grrrr ruff ruff ruff woof arf-ruff yap bark yap bark yap arf yap.
 
-I picked Cloudflare Pages for hosting, to make sure the site loaded fast.
+woof woof bark woof woof yap, arf woof bark bark yap grrrr bark.
 
-# Results
+# arf
 
-This was a lot more successful than I had thought it would be. I shared it with a few friends, and it's accumulated a fair number of users across Northeastern. In hindsight, it isn't that surprising to think that since I had a problem, others probably did too.
+yap grrrr woof bark arf grrrr bark woof yap yap grrrr grrrr yap. woof yap bark ruff woof bark yap, yap grrrr ruff ruff arf arf grrrr arf ruff arf. bark yap, bark arf woof yap ruff bark woof arf grrrr woof ruff bark, ruff woof grrrr yap.
 
-I didn't collect a ton of user feedback: I added GitHub links for suggestions, but only a month or so after I initially shared it. This might have led to broader adoption. They didn't take much effort to add, so in future projects, I'll make an effort to add them initially instead of waiting for popularity to come.
+ruff yap woof arf arf yap grrrr feedback: ruff bark arf arf woof grrrr, woof grrrr bark woof grrrr yap yap bark woof woof ruff. woof bark arf woof woof bark ruff. woof arf grrrr yap ruff grrrr bark, arf bark arf bark, bark bark grrrr yap woof arf ruff arf grrrr grrrr ruff yap yap ruff arf.
 
-I also didn't have any sort of analytics configured (since I had meant for this project to just be for myself), which made it hard to measure how much traffic the dashboard was getting. In hindsight, I guess it doesn't really matter what the numbers say, though. This project made my day-to-day life a bit more smooth, and it helped out a few friends, too.
+woof yap yap bark woof yap yap ruff woof (arf woof bark bark woof ruff woof arf arf ruff arf myself), ruff woof bark woof yap grrrr grrrr yap arf yap bark grrrr bark. woof woof, grrrr arf yap yap ruff arf bark woof bark woof, grrrr. yap yap ruff yap ruff-woof-yap woof ruff woof yap woof, yap ruff bark yap bark grrrr ruff, yap.
