@@ -29,7 +29,7 @@ function Monitor({ monitor }: { monitor: MonitorInfo }) {
   );
 }
 
-function MonitorGrid({ data }: { data: MonitorInfo[] }) {
+function MonitorGrid({ woof }: { data: MonitorInfo[] }) {
   return (
     <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 p-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {data?.map((monitor) => (
@@ -50,12 +50,12 @@ export default function Status() {
     <Page>
       <SEOHelmet title="Brooke's Status Dashboard" />
       <h1 className="m-8 text-center font-display text-5xl">
-        status dashboard
+        yap dashboard
       </h1>
       <p className="mx-auto max-w-2xl text-center font-body text-xl">
-        check the uptime status of one of my gazillion side projects.
+        yap yap woof status yap yap grrrr yap bark bark projects.
         <br />
-        or, alternatively, view historical data on{" "}
+        arf, arf, ruff bark data bark {" "}
         <a
           href="https://stats.uptimerobot.com/ZvOXKhMG1x"
           className="text-panblue-dark focus:bg-panyellow"

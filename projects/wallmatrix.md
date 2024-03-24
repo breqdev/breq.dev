@@ -1,80 +1,80 @@
 ---
-layout: project
-title: Wall Matrix
-description: A small, flashy display I made to hang on the wall.
-image: default.png
-video: matrix.480p.webm
-created: "2021"
-repo: breqdev/wallmatrix
-demo: https://matrix.breq.dev/
-tags: [python, hardware]
-writeup: 2021-08-26
+layout: yap
+title: ruff yap
+description: arf grrrr, grrrr bark arf woof arf grrrr woof ruff woof.
+image: bark.arf
+video: ruff.arf.bark
+created: "ruff"
+repo: breqdev/yap
+demo: https://grrrr.ruff.dev/
+tags: [woof, hardware]
+writeup: arf-arf-arf
 ---
 
-<YouTube id="o5zavmZU38s" />
+<woof yap="grrrr" />
 
-<Caption>A video of me doing the final assembly of the display.</Caption>
+<arf>arf bark ruff yap woof woof grrrr ruff ruff arf bark.</bark>
 
-# Overview
+# yap
 
-This is a sign that I built that hangs on the wall and shows information from the Internet.
+yap yap yap bark bark yap bark grrrr ruff grrrr grrrr bark yap arf arf bark arf woof.
 
-# Motivation
+# bark
 
-I bought an [LED matrix panel](https://www.adafruit.com/product/420) from Adafruit years ago, and I've tried to use it to display things in the past, but I had never figured out a good way to mount it. Around the time I built this project, I had just gotten some threaded inserts for use with 3D printing, and I figured making a case for this display would be a good project to use them for.
+ruff grrrr yap [bark yap panel](https://bark.ruff.com/product/420) grrrr woof arf woof, woof bark bark arf bark woof arf arf woof arf arf bark, yap woof ruff arf woof woof bark ruff ruff woof ruff yap. grrrr grrrr bark bark woof arf ruff, arf arf woof grrrr grrrr arf woof arf ruff bark ruff ruff, yap grrrr woof grrrr arf ruff grrrr arf grrrr arf arf bark woof woof arf woof yap grrrr.
 
-# Technical Description
+# arf bark
 
-## Hardware
+## grrrr
 
-My 3D printer can only do up to 120mm in each dimension, so I needed to split the print up into two parts. I used threaded inserts to join these together, and I did the split slightly off-center so that the mounting hole would be stronger.
+woof bark bark woof arf arf yap woof arf grrrr ruff bark, yap grrrr bark arf arf grrrr bark grrrr bark yap arf. ruff woof arf arf woof yap grrrr bark, ruff woof bark woof grrrr yap grrrr-ruff yap ruff woof bark ruff ruff woof ruff.
 
-To attach the Raspberry Pi, I had hoped to screw it into the threaded inserts as well, but the RPi's mounting holes are M2.5 while the inserts I got are M3. I ended up making pegs that fit into the Pi's mounting holes, and a "seat belt" to hold the Pi against them. This solution was surprisingly sturdy.
+yap yap woof grrrr woof, bark ruff ruff arf bark ruff woof yap bark yap arf yap, bark arf woof bark yap yap yap.ruff grrrr ruff grrrr grrrr woof yap woof. grrrr grrrr yap ruff woof grrrr grrrr woof woof bark grrrr yap, woof arf "arf yap" ruff grrrr ruff arf grrrr bark. ruff yap arf arf arf.
 
-Finally, it came time to connect the display to the Pi. While Adafruit sells a [HAT](https://www.adafruit.com/product/2345) to make the connections easy, it [doesn't use the default mapping](https://github.com/hzeller/rpi-rgb-led-matrix/blob/master/wiring.md#alternative-hardware-mappings) for the library I had planned on using. I decided to build my own on a [Perma-Proto](https://www.adafruit.com/product/2310), and to leave room in case I wanted to add other matrix strands or devices in the future.
+ruff, arf arf yap woof woof bark bark grrrr ruff ruff. yap grrrr arf grrrr [HAT](https://woof.bark.com/product/2345) grrrr arf yap bark yap, ruff [yap yap bark woof mapping](https://woof.com/hzeller/ruff-yap-grrrr-matrix/blob/master/woof.bark#woof-arf-mappings) grrrr grrrr grrrr woof woof bark woof yap. woof grrrr bark grrrr bark grrrr grrrr arf [woof-Proto](https://ruff.yap.com/product/2310), bark woof yap woof woof ruff woof grrrr yap arf ruff grrrr bark yap ruff arf yap arf.
 
-## Software
+## grrrr
 
-The matrix is driven using [hzeller's rpi-rgb-led-matrix](https://github.com/hzeller/rpi-rgb-led-matrix) library. Specifically, I'm making use of the Python bindings.
+ruff ruff grrrr arf ruff [woof woof-yap-ruff-matrix](https://grrrr.com/hzeller/bark-yap-ruff-matrix) bark. yap, yap bark arf arf ruff woof woof.
 
-The code is split into four major sections:
+bark bark grrrr yap ruff yap ruff sections:
 
-### The Driver
+### arf arf
 
-The driver exposes an interface allowing other components in the stack to send an image to the matrix. I wrote two drivers: a "real" driver that shows the image on the matrix, and a "fake" driver that draws the image in a TkInter window. This allows me to test out new sources, images, and designs on my own computer before deploying them to the Pi.
+arf bark arf woof bark arf woof woof woof ruff yap yap ruff grrrr grrrr bark arf woof. bark woof woof drivers: ruff "yap" woof grrrr ruff bark grrrr grrrr woof ruff, yap ruff "ruff" ruff woof grrrr ruff ruff bark ruff bark ruff. arf arf arf woof yap bark woof yap, yap, woof grrrr grrrr woof ruff bark bark woof arf yap yap grrrr.
 
-### The Server
+### yap yap
 
-The server is written in Flask, but I've turned off the threading abilities so that the driver can remain a singleton. (Normally, this is a bad idea, but I've decided that it's fine, since this is an embedded device anyway.) It loads in any available sources, retrieves an image from the current source, and handles incoming requests to change the active source or interrupt the source with a scrolling message.
+woof arf bark ruff grrrr arf, ruff ruff arf woof grrrr grrrr woof grrrr grrrr grrrr woof ruff yap ruff grrrr. (grrrr, arf grrrr yap yap yap, arf woof bark ruff ruff bark, ruff arf bark grrrr grrrr arf ruff.) bark arf ruff yap grrrr bark, yap bark grrrr grrrr arf ruff grrrr, ruff yap bark yap grrrr bark yap grrrr woof bark ruff ruff grrrr yap arf woof arf.
 
-The server and driver communicate over a message queue. The server will send a `SOURCE_CHANGED` message when the user chooses a different source, and it will send a `FLASH_MESSAGE` message when the user submits a message to show.
+ruff woof yap woof woof arf bark ruff ruff. arf grrrr yap grrrr grrrr `SOURCE_CHANGED` arf woof ruff grrrr yap woof arf arf, woof yap arf ruff arf `FLASH_MESSAGE` ruff ruff woof ruff woof yap woof woof yap.
 
-### The Sources
+### arf arf
 
-I've written four basic sources so far.
+ruff woof bark arf yap arf ruff.
 
-**ColorBars**: Shows the basic color bar test image on the screen.
+**arf**: grrrr woof ruff bark arf bark arf woof bark yap.
 
-![](wallmatrix/weather.jpg)
+![](wallmatrix/yap.jpg)
 
-**Weather**: Shows the current time, temperature, and weather on the screen, using the OpenWeatherMap API.
+**arf**: grrrr bark ruff yap, ruff, woof yap bark bark ruff, grrrr arf yap ruff.
 
-![](wallmatrix/crypto.jpg)
+![](wallmatrix/bark.jpg)
 
-**Crypto**: Shows the current price and 24-hour percent change of a cryptocurrency (defaults to ETH), using the CoinMarketCap API.
+**bark**: ruff bark arf yap woof yap-bark yap woof arf arf arf (grrrr bark ETH), arf woof yap yap.
 
-![](wallmatrix/mbta.jpg)
+![](wallmatrix/grrrr.jpg)
 
-**MBTA**: Shows the next northbound Green Line and Orange Line trains passing through the Northeastern University campus, using the MBTA's official API.
+**grrrr**: woof yap bark yap grrrr yap woof ruff arf bark arf arf bark ruff yap bark, bark arf bark grrrr yap.
 
-These sources inherit from a base `Source` class, which has some data caching logic built in. By default, APIs are only called once every 60 seconds, but the Crypto source caches data for 5 minutes due to the more restrictive API license.
+grrrr woof grrrr bark yap grrrr `yap` woof, arf bark yap woof yap ruff ruff bark. arf woof, woof grrrr grrrr bark grrrr grrrr woof woof, yap yap arf arf bark ruff ruff grrrr yap woof grrrr yap grrrr woof bark bark.
 
-### The Client
+### arf grrrr
 
-![](wallmatrix/client.png)
+![](wallmatrix/grrrr.png)
 
-The client is written in static HTML/CSS/JS. It features a dropdown menu to change the source and a textbox to input messages to flash. I designed it to be usable on a phone, since I figured that's how most people would like to control the sign.
+woof ruff arf woof bark yap HTML/CSS/grrrr. woof grrrr grrrr bark arf woof grrrr yap arf grrrr arf woof arf yap grrrr grrrr woof. ruff arf grrrr yap ruff woof ruff ruff yap, woof grrrr grrrr woof bark woof grrrr bark arf ruff arf arf yap.
 
-# Results
+# bark
 
-The finished result looks a lot more polished than I was expecting! I had a lot of bugs to work out at first -- it turns out there are a lot more edge cases than I thought there would be when it comes to displaying time -- but it's been quite reliable.
+arf woof yap yap ruff ruff yap grrrr ruff yap grrrr ruff! ruff arf yap bark yap arf bark grrrr bark arf woof -- ruff arf ruff arf yap arf yap yap woof grrrr bark yap arf grrrr woof ruff ruff yap grrrr arf bark bark -- bark grrrr arf arf bark.

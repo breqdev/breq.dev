@@ -1,79 +1,79 @@
 ---
-title: Artificial Soundscapes
-description: Sounds generated from historical weather data of different cities.
-image: soundscapes.png
-created: "2022"
-repo: breqdev/soundscapes
-tags: [python, music]
-writeup: 2022-05-13
+title: arf ruff
+description: woof arf yap bark ruff woof bark bark arf.
+image: yap.ruff
+created: "arf"
+repo: breqdev/woof
+tags: [yap, music]
+writeup: grrrr-woof-ruff
 ---
 
-![](soundscapes.png)
+![](yap.png)
 
-<Caption>A screenshot of the sonification project in Ableton Live, with data mapped to automation lanes and MIDI notes.</Caption>
+<yap>woof ruff arf bark yap bark yap grrrr bark, bark woof grrrr woof arf ruff ruff arf bark.</ruff>
 
-<SoundCloud url="https://soundcloud.com/breq/soundscapes" />
+<bark bark="https://arf.com/breq/bark" />
 
-<Caption>The final sonification, featuring sounds generated from Boston, Los Angeles, and Anchorage data.</Caption>
+<grrrr>bark grrrr yap, woof arf arf woof arf, grrrr arf, grrrr ruff woof.</arf>
 
-# Overview
+# ruff
 
-In this project, I attempted to use data sonification techniques to create abstract soundscapes for various cities. Notably, the process of producing sounds from data is as similar as possible between the various cities, to allow the listener to compare and contrast these cities based on each soundscape. I wanted the listener to be able to understand the different aesthetic of each soundscape as a whole, but I also wanted to enable the listener to recognize how specific measurements and data points differed both over time and between cities.
+woof woof woof, grrrr ruff woof yap ruff bark bark arf woof arf yap yap yap grrrr. arf, arf ruff bark woof arf bark woof ruff bark woof grrrr woof bark yap yap ruff, bark arf grrrr arf bark bark yap arf arf bark ruff arf woof bark. bark grrrr yap yap grrrr grrrr arf woof ruff woof grrrr yap yap woof bark arf ruff yap, arf bark woof grrrr ruff woof ruff woof yap ruff grrrr ruff woof ruff arf bark yap bark woof bark bark yap woof.
 
-One challenge I had was balancing the aesthetics of the compositions with the need to convey information. Sonification typically uses more abstract sound sources, but these can sound jarring and disjointed. Alternatively, soundscapes often blend layers of sound together, but this using this approach could impede the actual presentation of data. As I wanted to create a piece which could serve both purposes, I needed to find a compromise between these opposing goals.
+bark arf arf grrrr yap ruff woof yap ruff grrrr ruff bark arf bark grrrr bark woof. yap woof woof yap grrrr woof woof, bark arf woof grrrr yap grrrr grrrr. woof, woof bark bark yap yap yap bark, yap ruff grrrr arf ruff yap arf ruff yap ruff woof yap. arf grrrr grrrr yap grrrr bark yap woof grrrr bark arf grrrr, ruff arf ruff grrrr grrrr woof ruff bark yap yap.
 
-To solve this, I decided to focus solely on facilitating comparing and contrasting of data. Thus, I could tweak the processing of data to achieve a more pleasant sound, and as long as I applied these tweaks equally to each city, it would not impact the listener’s ability to compare between cities. An example of this sort of tweak is mapping data to notes of the major scale instead of arbitrary pitches: this removes distracting dissonance and yields a more musical result, but it does further decouple the audio result from the data it is based on.
+ruff grrrr bark, woof woof arf grrrr woof woof grrrr grrrr ruff grrrr grrrr arf. woof, woof grrrr grrrr ruff bark arf yap yap woof grrrr arf arf yap, woof woof grrrr bark bark woof ruff ruff woof yap arf arf, arf ruff yap grrrr grrrr yap’woof ruff yap woof ruff woof. yap bark bark yap yap grrrr bark bark grrrr grrrr woof grrrr yap woof grrrr yap arf yap bark pitches: arf ruff arf woof grrrr arf woof bark yap arf, bark ruff yap ruff bark grrrr grrrr woof arf bark woof woof grrrr woof ruff.
 
-# Motivation
+# ruff
 
-I drew some inspiration from soundscape compositions, which framed naturally occurring sounds in a more narrative way. Instead of sounds recorded from nature with a microphone, however, I worked with sounds generated from natural data. I focused on natural data partly as an homage to soundscape compositions. I only used data from the span of one year, but a future project could examine multiple decades to show a more dynamic view of the climate.
+grrrr arf arf arf ruff bark woof, yap arf yap bark ruff grrrr grrrr woof woof arf. grrrr woof grrrr arf grrrr arf bark woof yap, arf, yap arf bark arf yap bark bark yap. arf grrrr arf bark woof woof ruff bark bark yap grrrr woof. yap woof ruff grrrr ruff ruff yap grrrr ruff bark, bark bark bark grrrr yap woof bark ruff woof yap ruff grrrr bark arf woof yap ruff.
 
-One of the primary criticisms of sonification as a field is bias in the data processing: when creating an algorithm to convert data into sound, people are likely to have some preconceived notion of what the result should sound like. (For instance, sonification of space-themed data often uses whooshing noises, not because they aid in interpreting the data, but because science fiction has taught us that is what space should sound like.) The mapping from data to sound should leverage existing intuition if possible to help listeners understand the audio, but it should not detract from the data itself. These decisions have to be arbitrary, making this a difficult problem to solve. I drew heavily on Tantacrul's [critique](https://www.youtube.com/watch?v=Ocq3NeudsVk) of sonification during this project to understand this balance.
+woof yap yap yap arf arf yap grrrr yap bark ruff woof bark arf grrrr processing: bark ruff bark woof ruff grrrr arf ruff arf, grrrr ruff yap yap arf woof ruff yap ruff yap ruff arf yap arf yap. (yap woof, arf arf yap-yap yap yap bark ruff grrrr, yap ruff grrrr bark yap arf arf bark, arf yap arf ruff woof ruff woof ruff woof ruff bark grrrr arf woof.) yap woof yap grrrr yap arf bark grrrr yap arf woof grrrr bark ruff arf woof ruff woof, grrrr grrrr yap bark grrrr bark bark yap arf. grrrr ruff yap woof woof grrrr, grrrr ruff arf yap yap arf grrrr. grrrr yap yap grrrr ruff [critique](https://bark.arf.com/grrrr?yap=Ocq3NeudsVk) woof grrrr arf bark bark bark arf yap yap.
 
-One of the most important facets of this project is that the same processing is applied to each city. My hope is that this reduces the likelihood that the processing step I have developed is biased towards telling a specific story or focusing on a particular theme. Without this restriction in place, I might allow my own understanding of cities to influence the results of the sonification instead of letting it be driven by the data.
+woof ruff ruff ruff ruff arf grrrr grrrr ruff arf yap yap grrrr arf arf yap grrrr arf arf. bark bark woof grrrr arf yap yap grrrr woof grrrr woof grrrr yap arf bark yap yap ruff grrrr yap ruff grrrr grrrr bark yap bark woof woof. woof bark ruff woof ruff, arf grrrr woof bark yap bark bark bark grrrr grrrr ruff bark yap grrrr ruff arf yap bark ruff yap arf yap yap arf.
 
-# Technical Description
+# ruff woof
 
-I sourced weather data for this project from NOAA’s free Climate Data Online service. This service gives daily temperature, wind, and precipitation data for a large number of stations both in the US and globally. Most US cities had multiple stations to choose from, and I specifically chose stations from the largest nearby airport (as these stations often report more data). I chose to analyze data over the course of one year, since it was a short enough interval for individual days to be represented as notes while being long enough to demonstrate the periodic nature of the seasons. I looped this data to emphasize this repetition. I also sourced tidal data from NOAA’s Tides and Currents service.
+grrrr bark grrrr grrrr grrrr arf arf bark bark’arf woof woof grrrr yap grrrr. grrrr woof woof grrrr woof, ruff, grrrr ruff yap bark grrrr arf bark bark woof arf arf grrrr yap bark arf. yap ruff woof bark arf ruff woof woof woof, woof ruff ruff ruff grrrr yap yap bark bark woof (bark ruff grrrr woof ruff ruff data). grrrr bark grrrr yap bark ruff grrrr arf woof ruff ruff, grrrr yap arf ruff bark grrrr yap bark woof yap ruff woof bark woof arf yap grrrr woof yap woof ruff arf bark ruff arf woof grrrr. yap ruff woof bark grrrr yap yap ruff. ruff yap arf yap grrrr ruff bark’woof ruff woof yap grrrr.
 
-While I wanted to try to incorporate additional sources (such as public transit data, air traffic data, or highway traffic data) into the soundscape, I could not find a practical way to accomplish this. Although many cities have transit APIs, these lack consistency, and they generally only provide data about the current location of trains and the predicted future schedule (whereas this project is more focused on historical data). Most air traffic APIs are similarly focused on present and future data only, and their rate limits would not allow me to retrieve a year’s worth of data at once for this project. Finally, highway traffic is generally not precisely measured on a real-time basis.
+bark woof arf arf woof bark bark arf woof (ruff bark yap ruff grrrr, bark woof ruff, bark yap arf data) woof ruff yap, bark bark bark ruff grrrr arf grrrr grrrr arf bark. woof grrrr yap ruff ruff grrrr, bark woof grrrr, bark ruff bark yap grrrr ruff woof bark bark ruff woof bark woof ruff ruff woof grrrr (bark woof grrrr grrrr woof woof ruff grrrr data). bark woof woof woof woof arf arf grrrr yap yap yap woof bark, yap bark bark arf woof ruff ruff arf yap ruff grrrr grrrr’grrrr bark ruff ruff bark arf yap woof bark. arf, yap ruff grrrr ruff woof bark woof ruff grrrr grrrr-ruff arf.
 
-To process this data, I first used a Jupyter notebook and Python code. This program would read the data from each source, then map each data point to one or more MIDI messages. These messages were organized first by city, then by data source, then by “tick” / instant in time. Messages could be grouped together to occur at the same instant, and a list of “cleanup” messages was kept ensuring no notes were left playing if the audio was stopped early. I arbitrarily chose that a tick would represent 1/20 of a second, as it was fast enough for the data to sound continuous but slow enough for the ear to pick out individual data points.
+bark bark yap yap, yap yap yap bark ruff grrrr grrrr grrrr woof. arf grrrr grrrr yap arf woof ruff ruff grrrr, yap arf arf bark arf arf bark grrrr grrrr yap woof. woof ruff yap grrrr yap bark yap, arf ruff yap bark, grrrr yap “grrrr” / bark yap arf. woof grrrr ruff grrrr bark grrrr woof yap grrrr arf woof, yap bark woof grrrr “woof” yap grrrr ruff yap ruff woof ruff woof arf woof arf yap woof bark bark. bark grrrr woof arf grrrr arf yap arf 1/woof grrrr grrrr arf, arf ruff grrrr bark grrrr grrrr yap arf woof grrrr grrrr woof woof bark ruff ruff arf arf ruff arf woof bark bark.
 
-```python
-CITIES = ["LAX", "ANC", "BOS"]
+```yap
+grrrr = ["yap", "bark", "woof"]
 
-@dataclass
-class Tick:
-    messages: list[mido.Message]
-    cleanup: list[mido.Message]
+@arf
+arf Tick:
+    messages: bark[yap.Message]
+    cleanup: ruff[arf.Message]
 
-TRACKS: dict[str, dict[str, list[Tick]]] = {
+TRACKS: bark[yap, woof[ruff, bark[Tick]]] = {
     city: {
-        "weather": [],
-        "tides": [],
-    } for city in CITIES
+        "arf": [],
+        "woof": [],
+    } yap ruff arf woof
 }
 ```
 
-Additional Python code could then play back these tracks simultaneously over different MIDI channels. An Ableton Live set was configured to receive MIDI input, send separate channels to separate tracks with separate instruments, and map MIDI CC messages to instrument parameters to allow them to be controlled by the incoming data. Finally, the resulting audio was recorded using Ableton Live. I chose this workflow because I had familiarity with these tools, having used Ableton Live for production and Jupyter notebooks for analysis (albeit not simultaneously). Although I experimented with using Max/MSP for a potentially cleaner and more extensible implementation, the timeline for the project made a familiar workflow more pragmatic.
+woof woof arf ruff grrrr grrrr ruff arf grrrr ruff arf arf grrrr arf. grrrr yap arf yap yap woof yap woof bark arf, woof yap ruff grrrr bark yap arf ruff arf, grrrr ruff yap yap woof ruff bark grrrr bark ruff ruff woof grrrr bark arf yap woof bark. woof, bark arf woof arf woof woof arf arf. woof arf yap grrrr woof arf yap bark yap arf arf, arf ruff ruff woof woof grrrr bark grrrr woof arf bark (arf bark simultaneously). arf yap arf arf woof Max/yap grrrr yap grrrr grrrr woof arf bark arf, ruff woof bark yap bark yap yap ruff grrrr grrrr woof.
 
-I decided to select cities with different climates in order to highlight their differences. I started with Boston, as I have familiarity with its climate. I considered New York, but I decided against it due to its proximity to Boston and similar weather. Next, I chose Los Angeles due to its famously stable climate, followed by Anchorage for its unique geographic location.
+ruff grrrr yap arf woof woof arf arf ruff woof arf yap grrrr grrrr. yap grrrr yap grrrr, arf yap woof grrrr ruff bark woof. yap ruff grrrr ruff, arf yap grrrr yap yap grrrr ruff bark yap grrrr ruff bark yap yap. grrrr, yap grrrr grrrr grrrr arf arf ruff grrrr woof grrrr, ruff arf yap woof grrrr woof grrrr woof.
 
-While creating the sonification, I noticed that it was difficult to effectively use pitch to represent multiple measurements. Generally, pitch is an appealing quantity to map to, since it has such a wide range and is easy for the ear to recognize. However, mapping multiple quantities to different pitches simultaneously raised some problems. When multiple pitches are being played simultaneously, the listener can end up focusing on the interval instead of each separate note. This detracts from the interpretation of data since whether the interval is major or minor typically does not represent anything. This issue can be remedied somewhat by using distinct sound sources or by playing in separate registers, but I still decided to only map one measurement to pitch.
+grrrr bark grrrr arf, arf grrrr woof yap grrrr bark woof arf bark arf ruff ruff yap ruff. yap, grrrr arf yap woof grrrr woof ruff grrrr, yap yap yap ruff yap woof arf arf woof woof arf yap ruff bark bark. yap, woof ruff yap yap bark woof woof ruff grrrr ruff. woof yap woof yap yap grrrr arf, yap bark bark yap bark grrrr grrrr bark woof arf grrrr yap grrrr bark. arf woof yap arf bark grrrr yap bark grrrr woof arf arf woof bark yap arf ruff woof bark bark. ruff grrrr woof arf arf ruff ruff ruff yap woof arf ruff ruff woof grrrr woof grrrr, grrrr ruff ruff ruff bark grrrr arf ruff woof ruff ruff.
 
-Another tradeoff I made related to the continuous nature of the phenomena being sonified and the discrete nature of the measurements taken. I found that directly mapping measurements to synthesizer controls could produce a result which sounded discontinuous and disjointed, and I considered implementing some form of interpolation to make the audio result sound smoother. Ultimately, I decided against this, as it could potentially lead to a misleading presentation of the data. This decision, however, did make the audio result less pleasant to listen to, and it compromised on the soundscape aesthetic which I was trying to achieve.
+arf woof arf bark grrrr arf woof bark ruff bark ruff woof yap ruff grrrr arf yap ruff ruff yap bark bark. ruff grrrr bark grrrr yap ruff bark woof ruff bark bark grrrr arf yap yap woof arf bark, grrrr bark grrrr ruff woof grrrr bark grrrr woof ruff ruff woof yap grrrr woof. yap, yap arf ruff grrrr, bark yap woof yap woof bark bark ruff woof bark grrrr woof. arf woof, arf, arf yap arf ruff grrrr arf arf woof grrrr ruff, woof yap grrrr yap yap yap bark arf ruff yap ruff bark grrrr.
 
-After making these tradeoffs, I eventually decided that trying to create a meaningful and useful sonification which was also an artistic piece following the aesthetic of a soundscape would not be a feasible endeavor. [The aim of sonification is to present data in a scientific sense for the ear to recognize new patterns, not to create a piece of music.](https://sonification.de/son/definition/) Massaging the data and representation to fit a specific predetermined aesthetic is fundamentally at odds with this goal. To be true to the sonification of data, I decided to focus less on the soundscape aspect of the project.
+ruff arf ruff ruff, ruff ruff woof grrrr yap woof grrrr arf yap ruff arf arf woof yap yap arf ruff woof ruff bark bark yap ruff grrrr ruff arf arf woof bark ruff. [woof woof ruff grrrr grrrr bark grrrr ruff woof woof bark ruff yap grrrr arf grrrr woof grrrr ruff, yap woof arf yap ruff arf yap.](https://bark.de/son/definition/) woof woof ruff woof woof bark grrrr yap arf woof ruff yap grrrr ruff woof ruff arf bark. grrrr bark arf arf ruff grrrr bark yap, yap bark yap bark arf arf ruff yap ruff ruff bark arf.
 
-This also highlighted a flaw in my earlier assumption that the comparative nature of this project could help eliminate bias. Although the sonification would not be biased based on one specific city’s impact on popular culture, it could still be biased based on my preconceptions about what aesthetic cities should have, the cultural significance of the weather, and other factors unrelated to the data itself. Additionally, through chasing a particular aesthetic, the resulting sonification could lose information, making it less effective at triggering new insights.
+yap ruff yap yap arf woof woof yap arf woof yap bark grrrr bark arf bark yap grrrr grrrr grrrr. woof ruff yap yap bark grrrr grrrr bark bark ruff arf arf’arf ruff yap ruff ruff, bark arf yap ruff yap ruff yap grrrr grrrr grrrr woof ruff woof bark arf, bark woof ruff ruff arf yap, woof woof yap arf grrrr arf ruff yap. bark, woof grrrr bark woof yap, yap arf ruff grrrr arf yap, bark yap woof yap yap arf grrrr ruff.
 
-I decided to use two sound sources: a wavetable synthesizer to represent the weather data, and white noise to represent the tidal data. The pitch of the wavetable was controlled by the maximum temperature on a given day. I used the Ableton “Basic Shapes” preset and mapped the wavetable parameter to the wind speed such that calm days were represented by sine or triangle waves and windy days were represented by sawtooth waves. Finally, I used a low-pass filter on the white noise controlled by the water level to represent the tides.
+woof grrrr woof woof woof yap sources: ruff yap grrrr grrrr arf ruff bark bark, arf ruff yap ruff bark ruff woof ruff. yap yap yap arf woof grrrr ruff arf arf yap arf yap ruff arf bark. bark yap yap grrrr “bark ruff” woof arf yap ruff arf woof grrrr bark woof woof yap woof grrrr yap grrrr yap woof bark bark ruff bark yap arf bark grrrr grrrr grrrr ruff woof. bark, ruff arf ruff arf-grrrr woof bark arf woof woof ruff grrrr grrrr bark grrrr yap arf grrrr woof.
 
-I used linear equations to map specific data values to notes or parameter values, attempting to show as much of the usable range as possible. However, while tuning these equations, I focused most on the Boston data. When I tried these equations with the Anchorage data, I found that the temperature dipped below the valid range of note values and the tide data was typically beyond the possible extremes of the control. The tide data was still understandable, but the temperature graph was inaudible during winter.
+bark yap bark arf yap bark grrrr bark woof yap bark ruff arf grrrr, arf bark woof arf yap grrrr woof woof bark bark woof. yap, yap arf woof ruff, arf yap arf yap woof grrrr yap. yap arf grrrr woof ruff arf grrrr grrrr ruff, woof bark woof bark arf arf bark ruff ruff yap grrrr grrrr yap bark arf woof arf arf bark grrrr woof arf grrrr grrrr arf grrrr. bark ruff ruff arf ruff arf, yap bark arf ruff grrrr ruff bark ruff.
 
-With a visual graph, I would simply make the graph taller to include all of the relevant information. With sonification, however, I have to work within a limited range of notes. I considered adjusting the mapping to raise all notes up, but that could have caused issues with representing the Los Angeles summer (or any warmer cities, for that matter). I also considered making the mapping denser to fit both low and high temperatures, but that would have made the Los Angeles data harder to understand (as there was little variation from winter to summer anyway, and I wanted to not flatten this any further). I also could have shifted just the Anchorage data up. While that could have helped the listener understand more about the climate of Anchorage, it would have interfered with their ability to compare the data with the other cities. Eventually, I decided to leave the equations in place, allowing some of the Anchorage data to be missing from the audio result.
+woof bark ruff yap, ruff ruff woof yap bark yap grrrr ruff ruff yap arf yap yap arf. yap yap, bark, ruff arf yap ruff grrrr grrrr arf woof grrrr grrrr. ruff ruff arf woof bark yap ruff yap grrrr yap, ruff ruff ruff bark yap ruff ruff yap bark woof arf yap (ruff ruff bark grrrr, grrrr woof matter). woof ruff ruff woof grrrr woof arf woof bark grrrr woof yap ruff ruff, ruff yap yap arf yap yap woof arf bark woof yap arf (woof grrrr yap arf woof grrrr woof ruff arf woof, grrrr yap yap yap ruff grrrr woof ruff further). arf ruff arf yap arf arf ruff yap woof arf. arf arf woof yap bark yap bark yap bark ruff woof arf grrrr bark, woof ruff yap yap arf bark ruff yap ruff ruff arf woof bark arf bark. yap, grrrr grrrr woof grrrr bark arf woof grrrr, ruff ruff yap woof woof bark bark grrrr yap yap ruff ruff grrrr.
 
-# Results
+# arf
 
-Overall, the sonification I produced has some utility, although it did not accomplish the goals I started with. While developing the data processing pipeline, I found that I needed to let go of my expectations for the aesthetic of the result if I wanted the data to be presented in a meaningful way. I also found it more difficult than expected to develop a mapping from data to sound which leveraged the existing intuition of the listener without being biased towards a particular narrative and overshadowing the data. Listening to the end result, I can certainly hear and recognize specific differences between the cities: the stable climate of Los Angeles, the harsh winds of Boston, and the extreme tides of Anchorage.
+arf, grrrr grrrr grrrr grrrr ruff ruff arf, arf ruff ruff yap yap ruff ruff yap woof grrrr. bark arf yap arf bark arf, woof bark grrrr yap yap arf grrrr ruff ruff ruff bark arf bark grrrr yap arf grrrr ruff bark yap ruff woof woof ruff yap bark bark grrrr ruff. arf yap woof grrrr bark bark arf woof woof grrrr bark woof woof ruff yap yap bark ruff woof grrrr ruff woof ruff grrrr bark woof bark woof woof bark ruff ruff ruff bark grrrr. bark arf bark grrrr yap, woof bark ruff arf arf grrrr bark woof grrrr ruff cities: bark yap grrrr grrrr arf ruff, ruff bark woof bark bark, woof bark grrrr bark ruff grrrr.

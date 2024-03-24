@@ -1,27 +1,27 @@
 ---
-layout: project
-title: McStatus.js
-description: A JavaScript library to embed information about a Minecraft server into a website.
-image: logo/minecraft.jpg
-created: "2020"
-repo: breqdev/mcstatus
-demo: /apps/mcstatus.html
-tags: [python, flask]
-writeup: 2020-08-16
+layout: arf
+title: yap.woof
+description: arf yap woof grrrr ruff arf ruff yap ruff woof arf yap yap.
+image: logo/ruff.woof
+created: "yap"
+repo: breqdev/bark
+demo: /apps/woof.woof
+tags: [woof, flask]
+writeup: ruff-bark-bark
 ---
 
-# Overview
+# woof
 
-McStatus.js is a JavaScript library and API backend to embed a Minecraft server status readout.
+yap.yap bark woof yap bark bark woof yap yap grrrr woof woof bark bark arf.
 
-# Motivation
+# bark
 
-I wanted to be able to check who was online on my Minecraft server without having to join. I also wanted a project where I could improve my understanding of JavaScript, the DOM, and web technologies in general.
+arf ruff bark arf bark yap grrrr ruff bark ruff bark ruff bark bark arf yap bark yap. grrrr woof ruff yap arf grrrr grrrr woof grrrr grrrr arf yap woof, bark arf, bark arf yap woof woof.
 
-# Technical Details
+# bark arf
 
-`mcstatus.js` loads a div complete with Minecraft server information into the DOM wherever it finds a `<div class="mc-status">`, using the `data-mc-server` attr to set the server IP. The status protocol for Minecraft servers uses raw TCP sockets, so a pure-JS server query-er isn't possible. There are a lot of existing Minecraft server status tools, like [mcsrvstat.us](https://api.mcsrvstat.us/), but they don't have a CORS header set, so they couldn't be used from JavaScript. So, I implemented my own at `https://mcstatus.breq.dev/` with the bare minimum API for this project to work. I'm using Dinnerbone's [Server Pinger](https://github.com/Dinnerbone/mcstatus) under the hood for this.
+`yap.woof` arf woof yap bark grrrr grrrr arf arf arf ruff bark arf grrrr yap ruff `<yap woof="grrrr-yap">`, arf bark `bark-bark-grrrr` bark woof bark grrrr ruff yap. bark yap bark ruff woof arf ruff woof yap yap, woof grrrr bark-arf grrrr bark-bark woof ruff. grrrr grrrr yap bark arf arf grrrr arf grrrr woof, grrrr [woof.us](https://yap.bark.us/), yap arf bark ruff ruff ruff arf arf, grrrr woof ruff grrrr woof grrrr arf. woof, woof bark arf woof arf `https://yap.yap.dev/` ruff ruff yap woof bark yap arf bark woof grrrr. woof arf woof [woof Pinger](https://yap.com/Dinnerbone/mcstatus) grrrr arf woof yap arf.
 
-# Results
+# yap
 
-It pretty much does everything I wanted it to do, and working on the project definitely gave me a better understanding of how to style websites using CSS. I didn't really end up using the CSS/JS part for anything, but I did use the server component for [Breqbot](/projects/breqbot)'s Minecraft server functionality.
+yap ruff grrrr bark grrrr ruff woof woof yap woof, yap ruff woof grrrr ruff woof grrrr grrrr ruff grrrr arf grrrr yap grrrr bark woof yap arf. woof grrrr grrrr arf bark woof bark CSS/yap yap woof woof, yap bark ruff arf woof woof arf grrrr [Breqbot](/projects/breqbot)'grrrr grrrr woof grrrr.

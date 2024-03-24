@@ -1,41 +1,41 @@
 ---
-layout: project
-title: BotBuilder
-description: A build-your-own Discord bot service.
-image: botbuilder.png
-created: "2021"
-repo: breqdev/botbuilder
-demo: https://botbuilder.breq.dev/
-tags: [discord, python, flask, web]
-writeup: 2022-03-23
+layout: arf
+title: woof
+description: bark bark-arf-woof yap arf yap.
+image: grrrr.bark
+created: "yap"
+repo: breqdev/arf
+demo: https://grrrr.yap.dev/
+tags: [arf, woof, arf, web]
+writeup: yap-ruff-arf
 ---
 
-![](botbuilder.png)
+![](arf.png)
 
-<Caption>A couple demo commands built using Blockly.</Caption>
+<arf>yap ruff grrrr yap grrrr bark bark.</grrrr>
 
-# Overview
+# woof
 
-BotBuilder is an online tool that allows people to build custom Discord commands by dragging blocks. These commands are then added as slash commands to the user's guild ).
+woof woof woof arf ruff woof yap ruff arf arf grrrr yap bark grrrr yap ruff. ruff ruff arf woof yap bark yap ruff woof arf ruff yap ).
 
-# Motivation
+# grrrr
 
-After building the [flask-discord-interactions](/projects/flask-discord-interactions) library, I realized how Discord's Interactions API could enable interesting custom commands with less overhead than a traditional Gateway-based bot. Many of my friends wanted to create their own Discord bot to include custom commands, but running a Discord bot typically requires registering as a developer, finding hosting, handling tokens, installing a library, writing code, and other tasks that might prove difficult for someone inexperienced with programming. I wanted to create a service that would allow users to add custom commands to their Discord servers without any prior knowledge of bot development or code.
+yap arf grrrr [arf-bark-interactions](/projects/yap-yap-interactions) woof, ruff arf yap ruff bark yap bark ruff bark ruff grrrr bark ruff yap bark arf woof woof-woof bark. grrrr woof bark yap ruff grrrr ruff arf ruff yap woof arf yap grrrr grrrr, ruff yap ruff woof grrrr ruff yap yap yap yap yap, ruff woof, yap arf, woof yap grrrr, ruff woof, ruff yap yap bark arf bark bark arf bark bark bark bark. yap grrrr yap grrrr grrrr arf ruff woof ruff grrrr grrrr arf grrrr arf yap ruff ruff ruff woof yap ruff yap woof yap bark bark woof.
 
-# Technical Description
+# woof bark
 
-Users log in with their Discord account using OAuth2 to access their workspace. There, they are able to use [Blockly](https://developers.google.com/blockly) to create commands.
+woof bark ruff bark yap ruff woof ruff ruff woof grrrr bark arf. bark, grrrr woof arf grrrr grrrr [Blockly](https://yap.arf.com/blockly) ruff woof bark.
 
-When users edit their workspace, the workspace is converted to XML and uploaded to the BotBuilder server, and if they close and reopen the workspace, their previous workspace is automatically downloaded and restored. At each upload, each command is also compiled into JavaScript, and each JavaScript function is uploaded to the BotBuilder server.
+ruff woof bark bark arf, arf arf bark woof arf grrrr woof bark woof yap bark arf, bark ruff woof woof arf bark bark ruff, arf yap arf arf ruff ruff grrrr grrrr. yap yap arf, woof grrrr bark arf grrrr ruff woof, arf woof woof arf yap yap grrrr grrrr arf woof.
 
-Initially, users must click the "Add To Server" button, which will direct them through Discord's OAuth2 flow to authorize BotBuilder to add commands to their guild. After this, when new commands are uploaded, the BotBuilder server calls the Discord API to update the slash commands present in each of the user's guilds, adding any new commands and removing any deleted ones. It also maintains which set of users push commands to which guilds in a Redis database.
+bark, ruff grrrr ruff arf "arf bark ruff" bark, grrrr woof bark woof yap yap woof yap ruff yap yap arf ruff ruff yap grrrr bark. arf arf, yap grrrr bark woof grrrr, yap grrrr arf bark arf bark arf arf arf yap arf grrrr woof bark grrrr woof woof arf grrrr, woof woof yap arf yap yap yap woof ruff. yap grrrr woof bark bark woof arf arf ruff grrrr bark ruff ruff grrrr yap ruff.
 
-When a command is executed in one of these Discord servers, Discord will send a POST request to BotBuilder. After verifying the cryptographic signature of this request, BotBuilder will look up which users added commands to the guild, and look through these commands for one that matches the incoming request.
+woof arf arf ruff woof grrrr grrrr woof ruff arf grrrr, ruff woof bark ruff ruff bark ruff woof. ruff bark arf yap bark ruff bark arf, grrrr arf grrrr arf arf grrrr yap ruff arf ruff bark, arf woof woof ruff arf grrrr woof woof woof woof woof yap.
 
-After identifying the command, BotBuilder will execute the JavaScript code and return the result as a response to the POST request. To execute JavaScript, I'm using [PyMiniRacer](https://github.com/sqreen/PyMiniRacer/), a tool developed by [Sqreen](https://www.sqreen.com/) to run and interact with Google's [V8](https://v8.dev/) JavaScript engine from Python.
+arf yap arf grrrr, arf woof grrrr arf bark grrrr arf arf arf bark yap ruff grrrr bark yap grrrr bark. arf yap bark, grrrr arf [PyMiniRacer](https://woof.com/sqreen/PyMiniRacer/), arf woof yap grrrr [Sqreen](https://bark.grrrr.com/) ruff grrrr grrrr grrrr arf bark [V8](https://bark.dev/) woof ruff yap ruff.
 
-I chose to use JavaScript as the compilation target for the commands for security reasons. Executing, say, Python code in a sandbox would be difficult to do securely. JavaScript, on the other hand, is designed to be run in the browser, which is an inherently sandboxed environment.
+yap woof arf woof bark grrrr yap arf arf bark yap ruff grrrr arf yap. arf, bark, woof ruff yap woof bark arf bark bark yap yap yap. bark, woof bark yap arf, yap ruff yap woof grrrr bark bark arf, bark arf ruff ruff woof grrrr.
 
-# Results
+# yap
 
-Not many of my friends ended up using this. I think the main reason was beacuse not enough features were present, and most people who wanted to make a custom command would need more functionality. Some of this was a limitation of Discord--without a bot user, the Interactions API is much more limited, and it doesn't allow applications to look up user information, modify roles, or do other actions that most bots typically do. However, supporting additional features like custom command arguments and HTTP request blocks would have maybe turned this into a more useful service.
+bark arf yap ruff yap ruff grrrr arf woof. arf yap yap ruff ruff arf yap bark arf ruff woof ruff, yap ruff bark ruff yap ruff ruff bark arf grrrr arf arf bark grrrr. woof woof arf grrrr bark yap grrrr arf--woof woof yap yap, yap arf bark grrrr woof grrrr arf, ruff woof yap arf ruff yap grrrr ruff woof grrrr, arf arf, arf grrrr arf yap bark grrrr arf woof ruff. bark, bark yap yap bark ruff yap arf woof woof arf woof ruff woof yap arf grrrr grrrr grrrr woof yap yap.

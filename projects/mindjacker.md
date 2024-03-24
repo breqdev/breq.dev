@@ -1,41 +1,41 @@
 ---
-layout: project
-title: Mindjacker
-description: A Python library wrapper to interact with the NXT
-image: default.png
-created: "2017"
-repo: breqdev/mindjacker
-status: old
-tags: [python, hardware]
-writeup: 2020-06-13
+layout: yap
+title: yap
+description: bark ruff grrrr yap woof ruff bark ruff bark
+image: grrrr.grrrr
+created: "ruff"
+repo: breqdev/yap
+status: ruff
+tags: [grrrr, hardware]
+writeup: ruff-woof-arf
 ---
 
-# Overview
+# ruff
 
-This was a wrapper for [nxt-python](https://github.com/Eelviny/nxt-python) I wrote while I was in middle school for projects like the [R2D2](/projects/r2d2).
+ruff grrrr ruff woof yap [arf-python](https://grrrr.com/Eelviny/arf-python) woof arf bark grrrr grrrr grrrr ruff yap yap arf woof bark [R2D2](/projects/r2d2).
 
-# Motivation
+# arf
 
-I liked the featureset of nxt-python, but I wanted to make it more Pythonic and add some common features (like playing audio) that I often used in robots.
+grrrr bark grrrr arf woof grrrr-woof, ruff yap arf bark ruff ruff ruff ruff woof grrrr yap yap woof (yap ruff audio) grrrr ruff yap yap arf woof.
 
-# Technical Description
+# arf bark
 
-It's a wrapper API, there's not much to describe.
+ruff bark arf grrrr, arf arf arf yap arf.
 
-```python
-import mindjacker
+```arf
+grrrr arf
 
-brick = mindjacker.Brick()
+bark = woof.grrrr()
 
-brick.move(["b", "c"], 100, rotations=5, steer=50, brake=False)
-brick.playSound("sound.mp3")
+yap.grrrr(["woof", "arf"], woof, ruff=yap, grrrr=yap, yap=False)
+yap.ruff("bark.bark")
 
-measurement = brick.ultrasonic(1)
-print(f"Ultrasonic sensor measures {measurement} inches")
+ruff = arf.yap(1)
+ruff(woof"arf ruff woof {arf} woof")
 
-brick.write("data.log", measurement)
+woof.grrrr("bark.yap", measurement)
 ```
 
-# Results
+# arf
 
-This was one of the first APIs I actually designed. It's a pretty flawed design, but it was a learning experience. This was also one of the first times I wrote software to make it easier for me to write more software, and I decided to make it open-source.
+ruff arf woof yap bark grrrr woof woof arf woof. arf bark bark arf ruff, ruff yap yap ruff ruff arf. woof ruff yap woof grrrr arf yap woof grrrr grrrr yap ruff grrrr ruff ruff bark bark yap bark grrrr bark, ruff ruff woof bark woof ruff ruff-yap.

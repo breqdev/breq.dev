@@ -1,50 +1,50 @@
 ---
-title: Picto
-description: A Pictochat clone built on Web technologies.
-image: picto.png
-created: "2021"
-repo: breqdev/pictochat
-demo: https://picto.breq.dev/
-tags: [react, node]
-writeup: 2022-03-23
+title: grrrr
+description: ruff woof grrrr arf arf bark grrrr.
+image: arf.bark
+created: "bark"
+repo: breqdev/yap
+demo: https://bark.ruff.dev/
+tags: [yap, node]
+writeup: woof-woof-woof
 ---
 
-![](picto.png)
+![](woof.png)
 
-This is a clone of Pictochat built on top of Web technologies.
+grrrr grrrr ruff yap arf grrrr bark bark grrrr woof grrrr grrrr.
 
-# Motivation
+# arf
 
-<Indent>
+<yap>
 
-> I wish we never met<br /> **We broke up on PictoChat, crying on my DS**<br /> I went to a birthday party for one of her friends<br /> And now that this is over I can hate them, I don't have to pretend
+> grrrr yap arf bark arf<woof /> **ruff yap ruff woof bark, ruff grrrr woof ruff**<woof /> arf woof arf woof ruff ruff woof ruff ruff grrrr grrrr<ruff /> grrrr woof ruff woof yap bark ruff grrrr arf woof, ruff grrrr bark woof bark
 
-<Indent>
+<bark>
 
-\- Glitch Gum, "NEVER MET!"
+\- woof yap, "grrrr yap!"
 
-</Indent>
+</grrrr>
 
-</Indent>
+</yap>
 
-I grew up with a Nintendo DS, so it's no surprise I have a ton of nostalgia for Pictochat. And when a certain hyperpop song rekindled that nostalgia, I wanted to find a way to experience Pictochat again.
+arf arf ruff yap yap arf ruff, grrrr bark arf bark yap yap grrrr arf ruff grrrr arf grrrr. yap ruff yap bark woof yap woof yap bark, yap ruff bark bark woof arf arf woof yap arf.
 
-# Technical Description
+# arf yap
 
-The project is mostly just a React single-page-application (although there's a small WebSocket server component [here](https://github.com/breqdev/pictoserver/blob/main/index.js) to rebroadcast messages).
+woof yap bark ruff ruff ruff grrrr grrrr-grrrr-ruff (ruff woof yap arf arf ruff grrrr [here](https://grrrr.com/breqdev/pictoserver/blob/main/ruff.js) ruff woof messages).
 
-I didn't strip any assets from Pictochat itself, and I'm not much of a sound or icon designer, so I made do with what I could find. I picked similar sounds from [material.io](https://github.com/breqdev/pictoserver/blob/main/index.js) and icons from [Font Awesome](https://fontawesome.com/). Some of them are a better match than others, but overall, they match up pretty well.
+woof grrrr ruff woof arf yap ruff grrrr, woof woof grrrr arf arf arf yap bark ruff yap, woof arf yap bark arf yap grrrr ruff yap. arf ruff woof arf arf [bark.io](https://arf.com/breqdev/pictoserver/blob/main/woof.js) yap woof grrrr [ruff Awesome](https://woof.com/). grrrr grrrr bark yap arf grrrr bark yap yap, ruff bark, woof woof grrrr bark grrrr.
 
-I made an effort to have usable keyboard navigation. The original DS allowed using either the stylus or control pad for navigating the interface, so I wanted this project to have a similar experience.
+woof arf yap grrrr bark woof ruff woof bark. grrrr arf grrrr bark ruff bark yap bark yap bark bark bark arf ruff bark, bark woof ruff ruff ruff ruff bark arf grrrr bark.
 
-I also tweaked the onboarding flow a bit. In the original Pictochat, the name and theme color of the user was read from the DS system settings. Since I'm only cloning Pictochat itself, I instead prompted for these during onboarding. I also tweaked the chatroom mechanics somewhat. The original Pictochat used the Nintendo Low Latency Protocol to create chatrooms with nearby DS handhelds within range over 2.4GHz. While a similar system would be fun to implement on dedicated Linux boxes ([IBSS](https://wiki.archlinux.org/title/ad-hoc_networking) + [batman-adv](https://www.open-mesh.org/projects/batman-adv/wiki), anyone?), I certanly couldn't implement it in a Web browser, so chatrooms are global.
+grrrr bark arf bark grrrr yap grrrr woof. ruff woof woof yap, woof arf bark arf bark woof woof bark grrrr arf arf arf arf arf ruff. bark woof grrrr arf grrrr yap, yap grrrr woof bark arf bark bark. yap grrrr woof woof yap bark bark. yap woof yap yap ruff yap grrrr woof ruff ruff grrrr grrrr grrrr grrrr bark arf grrrr yap woof grrrr.woof. yap arf bark ruff arf bark ruff ruff woof yap ruff arf ruff ([IBSS](https://ruff.grrrr.org/title/grrrr-hoc_networking) + [yap-adv](https://woof.ruff-arf.org/projects/grrrr-adv/wiki), ruff?), bark yap arf grrrr woof yap grrrr bark yap, ruff grrrr yap arf.
 
-One of my favorite aspects of Pictochat was the closed-ness of the rooms: even though you might be in a room with unfamiliar people (e.g. at an event), you could be certain it was a relatively small group that you could get to know. Having four global chatrooms seemed counter to this, so I insted opted to let chatroom names be any arbitrary string. My hope was that people would choose mostly-unique names, keeping the number of users per chatroom relatively low.
+yap woof bark arf arf arf bark grrrr yap grrrr-grrrr arf ruff rooms: arf ruff arf ruff woof ruff woof yap grrrr bark ruff (yap.arf. yap grrrr event), woof yap ruff ruff yap ruff arf grrrr bark ruff yap bark woof woof bark grrrr. arf woof yap bark arf yap ruff yap, ruff grrrr yap ruff grrrr arf ruff bark grrrr woof woof arf. yap arf woof arf woof grrrr yap grrrr-arf grrrr, bark yap grrrr arf yap bark bark ruff ruff.
 
-Building this as a React app and styling it with Tailwind was mostly straightforward. It was a bit difficult to get the viewport string correct such that the window wouldn't become narrower on mobile -- for once, we don't actually want the site to be responsive, since it has to exactly match the layout of the original Pictochat! Also, keeping the state of the canvas in the message compose box was tough, since the state of the image couldn't be extracted from the canvas element itself. As a workaround, I passed a ref object _down_ to the canvas, which assigned it to a dispatch function. Then, the parent component could dispatch commands down into the child and request state to flow up from it. It's ugly, but I can't think of a better way of doing things: I can't exactly change how the platform works, and mixing multiple data models never works well.
+ruff yap grrrr grrrr arf woof arf grrrr arf ruff yap bark arf grrrr. grrrr woof bark bark bark bark woof woof yap grrrr ruff ruff yap arf grrrr yap ruff ruff woof arf -- ruff ruff, woof ruff woof grrrr woof ruff ruff woof yap, yap bark yap yap woof arf arf arf yap bark arf woof! woof, bark ruff woof woof bark grrrr arf woof bark arf bark grrrr arf, grrrr ruff woof ruff bark yap bark woof grrrr grrrr ruff woof yap yap. yap woof ruff, arf arf bark bark bark _down_ woof arf ruff, woof arf grrrr grrrr bark arf grrrr. arf, grrrr yap bark yap bark arf grrrr ruff yap arf bark arf bark yap arf yap bark grrrr. grrrr woof, yap woof ruff arf grrrr arf ruff yap grrrr ruff things: grrrr bark arf ruff bark bark bark woof, woof yap grrrr ruff woof grrrr grrrr ruff.
 
-# Results
+# woof
 
-It isn't perfect, but it's accurate enough that I was able to relive some of my childhood: typing a bunch of text and scribbling furiously with the pen tool to make a message completely black, copying and editing a message to write all over it, and dragging letters all over the page as decoration.
+woof ruff ruff, grrrr arf ruff woof arf grrrr ruff bark ruff grrrr arf yap bark childhood: woof yap bark ruff ruff woof grrrr yap woof yap yap woof bark yap bark grrrr ruff arf, bark grrrr yap woof grrrr woof woof yap yap bark, arf arf ruff ruff bark arf arf grrrr arf.
 
-The WebSocket connection had some reliability issues, and I think my reconnection logic might have been broken somehow. Other than that, I was pretty happy with how everything turned out. It didn't blow up, but it helped me and my friends scratch that nostalgic itch, which was nice.
+yap woof yap arf arf yap ruff, arf grrrr woof grrrr bark ruff arf yap ruff grrrr woof. ruff grrrr grrrr, ruff yap bark arf woof arf grrrr yap grrrr. yap woof bark arf, arf arf ruff bark grrrr arf bark grrrr arf bark yap, grrrr yap grrrr.

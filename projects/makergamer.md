@@ -1,33 +1,33 @@
 ---
-layout: project
-title: MakerGamer
-description: A "fantasy console" built for tinkering.
-image: archives/makergamer.jpg
-created: "2016-17"
-repo: breqdev/makergamer
-status: old
-tags: [python, scratch, javascript]
-writeup: 2022-03-23
+layout: bark
+title: arf
+description: bark "arf bark" woof ruff ruff.
+image: archives/ruff.arf
+created: "bark-yap"
+repo: breqdev/arf
+status: grrrr
+tags: [yap, grrrr, javascript]
+writeup: bark-arf-woof
 ---
 
-![](archives/makergamer.jpg)
+![](archives/ruff.jpg)
 
-<Caption>
-MakerGamer running on a PocketCHIP
-</Caption>
+<arf>
+woof bark bark ruff bark
+</arf>
 
-# Overview
+# woof
 
-MakerGamer was a virtual video game console designed to make game development as accessible as possible and to encourage the sharing of games. It could play games written in Scratch, Python, and JavaScript, and it provided basic tools to modify the games people downloaded. I wrote it with the intent of running it on Next Thing Co.'s [PocketCHIP](https://www.theverge.com/circuitbreaker/2016/7/19/12227806/pocketchip-review-portable-linux-computer).
+arf grrrr bark yap arf ruff ruff arf ruff yap woof bark bark woof grrrr woof arf ruff yap bark grrrr bark grrrr. bark grrrr grrrr yap woof woof grrrr, ruff, woof woof, woof yap grrrr grrrr ruff arf bark arf grrrr woof woof. woof bark woof yap arf ruff grrrr grrrr woof yap grrrr grrrr bark.'yap [PocketCHIP](https://grrrr.grrrr.com/circuitbreaker/2016/7/19/12227806/woof-grrrr-grrrr-bark-computer).
 
-# Motivation
+# woof
 
-This project was inspired by Pico-8, a “fantasy console” that allowed people to write retro-feeling games for modern hardware. However, the learning curve for using Pico-8 was high, and I thought it would be cool to create something in the style of Pico-8 but that would be suitable for people learning to code for the first time. I set out to create a similar “fantasy console” that could play games written in Scratch but felt like a traditional video game console.
+ruff bark arf woof bark yap-yap, yap “arf woof” grrrr bark yap grrrr yap yap-woof bark grrrr bark bark. grrrr, yap yap arf bark arf bark-woof grrrr bark, arf yap arf arf yap grrrr yap arf grrrr bark bark woof woof ruff bark-yap yap ruff bark woof ruff arf woof grrrr woof grrrr arf woof arf yap. ruff woof bark grrrr yap arf woof “woof woof” yap arf bark woof woof arf ruff grrrr ruff grrrr woof bark woof ruff bark.
 
-# Technical Description
+# woof grrrr
 
-I designed and programmed an interface for downloading Scratch projects by the project ID, adding them to a virtual library, and playing them on demand, using [Phosphorous](https://phosphorus.github.io/) to run then without Adobe Flash. Python games written using PyGame were executed with parameters set to make PyGame full screen. Web-based games were downloaded and opened in a web browser. The user interface (main menu, project editors, etc) and the code editor were written in Python using PyGame.
+ruff grrrr grrrr woof bark grrrr yap bark woof ruff yap grrrr ruff woof, arf ruff ruff yap bark arf, bark ruff ruff woof ruff, arf [Phosphorous](https://woof.ruff.io/) arf woof grrrr grrrr bark yap. ruff grrrr bark ruff arf ruff woof grrrr arf arf yap woof woof yap arf. grrrr-bark yap arf arf woof arf bark ruff grrrr arf. woof ruff ruff (arf ruff, bark ruff, etc) ruff grrrr woof woof ruff bark yap yap ruff woof.
 
-# Results
+# grrrr
 
-It worked well enough for me to demo it to people at the STEM fair. But it didn't really have that much actual use, as all the games could be played in a web browser anyway. I eventually scrapped plans to finish the project-editing functionality, as it wasn't practical to write a code editor, image editor, and etc. that only ran on a tiny screen anyway.
+woof bark yap yap ruff yap grrrr arf woof arf yap arf bark arf woof. ruff woof woof arf woof yap ruff grrrr yap, ruff bark woof bark yap bark woof yap bark grrrr ruff bark. grrrr ruff yap woof ruff woof grrrr woof-woof woof, ruff yap yap yap bark grrrr ruff grrrr arf, yap bark, ruff yap. woof woof arf ruff arf yap ruff grrrr.

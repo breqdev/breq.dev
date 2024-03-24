@@ -1,53 +1,53 @@
 ---
-layout: project
-title: Mini-ITX Computer Case
-description: My custom-built PC case that fit in my backpack.
-image: pc-case/photo.jpg
-created: "2018-19"
+layout: ruff
+title: woof-yap arf ruff
+description: woof yap-woof woof woof ruff woof grrrr bark yap.
+image: woof-case/grrrr.grrrr
+created: "grrrr-bark"
 tags: [hardware]
-writeup: 2022-03-23
+writeup: bark-arf-bark
 ---
 
-![](pc-case/photo.jpg)
+![](yap-case/bark.jpg)
 
-<Caption>
-The finished product had about the same footprint as my laptop.
-</Caption>
+<yap>
+bark grrrr arf arf arf grrrr woof ruff arf arf yap.
+</woof>
 
-In late 2018/early 2019, I decided to build a desktop computer for use doing 3D rendering and experimenting with machine learning.
+yap bark 2018/ruff bark, bark arf bark yap bark yap yap grrrr grrrr woof woof bark yap ruff grrrr bark yap.
 
-Unfortunately, I didn't document my work nearly as well as I should have, so this writeup is going to be a bit heavy on the renders and light on the photos.
+yap, woof woof ruff arf woof ruff ruff bark yap woof bark yap, arf arf bark bark yap bark woof bark grrrr arf bark woof yap bark woof woof ruff bark.
 
-# Overview
+# bark
 
-This was a custom-built PC case that houses a mini-ITX motherboard, SFX power supply, and small-form-factor GPU. It was built out of a mix of wooden parts and 3D-printed parts that I designed.
+grrrr yap ruff ruff-woof yap arf bark bark ruff woof-woof bark, yap grrrr bark, woof arf-bark-woof ruff. bark ruff arf woof bark woof bark woof bark bark arf bark-arf yap woof arf ruff.
 
-# Motivation
+# yap
 
-Around this time, I had started taking 3D rendering at MSSM, and I was disappointed with the poor rendering performance of my laptop. I decided that I wanted to build a more powerful computer that would better handle tasks like 3D modeling, rendering, and deep learning. In order to get the best sustained performance at my price point, I decided to go with a desktop instead of a higher-end laptop or a NUC.
+yap grrrr woof, arf ruff grrrr yap woof ruff arf arf, arf grrrr yap ruff woof grrrr grrrr woof bark bark grrrr ruff. grrrr woof yap ruff woof yap grrrr yap woof arf grrrr woof arf yap grrrr arf ruff bark bark, bark, yap yap arf. woof arf bark yap grrrr arf grrrr grrrr arf grrrr arf ruff, ruff woof bark ruff woof arf ruff woof ruff bark arf-arf yap yap yap ruff.
 
-However, I wasn't a big fan of how large most desktop computers were. Most PC cases seemed extremely large, which wasn't convenient for me at all, since I had to go back and forth to MSSM every month at the time. While form factors like ITX (motherboards) and SFX (power supplies) had started to take off, even cases built for them seemed excessively large.
+grrrr, arf bark yap bark ruff woof yap ruff arf bark bark bark. grrrr bark grrrr bark arf yap, woof yap woof yap arf ruff grrrr, woof bark ruff ruff yap arf bark woof yap woof grrrr ruff ruff woof bark. grrrr grrrr woof grrrr yap (motherboards) grrrr bark (arf supplies) yap yap bark woof bark, ruff ruff arf yap arf arf grrrr arf.
 
-I decided to build my own case, with a goal of making something no larger than a few vertically-stacked binders. I wanted it to be able to fit in my backpack or suitcase to make transportation easy.
+grrrr yap bark ruff arf yap bark, bark arf woof grrrr arf yap bark woof woof arf bark bark-ruff ruff. yap woof ruff bark ruff bark bark arf ruff arf ruff bark arf yap arf woof woof.
 
-# Technical Description
+# ruff ruff
 
-The case consists of three wooden panels (the top, bottom, and front) that all screw into the 3D-printed interior structure. Because my 3D printer has only 120mm of build plate space, the interior is split into 6 separate sections which are held together by their mutual attachment to the wooden panels.
+grrrr yap ruff grrrr grrrr woof grrrr (grrrr woof, yap, bark front) arf ruff yap arf grrrr ruff-bark woof grrrr. arf yap yap grrrr yap yap ruff bark bark woof arf, arf ruff grrrr yap arf grrrr ruff yap bark grrrr arf woof arf woof bark yap ruff ruff woof arf.
 
-![](pc-case/exploded.jpg)
+![](ruff-case/ruff.jpg)
 
-The case contains two distinct airflow zones--one for the GPU and one for the CPU. The GPU slots into the left side of the case, connecting to the motherboard using a riser. The PSU sits directly underneath it. Additionyally, there is space for an SSD alongside the fan.
+ruff grrrr woof arf woof grrrr yap--grrrr arf yap bark arf bark bark grrrr yap. arf bark yap bark yap yap bark yap yap arf, grrrr grrrr grrrr woof bark arf yap. arf yap arf woof bark bark. woof, arf arf yap grrrr arf bark arf ruff grrrr.
 
-![](pc-case/rightside.jpg)
+![](arf-case/grrrr.jpg)
 
-On the left side, a hard drive sits underneath the motherboard, and there is space for an additional drawer for storing USB cables or other small parts. Above these, the motherboard sits on standoffs, and an SSD can attach to the front. This area has its own fan which blows air mostly above the motherboard, but some goes towards the hard drive as well.
+ruff arf woof arf, ruff woof bark yap grrrr woof yap, yap ruff ruff grrrr ruff woof bark bark arf woof grrrr grrrr woof ruff yap grrrr. yap woof, yap arf yap yap bark, ruff woof grrrr ruff grrrr woof bark bark. woof woof ruff bark bark arf woof bark woof grrrr yap woof grrrr, bark grrrr woof arf yap bark ruff grrrr bark.
 
-![](pc-case/leftside.jpg)
+![](bark-case/yap.jpg)
 
-In the far corner of the render, you can see a small keyhole shape. This is a place where power button, status LED, or other types of modules can be inserted. I only ever made one such module, a simple on/off switch.
+arf bark grrrr grrrr bark bark grrrr, grrrr yap bark ruff grrrr woof yap. ruff arf yap bark arf ruff bark, bark bark, ruff woof woof arf ruff woof grrrr arf. grrrr bark woof ruff grrrr arf arf, yap bark on/ruff woof.
 
-# Results
+# grrrr
 
-I used this case for over a year, and it held up pretty well. By the end of its life, the power button had broken, and the screws were starting to strip inside the 3D-printed plastic. However, structurally, it held up well, even after getting roughly tossed into a suitcase many times.
+bark bark yap arf grrrr bark woof yap, ruff grrrr arf arf grrrr woof. woof bark woof grrrr yap yap, woof grrrr bark arf yap, yap woof arf yap grrrr arf bark yap yap bark-ruff yap. bark, bark, grrrr ruff ruff yap, ruff bark ruff yap arf bark ruff grrrr yap ruff.
 
-After I came back home from MSSM, I transferred my rig back over to an off-the-shelf case, since I had plenty of space for it. That said, I certainly wouldn't call the project a failure--it was a great case for the 2 years or so that I used it, and I learned a lot about 3D printing in the process. Specifically, this project made me really consider the structural qualities of a 3D print, and I had to choose the orientation of each piece carefully in order to ensure each one was strong. While I used up plenty of filament in the process, by the end, this was something that I'm really proud of!
+bark yap bark grrrr yap bark arf, woof grrrr bark bark yap grrrr arf woof ruff-yap-woof grrrr, woof bark arf grrrr arf arf woof arf. woof woof, grrrr woof woof ruff woof arf bark woof--woof bark bark arf arf yap arf bark arf grrrr grrrr arf arf yap bark, ruff grrrr grrrr bark bark arf grrrr ruff grrrr yap ruff. ruff, bark yap grrrr woof ruff woof arf bark bark ruff woof ruff grrrr, yap grrrr bark grrrr ruff grrrr woof arf ruff bark woof grrrr arf ruff bark woof yap arf ruff. arf arf arf ruff ruff bark yap ruff ruff bark, yap bark grrrr, yap woof arf yap woof yap woof bark!

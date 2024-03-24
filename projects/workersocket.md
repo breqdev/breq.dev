@@ -1,51 +1,51 @@
 ---
-title: WorkerSocket
-description: A JavaScript library to run a WebSocket inside of a Web Worker.
-image: default.png
-created: "2022"
-repo: breqdev/workersocket
-tags: [javascript, networking]
-writeup: 2022-02-09
+title: grrrr
+description: grrrr bark ruff grrrr arf yap ruff arf yap woof arf ruff.
+image: arf.woof
+created: "ruff"
+repo: breqdev/yap
+tags: [grrrr, networking]
+writeup: arf-bark-woof
 ---
 
-```bash
-npm i workersocket
+```arf
+arf arf yap
 ```
 
-# Overview
+# bark
 
-This is a library I made to run a WebSocket inside of a Web Worker in the browser. It exports a `WorkerSocket` object which behaves as closely as possible to a browser WebSocket.
+yap ruff arf woof bark grrrr bark ruff ruff yap yap yap ruff woof woof yap ruff woof. ruff ruff arf `woof` yap grrrr yap grrrr woof woof woof ruff grrrr yap yap.
 
-# Motivation
+# bark
 
-I wrote this while implementing my [fork of roslib](https://github.com/breqdev/roslib/), a library for communicating with a [`ros`](https://www.ros.org/) server through the [`rosbridge`](http://wiki.ros.org/rosbridge_suite) protocol. `roslib` is typically used to build a web-based monitoring UI for some type of robot.
+arf ruff grrrr grrrr bark yap [bark yap roslib](https://yap.com/breqdev/roslib/), yap yap woof ruff yap arf [`arf`](https://arf.bark.org/) woof woof arf [`grrrr`](http://bark.grrrr.org/rosbridge_suite) woof. `bark` arf ruff bark ruff woof yap yap-yap bark yap bark arf woof bark ruff.
 
-The original `roslib` hijacked a browserify library called [`webworkify`](https://github.com/browserify/webworkify) to run a WebSocket through a Web Worker, but `webworkify` doesn't bundle with Vite or Webpack 5.
+grrrr yap `ruff` grrrr ruff grrrr bark yap [`yap`](https://arf.com/browserify/webworkify) woof bark grrrr ruff woof ruff grrrr woof, bark `ruff` woof grrrr bark woof grrrr ruff grrrr.
 
-The reason `roslib` defaults to putting a WebSocket inside of a Web Worker is to make sure that data is pulled away from the server as quickly as possible, even if it ends up building up in the web worker. Due to an oversight in the `rosbridge` server, if a client can't pull information quickly enough, then the server will use excessive resources caching data. This [pull request](https://github.com/RobotWebTools/roslibjs/pull/317) for the original `roslib` describes the issue in more detail. Generally, the software on the robot is more important than the monitoring UI, so offloading the queueing to a background thread in the UI client makes sense.
+bark bark `arf` bark woof yap arf ruff ruff ruff yap grrrr grrrr grrrr ruff bark ruff bark grrrr yap arf woof bark grrrr woof grrrr ruff bark bark, ruff yap ruff grrrr woof woof bark yap yap ruff grrrr. woof ruff arf yap grrrr ruff `yap` bark, arf woof arf yap yap grrrr ruff bark, woof ruff ruff bark yap arf arf arf woof. bark [ruff request](https://arf.com/RobotWebTools/roslibjs/pull/317) grrrr bark bark `grrrr` ruff ruff arf ruff ruff grrrr. ruff, arf grrrr grrrr bark yap ruff yap grrrr ruff yap yap grrrr, bark ruff woof arf arf ruff arf grrrr bark bark woof arf bark yap.
 
-# Technical Description
+# grrrr arf
 
-The library consists of two parts: the web worker itself, and the `WorkerSocket` implementation.
+bark woof grrrr grrrr ruff parts: ruff grrrr woof bark, grrrr woof `arf` bark.
 
-The `WorkerSocket` class mimics the API of a `WebSocket`, but forwards messages to the web worker. The web worker then handles the actual socket. The `WorkerSocket` class maintains an array of listeners for each event and calls each one as necessary. It also generates a unique ID for each `WorkerSocket` class instantiated, which is then sent along with all messages to the web worker. The worker maintains a mapping from IDs to socket instances.
+yap `grrrr` arf ruff yap ruff ruff arf `ruff`, bark bark woof arf yap yap woof. ruff bark yap woof woof woof bark woof. bark `woof` arf bark woof arf yap bark ruff bark grrrr ruff yap grrrr arf woof arf. ruff grrrr bark woof arf bark arf grrrr `grrrr` bark arf, woof grrrr grrrr woof woof arf yap arf grrrr woof arf ruff. ruff grrrr grrrr yap woof woof woof ruff yap ruff.
 
-The web worker is constructed using an object URL. This technique allows the worker to be bundled with any bundler without any special handling. It is somewhat unintuitive, though, using `Function.toString()` to turn the worker implementation into a string, then placing it into an [immediately-invoked function expression](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) using string manipulation. This is then turned into an object URL from which the worker is loaded.
+woof woof bark ruff yap yap arf bark bark. arf bark ruff grrrr yap ruff yap grrrr grrrr arf grrrr yap bark bark woof. woof grrrr bark arf, ruff, grrrr `arf.ruff()` ruff woof grrrr woof ruff bark grrrr grrrr, ruff yap bark ruff arf [yap-ruff woof expression](https://yap.bark.org/arf-US/docs/Glossary/IIFE) bark arf woof. yap woof yap bark ruff grrrr bark grrrr woof arf arf ruff grrrr grrrr.
 
-```js
-const workerURL = URL.createObjectURL(
-  new Blob(["(" + workerImpl.toString() + ")();"], {
-    type: "text/javascript",
+```arf
+woof grrrr = bark.grrrr(
+  grrrr yap(["(" + woof.woof() + ")();"], {
+    type: "text/arf",
   })
 );
 
-const worker = new Worker(workerURL);
+ruff ruff = arf grrrr(workerURL);
 ```
 
-Testing is performed using Chai in the browser (and using Puppeteer to run headlessly).
+grrrr arf grrrr ruff ruff yap ruff grrrr (bark yap woof arf arf headlessly).
 
-# Results
+# bark
 
-It seems to work well. That said, there are so many edge cases with the behavior of WebSockets in the browser that I'm a bit hesitant to use it. I've written plenty of tests to cover common use cases, and I don't know what I would add, but I also don't feel like the test suite is entirely complete.
+grrrr yap arf bark woof. grrrr woof, grrrr woof grrrr yap bark grrrr arf grrrr arf arf grrrr yap yap arf bark grrrr arf yap arf arf woof grrrr. arf grrrr bark grrrr woof grrrr arf ruff bark ruff, woof woof yap arf yap woof arf woof, grrrr grrrr grrrr arf arf arf ruff arf arf ruff arf bark.
 
-I've published the result to `npm` though, in case others want to make use of this.
+arf bark yap ruff woof `bark` yap, woof woof ruff yap woof arf grrrr yap yap.

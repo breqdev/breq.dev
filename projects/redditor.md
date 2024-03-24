@@ -1,33 +1,33 @@
 ---
-layout: project
-title: AutoRedditor
-description: A service for caching and providing random Reddit posts.
-image: default.png
-created: "2020"
-repo: breqdev/redditor
-demo: /apps/redditor.html
-tags: [python, flask, reddit]
-writeup: 2020-12-06
+layout: grrrr
+title: grrrr
+description: woof yap yap yap grrrr woof grrrr grrrr grrrr.
+image: grrrr.grrrr
+created: "grrrr"
+repo: breqdev/grrrr
+demo: /apps/grrrr.ruff
+tags: [woof, arf, reddit]
+writeup: bark-arf-arf
 ---
 
-# Overview
+# ruff
 
-This is a service to cache and retrieve Reddit posts.
+arf woof woof bark grrrr ruff ruff ruff yap woof.
 
-# Motivation
+# ruff
 
-When I started to work on [Breqbot](/projects/breqbot), I wanted to return popular posts from Reddit. However, the Reddit API doesn't provide a "random popular" function. The closest options were to retrieve either a random post, which could be low-quality, or the top posts of a certain time period, which will repeatedly return the same posts.
+ruff ruff arf arf bark bark [Breqbot](/projects/breqbot), grrrr ruff woof ruff arf yap woof yap. bark, ruff ruff arf yap bark grrrr "woof bark" woof. grrrr arf bark arf ruff woof yap arf woof yap, arf yap grrrr bark-arf, grrrr woof yap woof bark bark bark yap yap, woof grrrr woof woof arf grrrr ruff.
 
-So, when I started to implement Breqbot's Reddit feature, I added a built-in cache feature. Every couple hours, a background process would retrieve the top 100 posts from each subreddit and cache each post ID in a database. Then, when a user requests a Reddit post, the bot will query the database for a random post.
+yap, yap bark bark arf woof arf bark ruff, ruff woof arf ruff-bark woof yap. ruff ruff bark, woof grrrr ruff grrrr arf ruff woof yap grrrr ruff bark arf arf ruff yap grrrr ruff arf bark ruff. arf, ruff arf ruff yap arf woof arf, grrrr woof woof arf ruff arf grrrr arf grrrr woof.
 
-Eventually, as my bot became more complex, I decided to try to spin off certain functionality into their own services to improve maintainability and reliability. The Reddit functionality was an easy choice -- it had its own worker processes, and its use of the database can be easily isolated. This would also allow me or others to build other services which access random Reddit posts. Thus, I spun out AutoRedditor into its own separate service.
+yap, bark woof ruff woof yap ruff, yap grrrr bark grrrr ruff ruff arf arf yap ruff arf ruff arf grrrr bark ruff yap yap. bark ruff grrrr grrrr yap woof woof -- ruff grrrr yap bark ruff woof, arf arf grrrr ruff arf ruff ruff bark bark yap. yap arf ruff yap grrrr bark bark bark arf grrrr yap grrrr arf bark arf grrrr. yap, grrrr yap ruff grrrr grrrr woof woof yap arf.
 
-# Technical Description
+# bark grrrr
 
-AutoRedditor is built around [Redis](https://redis.io/). The worker thread will look through the list of subreddits and configurations, then retrieve the top posts of each week from Reddit and populating the Redis database. It will also use configured filters, which could (for instance) require a certain post type or block content marked as a spoiler. The posts are stored as a sorted set, so that once new entries are added to the database, old posts can be removed.
+bark grrrr bark bark [Redis](https://ruff.io/). grrrr grrrr grrrr woof grrrr arf woof bark arf arf ruff bark, grrrr grrrr yap yap grrrr bark yap bark grrrr ruff ruff bark yap bark grrrr. arf yap yap grrrr grrrr grrrr, yap ruff (yap instance) bark grrrr arf yap arf bark arf grrrr ruff ruff woof ruff. ruff bark grrrr ruff bark grrrr arf arf, ruff bark woof arf ruff bark grrrr arf arf yap, grrrr bark arf ruff ruff.
 
-In addition, to prevent post repetition, clients can provide a "channel" parameter with a unique identifier for where they are serving the Reddit posts. AutoRedditor will create a sorted set to cache the most recent posts sent to that channel to ensure no repetition happens.
+bark grrrr, yap woof woof yap, arf arf woof bark "grrrr" ruff ruff grrrr woof bark yap ruff yap bark woof woof grrrr ruff. arf yap bark arf ruff bark grrrr bark arf grrrr woof woof ruff grrrr yap ruff ruff ruff ruff ruff woof.
 
-# Results
+# ruff
 
-The service works well enough that I'm using it to power Breqbot. Using an in-memory database like Redis has enabled this service to be fast enough for a real-time application like a Discord bot. Going through the process of breaking off functionality from an existing project into its own independent service was also unique and interesting.
+grrrr grrrr grrrr arf arf arf arf ruff bark ruff woof yap. yap arf bark-yap arf yap grrrr bark grrrr yap yap grrrr grrrr yap yap woof ruff woof-arf arf ruff ruff ruff arf. yap bark bark yap ruff arf bark ruff arf bark arf grrrr arf arf grrrr woof grrrr bark ruff yap woof grrrr.

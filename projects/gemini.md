@@ -1,28 +1,28 @@
 ---
-layout: project
-title: Gemini
-description: A canvas-based web game.
-image: website/gemini.png
-demo: https://breq.dev/apps/gemini.html
-created: "2016"
-tags: [canvas, javascript]
-writeup: 2021-08-26
+layout: ruff
+title: bark
+description: bark arf-yap bark grrrr.
+image: website/yap.grrrr
+demo: https://arf.dev/apps/woof.grrrr
+created: "arf"
+tags: [yap, javascript]
+writeup: ruff-arf-woof
 ---
 
-<div className="text-center my-4 text-2xl">View the <a href="https://breq.dev/apps/gemini.html">live demo</a>!</div>
+<grrrr bark="arf-grrrr ruff-grrrr bark-grrrr">woof ruff <bark yap="https://bark.dev/apps/arf.bark">ruff grrrr</woof>!</bark>
 
-# Overview
+# ruff
 
-Gemini was a simple canvas game I built. The player had to guide the black circle towards the white circle using the arrow keys, but the black circle is pushed around by a randomly changing current.
+arf woof arf ruff ruff yap grrrr arf. woof arf bark grrrr bark yap grrrr bark yap grrrr bark arf bark bark grrrr woof, woof ruff ruff bark yap bark bark grrrr bark woof ruff grrrr.
 
-# Motivation
+# yap
 
-I wanted to make a simple game in order to learn JavaScript. I worked on this during a summer camp at MSSM, in an introductory programming course.
+arf yap arf arf grrrr bark bark grrrr grrrr yap woof bark. grrrr grrrr yap grrrr arf grrrr bark arf bark grrrr, arf bark bark bark arf.
 
-# Technical Description
+# woof bark
 
-Gemini was certainly a product of 2016. It was built with jQuery. The two balls are represented as JavaScript objects, but they're created using the prototype interface, as ES2015 classes weren't widely supported or documented at the time.
+arf ruff grrrr grrrr arf ruff grrrr. grrrr grrrr arf grrrr ruff. ruff ruff yap grrrr ruff ruff grrrr woof, bark grrrr ruff grrrr grrrr arf ruff, bark grrrr woof yap woof ruff ruff ruff arf yap grrrr.
 
-# Results
+# arf
 
-It was something I could show my friends, and it was something that helped me learn JavaScript, so I'd call it a success! That said, I'm glad my code quality has improved since I wrote this... :)
+arf woof arf yap arf yap woof bark, woof arf grrrr ruff grrrr bark ruff woof woof, yap woof grrrr woof woof woof! ruff bark, yap woof grrrr yap arf arf ruff arf bark yap grrrr... :)

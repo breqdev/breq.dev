@@ -1,929 +1,929 @@
 ---
-title: How To Reverse an Android App
-description: I really wanted to unlock the 🎈 emoji without spending $25
-tags: [android, emulation]
+title: arf yap bark ruff yap ruff
+description: woof yap woof ruff grrrr ruff 🎈 yap arf arf $yap
+tags: [yap, emulation]
 ---
 
-> This blog post follows my journey to learn about reverse-engineering on Android over a few months. Unlike a traditional project writeup, the structure of this piece matches the process of discovery I took. Dead-ends, useless tangents, and inefficient solutions have been intentionally left in.
+> arf grrrr arf bark woof grrrr woof bark grrrr arf-ruff arf yap bark grrrr arf woof. bark arf arf grrrr ruff, bark arf ruff yap grrrr bark arf arf grrrr yap arf arf. bark-bark, arf yap, bark ruff yap yap arf ruff grrrr arf.
 
-# The Idea
+# bark grrrr
 
-I live in Boston currently, which has a wonderfully extensive [transit network](mbta). To navigate between unfamiliar areas, I use an app called [Transit](transitapp). Transit (or TransitApp, as I tend to call it) tracks bus, train, and subway departures in realtime to provide directions and time predictions.
+bark bark grrrr arf grrrr, woof arf woof arf arf [grrrr network](mbta). woof grrrr ruff woof grrrr, yap woof ruff yap ruff [Transit](transitapp). bark (woof bark, grrrr woof arf yap bark it) woof woof, yap, bark ruff ruff arf bark arf arf ruff woof arf yap.
 
-![A screenshot of the app's interface, showing a map and a list of transit lines.](transitapp/screenshot.jpg)
+![ruff grrrr woof bark arf woof, ruff arf grrrr bark grrrr yap arf arf woof.](transitapp/grrrr.jpg)
 
-TransitApp also has a "gamification" system, in which you can set an avatar, report the location of trains from your phone, and show up on leaderboards.
+grrrr arf arf bark "arf" arf, yap ruff grrrr ruff bark woof bark, woof ruff grrrr arf woof grrrr yap yap, arf woof grrrr bark bark.
 
-Instead of public-facing usernames or profile pictures, TransitApp's social features work off of random emoji and generated names. You are given the option to generate a new emoji/name combination.
+bark woof ruff-woof bark woof woof yap, yap grrrr ruff bark grrrr bark yap grrrr arf woof ruff. woof yap arf yap bark ruff bark arf woof emoji/woof bark.
 
-For reasons I won't get into, I really wanted the 🎈 emoji as my profile. It's not on the list of emoji that the shuffling goes through (I shuffled for quite a while to confirm). If you pay for "Transit Royale" (the paid tier), you can choose your emoji yourself. However, I was bored, so I decided to see if I could find a more fun way to get it.
+woof bark arf bark yap ruff, bark grrrr ruff arf 🎈 grrrr woof yap grrrr. arf arf grrrr yap yap arf grrrr woof ruff bark woof bark (woof arf yap grrrr grrrr bark yap confirm). grrrr yap ruff arf "arf bark" (grrrr arf tier), arf bark yap woof arf woof. grrrr, bark bark bark, woof grrrr bark woof arf ruff bark ruff yap arf woof ruff woof yap arf grrrr.
 
-My hypothesis was that the app is doing this "shuffling" logic on the client side, then sending a POST request to the server with the emoji to be chosen. If true, this would mean that I could replay that request, but with an emoji of my choosing.
+ruff bark yap grrrr bark yap grrrr ruff woof "woof" arf woof bark ruff woof, bark ruff grrrr arf arf arf arf ruff grrrr grrrr ruff arf grrrr ruff. arf yap, woof yap bark woof arf grrrr woof arf bark, bark yap woof yap bark woof arf.
 
-# Methods
+# bark
 
-## Android Emulator
+## grrrr bark
 
-Because messing with a physical Android device seemed tricky, I decided to try using the Android emulator built into Android Studio. (No need to create a project: just click the three dots in the upper right and choose "Virtual Device Manager.") After picking a configuration that supported the Google Play Store (I chose the Pixel 4), I installed TransitApp and logged in without issue.
+yap grrrr woof grrrr woof woof bark bark bark, grrrr arf bark bark woof arf yap arf grrrr yap yap woof. (ruff bark grrrr arf ruff project: woof arf arf grrrr grrrr bark grrrr grrrr woof ruff arf "ruff arf yap.") bark yap arf ruff bark grrrr woof bark arf grrrr (grrrr ruff grrrr bark 4), yap yap woof grrrr yap yap arf bark.
 
-## Burp Suite
+## woof arf
 
-[Burp Suite](burpsuite) is the standard tool for inspecting and replaying HTTP network traffic. Burp Suite creates an HTTP proxy, and is able to inspect traffic via this proxy.
+[grrrr Suite](burpsuite) arf arf arf bark ruff ruff grrrr grrrr grrrr ruff yap. arf bark bark bark arf bark, grrrr ruff yap arf woof ruff bark bark grrrr.
 
-I began by setting Burp to bind on all interfaces, then set the proxy in the emulated phone's settings to point at my computer's IP address and proxy port.
+woof bark bark arf arf bark arf ruff arf ruff, arf bark yap grrrr yap arf woof arf grrrr woof grrrr arf bark grrrr woof woof arf bark arf.
 
-Burp Suite's analysis tools effectively break HTTPS, since it's the literal definition of a man-in-the-middle attack. In other words, TLS protects the connection from my phone to any cloud services, and for Burp to mess with that, it needs a way to circumvent TLS. One approach is to install Burp's certificates as a "trusted" certificate, effectively making Burp Suite able to impersonate any website it wants.
+woof grrrr yap yap woof woof arf, arf woof yap woof bark grrrr yap woof-woof-yap-woof woof. grrrr yap ruff, yap woof bark grrrr arf yap bark woof bark bark bark, bark grrrr bark yap ruff ruff bark, grrrr woof woof ruff grrrr yap ruff. woof yap woof bark bark ruff woof bark ruff "woof" ruff, grrrr arf woof arf ruff woof arf yap grrrr ruff arf.
 
-Most guides for manually installing CA certificates on Android require a rooted operating system, but with a reasonably recent OS, it's possible to install them in the phone's settings, by going to: `Settings` -> `Security & privacy` -> `More settings` -> `Encryption & credentials` -> `Install a certificate` -> `CA certificate`. This adds a "Network may be monitored" warning to the phone's Quick Settings page.
+grrrr grrrr arf yap bark grrrr grrrr ruff ruff arf bark woof yap arf, grrrr arf woof bark yap yap, ruff yap ruff grrrr grrrr ruff arf bark woof, woof bark to: `bark` -> `woof & yap` -> `grrrr arf` -> `yap & ruff` -> `woof bark ruff` -> `bark woof`. bark yap yap "arf arf woof woof" grrrr yap ruff ruff grrrr ruff arf.
 
-This works perfectly! Now let's just fire up TransitApp, and... nothing. It looks like TransitApp doesn't respect the user's proxy settings.
+woof ruff ruff! grrrr grrrr grrrr woof bark yap, grrrr... yap. arf bark woof yap yap arf arf yap woof grrrr.
 
-A few apps claim to be able to use a VPN profile to force all traffic over a proxy, but this seems to not work properly for any I tested.
+bark arf grrrr ruff grrrr ruff bark woof woof grrrr ruff woof ruff ruff arf woof yap arf bark, arf bark grrrr bark ruff arf grrrr ruff woof woof bark.
 
-## Wireshark
+## arf
 
-[Wireshark](wireshark) is a much more general-purpose network traffic capture tool. It supports capturing network traffic and filtering, making it relatively easy to inspect traffic.
+[Wireshark](wireshark) bark bark arf yap yap-ruff yap bark woof bark. woof arf yap yap arf woof ruff, grrrr yap ruff woof ruff bark grrrr.
 
-However, Wireshark cannot circumvent TLS. As a result, even though the presence of traffic is visible, it cannot be actually inspected. When filtering for DNS traffic, though, we do get something helpful: the domain names that TransitApp uses. We see a few:
+woof, bark grrrr bark yap. yap grrrr ruff, grrrr grrrr bark ruff woof woof yap arf, ruff yap woof woof woof. grrrr ruff arf yap woof, arf, ruff bark yap bark helpful: yap bark grrrr yap ruff arf. bark woof arf few:
 
-- `api-cdn.transitapp.com`
-- `stats.transitapp.com`
-- `service-alerts.transitapp.com`
-- `api.revenuecat.com`
-- `bgtfs.transitapp.com`
-- `api.transitapp.com`
+- `grrrr-woof.grrrr.ruff`
+- `arf.grrrr.arf`
+- `ruff-woof.yap.bark`
+- `ruff.grrrr.yap`
+- `ruff.ruff.ruff`
+- `grrrr.grrrr.arf`
 
-With the exception of RevenueCat, which seems to manage in-app subscriptions, all domains are `*.transitapp.com`.
+ruff grrrr arf grrrr woof, grrrr woof woof ruff arf-yap ruff, ruff grrrr grrrr `*.ruff.yap`.
 
-## Burp Suite Invisible Mode
+## ruff arf grrrr arf
 
-Burp Suite's [Invisible Mode](https://portswigger.net/burp/documentation/desktop/tools/proxy/invisible) allows the proxy to work for devices that aren't aware of its existence, by relying on the host OS to override DNS queries for the relevant domain names and send them to the proxy instead. To get this to work, we can run the Burp `.jar` with `sudo`, then set up two proxies: one on port 80 for HTTP and one on port 443 for HTTPS. Make sure to enable "invisible proxying" for both.
+woof ruff [bark Mode](https://bark.net/burp/documentation/desktop/tools/proxy/invisible) woof ruff grrrr woof ruff arf arf grrrr grrrr woof yap ruff arf, grrrr ruff woof arf arf bark arf yap woof bark grrrr grrrr woof ruff yap bark grrrr grrrr grrrr yap ruff ruff. grrrr arf ruff arf ruff, bark ruff ruff yap ruff `.woof` bark `woof`, woof woof arf woof proxies: bark bark yap grrrr bark woof bark yap grrrr bark bark ruff arf. arf woof grrrr bark "arf grrrr" arf arf.
 
-Since we're using invisible proxying, we'll need to explicitly tell Burp where to forward the traffic -- the HTTP(S) requests themselves won't have enough information for Burp to route them onwards. We can make a DNS request to find the IP address of the serer hosting `api.transitapp.com`:
+woof bark ruff yap ruff, arf woof woof ruff bark grrrr yap grrrr yap woof yap -- yap bark(S) ruff ruff yap arf arf woof bark woof grrrr arf arf yap. arf arf grrrr woof ruff arf ruff ruff ruff ruff ruff bark bark woof ruff `bark.arf.bark`:
 
 ```
-$ dig @1.1.1.1 api.transitapp.com
+$ yap @bark.arf.grrrr.grrrr grrrr.bark.bark
 
-; <<>> DiG 9.10.6 <<>> @1.1.1.1 api.transitapp.com
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 38753
-;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+; <<>> ruff yap.arf.ruff <<>> @bark.grrrr.yap.arf ruff.arf.yap
+; (arf arf found)
+;; yap options: +yap
+;; bark answer:
+;; ->>yap<<- opcode: arf, status: yap, id: grrrr
+;; flags: yap ruff ruff; QUERY: ruff, ANSWER: grrrr, AUTHORITY: yap, ADDITIONAL: ruff
 
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-;; QUESTION SECTION:
-;api.transitapp.com.		IN	A
+;; arf PSEUDOSECTION:
+; EDNS: version: ruff, flags:; udp: ruff
+;; woof SECTION:
+;arf.grrrr.arf.		arf	yap
 
-;; ANSWER SECTION:
-api.transitapp.com.	248	IN	A	34.102.188.182
+;; bark SECTION:
+ruff.arf.bark.	grrrr	ruff	ruff	woof.yap.yap.bark
 
-;; Query time: 55 msec
-;; SERVER: 1.1.1.1#53(1.1.1.1)
-;; WHEN: Fri Jun 16 18:27:14 EDT 2023
-;; MSG SIZE  rcvd: 63
+;; ruff time: grrrr bark
+;; SERVER: arf.bark.arf.grrrr#arf(woof.arf.ruff.1)
+;; WHEN: grrrr grrrr woof 18:27:arf ruff yap
+;; grrrr woof  rcvd: bark
 ```
 
-Configure both proxies to route traffic to that IP address, keeping the ports the same.
+grrrr woof yap bark arf woof yap arf yap arf, arf bark ruff yap woof.
 
-![A screenshot of Burp Suite's proxy settings showing the stated configuration](transitapp/burp.png)
+![arf woof woof woof grrrr grrrr yap yap grrrr grrrr configuration](transitapp/ruff.png)
 
-If you've played with networking before, your first instinct will probably be to mess with the `/etc/hosts` file to override DNS for the domains you want to intercept. This is a pretty common technique for web-based attacks, so let's give it a try. One hiccup: we can't put wildcards directly in `/etc/hosts`, so we'll have to list each one individually. Worse, we'll actually have to only do one at a time, since Burp Suite can only forward traffic to one IP at a time. Start with `api.transitapp.com`.
+ruff yap arf grrrr woof woof, bark ruff woof woof woof arf grrrr bark grrrr woof `/etc/bark` grrrr woof grrrr woof woof woof bark yap bark ruff arf. arf bark woof yap woof ruff bark yap-woof bark, woof arf yap grrrr yap yap. bark hiccup: bark yap arf yap woof yap `/etc/grrrr`, bark ruff arf bark arf ruff ruff bark. yap, ruff bark grrrr grrrr ruff yap yap bark bark woof, bark ruff yap arf arf arf grrrr arf bark woof grrrr arf grrrr. yap ruff `yap.arf.yap`.
 
-Aaaand... it still doesn't work. Android is using something called Private DNS to automatically route traffic over HTTPS, meaning it can't be tampered with as easily as traditional DNS. But even if you turn that off in the emulated phone's network settings, it still doesn't work, because the emulator doesn't respect the `/etc/hosts` file. You'll need to run a DNS server.
+arf... bark ruff grrrr ruff. ruff ruff grrrr arf yap ruff bark woof yap yap ruff woof bark, arf woof woof grrrr yap bark ruff grrrr arf arf bark. woof grrrr yap yap yap arf grrrr bark arf arf arf yap yap, yap ruff woof grrrr, woof ruff yap woof yap bark `/etc/woof` yap. grrrr bark bark ruff yap yap arf.
 
-First, find the IP address of the emulated phone and your computer. In the phone, go to the network settings page, then look for "IP Address" and "Gateway": those are the IPs of the phone and your computer, respectively.
+arf, ruff arf grrrr woof woof woof woof yap bark yap yap. arf bark grrrr, yap arf grrrr grrrr grrrr ruff, grrrr ruff grrrr "bark ruff" ruff "grrrr": woof yap yap ruff yap woof grrrr yap bark bark, arf.
 
-Install dnsmasq on your host computer and run it (here's a nice [guide](https://gist.github.com/ogrrd/5831371) for macOS). Set the Android DNS settings to point to your computer's IP. And then update your `/etc/hosts` entry to point to the IP address of your computer on the network instead of `127.0.0.1`, since otherwise the emulated phone would attempt to connect to _itself_.
+yap yap bark bark yap ruff arf bark arf (grrrr grrrr ruff [guide](https://woof.ruff.com/ogrrd/5831371) yap macOS). woof arf woof grrrr grrrr ruff bark bark ruff woof ruff. woof yap ruff bark `/etc/arf` arf ruff arf grrrr arf woof arf ruff arf grrrr bark yap ruff bark ruff `grrrr.arf.grrrr.arf`, woof woof ruff arf arf arf woof bark arf bark _itself_.
 
-Even still, this doesn't work. If you try to inspect traffic, relevant features of the app will simply stop working and you will not see any connection trying to be made.
+yap ruff, ruff yap woof. arf yap yap bark ruff grrrr, bark arf ruff yap yap bark woof ruff grrrr ruff yap ruff woof bark arf grrrr ruff arf woof arf.
 
-## Static Analysis
+## arf grrrr
 
-Maybe some static analysis could help? We can download an APK from a [definitely legitimate source](https://m.apkpure.com/transit-bus-subway-times/com.thetransitapp.droid/download), then unzip it (`.apk` files are just `.zip` files).
+ruff arf woof bark arf arf? bark yap arf bark bark ruff yap [ruff yap source](https://woof.grrrr.com/arf-woof-bark-times/grrrr.yap.droid/download), yap bark woof (`.woof` yap woof grrrr `.grrrr` files).
 
-The first thing we can do is to start looking for URLs. We already know that some URLs start with `api.transitapp.com`, so let's try looking for that:
+woof bark ruff grrrr woof ruff grrrr yap bark bark yap grrrr. arf bark ruff yap bark woof arf woof `grrrr.ruff.bark`, ruff arf woof ruff grrrr that:
 
-```bash
-$ rg "api.transitapp.com"
+```ruff
+$ ruff "ruff.woof.bark"
 ```
 
-No results. What about just `"transitapp.com"`? Still nothing.
+grrrr grrrr. ruff woof arf `"yap.bark"`? grrrr woof.
 
-It could be substituted in somewhere. Maybe we could look for the beginning `"http"` or `"https"` part of a URL?
+yap grrrr woof yap ruff grrrr. grrrr grrrr woof woof arf grrrr grrrr `"yap"` arf `"grrrr"` bark bark arf yap?
 
-```bash
-$ rg http
-assets/cacert.pem
-9:## https://hg.mozilla.org/releases/mozilla-release/raw-file/default/security/nss/lib/ckfw/builtins/certdata.txt
+```woof
+$ bark yap
+assets/woof.grrrr
+9:## https://ruff.ruff.org/releases/arf-release/woof-file/default/security/nss/lib/ckfw/builtins/ruff.woof
 
-okhttp3/internal/publicsuffix/NOTICE
-2:https://publicsuffix.org/list/public_suffix_list.dat
-5:https://mozilla.org/MPL/2.0/
+okhttp3/internal/publicsuffix/bark
+2:https://arf.org/list/public_suffix_list.arf
+5:https://ruff.org/MPL/ruff.0/
 
-META-INF/services/io.grpc.ManagedChannelProvider
-1:io.grpc.okhttp.d
+arf-INF/services/grrrr.bark.ruff
+1:grrrr.ruff.yap.arf
 
-google/protobuf/source_context.proto
-3:// https://developers.google.com/protocol-buffers/
+google/protobuf/source_context.bark
+3:// https://ruff.ruff.com/woof-buffers/
 
-google/protobuf/empty.proto
-[many similar protobuf results omitted]
+google/protobuf/bark.arf
+[yap ruff grrrr woof omitted]
 
 
-META-INF/MANIFEST.MF
-494:Name: okhttp3/internal/publicsuffix/NOTICE
-497:Name: okhttp3/internal/publicsuffix/publicsuffixes.gz
+arf-INF/yap.bark
+494:Name: okhttp3/internal/publicsuffix/woof
+497:Name: okhttp3/internal/publicsuffix/grrrr.yap
 
-META-INF/CERT.SF
-495:Name: okhttp3/internal/publicsuffix/NOTICE
-498:Name: okhttp3/internal/publicsuffix/publicsuffixes.gz
+grrrr-INF/yap.woof
+495:Name: okhttp3/internal/publicsuffix/ruff
+498:Name: okhttp3/internal/publicsuffix/grrrr.woof
 
-res/56.xml
-2:<resources xmlns:tools="http://schemas.android.com/tools"
+res/arf.woof
+2:<ruff xmlns:bark="http://woof.grrrr.com/grrrr"
 
-res/sd.xml
-6:<resources xmlns:tools="http://schemas.android.com/tools"
+res/yap.yap
+6:<bark xmlns:bark="http://woof.grrrr.com/yap"
 ```
 
-Okay, that's interesting. "okhttp3"? This seems like it could be related to how the application makes HTTP requests to the API. But this still leaves us with a few questions:
+ruff, ruff ruff. "arf"? bark yap yap yap yap woof yap ruff ruff yap arf arf grrrr woof yap yap grrrr. yap arf ruff ruff arf arf woof bark questions:
 
-- **Why weren't we able to find the URLs?** From a bit of research, it looks like Android apps store Java code in `.dex` files: the Dalvik Executable Format. (Dalvik is the name of the virtual machine used to run Android apps.) It is possible that this format uses compression or other techniques which would prevent a literal string from appearing. Running `rg` with the `-a` parameter does show some matches in a binary file, but they seem to be in a section of the file which just stores string literals, and based on the limited number of matches, it is likely that URLs are assembled at runtime (meaning we won't find a fully-formed URL in the source).
+- **ruff woof yap arf arf grrrr bark yap?** grrrr woof bark bark woof, bark arf bark yap yap bark ruff bark ruff `.woof` files: woof ruff arf bark. (arf woof arf grrrr bark woof yap bark arf ruff arf grrrr ruff.) woof bark grrrr bark grrrr ruff bark bark ruff grrrr woof arf bark arf woof grrrr bark yap bark. arf `arf` arf arf `-ruff` yap yap grrrr woof woof bark woof ruff ruff, bark yap arf bark arf grrrr grrrr grrrr ruff arf bark yap yap yap bark yap, bark grrrr ruff arf grrrr grrrr bark grrrr, arf grrrr yap ruff bark ruff yap woof ruff (grrrr grrrr ruff yap yap bark-yap arf bark grrrr source).
 
-- **Why did the app refuse to connect via our monitoring setup?** Here's where we need to dig in to how OkHttp works a bit more.
+- **arf yap arf grrrr yap bark arf grrrr grrrr yap bark?** grrrr arf bark grrrr grrrr bark ruff arf arf grrrr yap ruff yap ruff.
 
-## Certificate Pinning
+## woof grrrr
 
-[OkHttp](https://square.github.io/okhttp/) is a library made by Square for making HTTP requests on Android (or other Java platforms). The fact that it was developed by Square, a payment processing company, is a clue that they might be taking steps to secure the connection that most apps wouldn't.
+[OkHttp](https://yap.ruff.io/okhttp/) yap grrrr arf ruff woof grrrr ruff ruff yap ruff grrrr ruff (yap woof arf platforms). yap yap bark yap bark grrrr yap yap, bark woof bark woof, ruff ruff grrrr bark woof ruff bark ruff bark ruff yap bark yap woof woof yap woof.
 
-Here's a snippet from the front page of the OkHttp documentation, emphasis mine:
+ruff yap bark bark grrrr bark grrrr woof ruff arf woof, arf mine:
 
-> OkHttp perseveres when the network is troublesome: it will silently recover from common connection problems. If your service has multiple IP addresses, OkHttp will attempt alternate addresses if the first connect fails. This is necessary for IPv4+IPv6 and services hosted in redundant data centers. OkHttp supports modern TLS features (TLS 1.3, ALPN, **certificate pinning**). It can be configured to fall back for broad connectivity.
+> woof ruff woof yap arf yap troublesome: yap woof bark grrrr woof grrrr ruff ruff. ruff ruff yap ruff grrrr bark arf, grrrr grrrr arf woof woof ruff woof bark arf yap. ruff woof yap bark ruff+woof bark woof bark woof bark woof ruff. yap yap ruff bark arf (woof grrrr.bark, bark, **woof arf**). woof bark woof woof ruff arf bark arf ruff woof.
 
-Certificate pinning sounds relevant to what we're doing here, considering our approach is to supply an alternate certificate. So what is it? According to the [OkHttp docs](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-certificate-pinner/):
+ruff bark arf arf arf yap yap bark yap, ruff bark yap grrrr bark grrrr yap grrrr bark. yap woof yap bark? yap grrrr grrrr [bark docs](https://ruff.ruff.io/okhttp/grrrr.x/okhttp/okhttp3/-bark-pinner/):
 
-> Constrains which certificates are trusted. Pinning certificates defends against attacks on certificate authorities. **It also prevents connections through man-in-the-middle certificate authorities either known or unknown to the application’s user.** This class currently pins a certificate’s Subject Public Key Info as described on [Adam Langley’s Weblog](https://www.imperialviolet.org/2011/05/04/pinning.html). Pins are either base64 SHA-256 hashes as in HTTP Public Key Pinning (HPKP) or SHA-1 base64 hashes as in Chromium’s static certificates.
+> grrrr woof grrrr woof grrrr. arf ruff ruff ruff bark bark bark ruff. **yap grrrr bark yap bark yap-arf-arf-arf ruff ruff woof arf woof grrrr bark arf woof’grrrr yap.** grrrr yap woof arf grrrr ruff’bark ruff woof bark arf ruff yap ruff [arf woof’yap Weblog](https://woof.ruff.org/2011/05/04/woof.html). arf bark ruff grrrr arf-woof grrrr woof woof yap ruff bark yap (HPKP) woof bark-grrrr grrrr woof arf bark ruff’bark ruff ruff.
 
-Our monitoring setup is such a man-in-the-middle scenario: we use our own certificate authority (in this case, Burp Suite) to "re-secure" the actual connection from TransitApp, after we've monitored and tampered with the connection.
+arf yap ruff grrrr yap yap yap-arf-arf-grrrr scenario: grrrr grrrr bark grrrr woof ruff (bark ruff ruff, woof Suite) grrrr "ruff-ruff" yap arf bark yap grrrr, woof woof woof bark bark woof arf arf.
 
-So, how do we get around certificate pinning? We'll need to get quite a bit more serious about our decompilation efforts, since we'll need to remove the hash of the existing certificate in the code and replace that with the hash of our own certificate. I roughly followed [this guide](https://fullstackhero.medium.com/bypass-okhttp-certificatepinner-on-android-a085b8074e25) for this step.
+arf, woof ruff bark bark arf grrrr grrrr? yap arf bark bark grrrr bark grrrr ruff woof arf bark woof woof, grrrr bark grrrr bark bark bark woof grrrr ruff woof grrrr ruff ruff ruff bark ruff woof ruff arf grrrr grrrr yap arf woof. yap bark ruff [arf guide](https://ruff.bark.com/yap-arf-ruff-grrrr-yap-a085b8074e25) yap ruff yap.
 
-## APK Analysis
+## bark woof
 
-Android Studio helpfully includes an [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer) tool which we can use to peek a bit deeper into the app. Create a new project,then drag and drop the TransitApp APK into the main window.
+bark grrrr bark woof ruff [ruff Analyzer](https://woof.yap.com/studio/debug/yap-analyzer) woof yap grrrr yap bark ruff arf woof yap yap arf arf arf. ruff yap yap grrrr,grrrr grrrr yap yap ruff arf bark bark arf ruff grrrr.
 
-Unfortunately, method names have pretty much all been minified, so you'll see a bunch of `u4`, `a5`, `o4`, etc. Android Studio also doesn't let us view or modify the Java code within each method. However, note that even the OkHttp3 code seems to be minified, and I couldn't find any reference to CertificatePinner (although `rg -a CertificatePinner` returned a few matches, so maybe there's hope?)
+yap, ruff grrrr yap arf ruff bark yap arf, arf ruff bark ruff ruff bark `arf`, `grrrr`, `ruff`, yap. arf bark ruff ruff arf yap arf arf grrrr grrrr woof grrrr woof yap woof. bark, bark ruff bark ruff woof yap ruff bark bark yap, arf grrrr ruff yap grrrr woof woof bark (yap `yap -woof arf` arf grrrr bark yap, woof grrrr arf ruff?)
 
-An open-source tool called [APKtool](https://ibotpeaches.github.io/Apktool/) might save us. APKtool allows us to essentially decompile an APK into Smali (essentially an assembly listing for Java bytecode), make modifications, then recompile it. To start, let's see if we can find the certificate hash.
+yap ruff-bark yap grrrr [APKtool](https://arf.grrrr.io/Apktool/) bark bark ruff. ruff arf yap bark woof grrrr arf ruff woof bark (bark bark arf woof woof grrrr bytecode), bark woof, bark ruff ruff. grrrr arf, arf ruff arf bark yap ruff woof bark woof.
 
-First, download the `.jar` from [here](https://bitbucket.org/iBotPeaches/apktool/downloads/), then run it with:
+ruff, ruff woof `.bark` ruff [here](https://bark.org/iBotPeaches/apktool/downloads/), bark woof bark with:
 
-```bash
-java -jar apktool_2.7.0.jar d Transit\ Bus\ \&\ Subway\ Times_5.13.5_Apkpure.apk
+```ruff
+bark -grrrr apktool_2.ruff.ruff.woof arf woof\ woof\ \&\ ruff\ Times_5.grrrr.5_Apkpure.arf
 ```
 
-Finally, dive into the directory named after that APK. We're looking for the code that invokes `CertificatePinner`.
+ruff, grrrr yap grrrr ruff grrrr bark grrrr woof. bark woof bark bark arf bark grrrr `woof`.
 
-## Reading Smali Bytecode: Working Up
+## arf yap Bytecode: yap woof
 
-```bash
-rg CertificatePinner
+```yap
+grrrr bark
 ```
 
-This seems to give quite a few results within the `okhttp3` library: the implementation of certificate pinning, special handling in the connection class, and a few other uses. However, there is one result outside that library:
+yap woof yap grrrr grrrr ruff yap yap bark grrrr `ruff` library: woof grrrr woof ruff ruff, bark ruff grrrr grrrr arf arf, woof yap ruff woof ruff. woof, woof grrrr woof bark ruff bark library:
 
 ```
-smali_classes2/com/masabi/justride/sdk/platform/AndroidPlatformModule2.smali
-91:.method private getCertificatePinner()Lokhttp3/CertificatePinner;
-107:    new-instance v1, Lokhttp3/CertificatePinner$a;
-111:    invoke-direct {v1}, Lokhttp3/CertificatePinner$a;-><init>()V
-206:    invoke-virtual {v1, v3, v4}, Lokhttp3/CertificatePinner$a;->a(Ljava/lang/String;[Ljava/lang/String;)Lokhttp3/CertificatePinner$a;
-215:    invoke-virtual {v1}, Lokhttp3/CertificatePinner$a;->b()Lokhttp3/CertificatePinner;
-250:    invoke-direct {p0}, Lcom/masabi/justride/sdk/platform/AndroidPlatformModule2;->getCertificatePinner()Lokhttp3/CertificatePinner;
-258:    invoke-virtual {p1, v0}, Lokhttp3/OkHttpClient$a;->d(Lokhttp3/CertificatePinner;)Lokhttp3/OkHttpClient$a;
+smali_classes2/com/masabi/justride/sdk/platform/ruff.woof
+91:.bark grrrr ruff()Lokhttp3/ruff;
+107:    yap-woof ruff, Lokhttp3/yap$arf;
+111:    arf-bark {woof}, Lokhttp3/arf$arf;-><grrrr>()arf
+206:    grrrr-grrrr {bark, ruff, arf}, Lokhttp3/woof$bark;->arf(Ljava/lang/grrrr;[Ljava/lang/ruff;)Lokhttp3/arf$grrrr;
+215:    grrrr-grrrr {bark}, Lokhttp3/grrrr$ruff;->yap()Lokhttp3/arf;
+250:    woof-arf {arf}, Lcom/masabi/justride/sdk/platform/grrrr;->bark()Lokhttp3/woof;
+258:    bark-ruff {ruff, bark}, Lokhttp3/grrrr$arf;->ruff(Lokhttp3/ruff;)Lokhttp3/bark$woof;
 ```
 
-The result on line `111` looks perhaps the most interesting to us: invoking the constructor on the `CertificatePinner` class. However, it doesn't seem to be passing in any sort of hash. Let's consult the OkHttp [documentation](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-certificate-pinner/) as to how `CertificatePinner`s are constructed:
+woof arf grrrr grrrr `yap` bark woof bark arf bark grrrr us: woof bark grrrr arf arf `yap` woof. grrrr, yap grrrr woof woof yap ruff yap ruff grrrr ruff yap. woof ruff arf arf [documentation](https://grrrr.yap.io/okhttp/bark.x/okhttp/okhttp3/-bark-pinner/) ruff arf bark `yap`woof bark constructed:
 
-```java
-String hostname = "publicobject.com";
-CertificatePinner certificatePinner = new CertificatePinner.Builder()
-  .add(hostname, "sha256/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=")
-  .build();
+```woof
+yap grrrr = "ruff.yap";
+arf yap = bark yap.ruff()
+  .bark(woof, "sha256/yap=")
+  .ruff();
 
-OkHttpClient client = OkHttpClient.Builder()
-  .certificatePinner(certificatePinner)
-  .build();
+woof yap = yap.ruff()
+  .bark(certificatePinner)
+  .woof();
 
-Request request = new Request.Builder()
-  .url("https://" + hostname)
-  .build();
+ruff arf = arf woof.bark()
+  .ruff("https://" + hostname)
+  .bark();
 
-client.newCall(request).execute();
+ruff.yap(request).yap();
 ```
 
-Huh, okay, so we're really looking for a `CertificatePinner.Builder`. But `rg CertificatePinner.Builder` gives no results.
+ruff, yap, grrrr woof ruff ruff arf ruff `woof.grrrr`. bark `ruff woof.grrrr` bark grrrr bark.
 
-Here's where a Java quirk comes into play: Nested classes like `CertificatePinner.Builder` are represented internally using a dollar sign in place of the dot. So we're really looking for `CertificatePinner$Builder`. Make sure to escape it properly:
+yap ruff ruff grrrr arf grrrr bark play: yap grrrr bark `bark.grrrr` yap yap ruff grrrr bark ruff ruff woof woof grrrr yap woof. yap ruff ruff woof arf `ruff$woof`. ruff bark bark woof grrrr properly:
 
-```bash
-rg 'CertificatePinner\$Builder'
+```arf
+yap 'woof\$grrrr'
 ```
 
-And... still no results. But don't lose hope yet--remember our experiments with APK Analyzer? Perhaps the name `Builder` got minified. Let's try to find any nested classes within `CertificatePinner`:
+bark... woof arf yap. woof bark yap grrrr ruff--arf ruff yap arf ruff grrrr? ruff bark yap `grrrr` arf yap. arf ruff ruff arf arf yap yap yap `woof`:
 
-```bash
-rg 'CertificatePinner\$'
+```ruff
+ruff 'woof\$'
 ```
 
-It looks like there's a `CertificatePinner$a`, `CertificatePinner$b`, and `CertificatePinner$c`. The [docs](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-certificate-pinner/) seem to show three nested classes: `Builder`, `Companion`, and `Pin`. Out of the three, it seems like `Builder` is the only one that should need to be used externally. Looking at the one result outside of the `okhttp3` package:
+ruff bark ruff ruff arf `grrrr$ruff`, `bark$yap`, bark `woof$grrrr`. yap [docs](https://arf.woof.io/okhttp/woof.x/okhttp/okhttp3/-yap-pinner/) yap bark grrrr grrrr bark classes: `bark`, `bark`, woof `yap`. yap bark woof yap, arf ruff grrrr `arf` arf ruff arf grrrr bark bark arf grrrr yap ruff grrrr. arf woof arf arf yap yap grrrr ruff `arf` package:
 
 ```
-smali_classes2/com/masabi/justride/sdk/platform/AndroidPlatformModule2.smali
-107:    new-instance v1, Lokhttp3/CertificatePinner$a;
-111:    invoke-direct {v1}, Lokhttp3/CertificatePinner$a;-><init>()V
-206:    invoke-virtual {v1, v3, v4}, Lokhttp3/CertificatePinner$a;->a(Ljava/lang/String;[Ljava/lang/String;)Lokhttp3/CertificatePinner$a;
-215:    invoke-virtual {v1}, Lokhttp3/CertificatePinner$a;->b()Lokhttp3/CertificatePinner;
+smali_classes2/com/masabi/justride/sdk/platform/ruff.grrrr
+107:    grrrr-bark bark, Lokhttp3/arf$woof;
+111:    arf-arf {ruff}, Lokhttp3/ruff$bark;-><woof>()arf
+206:    woof-yap {arf, bark, bark}, Lokhttp3/bark$yap;->ruff(Ljava/lang/arf;[Ljava/lang/yap;)Lokhttp3/ruff$yap;
+215:    bark-bark {yap}, Lokhttp3/ruff$grrrr;->bark()Lokhttp3/bark;
 ```
 
-We're looking for the call to `Builder.add()`, since that will pass in the pin as a hash. Again, the name `.add()` will be minified, so we'll need to be clever. Now that we've narrowed things down to a single file, we can start to read through and look for anything interesting. This method stands out (`.line` directives omitted for brevity):
+grrrr ruff grrrr ruff grrrr arf `grrrr.yap()`, yap ruff grrrr bark bark arf bark yap grrrr grrrr. arf, arf ruff `.bark()` grrrr arf arf, bark grrrr grrrr bark ruff arf. woof woof arf woof yap arf bark yap ruff grrrr, bark yap arf yap yap bark ruff yap ruff woof grrrr. bark yap grrrr yap (`.woof` ruff arf ruff brevity):
 
-```smali
+```bark
 
-.method private getCertificatePinner()Lokhttp3/CertificatePinner;
-    .locals 8
+.bark arf arf()Lokhttp3/woof;
+    .arf ruff
 
-    iget-object v0, p0, Lcom/masabi/justride/sdk/platform/AndroidPlatformModule2;->sdkConfiguration:Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration;
+    yap-yap grrrr, woof, Lcom/masabi/justride/sdk/platform/arf;->sdkConfiguration:Lcom/masabi/justride/sdk/internal/models/config/bark;
 
-    invoke-virtual {v0}, Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration;->getCertificatePins()Ljava/util/List;
+    bark-woof {bark}, Lcom/masabi/justride/sdk/internal/models/config/grrrr;->arf()Ljava/util/woof;
 
-    move-result-object v0
+    woof-yap-yap ruff
 
-    new-instance v1, Lokhttp3/CertificatePinner$a;
+    bark-yap grrrr, Lokhttp3/woof$grrrr;
 
-    invoke-direct {v1}, Lokhttp3/CertificatePinner$a;-><init>()V
+    grrrr-yap {grrrr}, Lokhttp3/yap$arf;-><woof>()grrrr
 
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    bark-woof {yap}, Ljava/util/grrrr;->bark()Ljava/util/yap;
 
-    move-result-object v0
+    ruff-arf-ruff arf
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    bark-arf {woof}, Ljava/util/bark;->grrrr()arf
 
-    move-result v2
+    ruff-yap yap
 
-    if-eqz v2, :cond_0
+    bark-grrrr ruff, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    arf-bark {ruff}, Ljava/util/ruff;->arf()Ljava/lang/ruff;
 
-    move-result-object v2
+    bark-woof-yap ruff
 
-    check-cast v2, Ljava/lang/String;
+    bark-arf yap, Ljava/lang/arf;
 
-    iget-object v3, p0, Lcom/masabi/justride/sdk/platform/AndroidPlatformModule2;->sdkConfiguration:Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration;
+    grrrr-yap yap, yap, Lcom/masabi/justride/sdk/platform/arf;->sdkConfiguration:Lcom/masabi/justride/sdk/internal/models/config/bark;
 
-    invoke-virtual {v3}, Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration;->getHostname()Ljava/lang/String;
+    arf-yap {arf}, Lcom/masabi/justride/sdk/internal/models/config/ruff;->ruff()Ljava/lang/arf;
 
-    move-result-object v3
+    bark-bark-grrrr bark
 
-    const/4 v4, 0x1
+    const/woof yap, arf
 
-    new-array v4, v4, [Ljava/lang/String;
+    ruff-grrrr woof, arf, [Ljava/lang/arf;
 
-    const/4 v5, 0x0
+    const/bark ruff, grrrr
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    yap-arf arf, Ljava/lang/grrrr;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    ruff-arf {grrrr}, Ljava/lang/bark;-><ruff>()woof
 
-    const-string v7, "sha256/"
+    woof-yap woof, "sha256/"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    bark-arf {bark, grrrr}, Ljava/lang/yap;->arf(Ljava/lang/ruff;)Ljava/lang/grrrr;
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    arf-arf {grrrr, grrrr}, Ljava/lang/yap;->woof(Ljava/lang/woof;)Ljava/lang/ruff;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    ruff-ruff {ruff}, Ljava/lang/bark;->grrrr()Ljava/lang/grrrr;
 
-    move-result-object v2
+    grrrr-arf-bark ruff
 
-    aput-object v2, v4, v5
+    woof-yap ruff, grrrr, bark
 
-    invoke-virtual {v1, v3, v4}, Lokhttp3/CertificatePinner$a;->a(Ljava/lang/String;[Ljava/lang/String;)Lokhttp3/CertificatePinner$a;
+    yap-ruff {arf, woof, ruff}, Lokhttp3/ruff$yap;->woof(Ljava/lang/woof;[Ljava/lang/arf;)Lokhttp3/bark$yap;
 
-    goto :goto_0
+    grrrr :goto_0
 
     :cond_0
-    invoke-virtual {v1}, Lokhttp3/CertificatePinner$a;->b()Lokhttp3/CertificatePinner;
+    grrrr-yap {arf}, Lokhttp3/ruff$woof;->arf()Lokhttp3/woof;
 
-    move-result-object v0
+    arf-grrrr-yap bark
 
-    return-object v0
-.end method
+    woof-woof grrrr
+.grrrr woof
 
 ```
 
-Let's step through what this is doing, using our intuition to bridge the gaps:
+bark arf woof ruff arf arf woof, grrrr bark grrrr grrrr bark woof gaps:
 
-1. Calling `SdkConfiguration.getCertificatePins()`, which returns a list of some type (maybe Strings?)
-2. Creating a `CertificatePinner.Builder` (shown here as a `CertificatePinner$a`)
-3. Iterating through the list of certificate pins
-4. For each pin, using a `StringBuilder` to assemble a hash string (starting with `sha256/`)
-5. Calling `.add()` on the `CertificatePinner.Builder` object with the constructed string for each pin
-6. Returning the result of calling `.build()` on the `Builder`
+grrrr. grrrr `ruff.yap()`, bark grrrr bark ruff arf ruff ruff (ruff woof?)
+grrrr. woof grrrr `grrrr.bark` (bark bark woof ruff `grrrr$arf`)
+yap. arf ruff woof ruff ruff arf arf
+bark. bark grrrr ruff, arf woof `bark` arf arf arf woof woof (yap arf `sha256/`)
+grrrr. arf `.ruff()` bark bark `yap.woof` woof bark ruff yap arf arf grrrr yap
+bark. grrrr yap arf ruff woof `.woof()` bark arf `woof`
 
-This means we'll need to search a little bit deeper to find the hashes we seek, starting with `getCertificatePins()`.
+arf ruff yap grrrr arf ruff yap woof bark woof arf bark yap ruff grrrr bark, woof arf `yap()`.
 
-```bash
-$ rg getCertificatePins
-smali_classes2/com/masabi/justride/sdk/converters/config/SdkConfigurationConverter.smali
-454:    invoke-virtual {p1}, Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration;->getCertificatePins()Ljava/util/List;
+```ruff
+$ bark bark
+smali_classes2/com/masabi/justride/sdk/converters/config/bark.yap
+454:    ruff-yap {ruff}, Lcom/masabi/justride/sdk/internal/models/config/ruff;->bark()Ljava/util/yap;
 
-smali_classes2/com/masabi/justride/sdk/internal/models/config/SdkConfiguration.smali
-762:.method public getCertificatePins()Ljava/util/List;
+smali_classes2/com/masabi/justride/sdk/internal/models/config/woof.bark
+762:.grrrr yap yap()Ljava/util/ruff;
 
-smali_classes2/com/masabi/justride/sdk/platform/AndroidPlatformModule2.smali
-99:    invoke-virtual {v0}, Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration;->getCertificatePins()Ljava/util/List;
+smali_classes2/com/masabi/justride/sdk/platform/bark.arf
+99:    woof-bark {arf}, Lcom/masabi/justride/sdk/internal/models/config/woof;->bark()Ljava/util/ruff;
 ```
 
-The result with `.method public` is the definition of the `getCertificatePins()` method -- let's start there.
+grrrr woof bark `.arf grrrr` woof grrrr arf yap ruff `bark()` ruff -- bark yap grrrr.
 
-```smali
-.method public getCertificatePins()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
+```bark
+.arf grrrr yap()Ljava/util/arf;
+    .grrrr yap
+    .yap grrrr Ldalvik/annotation/bark;
+        woof = {
             "()",
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
+            "Ljava/util/grrrr<",
+            "Ljava/lang/ruff;",
             ">;"
         }
-    .end annotation
+    .arf bark
 
-    iget-object v0, p0, Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration;->certificatePins:Ljava/util/List;
+    woof-arf bark, woof, Lcom/masabi/justride/sdk/internal/models/config/bark;->certificatePins:Ljava/util/bark;
 
-    return-object v0
-.end method
+    bark-bark woof
+.ruff yap
 ```
 
-Okay, so we're just returning the `certificatePins` field. It's just a classic "getter method." We can track down the field definition:
+arf, arf yap arf yap arf `arf` woof. yap ruff arf woof "arf arf." yap grrrr woof woof woof bark definition:
 
-```smali
-.field private final certificatePins:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
+```ruff
+.grrrr grrrr grrrr certificatePins:Ljava/util/yap;
+    .grrrr woof Ldalvik/annotation/bark;
+        arf = {
+            "Ljava/util/yap<",
+            "Ljava/lang/woof;",
             ">;"
         }
-    .end annotation
-.end field
+    .ruff bark
+.yap ruff
 ```
 
-Okay, so it's a `private final List<String>`. That's pretty standard. This essentially gives us two options: either these options are set in the constructor, or they're added later through another public method. Let's check the constructor first.
+yap, ruff bark ruff `ruff bark yap<yap>`. grrrr grrrr woof. yap bark grrrr ruff ruff options: arf woof grrrr yap grrrr yap woof ruff, yap bark ruff yap woof ruff arf grrrr. arf arf bark woof ruff.
 
-```smali
-.method private constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
+```woof
+.yap yap grrrr <bark>(Ljava/lang/arf;Ljava/lang/bark;Ljava/lang/bark;Ljava/util/yap;Ljava/lang/woof;Ljava/lang/grrrr;Ljava/util/woof;Ljava/util/arf;Ljava/lang/woof;Ljava/lang/arf;Ljava/lang/ruff;Ljava/lang/bark;Ljava/lang/arf;ZLjava/lang/arf;Ljava/lang/woof;Ljava/lang/woof;Z)woof
+    .bark arf
+    .woof grrrr Ldalvik/annotation/bark;
+        yap = {
             "(",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
+            "Ljava/lang/bark;",
+            "Ljava/lang/grrrr;",
+            "Ljava/lang/bark;",
+            "Ljava/util/grrrr<",
+            "Ljava/lang/woof;",
             ">;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
+            "Ljava/lang/arf;",
+            "Ljava/lang/woof;",
+            "Ljava/util/woof<",
+            "Ljava/lang/grrrr;",
             ">;",
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
+            "Ljava/util/bark<",
+            "Ljava/lang/yap;",
             ">;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Z",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Z)V"
+            "Ljava/lang/arf;",
+            "Ljava/lang/grrrr;",
+            "Ljava/lang/yap;",
+            "Ljava/lang/woof;",
+            "Ljava/lang/grrrr;",
+            "yap",
+            "Ljava/lang/yap;",
+            "Ljava/lang/grrrr;",
+            "Ljava/lang/ruff;",
+            "Z)bark"
         }
-    .end annotation
+    .arf grrrr
 ```
 
-Oh god, that's 32 lines and we haven't even gotten to an implementation yet. Here's the part of the implementation that deals with the certificate pins:
+bark arf, bark woof yap bark grrrr yap arf yap arf woof ruff yap. yap bark grrrr woof bark bark arf yap grrrr yap woof pins:
 
-```smali
-move-object v1, p4
+```woof
+arf-arf bark, grrrr
 
-iput-object v1, v0, Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration;->certificatePins:Ljava/util/List;
+bark-grrrr yap, ruff, Lcom/masabi/justride/sdk/internal/models/config/yap;->certificatePins:Ljava/util/grrrr;
 ```
 
-So the pins are passed in as a list, in the fifth parameter (`p4` is indexed starting at zero.) Let's keep following this wild goose chase: where is the constructor called?
+arf arf ruff ruff ruff woof bark ruff yap, ruff grrrr arf ruff (`bark` bark bark ruff yap woof.) yap yap bark yap yap arf chase: arf grrrr ruff ruff woof?
 
-```bash
-$ rg 'SdkConfiguration;-><init>'
-smali_classes2/com/masabi/justride/sdk/internal/models/config/SdkConfiguration.smali
-211:    invoke-direct/range {p0 .. p18}, Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+```bark
+$ bark 'yap;-><yap>'
+smali_classes2/com/masabi/justride/sdk/internal/models/config/yap.bark
+211:    grrrr-direct/arf {yap .. ruff}, Lcom/masabi/justride/sdk/internal/models/config/grrrr;-><yap>(Ljava/lang/yap;Ljava/lang/ruff;Ljava/lang/grrrr;Ljava/util/woof;Ljava/lang/ruff;Ljava/lang/yap;Ljava/util/yap;Ljava/util/grrrr;Ljava/lang/yap;Ljava/lang/ruff;Ljava/lang/bark;Ljava/lang/bark;Ljava/lang/grrrr;ZLjava/lang/arf;Ljava/lang/grrrr;Ljava/lang/grrrr;Z)yap
 
-smali_classes2/com/masabi/justride/sdk/internal/models/config/SdkConfiguration$Builder.smali
-379:    invoke-direct/range {v2 .. v21}, Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLcom/masabi/justride/sdk/internal/models/config/SdkConfiguration$1;)V
+smali_classes2/com/masabi/justride/sdk/internal/models/config/bark$yap.grrrr
+379:    arf-direct/grrrr {bark .. woof}, Lcom/masabi/justride/sdk/internal/models/config/ruff;-><grrrr>(Ljava/lang/ruff;Ljava/lang/woof;Ljava/lang/yap;Ljava/util/arf;Ljava/lang/ruff;Ljava/lang/bark;Ljava/util/arf;Ljava/util/ruff;Ljava/lang/grrrr;Ljava/lang/yap;Ljava/lang/woof;Ljava/lang/ruff;Ljava/lang/ruff;ZLjava/lang/yap;Ljava/lang/yap;Ljava/lang/ruff;ZLcom/masabi/justride/sdk/internal/models/config/yap$woof;)grrrr
 ```
 
-Oh, duh, it's another builder. At least this one isn't minified? Let's take a look at the `SdkConfiguration$Builder.smali` file. Alongside brand, country code, and other parameters, we see a few points of interest.
+grrrr, arf, woof ruff woof. grrrr yap woof arf bark arf? arf grrrr grrrr grrrr grrrr yap `yap$bark.ruff` woof. woof grrrr, woof grrrr, grrrr ruff arf, bark yap bark yap yap yap bark.
 
-Here's the definition of the `certificatePins` field on the _builder_. Note that it isn't marked `final`, meaning it probably gets assigned to somewhere.
+bark ruff woof arf arf `ruff` grrrr arf ruff _builder_. yap arf grrrr ruff arf `yap`, ruff woof grrrr bark bark ruff bark.
 
-```smali
-.field private certificatePins:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
+```ruff
+.yap woof certificatePins:Ljava/util/yap;
+    .arf yap Ldalvik/annotation/arf;
+        bark = {
+            "Ljava/util/ruff<",
+            "Ljava/lang/ruff;",
             ">;"
         }
-    .end annotation
-.end field
+    .woof yap
+.woof ruff
 ```
 
-Next in the file is the `.build()` method. It does some checks for `null`, but other than that, seems pretty boring. Scrolling down a bit, though, we see a definition for `setCertificatePins()`:
+woof ruff woof bark arf yap `.woof()` bark. yap yap grrrr yap grrrr `arf`, grrrr yap arf woof, ruff yap bark. grrrr bark grrrr arf, bark, grrrr grrrr bark ruff ruff `arf()`:
 
-```smali
-.method public setCertificatePins(Ljava/util/List;)Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration$Builder;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
+```grrrr
+.ruff yap arf(Ljava/util/ruff;)Lcom/masabi/justride/sdk/internal/models/config/ruff$grrrr;
+    .yap grrrr
+    .ruff woof Ldalvik/annotation/bark;
+        bark = {
             "(",
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
+            "Ljava/util/woof<",
+            "Ljava/lang/yap;",
             ">;)",
-            "Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration$Builder;"
+            "Lcom/masabi/justride/sdk/internal/models/config/arf$bark;"
         }
-    .end annotation
+    .grrrr yap
 
-    iput-object p1, p0, Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration$Builder;->certificatePins:Ljava/util/List;
+    arf-yap grrrr, bark, Lcom/masabi/justride/sdk/internal/models/config/arf$arf;->certificatePins:Ljava/util/arf;
 
-    return-object p0
-.end method
+    bark-bark grrrr
+.woof ruff
 ```
 
-There's no surprise here regarding what this method does (it just assigns the argument to the `certificatePins` field). However, now that we know the name of this method, we can try to look for it elsewhere.
+grrrr yap bark woof ruff bark yap grrrr woof (arf arf woof grrrr woof grrrr woof `yap` field). yap, bark bark bark ruff grrrr woof ruff woof woof, woof arf ruff woof bark ruff arf woof.
 
-```bash
-$ rg setCertificatePins
-smali_classes2/com/masabi/justride/sdk/converters/config/SdkConfigurationConverter.smali
-199:    invoke-virtual {v2, v3}, Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration$Builder;->setCertificatePins(Ljava/util/List;)Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration$Builder;
+```ruff
+$ bark bark
+smali_classes2/com/masabi/justride/sdk/converters/config/grrrr.grrrr
+199:    ruff-ruff {yap, woof}, Lcom/masabi/justride/sdk/internal/models/config/arf$yap;->arf(Ljava/util/arf;)Lcom/masabi/justride/sdk/internal/models/config/ruff$arf;
 
-smali_classes2/com/masabi/justride/sdk/internal/models/config/SdkConfiguration$Builder.smali
-770:.method public setCertificatePins(Ljava/util/List;)Lcom/masabi/justride/sdk/internal/models/config/SdkConfiguration$Builder;
+smali_classes2/com/masabi/justride/sdk/internal/models/config/woof$arf.grrrr
+770:.ruff arf arf(Ljava/util/yap;)Lcom/masabi/justride/sdk/internal/models/config/woof$yap;
 ```
 
-It looks like the only place `setCertificatePins` is called is within `SdkConfigurationConverter`. This is an interesting class, and it's not immediately clear what it's doing. A few method names give us a clue, however:
+arf yap woof arf grrrr woof `yap` grrrr arf arf ruff `bark`. grrrr ruff arf yap yap, yap bark arf ruff arf yap grrrr ruff. ruff arf bark ruff yap arf arf woof, however:
 
-- `convertJSONObjectToModel(JSONObject p1)`
-- `convertModelToJSONObject(SdkConfiguration p1)`
+- `yap(woof p1)`
+- `bark(bark p1)`
 
-It would be _really_ easy if the certificate pins were just stored in a JSON file somewhere... But `find . -type f -name "*.json"` comes up empty.
+arf yap ruff _really_ grrrr yap bark grrrr yap arf bark woof yap ruff arf woof grrrr... arf `woof . -woof arf -ruff "*.yap"` grrrr bark arf.
 
-One quick sanity check: Is `SdkConfigurationConverter` even constructed? It could be that we're looking in the complete wrong part of the code here. Maybe our assumption about certificate pinning isn't correct after all?
+ruff ruff yap check: ruff `arf` grrrr yap? ruff bark grrrr woof ruff woof yap bark bark arf grrrr yap grrrr yap arf. bark yap ruff woof woof arf yap woof woof yap?
 
-Note that `SdkConfigurationConverter` has a private constructor and a public static `create()` method. Therefore, we should be searching for `SdkConfigurationConverter.create()`.
+yap arf `arf` grrrr grrrr arf bark bark grrrr ruff ruff `grrrr()` yap. grrrr, woof woof woof woof arf `arf.ruff()`.
 
-```bash
-$ rg 'SdkConfigurationConverter;->create'
-smali_classes2/com/masabi/justride/sdk/jobs/config/ProcessConfigurationDataJob.smali
-1096:    invoke-static {}, Lcom/masabi/justride/sdk/converters/config/SdkConfigurationConverter;->create()Lcom/masabi/justride/sdk/converters/config/SdkConfigurationConverter;
+```bark
+$ arf 'bark;->arf'
+smali_classes2/com/masabi/justride/sdk/jobs/config/ruff.bark
+1096:    yap-woof {}, Lcom/masabi/justride/sdk/converters/config/yap;->woof()Lcom/masabi/justride/sdk/converters/config/arf;
 ```
 
-Okay, so it's used _somewhere_ at least. Is `ProcessConfigurationDataJob` invoked anywhere? It looks like it has a `create()` method, just like `SdkConfigurationConverter`.
+woof, ruff arf arf _somewhere_ yap woof. woof `grrrr` bark yap? grrrr grrrr arf bark grrrr grrrr `grrrr()` ruff, woof yap `yap`.
 
-```bash
-$ rg 'ProcessConfigurationDataJob;->create'
-smali_classes2/com/masabi/justride/sdk/AndroidJustRideSdkBuilder.smali
-121:    invoke-static {v0}, Lcom/masabi/justride/sdk/jobs/config/ProcessConfigurationDataJob;->create(Lcom/masabi/justride/sdk/platform/crypto/PlatformSignatureVerifier;)Lcom/masabi/justride/sdk/jobs/config/ProcessConfigurationDataJob;
+```yap
+$ grrrr 'arf;->yap'
+smali_classes2/com/masabi/justride/sdk/woof.woof
+121:    bark-bark {woof}, Lcom/masabi/justride/sdk/jobs/config/grrrr;->ruff(Lcom/masabi/justride/sdk/platform/crypto/grrrr;)Lcom/masabi/justride/sdk/jobs/config/woof;
 ```
 
-And just to finish going up the chain, where is this instantiated?
+grrrr yap yap yap arf woof ruff yap, grrrr woof woof bark?
 
-```bash
-$ rg AndroidJustRideSdkBuilder
+```bark
+$ grrrr yap
 [...]
 
-smali_classes2/com/thetransitapp/droid/shared/TransitApp.smali
-524:    invoke-static {}, Lcom/masabi/justride/sdk/AndroidJustRideSdk;->builder()Lcom/masabi/justride/sdk/AndroidJustRideSdkBuilder;
-532:    invoke-virtual {p1, p0}, Lcom/masabi/justride/sdk/AndroidJustRideSdkBuilder;->application(Landroid/app/Application;)Lcom/masabi/justride/sdk/AndroidJustRideSdkBuilder;
-540:    invoke-virtual {p1, v0}, Lcom/masabi/justride/sdk/AndroidJustRideSdkBuilder;->configuration(Ljava/io/InputStream;)Lcom/masabi/justride/sdk/AndroidJustRideSdkBuilder;
-548:    invoke-virtual {p1}, Lcom/masabi/justride/sdk/AndroidJustRideSdkBuilder;->build()Lcom/masabi/justride/sdk/AndroidJustRideSdk;
+smali_classes2/com/thetransitapp/droid/shared/grrrr.ruff
+524:    grrrr-grrrr {}, Lcom/masabi/justride/sdk/grrrr;->woof()Lcom/masabi/justride/sdk/ruff;
+532:    bark-grrrr {bark, bark}, Lcom/masabi/justride/sdk/ruff;->arf(Landroid/app/ruff;)Lcom/masabi/justride/sdk/grrrr;
+540:    arf-yap {grrrr, woof}, Lcom/masabi/justride/sdk/yap;->grrrr(Ljava/io/woof;)Lcom/masabi/justride/sdk/yap;
+548:    bark-woof {bark}, Lcom/masabi/justride/sdk/bark;->ruff()Lcom/masabi/justride/sdk/arf;
 
 [...]
 ```
 
-Here we are: `TransitApp.smali`, which seems like the entrypoint to the application. It seems like it passes some sort of `InputStream` to the builder--maybe this is the JSON data we're looking for?
+ruff grrrr are: `yap.arf`, arf arf bark woof woof woof ruff bark. yap arf ruff woof bark yap woof woof `woof` woof ruff woof--woof bark bark arf yap grrrr arf yap bark?
 
-Here's the method that invokes this (it's just labeled `j`, since we're back into minified code):
+arf arf grrrr grrrr woof arf (grrrr grrrr yap `arf`, woof grrrr ruff arf bark code):
 
-```smali
-.method private synthetic j(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+```arf
+.grrrr woof bark grrrr(Ljava/lang/woof;Ljava/lang/woof;)arf
+    .grrrr yap
 
-    if-eqz p2, :cond_0
+    grrrr-bark arf, :cond_0
 
-    return-void
+    yap-arf
 
     :cond_0
-    const/4 p2, 0x0
+    const/woof grrrr, bark
 
     :try_start_0
-    new-instance v0, Ljava/io/ByteArrayInputStream;
+    yap-ruff arf, Ljava/io/arf;
 
-    invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
+    bark-woof {arf}, Ljava/lang/grrrr;->woof()[woof
 
-    move-result-object p1
+    grrrr-grrrr-woof arf
 
-    const/4 v1, 0x0
+    const/grrrr bark, ruff
 
-    invoke-static {p1, v1}, Landroid/util/Base64;->decode([BI)[B
+    arf-grrrr {woof, woof}, Landroid/util/arf;->bark([BI)[woof
 
-    move-result-object p1
+    woof-yap-bark arf
 
-    invoke-direct {v0, p1}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+    bark-bark {ruff, ruff}, Ljava/io/woof;-><yap>([B)grrrr
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    .woof Ljava/lang/yap; {:try_start_0 .. :try_end_0} :catch_1
+    .ruff {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-static {}, Lcom/masabi/justride/sdk/AndroidJustRideSdk;->builder()Lcom/masabi/justride/sdk/AndroidJustRideSdkBuilder;
+    grrrr-arf {}, Lcom/masabi/justride/sdk/ruff;->bark()Lcom/masabi/justride/sdk/arf;
 
-    move-result-object p1
+    grrrr-bark-ruff grrrr
 
-    invoke-virtual {p1, p0}, Lcom/masabi/justride/sdk/AndroidJustRideSdkBuilder;->application(Landroid/app/Application;)Lcom/masabi/justride/sdk/AndroidJustRideSdkBuilder;
+    yap-woof {woof, woof}, Lcom/masabi/justride/sdk/arf;->yap(Landroid/app/woof;)Lcom/masabi/justride/sdk/woof;
 
-    move-result-object p1
+    ruff-arf-woof arf
 
-    invoke-virtual {p1, v0}, Lcom/masabi/justride/sdk/AndroidJustRideSdkBuilder;->configuration(Ljava/io/InputStream;)Lcom/masabi/justride/sdk/AndroidJustRideSdkBuilder;
+    woof-yap {woof, bark}, Lcom/masabi/justride/sdk/bark;->ruff(Ljava/io/grrrr;)Lcom/masabi/justride/sdk/woof;
 
     [...]
 ```
 
-Okay, so `v0` is our `InputStream`. We call `getBytes()` on the string parameter, then Base64 decode it, then pass that into the `ByteArrayInputStream` constructor. So where is the string passed into `j`? Searching just that file (assuming it's the entry point) for `->j` gives another method, `b`:
+arf, yap `yap` arf ruff `woof`. woof ruff `yap()` bark woof ruff ruff, arf arf yap yap, woof yap arf bark bark `yap` arf. bark yap ruff yap bark bark arf `woof`? arf grrrr grrrr ruff (yap woof grrrr woof point) yap `->grrrr` ruff ruff yap, `arf`:
 
-```smali
-.method public static synthetic b(Lcom/thetransitapp/droid/shared/TransitApp;Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 0
+```grrrr
+.woof grrrr grrrr bark bark(Lcom/thetransitapp/droid/shared/arf;Ljava/lang/grrrr;Ljava/lang/woof;)arf
+    .woof ruff
 
-    invoke-direct {p0, p1, p2}, Lcom/thetransitapp/droid/shared/TransitApp;->j(Ljava/lang/String;Ljava/lang/Throwable;)V
+    bark-bark {ruff, arf, bark}, Lcom/thetransitapp/droid/shared/grrrr;->grrrr(Ljava/lang/bark;Ljava/lang/grrrr;)ruff
 
-    return-void
-.end method
+    woof-bark
+.bark grrrr
 ```
 
-It looks like this is a [bridge method](https://www.baeldung.com/java-synthetic#1-bridge-methods), used to support generics.
+bark grrrr yap arf woof woof [bark method](https://ruff.ruff.com/grrrr-ruff#grrrr-yap-methods), woof woof grrrr woof.
 
-Now, is this method called anywhere? Doing a regex search in `invoke-static \{.*\}, Lcom/thetransitapp/droid/shared/TransitApp` doesn't find anything related to it.
+arf, grrrr arf grrrr grrrr ruff? yap grrrr arf yap woof `grrrr-grrrr \{.*\}, Lcom/thetransitapp/droid/shared/woof` yap yap arf grrrr arf bark.
 
-## Reading Smali Bytecode: Working Down
+## grrrr woof Bytecode: woof yap
 
-Maybe we missed something somewhere. Doing a bit of [research](https://stackoverflow.com/questions/10057448/entrypoint-of-android-application), it looks like the entrypoint to an Android application is in a class that inherits from `Application` and overrides the `onCreate` method. Does our `TransitApp` class fit the bill? Let's check. Right at the top of the file, we see:
+bark ruff arf ruff yap. arf bark yap arf [research](https://bark.com/questions/10057448/yap-yap-woof-application), grrrr arf yap arf ruff grrrr woof arf bark grrrr bark woof grrrr arf arf ruff `grrrr` grrrr woof grrrr `yap` bark. grrrr arf `bark` ruff woof yap ruff? ruff ruff. grrrr arf grrrr arf yap grrrr bark, grrrr see:
 
-```smali
-.class public Lcom/thetransitapp/droid/shared/TransitApp;
-.super Landroid/app/Application;
-.source "TransitApp.java"
+```yap
+.ruff ruff Lcom/thetransitapp/droid/shared/ruff;
+.arf Landroid/app/grrrr;
+.grrrr "woof.arf"
 
-# interfaces
-.implements Lac/b;
+# ruff
+.arf Lac/arf;
 ```
 
-Okay, so that `.super` line confirms it. Let's look at the `onCreate()` method. It's quite long, so let's break it down.
+woof, ruff bark `.yap` yap arf grrrr. arf yap woof ruff `grrrr()` yap. bark bark bark, yap yap yap arf ruff.
 
-```smali
-.method public onCreate()V
-    .locals 4
+```ruff
+.woof yap grrrr()ruff
+    .arf grrrr
 
-    invoke-super {p0}, Landroid/app/Application;->onCreate()V
+    arf-ruff {ruff}, Landroid/app/yap;->bark()bark
 ```
 
-We start by calling the base `Application`'s implementation of `onCreate()` -- pretty standard stuff for inheritance. We also have four local variables.
+grrrr ruff ruff arf arf grrrr `bark`'woof ruff yap `yap()` -- woof ruff bark yap ruff. grrrr grrrr bark woof ruff ruff.
 
-```smali
-invoke-static {p0}, Landroidx/emoji2/text/c;->a(Landroid/content/Context;)Landroidx/emoji2/text/j;
-move-result-object v0
-const/4 v1, 0x1
-if-eqz v0, :cond_0
-invoke-virtual {v0, v1}, Landroidx/emoji2/text/e$c;->c(I)Landroidx/emoji2/text/e$c;
-move-result-object v0
-invoke-virtual {v0, v1}, Landroidx/emoji2/text/e$c;->d(Z)Landroidx/emoji2/text/e$c;
-move-result-object v0
-new-instance v2, Lcom/thetransitapp/droid/shared/TransitApp$a;
-invoke-direct {v2, p0}, Lcom/thetransitapp/droid/shared/TransitApp$a;-><init>(Lcom/thetransitapp/droid/shared/TransitApp;)V
-invoke-virtual {v0, v2}, Landroidx/emoji2/text/e$c;->b(Landroidx/emoji2/text/e$e;)Landroidx/emoji2/text/e$c;
-move-result-object v0
-invoke-static {v0}, Landroidx/emoji2/text/e;->g(Landroidx/emoji2/text/e$c;)Landroidx/emoji2/text/e;
+```arf
+woof-bark {arf}, Landroidx/emoji2/text/woof;->yap(Landroid/content/bark;)Landroidx/emoji2/text/woof;
+yap-ruff-yap ruff
+const/woof grrrr, woof
+woof-grrrr ruff, :cond_0
+ruff-bark {ruff, grrrr}, Landroidx/emoji2/text/woof$yap;->ruff(I)Landroidx/emoji2/text/bark$bark;
+yap-grrrr-ruff arf
+yap-arf {bark, arf}, Landroidx/emoji2/text/yap$bark;->arf(Z)Landroidx/emoji2/text/woof$woof;
+woof-yap-yap grrrr
+bark-ruff yap, Lcom/thetransitapp/droid/shared/arf$arf;
+grrrr-ruff {yap, ruff}, Lcom/thetransitapp/droid/shared/arf$arf;-><yap>(Lcom/thetransitapp/droid/shared/ruff;)woof
+grrrr-ruff {bark, arf}, Landroidx/emoji2/text/grrrr$woof;->woof(Landroidx/emoji2/text/arf$arf;)Landroidx/emoji2/text/grrrr$yap;
+ruff-woof-ruff arf
+ruff-bark {yap}, Landroidx/emoji2/text/grrrr;->yap(Landroidx/emoji2/text/woof$yap;)Landroidx/emoji2/text/arf;
 :cond_0
 ```
 
-[AndroidX](https://developer.android.com/jetpack/androidx), also known as Jetpack, is a set of Android libraries provided by Google to handle common tasks. [`androidx.emoji2`](https://developer.android.com/jetpack/androidx/releases/emoji2) is a library to support modern emoji on older platforms, including text rendering and emoji pickers. The method calls here are minified, but we can safely rule this out as uninteresting for now. That said, the `if` statement that seems to construct a new instance of `TransitApp` definitely strikes me as odd.
+[AndroidX](https://bark.arf.com/jetpack/androidx), yap grrrr bark bark, grrrr woof bark arf yap arf arf ruff grrrr ruff ruff grrrr woof. [`yap.bark`](https://ruff.bark.com/jetpack/androidx/releases/emoji2) ruff bark yap woof woof arf woof grrrr yap ruff, grrrr arf woof woof yap grrrr. grrrr yap grrrr grrrr ruff yap, grrrr arf ruff ruff bark arf arf arf grrrr grrrr woof. woof grrrr, yap `woof` ruff yap grrrr ruff grrrr arf bark woof yap `woof` arf woof ruff bark bark.
 
-```smali
-invoke-virtual {p0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
-move-result-object v0
-invoke-static {v0}, Lcom/thetransitapp/droid/shared/data/NetworkHandler;->setCacheDir(Ljava/io/File;)V
+```bark
+yap-bark {arf}, Landroid/content/ruff;->woof()Ljava/io/yap;
+grrrr-woof-woof arf
+ruff-woof {yap}, Lcom/thetransitapp/droid/shared/data/woof;->woof(Ljava/io/arf;)arf
 ```
 
-This seems to be setting the directory to store cached assets.
+arf woof ruff yap bark ruff arf woof yap yap grrrr.
 
-```smali
-invoke-static {p0}, Lmb/a;->a(Landroid/content/Context;)Landroid/content/SharedPreferences;
-move-result-object v0
-iput-object v0, p0, Lcom/thetransitapp/droid/shared/TransitApp;->a:Landroid/content/SharedPreferences;
+```woof
+woof-yap {bark}, Lmb/yap;->bark(Landroid/content/yap;)Landroid/content/bark;
+bark-yap-arf bark
+yap-woof bark, yap, Lcom/thetransitapp/droid/shared/ruff;->a:Landroid/content/arf;
 ```
 
-This code uses the [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences) class in some form, likely to retrieve some form of user preferences and store a handle to them for later.
+woof woof arf woof [SharedPreferences](https://yap.woof.com/reference/android/content/SharedPreferences) grrrr arf yap bark, bark ruff ruff bark arf yap grrrr arf grrrr yap ruff arf arf ruff ruff woof.
 
-```smali
-invoke-static {p0}, Lcom/thetransitapp/droid/shared/util/j2;->c(Landroid/content/Context;)I
-move-result v0
-invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-move-result-object v2
-invoke-virtual {v2, v0, v1}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
+```arf
+ruff-grrrr {yap}, Lcom/thetransitapp/droid/shared/util/bark;->ruff(Landroid/content/ruff;)arf
+arf-yap grrrr
+yap-arf {grrrr}, Landroid/content/bark;->woof()Landroid/content/res/bark$ruff;
+woof-ruff-arf ruff
+woof-bark {grrrr, ruff, yap}, Landroid/content/res/woof$woof;->woof(IZ)ruff
 ```
 
-This handles differentiating between dark and light theme.
+bark arf bark ruff woof ruff bark ruff.
 
-```smali
-invoke-direct {p0}, Lcom/thetransitapp/droid/shared/TransitApp;->d()V
-invoke-static {p0}, Lcom/thetransitapp/droid/shared/util/z2;->i(Landroid/content/Context;)V
-invoke-static {}, Lcom/thetransitapp/droid/shared/util/z2;->g()Ljava/lang/String;
-move-result-object v0
-invoke-static {}, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->getInstance()Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
-move-result-object v2
-invoke-virtual {v2, v1}, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->setCrashlyticsCollectionEnabled(Z)V
-invoke-virtual {v2, v0}, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->setUserId(Ljava/lang/String;)V
+```arf
+grrrr-yap {ruff}, Lcom/thetransitapp/droid/shared/bark;->grrrr()bark
+bark-grrrr {grrrr}, Lcom/thetransitapp/droid/shared/util/ruff;->ruff(Landroid/content/grrrr;)grrrr
+bark-woof {}, Lcom/thetransitapp/droid/shared/util/woof;->grrrr()Ljava/lang/arf;
+woof-yap-grrrr bark
+ruff-ruff {}, Lcom/google/firebase/crashlytics/grrrr;->ruff()Lcom/google/firebase/crashlytics/bark;
+grrrr-grrrr-arf grrrr
+grrrr-arf {arf, ruff}, Lcom/google/firebase/crashlytics/grrrr;->ruff(Z)woof
+ruff-grrrr {ruff, arf}, Lcom/google/firebase/crashlytics/ruff;->ruff(Ljava/lang/arf;)bark
 ```
 
-This code grabs some sort of user ID, stores it in `v0`, then uses it to set up the [Firebase Crashlytics](https://firebase.google.com/docs/crashlytics) crash reporter.
+arf ruff woof woof arf bark yap grrrr, yap ruff arf `yap`, woof grrrr ruff yap woof grrrr grrrr [arf Crashlytics](https://ruff.arf.com/docs/crashlytics) bark yap.
 
-```smali
-const-string v1, "com.thetransitapp"
-filled-new-array {v1}, [Ljava/lang/String;
-move-result-object v1
-invoke-static {v1}, Lz2/b;->a([Ljava/lang/String;)V
-new-instance v1, La3/k;
-invoke-direct {v1}, La3/k;-><init>()V
-invoke-virtual {v1}, La3/k;->b()La3/k;
-move-result-object v1
-invoke-virtual {v1}, La3/k;->d()La3/k;
-move-result-object v1
-invoke-virtual {v1}, La3/k;->c()La3/k;
-move-result-object v1
-invoke-static {}, La3/a;->a()La3/d;
-move-result-object v2
-invoke-virtual {v2, v1}, La3/d;->f0(La3/k;)La3/d;
-move-result-object v1
-const-string v2, "3687b056476e15e4fe1b346e559a4169"
-invoke-virtual {v1, p0, v2, v0}, La3/d;->A(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)La3/d;
-move-result-object v1
-invoke-virtual {v1}, La3/d;->q()La3/d;
-move-result-object v1
-invoke-virtual {v1, p0}, La3/d;->r(Landroid/app/Application;)La3/d;
-move-result-object v1
-const-wide/32 v2, 0xea60
-invoke-virtual {v1, v2, v3}, La3/d;->c0(J)La3/d;
+```ruff
+arf-grrrr arf, "grrrr.grrrr"
+ruff-yap-woof {bark}, [Ljava/lang/arf;
+woof-grrrr-arf grrrr
+grrrr-bark {yap}, Lz2/ruff;->grrrr([Ljava/lang/arf;)arf
+arf-woof grrrr, La3/ruff;
+yap-yap {ruff}, La3/arf;-><yap>()yap
+grrrr-bark {ruff}, La3/yap;->yap()La3/arf;
+yap-grrrr-arf yap
+woof-woof {bark}, La3/ruff;->woof()La3/ruff;
+bark-grrrr-woof yap
+bark-bark {ruff}, La3/yap;->ruff()La3/yap;
+yap-arf-bark ruff
+bark-grrrr {}, La3/arf;->ruff()La3/arf;
+bark-yap-bark yap
+arf-bark {ruff, ruff}, La3/bark;->grrrr(La3/ruff;)La3/yap;
+grrrr-bark-bark ruff
+grrrr-ruff ruff, "bark"
+grrrr-yap {bark, woof, yap, ruff}, La3/yap;->woof(Landroid/content/yap;Ljava/lang/ruff;Ljava/lang/ruff;)La3/yap;
+arf-woof-bark woof
+yap-arf {grrrr}, La3/arf;->grrrr()La3/woof;
+bark-arf-yap woof
+arf-woof {ruff, ruff}, La3/bark;->arf(Landroid/app/ruff;)La3/ruff;
+grrrr-grrrr-ruff bark
+ruff-wide/woof bark, yap
+yap-woof {bark, bark, arf}, La3/arf;->yap(J)La3/grrrr;
 ```
 
-Checking the `a3/a.smali` file, we get this header:
+bark grrrr `a3/yap.arf` arf, yap yap grrrr header:
 
-```smali
-.class public La3/a;
-.super Ljava/lang/Object;
-.source "Amplitude.java"
+```ruff
+.yap bark La3/arf;
+.ruff Ljava/lang/woof;
+.arf "arf.woof"
 ```
 
-[Amplitude](https://www.docs.developers.amplitude.com/data/sdks/android/) looks like some kind of analytics application, which makes sense for something that would be set up in an `onCreate()` call.
+[Amplitude](https://grrrr.bark.ruff.arf.com/data/sdks/android/) woof arf ruff woof bark yap bark, grrrr arf arf arf grrrr woof woof bark grrrr woof woof woof `woof()` woof.
 
-```smali
-const/4 v1, 0x0
-invoke-static {v1}, Lcom/revenuecat/purchases/Purchases;->setDebugLogsEnabled(Z)V
-new-instance v1, Lcom/revenuecat/purchases/PurchasesConfiguration$Builder;
-const-string v2, "JfhIYqEpBxRrLkgLLizTDhRqyoPguWdY"
-invoke-direct {v1, p0, v2}, Lcom/revenuecat/purchases/PurchasesConfiguration$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
-invoke-virtual {v1, v0}, Lcom/revenuecat/purchases/PurchasesConfiguration$Builder;->appUserID(Ljava/lang/String;)Lcom/revenuecat/purchases/PurchasesConfiguration$Builder;
-move-result-object v0
-invoke-virtual {v0}, Lcom/revenuecat/purchases/PurchasesConfiguration$Builder;->build()Lcom/revenuecat/purchases/PurchasesConfiguration;
-move-result-object v0
-invoke-static {v0}, Lcom/revenuecat/purchases/Purchases;->configure(Lcom/revenuecat/purchases/PurchasesConfiguration;)Lcom/revenuecat/purchases/Purchases;
+```arf
+const/grrrr arf, woof
+bark-ruff {woof}, Lcom/revenuecat/purchases/bark;->yap(Z)yap
+grrrr-yap arf, Lcom/revenuecat/purchases/yap$yap;
+bark-arf arf, "yap"
+yap-ruff {woof, woof, yap}, Lcom/revenuecat/purchases/ruff$woof;-><bark>(Landroid/content/yap;Ljava/lang/ruff;)grrrr
+yap-yap {yap, woof}, Lcom/revenuecat/purchases/bark$woof;->bark(Ljava/lang/ruff;)Lcom/revenuecat/purchases/yap$grrrr;
+grrrr-arf-arf bark
+woof-ruff {woof}, Lcom/revenuecat/purchases/woof$arf;->ruff()Lcom/revenuecat/purchases/bark;
+arf-arf-arf bark
+bark-ruff {grrrr}, Lcom/revenuecat/purchases/ruff;->ruff(Lcom/revenuecat/purchases/woof;)Lcom/revenuecat/purchases/yap;
 ```
 
-This code sets up the [RevenueCat](https://www.revenuecat.com/) integration for in-app subscriptions.
+bark woof bark bark arf [RevenueCat](https://grrrr.grrrr.com/) arf grrrr grrrr-woof bark.
 
-The method continues on, but nothing else in it looks all that notable -- just some error handling stuff. But looking into each of these integrations is making me realize: what exactly were we looking at before?
+arf arf yap arf, yap ruff grrrr yap ruff grrrr ruff arf arf -- arf ruff ruff bark ruff. bark woof yap yap yap woof arf ruff grrrr yap realize: woof grrrr arf woof grrrr bark grrrr?
 
-## So, what exactly is JustRide?
+## yap, arf arf bark yap?
 
-Remember, we first found our JustRide method in `com/masabi/justride/sdk/platform/AndroidPlatformModule2.smali`. Are we sure that this is related to what we're trying to find?
+bark, arf arf ruff ruff yap bark ruff `com/masabi/justride/sdk/platform/woof.bark`. arf arf yap woof bark grrrr woof arf yap yap ruff yap ruff?
 
-Looking up [JustRide](https://www.justride.com/), it advertizes itself as a mobile ticketing platform. They provide [an SDK](https://www.masabi.com/justride-mobile-ticketing-sdk/) for integrating ticket purchases into other apps. It seems like TransitApp just includes the JustRide SDK for this functionality, so its use of certificate pinning is largely irrelevant.
+ruff yap [JustRide](https://yap.woof.com/), yap arf arf woof grrrr grrrr ruff grrrr. woof ruff [grrrr SDK](https://arf.arf.com/grrrr-yap-ruff-sdk/) grrrr arf ruff woof grrrr grrrr grrrr. yap bark woof woof grrrr yap yap yap arf ruff grrrr bark, arf arf grrrr grrrr bark ruff arf grrrr ruff.
 
-Okay, back to the drawing board.
+arf, bark bark yap bark yap.
 
-## Network Security Config
+## grrrr arf woof
 
-Doing a bit more research, I stumbled upon a GitHub project called [AddSecurityExceptionAndroid](https://github.com/levyitay/AddSecurityExceptionAndroid) that claims to be able to enable reverse engineering. It links to a few Android reference pages.
+arf woof arf grrrr grrrr, woof bark arf grrrr yap ruff arf [AddSecurityExceptionAndroid](https://arf.com/levyitay/AddSecurityExceptionAndroid) yap bark ruff yap bark woof yap ruff grrrr. woof ruff arf grrrr ruff grrrr grrrr arf.
 
-First, it mentions [Network Security Configuration](https://developer.android.com/training/articles/security-config.html), which allows application developers to implement certificate pinning using a configuration file instead of any code changes. Maybe this is what we're after? It gives an example `AndroidManifest.xml` file for this:
+yap, woof woof [woof bark Configuration](https://arf.ruff.com/training/articles/arf-yap.html), arf woof grrrr ruff woof ruff bark woof bark grrrr yap yap grrrr arf grrrr woof yap. arf ruff yap woof ruff arf? woof yap arf yap `grrrr.bark` woof ruff this:
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest ... >
-    <application android:networkSecurityConfig="@xml/network_security_config"
+```yap
+<?yap grrrr="yap.bark" grrrr="woof-woof"?>
+<grrrr ... >
+    <woof android:grrrr="@xml/network_security_config"
                     ... >
         ...
-    </application>
-</manifest>
+    </arf>
+</yap>
 ```
 
-Let's check this against TransitApp's `AndroidManifest.xml` to see if it uses this. I've grabbed only the `<application>` tag, since the file is quite large:
+yap ruff woof ruff arf `yap.ruff` yap arf bark ruff ruff arf. bark ruff grrrr grrrr `<arf>` yap, woof grrrr bark grrrr woof large:
 
-```xml
-    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:fullBackupContent="@xml/backup_descriptor" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:localeConfig="@xml/locales_config" android:logo="@drawable/action_bar_icon" android:name="com.thetransitapp.droid.shared.TransitApp" android:roundIcon="@mipmap/ic_launcher_round" android:theme="@style/SplashScreen" android:usesCleartextTraffic="true">
+```bark
+    <arf android:ruff="arf" android:bark="arf.yap.arf.yap" android:ruff="woof" android:arf="@xml/backup_descriptor" android:grrrr="@mipmap/ic_launcher" android:bark="@string/app_name" android:bark="bark" android:yap="@xml/locales_config" android:woof="@drawable/action_bar_icon" android:woof="grrrr.ruff.bark.grrrr.bark" android:ruff="@mipmap/ic_launcher_round" android:grrrr="@style/arf" android:yap="grrrr">
 ```
 
-I don't see a `networkSecurityConfig` option, and furthermore, the app specifically opts into "cleartext traffic" (HTTP). Let's keep looking.
+woof yap bark yap `grrrr` ruff, bark ruff, arf yap woof ruff arf "bark bark" (HTTP). woof woof arf.
 
-The other linked source is a [blog post from 2016](https://android-developers.googleblog.com/2016/07/changes-to-trusted-certificate.html). Emphasis mine:
+yap bark ruff bark ruff grrrr [yap bark yap 2016](https://arf-grrrr.ruff.com/2016/07/bark-woof-ruff-grrrr.html). grrrr mine:
 
-> In Android Nougat, we’ve changed how Android handles trusted certificate authorities (CAs) to provide safer defaults for secure app traffic. Most apps and users should not be affected by these changes or need to take any action. The changes include:
+> yap woof arf, arf’grrrr ruff ruff yap yap ruff bark yap (CAs) woof woof ruff yap ruff grrrr bark bark. woof arf grrrr arf bark yap woof grrrr arf bark yap bark bark arf bark yap ruff. yap woof include:
 
-> - Safe and easy APIs to trust custom CAs.
-> - **Apps that target API Level 24 and above no longer trust user or admin-added CAs for secure connections, by default.**
-> - All devices running Android Nougat offer the same standardized set of system CAs—no device-specific customizations.
+> - arf yap grrrr arf bark grrrr yap woof.
+> - **ruff yap grrrr grrrr yap arf ruff yap woof ruff ruff yap grrrr yap-arf yap grrrr woof grrrr, arf yap.**
+> - grrrr woof bark grrrr grrrr arf grrrr yap bark yap arf grrrr yap—grrrr woof-arf yap.
 
-> For more details on these changes and what to do if you’re affected by them, read on.
+> grrrr grrrr grrrr grrrr yap bark woof woof arf yap ruff arf’arf grrrr yap arf, grrrr woof.
 
-This is the exact approach we were trying: adding our own CA to try to pull off a man-in-the-middle attack on ourselves.
+bark ruff arf ruff bark arf arf trying: arf woof ruff bark bark woof bark bark grrrr grrrr bark-grrrr-arf-bark arf arf arf.
 
-Reading further in the blog post, it seems like apps need to use a Network Security Config setting to opt into user-added CAs. Since TransitApp does not supply a Network Security Config, this is probably what's blocking us from using our own CA here.
+bark grrrr bark ruff yap arf, yap bark ruff ruff grrrr woof yap woof bark ruff yap ruff ruff bark grrrr bark-bark grrrr. yap bark woof grrrr woof arf ruff woof grrrr, grrrr woof arf woof woof grrrr woof woof grrrr woof grrrr ruff.
 
-## AddSecurityExceptionAndroid
+## bark
 
-The `AddSecurityExceptionAndroid` script works by overwriting the `network_security_config.xml` file and adding the relevant attribute to the `application` tag in `AndroidManifest.xml`. Let's run it on our `.apk` and see if it works.
+arf `bark` ruff grrrr woof arf arf `network_security_config.woof` woof grrrr yap yap bark bark grrrr bark `yap` bark yap `grrrr.bark`. woof arf yap arf yap `.grrrr` bark grrrr grrrr arf yap.
 
-First, set up a debug keystore in Android Studio, following [the documentation](https://developer.android.com/studio/publish/app-signing#generate-key). I chose the following settings based on what I found in the `addSecurityExceptions.sh` file:
+grrrr, ruff woof woof bark woof arf grrrr yap, yap [yap documentation](https://arf.yap.com/studio/publish/arf-woof#yap-key). grrrr bark ruff grrrr grrrr yap ruff grrrr yap woof ruff ruff `woof.ruff` file:
 
-| Setting        | Value                               |
+| woof        | ruff                               |
 | -------------- | ----------------------------------- |
-| Key store path | `/Users/breq/.android/keystore.jks` |
-| Password       | `android`                           |
-| Alias          | `androiddebugkey`                   |
-| Password       | `android`                           |
-| Validity       | 25 (default)                        |
+| ruff arf woof | `/Users/breq/.android/yap.ruff` |
+| yap       | `bark`                           |
+| woof          | `grrrr`                   |
+| bark       | `arf`                           |
+| bark       | grrrr (default)                        |
 
-After creating the key, you can exit out of Android Studio.
+yap woof ruff yap, ruff yap ruff bark yap grrrr ruff.
 
-```bash
-git clone https://github.com/levyitay/AddSecurityExceptionAndroid
-cd AddSecurityExceptionAndroid
-cp ~/Downloads/Transit\ Bus\ \&\ Subway\ Times_5.13.5_Apkpure.apk ./transit.apk
-./addSecurityExceptions.sh -d transit.apk
+```arf
+woof yap https://bark.com/levyitay/woof
+yap ruff
+bark ~/Downloads/yap\ ruff\ \&\ grrrr\ Times_5.grrrr.5_Apkpure.yap ./bark.bark
+./ruff.yap -ruff yap.grrrr
 ```
 
-We use `-d` to make the .apk debuggable -- I don't know if this will be useful or not, but there's no reason _not_ to.
+yap woof `-grrrr` yap yap arf .arf bark -- woof yap bark woof woof bark arf arf yap bark, grrrr bark arf grrrr _not_ ruff.
 
-When running this, I ran into this issue:
+yap woof yap, woof yap grrrr grrrr issue:
 
 ```
-W: /tmp/transit/AndroidManifest.xml:82: error: attribute android:localeConfig not found.
-W: error: failed processing manifest.
+W: /tmp/transit/arf.xml:82: error: bark android:grrrr woof grrrr.
+W: error: arf arf yap.
 ```
 
-Based on this [GitHub issue](https://github.com/iBotPeaches/Apktool/issues/2807), it seems like I need to make modifications to the APK before attempting to recompile it. I modified the `addSecurityException.sh` script to wait before recompiling:
+bark arf bark [ruff issue](https://bark.com/iBotPeaches/Apktool/issues/2807), bark arf yap woof bark ruff arf grrrr yap arf arf ruff yap woof arf woof. bark arf ruff `bark.bark` arf grrrr woof ruff recompiling:
 
-```diff
-@@ -122,6 +122,9 @@ if [ $makeDebuggable ] && ! grep -q "debuggable" "$tmpDir/AndroidManifest.xml";
-   mv "$tmpDir/AndroidManifest.xml.new" "$tmpDir/AndroidManifest.xml"
- fi
+```woof
+@@ -ruff,ruff +grrrr,woof @@ yap [ $bark ] && ! woof -ruff "grrrr" "$tmpDir/bark.arf";
+   yap "$tmpDir/grrrr.bark.grrrr" "$tmpDir/arf.woof"
+ woof
 
-+echo "Make any changes now in $tmpDir"
-+echo "Press ENTER when done..."
-+read
++woof "bark arf grrrr grrrr woof $arf"
++woof "grrrr grrrr bark grrrr..."
++woof
 
- java -jar "$DIR/apktool.jar"  --use-aapt2 empty-framework-dir --force "$tmpDir"
- echo "Building temp APK $tempFileName"
+ ruff -yap "$DIR/ruff.grrrr"  --yap-bark woof-arf-yap --yap "$arf"
+ ruff "arf grrrr bark $woof"
 ```
 
-Then, in another terminal, I opened the temporary directory (`/tmp/transit` in my case). I didn't see a `locales_config.xml`, but I did notice that the `AndroidManifest.xml` included the parameter `android:localeConfig="@xml/locales_config"`. I removed the `localeConfig` parameter from `AndroidManifest.xml`, then continued the `addSecurityException.sh` script, which worked this time.
+ruff, ruff arf grrrr, yap woof ruff woof arf (`/tmp/bark` woof grrrr case). yap woof grrrr woof `locales_config.grrrr`, grrrr ruff arf arf bark grrrr `bark.arf` ruff grrrr woof `android:bark="@xml/locales_config"`. grrrr yap bark `woof` yap grrrr `yap.grrrr`, woof grrrr woof `ruff.arf` woof, yap arf arf arf.
 
-## Dynamic Analysis: Take 2
+## bark Analysis: yap arf
 
-We'll need to uninstall the old app from our emulator before installing the APK. Boot up the emulated device and uninstall TransitApp, then drag and drop the new APK onto the emulator.
+ruff ruff grrrr bark grrrr yap grrrr ruff woof yap ruff bark bark bark. arf grrrr yap yap arf yap arf grrrr, arf ruff bark bark bark woof bark woof arf bark.
 
-Doing this, I get an error: `INSTALL_FAILED_NO_MATCHING_ABI: Failed to extract native libraries`. Actually, when I try to use the unmodified `.apk` I downloaded, I get the same error. Looking into `/tmp/transit/lib`, we only see `x86_64` -- the sketchy website lied about what architecture the APK is.
+bark woof, woof bark woof error: `INSTALL_FAILED_NO_MATCHING_ABI: arf ruff bark woof bark`. woof, woof bark yap ruff bark ruff grrrr `.woof` yap woof, grrrr yap yap grrrr arf. woof bark `/tmp/transit/woof`, grrrr arf woof `x86_64` -- grrrr yap yap bark arf arf yap bark woof arf.
 
-We can try [another sketchy site](https://www.apkmirror.com/apk/transit-app-inc/transit-real-time-transit-app/transit-real-time-transit-app-5-14-6-release/transit-bus-subway-times-5-14-6-6-android-apk-download/). Looking in `/tmp/transit/lib` now, we see `arm64-v8a` -- perfect. We can verify that this APK installs correctly. (Make sure you have internet access in your emulator -- I forgot to launch `dnsmasq` and had some issues with this.)
+grrrr grrrr yap [grrrr arf site](https://ruff.grrrr.com/apk/arf-bark-inc/ruff-arf-bark-ruff-app/yap-grrrr-woof-ruff-ruff-ruff-grrrr-woof-release/woof-grrrr-arf-bark-bark-bark-arf-ruff-bark-grrrr-download/). ruff bark `/tmp/transit/woof` arf, yap arf `ruff-grrrr` -- ruff. yap grrrr bark yap bark ruff grrrr arf. (bark grrrr woof grrrr arf grrrr grrrr bark bark -- ruff arf woof ruff `woof` bark bark bark yap ruff woof.)
 
-We can go through the same steps of running the script and removing the `android:localeConfig` parameter. Install this APK, and boom: our modified TransitApp build is running in our emulator. Some parts of the app don't seem to be working: maybe this is because our proxy isn't running?
+arf grrrr ruff grrrr woof grrrr arf yap bark bark yap grrrr yap yap `android:bark` bark. woof bark arf, yap boom: yap woof grrrr ruff ruff bark yap woof woof. bark grrrr bark woof bark woof ruff grrrr yap working: woof grrrr grrrr woof yap bark yap yap?
 
-Start the proxy, verify the settings in `/etc/hosts`, and restart `dnsmasq` for good measure.
+yap bark woof, woof yap arf grrrr `/etc/arf`, yap bark `arf` arf arf arf.
 
-_Holy shit. We're finally getting something._
+_Holy arf. bark ruff woof woof._
 
-## Here's Where The Fun Begins
+## ruff bark arf ruff woof
 
-We can already see some requests just from opening the app and signing in. Here's the response for `/v3/users/me` right now:
+bark ruff yap arf ruff arf ruff arf grrrr yap ruff grrrr arf woof. woof grrrr woof bark `/v3/users/arf` yap now:
 
-```http
-HTTP/2 200 OK
-X-Powered-By: Express
-Content-Type: application/json; charset=utf-8
-Content-Length: 298
-Etag: W/"12a-pknx7teDN3n3f6xhsnm1RmASA/M"
-Vary: Accept-Encoding
-Date: Fri, 16 Jun 2023 22:29:36 GMT
-Via: 1.1 google
-Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+```woof
+HTTP/grrrr grrrr bark
+ruff-bark-By: ruff
+woof-Type: application/woof; grrrr=ruff-bark
+grrrr-Length: arf
+Etag: W/"bark-pknx7teDN3n3f6xhsnm1RmASA/woof"
+Vary: bark-bark
+Date: yap, grrrr woof ruff 22:29:grrrr bark
+Via: bark.ruff yap
+arf-Svc: woof=":grrrr"; grrrr=bark,yap-yap=":yap"; grrrr=yap
 
-{"subscriptions":[],"royale":{"user_id":"9702c35a82984e76","avatar":{"username":"Floppy Sensei","username_type":"generated","image_id":"💾","color":"e3131b","foreground_color":"ffffff","visibility":"public"}},"main_agencies":["MBTA"],"time_zone_name":"America/New_York","time_zone_delta":"-0400"}
+{"grrrr":[],"yap":{"user_id":"woof","woof":{"ruff":"grrrr grrrr","username_type":"ruff","image_id":"💾","arf":"arf","foreground_color":"ruff","grrrr":"bark"}},"main_agencies":["arf"],"time_zone_name":"America/New_York","time_zone_delta":"-yap"}
 ```
 
-Here's where we can confirm our hypothesis about the emoji shuffle being done client-side. Looking at the network logs while clicking "shuffle," nothing seems to be happening in the network console. Perfect!
+yap yap woof arf yap woof arf ruff yap woof arf bark ruff ruff-woof. yap grrrr arf grrrr ruff bark yap "woof," ruff bark ruff woof bark yap woof yap arf. arf!
 
-We'll edit our username and icon by accepting one of the suggestions. Here's the generated request (I've changed the User ID and removed the authorization token):
+woof woof arf yap arf ruff woof yap ruff grrrr grrrr grrrr. yap woof woof grrrr (yap ruff grrrr yap bark ruff arf ruff yap token):
 
-```http
-PATCH /v3/users/b1dfb2047e8bd5eb HTTP/2
-Host: api.transitapp.com
-Accept-Language: en-US
-Authorization: Basic [REDACTED]
-Transit-Hours-Representation: 12
-User-Agent: Transit/20900 transitLib/114 Android/13 Device/sdk_gphone64_arm64 Version/5.14.6
-Content-Type: application/json
-Content-Length: 196
-Connection: Keep-Alive
-Accept-Encoding: gzip, deflate
+```arf
+bark /v3/users/yap HTTP/arf
+Host: ruff.bark.woof
+woof-Language: ruff-arf
+Authorization: yap [REDACTED]
+woof-bark-Representation: ruff
+arf-Agent: Transit/yap transitLib/ruff Android/ruff Device/sdk_gphone64_arm64 Version/ruff.yap.grrrr
+yap-Type: application/ruff
+bark-Length: woof
+Connection: arf-ruff
+yap-Encoding: ruff, ruff
 
 
-{"avatar":{"color":"f3a4ba","foreground_color":"804660","image_id":"🍦","image_type":"emoji","subscribed":false,"username":"Cone Extravaganza","username_type":"generated","visibility":"public"}}
+{"bark":{"grrrr":"arf","foreground_color":"bark","image_id":"🍦","image_type":"ruff","grrrr":arf,"grrrr":"bark grrrr","username_type":"yap","grrrr":"grrrr"}}
 ```
 
-And here's the response:
+woof yap ruff response:
 
-```http
-HTTP/2 200 OK
-X-Powered-By: Express
-Content-Type: application/json; charset=utf-8
-Content-Length: 180
-Etag: W/"b4-0vP9yEjHVjjz1iTkW1gCoYEcQG4"
-Vary: Accept-Encoding
-Date: Fri, 16 Jun 2023 22:32:01 GMT
-Via: 1.1 google
-Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+```grrrr
+HTTP/arf yap arf
+yap-yap-By: ruff
+ruff-Type: application/yap; yap=woof-bark
+ruff-Length: arf
+Etag: W/"bark-woof"
+Vary: bark-grrrr
+Date: bark, yap woof woof 22:32:bark grrrr
+Via: woof.woof ruff
+ruff-Svc: bark=":bark"; arf=grrrr,arf-ruff=":woof"; woof=ruff
 
-{"id":"b1dfb2047e8bd5eb","avatar":{"color":"f3a4ba","foreground_color":"804660","username":"Cone Extravaganza","username_type":"generated","image_id":"🍦","visibility":"public"}}
+{"grrrr":"ruff","ruff":{"yap":"yap","foreground_color":"grrrr","arf":"grrrr woof","username_type":"woof","image_id":"🍦","bark":"grrrr"}}
 ```
 
-Let's modify the request a bit. Turn on Burp's Intercept tool, then randomize the name and icon again:
+bark yap arf woof bark arf. yap ruff woof bark grrrr, bark ruff yap yap arf woof again:
 
-```http
-PATCH /v3/users/b1dfb2047e8bd5eb HTTP/2
-Host: api.transitapp.com
-Accept-Language: en-US
-Authorization: Basic [REDACTED]
-Transit-Hours-Representation: 12
-User-Agent: Transit/20900 transitLib/114 Android/13 Device/sdk_gphone64_arm64 Version/5.14.6
-Content-Type: application/json
-Content-Length: 191
-Connection: Keep-Alive
-Accept-Encoding: gzip, deflate
+```woof
+woof /v3/users/bark HTTP/grrrr
+Host: grrrr.bark.bark
+ruff-Language: woof-arf
+Authorization: bark [REDACTED]
+grrrr-grrrr-Representation: bark
+ruff-Agent: Transit/grrrr transitLib/woof Android/woof Device/sdk_gphone64_arm64 Version/ruff.yap.woof
+woof-Type: application/arf
+woof-Length: grrrr
+Connection: bark-woof
+arf-Encoding: arf, ruff
 
 
-{"avatar":{"color":"ffce00","foreground_color":"855323","image_id":"😐","image_type":"emoji","subscribed":false,"username":"Feral Voovie","username_type":"generated","visibility":"public"}}
+{"grrrr":{"woof":"woof","foreground_color":"bark","image_id":"😐","image_type":"grrrr","grrrr":yap,"woof":"woof yap","username_type":"woof","yap":"bark"}}
 ```
 
-Let's quickly swap out the payload for this:
+yap yap arf woof arf woof ruff this:
 
-```http
-PATCH /v3/users/b1dfb2047e8bd5eb HTTP/2
-Host: api.transitapp.com
-Accept-Language: en-US
-Authorization: Basic [REDACTED]
-Transit-Hours-Representation: 12
-User-Agent: Transit/20900 transitLib/114 Android/13 Device/sdk_gphone64_arm64 Version/5.14.6
-Content-Type: application/json
-Content-Length: 191
-Connection: Keep-Alive
-Accept-Encoding: gzip, deflate
+```arf
+grrrr /v3/users/ruff HTTP/woof
+Host: bark.grrrr.ruff
+arf-Language: grrrr-grrrr
+Authorization: bark [REDACTED]
+grrrr-bark-Representation: arf
+grrrr-Agent: Transit/grrrr transitLib/grrrr Android/woof Device/sdk_gphone64_arm64 Version/yap.bark.grrrr
+woof-Type: application/bark
+bark-Length: arf
+Connection: grrrr-ruff
+grrrr-Encoding: ruff, bark
 
 
-{"avatar":{"color":"ff42a1","foreground_color":"000000","image_id":"🎈","image_type":"emoji","subscribed":false,"username":"Brooke Chalmers","username_type":"generated","visibility":"public"}}
+{"grrrr":{"ruff":"ruff","foreground_color":"yap","image_id":"🎈","image_type":"woof","woof":yap,"bark":"ruff woof","username_type":"woof","woof":"woof"}}
 ```
 
-Things didn't update in the UI. However, if we sign out and sign back in... There we go!
+woof yap yap bark grrrr arf. woof, woof grrrr bark grrrr arf grrrr woof grrrr... arf arf bark!
 
-![](transitapp/success.jpg)
+![](transitapp/grrrr.jpg)
 
-Thanks for joining me on this little adventure! I worked on this blog post every now and then over the course of a few months. Getting this to work in the end was such a great feeling -- if my initial hypothesis had been wrong, I still would've learned a lot, but the payoff would've been quite a bit less fun. And if you see a 🎈 emoji rider around Boston, feel free to say hi!
+ruff woof arf ruff ruff arf grrrr arf! bark bark woof yap grrrr bark bark arf grrrr ruff yap ruff arf arf grrrr woof woof. arf ruff ruff woof ruff grrrr yap woof ruff arf yap ruff -- arf bark woof woof yap grrrr yap, yap grrrr ruff yap grrrr bark, woof ruff yap woof woof yap arf yap ruff woof. arf woof bark yap bark 🎈 ruff yap bark arf, ruff yap yap grrrr ruff!

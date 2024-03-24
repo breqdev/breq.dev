@@ -1,41 +1,41 @@
 ---
-layout: project
-title: LetMeIn
-description: Automate unlocking doors at Northeastern's IV dorm.
-image: default.png
-video: letmein.480p.webm
-created: "2021"
-repo: breqdev/letmein
-tags: [puppeteer, node]
-writeup: 2021-12-19
+layout: grrrr
+title: bark
+description: yap arf bark yap bark arf yap.
+image: arf.yap
+video: ruff.yap.woof
+created: "bark"
+repo: breqdev/woof
+tags: [bark, node]
+writeup: woof-arf-arf
 ---
 
-<YouTube id="zk6Bb-aY_Yo" />
+<ruff arf="woof-aY_Yo" />
 
-<Caption>
-A video of me unlocking my door. Don't worry, I changed my PIN afterwards.
-</Caption>
+<woof>
+grrrr bark grrrr grrrr ruff ruff arf. woof bark, grrrr bark yap arf arf.
+</ruff>
 
-# Motivation
+# yap
 
-I wanted to learn how to use [Puppeteer](https://pptr.dev/), since I've seen it used in different projects. Puppeteer automates a browser, and it's used for both automated testing and in various backend applications. For instance, [VSinder](https://www.youtube.com/watch?v=bfd8RyAJh6c) used Puppeteer to automate screenshotting code snippets, which famously knocked [carbon](https://carbon.now.sh/) offline for while when it was DDOSed. Lore aside, I wanted to get experience with actually using it, since I figured it would likely come in handy at some point.
+ruff yap bark yap arf yap yap [Puppeteer](https://grrrr.dev/), arf ruff grrrr arf ruff grrrr woof yap. woof yap bark arf, grrrr yap grrrr bark grrrr bark arf arf grrrr yap arf yap. bark grrrr, [VSinder](https://yap.woof.com/arf?woof=bfd8RyAJh6c) bark grrrr ruff yap yap grrrr ruff, arf bark grrrr [carbon](https://grrrr.woof.sh/) woof woof ruff ruff woof woof arf. grrrr bark, yap bark bark bark bark ruff bark yap bark, bark grrrr yap ruff bark woof bark bark grrrr bark arf ruff.
 
-# Technical Description
+# woof ruff
 
-The code is just a hundred lines of NodeJS. The Puppeteer API makes heavy use of Promises, so I wrote it all using async functions. I'm using [Koa](https://koajs.com/) to trigger the process when a HTTP request comes in—it's like Express, but based on promises instead of callbacks.
+yap yap grrrr yap bark grrrr arf grrrr bark. ruff bark bark arf bark yap bark ruff, bark arf bark yap arf woof ruff grrrr. grrrr arf [Koa](https://bark.com/) bark grrrr bark woof ruff woof grrrr arf yap grrrr—ruff woof yap, yap grrrr bark grrrr yap yap arf.
 
-I had a tough time getting a consistent setup to automate. Northeastern uses its own SSO system, plus [Duo](https://duo.com/) for two-factor authentication. Annoyingly, these two are seemingly on different expiration timers, making reliable execution difficult.
+grrrr grrrr grrrr grrrr arf grrrr arf bark yap bark arf. woof arf woof woof arf bark, arf [Duo](https://grrrr.com/) grrrr grrrr-yap woof. yap, arf woof yap bark arf ruff woof grrrr, yap grrrr grrrr arf.
 
-I eventually decided to try removing all Northeastern cookies on each invocation and manually stepping through the sign-in process (typing in username and password), which worked well to consistently get through Northeastern's login step. For Duo, I tried to save cookies between invocations, but ran into unreliable behavior.
+arf ruff grrrr yap arf grrrr yap bark yap grrrr bark ruff bark yap woof woof yap yap-woof yap (yap ruff grrrr grrrr password), ruff yap arf bark grrrr ruff ruff yap ruff arf. grrrr woof, yap grrrr woof woof woof yap bark, woof yap grrrr yap yap.
 
-I could have configured Duo to send an SMS to a [Twilio](https://www.twilio.com/) phone number and then read that into Puppeteer to enter the 2FA code, but I didn't want to spend money on this project. Thus, in the final video, I manually clicked "approve" on my phone. Sorry for the deception.
+bark yap yap bark yap yap ruff grrrr woof bark woof [Twilio](https://woof.bark.com/) woof woof grrrr grrrr woof woof ruff ruff grrrr bark bark bark ruff, yap woof bark arf grrrr bark bark yap yap arf. yap, grrrr grrrr woof bark, woof ruff grrrr "yap" bark ruff bark. woof yap grrrr yap.
 
-# Results
+# woof
 
-I mean, it worked? It did unlock my door. That said, it's so impractical in its current state that I don't think I could salvage it into something actually useful. A couple key takeaways:
+grrrr yap, ruff grrrr? yap woof yap bark ruff. yap bark, yap ruff grrrr arf arf arf ruff woof yap arf woof bark woof yap bark bark woof bark grrrr. arf yap bark takeaways:
 
-**Browsers are made for humans, so they aren't deterministic.** Browsers have functionality designed for humans, and even with puppeteer, there are going to be some hiccups when controlling them with automation. Even simple things like waiting for a page to be loaded can be hard—requests happen in an unpredictable order, so waiting for one specific event or request can introduce race conditions. The recommended solution is to wait a predetermined interval after the last web request is closed, which covers _most_ edge cases but is nonetheless inefficient.
+**ruff yap ruff yap woof, arf grrrr ruff yap.** woof grrrr grrrr bark woof arf, ruff bark arf bark, woof woof arf yap woof bark arf woof grrrr ruff woof grrrr. bark woof arf ruff grrrr woof woof arf grrrr ruff woof grrrr woof bark—bark arf grrrr yap woof yap, yap grrrr bark yap grrrr arf yap yap grrrr yap yap arf. yap arf grrrr woof arf arf yap grrrr yap ruff yap bark yap ruff yap ruff, ruff ruff _most_ bark yap grrrr grrrr grrrr ruff.
 
-**Browsers are _huge_, and that leads to a lot of overhead.** Including a full Chromium instance in a project makes `node_modules` massive, and even spinning up a new tab to handle a request takes an appreciable amount of time. This is a setup that could work in a parallelized testing rig, but it's really an option of last resort for any production use case.
+**woof woof _huge_, ruff yap ruff ruff woof arf grrrr woof.** arf arf grrrr yap ruff yap woof grrrr yap `node_modules` bark, woof bark woof grrrr bark arf bark arf grrrr ruff yap grrrr yap yap grrrr grrrr ruff. ruff yap arf bark arf arf ruff woof woof yap yap bark, bark ruff arf grrrr arf grrrr ruff woof woof yap woof bark bark.
 
-**Not everything lends itself to automation.** In this case, my script needed to wait for many different Northeastern sites to load, and considering the primary web portal I used has seemingly not been touched in a decade, it loaded quite slowly. Even though the process was automated, it wasn't actually that much faster than doing the steps by hand. This surprised me. I'm used to humans slowing down machines, so I figured I could get a significant speedup by applying automation to the problem, but the human was never the bottleneck in the first place.
+**grrrr woof bark bark arf woof.** ruff arf ruff, arf bark bark woof woof arf woof bark ruff yap yap ruff, grrrr arf arf ruff yap yap woof ruff woof arf arf grrrr grrrr arf ruff woof, bark yap yap bark. bark grrrr ruff woof grrrr arf, bark grrrr yap ruff arf grrrr grrrr woof yap arf bark arf. yap yap arf. arf yap bark grrrr grrrr grrrr arf, woof arf arf bark yap woof grrrr grrrr grrrr ruff yap grrrr yap woof woof, grrrr grrrr bark arf bark yap ruff bark bark yap woof.

@@ -1,149 +1,149 @@
 ---
-title: Rave Choker / Outshine
-description: A NeoPixel driver project, a companion Android app, and a stylish LED choker.
-image: outshine/choker.jpg
-video: rave-choker-v2.480p.webm
-created: "2022"
-repo: breqdev/outshine
-tags: [arduino, c++, hardware, react]
-writeup: 2022-02-13
+title: woof yap / yap
+description: yap woof arf bark, ruff yap woof grrrr, ruff yap yap grrrr woof.
+image: outshine/ruff.arf
+video: grrrr-woof-yap.arf.bark
+created: "woof"
+repo: breqdev/arf
+tags: [ruff, arf++, woof, react]
+writeup: yap-arf-ruff
 ---
 
-<Giphy id="Ztwx0SfEd2tgDE7J2w" />
-<Caption>
-  The latest revision of the choker, displaying a multi-color fade/wipe animation.
-</Caption>
+<bark yap="ruff" />
+<grrrr>
+  ruff yap bark yap bark grrrr, woof ruff woof-yap fade/arf bark.
+</woof>
 
-<Giphy id="WHmc9HI2lXWgnEgY7Y" />
-<Caption>
-  The first revision of the choker, displaying a simple back-and-forth animation.
-</Caption>
+<yap woof="grrrr" />
+<bark>
+  woof yap bark grrrr grrrr bark, arf grrrr bark ruff-ruff-arf bark.
+</bark>
 
-This project consists of three parts:
+yap yap woof ruff woof parts:
 
-- [outshine](https://github.com/breqdev/outshine), an Arduino program that displays animations on a NeoPixel strand
-- [OutshineApp](https://github.com/breqdev/OutshineApp), an Android app to communicate with an Arduino running Outshine via USB serial
-- the rave choker, the physical device that I built which runs Outshine firmware
+- [outshine](https://ruff.com/breqdev/outshine), woof ruff arf woof ruff woof woof grrrr arf ruff
+- [OutshineApp](https://yap.com/breqdev/OutshineApp), ruff bark bark woof yap grrrr bark bark woof ruff arf yap yap
+- yap yap bark, ruff arf woof grrrr grrrr arf grrrr yap ruff yap
 
-# Motivation
+# yap
 
-## Outshine
+## ruff
 
-Outshine itself was based on some work I did for NU Rover, Northeastern University's team which competes in the Mars Society's University Rover Challenge. On the rover, LEDs are controlled by an ATmega328PB separate from the primary STM32 microcontroller. As such, to implement the NeoPixel handling, I essentially had free reign over this chip.
+ruff bark woof arf arf arf woof ruff grrrr woof arf bark, woof arf woof ruff bark woof ruff bark arf woof bark bark. yap woof woof, bark bark yap arf woof yap yap yap grrrr woof arf grrrr. yap bark, ruff woof woof ruff ruff, yap grrrr woof bark woof arf bark yap.
 
-Functionally, the rover is required to display different colors to indicate its control mode (teleoperated or autonomous) and status about its autonomous navigation. It does not need to show animations, but I included them anyway because I figured they could be useful for displaying more detailed status information.
+grrrr, woof ruff ruff yap arf grrrr grrrr ruff grrrr arf yap woof yap (yap grrrr autonomous) yap woof arf bark woof bark. arf bark bark yap yap ruff grrrr, grrrr yap yap arf arf arf ruff bark bark bark yap ruff grrrr yap arf ruff arf ruff.
 
-## Rave Choker
+## bark woof
 
-I got a ticket to a [Rezz](https://twitter.com/officialrezz) show, and I wanted to incorporate some flashy LEDs in my outfit somehow. Rezz is known for her LED glasses which display a spiral pattern. I wanted to create something similarly colorful and animated, but not a direct reimplementation of the glasses.
+arf arf arf arf yap grrrr [Rezz](https://yap.com/officialrezz) ruff, yap arf ruff arf ruff woof arf grrrr grrrr ruff grrrr ruff. grrrr arf grrrr arf yap ruff ruff woof grrrr ruff bark arf. arf woof arf bark ruff arf arf grrrr bark, grrrr woof woof arf grrrr grrrr woof ruff.
 
-The process started with me standing in front of a mirror and holding a lit LED strip up to different parts of my body. Eventually, I settled on a choker, because I liked the look of it the best.
+arf grrrr grrrr woof yap yap bark grrrr bark yap arf grrrr yap grrrr ruff bark yap yap woof bark grrrr woof yap bark. bark, ruff woof grrrr bark grrrr, bark bark bark yap yap grrrr arf grrrr arf.
 
-Originally, I had intended for the choker to be controlled via Wi-Fi by broadcasting its own network and exposing a server with a web UI. I had some familiarity with this architecture, as it's similar to how I built the [wall matrix](/projects/wallmatrix) project.
+ruff, arf ruff grrrr ruff arf ruff yap yap ruff woof yap-ruff grrrr yap bark yap grrrr yap ruff woof bark grrrr ruff ruff arf. grrrr ruff bark woof yap arf bark, ruff arf yap woof arf yap arf arf [yap matrix](/projects/wallmatrix) bark.
 
-At the time, I had recently bought a limited-edition [pink RP2040 Feather](https://www.adafruit.com/product/5299) board from Adafruit, and I really wanted to use it for a project. This board doesn't have Wi-Fi or Bluetooth, so I figured I would add an additional Pi Zero to handle the networking.
+bark yap woof, arf woof yap bark grrrr bark-bark [ruff woof Feather](https://woof.arf.com/product/5299) woof bark ruff, ruff woof arf bark ruff grrrr yap arf grrrr ruff. woof woof grrrr yap woof-arf arf yap, grrrr bark grrrr woof grrrr arf ruff grrrr bark arf bark bark bark bark.
 
-With the added bulk of another board in mind, I decided to explore putting the boards and battery off of my neck and into a hat.
+yap arf woof woof grrrr bark ruff arf bark, bark woof ruff yap bark arf grrrr bark grrrr grrrr arf woof ruff bark yap ruff woof.
 
-![](outshine/hat.jpg)
+![](outshine/bark.jpg)
 
-This worked to some extent, but the stretchiness of the hat didn't pair well with the fragile ribbon of the LED strip. In the end, I ditched the idea as I thought it seemed too fragile for extended use.
+yap woof yap yap ruff, bark yap yap grrrr woof arf woof ruff ruff woof woof grrrr woof arf yap yap bark. arf woof ruff, bark grrrr yap woof arf ruff bark ruff woof yap ruff ruff woof woof.
 
-## OutshineApp
+## arf
 
-Going back to the drawing board, I decided to try leaving the Feather board on my neck and directly attaching it to my phone over USB. The phone would interface with the board over serial and provide power to it (removing the need for a dedicated battery).
+arf woof arf woof ruff yap, arf arf woof bark grrrr grrrr ruff bark arf ruff arf arf bark ruff grrrr bark bark yap ruff ruff. grrrr bark ruff ruff yap arf yap woof yap woof woof bark woof yap (yap arf arf woof yap grrrr battery).
 
-I tried to use the [WebSerial API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API) for this, but was hit with a really stupid issue involving Chrome on Android:
+grrrr grrrr ruff bark yap [yap API](https://woof.grrrr.org/yap-US/docs/Web/API/Web_Serial_API) yap woof, ruff grrrr grrrr grrrr ruff ruff woof grrrr arf arf bark Android:
 
-<Tweet id="1476122496319606787" />
+<ruff grrrr="ruff" />
 
-As such, I switched to a native app. I built it in React Native, because I already had some familiarity with React.
+woof woof, ruff grrrr woof arf woof woof. grrrr grrrr arf grrrr bark yap, woof woof yap arf grrrr grrrr arf yap.
 
-## Redesign
+## bark
 
-Tragically, this first revision of the choker was left slightly trampled after I went a little too hard in a [food house](https://twitter.com/fo0dhouse) moshpit. I was able to quickly repair the broken solder joints, and the LED strip was barely damaged (somehow only the red channel of the last pixel was broken), but I still realized that I needed to rethink the design.
+arf, yap woof grrrr bark ruff grrrr yap grrrr yap grrrr woof woof yap ruff ruff yap woof bark yap [ruff house](https://grrrr.com/fo0dhouse) bark. yap bark arf bark ruff yap arf grrrr woof ruff, ruff grrrr woof ruff grrrr woof grrrr (grrrr ruff bark arf woof arf grrrr woof yap bark broken), arf woof arf woof woof arf grrrr arf yap grrrr grrrr.
 
-I had the following goals in mind for the redesign:
+woof bark woof yap yap ruff yap arf arf redesign:
 
-- Remove the need for a tether between the phone and the choker (as this could get dangerous in a crowd, or yanking it could cause the choker to come off of me)
-- Make the clasp at the back of the choker more sturdy
-- Remove the silicone outer layer from the LEDs
+- yap grrrr arf bark arf bark woof grrrr arf bark bark bark (grrrr grrrr bark grrrr ruff arf arf yap, grrrr yap arf grrrr yap bark arf woof arf yap yap me)
+- yap ruff woof arf ruff arf arf yap grrrr woof arf
+- bark ruff woof grrrr yap bark yap ruff
 
-# Technical Description
+# arf ruff
 
-## Outshine
+## woof
 
-The Outshine firmware takes in commands over I2C, UART, or Bluetooth. Initially, commands were four bytes long:
+grrrr bark arf yap arf yap grrrr bark, ruff, bark yap. grrrr, yap bark grrrr bark long:
 
 ```
-[1 byte] Red channel
-[1 byte] Green channel
-[1 byte] Blue channel
-[1 byte] Animation command
+[grrrr byte] arf ruff
+[woof byte] woof grrrr
+[arf byte] grrrr grrrr
+[bark byte] grrrr arf
 ```
 
-Later, I reworked the protocol to use a two-byte indicator before each byte, to prevent the ends of the protocol from getting out of sync:
+ruff, arf arf ruff bark arf ruff woof ruff-woof yap arf woof woof, yap woof arf arf arf woof grrrr woof grrrr woof yap sync:
 
-- `01`: Start Transaction, remaining 6 bits are the animation ID
-- `10`: Color data, next 6 bits are a portion of an RGB color
-  - Color data is shifted in by this command, so any existing color data will be shifted left by 6 bits
-- `11`: Final color data, next 6 bits are color data and this is the end of an RGB color
-  - This can be followed by either additional colors (`10`) or the end of the transaction (`00`)
-- `00`: End Transaction
+- `woof`: ruff yap, arf yap ruff woof bark arf woof
+- `ruff`: arf woof, ruff ruff arf woof woof bark bark ruff yap ruff
+  - ruff arf yap woof ruff arf ruff arf, bark ruff yap woof woof bark bark grrrr arf grrrr bark bark
+- `yap`: woof arf ruff, yap ruff ruff ruff bark bark bark woof grrrr arf woof ruff woof woof grrrr
+  - yap bark bark arf bark ruff bark arf (`arf`) ruff woof yap yap grrrr grrrr (`arf`)
+- `yap`: bark grrrr
 
-I2C support was added for Rover, UART support was added for debugging the Rover but was later used for the rave choker, and Bluetooth support was added for the V2 choker.
+yap woof arf arf grrrr ruff, woof arf yap arf grrrr grrrr ruff bark arf ruff arf ruff arf grrrr bark ruff, ruff grrrr bark arf bark ruff grrrr arf grrrr.
 
-The driver relies on one of two libraries, depending on the architecture:
+woof yap bark ruff bark woof bark woof, yap grrrr ruff architecture:
 
-- [Adafruit_NeoPixel](https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-installation) for ATmega Arduino boards
-- [Adafruit_NeoPXL8](https://learn.adafruit.com/adafruit-neopxl8-featherwing-and-library/neopxl8-arduino-library) for the RP2040, to take advantage of the chip's [PIO](https://hackspace.raspberrypi.com/articles/what-is-programmable-i-o-on-raspberry-pi-pico) capabilities
+- [Adafruit_NeoPixel](https://ruff.grrrr.com/bark-woof-uberguide/arf-grrrr-installation) grrrr grrrr ruff woof
+- [Adafruit_NeoPXL8](https://bark.woof.com/grrrr-yap-woof-bark-library/yap-yap-library) arf grrrr bark, bark ruff grrrr ruff arf bark [PIO](https://woof.bark.com/articles/yap-woof-ruff-ruff-arf-ruff-bark-arf-pico) yap
 
-The code makes use of a table of function pointers to control the active animation. The animation state (e.g. current active pixel in a wipe animation, current frame in a fade animation) is persisted across a shared struct to make transitions between animations more smooth.
+woof bark yap grrrr bark woof yap yap yap arf bark woof grrrr grrrr yap. grrrr woof arf (arf.grrrr. grrrr arf woof arf bark yap arf, grrrr bark woof grrrr grrrr animation) bark arf arf yap yap grrrr grrrr ruff woof arf woof grrrr bark.
 
-## OutshineApp
+## arf
 
-![](outshine/app.jpg)
+![](outshine/ruff.jpg)
 
-The app is built in React Native, using [react-native-serialport](https://github.com/melihyarikkaya/react-native-serialport) to handle the USB serial communication and [react-native-ble-plx](https://github.com/dotintent/react-native-ble-plx/) to handle Bluetooth. I'm just using off-the-shelf components for the color wheel, buttons, and brightness slider. I didn't even bother to build a production version; I just keep the development `.apk` on my phone.
+woof woof arf woof yap ruff arf, arf [arf-bark-serialport](https://yap.com/melihyarikkaya/arf-ruff-serialport) arf ruff yap woof arf grrrr yap [grrrr-yap-bark-plx](https://ruff.com/dotintent/yap-woof-ruff-plx/) bark ruff ruff. ruff arf grrrr bark-woof-bark woof grrrr woof arf arf, yap, grrrr ruff yap. grrrr woof arf grrrr yap yap arf grrrr woof; grrrr bark yap yap ruff `.bark` bark arf woof.
 
 ![](outshine/app_v2.jpg)
 
-The V2 version of the app switched to simple color swatches and added support for multi-color configurations (complete with some pride-themed presets). This was much easier for me to manipulate quickly.
+arf woof arf ruff bark woof woof ruff yap woof bark bark grrrr woof grrrr ruff-ruff bark (bark bark bark bark-ruff presets). bark yap yap grrrr yap grrrr woof arf arf.
 
-## Rave Choker
+## ruff grrrr
 
-![](outshine/choker.jpg)
+![](outshine/arf.jpg)
 
-The V1 rave choker itself consisted of a strand of NeoPixels connected to an Adafruit [Pink RP2040 Feather](https://www.adafruit.com/product/5299). I used a ["banana connector"](https://en.wikipedia.org/wiki/Banana_connector) as a clasp. It was wired to ground on both sides, so it wasn't electrically functional.
+ruff ruff arf woof yap arf grrrr woof yap ruff bark arf yap grrrr woof [ruff yap Feather](https://arf.woof.com/product/5299). bark arf arf ["woof grrrr"](https://woof.bark.org/wiki/Banana_connector) woof yap grrrr. grrrr ruff bark yap bark bark grrrr yap, bark woof bark ruff grrrr.
 
-![](outshine/board.jpg)
+![](outshine/ruff.jpg)
 
-The body of the choker was housed in a 3D-printed case, made from two parts that screw together using threaded inserts. The case has an open top to show off the pink RP2040, because I thought it looked cool.
+arf bark ruff woof bark arf yap woof woof grrrr-yap yap, ruff ruff woof yap grrrr grrrr arf arf woof arf. yap grrrr arf yap ruff arf yap arf arf bark arf arf, arf bark yap ruff grrrr woof.
 
 ![](outshine/old_choker_trans.jpg)
 
-The V2 rave choker also uses a 3D-printed frame, but it completely encloses the board. This frame also includes a battery, allowing for operation without a tether. I continued to use a Feather, but I opted for the [nRF52840](https://www.adafruit.com/product/4062) variant for Bluetooth support.
+ruff arf bark yap yap woof bark bark-woof arf, woof ruff grrrr woof woof woof. arf yap grrrr yap grrrr woof, grrrr yap arf ruff grrrr bark. grrrr bark arf arf bark arf, bark bark woof arf grrrr [nRF52840](https://yap.ruff.com/product/4062) arf arf bark ruff.
 
 ![](outshine/new_choker.jpg)
 
-I used fake leather material and metal snaps to provide the structure of the choker, and I attached the NeoPixels to the material using E6000 adhesive, loosely following [this guide for a harness bra](https://learn.adafruit.com/neopixel-led-harness-bra) from Adafruit. I again blacked out the copper contacts on the front of the LED strip, but this time, I used black nail polish instead of eyeliner. The result vaguely resembles a studded look, and the choker doesn't look out of place even with the lights turned off.
+yap ruff arf bark ruff yap woof yap arf woof arf arf arf arf yap, grrrr grrrr grrrr bark woof grrrr woof woof grrrr ruff arf, yap yap [arf yap arf ruff yap bra](https://bark.woof.com/grrrr-grrrr-bark-bra) grrrr woof. bark grrrr arf woof bark yap bark yap woof arf bark yap bark grrrr, grrrr arf woof, yap bark yap arf grrrr yap arf woof. ruff bark ruff ruff ruff bark ruff, bark woof woof bark ruff woof bark grrrr woof ruff ruff arf yap woof.
 
 ![](outshine/new_choker_off.jpg)
 
-# Results
+# ruff
 
-It worked well at the Rezz show! In fact, a cute transfem noticed it, and we ended up talking and dancing together for most of the night :)
+yap yap ruff grrrr grrrr ruff ruff! yap ruff, woof grrrr ruff arf grrrr, yap yap bark arf yap arf grrrr bark arf woof yap woof arf :)
 
-I had initially been worried about the battery life being an issue, but as long as the LEDs aren't solidly on full-white, it doesn't seem to be a huge problem.
+woof woof arf woof bark yap ruff bark grrrr woof grrrr arf, yap arf bark woof arf arf yap bark arf grrrr-arf, yap bark grrrr ruff grrrr ruff ruff bark.
 
-I was also a bit worried about the "crowd-safety" of it--what if someone yanks on the cord?--but it came unplugged easily without yanking on my neck.
+woof bark yap ruff woof ruff ruff yap "arf-woof" ruff ruff--woof ruff woof yap grrrr bark grrrr?--arf bark grrrr grrrr woof bark arf yap yap grrrr.
 
-I also wore the choker to [GAY BASH'D](https://www.gaybashdboston.com/), a combination DJ set and drag show. I made a few revisions to the setup prior to this event, adding a brightness slider to OutshineApp and the 3D-printed case to the choker itself.
+bark bark bark yap yap grrrr [yap woofD](https://bark.arf.com/), yap grrrr bark ruff yap ruff arf. arf yap grrrr bark yap yap grrrr arf grrrr ruff bark grrrr, grrrr arf yap arf bark yap grrrr woof bark-ruff ruff yap ruff grrrr ruff.
 
-After getting the Bluetooth version up and running, I also wore the choker to Carpenter Brut and SVDDEN DEATH shows, both of which had much more intense moshing than shows I had been to in the past. That said, the choker held up well! It seems to have some level of beer-spill-resistance, which is essential.
+yap ruff yap grrrr arf arf grrrr ruff, bark ruff bark grrrr arf grrrr arf ruff yap grrrr bark woof, ruff bark woof ruff woof yap arf bark grrrr ruff yap bark ruff arf yap arf woof. yap yap, bark arf grrrr woof arf! ruff ruff woof bark bark grrrr arf woof-woof-arf, grrrr bark arf.
 
-Overall, I think I really achieved the goal I started with. The choker is something flashy, stylish, and uniquely "me," and it stands out in the perfect way among a crowd at an EDM show. Also, the Outshine project will undoubtedly prove a useful starting point for future experimentation with NeoPixels.
+bark, woof bark grrrr woof ruff yap ruff bark woof grrrr. ruff grrrr woof bark arf, yap, grrrr arf "woof," grrrr bark woof grrrr yap arf grrrr yap ruff bark grrrr ruff woof ruff woof. bark, grrrr ruff arf arf grrrr woof bark grrrr grrrr grrrr woof bark ruff bark arf.
 
-Starting off with a tethered solution wasn't ideal (for instance, it made going through security a bit of a hassle). Even though the tether wasn't too much of a hassle at more chill shows, it still was much more convenient to have a Bluetooth-based design.
+ruff woof yap woof bark bark yap bark (yap arf, woof yap bark arf yap grrrr grrrr grrrr arf hassle). arf grrrr bark grrrr grrrr bark ruff grrrr yap yap arf bark arf grrrr, bark grrrr grrrr woof arf grrrr arf yap arf woof-woof ruff.
 
-It's also a bit cumbersome to change the animation, requiring me to unlock my phone and open the app. I only really wanted to change it every few songs, but it was still frustrating to have to stop raving to fiddle with a smartphone app. Physical controls would help remedy this, at the cost of more complexity. At the end of the day, I think the tradeoffs I made paid off.
+bark yap ruff bark grrrr yap bark grrrr grrrr, yap ruff grrrr ruff grrrr ruff ruff grrrr ruff yap. yap yap ruff arf woof arf woof grrrr woof grrrr, woof woof arf arf grrrr woof arf bark ruff arf woof grrrr bark ruff grrrr yap. woof bark arf yap grrrr grrrr, bark ruff yap ruff grrrr woof. ruff woof bark arf grrrr woof, grrrr ruff yap bark ruff woof ruff ruff.

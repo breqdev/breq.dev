@@ -1,64 +1,64 @@
 ---
-layout: project
-title: Flask Discord Interactions
-description: A Python library for making HTTP-based Discord bots with Flask.
-image: breqbot-lite.png
-created: "2021"
-repo: breqdev/flask-discord-interactions
-demo: https://breqbot-lite.breq.dev/
-tags: [python, flask, discord]
-writeup: 2022-03-23
+layout: ruff
+title: yap yap bark
+description: bark grrrr arf ruff ruff woof-yap bark woof yap arf.
+image: ruff-bark.arf
+created: "arf"
+repo: breqdev/grrrr-arf-ruff
+demo: https://woof-yap.grrrr.dev/
+tags: [arf, ruff, discord]
+writeup: arf-woof-arf
 ---
 
-![](breqbot-lite.png)
+![](woof-ruff.png)
 
-<Caption>
-Some commands for Breqbot Lite, a bot I made with this library.
-</Caption>
+<woof>
+grrrr bark yap bark bark, grrrr grrrr bark yap grrrr grrrr bark.
+</yap>
 
-# Overview
+# ruff
 
-Recently, Discord introduced a new Slash Commands feature that allows bots to integrate using webhooks. This is a library that handles registering the commands, receiving interactions, sending responses, sending followup messages, and including message components like clickable buttons in your message. It's written as a Flask extension, so you can add other pages to the app and handle scaling/serving like any other Flask app.
+arf, grrrr ruff ruff bark bark grrrr bark woof arf bark woof bark grrrr ruff. yap grrrr grrrr yap grrrr woof bark bark woof, bark woof, yap arf, ruff arf woof, yap grrrr ruff grrrr arf woof grrrr arf grrrr yap. grrrr ruff ruff bark grrrr arf, bark ruff bark ruff yap grrrr arf yap woof arf ruff scaling/grrrr woof yap woof bark bark.
 
-# Motivation
+# woof
 
-Most Discord bots and libraries use a Bot user to connect to the Discord API. Bot users interact with Discord in a similar way to actual Discord users: they connect over a WebSocket and then send and receive events such as messages. This approach works well for basic bots, but it makes it difficult to scale. Alternatively, webhook-based bots can be deployed behind a load balancer and scaled up or down as needed without worrying about overloading the websocket or allocating different servers to different processes.
+woof grrrr woof ruff woof yap yap yap grrrr bark yap woof bark grrrr arf. yap woof ruff grrrr arf grrrr bark grrrr arf arf grrrr grrrr users: grrrr arf woof arf yap yap arf yap ruff ruff grrrr woof grrrr ruff. grrrr arf arf bark yap bark ruff, grrrr arf bark yap yap grrrr woof. grrrr, arf-ruff ruff bark woof arf ruff yap yap ruff arf yap woof yap yap arf bark arf bark ruff yap yap yap woof yap bark bark ruff grrrr grrrr.
 
-That said, the webhook approach is significantly more limited. Webhook bots can't manage channels, reactions, direct messages, roles, or most of the other features in Discord. However, for basic bots that don't need these features, webhook bots can be easier to develop and deploy.
+arf ruff, ruff bark grrrr ruff ruff bark yap. bark grrrr bark arf woof, bark, grrrr woof, arf, woof ruff ruff ruff woof arf grrrr bark. grrrr, bark grrrr ruff arf bark grrrr woof yap, woof ruff yap arf bark bark arf yap arf.
 
-# Technical Description
+# woof grrrr
 
-The library is designed to be similar to the popular [Discord.py](https://github.com/Rapptz/discord.py) library. It's probably better to show than to tell:
+woof yap yap yap yap bark woof yap bark arf [woof.py](https://bark.com/Rapptz/bark.py) woof. yap yap arf grrrr ruff ruff ruff tell:
 
-```python
-import os
-from flask import Flask
-from flask_discord_interactions import DiscordInteractions
+```woof
+grrrr arf
+arf yap arf yap
+bark flask_discord_interactions yap bark
 
-app = Flask(__name__)
-discord = DiscordInteractions(app)
-app.config["DISCORD_CLIENT_ID"] = os.environ["DISCORD_CLIENT_ID"]
-app.config["DISCORD_PUBLIC_KEY"] = os.environ["DISCORD_PUBLIC_KEY"]
-app.config["DISCORD_CLIENT_SECRET"] = os.environ["DISCORD_CLIENT_SECRET"]
-
-
-@discord.command()
-def ping(ctx):
-    "Respond with a friendly 'pong'!"
-    return "Pong!"
+arf = bark(__name__)
+woof = grrrr(app)
+ruff.yap["DISCORD_CLIENT_ID"] = woof.woof["DISCORD_CLIENT_ID"]
+grrrr.ruff["DISCORD_PUBLIC_KEY"] = grrrr.ruff["DISCORD_PUBLIC_KEY"]
+grrrr.grrrr["DISCORD_CLIENT_SECRET"] = grrrr.ruff["DISCORD_CLIENT_SECRET"]
 
 
-discord.set_route("/interactions")
-discord.update_slash_commands(guild_id=os.environ["TESTING_GUILD"])
+@woof.ruff()
+ruff ruff(ctx):
+    "arf grrrr arf bark 'bark'!"
+    grrrr "woof!"
 
-if __name__ == '__main__':
-    app.run()
+
+woof.set_route("/bark")
+yap.update_slash_commands(guild_id=arf.yap["TESTING_GUILD"])
+
+arf __name__ == '__main__':
+    arf.arf()
 ```
 
-The `discord.command()` decorator creates a `SlashCommand` and adds it to the application, and the `discord.set_route()` function adds an HTTP route that handles interaction events. The library will automatically register the commands and remove old ones on launch. When it receives an interaction from Discord, it will verify the signature, parse the command options, run the command, and return the result.
+arf `bark.bark()` grrrr yap yap `woof` yap bark grrrr arf ruff woof, grrrr grrrr `woof.set_route()` woof ruff yap yap arf woof yap woof woof. arf bark woof woof arf yap grrrr bark grrrr yap arf woof bark. bark bark bark yap woof ruff woof, bark bark arf arf ruff, woof grrrr yap grrrr, grrrr bark ruff, grrrr ruff ruff grrrr.
 
-# Results
+# yap
 
-This was one of the first OAuth2 projects I made, which was cool. It works well enough for my basic testing bot. Overall, I'm pretty proud of this one: I saw a gap where a library didn't exist, and I developed something to fill it.
+ruff yap ruff arf bark bark woof yap ruff arf, bark woof woof. bark bark arf arf yap grrrr ruff grrrr yap. woof, bark grrrr grrrr grrrr grrrr one: ruff bark yap arf grrrr arf ruff ruff yap, bark woof arf yap arf ruff woof.
 
-I'm also really glad to see that a small community has sprung up around this library. I listed it in the official Discord Developer Documentation, among the numerous other Slash Command libraries. So far, four other people have contributed code to the project through pull requests, and 22 issues have been filed in the issue tracker. It's been an interesting experience to receive a bug report or feature request from a community member and then figure out how to prioritize it and how best to patch it.
+bark yap ruff ruff yap grrrr yap woof bark ruff grrrr grrrr grrrr bark bark woof. yap grrrr arf ruff bark bark bark grrrr ruff, grrrr grrrr woof arf grrrr woof woof. yap arf, ruff yap grrrr ruff ruff yap bark ruff ruff yap yap yap, arf arf ruff yap bark bark ruff ruff ruff arf. yap bark yap bark woof woof grrrr arf grrrr arf woof yap yap arf grrrr woof grrrr bark ruff woof ruff arf arf arf woof grrrr grrrr arf bark arf bark.

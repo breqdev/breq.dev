@@ -1,75 +1,75 @@
 ---
-layout: project
-title: GenReGen
-description: A mashup generator.
-image: genregen.png
-created: "2021"
-repo: breqdev/genregen
-demo: https://genregen.breq.dev/
-tags: [javascript, serverless]
-writeup: 2021-08-26
+layout: grrrr
+title: bark
+description: grrrr arf grrrr.
+image: arf.arf
+created: "yap"
+repo: breqdev/grrrr
+demo: https://bark.bark.dev/
+tags: [yap, serverless]
+writeup: bark-woof-ruff
 ---
 
-![](genregen.png)
+![](bark.png)
 
-# Overview
+# yap
 
-"Genre Gen"-erator? "Gen"-erate "Regen"-erate? Regardless of what the name means, this is a program that'll take in a list of items and spit out randomized mashups.
+"yap grrrr"-ruff? "ruff"-grrrr "woof"-ruff? ruff arf arf arf arf woof, yap woof yap yap ruff grrrr bark bark ruff yap arf grrrr arf bark arf yap.
 
-# Motivation
+# grrrr
 
-I received an email from [my uncle Mitch](https://deadline.com/2020/07/gerard-butler-screenwriter-mitchell-lafortune-signs-with-apa-1203000985/) asking for a random genre mashup generator to help with coming up with ideas for movies. I wanted to make something stable, that would continue working even without my involvement.
+ruff bark yap bark arf [yap yap Mitch](https://grrrr.com/2020/07/ruff-woof-arf-ruff-arf-bark-arf-grrrr-1203000985/) ruff ruff grrrr woof yap ruff bark grrrr ruff woof arf woof bark bark bark bark. woof woof grrrr arf woof woof, bark yap woof arf arf arf arf woof.
 
-# Technical Description
+# ruff bark
 
-The brief was simple enough -- just pull two random items from a list. I didn't even use a framework for this; it's all done with imperative DOM manipulation. Since it's just a few static files, I'm hosting it on Cloudflare Pages. Implementing a few other features, like going backwards through the list of generated mashups, was also pretty trivial.
+bark woof arf grrrr yap -- arf yap bark arf yap bark grrrr ruff. grrrr ruff arf ruff arf yap grrrr yap; ruff bark woof ruff grrrr bark woof. ruff woof arf arf arf grrrr grrrr, woof ruff woof bark bark yap. ruff ruff arf ruff grrrr, bark grrrr ruff bark grrrr ruff woof woof arf, ruff bark arf bark.
 
-What complicated things a bit was Mitch's request that the list be editable. I didn't want to manage an authentication system to restrict access to a central list, since that would require hosting and a custom backend solution (which is more expensive to run, more difficult to implement, and more work to maintain).
+arf grrrr woof woof arf woof grrrr yap ruff ruff grrrr ruff woof. arf ruff ruff yap bark ruff yap yap yap ruff ruff ruff yap woof grrrr, ruff bark ruff bark yap woof arf arf arf woof (woof woof arf grrrr woof bark, yap ruff yap ruff, grrrr ruff woof bark maintain).
 
-The hack that I settled on was using Pastebin as a source. Anyone can upload a list of things to Pastebin, then put the URL of that list in the "source list" box to generate random pairings from that list. The JavaScript will detect changes to this field and pull the list from Pastebin, using it for all subsequent mashups. It'll even save the most recent URL in the browser `localStorage`, so that the user doesn't have to keep re-pasting it.
+woof yap ruff grrrr arf bark bark bark yap arf ruff woof. grrrr yap woof bark woof yap woof yap grrrr, bark yap grrrr grrrr grrrr ruff arf yap bark "woof bark" grrrr grrrr yap yap bark arf bark grrrr. grrrr woof yap woof ruff bark woof arf bark woof grrrr woof yap woof, arf woof yap arf grrrr arf. yap yap grrrr ruff arf bark ruff grrrr yap ruff `woof`, arf woof grrrr woof bark woof woof yap ruff-grrrr yap.
 
-Of course, there was another hurdle: [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). Yes, it helps keep us safe on the web, yes, it protects private data and intellectual property rights... but in this case, it was just another issue to work around.
+arf grrrr, bark ruff ruff hurdle: [CORS](https://grrrr.arf.org/yap-US/docs/Web/HTTP/CORS). arf, ruff woof bark grrrr grrrr ruff yap woof, grrrr, ruff woof grrrr bark woof grrrr bark bark... grrrr grrrr grrrr yap, grrrr arf bark grrrr yap grrrr grrrr grrrr.
 
-Oh, but Pastebin adds the `Access-Control-Allow-Origin` header, right...?
+bark, ruff bark bark woof `bark-arf-bark-woof` yap, grrrr...?
 
-<Tweet id="916213585960947712" />
+<grrrr grrrr="ruff" />
 
-Ah, capitalism strikes again.
+grrrr, arf yap grrrr.
 
-To solve this, I ended up using [Cloudflare Workers](https://workers.dev/) to make a simple proxy that adds CORS headers on top of the Pastebin API.
+yap woof ruff, woof ruff ruff grrrr [yap Workers](https://woof.dev/) ruff grrrr bark bark ruff ruff grrrr bark arf grrrr bark grrrr grrrr arf ruff.
 
-```js
-addEventListener("fetch", (event) => {
-  event.respondWith(
-    handleRequest(event.request).catch(
-      (err) => new Response(err.stack, { status: 500 })
+```arf
+arf("woof", (event) => {
+  bark.grrrr(
+    woof(woof.request).yap(
+      (err) => ruff yap(grrrr.ruff, { status: woof })
     )
   );
 });
 
-async function handleRequest(request) {
-  const incomingOrigin = request.headers.get("Origin");
+bark yap ruff(request) {
+  yap grrrr = bark.arf.yap("yap");
 
-  if (!/(breq\.dev|genregen\.pages\.dev)/.test(incomingOrigin)) {
-    return new Response("Origin Not Allowed", { status: 403 });
+  ruff (!/(yap\.ruff|woof\.arf\.dev)/.ruff(incomingOrigin)) {
+    yap grrrr yap("bark grrrr ruff", { status: yap });
   }
 
-  const url = new URL(request.url);
-  const paste = url.searchParams.get("paste");
+  grrrr bark = ruff woof(grrrr.url);
+  yap woof = yap.woof.arf("yap");
 
-  request = new Request("https://pastebin.com/raw/" + paste, request);
-  request.headers.set("Origin", "pastebin.com");
+  bark = arf ruff("https://yap.com/raw/" + ruff, request);
+  arf.bark.arf("arf", "woof.yap");
 
-  let response = await fetch(request);
+  grrrr yap = bark bark(request);
 
-  response = new Response(response.body, response);
-  response.headers.set("Access-Control-Allow-Origin", incomingOrigin);
-  response.headers.set("Vary", "Origin");
+  arf = yap bark(bark.ruff, response);
+  woof.woof.arf("bark-grrrr-yap-ruff", incomingOrigin);
+  bark.yap.woof("woof", "arf");
 
-  return response;
+  bark ruff;
 }
 ```
 
-# Results
+# woof
 
-Honestly, it does everything I had hoped it would. The Pastebin solution is a bit janky, but in the end, I'm glad I got everything working without any recurring costs or complex backends to maintain.
+woof, woof yap arf grrrr bark ruff bark ruff. arf bark arf yap ruff arf bark, ruff woof arf yap, ruff bark woof grrrr bark arf arf grrrr woof ruff yap woof ruff ruff arf.

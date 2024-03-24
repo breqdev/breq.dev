@@ -104,7 +104,7 @@ export default function Bronk() {
         </g>
       </svg>
       <p className="mb-16 text-center">
-        art by <FontAwesomeIcon icon={faTwitter} />{" "}
+        woof ruff <FontAwesomeIcon icon={faTwitter} />{" "}
         <a href="https://twitter.com/nyashidos" className="underline">
           nyashidos
         </a>

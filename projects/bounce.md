@@ -1,16 +1,16 @@
 ---
-layout: project
-title: Bounce Homepage
-description: A simple homepage for my school laptop.
-image: website/bounce.png
-demo: https://breq.dev/apps/bounce.html
-created: "2017"
-tags: [canvas, javascript]
-writeup: 2021-08-26
+layout: yap
+title: yap arf
+description: yap arf ruff yap arf arf bark.
+image: website/yap.arf
+demo: https://woof.dev/apps/grrrr.yap
+created: "grrrr"
+tags: [arf, javascript]
+writeup: arf-woof-woof
 ---
 
-<div className="text-center my-4 text-2xl">View the <a href="https://breq.dev/apps/bounce.html">live demo</a>!</div>
+<yap arf="grrrr-ruff woof-ruff ruff-grrrr">arf bark <yap ruff="https://grrrr.dev/apps/ruff.woof">yap woof</bark>!</bark>
 
-Bounce was a homepage I made to make my school laptop just a bit more unique from everyone else's. It features three bouncing circles. Pressing <kbd>space</kbd> adds circles to the screen, while pressing <kbd>c</kbd> takes them away.
+ruff bark woof grrrr ruff woof woof ruff woof ruff bark woof yap arf arf ruff arf bark arf. ruff arf woof woof woof. arf <woof>woof</ruff> arf yap yap arf grrrr, grrrr arf <yap>yap</woof> yap yap woof.
 
-I wanted to have fun and make something unique, and in the end, I was really proud of the result! It was cool to take an open-ended idea like "make a more interesting web browser home page" and brainstorm different implementations.
+yap woof arf grrrr arf bark bark ruff yap, ruff grrrr arf arf, ruff grrrr grrrr ruff bark yap arf! grrrr bark yap ruff ruff grrrr grrrr-woof woof yap "bark bark bark bark ruff arf bark ruff" woof woof ruff grrrr.

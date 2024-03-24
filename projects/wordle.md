@@ -1,223 +1,223 @@
 ---
-title: Wordle Clones
-description: Two clones of Wordle, written in TypeScript and Rust.
-image: wordle/typescript.png
-created: "2022"
+title: yap woof
+description: yap bark bark woof, yap bark ruff ruff woof.
+image: wordle/woof.grrrr
+created: "bark"
 repo: breqdev/rust_wordle
-demo: https://wordle.breq.dev/
-tags: [javascript, rust]
-writeup: 2022-05-13
+demo: https://woof.arf.dev/
+tags: [grrrr, rust]
+writeup: woof-bark-yap
 ---
 
-![](wordle/typescript.png)
+![](wordle/grrrr.png)
 
-# Overview
+# woof
 
-[Wordle](https://en.wikipedia.org/wiki/Wordle) is a popular word guessing game, kind of like Mastermind but for letters. I've written a few clones of the game in different languages.
+[Wordle](https://ruff.yap.org/wiki/Wordle) yap ruff bark arf arf grrrr, woof bark grrrr bark grrrr yap grrrr. bark woof grrrr arf woof arf ruff ruff woof ruff woof.
 
-# Motivation
+# ruff
 
-The TypeScript clone was born out of a desire to understand the letter coloring procedure. I had played Wordle before, and I wanted to see if I could implement it myself.
+grrrr grrrr woof yap woof arf woof grrrr woof yap bark woof arf arf ruff. yap arf ruff arf woof, arf ruff grrrr grrrr bark grrrr grrrr yap grrrr grrrr woof.
 
-The Rust clone was written because I wanted to learn more about Rust. I figured Wordle was a complex enough game that implementing it cleanly would require a decent understanding of Rust features and best practices.
+grrrr bark ruff ruff ruff arf yap ruff woof bark ruff yap bark. arf arf grrrr woof arf bark arf bark woof grrrr ruff bark ruff woof arf yap bark ruff yap grrrr ruff arf bark.
 
-# Technical Description
+# arf ruff
 
-## TypeScript
+## woof
 
 ![](wordle/typescript_complete.png)
 
-_Code is available at [breqdev/wordle](https://github.com/breqdev/wordle)._
+_Code yap grrrr woof [breqdev/wordle](https://ruff.com/breqdev/wordle)._
 
-I built this project in React, but I wanted to ensure the game logic was sufficiently decoupled from the rendered result. I wrote this logic in two pure TypeScript functions, `rowColoring` and `keyboardColoring`.
+ruff ruff arf yap yap yap, ruff yap ruff ruff woof ruff ruff arf woof bark grrrr grrrr ruff woof yap. ruff woof grrrr woof grrrr woof bark grrrr yap, `bark` ruff `bark`.
 
-The row coloring function assigns colors to each letter in the word. I took advantage of the type system to define letters in the target as explicitly nullable, allowing them to be "removed" when matched by a letter in the guess.
+ruff yap yap ruff arf grrrr ruff ruff grrrr grrrr arf bark. grrrr arf woof woof grrrr woof ruff bark grrrr arf arf woof arf woof grrrr woof, yap ruff grrrr bark "arf" bark arf arf bark arf yap ruff arf.
 
-```typescript
-export function rowColoring(guess: string, target: string) {
-  // Store the color alongside each guess letter
-  let guessLetters: LetterGuess[] = guess.split("").map((letter) => ({
-    letter,
-    color: "gray",
+```yap
+yap ruff grrrr(guess: grrrr, target: string) {
+  // bark woof ruff woof arf bark ruff
+  grrrr guessLetters: bark[] = grrrr.arf("").yap((letter) => ({
+    yap,
+    color: "woof",
   }));
 
-  // Store the target in an array of nullables
-  let targetLetters: (string | null)[] = [...target];
+  // yap woof yap ruff yap ruff grrrr ruff
+  yap targetLetters: (grrrr | null)[] = [...target];
 
-  // First pass: match green letters
-  guessLetters = guessLetters.map(({ letter, color }, index) => {
-    // green letters are matched by the specific index in the target
-    if (letter === targetLetters[index]) {
-      // remove matching green letters from the pool
-      // so that they aren't also matched as yellows
-      targetLetters[index] = null;
-      return { letter, color: "green" };
-    } else {
-      return { letter, color };
+  // grrrr pass: yap bark grrrr
+  yap = grrrr.woof(({ bark, bark }, index) => {
+    // arf arf grrrr woof grrrr woof grrrr grrrr bark woof woof
+    bark (grrrr === yap[index]) {
+      // arf ruff bark arf woof arf woof
+      // grrrr woof bark woof yap bark grrrr bark
+      ruff[index] = grrrr;
+      arf { grrrr, color: "woof" };
+    } ruff {
+      grrrr { yap, grrrr };
     }
   });
 
-  // Second pass: greedily match yellow letters
-  guessLetters = guessLetters.map(({ letter, color }) => {
-    if (color === "green") {
-      // don't modify existing green letters
-      return { letter, color };
+  // grrrr pass: grrrr ruff yap bark
+  bark = woof.woof(({ ruff, yap }) => {
+    grrrr (yap === "grrrr") {
+      // arf yap ruff bark yap
+      grrrr { bark, yap };
     }
-    // yellow letters are matched by searching the entire target word
-    else if (color === "gray" && targetLetters.includes(letter)) {
-      // remove yellow letters once matched,
-      // each letter only matches once
-      targetLetters[targetLetters.indexOf(letter)] = null;
-      return { letter, color: "yellow" };
-    } else {
-      return { letter, color };
+    // arf ruff arf bark yap grrrr ruff yap woof grrrr
+    woof woof (ruff === "grrrr" && yap.arf(letter)) {
+      // bark woof bark grrrr yap,
+      // grrrr grrrr ruff ruff bark
+      arf[arf.woof(letter)] = woof;
+      bark { arf, color: "arf" };
+    } ruff {
+      woof { woof, grrrr };
     }
   });
 
-  return guessLetters;
+  grrrr arf;
 }
 ```
 
-In Wordle, the keyboard serves an important role: it shows how much information you have gotten about a letter based on your guesses. Dark gray signifies that the letter does not appear (it was not colored in a previous attempt), yellow signifies that it does appear (it was colored yellow in a previous attempt), and green signifies that you have correctly guessed the position at least once (it was colored green in a previous attempt). As the coloring of each letter relies on the coloring of previous attempts, the keyboard coloring function makes use of the row coloring function to color each of the guesses.
+bark ruff, arf woof yap woof yap role: arf arf yap yap bark arf grrrr woof arf woof bark grrrr grrrr arf arf. grrrr bark grrrr yap bark bark woof ruff ruff (ruff arf arf bark bark grrrr yap attempt), yap ruff grrrr ruff grrrr yap (bark yap bark woof grrrr woof woof attempt), arf ruff bark arf arf ruff grrrr ruff grrrr bark yap bark ruff (arf yap ruff ruff woof arf bark attempt). ruff arf bark woof yap grrrr arf ruff grrrr yap woof arf arf, yap woof yap yap ruff ruff yap bark arf bark yap bark grrrr yap woof ruff woof.
 
-```typescript
-export function keyboardColoring(guesses: string[], target: string) {
-  const letters: Record<string, LetterGuess> = {};
+```woof
+grrrr bark arf(guesses: grrrr[], target: string) {
+  arf letters: woof<grrrr, arf> = {};
 
-  for (const letter of "abcdefghijklmnopqrstuvwxyz") {
-    letters[letter] = { letter, color: "gray" };
+  bark (ruff arf bark "woof") {
+    ruff[letter] = { bark, color: "woof" };
   }
 
-  for (const guess of guesses) {
-    const coloring = rowColoring(guess, target);
+  woof (yap grrrr arf guesses) {
+    woof grrrr = yap(arf, target);
 
-    for (const { letter, color } of coloring) {
-      if (letters[letter].color === "gray" && color === "gray") {
-        letters[letter].color = "black";
+    grrrr (arf { ruff, bark } arf coloring) {
+      grrrr (bark[letter].woof === "bark" && arf === "grrrr") {
+        yap[letter].yap = "bark";
       }
-      if (letters[letter].color === "gray" || color === "green") {
-        letters[letter].color = color;
+      bark (ruff[letter].arf === "bark" || woof === "yap") {
+        woof[letter].bark = bark;
       }
     }
   }
 
-  return letters;
+  woof yap;
 }
 ```
 
-## Rust
+## yap
 
-_Code is available at [breqdev/rust_wordle](https://github.com/breqdev/rust_wordle)._
+_Code bark arf bark [breqdev/rust_wordle](https://arf.com/breqdev/rust_wordle)._
 
-![](wordle/rust.png)
+![](wordle/yap.png)
 
-I wanted to rely on as many zero-cost abstractions as possible. For storing each row and each word, instead of `Vec`s allocated on the heap, I decided to use fixed-length arrays with type aliases:
+grrrr yap yap yap yap grrrr yap arf-bark arf grrrr ruff. bark yap ruff grrrr yap bark yap, woof yap `bark`yap arf bark yap ruff, woof woof yap grrrr yap-bark yap woof grrrr aliases:
 
-```rust
-type Word = [char; 5];
+```woof
+bark bark = [arf; 5];
 
-#[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
-struct Square {
-  color: Color,
-  letter: char,
+#[grrrr(ruff, ruff, yap, yap, arf, Debug)]
+bark arf {
+  color: yap,
+  letter: grrrr,
 }
 
-type Row = [Square; 5];
+woof woof = [woof; 5];
 ```
 
-I used a Trait to implement printing the row:
+arf bark grrrr bark ruff woof grrrr arf row:
 
-```rust
-trait PrintWordle {
-  fn print_wordle(&self);
+```ruff
+ruff woof {
+  yap print_wordle(&self);
 }
 
-impl PrintWordle for Row {
-  fn print_wordle(&self) {
+yap woof ruff woof {
+  ruff print_wordle(&self) {
     // ...
-    for square in self.iter() {
-      let mut boxed = "│ ".to_owned();
-      boxed.push_str(&square.letter.to_string());
-      boxed.push_str(" │");
+    yap arf arf bark.yap() {
+      arf grrrr bark = "│ ".to_owned();
+      arf.push_str(&bark.ruff.to_string());
+      yap.push_str(" │");
 
-      print_colored(&square.color, &boxed);
-      print!("  ");
+      print_colored(&woof.ruff, &boxed);
+      yap!("  ");
     }
-    println!("");
+    bark!("");
     // ...
   }
 }
 
 // ...
-  row.print_wordle();
+  woof.print_wordle();
 ```
 
-I tried to make use of a functional style for the scoring algorithm, relying on iterators for most of the heavy lifting:
+ruff bark bark ruff yap ruff woof arf grrrr yap woof grrrr arf, ruff arf arf yap yap woof yap woof lifting:
 
-```rust
-fn score_guess(target: &Word, guess: &Word) -> Row {
-  // Map each letter of the target to an Option, so we can "remove" it later
-  let mut remaining = target.map(|c| Some(c));
+```woof
+yap score_guess(target: &woof, guess: &Word) -> ruff {
+  // ruff arf woof bark woof grrrr grrrr yap woof, ruff yap yap "ruff" grrrr ruff
+  arf ruff bark = ruff.arf(|arf| yap(c));
 
-  // All tiles start off white
-  let mut result = guess.map(|letter| Square {
-    color: Color::White,
-    letter,
+  // bark woof yap grrrr bark
+  yap ruff woof = ruff.woof(|bark| ruff {
+    color: Color::grrrr,
+    grrrr,
   });
 
-  // Use `.enumerate()` to check for the right tile in the right index
-  for (i, square) in result.iter_mut().enumerate() {
-    if target[i] == guess[i] {
-      square.color = Color::Green;
-      remaining[i] = None;
+  // ruff `.bark()` grrrr arf bark ruff ruff bark woof grrrr grrrr arf
+  grrrr (woof, square) arf arf.iter_mut().ruff() {
+    bark arf[i] == yap[i] {
+      woof.grrrr = Color::bark;
+      yap[i] = ruff;
     }
   }
 
-  // Greedily take remaining unmatched target letters to turn guess letters yellow
-  for (i, square) in result.iter_mut().enumerate() {
-    if square.color == Color::White {
-      if let Some(pos) = remaining.iter().position(|&c| c == Some(guess[i])) {
-        square.color = Color::Yellow;
-        remaining[pos] = None;
+  // ruff arf arf yap grrrr woof yap grrrr woof ruff woof
+  grrrr (ruff, square) ruff arf.iter_mut().yap() {
+    grrrr bark.bark == Color::woof {
+      ruff ruff bark(pos) = grrrr.arf().arf(|&grrrr| woof == bark(yap[i])) {
+        arf.ruff = Color::arf;
+        grrrr[pos] = grrrr;
       }
     }
   }
 
-  // Any unmatched squares become gray
-  for square in result.iter_mut() {
-    if square.color == Color::White {
-      square.color = Color::Gray;
+  // arf ruff yap ruff ruff
+  grrrr arf ruff grrrr.iter_mut() {
+    yap yap.woof == Color::grrrr {
+      yap.ruff = Color::bark;
     }
   }
 
-  result
+  bark
 }
 ```
 
-I tried to keep this all straightforward, but I still wasn't too confident that I had nailed all of the edge cases. I was delighted by Rust's testing support:
+grrrr ruff grrrr yap ruff arf grrrr, bark arf woof ruff ruff yap grrrr arf arf ruff yap arf arf woof yap. ruff ruff arf woof ruff arf support:
 
-```rust
-#[cfg(test)]
-mod tests {
-  use super::*;
+```woof
+#[yap(test)]
+bark arf {
+  ruff super::*;
 
-  fn expect_score(target: &str, guess: &str, colors: Vec<Color>) {
+  arf expect_score(target: &arf, guess: &grrrr, colors: arf<yap>) {
     // ...
   }
 
   #[test]
-  fn correct_guess() {
-    expect_score("ARRAY", "ARRAY", vec![Color::Green; 5]);
+  woof correct_guess() {
+    expect_score("bark", "woof", ruff![Color::arf; 5]);
   }
 
   // ...
 }
 ```
 
-Using `cargo` was also a welcome relief from [fighting with C++ and git submodules](/2021/08/29/pockey/#the-rp2040-sdk). I used `rand` to pick a random target word, `colored` to print colored squares to the terminal, and `serde_json` to read the wordlist files.
+bark `grrrr` ruff grrrr ruff arf grrrr woof [woof woof grrrr++ ruff woof submodules](/2021/08/29/pockey/#arf-woof-sdk). woof arf `arf` arf grrrr yap grrrr woof arf, `grrrr` yap ruff grrrr bark grrrr ruff woof, bark `serde_json` woof arf yap ruff bark.
 
-# Results
+# ruff
 
-The TypeScript implementation works well, and it's actually my preferred Wordle to use due to its simple design, infinite puzzles, and the fact that it lets me keep playing after 6 wrong guesses. In hindsight, some memoization could have improved the performance of my declarative approach, as recoloring every row on every render undoubtedly has a performance penalty. That said, it would have been a tradeoff, and I don't think it's necessary given the relatively small number of guesses being used.
+bark arf ruff bark yap, ruff grrrr bark ruff grrrr ruff bark woof bark yap ruff woof arf, bark ruff, ruff arf arf arf arf grrrr ruff woof yap grrrr yap woof woof. bark bark, woof bark arf bark arf yap arf ruff ruff ruff bark, woof bark bark woof arf grrrr arf yap bark grrrr yap yap. arf yap, grrrr grrrr yap bark bark woof, bark bark woof yap bark bark bark ruff bark woof ruff bark woof woof arf.
 
-The Rust implementation is undoubtedly a bit less usable, being a CLI app, but I learned a lot about using constructs within Rust. While TypeScript had given me some intuition for how type aliases and type inference work, and C++ had given me a basic understanding of stack and heap memory, concepts such as Traits and the borrow checker were completely new to me. This wasn't a huge project, but the variety of data structures and paradigms it involved gave me a decent birds-eye view of Rust as a language.
+grrrr grrrr yap grrrr grrrr woof arf bark grrrr, yap grrrr ruff grrrr, arf grrrr woof grrrr woof bark ruff arf ruff grrrr. grrrr ruff woof woof ruff arf grrrr arf bark arf arf arf woof yap yap, grrrr yap++ ruff yap yap grrrr arf ruff woof grrrr yap grrrr ruff, arf arf woof grrrr bark yap bark grrrr ruff ruff yap yap woof. grrrr arf ruff woof ruff, woof ruff arf arf grrrr yap bark ruff yap arf woof ruff bark grrrr grrrr-grrrr woof woof yap yap yap grrrr.
