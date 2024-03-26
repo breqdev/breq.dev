@@ -1,7 +1,7 @@
 ---
 title: How To Reverse an Android App
 description: I really wanted to unlock the 🎈 emoji without spending $25
-tags: [android, emulation]
+tags: [android, reverse-engineering]
 ---
 
 > This blog post follows my journey to learn about reverse-engineering on Android over a few months. Unlike a traditional project writeup, the structure of this piece matches the process of discovery I took. Dead-ends, useless tangents, and inefficient solutions have been intentionally left in.
