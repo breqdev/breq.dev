@@ -28,7 +28,7 @@ function Post(props: PostInfo & BasicMarkdownInfo) {
           <Balancer>{props.description}</Balancer>
         </p>
       </section>
-      <div className="absolute inset-0 z-10 transform rounded-2xl bg-panpink transition-transform group-hover:translate-x-3 group-hover:translate-y-3 group-focus:translate-x-4 group-focus:translate-y-2" />
+      <div className="absolute inset-0 z-10 transform rounded-2xl bg-panpink group-hover:translate-x-3 group-hover:translate-y-3 group-focus:translate-x-4 group-focus:translate-y-2 motion-safe:transition-transform" />
     </Link>
   );
 }

@@ -30,7 +30,7 @@ function Color({ hex }: { hex: string }) {
       }}
     >
       {hex}
-      <span className="pointer-events-none absolute left-0 right-0 bottom-0 z-20 rounded-full border border-black bg-white text-sm text-black opacity-0 transition duration-300 group-hover:translate-y-6 group-hover:opacity-90 group-focus:translate-y-6 group-focus:opacity-90">
+      <span className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 rounded-full border border-black bg-white text-sm text-black opacity-0 group-hover:translate-y-6 group-hover:opacity-90 group-focus:translate-y-6 group-focus:opacity-90 motion-safe:transition motion-safe:duration-300">
         {copied ? "copied!" : "click to copy"}
       </span>
     </button>
@@ -69,7 +69,7 @@ function Font({ name, comment }: { name: string; comment: string }) {
         The quick brown fox jumps over the lazy dog
       </p>
       <div
-        className="mx-auto w-full max-w-md p-8 md:absolute md:right-40 md:top-0 md:bottom-0"
+        className="mx-auto w-full max-w-md p-8 md:absolute md:bottom-0 md:right-40 md:top-0"
         style={{
           backgroundImage:
             "linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0))",
