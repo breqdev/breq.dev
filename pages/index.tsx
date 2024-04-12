@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import useScroll from "../components/models/useScroll";
 
 import Page from "../components/Page";
@@ -121,10 +121,57 @@ function usePronouns() {
   return pronouns;
 }
 
+function Greeting({
+  position,
+}: {
+  position: "justify-center" | "justify-end";
+}) {
+  const pronouns = usePronouns();
+
+  return (
+    <div className={"flex " + position}>
+      <div className="flex flex-col" style={{ textShadow: "#000 0 0 30px" }}>
+        <h1 className="text-7xl">
+          hey, i'm
+          <br />
+          <span className="text-panpink">brooke chalmers.</span>
+        </h1>
+        <p className="text-right text-6xl text-gray-500">({pronouns}).</p>
+        <h2 className="mt-12 text-right text-3xl">
+          welcome to my little patch of internet.
+        </h2>
+      </div>
+    </div>
+  );
+}
+
 export default function Index(props: {
   data: (BasicMarkdownInfo & ProjectInfo)[];
 }) {
-  const pronouns = usePronouns();
+  const [fancy, setFancy] = useState(true);
+
+  useEffect(() => {
+    // check for fancy query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const fancyParam = urlParams.get("fancy");
+    if (fancyParam !== null) {
+      setFancy(fancyParam === "true");
+      return;
+    }
+
+    // otherwise, turn off fancy mode if any of the following:
+    // - prefers-reduced-motion is set
+    // - computer does not support webgl
+
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !window.WebGLRenderingContext
+    ) {
+      setFancy(false);
+    } else {
+      setFancy(true);
+    }
+  }, []);
 
   return (
     <Page>
@@ -133,51 +180,48 @@ export default function Index(props: {
         description="Welcome to my little patch of internet. View my projects, posts, and experiments here."
       />
       <div className="relative z-10 bg-black text-white">
-        <div className="mx-auto h-[200vh] max-w-6xl px-8 font-display sm:px-16">
-          <div className="relative h-screen">
+        <div
+          className={
+            "mx-auto max-w-6xl px-8 font-display sm:px-16 " +
+            (fancy ? "h-[200vh]" : "h-screen")
+          }
+        >
+          <div className="relative h-screen pt-64">
+            {!fancy && <Greeting position="justify-center" />}
             <ScrollDownHint />
           </div>
 
-          <div className="flex justify-end">
-            <div
-              className="flex flex-col"
-              style={{ textShadow: "#000 0 0 30px" }}
-            >
-              <h1 className="text-7xl">
-                hey, i'm
-                <br />
-                <span className="text-panpink">brooke chalmers.</span>
-              </h1>
-              <p className="text-right text-6xl text-gray-500">({pronouns}).</p>
-              <h2 className="mt-12 text-right text-3xl">
-                welcome to my little patch of internet.
-              </h2>
-            </div>
+          {fancy && <Greeting position="justify-end" />}
+        </div>
+
+        {fancy && (
+          <div className="relative mx-auto h-[200vh] max-w-6xl px-8 py-32 text-center font-display">
+            <h2 className="sticky top-0 mb-2 py-32 text-6xl">projects</h2>
           </div>
-        </div>
+        )}
 
         <div
-          style={{ height: "200vh" }}
-          className="relative mx-auto max-w-6xl px-8 py-32 text-center font-display"
+          className={
+            "relative z-10 mx-auto max-w-6xl px-8 py-32 text-center font-display " +
+            (fancy ? "h-[200vh]" : "")
+          }
         >
-          <h2 className="sticky top-0 mb-2 py-32 text-6xl">projects</h2>
-        </div>
-
-        <div
-          style={{ height: "200vh" }}
-          className="relative z-10 mx-auto max-w-6xl px-8 py-32 text-center font-display"
-        >
+          {!fancy && <h2 className="top-0 mb-2 py-32 text-6xl">projects</h2>}
           <Projects {...props} />
         </div>
 
-        <div
-          style={{ height: "200vh" }}
-          className="mx-auto max-w-6xl px-8 py-32 text-center font-display"
-        >
-          <h2 className="sticky top-0 mb-2 py-32 text-6xl">about me</h2>
-        </div>
+        {fancy && (
+          <div className="mx-auto h-[200vh] max-w-6xl px-8 py-32 text-center font-display">
+            <h2 className="sticky top-0 mb-2 py-32 text-6xl">about me</h2>
+          </div>
+        )}
 
         <div className="mx-auto max-w-prose px-8 pb-16 font-display text-2xl">
+          {!fancy && (
+            <h2 className="top-0 mb-16 text-center font-display text-6xl">
+              about me
+            </h2>
+          )}
           <p>
             <span className="font-bold text-panpink">hey, i'm brooke</span>, and
             i'm here to learn, create, and have fun.
@@ -211,9 +255,11 @@ export default function Index(props: {
 
         <TerminalWrapper />
 
-        <LazyWrapper>
-          <Background />
-        </LazyWrapper>
+        {fancy && (
+          <LazyWrapper>
+            <Background />
+          </LazyWrapper>
+        )}
       </div>
     </Page>
   );
