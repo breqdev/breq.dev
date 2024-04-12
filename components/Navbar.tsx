@@ -6,7 +6,7 @@ import Link from "next/link";
 function SkipNavigation() {
   return (
     <a
-      className="absolute left-0 top-0 ml-10 -translate-y-full rounded-b-xl border-x-2 border-b-2 border-black bg-panblue p-2 text-black underline transition-transform focus:translate-y-0"
+      className="absolute left-0 top-0 ml-10 -translate-y-full rounded-b-xl border-x-2 border-b-2 border-black bg-panblue p-2 text-black underline focus:translate-y-0 motion-safe:transition-transform"
       href="#main"
     >
       skip navigation
@@ -29,8 +29,8 @@ function Wordmark({
     <>
       <span
         className={
-          "inline-block transition-transform " +
-          (flipped ? "translate-y-2 rotate-180" : "")
+          "inline-block motion-safe:transition-transform " +
+          (flipped ? "motion-safe:translate-y-2 motion-safe:rotate-180" : "")
         }
       >
         breq
@@ -96,7 +96,7 @@ export default function Navbar() {
 
         <div
           className={
-            "absolute left-0 mt-16 w-full overflow-hidden bg-panpink transition-[max-height] duration-500 md:static md:mt-0 md:flex " +
+            "absolute left-0 mt-16 w-full overflow-hidden bg-panpink duration-500 motion-safe:transition-[max-height] md:static md:mt-0 md:flex " +
             (expanded ? "max-h-96" : " max-h-0 md:max-h-96")
           }
         >

@@ -23,7 +23,7 @@ function EtcBlock({
         <h2 className="mb-2 text-center font-display text-3xl">{title}</h2>
         <p className="text-center font-body">{children}</p>
       </div>
-      <div className="absolute inset-0 transform rounded-xl bg-panpink transition-transform group-hover:translate-x-3 group-hover:translate-y-2 group-focus:translate-x-3 group-focus:translate-y-2" />
+      <div className="absolute inset-0 transform rounded-xl bg-panpink group-hover:translate-x-3 group-hover:translate-y-2 group-focus:translate-x-3 group-focus:translate-y-2 motion-safe:transition-transform" />
     </>
   );
 
@@ -52,7 +52,7 @@ export default function Etc() {
         <h1 className="text-center font-display text-5xl">
           all the other things
         </h1>
-        <div className="my-8 mx-4 flex flex-col gap-8">
+        <div className="mx-4 my-8 flex flex-col gap-8">
           <EtcBlock title="browse tags" page="/tags">
             projects and blog posts, categorized by tag.
           </EtcBlock>
