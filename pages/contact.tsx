@@ -3,7 +3,6 @@ import {
   faGithub,
   faGitlab,
   faInstagram,
-  faKeybase,
   faLinkedin,
   faMastodon,
   faReddit,
@@ -15,13 +14,9 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import {
-  faAt,
-  faC,
-  faCloud,
   faEnvelope,
   faLock,
   faMoneyBillTransfer,
-  faPlane,
   faRadio,
   faServer,
   IconDefinition,
@@ -216,13 +211,6 @@ export default function Contact() {
             username="breq@breq.dev"
             label="SSH keys"
             description=".ssh/authorized_keys"
-          />
-          <ContactItem
-            url=""
-            icon={faPlane}
-            username="FA3LMCNCYL"
-            label="FAA Drone"
-            description="drone license"
           />
         </ContactCategory>
       </div>
