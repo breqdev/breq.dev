@@ -56,6 +56,12 @@ export default function Etc() {
           <EtcBlock title="browse tags" page="/tags">
             projects and blog posts, categorized by tag.
           </EtcBlock>
+          <EtcBlock title="directory" page="/directory">
+            meet some of my friends :)
+          </EtcBlock>
+          <EtcBlock title="writing" page="/writing">
+            old writing projects (i don't do this much anymore).
+          </EtcBlock>
           <EtcBlock title="rss feed" page="/rss.xml" external>
             subscribe to blog posts and project writeups.
           </EtcBlock>
