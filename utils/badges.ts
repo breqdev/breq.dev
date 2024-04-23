@@ -1,11 +1,29 @@
 export type Badge = {
+  // Pnline handle
   tag?: string;
+
+  // Commonly-used name
   name: string;
+
+  // URL to their site
   url: string;
+
+  // Primary 88x31 badge image
   image?: string;
+
+  // Alternate 88x31 badge image
+  alt?: string;
+
+  // Placeholder text if no image is present
   placeholder?: string;
+
+  // Short bio
   bio: string;
+
+  // Amateur radio callsign, if publicized
   callsign?: string;
+
+  // Badge image background color
   color: string;
 };
 
@@ -14,6 +32,7 @@ export const BADGES: Badge[] = [
     tag: "breq",
     name: "brooke chalmers",
     image: "/badges/breq.png",
+    alt: "/badges/breqalt.png",
     url: "https://breq.dev/",
     bio: "",
     callsign: "K9BRQ",
@@ -62,6 +81,7 @@ export const BADGES: Badge[] = [
     tag: "adryd",
     name: "ariana [redacted]",
     image: "/badges/adryd.png",
+    alt: "/badges/adrydalt.png",
     url: "https://adryd.com/",
     bio: "technology witch, designer, software dev",
     color: "#793A80",

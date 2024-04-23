@@ -19,6 +19,23 @@ export default function oneko(startX, startY, startAlert) {
 
   const nekoSites = BADGES.map((badge) => new URL(badge.url).host);
 
+  const nekoHitboxes = document.querySelectorAll(".oneko-hitbox");
+
+  function checkHitbox() {
+    for (const hitbox of nekoHitboxes) {
+      const rect = hitbox.getBoundingClientRect();
+      if (
+        nekoPosX > rect.left &&
+        nekoPosX < rect.right &&
+        nekoPosY > rect.top &&
+        nekoPosY < rect.bottom
+      ) {
+        const event = new Event("oneko");
+        hitbox.dispatchEvent(event);
+      }
+    }
+  }
+
   try {
     const searchParams = location.search
       .replace("?", "")
@@ -293,6 +310,8 @@ export default function oneko(startX, startY, startAlert) {
 
     nekoEl.style.left = `${nekoPosX - 16}px`;
     nekoEl.style.top = `${nekoPosY - 16}px`;
+
+    checkHitbox();
   }
 
   init();
