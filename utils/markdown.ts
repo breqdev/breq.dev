@@ -49,8 +49,8 @@ export async function loadMarkdown<FrontmatterType extends {}>(
             remarkUnwrapImages,
           ],
           rehypePlugins: [
-            rehypeKatex as any,
-            [rehypeImgSize, { dir: "public/images" }],
+            [rehypeKatex as any, { output: "mathml" }], // TODO: mathml only for RSS
+            [rehypeImgSize as any, { dir: "public/images" }],
             rehypeSlug,
           ],
         },
