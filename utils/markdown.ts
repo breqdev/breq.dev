@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import { serialize } from "next-mdx-remote/serialize";
 import matter from "gray-matter";
-import { join, parse } from "path";
+import { parse } from "path";
 
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -34,7 +34,7 @@ function getURL(path: string) {
 
 export async function loadMarkdown<FrontmatterType extends {}>(
   path: string,
-  { loadBody = false } = {}
+  { loadBody = false, mode = "full" } = {}
 ): Promise<BasicMarkdownInfo & FrontmatterType> {
   const filedata = await fs.readFile(path, "utf8");
   const { data: frontmatter, content: body } = matter(filedata);
@@ -49,7 +49,11 @@ export async function loadMarkdown<FrontmatterType extends {}>(
             remarkUnwrapImages,
           ],
           rehypePlugins: [
-            [rehypeKatex as any, { output: "mathml" }], // TODO: mathml only for RSS
+            [
+              rehypeKatex as any,
+              // RSS readers only like MathML
+              { output: mode === "full" ? "htmlAndMathml" : "mathml" },
+            ],
             [rehypeImgSize as any, { dir: "public/images" }],
             rehypeSlug,
           ],
