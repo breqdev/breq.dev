@@ -11,7 +11,9 @@ export default async function generateRssFeed() {
   const posts = await listContentFiles("posts");
 
   const postdata = await Promise.all(
-    posts.map((post) => loadMarkdown<PostInfo>(post, { loadBody: true }))
+    posts.map((post) =>
+      loadMarkdown<PostInfo>(post, { loadBody: true, mode: "minimal" })
+    )
   );
 
   const datedPosts = postdata.map((post) => ({
@@ -19,7 +21,7 @@ export default async function generateRssFeed() {
     date: getDateObject(post.slug),
   }));
 
-  const projects = await getSortedProjects({ loadBody: true });
+  const projects = await getSortedProjects({ loadBody: true, mode: "minimal" });
 
   const datedProjects = projects.map((project) => ({
     ...project,
