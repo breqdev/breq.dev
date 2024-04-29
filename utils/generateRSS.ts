@@ -28,13 +28,18 @@ export default async function generateRssFeed() {
   );
 
   const feedOptions = {
-    title: "breq.dev - Brooke Chalmers",
-    description: "Posts about tinkering with anything and everything!",
+    title: "breq.dev",
+    description:
+      "hey, i'm brooke. this feed tracks blog posts and project writeups.",
+    generator: "node-rss",
     site_url: "https://breq.dev",
     feed_url: "https://breq.dev/rss.xml",
     image_url: "https://breq.dev/opengraph.jpg",
+    managingEditor: "Brooke Chalmers <breq@breq.dev>",
+    webMaster: "Brooke Chalmers <breq@breq.dev>",
     pubDate: new Date(),
     copyright: `All rights reserved, Brooke Chalmers ${new Date().getFullYear()}`,
+    language: "en",
   };
 
   const feed = new RSS(feedOptions);
@@ -42,7 +47,7 @@ export default async function generateRssFeed() {
   sorted.slice(0, 20).forEach((post) => {
     feed.item({
       title: post.title,
-      description: post.description,
+      description: post.description, // TODO include content
       url: isFinite(parseFloat(post.slug.split("-")[0]))
         ? getURL(post.slug)
         : "/projects/" + post.slug,
