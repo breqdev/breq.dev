@@ -71,7 +71,7 @@ export default function ProjectCard({
             {tags?.map((tag) => (
               <span
                 key={tag}
-                className="inline-block rounded-full bg-panblue-light px-3 py-1 text-sm text-black"
+                className="inline-block whitespace-nowrap rounded-full bg-panblue-light px-3 py-1 text-sm text-black"
               >
                 {tag}
               </span>
