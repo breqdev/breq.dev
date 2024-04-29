@@ -42,14 +42,6 @@ export function getDateObject(slug: string) {
   return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
 }
 
-export function getURL(fullSlug: string) {
-  const {
-    date: [year, month, day],
-    slug,
-  } = parseSlug(fullSlug);
-  return `/${year}/${month}/${day}/${slug}`;
-}
-
 export function slugComparator(
   a: BasicMarkdownInfo & PostInfo,
   b: BasicMarkdownInfo & PostInfo
