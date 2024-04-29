@@ -39,7 +39,7 @@ export default async function generateRssFeed() {
     generator: "node-rss",
     site_url: "https://breq.dev",
     feed_url: "https://breq.dev/rss.xml",
-    image_url: "https://breq.dev/opengraph.jpg",
+    image_url: "https://breq.dev/rss.png",
     managingEditor: "Brooke Chalmers <breq@breq.dev>",
     webMaster: "Brooke Chalmers <breq@breq.dev>",
     pubDate: new Date(),
