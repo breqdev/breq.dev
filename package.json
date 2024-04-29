@@ -41,7 +41,6 @@
     "react-modal": "^3.16.1",
     "react-terminal-component": "^1.5.0",
     "react-twitter-embed": "^4.0.4",
-    "react-wrap-balancer": "^0.2.3",
     "rehype": "^12.0.1",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-img-size": "^1.0.1",

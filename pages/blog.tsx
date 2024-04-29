@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import Balancer from "react-wrap-balancer";
 
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
@@ -14,16 +13,12 @@ function Post(props: PostInfo & BasicMarkdownInfo) {
   return (
     <Link href={props.url} className="group relative outline-none">
       <section className="relative z-20 flex h-full flex-col rounded-2xl border-4 border-black bg-white p-4 text-black group-focus:border-panpink">
-        <h2 className="mb-2 text-2xl">
-          <Balancer>{props.title}</Balancer>
-        </h2>
+        <h2 className="mb-2 text-balance text-2xl">{props.title}</h2>
         <p>{date}</p>
         <div className="flex flex-grow flex-col justify-center">
           <hr className="my-1 border-black " />
         </div>
-        <p>
-          <Balancer>{props.description}</Balancer>
-        </p>
+        <p className="text-balance">{props.description}</p>
       </section>
       <div className="absolute inset-0 z-10 transform rounded-2xl bg-panpink group-hover:translate-x-3 group-hover:translate-y-3 group-focus:translate-x-4 group-focus:translate-y-2 motion-safe:transition-transform" />
     </Link>

@@ -6,7 +6,6 @@ import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { BasicMarkdownInfo } from "../../utils/markdown";
 import { ProjectInfo } from "../../utils/projects";
-import Balancer from "react-wrap-balancer";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const tags = await getTags();
@@ -57,12 +56,8 @@ export default function Tag({
               href={href(data)}
               className="flex flex-col gap-2 rounded-3xl border-2 border-black bg-white p-4 text-black focus:border-panpink dark:bg-gray-800 dark:text-white"
             >
-              <h2 className="text-2xl">
-                <Balancer>{data.title}</Balancer>
-              </h2>
-              <p>
-                <Balancer>{data.description}</Balancer>
-              </p>
+              <h2 className="text-balance text-2xl">{data.title}</h2>
+              <p className="text-balance">{data.description}</p>
             </Link>
           ))}
         </div>

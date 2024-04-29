@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Balancer from "react-wrap-balancer";
 
 import Page from "../../components/Page";
 import Markdown from "../../components/markdown/Markdown";
@@ -112,11 +111,9 @@ function ProjectHeader(props: ProjectInfo) {
           description={props.description}
           image={props.image?.src}
         />
-        <h1 className="text-5xl">
-          <Balancer>{props.title}</Balancer>
-        </h1>
-        <h2 className="mb-4 text-3xl text-gray-300">
-          <Balancer>{props.description}</Balancer>
+        <h1 className="text-balance text-5xl">{props.title}</h1>
+        <h2 className="mb-4 text-balance text-3xl text-gray-300">
+          {props.description}
         </h2>
         <ProjectInfoCard {...props} />
       </div>
