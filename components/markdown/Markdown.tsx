@@ -24,12 +24,16 @@ const shortcodes = {
 export default function Markdown({
   content,
   dark,
+  mode = "full",
 }: {
   content: any;
   dark?: boolean;
+  mode?: "minimal" | "full";
 }) {
   return (
-    <MarkdownContext.Provider value={{ poem: false, dark: dark || false }}>
+    <MarkdownContext.Provider
+      value={{ poem: false, dark: dark || false, mode }}
+    >
       <div className="font-body">
         <MDXRemote components={shortcodes} {...content} />
       </div>

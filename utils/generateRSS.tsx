@@ -4,12 +4,14 @@ import { PostInfo, getDateObject } from "./posts";
 import { listContentFiles } from "./api";
 import { loadMarkdown } from "./markdown";
 import { getSortedProjects } from "./projects";
+import Markdown from "../components/markdown/Markdown";
+import ReactDOMServer from "react-dom/server";
 
 export default async function generateRssFeed() {
   const posts = await listContentFiles("posts");
 
   const postdata = await Promise.all(
-    posts.map((post) => loadMarkdown<PostInfo>(post))
+    posts.map((post) => loadMarkdown<PostInfo>(post, { loadBody: true }))
   );
 
   const datedPosts = postdata.map((post) => ({
@@ -17,7 +19,7 @@ export default async function generateRssFeed() {
     date: getDateObject(post.slug),
   }));
 
-  const projects = await getSortedProjects();
+  const projects = await getSortedProjects({ loadBody: true });
 
   const datedProjects = projects.map((project) => ({
     ...project,
@@ -48,7 +50,9 @@ export default async function generateRssFeed() {
   sorted.slice(0, 20).forEach((post) => {
     feed.item({
       title: post.title,
-      description: post.description, // TODO include content
+      description: ReactDOMServer.renderToStaticMarkup(
+        <Markdown content={post.body} mode="minimal" />
+      ),
       url: post.url,
       categories: post.tags,
       date: post.date,

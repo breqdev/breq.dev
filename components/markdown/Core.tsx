@@ -4,6 +4,7 @@ import Link from "next/link";
 export const MarkdownContext = React.createContext({
   poem: false,
   dark: false,
+  mode: "full",
 });
 
 export function Paragraph({
@@ -23,7 +24,7 @@ export function Paragraph({
   return (
     <p
       className={
-        "my-4 mx-auto max-w-prose font-body text-lg " +
+        "mx-auto my-4 max-w-prose font-body text-lg " +
         (center ? "text-center" : "")
       }
     >
@@ -62,7 +63,7 @@ function A({ href, children }: { href: string; children: React.ReactNode }) {
 function BlockQuote({ children }: { children: React.ReactNode }) {
   return (
     <blockquote
-      className="mx-auto -my-1 max-w-3xl border-l-8 border-gray-400 py-1 pl-4 italic"
+      className="-my-1 mx-auto max-w-3xl border-l-8 border-gray-400 py-1 pl-4 italic"
       style={{ maxWidth: "min(max-content, 100%)" }}
     >
       {children}
@@ -84,7 +85,7 @@ function Hr() {
 
 function InlineCode({ children }: { children: React.ReactNode }) {
   return (
-    <code className="-my-1 -mx-0.5 rounded-xl bg-gray-200 p-1 font-mono dark:bg-gray-800">
+    <code className="-mx-0.5 -my-1 rounded-xl bg-gray-200 p-1 font-mono dark:bg-gray-800">
       {children}
     </code>
   );

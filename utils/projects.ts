@@ -15,11 +15,11 @@ export type ProjectInfo = {
   writeup: string; // ISO date
 };
 
-export async function getSortedProjects() {
+export async function getSortedProjects(options?: { loadBody?: boolean }) {
   const projects = await listContentFiles("projects");
 
   const data = await Promise.all(
-    projects.map((project) => loadMarkdown<ProjectInfo>(project))
+    projects.map((project) => loadMarkdown<ProjectInfo>(project, options))
   );
 
   return data.sort((a, b) => parseFloat(b.created) - parseFloat(a.created));
