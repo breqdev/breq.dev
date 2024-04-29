@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import Balancer from "react-wrap-balancer";
+import { MarkdownContext } from "./Core";
 
 function HoverLink({
   id,
@@ -10,9 +11,15 @@ function HoverLink({
   id: string;
   children: React.ReactNode;
 }) {
+  const { mode } = useContext(MarkdownContext);
+
+  if (mode === "minimal") {
+    return children as JSX.Element;
+  }
+
   return (
     <span className="relative">
-      <span className="absolute left-0 top-0 bottom-0 -ml-8">
+      <span className="absolute bottom-0 left-0 top-0 -ml-8">
         <a
           href={`#${id}`}
           className="text-xl opacity-0 outline-none transition-opacity duration-200 focus:opacity-100 group-hover:opacity-100"
@@ -29,7 +36,7 @@ function HoverLink({
 function Heading({ id, children }: { id: string; children: React.ReactNode }) {
   return (
     <h2
-      className="group mx-auto mt-8 mb-4 max-w-4xl text-center font-display text-4xl focus-within:text-panblue-dark"
+      className="group mx-auto mb-4 mt-8 max-w-4xl text-center font-display text-4xl focus-within:text-panblue-dark"
       style={{ scrollMarginTop: "100px" }}
       id={id}
     >
@@ -49,7 +56,7 @@ function SubHeading({
 }) {
   return (
     <h3
-      className="group mt-8 mb-4 text-center font-display text-3xl italic focus-within:text-panblue-dark"
+      className="group mb-4 mt-8 text-center font-display text-3xl italic focus-within:text-panblue-dark"
       style={{ scrollMarginTop: "100px" }}
       id={id}
     >
@@ -69,7 +76,7 @@ function SubSubHeading({
 }) {
   return (
     <h4
-      className="group mt-8 -mb-2 text-center font-display text-2xl underline focus-within:text-panblue-dark"
+      className="group -mb-2 mt-8 text-center font-display text-2xl underline focus-within:text-panblue-dark"
       style={{ scrollMarginTop: "100px" }}
       id={id}
     >

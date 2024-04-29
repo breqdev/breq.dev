@@ -15,7 +15,7 @@ function Poem({
   children: React.ReactNode;
 }) {
   return (
-    <MarkdownContext.Provider value={{ poem: true, dark: false }}>
+    <MarkdownContext.Provider value={{ poem: true, dark: false, mode: "full" }}>
       <section
         className={
           "mx-auto max-w-3xl pl-16 font-body text-lg " +
