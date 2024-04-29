@@ -17,9 +17,20 @@ export type BasicMarkdownInfo = {
   filename: string;
   slug: string;
   source: string;
+  url: string;
   body: MDXRemoteSerializeResult | null;
   image: ImageInfo | null;
 };
+
+function getURL(path: string) {
+  if (parse(path).dir === "posts") {
+    const slug = parse(path).name;
+    const [year, month, date, ...rest] = slug.split("-");
+    return `/${year}/${month}/${date}/${rest.join("-")}`;
+  } else {
+    return `/${parse(path).dir}/${parse(path).name}`;
+  }
+}
 
 export async function loadMarkdown<FrontmatterType extends {}>(
   path: string,
@@ -51,6 +62,7 @@ export async function loadMarkdown<FrontmatterType extends {}>(
     filename: path,
     slug: parse(path).name,
     source: parse(path).dir,
+    url: getURL(path),
     body: mdx,
     image: await loadImage(frontmatter.image),
     writeup:

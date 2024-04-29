@@ -68,7 +68,7 @@ function TagInfo({ tags }: { tags: string[] }) {
   );
 }
 
-function ProjectInfo(props: ProjectInfo) {
+function ProjectInfoCard(props: ProjectInfo) {
   const items = [
     {
       name: "created",
@@ -118,7 +118,7 @@ function ProjectHeader(props: ProjectInfo) {
         <h2 className="mb-4 text-3xl text-gray-300">
           <Balancer>{props.description}</Balancer>
         </h2>
-        <ProjectInfo {...props} />
+        <ProjectInfoCard {...props} />
       </div>
       <div className="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink" />
     </section>

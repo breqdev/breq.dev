@@ -1,6 +1,6 @@
 import RSS from "rss";
 import fs from "fs/promises";
-import { PostInfo, getDateObject, getURL } from "./posts";
+import { PostInfo, getDateObject } from "./posts";
 import { listContentFiles } from "./api";
 import { loadMarkdown } from "./markdown";
 import { getSortedProjects } from "./projects";
@@ -49,9 +49,7 @@ export default async function generateRssFeed() {
     feed.item({
       title: post.title,
       description: post.description, // TODO include content
-      url: isFinite(parseFloat(post.slug.split("-")[0]))
-        ? getURL(post.slug)
-        : "/projects/" + post.slug,
+      url: post.url,
       categories: post.tags,
       date: post.date,
     });

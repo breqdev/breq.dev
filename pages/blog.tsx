@@ -6,13 +6,13 @@ import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
 import { listContentFiles } from "../utils/api";
 import { BasicMarkdownInfo, loadMarkdown } from "../utils/markdown";
-import { getDateLabel, getURL, PostInfo, slugComparator } from "../utils/posts";
+import { getDateLabel, PostInfo, slugComparator } from "../utils/posts";
 
 function Post(props: PostInfo & BasicMarkdownInfo) {
   const date = getDateLabel(props.slug);
 
   return (
-    <Link href={getURL(props.slug)} className="group relative outline-none">
+    <Link href={props.url} className="group relative outline-none">
       <section className="relative z-20 flex h-full flex-col rounded-2xl border-4 border-black bg-white p-4 text-black group-focus:border-panpink">
         <h2 className="mb-2 text-2xl">
           <Balancer>{props.title}</Balancer>
