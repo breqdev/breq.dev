@@ -3,6 +3,18 @@ import Link from "next/link";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
 import useSWR from "swr";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import {
+  faGaugeHigh,
+  faHeart,
+  faPenRuler,
+  faPencil,
+  faSquareRss,
+  faTags,
+  faUsers,
+} from "@fortawesome/free-solid-svg-icons";
+import { faFileLines } from "@fortawesome/free-regular-svg-icons";
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
@@ -11,17 +23,22 @@ function EtcBlock({
   title,
   children,
   external,
+  icon,
 }: {
   page: string;
   title: string;
   children: React.ReactNode;
   external?: boolean;
+  icon: IconDefinition;
 }) {
   let content = (
     <>
-      <div className="relative z-10 rounded-xl border-2 border-black bg-white p-4 text-black group-focus:border-panpink">
-        <h2 className="mb-2 text-center font-display text-3xl">{title}</h2>
-        <p className="text-center font-body">{children}</p>
+      <div className="relative z-10 flex h-full flex-row gap-4 rounded-xl border-2 border-black bg-white p-4 text-black group-focus:border-panpink">
+        <FontAwesomeIcon className="text-5xl" icon={icon} />
+        <div className="flex flex-col gap-2">
+          <h2 className="font-display text-3xl">{title}</h2>
+          <p className="font-body">{children}</p>
+        </div>
       </div>
       <div className="absolute inset-0 transform rounded-xl bg-panpink group-hover:translate-x-3 group-hover:translate-y-2 group-focus:translate-x-3 group-focus:translate-y-2 motion-safe:transition-transform" />
     </>
@@ -29,13 +46,13 @@ function EtcBlock({
 
   if (external) {
     return (
-      <a href={page} className="group relative z-0 outline-none">
+      <a href={page} className="group relative z-0 h-full outline-none">
         {content}
       </a>
     );
   } else {
     return (
-      <Link href={page} className="group relative z-0 outline-none">
+      <Link href={page} className="group relative z-0 h-full outline-none">
         {content}
       </Link>
     );
@@ -48,34 +65,44 @@ export default function Etc() {
   return (
     <Page>
       <SEOHelmet title="Everything Else - breq.dev" />
-      <div className="mx-auto my-8 max-w-xl">
+      <div className="mx-auto my-8 max-w-2xl">
         <h1 className="text-center font-display text-5xl">
           all the other things
         </h1>
-        <div className="mx-4 my-8 flex flex-col gap-8">
-          <EtcBlock title="browse tags" page="/tags">
+        <div className="mx-4 my-8 grid grid-cols-1 place-items-stretch gap-8 md:grid-cols-2">
+          <EtcBlock title="browse tags" page="/tags" icon={faTags}>
             projects and blog posts, categorized by tag.
           </EtcBlock>
-          <EtcBlock title="directory" page="/directory">
+          <EtcBlock title="directory" page="/directory" icon={faUsers}>
             meet some of my friends :)
           </EtcBlock>
-          <EtcBlock title="writing" page="/writing">
-            old writing projects (i don't do this much anymore).
+          <EtcBlock title="writing" page="/writing" icon={faPencil}>
+            old assorted writing projects.
           </EtcBlock>
-          <EtcBlock title="rss feed" page="/rss.xml" external>
+          <EtcBlock
+            title="rss feed"
+            page="/rss.xml"
+            external
+            icon={faSquareRss}
+          >
             subscribe to blog posts and project writeups.
           </EtcBlock>
-          <EtcBlock title="my resume" page="/resume.pdf" external>
+          <EtcBlock
+            title="my resume"
+            page="/resume.pdf"
+            external
+            icon={faFileLines}
+          >
             download my current resume.
           </EtcBlock>
-          <EtcBlock title="status page" page="/status">
-            view the uptime status of any of my gazillion side projects.
+          <EtcBlock title="status page" page="/status" icon={faGaugeHigh}>
+            view the uptime of my gazillion side projects.
           </EtcBlock>
-          <EtcBlock title="design reference" page="/design">
-            fonts, colors, names, and other for my brand.
+          <EtcBlock title="design sheet" page="/design" icon={faPenRuler}>
+            reference fonts, colors, and names for my brand.
           </EtcBlock>
           {data?.sponsors?.length ? (
-            <EtcBlock title="sponsors" page="/sponsors">
+            <EtcBlock title="sponsors" page="/sponsors" icon={faHeart}>
               supporters of my work. thank you!
             </EtcBlock>
           ) : null}
