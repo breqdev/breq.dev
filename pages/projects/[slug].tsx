@@ -14,11 +14,8 @@ import {
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import SEOHelmet from "../../components/SEOHelmet";
 import Comments from "../../components/Comments";
-import {
-  BasicMarkdownInfo,
-  listContentFiles,
-  loadMarkdown,
-} from "../../utils/api";
+import { listContentFiles } from "../../utils/api";
+import { BasicMarkdownInfo, loadMarkdown } from "../../utils/markdown";
 import { parse } from "path";
 import { ProjectInfo } from "../../utils/projects";
 import { GetStaticPaths, GetStaticProps } from "next";

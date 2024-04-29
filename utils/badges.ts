@@ -1,5 +1,5 @@
 export type Badge = {
-  // Pnline handle
+  // Online handle
   tag?: string;
 
   // Commonly-used name

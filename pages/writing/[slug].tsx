@@ -6,11 +6,8 @@ import SEOHelmet from "../../components/SEOHelmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { parse } from "path";
-import {
-  BasicMarkdownInfo,
-  listContentFiles,
-  loadMarkdown,
-} from "../../utils/api";
+import { listContentFiles } from "../../utils/api";
+import { BasicMarkdownInfo, loadMarkdown } from "../../utils/markdown";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { WritingInfo } from "../../utils/writing";
 
@@ -76,7 +73,7 @@ export default function Writing(props: BasicMarkdownInfo & WritingInfo) {
                   <li key={warning}>{warning}</li>
                 ))}
               </ul>
-              <p className="mt-8 mb-4">Would you like to proceed?</p>
+              <p className="mb-4 mt-8">Would you like to proceed?</p>
               <div className="flex gap-4">
                 <button
                   className="flex-grow rounded-xl border-2 border-black bg-panpink p-4 outline-none focus:border-white"

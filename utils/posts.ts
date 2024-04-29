@@ -1,4 +1,4 @@
-import { BasicMarkdownInfo } from "./api";
+import { BasicMarkdownInfo } from "./markdown";
 
 export type PostInfo = {
   title: string;

@@ -14,7 +14,7 @@ import {
   faTimes,
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
-import { BasicMarkdownInfo } from "../utils/api";
+import { BasicMarkdownInfo } from "../utils/markdown";
 import { ImageInfo } from "../utils/images";
 import { GetStaticProps } from "next";
 
@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async () => {
 function SetHeading({ set }: { set: PhotoSetInfo & BasicMarkdownInfo }) {
   return (
     <article className="mx-4">
-      <div className="mx-auto mt-12 mb-8 flex max-w-xl flex-col gap-4 rounded-3xl border-2 border-white p-4 md:p-8">
+      <div className="mx-auto mb-8 mt-12 flex max-w-xl flex-col gap-4 rounded-3xl border-2 border-white p-4 md:p-8">
         <h2 className="text-center font-display text-4xl">{set.title}</h2>
         <Markdown content={set.body} dark />
       </div>
@@ -108,7 +108,7 @@ function PhotoDetail({
             />
           </a>
           <button
-            className="absolute top-0 right-0 px-4 py-2 text-5xl md:hidden"
+            className="absolute right-0 top-0 px-4 py-2 text-5xl md:hidden"
             onClick={onClose}
           >
             <FontAwesomeIcon icon={faTimes} />
@@ -116,7 +116,7 @@ function PhotoDetail({
         </div>
         <div className="flex flex-grow flex-col gap-2 overflow-auto px-4 py-4 md:w-72 md:max-w-md md:flex-shrink-0 md:py-0">
           <button
-            className="hidden self-end py-4 px-2 text-7xl outline-none focus-visible:text-panpink md:block"
+            className="hidden self-end px-2 py-4 text-7xl outline-none focus-visible:text-panpink md:block"
             onClick={onClose}
             ref={closeButton}
           >

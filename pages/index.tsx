@@ -12,7 +12,7 @@ import TerminalWrapper from "../components/index/TerminalWrapper";
 import LazyWrapper from "../utils/LazyWrapper";
 import { getSortedProjects, ProjectInfo } from "../utils/projects";
 import { GetStaticProps } from "next";
-import { BasicMarkdownInfo } from "../utils/api";
+import { BasicMarkdownInfo } from "../utils/markdown";
 import Link from "next/link";
 import generateRssFeed from "../utils/generateRSS";
 

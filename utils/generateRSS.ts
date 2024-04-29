@@ -1,7 +1,8 @@
 import RSS from "rss";
 import fs from "fs/promises";
-import { PostInfo, getDateObject, getURL, slugComparator } from "./posts";
-import { listContentFiles, loadMarkdown } from "./api";
+import { PostInfo, getDateObject, getURL } from "./posts";
+import { listContentFiles } from "./api";
+import { loadMarkdown } from "./markdown";
 import { getSortedProjects } from "./projects";
 
 export default async function generateRssFeed() {

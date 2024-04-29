@@ -4,11 +4,8 @@ import Balancer from "react-wrap-balancer";
 
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
-import {
-  BasicMarkdownInfo,
-  listContentFiles,
-  loadMarkdown,
-} from "../utils/api";
+import { listContentFiles } from "../utils/api";
+import { BasicMarkdownInfo, loadMarkdown } from "../utils/markdown";
 import { getDateLabel, getURL, PostInfo, slugComparator } from "../utils/posts";
 
 function Post(props: PostInfo & BasicMarkdownInfo) {
