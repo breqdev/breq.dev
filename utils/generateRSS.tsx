@@ -49,7 +49,7 @@ export default async function generateRssFeed() {
 
   const feed = new RSS(feedOptions);
 
-  sorted.slice(0, 20).forEach((post) => {
+  sorted.forEach((post) => {
     feed.item({
       title: post.title,
       description: ReactDOMServer.renderToStaticMarkup(
