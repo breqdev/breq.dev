@@ -4,7 +4,7 @@ import SEOHelmet from "../components/SEOHelmet";
 import Page from "../components/Page";
 import ProjectCard from "../components/ProjectCard";
 import { getSortedProjects, ProjectInfo } from "../utils/projects";
-import { BasicMarkdownInfo } from "../utils/api";
+import { BasicMarkdownInfo } from "../utils/markdown";
 import { GetStaticProps } from "next";
 
 export default function Projects({

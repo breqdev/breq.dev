@@ -2,11 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
-import {
-  BasicMarkdownInfo,
-  listContentFiles,
-  loadMarkdown,
-} from "../utils/api";
+import { listContentFiles } from "../utils/api";
+import { BasicMarkdownInfo, loadMarkdown } from "../utils/markdown";
 import { WritingInfo } from "../utils/writing";
 import { GetStaticProps } from "next";
 

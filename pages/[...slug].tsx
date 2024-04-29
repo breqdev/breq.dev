@@ -6,11 +6,8 @@ import Markdown from "../components/markdown/Markdown";
 import SEOHelmet from "../components/SEOHelmet";
 import Comments from "../components/Comments";
 import { getDateLabel } from "../utils/posts";
-import {
-  BasicMarkdownInfo,
-  listContentFiles,
-  loadMarkdown,
-} from "../utils/api";
+import { listContentFiles } from "../utils/api";
+import { BasicMarkdownInfo, loadMarkdown } from "../utils/markdown";
 import { parse } from "path";
 import { PostInfo } from "../utils/posts";
 import { GetStaticPaths, GetStaticProps } from "next";

@@ -4,7 +4,7 @@ import SEOHelmet from "../../components/SEOHelmet";
 import { getPostsByTag, getTags } from "../../utils/tags";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { BasicMarkdownInfo } from "../../utils/api";
+import { BasicMarkdownInfo } from "../../utils/markdown";
 import { ProjectInfo } from "../../utils/projects";
 import Balancer from "react-wrap-balancer";
 

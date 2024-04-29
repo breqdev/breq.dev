@@ -1,4 +1,5 @@
-import { listContentFiles, loadMarkdown } from "./api";
+import { listContentFiles } from "./api";
+import { loadMarkdown } from "./markdown";
 import { ImageInfo } from "./images";
 
 export type ProjectInfo = {
