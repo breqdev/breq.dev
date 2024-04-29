@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import Balancer from "react-wrap-balancer";
 import { MarkdownContext } from "./Core";
 
 function HoverLink({
@@ -18,7 +17,7 @@ function HoverLink({
   }
 
   return (
-    <span className="relative">
+    <span className="relative text-balance">
       <span className="absolute bottom-0 left-0 top-0 -ml-8">
         <a
           href={`#${id}`}
@@ -40,9 +39,7 @@ function Heading({ id, children }: { id: string; children: React.ReactNode }) {
       style={{ scrollMarginTop: "100px" }}
       id={id}
     >
-      <HoverLink id={id}>
-        <Balancer>{children}</Balancer>
-      </HoverLink>
+      <HoverLink id={id}>{children}</HoverLink>
     </h2>
   );
 }
@@ -60,9 +57,7 @@ function SubHeading({
       style={{ scrollMarginTop: "100px" }}
       id={id}
     >
-      <HoverLink id={id}>
-        <Balancer>{children}</Balancer>
-      </HoverLink>
+      <HoverLink id={id}>{children}</HoverLink>
     </h3>
   );
 }
@@ -80,9 +75,7 @@ function SubSubHeading({
       style={{ scrollMarginTop: "100px" }}
       id={id}
     >
-      <HoverLink id={id}>
-        <Balancer>{children}</Balancer>
-      </HoverLink>
+      <HoverLink id={id}>{children}</HoverLink>
     </h4>
   );
 }

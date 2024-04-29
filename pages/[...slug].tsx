@@ -1,5 +1,4 @@
 import React from "react";
-import Balancer from "react-wrap-balancer";
 
 import Page from "../components/Page";
 import Markdown from "../components/markdown/Markdown";
@@ -23,8 +22,8 @@ function PostHeader(props: BasicMarkdownInfo & PostInfo) {
           description={props.description}
           image={props.image?.src || undefined}
         />
-        <h1 className="mb-4 text-4xl md:text-6xl">
-          <Balancer>{props.title}</Balancer>
+        <h1 className="mb-4 text-balance text-4xl md:text-6xl">
+          {props.title}
         </h1>
         <p className="text-2xl">{date}</p>
       </section>

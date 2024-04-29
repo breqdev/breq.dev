@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { ProjectInfo } from "../utils/projects";
-import Balancer from "react-wrap-balancer";
 
 function ProjectVideo({ src }: { src: string }) {
   return (
@@ -55,12 +54,8 @@ export default function ProjectCard({
     >
       <section className="relative z-30 rounded-2xl border-4 border-black bg-white p-4 text-black group-focus:border-panpink dark:bg-gray-800 dark:text-white">
         <div className="h-32 overflow-hidden font-display">
-          <h2 className="text-3xl">
-            <Balancer>{title}</Balancer>
-          </h2>
-          <h3 className="mb-2">
-            <Balancer>{description}</Balancer>
-          </h3>
+          <h2 className="text-balance text-3xl">{title}</h2>
+          <h3 className="mb-2 text-balance">{description}</h3>
         </div>
         <div className="flex h-52 w-full overflow-hidden rounded-lg">
           {media}
