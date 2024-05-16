@@ -10,6 +10,7 @@ import remarkUnwrapImages from "remark-unwrap-images";
 import rehypeSlug from "rehype-slug";
 import rehypeKatex from "rehype-katex";
 import rehypeImgSize from "rehype-img-size";
+import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import { ImageInfo, loadImage } from "./images";
 import { MDXRemoteSerializeResult } from "next-mdx-remote/dist/types";
 
@@ -49,6 +50,7 @@ export async function loadMarkdown<FrontmatterType extends {}>(
             remarkUnwrapImages,
           ],
           rehypePlugins: [
+            rehypeMdxCodeProps as any,
             [
               rehypeKatex as any,
               // RSS readers only like MathML
