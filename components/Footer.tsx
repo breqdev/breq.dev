@@ -7,6 +7,7 @@ import {
   faChevronRight,
   faCode,
   IconDefinition,
+  faRssSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -43,6 +44,7 @@ export default function Footer() {
     [faEnvelope, "breq@breq.dev", "mailto:breq@breq.dev"],
     [faTwitter, "breqdev", "https://twitter.com/breqdev"],
     [faMastodon, "@breq@tacobelllabs.net", "https://tacobelllabs.net/@breq"],
+    [faRssSquare, "rss", "https://breq.dev/rss.xml"],
   ];
 
   const linkStyles =

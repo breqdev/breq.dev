@@ -6,6 +6,8 @@ import SEOHelmet from "../components/SEOHelmet";
 import { listContentFiles } from "../utils/api";
 import { BasicMarkdownInfo, loadMarkdown } from "../utils/markdown";
 import { getDateLabel, PostInfo, slugComparator } from "../utils/posts";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRssSquare } from "@fortawesome/free-solid-svg-icons";
 
 function Post(props: PostInfo & BasicMarkdownInfo) {
   const date = getDateLabel(props.slug);
@@ -52,7 +54,22 @@ export default function Posts({
     <Page className="bg-black text-white">
       <SEOHelmet title="Brooke's Blog: posts about tinkering with anything and everything" />
       <div className="mx-auto max-w-7xl text-center font-display">
-        <h1 className="my-8 text-6xl">blog</h1>
+        <div className="my-8 flex flex-col items-center gap-4">
+          <h1 className="text-6xl">blog posts</h1>
+          <p className="text-xl">
+            available via{" "}
+            <a
+              href="https://breq.dev/rss.xml"
+              className="font-bold text-orange-300"
+            >
+              <FontAwesomeIcon
+                icon={faRssSquare}
+                className="-mb-px -mr-0.5 ml-0.5"
+              />{" "}
+              rss
+            </a>
+          </p>
+        </div>
         <div className="place-stretch m-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts}
         </div>
