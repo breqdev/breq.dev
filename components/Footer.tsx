@@ -128,7 +128,6 @@ export default function Footer() {
               document.querySelector<HTMLDivElement>(
                 "#oneko-trigger"
               )!.style.display = "none";
-              console.log(bbox);
               oneko(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2, true);
               ONEKO_HAS_LOADED = true;
             }}

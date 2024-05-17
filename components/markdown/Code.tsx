@@ -147,8 +147,6 @@ export default function Code({ children, ...props }: { children: React.ReactElem
     return null;
   }
 
-  console.log(children, props);
-
   return (
     <div className="mx-auto my-2 w-max min-w-[min(100%,42rem)] max-w-full overflow-x-auto rounded-2xl bg-[#fff5fc] py-2 pl-4 pr-8 font-mono text-lg dark:bg-gray-800 flex flex-col border-2 border-black">
       {props.file && (
