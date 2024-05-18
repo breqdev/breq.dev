@@ -3,10 +3,11 @@ import { useDarkText } from "../components/Footer";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGavel, faScaleBalanced } from "@fortawesome/free-solid-svg-icons";
+import { faScaleBalanced } from "@fortawesome/free-solid-svg-icons";
 
 const COLORGRID = [
-  [null, "#b0e4ff", null, null, null],
+  ["#ff8ac4", "#b0e4ff", "#ffeb7a", "#fa9f75", "#e0a1ff"],
+  [null, "#5ec9ff", null, null, null],
   ["#ff42a1", "#1bb3ff", "#ffda00", "#ff6b26", "#c757ff"],
   ["#ff218c", "#0077b3", null, null, null],
 ];

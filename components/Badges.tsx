@@ -60,8 +60,10 @@ function BadgeImage({
 
 export default function Badges({
   onChangeColor,
+  useDarkText,
 }: {
   onChangeColor: (color: string) => void;
+  useDarkText: boolean;
 }) {
   return (
     <div className="md:pr-60">
@@ -74,11 +76,16 @@ export default function Badges({
           />
         ))}
         <Link
-          className="hidden h-[31px] w-[88px] items-center justify-center outline-none hover:underline focus:bg-panyellow focus:underline sm:flex"
+          className={
+            "hidden h-[31px] w-[88px] cursor-pointer items-center justify-center whitespace-nowrap border-2 border-dashed px-2 py-0.5 text-base outline-4 outline-panpink focus-visible:outline sm:flex " +
+            (useDarkText
+              ? "border-gray-800 text-gray-800"
+              : "border-white text-white")
+          }
           href="/directory"
         >
           directory
-          <FontAwesomeIcon className="ml-1" icon={faChevronRight} />
+          <FontAwesomeIcon className="ml-0.5" icon={faChevronRight} />
         </Link>
       </div>
     </div>

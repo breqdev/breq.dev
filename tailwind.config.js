@@ -13,7 +13,9 @@ module.exports = {
     extend: {
       colors: {
         panpink: {
+          light: "#ff8ac4",
           DEFAULT: "#ff42a1",
+          dark: "#ff218c",
         },
         panblue: {
           DEFAULT: "#1BB3FF",
@@ -21,7 +23,16 @@ module.exports = {
           light: "#5ec9ff", // for styling black-on-blue text
         },
         panyellow: {
+          light: "#ffeb7a",
           DEFAULT: "#FFDA00",
+        },
+        brookeorange: {
+          light: "#fa9f75",
+          DEFAULT: "#ff6b26",
+        },
+        brookepurple: {
+          light: "#e0a1ff",
+          DEFAULT: "#c757ff",
         },
       },
     },
