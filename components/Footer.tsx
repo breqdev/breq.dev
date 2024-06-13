@@ -77,16 +77,16 @@ export default function Footer() {
       "hover:!bg-panpink-light focus:!bg-panpink-light hover:text-black focus:text-black",
     ],
     [
-      faTwitter,
-      "breqdev",
-      "https://twitter.com/breqdev",
-      "hover:!bg-panyellow-light focus:!bg-panyellow-light hover:text-black focus:text-black",
-    ],
-    [
       faMastodon,
       "@breq@tacobelllabs.net",
       "https://tacobelllabs.net/@breq",
       "hover:!bg-brookepurple-light focus:!bg-brookepurple-light hover:text-black focus:text-black",
+    ],
+    [
+      faTwitter,
+      "breqdev",
+      "https://twitter.com/breqdev",
+      "hover:!bg-panyellow-light focus:!bg-panyellow-light hover:text-black focus:text-black",
     ],
     [
       faRssSquare,
