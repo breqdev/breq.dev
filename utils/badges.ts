@@ -101,6 +101,7 @@ export const BADGES: Badge[] = [
     url: "https://juliaviolet.dev/",
     bio: "robotics, graphics, trumpet",
     color: "#fc6fc4",
+    callsign: "KK7TTO",
   },
   {
     tag: "prismaticwolf",
