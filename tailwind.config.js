@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     fontFamily: {
       display: ["Nunito", "sans-serif"],
-      body: ["Montserrat", "sans-serif"],
+      body: ["'Libre Franklin'", "sans-serif"],
       mono: ['"Fira Code"', "ui-monospace", "monospace"],
       sans: ["Nunito Sans", "sans-serif"],
     },

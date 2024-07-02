@@ -114,7 +114,7 @@ export default function Design() {
         <h2 className="text-center font-display text-6xl">fonts</h2>
         <div className="my-16 flex flex-col gap-8">
           <Font name="Nunito" comment="for display text" />
-          <Font name="Montserrat" comment="for body text" />
+          <Font name="Libre Franklin" comment="for body text" />
           <Font name="Fira Code" comment="for code" />
           <Font name="Nunito Sans" comment="for formal settings" />
         </div>
