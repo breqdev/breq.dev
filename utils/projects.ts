@@ -25,5 +25,7 @@ export async function getSortedProjects(options?: {
     projects.map((project) => loadMarkdown<ProjectInfo>(project, options))
   );
 
-  return data.sort((a, b) => parseFloat(b.created) - parseFloat(a.created));
+  return data
+    .sort((a, b) => Date.parse(b.writeup) - Date.parse(a.writeup))
+    .sort((a, b) => parseFloat(b.created) - parseFloat(a.created));
 }
