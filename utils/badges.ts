@@ -83,7 +83,7 @@ export const BADGES: Badge[] = [
     url: "https://www.vhafener.com/",
     bio: "photographer, anarchist, good puppy",
     color: "#A876BD",
-    tetxColor: "#A876BD",
+    textColor: "#A876BD",
   },
   {
     tag: "FlamingSpork",
