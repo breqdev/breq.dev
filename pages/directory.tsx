@@ -22,8 +22,11 @@ export default function Directory() {
           ({ name, image, url, placeholder, tag, bio, textColor }) => (
             <a
               href={url}
-              className="flex flex-col gap-2 rounded-2xl bg-black p-2 text-white"
+              className="flex flex-col gap-2 rounded-2xl bg-black p-2 text-white focus-visible:outline"
               key={name}
+              style={{
+                outlineColor: textColor,
+              }}
             >
               <h2
                 className="text-center font-mono text-3xl font-bold lowercase"
