@@ -25,6 +25,9 @@ export type Badge = {
 
   // Badge image background color
   color: string;
+
+  // Exclude from the directory page
+  exclude?: boolean;
 };
 
 export const BADGES: Badge[] = [
@@ -37,6 +40,7 @@ export const BADGES: Badge[] = [
     bio: "",
     callsign: "K9BRQ",
     color: "#1BB3FF",
+    exclude: true,
   },
   {
     name: "ava silver",
@@ -44,6 +48,31 @@ export const BADGES: Badge[] = [
     url: "https://avasilver.dev/",
     bio: "SWE @ DataDog, catgirl, celeste speedrunner",
     color: "#9C15E2",
+  },
+  {
+    tag: "miakizz",
+    name: "mia kiesman",
+    image: "/badges/miakizz.png",
+    url: "https://miakizz.quest/",
+    bio: "electrical engineer, retro computing",
+    color: "#A80C30",
+  },
+  {
+    tag: "adryd",
+    name: "ariana [redacted]",
+    image: "/badges/adryd.png",
+    alt: "/badges/adrydalt.png",
+    url: "https://adryd.com/",
+    bio: "technology witch, designer, software dev",
+    color: "#793A80",
+  },
+  {
+    tag: "prismaticwolf",
+    name: "maxine vollertsen",
+    image: "/badges/max.png",
+    url: "https://prsmaticwolf.itch.io/",
+    bio: "game design, wolf",
+    color: "#1735DE",
   },
   {
     name: "juniper hafener",
@@ -70,25 +99,8 @@ export const BADGES: Badge[] = [
     color: "#282828",
   },
   {
-    tag: "miakizz",
-    name: "mia kiesman",
-    image: "/badges/miakizz.png",
-    url: "https://miakizz.quest/",
-    bio: "electrical engineer, retro computing",
-    color: "#A80C30",
-  },
-  {
-    tag: "adryd",
-    name: "ariana [redacted]",
-    image: "/badges/adryd.png",
-    alt: "/badges/adrydalt.png",
-    url: "https://adryd.com/",
-    bio: "technology witch, designer, software dev",
-    color: "#793A80",
-  },
-  {
     tag: "notnite",
-    name: "julian [redacted]",
+    name: "julian",
     image: "/badges/notnite.png",
     url: "https://notnite.com/",
     bio: "programmer, game modder, shitposter",
@@ -102,14 +114,6 @@ export const BADGES: Badge[] = [
     bio: "robotics, graphics, trumpet",
     color: "#fc6fc4",
     callsign: "KK7TTO",
-  },
-  {
-    tag: "prismaticwolf",
-    name: "maxine vollertsen",
-    image: "/badges/max.png",
-    url: "https://prsmaticwolf.itch.io/",
-    bio: "game design, wolf",
-    color: "#1735DE",
   },
   {
     tag: "eggy",
@@ -157,18 +161,11 @@ export const BADGES: Badge[] = [
     color: "#004A00",
   },
   {
-    tag: "xenozane",
-    name: "zane (the wizard)",
-    image: "/badges/dfbadge.gif",
-    url: "https://darkforestwrbb.com/",
-    bio: "the dark warlock from WRBB",
-    color: "#281d23",
-  },
-  {
     name: "eightyeightthirty.one",
     image: "/badges/eightyeightthirtyone.png",
     url: "https://eightyeightthirty.one/",
     bio: "graph of the 88x31 network",
     color: "#000000",
+    exclude: true,
   },
 ];

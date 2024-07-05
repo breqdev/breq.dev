@@ -7,14 +7,17 @@ export default function Directory() {
   return (
     <Page>
       <SEOHelmet
-        title="Directory - breq.dev"
+        title="Friends - breq.dev"
         description="A directory of cool people I know."
       />
-      <h1 className="mx-auto my-16 max-w-2xl text-center font-display text-6xl">
-        friends of breq
+      <h1 className="mx-auto mt-16 max-w-2xl text-center font-display text-6xl">
+        friends
       </h1>
+      <p className="mx-auto max-w-2xl text-center font-display text-xl">
+        these are my awesome friends. check them out!
+      </p>
       <div className="mx-auto my-16 flex w-full max-w-2xl flex-col gap-4 px-4">
-        {BADGES.filter((b) => b.tag !== "breq").map(
+        {BADGES.filter((b) => !b.exclude).map(
           ({ name, image, url, placeholder, tag, bio, callsign }) => (
             <a
               href={url}
