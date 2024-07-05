@@ -60,6 +60,7 @@ export default function Navbar() {
     blog: "/blog",
     photos: "/photos",
     contact: "/contact",
+    apps: "/apps",
     etc: "/etc",
   };
 
