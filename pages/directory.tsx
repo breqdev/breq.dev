@@ -5,31 +5,38 @@ import SEOHelmet from "../components/SEOHelmet";
 
 export default function Directory() {
   return (
-    <Page>
+    <Page className="bg-gray-800 p-2 text-white">
       <SEOHelmet
         title="Friends - breq.dev"
         description="A directory of cool people I know."
       />
-      <h1 className="mx-auto mt-16 max-w-2xl text-center font-display text-6xl">
-        friends
-      </h1>
-      <p className="mx-auto max-w-2xl text-center font-display text-xl">
-        these are my awesome friends. check them out!
-      </p>
-      <div className="mx-auto my-16 flex w-full max-w-2xl flex-col gap-4 px-4">
+      <div className="mx-auto my-12 flex max-w-2xl flex-col rounded-2xl bg-black p-4 text-white">
+        <h1 className="text-center font-display text-6xl">friends</h1>
+        <p className="max-w-2xl text-center font-display text-xl">
+          these are my awesome friends. check them out!
+        </p>
+      </div>
+
+      <div className="grid grid-cols-[repeat(auto-fit,min(90vw,24rem))] justify-center gap-8 px-4 py-8">
         {BADGES.filter((b) => !b.exclude).map(
-          ({ name, image, url, placeholder, tag, bio, callsign }) => (
+          ({ name, image, url, placeholder, tag, bio, textColor }) => (
             <a
               href={url}
-              className="flex flex-col items-center gap-4 md:flex-row"
+              className="flex flex-col gap-2 rounded-2xl bg-black p-2 text-white"
               key={name}
             >
+              <h2
+                className="text-center font-mono text-3xl font-bold lowercase"
+                style={{ color: textColor }}
+              >
+                {tag || name.split(" ")[0]}
+              </h2>
               <div
                 style={{
                   imageRendering: "pixelated",
                   aspectRatio: "88 / 31",
                 }}
-                className="w-full max-w-md flex-shrink-0 md:w-[176px]"
+                className="w-full"
               >
                 {image /* eslint-disable-next-line @next/next/no-img-element */ && (
                   <img className="w-full" src={image} alt={name} />
@@ -40,23 +47,9 @@ export default function Directory() {
                   </div>
                 )}
               </div>
-              <div className="flex flex-grow flex-col items-center md:items-start">
-                <div className="flex flex-wrap items-center gap-1">
-                  <span className="text-2xl font-bold">{name}</span>
-                  {tag && (
-                    <>
-                      <span>•</span>
-                      <span className="font-mono text-xl">{tag}</span>
-                    </>
-                  )}
-                  {callsign && (
-                    <>
-                      <span>•</span>
-                      <span className="font-mono text-xl">{callsign}</span>
-                    </>
-                  )}
-                </div>
-                <span>{bio}</span>
+              <div className="text-center">
+                <h2 className="text-4xl font-bold">{name}</h2>
+                <p>{bio}</p>
               </div>
             </a>
           )
