@@ -34,6 +34,9 @@ module.exports = {
           light: "#e0a1ff",
           DEFAULT: "#c757ff",
         },
+        brookegreen: {
+          light: "#a1ffd0",
+        },
       },
     },
   },

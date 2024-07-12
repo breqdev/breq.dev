@@ -1,29 +1,23 @@
 BEGIN:VCARD
 VERSION:3.0
-FN;CHARSET=UTF-8:Brooke Madeline Chalmers
+FN;CHARSET=UTF-8:Brooke Chalmers
 N;CHARSET=UTF-8:Chalmers;Brooke;Madeline;;
 GENDER:F
 BDAY:20030102
 EMAIL;CHARSET=UTF-8;type=HOME,INTERNET:breq@breq.dev
-EMAIL;CHARSET=UTF-8;type=WORK,INTERNET:chalmers.b@northeastern.edu
 LOGO;PNG:https://breq.dev/vcard/logo.png
 PHOTO;JPEG:https://breq.dev/vcard/photo.jpg
 TEL;TYPE=CELL:(207) 200-6829
 ADR;CHARSET=UTF-8;TYPE=HOME:;;17 Fairway Dr;Scarborough;Maine;04074;United States
-ADR;CHARSET=UTF-8;TYPE=WORK:;; 716 Columbus Ave 136395-DVA;Boston;Massachusetts;02120;United States
 URL;CHARSET=UTF-8:https://breq.dev/
 X-SOCIALPROFILE;TYPE=discord:https://discord.com/users/386352037723635712
-X-SOCIALPROFILE;TYPE=keybase:https://keybase.io/breq
 X-SOCIALPROFILE;TYPE=telegram:https://t.me/breqdev
+X-SOCIALPROFILE;TYPE=signal:https://signal.me/#eu/65D91kL+LwalfvCf/DWfyl1gpsswnqel4gW79DDNxcZJEJjLoe9AWoZF98GvTQaG
 X-SOCIALPROFILE;TYPE=github:https://github.com/breqdev
-X-SOCIALPROFILE;TYPE=gitlab:https://gitlab.com/breq
 X-SOCIALPROFILE;TYPE=twitter:https://twitter.com/breqdev
 X-SOCIALPROFILE;TYPE=mastodon:https://tacobelllabs.net/@breq
-X-SOCIALPROFILE;TYPE=tumblr:https://tumblr.breq.dev/
 X-SOCIALPROFILE;TYPE=instagram:https://instagram.com/breqdev
 X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/breqdev
-X-SOCIALPROFILE;TYPE=reddit:https://reddit.com/u/breqdev
 X-SOCIALPROFILE;TYPE=youtube:https://www.youtube.com/@breqdev
-X-SOCIALPROFILE;TYPE=venmo:https://account.venmo.com/u/breqdev
 REV:2023-07-06T20:17:00.000Z
 END:VCARD

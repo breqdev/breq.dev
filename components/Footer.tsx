@@ -8,6 +8,7 @@ import {
   faCode,
   IconDefinition,
   faRssSquare,
+  faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -93,6 +94,12 @@ export default function Footer() {
       "rss",
       "https://breq.dev/rss.xml",
       "hover:!bg-brookeorange-light focus:!bg-brookeorange-light hover:text-black focus:text-black",
+    ],
+    [
+      faAddressCard,
+      "vcf",
+      "https://breq.dev/vcard/breq.vcf",
+      "hover:!bg-brookegreen-light focus:!bg-brookegreen-light hover:text-black focus:text-black",
     ],
   ];
 

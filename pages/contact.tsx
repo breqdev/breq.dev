@@ -14,6 +14,7 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import {
+  faAddressCard,
   faEnvelope,
   faLock,
   faMoneyBillTransfer,
@@ -72,6 +73,19 @@ export default function Contact() {
       <SEOHelmet title="Contact - breq.dev" />
       <div className="mx-auto my-8 flex max-w-4xl flex-col gap-8 px-4 text-center font-display text-lg">
         <h1 className="mx-auto max-w-2xl text-6xl">contact me</h1>
+        <p className="text-xl">
+          available via{" "}
+          <a
+            href="https://breq.dev/vcard/breq.vcf"
+            className="font-bold text-yellow-600 dark:text-yellow-300"
+          >
+            <FontAwesomeIcon
+              icon={faAddressCard}
+              className="-mb-px -mr-0.5 ml-0.5"
+            />{" "}
+            vcard
+          </a>
+        </p>
 
         <ContactCategory title="messaging">
           <ContactItem

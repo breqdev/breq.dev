@@ -6,6 +6,7 @@ import useSWR from "swr";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
+  faAddressCard,
   faGaugeHigh,
   faHeart,
   faPenRuler,
@@ -86,6 +87,14 @@ export default function Etc() {
             icon={faSquareRss}
           >
             subscribe to blog posts and project writeups.
+          </EtcBlock>
+          <EtcBlock
+            title="vcard (.vcf)"
+            page="/vcard/breq.vcf"
+            external
+            icon={faAddressCard}
+          >
+            import my info into your contacts app.
           </EtcBlock>
           <EtcBlock
             title="my resume"
