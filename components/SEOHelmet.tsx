@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 type SEOProps = {
   title: string;
@@ -8,12 +9,15 @@ type SEOProps = {
 };
 
 export default function SEOHelmet({ title, description, image }: SEOProps) {
+  const { pathname } = useRouter();
+
   return (
     <>
       <Head>
         <title>{title}</title>
         <meta name="author" content="Brooke Chalmers" />
         <meta name="description" content={description} />
+        <link rel="canonical" href={`https://breq.dev${pathname}`} />
 
         <meta name="og:title" content={title} />
         <meta name="og:description" content={description} />
