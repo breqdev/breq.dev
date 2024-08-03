@@ -79,8 +79,8 @@ export const BADGES: Badge[] = [
   },
   {
     name: "Juniper",
-    image: "/badges/vivi.png",
-    url: "https://www.vhafener.com/",
+    placeholder: "juni",
+    url: "https://substack.com/@juniperbush",
     bio: "photographer, anarchist, good puppy",
     color: "#A876BD",
     textColor: "#A876BD",

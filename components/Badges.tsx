@@ -7,9 +7,11 @@ import Link from "next/link";
 function BadgeImage({
   badge,
   onChangeColor,
+  useDarkText,
 }: {
   badge: Badge;
   onChangeColor: (color: string) => void;
+  useDarkText: boolean;
 }) {
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -50,8 +52,15 @@ function BadgeImage({
         />
       )}
       {badge.placeholder && (
-        <div className="flex h-full items-center justify-center border-2 border-dashed border-white">
-          <span className="text-white">{badge.placeholder}</span>
+        <div
+          className={
+            "flex h-full items-center justify-center border-2 border-dashed " +
+            (useDarkText ? "border-gray-800" : "border-white")
+          }
+        >
+          <span className={useDarkText ? "text-gray-800" : "text-white"}>
+            {badge.placeholder}
+          </span>
         </div>
       )}
     </a>
@@ -73,6 +82,7 @@ export default function Badges({
             key={badge.url}
             badge={badge}
             onChangeColor={onChangeColor}
+            useDarkText={useDarkText}
           />
         ))}
         <Link
