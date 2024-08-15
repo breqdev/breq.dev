@@ -149,7 +149,7 @@ export default function Feeds() {
           technology, queer community, and life.
         </p>
       </div>
-      <div className="mx-auto flex w-full max-w-2xl flex-col gap-2 p-8">
+      <div className="grid grid-cols-[repeat(auto-fit,40rem)] place-content-center items-start gap-8 p-8 sm:p-2">
         {FEEDS.map((feed) => (
           <Feed key={feed} url={feed} />
         ))}
