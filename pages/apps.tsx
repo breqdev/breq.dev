@@ -19,6 +19,12 @@ const APPS = [
     icon: "https://nuisance.breq.dev/favicon.svg",
   },
   {
+    name: "88x31 Dungeon",
+    link: "https://dungeon.breq.dev/",
+    icon: "https://dungeon.breq.dev/favicon.svg",
+    invert: true,
+  },
+  {
     name: "Wordle",
     link: "https://wordle.breq.dev/",
   },
@@ -49,11 +55,16 @@ export default function Apps() {
         <h1 className="text-center font-display text-5xl">app launcher</h1>
       </div>
       <div className="grid grid-cols-[repeat(auto-fill,8rem)] justify-center gap-8 p-8 sm:grid-cols-[repeat(auto-fill,16rem)]">
-        {APPS.map(({ name, link, icon }) => (
+        {APPS.map(({ name, link, icon, invert }) => (
           <a href={link} key={name} className="flex flex-col gap-4">
             {icon ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img className="aspect-square" src={icon} alt={name} />
+              <img
+                className="aspect-square"
+                src={icon}
+                alt={name}
+                style={{ filter: invert ? "invert()" : undefined }}
+              />
             ) : (
               <div className="flex aspect-square items-center justify-center rounded-2xl bg-gray-200 text-7xl text-black">
                 {name[0].toLocaleUpperCase()}
