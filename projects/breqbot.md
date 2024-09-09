@@ -5,7 +5,6 @@ description: A Discord bot with minigames and utilities.
 image: breqbot/website.png
 created: "2020"
 repo: breqdev/breqbot
-demo: https://bot.breq.dev/
 tags: [discord, python, redis]
 writeup: 2020-10-08
 ---
@@ -15,6 +14,14 @@ writeup: 2020-10-08
 <Caption>
 One of the many "just for fun" commands that Breqbot has.
 </Caption>
+
+> A previous version of this post had a link to invite the bot to your server. I have removed this link for a few reasons:
+>
+> 1. The bot was built for a small set of friends half a decade ago when myself and my friend group both were very different from how they are now
+> 2. I have no interest or motivation in keeping this bot running
+> 3. While I remain proud of the work I put into this bot, it provides no particular utility compared to other bots out there
+>
+> The GitHub repo will remain accessible.
 
 # Overview
 
