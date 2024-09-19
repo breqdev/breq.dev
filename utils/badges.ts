@@ -103,6 +103,15 @@ export const BADGES: Badge[] = [
     textColor: "#458588",
   },
   {
+    tag: "electricbrooke",
+    name: "Brooke",
+    image: "/badges/electricbrooke.png",
+    url: "https://electricbrooke.com/",
+    bio: "green line operator, hockey fan",
+    color: "#000000",
+    textColor: "#FFFFFF",
+  },
+  {
     tag: "notnite",
     name: "Julian",
     image: "/badges/notnite.png",
