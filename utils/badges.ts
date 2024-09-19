@@ -107,7 +107,7 @@ export const BADGES: Badge[] = [
     name: "Brooke",
     image: "/badges/electricbrooke.png",
     url: "https://electricbrooke.com/",
-    bio: "green line operator, hockey fan",
+    bio: "green line operator, urban affairs, hockey",
     color: "#000000",
     textColor: "#FFFFFF",
   },
