@@ -9,7 +9,7 @@ type SEOProps = {
 };
 
 export default function SEOHelmet({ title, description, image }: SEOProps) {
-  const { pathname } = useRouter();
+  const { asPath } = useRouter();
 
   return (
     <>
@@ -17,7 +17,7 @@ export default function SEOHelmet({ title, description, image }: SEOProps) {
         <title>{title}</title>
         <meta name="author" content="Brooke Chalmers" />
         <meta name="description" content={description} />
-        <link rel="canonical" href={`https://breq.dev${pathname}`} />
+        <link rel="canonical" href={`https://breq.dev${asPath}`} />
 
         <meta name="og:title" content={title} />
         <meta name="og:description" content={description} />
