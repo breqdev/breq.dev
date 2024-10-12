@@ -221,7 +221,7 @@ export default function Footer() {
           />
         </div>
 
-        <div className="hidden flex-row items-end justify-end gap-2 self-end lg:flex">
+        <div className="hidden flex-row items-end justify-end gap-3 self-end lg:flex">
           {ONEKO_HAS_LOADED ? null : (
             <div
               className="h-[32px] w-[32px]"
@@ -246,9 +246,11 @@ export default function Footer() {
             <Image
               src={siteUp && ledOn ? computerOn : computerOff}
               alt="computer"
-              className="transition-all duration-500"
+              className=" transition-all duration-500"
               style={{
-                filter: siteUp ? "" : "grayscale(100%) brightness(110%)",
+                filter:
+                  "drop-shadow(0 0 3px rgba(0, 0, 0, .7)) " +
+                  (siteUp ? "" : "grayscale(100%) brightness(110%)"),
               }}
             />
           </a>
