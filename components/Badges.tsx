@@ -75,29 +75,27 @@ export default function Badges({
   useDarkText: boolean;
 }) {
   return (
-    <div className="md:pr-60">
-      <div className="flex flex-wrap items-start justify-center gap-2 sm:justify-start">
-        {BADGES.map((badge) => (
-          <BadgeImage
-            key={badge.url}
-            badge={badge}
-            onChangeColor={onChangeColor}
-            useDarkText={useDarkText}
-          />
-        ))}
-        <Link
-          className={
-            "hidden h-[31px] w-[88px] cursor-pointer items-center justify-center whitespace-nowrap border-2 border-dashed px-2 py-0.5 text-base outline-4 outline-panpink focus-visible:outline sm:flex " +
-            (useDarkText
-              ? "border-gray-800 text-gray-800"
-              : "border-white text-white")
-          }
-          href="/directory"
-        >
-          directory
-          <FontAwesomeIcon className="ml-0.5" icon={faChevronRight} />
-        </Link>
-      </div>
+    <div className="flex flex-wrap items-start justify-center gap-2 sm:justify-start">
+      {BADGES.map((badge) => (
+        <BadgeImage
+          key={badge.url}
+          badge={badge}
+          onChangeColor={onChangeColor}
+          useDarkText={useDarkText}
+        />
+      ))}
+      <Link
+        className={
+          "hidden h-[31px] w-[88px] cursor-pointer items-center justify-center whitespace-nowrap border-2 border-dashed px-2 py-0.5 text-base outline-4 outline-panpink focus-visible:outline sm:flex " +
+          (useDarkText
+            ? "border-gray-800 text-gray-800"
+            : "border-white text-white")
+        }
+        href="/directory"
+      >
+        directory
+        <FontAwesomeIcon className="ml-0.5" icon={faChevronRight} />
+      </Link>
     </div>
   );
 }

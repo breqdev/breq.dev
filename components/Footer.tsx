@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeart,
@@ -17,6 +18,9 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import Badges from "./Badges";
+
+import computerOn from "../public/drawings/computer-on.svg";
+import computerOff from "../public/drawings/computer-off.svg";
 
 // @ts-ignore
 import oneko from "../utils/oneko.js";
@@ -69,6 +73,38 @@ console.assert(
 
 let ONEKO_HAS_LOADED: boolean = false;
 
+function useLED() {
+  const [siteUp, setSiteUp] = useState<boolean>();
+
+  useEffect(() => {
+    fetch("https://home.breq.dev/", { mode: "no-cors" })
+      .then((r) => {
+        setSiteUp(true);
+      })
+      .catch((e) => {
+        setSiteUp(false);
+      });
+  }, []);
+
+  const [ledOn, setLedOn] = useState(false);
+
+  useEffect(() => {
+    let tick = 0;
+    const interval = setInterval(() => {
+      tick = (tick + 1) % 8;
+
+      if (tick === 0) {
+        setLedOn(true);
+      } else {
+        setLedOn(false);
+      }
+    }, 250);
+    return () => clearInterval(interval);
+  }, []);
+
+  return { siteUp, ledOn };
+}
+
 export default function Footer() {
   const contactLinks: [IconDefinition, string, string, string][] = [
     [
@@ -106,7 +142,7 @@ export default function Footer() {
   const linkStyles =
     "outline-none whitespace-nowrap cursor-pointer px-2 py-0.5 rounded-lg transition-colors duration-300";
 
-  const [backgroundColor, setBackgroundColor] = React.useState("#1BB3FF");
+  const [backgroundColor, setBackgroundColor] = useState("#1BB3FF");
   const lightBackgroundColor = lighten(backgroundColor, LIGHTEN_AMOUNT);
   const textColor = useDarkText(backgroundColor)
     ? "text-gray-800"
@@ -128,6 +164,8 @@ export default function Footer() {
     }
   }, []);
 
+  const { siteUp, ledOn } = useLED();
+
   return (
     <footer
       className={
@@ -136,70 +174,85 @@ export default function Footer() {
       }
       style={{ backgroundColor }}
     >
-      <div className="relative mx-auto flex max-w-7xl flex-col gap-6 px-4 pb-16 pt-12">
-        <p>
-          made with <FontAwesomeIcon icon={faCode} />{" "}
-          <span className="sr-only">code</span> and{" "}
-          <FontAwesomeIcon icon={faHeart} />
-          <span className="sr-only">love</span> by breq,{" "}
-          <FontAwesomeIcon icon={faCopyright} />
-          <span className="sr-only">copyright</span>&nbsp;
-          {new Date().getFullYear()},{" "}
-          <a
-            href="https://github.com/breqdev/breq.dev"
-            className={`${linkStyles} hover:!bg-gray-800 hover:text-white focus:!bg-gray-800 focus:text-white`}
-            style={{ backgroundColor: lightBackgroundColor }}
-          >
-            <FontAwesomeIcon icon={faGithub} className="-ml-0.5 mr-1" />
-            <span className="sr-only">github</span>
-            breqdev/breq.dev
-          </a>
-        </p>
-        <p className="flex flex-row flex-wrap gap-1">
-          {contactLinks.map(([icon, text, href, colors]) => (
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 pb-16 pt-12 lg:grid-cols-[1fr,12rem]">
+        <div className="flex flex-col gap-6">
+          <p>
+            made with <FontAwesomeIcon icon={faCode} />{" "}
+            <span className="sr-only">code</span> and{" "}
+            <FontAwesomeIcon icon={faHeart} />
+            <span className="sr-only">love</span> by breq,{" "}
+            <FontAwesomeIcon icon={faCopyright} />
+            <span className="sr-only">copyright</span>&nbsp;
+            {new Date().getFullYear()},{" "}
             <a
-              href={href}
-              key={text}
-              className={`${linkStyles} ${colors}`}
+              href="https://github.com/breqdev/breq.dev"
+              className={`${linkStyles} hover:!bg-gray-800 hover:text-white focus:!bg-gray-800 focus:text-white`}
               style={{ backgroundColor: lightBackgroundColor }}
             >
-              <FontAwesomeIcon icon={icon} className="mr-1" />
-              <span>{text}</span>
+              <FontAwesomeIcon icon={faGithub} className="-ml-0.5 mr-1" />
+              <span className="sr-only">github</span>
+              breqdev/breq.dev
             </a>
-          ))}
-          <Link
-            href="/contact"
-            className={`${linkStyles} hover:!bg-panblue-dark hover:text-white focus:!bg-panblue-dark focus:text-white`}
-            style={{ backgroundColor: lightBackgroundColor }}
-          >
-            more<span className="sr-only"> ways to contact me </span>
-            <FontAwesomeIcon className="ml-1" icon={faChevronRight} />
-          </Link>
-        </p>
-        <Badges
-          onChangeColor={setBackgroundColor}
-          useDarkText={useDarkText(backgroundColor)}
-        />
-
-        {ONEKO_HAS_LOADED ? null : (
-          <div
-            className="absolute bottom-8 right-4 h-[32px] w-[32px]"
-            style={{
-              imageRendering: "pixelated",
-              backgroundImage: "url(/oneko.gif)",
-              backgroundPosition: `${-3 * 32}px ${-3 * 32}px`,
-            }}
-            id="oneko-trigger"
-            onClick={(e) => {
-              const bbox = e.currentTarget.getBoundingClientRect();
-              document.querySelector<HTMLDivElement>(
-                "#oneko-trigger"
-              )!.style.display = "none";
-              oneko(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2, true);
-              ONEKO_HAS_LOADED = true;
-            }}
+          </p>
+          <p className="flex flex-row flex-wrap gap-1">
+            {contactLinks.map(([icon, text, href, colors]) => (
+              <a
+                href={href}
+                key={text}
+                className={`${linkStyles} ${colors}`}
+                style={{ backgroundColor: lightBackgroundColor }}
+              >
+                <FontAwesomeIcon icon={icon} className="mr-1" />
+                <span>{text}</span>
+              </a>
+            ))}
+            <Link
+              href="/contact"
+              className={`${linkStyles} hover:!bg-panblue-dark hover:text-white focus:!bg-panblue-dark focus:text-white`}
+              style={{ backgroundColor: lightBackgroundColor }}
+            >
+              more<span className="sr-only"> ways to contact me </span>
+              <FontAwesomeIcon className="ml-1" icon={faChevronRight} />
+            </Link>
+          </p>
+          <Badges
+            onChangeColor={setBackgroundColor}
+            useDarkText={useDarkText(backgroundColor)}
           />
-        )}
+        </div>
+
+        <div className="hidden flex-row items-end justify-end gap-2 self-end lg:flex">
+          {ONEKO_HAS_LOADED ? null : (
+            <div
+              className="h-[32px] w-[32px]"
+              style={{
+                imageRendering: "pixelated",
+                backgroundImage: "url(/oneko.gif)",
+                backgroundPosition: `${-3 * 32}px ${-3 * 32}px`,
+              }}
+              id="oneko-trigger"
+              onClick={(e) => {
+                const bbox = e.currentTarget.getBoundingClientRect();
+                document.querySelector<HTMLDivElement>(
+                  "#oneko-trigger"
+                )!.style.display = "none";
+                oneko(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2, true);
+                ONEKO_HAS_LOADED = true;
+              }}
+            />
+          )}
+
+          <a className="max-w-20" href="https://home.breq.dev/">
+            <Image
+              src={siteUp && ledOn ? computerOn : computerOff}
+              alt="computer"
+              className="transition-all duration-500"
+              style={{
+                filter: siteUp ? "" : "grayscale(100%) brightness(110%)",
+              }}
+            />
+          </a>
+        </div>
       </div>
     </footer>
   );
