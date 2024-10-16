@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHamburger } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import flags from "public/flags.svg";
+import Image from "next/image";
 
 function SkipNavigation() {
   return (
@@ -77,7 +79,7 @@ export default function Navbar() {
       <SkipNavigation />
 
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 md:flex-row md:gap-2">
-        <div className="flex w-full justify-between md:w-max">
+        <div className="flex w-full flex-row justify-between md:w-max">
           <Wordmark
             onClick={onHomepage ? () => setFlipped(!flipped) : undefined}
             flipped={flipped && onHomepage}
@@ -113,9 +115,8 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-
-          <div className="flex-grow" />
         </div>
+        <Image src={flags} alt="" className="-my-4 -mr-8 h-20" />
       </div>
     </nav>
   );
