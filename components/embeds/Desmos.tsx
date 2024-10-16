@@ -5,9 +5,9 @@ export default function Desmos({ id }: { id: string }) {
     <div className="aspect-square max-w-6xl md:aspect-video">
       <iframe
         title="Desmos Graph"
-        className="h-full w-full"
+        className="h-full w-full border-none"
         src={`https://www.desmos.com/calculator/${id}?embed`}
-        frameBorder="0"
+        loading="lazy"
       />
     </div>
   );

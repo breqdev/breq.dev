@@ -17,7 +17,7 @@ function HoverLink({
   }
 
   return (
-    <span className="relative text-balance">
+    <span className="relative text-balance break-words">
       <span className="absolute bottom-0 left-0 top-0 -ml-8">
         <a
           href={`#${id}`}

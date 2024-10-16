@@ -103,7 +103,7 @@ function Projects({ data }: { data: (BasicMarkdownInfo & ProjectInfo)[] }) {
           href="/projects"
           className="flex items-center justify-center gap-2 rounded-2xl border-2 border-black bg-white p-8 text-xl text-black focus-visible:border-panpink"
         >
-          more
+          more projects
           <FontAwesomeIcon icon={faArrowRight} />
         </Link>
       )}
