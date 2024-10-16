@@ -2,7 +2,7 @@
 title: MIDI LiDAR
 description: Control a digital musical instrument by moving your hands in free space.
 image: midilidar/midilidar.jpg
-video: midilidar.480p.webm
+video: midilidar.480p.truncated.webm
 created: "2022"
 repo: breqdev/midilidar
 tags: [python, music]
