@@ -116,8 +116,12 @@ export default function Navbar() {
             ))}
           </ul>
         </div>
-        <div className="relative -my-4 mr-8 hidden aspect-[390/120] h-20 md:block">
-          <Image src={flags} alt="" fill />
+        <div className="relative -my-4 mr-8 hidden aspect-[390/120] h-20 lg:block">
+          <Image
+            src={flags}
+            alt="lesbian, transgender, and polyamorous pride flags combined with maine state flag"
+            fill
+          />
         </div>
       </div>
     </nav>
