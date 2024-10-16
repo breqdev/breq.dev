@@ -19,6 +19,7 @@
     "@mdx-js/loader": "^2.2.1",
     "@mdx-js/mdx": "^2.2.1",
     "@mdx-js/react": "^2.2.1",
+    "@next/bundle-analyzer": "^14.2.15",
     "@next/mdx": "^13.1.0",
     "@react-three/fiber": "^8.9.1",
     "@sentry/nextjs": "^7.98.0",
