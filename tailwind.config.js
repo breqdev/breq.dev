@@ -5,10 +5,10 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      display: ["Nunito", "sans-serif"],
-      body: ["'Libre Franklin'", "sans-serif"],
-      mono: ['"Fira Code"', "ui-monospace", "monospace"],
-      sans: ["Nunito Sans", "sans-serif"],
+      display: ["var(--nunito)", "sans-serif"],
+      body: ["var(--libre-franklin)", "sans-serif"],
+      mono: ["var(--fira-code)", "ui-monospace", "monospace"],
+      sans: ["var(--nunito-sans)", "sans-serif"],
     },
     extend: {
       colors: {

@@ -65,7 +65,12 @@ function ColorGrid() {
 
 function Font({ name, comment }: { name: string; comment: string }) {
   return (
-    <div className="group relative w-full" style={{ fontFamily: name }}>
+    <div
+      className="group relative w-full"
+      style={{
+        fontFamily: `var(--${name.replaceAll(" ", "-").toLowerCase()})`,
+      }}
+    >
       <p className="overflow-y-hidden overflow-x-scroll whitespace-nowrap p-2 text-8xl text-gray-400 transition-colors duration-300 group-hover:text-white md:overflow-x-hidden md:text-ellipsis">
         The quick brown fox jumps over the lazy dog
       </p>
