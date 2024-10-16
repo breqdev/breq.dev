@@ -116,7 +116,9 @@ export default function Navbar() {
             ))}
           </ul>
         </div>
-        <Image src={flags} alt="" className="-my-4 -mr-8 h-20" />
+        <div className="relative -my-4 mr-8 hidden aspect-[390/120] h-20 md:block">
+          <Image src={flags} alt="" fill />
+        </div>
       </div>
     </nav>
   );
