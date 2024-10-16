@@ -241,12 +241,13 @@ export default function Index(props: {
             applying it to a problem yourself.
             <br />
             <br />
-            i'm a trans woman, and i'm still learning to love myself. i want to
-            leave an impact on the world that i can be proud of.
+            i am openly, proudly, and unapologetically a queer transgender
+            woman.
             <br />
             <br />
             technology should be for everyone. i think it's important to create
             tools and resources that help people express themselves creatively.
+            i want to leave an impact on the world that i can be proud of.
             <br />
             <br />
             be excellent to each other.
