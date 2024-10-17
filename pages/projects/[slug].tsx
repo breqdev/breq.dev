@@ -24,14 +24,21 @@ type ProjectInfoItemProps = {
   icon: IconDefinition;
   value: string;
   link?: string;
+  hEntry?: { className: string; datetime?: string };
 };
 
-function ProjectInfoItem({ name, icon, value, link }: ProjectInfoItemProps) {
+function ProjectInfoItem({
+  name,
+  icon,
+  value,
+  link,
+  hEntry,
+}: ProjectInfoItemProps) {
   return (
     <div className="flex items-center gap-2">
       <span className="sr-only">{name}</span>
       <FontAwesomeIcon icon={icon} />
-      <span>
+      <span {...hEntry}>
         {link ? (
           <a
             href={link}
@@ -73,6 +80,7 @@ function ProjectInfoCard(props: ProjectInfo) {
       name: "created",
       icon: faCalendarAlt,
       value: props.created,
+      hEntry: { className: "dt-published", datetime: props.writeup },
     },
     {
       name: "repo",
@@ -111,11 +119,14 @@ function ProjectHeader(props: ProjectInfo) {
           description={props.description}
           image={props.image?.src}
         />
-        <h1 className="text-balance text-5xl">{props.title}</h1>
-        <h2 className="mb-4 text-balance text-3xl text-gray-300">
+        <h1 className="p-name text-balance text-5xl">{props.title}</h1>
+        <h2 className="p-summary mb-4 text-balance text-3xl text-gray-300">
           {props.description}
         </h2>
         <ProjectInfoCard {...props} />
+        <a className="p-author h-card hidden" href="https://breq.dev/">
+          Brooke Chalmers
+        </a>
       </div>
       <div className="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink" />
     </section>
@@ -142,7 +153,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export default function Project(props: ProjectInfo & BasicMarkdownInfo) {
   return (
     <Page>
-      <article className="mx-auto max-w-6xl p-4">
+      <article className="h-entry mx-auto max-w-6xl p-4">
         <ProjectHeader {...props} />
         <Markdown content={props.body} />
       </article>

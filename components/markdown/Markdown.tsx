@@ -34,7 +34,7 @@ export default function Markdown({
     <MarkdownContext.Provider
       value={{ poem: false, dark: dark || false, mode }}
     >
-      <div className="font-body">
+      <div className="e-content font-body">
         <MDXRemote components={shortcodes} {...content} />
       </div>
     </MarkdownContext.Provider>

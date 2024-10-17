@@ -25,7 +25,11 @@ function PostHeader(props: BasicMarkdownInfo & PostInfo) {
         <h1 className="mb-4 text-balance text-4xl md:text-6xl">
           {props.title}
         </h1>
-        <p className="text-2xl">{date}</p>
+        <p className="p-summary hidden">{props.description}</p>
+        <p className="dt-published text-2xl">{date}</p>
+        <a className="p-author h-card hidden" href="https://breq.dev/">
+          Brooke Chalmers
+        </a>
       </section>
       <div className="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink" />
     </div>
@@ -59,7 +63,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export default function Post(props: BasicMarkdownInfo & PostInfo) {
   return (
     <Page>
-      <article className="mx-auto max-w-6xl p-4">
+      <article className="h-entry mx-auto max-w-6xl p-4">
         <PostHeader {...props} />
         <Markdown content={props.body} />
       </article>
