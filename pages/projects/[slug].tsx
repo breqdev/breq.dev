@@ -19,6 +19,7 @@ import { parse } from "path";
 import { ProjectInfo } from "../../utils/projects";
 import { GetStaticPaths, GetStaticProps } from "next";
 import HCard from "../../components/HCard";
+import { useRouter } from "next/router";
 
 type ProjectInfoItemProps = {
   name: string;
@@ -64,7 +65,7 @@ function TagInfo({ tags }: { tags: string[] }) {
           <li className="inline" key={tag}>
             <Link
               href={`/tags/${tag}`}
-              className="rounded-full bg-white px-2 py-0.5 text-black outline-none focus:bg-panblue"
+              className="p-category rounded-full bg-white px-2 py-0.5 text-black outline-none focus:bg-panblue"
             >
               {tag}
             </Link>
@@ -112,6 +113,8 @@ function ProjectInfoCard(props: ProjectInfo) {
 }
 
 function ProjectHeader(props: ProjectInfo) {
+  const { asPath } = useRouter();
+
   return (
     <section className="relative">
       <div className="relative z-10 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800">
@@ -124,6 +127,7 @@ function ProjectHeader(props: ProjectInfo) {
         <h2 className="p-summary mb-4 text-balance text-3xl text-gray-300">
           {props.description}
         </h2>
+        <a className="u-url hidden" href={`https://breq.dev${asPath}`} />
         <ProjectInfoCard {...props} />
         <HCard />
       </div>

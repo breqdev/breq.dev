@@ -11,9 +11,11 @@ import { parse } from "path";
 import { PostInfo } from "../utils/posts";
 import { GetStaticPaths, GetStaticProps } from "next";
 import HCard from "../components/HCard";
+import { useRouter } from "next/router";
 
 function PostHeader(props: BasicMarkdownInfo & PostInfo) {
   const date = getDateLabel(props.slug);
+  const { asPath } = useRouter();
 
   return (
     <div className="relative z-0">
@@ -28,6 +30,7 @@ function PostHeader(props: BasicMarkdownInfo & PostInfo) {
         </h1>
         <p className="p-summary hidden">{props.description}</p>
         <p className="dt-published text-2xl">{date}</p>
+        <a className="u-url hidden" href={`https://breq.dev${asPath}`} />
         <HCard />
       </section>
       <div className="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink" />
