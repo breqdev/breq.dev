@@ -46,13 +46,15 @@ export default function Directory() {
                 )}
                 {placeholder && (
                   <div className="flex h-full items-center justify-center border-2 border-dashed border-white">
-                    <span className="text-white">{placeholder}</span>
+                    <span className="font-display text-white">
+                      {placeholder}
+                    </span>
                   </div>
                 )}
               </div>
               <div className="text-center">
-                <h2 className="text-4xl font-bold">{name}</h2>
-                <p>{bio}</p>
+                <h2 className="font-display text-4xl font-bold">{name}</h2>
+                <p className="font-body">{bio}</p>
               </div>
             </a>
           )
