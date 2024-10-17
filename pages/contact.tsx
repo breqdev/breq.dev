@@ -119,7 +119,7 @@ export default function Contact() {
             username="@breq"
             label="Discord"
             description="for voice or video calls"
-            className="hover:bg-indigo-200 focus-visible:bg-indigo-200 dark:hover:bg-indigo-600 dark:hover:bg-indigo-600 dark:focus-visible:bg-indigo-600 dark:focus-visible:bg-indigo-600"
+            className="hover:bg-indigo-200 focus-visible:bg-indigo-200 dark:hover:bg-indigo-600 dark:focus-visible:bg-indigo-600"
           />
           <ContactItem
             url="https://signal.me/#eu/65D91kL+LwalfvCf/DWfyl1gpsswnqel4gW79DDNxcZJEJjLoe9AWoZF98GvTQaG"

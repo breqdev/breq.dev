@@ -33,7 +33,59 @@ export default function SEOHelmet({ title, description, image }: SEOProps) {
           <meta name="twitter:image" content={"https://breq.dev" + image} />
         )}
       </Head>
-      <a rel="me" href="https://tacobelllabs.net/@breq" className="hidden"></a>
+      <a rel="me" href="https://tacobelllabs.net/@breq" className="hidden" />
+      <a
+        rel="me"
+        href="https://discord.com/users/386352037723635712"
+        className="hidden"
+      />
+      <a
+        rel="me"
+        href="https://signal.me/#eu/65D91kL+LwalfvCf/DWfyl1gpsswnqel4gW79DDNxcZJEJjLoe9AWoZF98GvTQaG"
+        className="hidden"
+      />
+      <a rel="me" href="https://t.me/breqdev" className="hidden" />
+      <a
+        rel="me"
+        href="https://wireless2.fcc.gov/UlsApp/UlsSearch/license.jsp?licKey=4768613"
+        className="hidden"
+      />
+      <a rel="me" href="https://github.com/breqdev" className="hidden" />
+      <a rel="me" href="https://gitlab.com/breq" className="hidden" />
+      <a rel="me" href="https://twitter.com/breqdev" className="hidden" />
+      <a rel="me" href="https://tumblr.breq.dev/" className="hidden" />
+      <a rel="me" href="https://instagram.com/breqdev" className="hidden" />
+      <a
+        rel="me"
+        href="https://www.linkedin.com/in/breqdev"
+        className="hidden"
+      />
+      <a rel="me" href="https://reddit.com/u/breqdev" className="hidden" />
+      <a rel="me" href="https://www.youtube.com/@breqdev" className="hidden" />
+      <a
+        rel="me"
+        href="https://account.venmo.com/u/breqdev"
+        className="hidden"
+      />
+      <div className="h-card hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="u-photo"
+          alt=""
+          src="/branding/cropped.png"
+          loading="lazy"
+        />
+        <a className="p-name u-url" href="https://breq.dev/">
+          Brooke Chalmers
+        </a>
+        <a className="u-email" href="mailto:breq@breq.dev" />
+        <span className="p-nickname">breq</span>
+        <span className="p-locality">Boston</span>,{" "}
+        <span className="p-region" title="Massachusetts">
+          MA
+        </span>
+        , <span className="p-country-name">US</span>
+      </div>
     </>
   );
 }
