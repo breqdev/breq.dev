@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Link from "next/link";
 
 import Page from "../../components/Page";
@@ -26,7 +26,7 @@ type ProjectInfoItemProps = {
   icon: IconDefinition;
   value: string;
   link?: string;
-  hEntry?: { className: string; datetime?: string };
+  custom?: (v: string) => ReactNode;
 };
 
 function ProjectInfoItem({
@@ -34,14 +34,16 @@ function ProjectInfoItem({
   icon,
   value,
   link,
-  hEntry,
+  custom,
 }: ProjectInfoItemProps) {
   return (
     <div className="flex items-center gap-2">
       <span className="sr-only">{name}</span>
       <FontAwesomeIcon icon={icon} />
-      <span {...hEntry}>
-        {link ? (
+      <span>
+        {custom ? (
+          custom(value)
+        ) : link ? (
           <a
             href={link}
             className="outline-none hover:underline focus:bg-panyellow focus:text-black focus:underline"
@@ -82,7 +84,11 @@ function ProjectInfoCard(props: ProjectInfo) {
       name: "created",
       icon: faCalendarAlt,
       value: props.created,
-      hEntry: { className: "dt-published", datetime: props.writeup },
+      custom: (value: string) => (
+        <time className="dt-published" dateTime={props.writeup}>
+          {value}
+        </time>
+      ),
     },
     {
       name: "repo",

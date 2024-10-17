@@ -75,7 +75,10 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-panpink p-4 font-display">
+    <nav
+      className="sticky top-0 z-50 bg-panpink p-4 font-display"
+      id="navbarNav"
+    >
       <SkipNavigation />
 
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 md:flex-row md:gap-2">

@@ -4,7 +4,7 @@ import Page from "../components/Page";
 import Markdown from "../components/markdown/Markdown";
 import SEOHelmet from "../components/SEOHelmet";
 import Comments from "../components/Comments";
-import { getDateLabel } from "../utils/posts";
+import { getDateLabel, getDateObject } from "../utils/posts";
 import { listContentFiles } from "../utils/api";
 import { BasicMarkdownInfo, loadMarkdown } from "../utils/markdown";
 import { parse } from "path";
@@ -15,6 +15,7 @@ import { useRouter } from "next/router";
 
 function PostHeader(props: BasicMarkdownInfo & PostInfo) {
   const date = getDateLabel(props.slug);
+  const timestamp = getDateObject(props.slug);
   const { asPath } = useRouter();
 
   return (
@@ -29,7 +30,11 @@ function PostHeader(props: BasicMarkdownInfo & PostInfo) {
           {props.title}
         </h1>
         <p className="p-summary hidden">{props.description}</p>
-        <p className="dt-published text-2xl">{date}</p>
+        <p className="text-2xl">
+          <time className="dt-published" dateTime={timestamp.toISOString()}>
+            {date}
+          </time>
+        </p>
         <a className="u-url hidden" href={`https://breq.dev${asPath}`} />
         <HCard />
       </section>
