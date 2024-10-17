@@ -90,6 +90,10 @@ export default function SEOHelmet({ title, description, image }: SEOProps) {
           "the cutest fucking person here" -some girl at a rave. blåhaj. boston
           & maine.
         </p>
+        <a href="https://breq.dev/keys/pgp.txt" className="u-key">
+          EF956A1CEF9CEF5E
+        </a>
+        <a className="p-gender-identity">Woman</a>
       </div>
     </>
   );
