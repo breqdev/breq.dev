@@ -66,7 +66,7 @@ export default function Apps() {
                 style={{ filter: invert ? "invert()" : undefined }}
               />
             ) : (
-              <div className="flex aspect-square items-center justify-center rounded-2xl bg-gray-200 text-7xl text-black">
+              <div className="flex aspect-square items-center justify-center rounded-2xl bg-gray-200 font-display text-7xl text-black">
                 {name[0].toLocaleUpperCase()}
               </div>
             )}
