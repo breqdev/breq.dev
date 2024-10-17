@@ -18,6 +18,7 @@ import { BasicMarkdownInfo, loadMarkdown } from "../../utils/markdown";
 import { parse } from "path";
 import { ProjectInfo } from "../../utils/projects";
 import { GetStaticPaths, GetStaticProps } from "next";
+import HCard from "../../components/HCard";
 
 type ProjectInfoItemProps = {
   name: string;
@@ -124,9 +125,7 @@ function ProjectHeader(props: ProjectInfo) {
           {props.description}
         </h2>
         <ProjectInfoCard {...props} />
-        <a className="p-author h-card hidden" href="https://breq.dev/">
-          Brooke Chalmers
-        </a>
+        <HCard />
       </div>
       <div className="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink" />
     </section>

@@ -10,6 +10,7 @@ import { BasicMarkdownInfo, loadMarkdown } from "../utils/markdown";
 import { parse } from "path";
 import { PostInfo } from "../utils/posts";
 import { GetStaticPaths, GetStaticProps } from "next";
+import HCard from "../components/HCard";
 
 function PostHeader(props: BasicMarkdownInfo & PostInfo) {
   const date = getDateLabel(props.slug);
@@ -27,9 +28,7 @@ function PostHeader(props: BasicMarkdownInfo & PostInfo) {
         </h1>
         <p className="p-summary hidden">{props.description}</p>
         <p className="dt-published text-2xl">{date}</p>
-        <a className="p-author h-card hidden" href="https://breq.dev/">
-          Brooke Chalmers
-        </a>
+        <HCard />
       </section>
       <div className="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink" />
     </div>

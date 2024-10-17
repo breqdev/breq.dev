@@ -15,6 +15,7 @@ import { GetStaticProps } from "next";
 import { BasicMarkdownInfo } from "../utils/markdown";
 import Link from "next/link";
 import generateRssFeed from "../utils/generateRSS";
+import HCard from "../components/HCard";
 
 const Background = React.lazy(() => import("../components/index/IndexCanvas"));
 
@@ -253,6 +254,8 @@ export default function Index(props: {
             be excellent to each other.
           </p>
         </div>
+
+        <HCard />
 
         <TerminalWrapper />
 
