@@ -75,7 +75,7 @@ export default function SEOHelmet({ title, description, image }: SEOProps) {
           src="/branding/cropped.png"
           loading="lazy"
         />
-        <a className="p-name u-url" href="https://breq.dev/">
+        <a className="p-name u-url u-uid" href="https://breq.dev/">
           Brooke Chalmers
         </a>
         <a className="u-email" href="mailto:breq@breq.dev" />
@@ -85,6 +85,11 @@ export default function SEOHelmet({ title, description, image }: SEOProps) {
           MA
         </span>
         , <span className="p-country-name">US</span>
+        <p className="p-note">
+          21. 🏳️‍⚧️. she/her. tinkering with code, chips, math, music. do it all.
+          "the cutest fucking person here" -some girl at a rave. blåhaj. boston
+          & maine.
+        </p>
       </div>
     </>
   );
