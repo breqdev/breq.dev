@@ -8,7 +8,7 @@ export default function About() {
   return (
     <Page className="bg-black px-4 py-4 text-white md:py-12">
       <SEOHelmet
-        title="breq.dev | about me"
+        title="breq.dev - about me"
         description="information about brooke madeline chalmers."
       />
 
