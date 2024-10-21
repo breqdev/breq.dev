@@ -17,14 +17,14 @@ export default function Colophon() {
           The cat in the bottom left was implemented by my friend{" "}
           <a
             href="https://adryd.com"
-            className="font-mono text-panblue-dark hover:underline"
+            className="font-mono text-panblue-dark hover:underline focus:underline dark:text-panblue-light"
           >
             adryd
           </a>
           . The computer at the bottom is a link to{" "}
           <a
             href="https://home.breq.dev/"
-            className="font-mono text-panblue-dark hover:underline"
+            className="font-mono text-panblue-dark hover:underline focus:underline dark:text-panblue-light"
           >
             home.breq.dev
           </a>

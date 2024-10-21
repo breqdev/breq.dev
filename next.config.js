@@ -17,6 +17,53 @@ module.exports = withBundleAnalyzer({
     return config;
   },
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  redirects: async () => [
+    {
+      source: "/where",
+      destination: "https://data.breq.dev/",
+      permanent: false,
+    },
+    {
+      source: "/changelog",
+      destination: "https://github.com/breqdev/breq.dev/commits/main/",
+      permanent: false,
+    },
+    {
+      source: "/log",
+      destination: "https://github.com/breqdev/breq.dev/commits/main/",
+      permanent: false,
+    },
+    {
+      source: "/hello",
+      destination: "/contact",
+      permanent: false,
+    },
+    {
+      source: "/subscribe",
+      destination: "/follow",
+      permanent: false,
+    },
+    {
+      source: "/feeds",
+      destination: "/follow",
+      permanent: false,
+    },
+    {
+      source: "/feed.xml",
+      destination: "/rss.xml",
+      permanent: false,
+    },
+    {
+      source: "/postroll",
+      destination: "/blogroll",
+      permanent: false,
+    },
+    {
+      source: "/verify",
+      destination: "/contact",
+      permanent: false,
+    },
+  ],
 });
 
 // Injected content via Sentry wizard below
