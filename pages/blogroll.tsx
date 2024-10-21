@@ -28,17 +28,31 @@ function Feed({ url }: { url: string }) {
       data.querySelector("image")?.querySelector("url")?.textContent ?? favicon;
   }
 
-  let timeSince = "";
-  const itemDate =
-    data?.querySelector("item")?.querySelector("pubDate")?.textContent ||
-    data?.querySelector("entry")?.querySelector("published")?.textContent;
+  const lastItem = data?.querySelector("item") ?? data?.querySelector("entry");
 
-  if (itemDate) {
-    const pubDate = new Date(itemDate);
-    const now = new Date();
-    const diff = now.getTime() - pubDate.getTime();
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    timeSince = `last post ${days} days ago`;
+  let timeSince = "";
+  let postTitle = "";
+  let postLink = "";
+
+  if (lastItem) {
+    const itemDate =
+      lastItem.querySelector("pubDate")?.textContent ||
+      lastItem.querySelector("published")?.textContent ||
+      lastItem.querySelector("updated")?.textContent;
+
+    const pubDate = new Date(itemDate ?? "");
+    timeSince = pubDate.toLocaleDateString();
+
+    const linkElement = lastItem.querySelector("link");
+
+    postLink =
+      linkElement?.getAttribute("href") ?? linkElement?.textContent ?? "";
+
+    if (!postLink.startsWith("http")) {
+      postLink = `https://${base}${postLink}`;
+    }
+
+    postTitle = lastItem.querySelector("title")?.textContent ?? "";
   }
 
   let siteUrl = url;
@@ -66,13 +80,16 @@ function Feed({ url }: { url: string }) {
   if (author) {
     // remove URLs from author names
     // (hi mia!)
-    author = author.replace(/https?:\/\/.*\//, "").trim();
+    author = author
+      .replace(/https?:\/\/.*\//, "")
+      .replace(/.*@.*\..*/, "")
+      .trim();
   }
 
   const [justCopied, setJustCopied] = useState(false);
 
   return (
-    <div className="flex gap-4 overflow-clip rounded-xl border-2 border-black p-4 dark:border-white">
+    <div className="flex flex-row gap-4 rounded-xl bg-gray-800 p-4">
       <object
         data={favicon}
         type="image/x-icon"
@@ -85,37 +102,54 @@ function Feed({ url }: { url: string }) {
           />
         </div>
       </object>
-      <div className="flex w-full flex-col">
+      <div className="flex w-full flex-col gap-2">
         <div className="flex flex-row items-start gap-3 text-2xl">
-          <h2 className="flex-grow font-display text-3xl">
-            {data?.querySelector("title")?.textContent || base}
-          </h2>
+          <div className="flex flex-grow flex-col gap-2 font-display sm:flex-row sm:items-end">
+            <h2 className="text-3xl">
+              {data?.querySelector("title")?.textContent || base}
+            </h2>
+            <p className="text-lg text-gray-200">
+              {author ? `by ${author}` : null}
+            </p>
+          </div>
           <button
             onClick={() => {
               navigator.clipboard.writeText(url);
               setJustCopied(true);
               setTimeout(() => setJustCopied(false), 1000);
             }}
+            className="hidden sm:block"
           >
             <FontAwesomeIcon
               icon={justCopied ? faCheck : faCopy}
               className="hover:text-brookeorange focus-visible:text-brookeorange"
             />
           </button>
-          <a href={siteUrl}>
+          <a href={siteUrl} className="hidden sm:block">
             <FontAwesomeIcon
               icon={faExternalLink}
               className="hover:text-brookeorange focus-visible:text-brookeorange"
             />
           </a>
         </div>
-        <p className="flex-grow italic">
+        <p className="flex-grow font-body italic">
           {data?.querySelector("description")?.textContent}
         </p>
-        <div className="flex w-full flex-row justify-between text-lg text-gray-600 dark:text-gray-200">
-          <p>{author ? `by ${author}` : null}</p>
-          <p>{timeSince}</p>
-        </div>
+
+        {postTitle && (
+          <div className="group relative">
+            <div className="relative z-10 flex flex-row items-center justify-between rounded-lg bg-white px-3 py-2 text-black">
+              <a
+                className="font-display text-xl hover:underline focus-visible:underline"
+                href={postLink}
+              >
+                {postTitle}
+              </a>
+              <p className=" hidden font-body sm:block">{timeSince}</p>
+            </div>
+            <div className="absolute inset-0 translate-x-0 translate-y-0 rounded-lg bg-panpink transition-transform group-hover:translate-x-2 group-hover:translate-y-2 group-focus:translate-x-2 group-focus:translate-y-2" />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -124,7 +158,6 @@ function Feed({ url }: { url: string }) {
 const FEEDS = [
   "https://adryd.com/feed.xml",
   "https://breq.dev/rss.xml",
-  "https://char.lt/blog.rss",
   "https://chowderless.com/feed.xml",
   "https://philo.gay/feed.xml",
   "https://gettinghome.substack.com/feed",
@@ -135,21 +168,20 @@ const FEEDS = [
   "https://rosenzweig.io/feed.xml",
   "https://www.noblemushtak.com/blog/feed.rss",
   "https://tris.fyi/blog/rss.xml",
-  "https://jacqueline.id.au/rss.xml",
 ];
 
 export default function Feeds() {
   return (
-    <Page>
+    <Page className="bg-black px-4 py-4 text-white md:py-12">
       <SEOHelmet title="my favorite rss feeds" />
       <div className="mx-auto w-full max-w-xl text-balance px-2 py-8">
-        <h1 className="text-center font-display text-6xl">my feeds</h1>
-        <p className="mt-8 text-center font-body text-xl">
+        <h1 className="text-center font-display text-6xl">blogroll</h1>
+        <p className="mt-8 text-center font-display text-xl">
           my favorite rss feeds from friends and acquaintances of mine, covering
           technology, queer community, and life.
         </p>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,40rem)] place-content-center items-start gap-8 p-8 sm:p-2">
+      <div className="mx-auto flex max-w-2xl flex-col gap-8 sm:p-2 sm:p-8">
         {FEEDS.map((feed) => (
           <Feed key={feed} url={feed} />
         ))}
