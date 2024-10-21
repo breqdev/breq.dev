@@ -11,6 +11,8 @@ import {
   faHeart,
   faPenRuler,
   faPencil,
+  faRss,
+  faSection,
   faSquareRss,
   faTags,
   faUsers,
@@ -75,17 +77,12 @@ export default function Etc() {
             projects and blog posts, categorized by tag.
           </EtcBlock>
           <EtcBlock title="directory" page="/directory" icon={faUsers}>
-            meet some of my friends :)
+            meet some of my very cool friends :)
           </EtcBlock>
           <EtcBlock title="writing" page="/writing" icon={faPencil}>
-            old assorted writing projects.
+            miscellaneous old assorted writing projects.
           </EtcBlock>
-          <EtcBlock
-            title="rss feed"
-            page="/rss.xml"
-            external
-            icon={faSquareRss}
-          >
+          <EtcBlock title="rss feed" page="/follow" icon={faSquareRss}>
             subscribe to blog posts and project writeups.
           </EtcBlock>
           <EtcBlock
@@ -109,6 +106,12 @@ export default function Etc() {
           </EtcBlock>
           <EtcBlock title="design sheet" page="/design" icon={faPenRuler}>
             reference fonts, colors, and names for my brand.
+          </EtcBlock>
+          <EtcBlock title="blogroll" page="/blogroll" icon={faRss}>
+            my favorite rss feeds from friends and acquaintances.
+          </EtcBlock>
+          <EtcBlock title="colophon" page="/colophon" icon={faSection}>
+            information about how i develop and host this site.
           </EtcBlock>
           {data?.sponsors?.length ? (
             <EtcBlock title="sponsors" page="/sponsors" icon={faHeart}>
