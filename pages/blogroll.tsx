@@ -235,7 +235,10 @@ export default function Feeds() {
 
   return (
     <Page className="bg-black px-4 py-4 text-white md:py-12">
-      <SEOHelmet title="my favorite rss feeds" />
+      <SEOHelmet
+        title="my favorite rss feeds - breq.dev"
+        description="a collection of rss feeds from my friends about technology, queer community, and life."
+      />
       <div className="mx-auto w-full max-w-xl text-balance px-2 py-8">
         <h1 className="text-center font-display text-6xl">blogroll</h1>
         <p className="mt-8 text-center font-display text-xl">
