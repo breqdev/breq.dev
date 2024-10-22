@@ -1,32 +1,73 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faAtom,
   faCheck,
   faExternalLink,
   faRssSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import useSWR from "swr";
+import { icon } from "@fortawesome/fontawesome-svg-core";
 
-const xmlFetcher = async (url: string) => {
+async function fetchRssFeed(url: string) {
   const params = new URLSearchParams({ url });
   const res = await fetch(`https://feeds.breq.workers.dev/?${params}`);
   const text = await res.text();
   const parser = new DOMParser();
   return parser.parseFromString(text, "text/xml");
+}
+
+type RssFeed = {
+  url: string;
+  favicon: HTMLImageElement | SVGElement;
+  title: string;
+  description?: string;
+  author?: string;
+  siteUrl: string;
+  postTitle: string;
+  postLink: string;
+  timeSince: string;
 };
 
-function Feed({ url }: { url: string }) {
-  const { data } = useSWR(url, xmlFetcher);
+async function parseRssFeed(url: string, data: Document): Promise<RssFeed> {
   const base = new URL(url).hostname;
 
-  let favicon = `https://${base}/favicon.ico`;
+  let faviconUrl = `https://${base}/favicon.ico`;
   if (data?.querySelector("image")) {
-    favicon =
-      data.querySelector("image")?.querySelector("url")?.textContent ?? favicon;
+    faviconUrl =
+      data.querySelector("image")?.querySelector("url")?.textContent ??
+      faviconUrl;
   }
+
+  let favicon: HTMLImageElement | SVGElement = new Image();
+  favicon.src = faviconUrl;
+  favicon.className = "rounded-2xl w-full h-full";
+
+  await new Promise<void>((resolve, reject) => {
+    const switchToPlaceholder = () => {
+      favicon = icon(faRssSquare, {
+        classes: "text-7xl text-brookeorange",
+      }).node[0] as SVGElement;
+    };
+
+    (favicon as HTMLImageElement).onload = () => {
+      resolve();
+    };
+    (favicon as HTMLImageElement).onabort = () => {
+      switchToPlaceholder();
+      resolve();
+    };
+    setTimeout(() => {
+      switchToPlaceholder();
+      resolve();
+    }, 500);
+  });
+
+  const title = data?.querySelector("title")?.textContent || base;
+  const description = data?.querySelector("description")?.textContent;
 
   const lastItem = data?.querySelector("item") ?? data?.querySelector("entry");
 
@@ -86,66 +127,85 @@ function Feed({ url }: { url: string }) {
       .trim();
   }
 
+  return {
+    url,
+    favicon,
+    title,
+    description: description ?? undefined,
+    author: author ?? undefined,
+    siteUrl,
+    postTitle,
+    postLink,
+    timeSince,
+  };
+}
+
+async function fetchAll(urls: string[]) {
+  return Promise.all(
+    urls.map((url) => fetchRssFeed(url).then((data) => parseRssFeed(url, data)))
+  );
+}
+
+function Feed({ feed }: { feed: RssFeed }) {
   const [justCopied, setJustCopied] = useState(false);
+
+  const imageContainer = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const image = feed.favicon;
+    const container = imageContainer.current;
+
+    container?.appendChild(image);
+    return () => {
+      container?.removeChild(image);
+    };
+  }, [feed.favicon]);
 
   return (
     <div className="flex flex-row gap-4 rounded-xl bg-gray-800 p-4">
-      <object
-        data={favicon}
-        type="image/x-icon"
-        className="hidden h-24 w-24 overflow-clip rounded-xl sm:block"
-      >
-        <div className="grid h-24 w-24 place-content-center">
-          <FontAwesomeIcon
-            icon={faRssSquare}
-            className="text-7xl text-brookeorange"
-          />
-        </div>
-      </object>
+      <div
+        className="hidden h-24 w-24 flex-shrink-0 grid-cols-1 place-items-center sm:grid"
+        ref={imageContainer}
+      ></div>
       <div className="flex w-full flex-col gap-2">
         <div className="flex flex-row items-start gap-3 text-2xl">
           <div className="flex flex-grow flex-col gap-2 font-display sm:flex-row sm:items-end">
-            <h2 className="text-3xl">
-              {data?.querySelector("title")?.textContent || base}
-            </h2>
+            <h2 className="text-3xl">{feed.title}</h2>
             <p className="text-lg text-gray-200">
-              {author ? `by ${author}` : null}
+              {feed.author ? `by ${feed.author}` : null}
             </p>
           </div>
           <button
             onClick={() => {
-              navigator.clipboard.writeText(url);
+              navigator.clipboard.writeText(feed.url);
               setJustCopied(true);
               setTimeout(() => setJustCopied(false), 1000);
             }}
-            className="hidden sm:block"
           >
             <FontAwesomeIcon
               icon={justCopied ? faCheck : faCopy}
               className="hover:text-brookeorange focus-visible:text-brookeorange"
             />
           </button>
-          <a href={siteUrl} className="hidden sm:block">
+          <a href={feed.siteUrl}>
             <FontAwesomeIcon
               icon={faExternalLink}
               className="hover:text-brookeorange focus-visible:text-brookeorange"
             />
           </a>
         </div>
-        <p className="flex-grow font-body italic">
-          {data?.querySelector("description")?.textContent}
-        </p>
+        <p className="flex-grow font-body italic">{feed.description}</p>
 
-        {postTitle && (
+        {feed.postTitle && (
           <div className="group relative">
             <div className="relative z-10 flex flex-row items-center justify-between rounded-lg bg-white px-3 py-2 text-black">
               <a
                 className="font-display text-xl hover:underline focus-visible:underline"
-                href={postLink}
+                href={feed.postLink}
               >
-                {postTitle}
+                {feed.postTitle}
               </a>
-              <p className=" hidden font-body sm:block">{timeSince}</p>
+              <p className=" hidden font-body sm:block">{feed.timeSince}</p>
             </div>
             <div className="absolute inset-0 translate-x-0 translate-y-0 rounded-lg bg-panpink transition-transform group-hover:translate-x-2 group-hover:translate-y-2 group-focus:translate-x-2 group-focus:translate-y-2" />
           </div>
@@ -171,6 +231,8 @@ const FEEDS = [
 ];
 
 export default function Feeds() {
+  const { data } = useSWR(FEEDS, fetchAll);
+
   return (
     <Page className="bg-black px-4 py-4 text-white md:py-12">
       <SEOHelmet title="my favorite rss feeds" />
@@ -181,11 +243,17 @@ export default function Feeds() {
           technology, queer community, and life.
         </p>
       </div>
-      <div className="mx-auto flex max-w-2xl flex-col gap-8 sm:p-2 sm:p-8">
-        {FEEDS.map((feed) => (
-          <Feed key={feed} url={feed} />
-        ))}
-      </div>
+      {data ? (
+        <div className="mx-auto flex max-w-2xl flex-col gap-8 sm:p-8">
+          {data.map((feed) => (
+            <Feed key={feed.url} feed={feed} />
+          ))}
+        </div>
+      ) : (
+        <div className="my-16 text-center text-5xl">
+          <FontAwesomeIcon icon={faAtom} className="fa-spin" />
+        </div>
+      )}
     </Page>
   );
 }
