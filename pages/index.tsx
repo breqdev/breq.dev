@@ -16,7 +16,7 @@ import { BasicMarkdownInfo } from "../utils/markdown";
 import Link from "next/link";
 import generateRssFeed from "../utils/generateRSS";
 import HCard from "../components/HCard";
-import AboutText from "../components/index/AboutText";
+import { AboutContent } from "./about";
 
 const Background = React.lazy(() => import("../components/index/IndexCanvas"));
 
@@ -225,7 +225,7 @@ export default function Index(props: {
             </h2>
           )}
 
-          <AboutText />
+          <AboutContent />
         </div>
 
         <HCard />
