@@ -40,6 +40,14 @@ async function parseRssFeed(url: string, data: Document): Promise<RssFeed> {
     faviconUrl =
       data.querySelector("image")?.querySelector("url")?.textContent ??
       faviconUrl;
+  } else if (data?.querySelector("logo")) {
+    faviconUrl = data.querySelector("logo")?.textContent ?? faviconUrl;
+  } else if (data?.querySelector("icon")) {
+    faviconUrl = data.querySelector("icon")?.textContent ?? faviconUrl;
+  }
+
+  if (!faviconUrl.startsWith("http")) {
+    faviconUrl = `https://${base}${faviconUrl}`;
   }
 
   let favicon: HTMLImageElement | SVGElement = new Image();
@@ -63,11 +71,13 @@ async function parseRssFeed(url: string, data: Document): Promise<RssFeed> {
     setTimeout(() => {
       switchToPlaceholder();
       resolve();
-    }, 500);
+    }, 1000);
   });
 
   const title = data?.querySelector("title")?.textContent || base;
-  const description = data?.querySelector("description")?.textContent;
+  const description =
+    data?.querySelector("description")?.textContent ??
+    data?.querySelector("subtitle")?.textContent;
 
   const lastItem = data?.querySelector("item") ?? data?.querySelector("entry");
 
