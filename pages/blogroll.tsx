@@ -29,6 +29,7 @@ type RssFeed = {
   siteUrl: string;
   postTitle: string;
   postLink: string;
+  pubDate: Date | null;
   timeSince: string;
 };
 
@@ -82,6 +83,7 @@ async function parseRssFeed(url: string, data: Document): Promise<RssFeed> {
   const lastItem = data?.querySelector("item") ?? data?.querySelector("entry");
 
   let timeSince = "";
+  let pubDate = null;
   let postTitle = "";
   let postLink = "";
 
@@ -91,8 +93,10 @@ async function parseRssFeed(url: string, data: Document): Promise<RssFeed> {
       lastItem.querySelector("published")?.textContent ||
       lastItem.querySelector("updated")?.textContent;
 
-    const pubDate = new Date(itemDate ?? "");
-    timeSince = pubDate.toLocaleDateString();
+    if (itemDate) {
+      pubDate = new Date(itemDate);
+      timeSince = pubDate.toLocaleDateString();
+    }
 
     const linkElement = lastItem.querySelector("link");
 
@@ -146,6 +150,7 @@ async function parseRssFeed(url: string, data: Document): Promise<RssFeed> {
     siteUrl,
     postTitle,
     postLink,
+    pubDate,
     timeSince,
   };
 }
@@ -258,9 +263,14 @@ export default function Feeds() {
       </div>
       {data ? (
         <div className="mx-auto flex max-w-2xl flex-col gap-8 sm:p-8">
-          {data.map((feed) => (
-            <Feed key={feed.url} feed={feed} />
-          ))}
+          {data
+            .sort(
+              (a, b) =>
+                (b.pubDate?.getTime() ?? 0) - (a.pubDate?.getTime() ?? 0)
+            )
+            .map((feed) => (
+              <Feed key={feed.url} feed={feed} />
+            ))}
         </div>
       ) : (
         <div className="my-16 text-center text-5xl">
