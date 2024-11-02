@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
   faAddressCard,
+  faCameraAlt,
   faGaugeHigh,
   faHeart,
   faPenRuler,
@@ -76,8 +77,8 @@ export default function Etc() {
           <EtcBlock title="browse tags" page="/tags" icon={faTags}>
             projects and blog posts, categorized by tag.
           </EtcBlock>
-          <EtcBlock title="directory" page="/directory" icon={faUsers}>
-            meet some of my very cool friends :)
+          <EtcBlock title="photos" page="/photos" icon={faCameraAlt}>
+            various photos i've taken and edited.
           </EtcBlock>
           <EtcBlock title="writing" page="/writing" icon={faPencil}>
             miscellaneous old assorted writing projects.

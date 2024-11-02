@@ -60,9 +60,9 @@ export default function Navbar() {
   const navLinks = {
     projects: "/projects",
     blog: "/blog",
-    photos: "/photos",
     contact: "/contact",
     apps: "/apps",
+    directory: "/directory",
     etc: "/etc",
   };
 
