@@ -74,14 +74,17 @@ export default function Etc() {
           all the other things
         </h1>
         <div className="mx-4 my-8 grid grid-cols-1 place-items-stretch gap-8 md:grid-cols-2">
-          <EtcBlock title="browse tags" page="/tags" icon={faTags}>
-            projects and blog posts, categorized by tag.
-          </EtcBlock>
           <EtcBlock title="photos" page="/photos" icon={faCameraAlt}>
             various photos i've taken and edited.
           </EtcBlock>
           <EtcBlock title="writing" page="/writing" icon={faPencil}>
             miscellaneous old assorted writing projects.
+          </EtcBlock>
+          <EtcBlock title="blogroll" page="/blogroll" icon={faRss}>
+            my favorite rss feeds from friends and acquaintances.
+          </EtcBlock>
+          <EtcBlock title="colophon" page="/colophon" icon={faSection}>
+            information about how i develop and host this site.
           </EtcBlock>
           <EtcBlock title="rss feed" page="/follow" icon={faSquareRss}>
             subscribe to blog posts and project writeups.
@@ -107,12 +110,6 @@ export default function Etc() {
           </EtcBlock>
           <EtcBlock title="design sheet" page="/design" icon={faPenRuler}>
             reference fonts, colors, and names for my brand.
-          </EtcBlock>
-          <EtcBlock title="blogroll" page="/blogroll" icon={faRss}>
-            my favorite rss feeds from friends and acquaintances.
-          </EtcBlock>
-          <EtcBlock title="colophon" page="/colophon" icon={faSection}>
-            information about how i develop and host this site.
           </EtcBlock>
           {data?.sponsors?.length ? (
             <EtcBlock title="sponsors" page="/sponsors" icon={faHeart}>
