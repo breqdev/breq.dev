@@ -20,7 +20,7 @@ and you'll see a fish appear in your terminal!
 
 # Fish generators
 
-My friend [adryd](https://adryd.com/) introduced me to the original [makea.fish](http://makea.fish/) site (HTTP only), made by [weepingwitch](https://weepingwitch.github.io/). The site embeds an image rendered with PHP showing either a randomly-generated fish or the phrase "come back at 11:11." Getting the 11:11 fish has become somewhat of a ritual among my friends (we have a Discord channel specifically for posting fish screenshots!)
+My friend [Ari](https://adryd.com/) introduced me to the original [makea.fish](http://makea.fish/) site (HTTP only), made by [weepingwitch](https://weepingwitch.github.io/). The site embeds an image rendered with PHP showing either a randomly-generated fish or the phrase "come back at 11:11." Getting the 11:11 fish has become somewhat of a ritual among my friends (we have a Discord channel specifically for posting fish screenshots!)
 
 Over the last few months, we've made a few fun variations on this:
 
@@ -28,7 +28,7 @@ Over the last few months, we've made a few fun variations on this:
 - ["22:22 Bake a Dish," using random Allrecipes photos](https://tris.fyi/dish/) by [tris](https://tris.fyi/)
 - [A rotating Minecraft-style fish](https://fish.lftq.in/) by [AlpacaFur](https://lukefelixtaylor.com/)
 
-"Make a fissh" was written by myself and my girlfriend [Ava](https://avasilver.dev/) based on an idea from [miakizz](https://miakizz.quest/). It's our contribution to the weird and wonderful world of fish generators.
+"Make a fissh" was written by myself and my girlfriend [Ava](https://avasilver.dev/) based on an idea from my girlfriend [Mia](https://miakizz.quest/). It's our contribution to the weird and wonderful world of fish generators.
 
 # Wish, bubble tea, and lip gloss
 
