@@ -21,20 +21,25 @@ function getFontURL(font: string): string {
 
 export default function Directory() {
   useEffect(() => {
-    const fonts = BADGES.map((b) => b.font).filter((f) => f !== undefined);
+    const fonts = BADGES.map((b) => b.font);
 
     const elements = fonts.map((font) => {
+      if (font === undefined) {
+        return null;
+      }
+
       const link = document.createElement("link");
       link.rel = "stylesheet";
       link.href = getFontURL(font);
 
       document.head.appendChild(link);
-
       return link;
     });
     return () => {
       elements.forEach((e) => {
-        document.head.removeChild(e);
+        if (e !== null) {
+          document.head.removeChild(e);
+        }
       });
     };
   }, []);
