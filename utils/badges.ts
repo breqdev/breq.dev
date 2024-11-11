@@ -28,6 +28,9 @@ export type Badge = {
 
   // Exclude from the directory page
   exclude?: boolean;
+
+  // Font override for the directory page
+  font?: string;
 };
 
 export const BADGES: Badge[] = [
@@ -45,9 +48,10 @@ export const BADGES: Badge[] = [
     name: "Ava Silver",
     image: "/badges/ava.png",
     url: "https://avasilver.dev/",
-    bio: "SWE @ DataDog, catgirl, celeste speedrunner",
+    bio: "SWE @ datadog, celeste speedrunner",
     color: "#9C15E2",
     textColor: "#B44BDF",
+    font: "Comfortaa",
   },
   {
     tag: "miakizz",
@@ -57,6 +61,7 @@ export const BADGES: Badge[] = [
     bio: "electrical engineer, retro computing",
     color: "#A80C30",
     textColor: "#FFFFFF",
+    font: "Source Sans Pro",
   },
   {
     tag: "adryd",
@@ -67,6 +72,7 @@ export const BADGES: Badge[] = [
     bio: "technology witch, designer, software dev",
     color: "#793A80",
     textColor: "#EFBF2D",
+    font: "Pretendard",
   },
   {
     tag: "prismaticwolf",
@@ -76,6 +82,7 @@ export const BADGES: Badge[] = [
     bio: "game design, wolf",
     color: "#1735DE",
     textColor: "#FF8400",
+    font: "Josefin Sans",
   },
   {
     name: "Juniper",
@@ -93,6 +100,7 @@ export const BADGES: Badge[] = [
     bio: "network engineering witch, photographer",
     color: "#E20000",
     textColor: "#E20000",
+    font: "Helvetica",
   },
   {
     name: "Tris Emmy Wilson",
@@ -101,15 +109,17 @@ export const BADGES: Badge[] = [
     bio: "infrastructure enjoyer, OSM fan, photo taker",
     color: "#282828",
     textColor: "#458588",
+    font: "Atkinson Hyperlegible",
   },
   {
     tag: "electricbrooke",
     name: "Brooke",
     image: "/badges/electricbrooke.png",
     url: "https://electricbrooke.com/",
-    bio: "green line operator, urban affairs, hockey",
+    bio: "green line operator, hockey fan",
     color: "#000000",
     textColor: "#FFFFFF",
+    font: "DM Mono",
   },
   {
     tag: "notnite",
@@ -119,6 +129,7 @@ export const BADGES: Badge[] = [
     bio: "programmer, game modder, shitposter",
     color: "#282828",
     textColor: "#FB4934",
+    font: "Inconsolata",
   },
   {
     tag: "musicalartist12",
@@ -128,6 +139,7 @@ export const BADGES: Badge[] = [
     bio: "robotics, graphics, trumpet",
     color: "#fc6fc4",
     textColor: "#fc6fc4",
+    font: "Futura",
   },
   {
     tag: "eggy",
@@ -145,6 +157,7 @@ export const BADGES: Badge[] = [
     bio: "CS + environment, rocks, fiddle, radio",
     color: "#ADC9A5",
     textColor: "#ADC9A5",
+    font: "Times New Roman",
   },
   {
     tag: "nyashidos",
@@ -163,6 +176,7 @@ export const BADGES: Badge[] = [
     bio: "design, CS, web development",
     color: "#EB43A3",
     textColor: "#EB43A3",
+    font: "Source Sans 3",
   },
   {
     name: "Maeve Andersen",
@@ -171,6 +185,7 @@ export const BADGES: Badge[] = [
     bio: "politics, CS, bicycles, chonkpad",
     color: "#E61E26",
     textColor: "#E61E26",
+    font: "IBM Plex Sans",
   },
   {
     tag: "dillydally",
@@ -180,6 +195,7 @@ export const BADGES: Badge[] = [
     bio: "CS + biology, lana del rey, boba tea",
     color: "#004A00",
     textColor: "#FFFFFF",
+    font: "DM Sans",
   },
   {
     name: "eightyeightthirty.one",

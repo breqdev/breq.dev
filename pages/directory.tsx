@@ -1,9 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BADGES } from "../utils/badges";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
+import Head from "next/head";
+
+function getFontURL(font: string): string {
+  if (font === "Pretendard") {
+    return "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css";
+  } else if (font === "Futura") {
+    // ideally would find a less sus source for this
+    return "https://fonts.cdnfonts.com/css/futura-medium";
+  } else {
+    // Fall back to Google Fonts
+    return `https://fonts.googleapis.com/css2?family=${font.replaceAll(
+      " ",
+      "+"
+    )}&display=swap`;
+  }
+}
 
 export default function Directory() {
+  useEffect(() => {
+    const fonts = BADGES.map((b) => b.font).filter((f) => f !== undefined);
+
+    const elements = fonts.map((font) => {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = getFontURL(font);
+
+      document.head.appendChild(link);
+
+      return link;
+    });
+    return () => {
+      elements.forEach((e) => {
+        document.head.removeChild(e);
+      });
+    };
+  }, []);
+
   return (
     <Page className="bg-gray-800 p-2 text-white">
       <SEOHelmet
@@ -19,10 +54,10 @@ export default function Directory() {
 
       <div className="grid grid-cols-[repeat(auto-fit,min(90vw,24rem))] justify-center gap-8 px-4 py-8">
         {BADGES.filter((b) => !b.exclude).map(
-          ({ name, image, url, placeholder, tag, bio, textColor }) => (
+          ({ name, image, url, placeholder, tag, bio, textColor, font }) => (
             <a
               href={url}
-              className="flex flex-col gap-2 rounded-2xl bg-black p-2 text-white focus-visible:outline"
+              className="flex flex-col gap-2 rounded-2xl bg-black p-2 font-display text-white focus-visible:outline"
               key={name}
               style={{
                 outlineColor: textColor,
@@ -52,9 +87,12 @@ export default function Directory() {
                   </div>
                 )}
               </div>
-              <div className="text-center">
-                <h2 className="font-display text-4xl font-bold">{name}</h2>
-                <p className="font-body">{bio}</p>
+              <div
+                className="text-center"
+                style={{ fontFamily: font ? `"${font}"` : "inherit" }}
+              >
+                <h2 className="text-4xl font-bold">{name}</h2>
+                <p>{bio}</p>
               </div>
             </a>
           )
