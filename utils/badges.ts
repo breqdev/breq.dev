@@ -26,6 +26,9 @@ export type Badge = {
   // Badge image text color -- for showing text on a dark background near the badge
   textColor: string;
 
+  // Badge image border color -- for showing a border around the badge, visually distinct from a black bg
+  borderIsTextColor?: boolean;
+
   // Exclude from the directory page
   exclude?: boolean;
 
@@ -110,6 +113,7 @@ export const BADGES: Badge[] = [
     color: "#282828",
     textColor: "#458588",
     font: "Atkinson Hyperlegible",
+    borderIsTextColor: true,
   },
   {
     tag: "electricbrooke",
@@ -120,6 +124,7 @@ export const BADGES: Badge[] = [
     color: "#000000",
     textColor: "#FFFFFF",
     font: "DM Mono",
+    borderIsTextColor: true,
   },
   {
     tag: "notnite",
@@ -130,6 +135,16 @@ export const BADGES: Badge[] = [
     color: "#282828",
     textColor: "#FB4934",
     font: "Inconsolata",
+    borderIsTextColor: true,
+  },
+  {
+    tag: "hfuller",
+    name: "Hunter Fuller",
+    image: "/badges/hunter.png",
+    url: "https://pixilic.com/",
+    bio: "network engineer, hacker, Huntsville resident",
+    color: "#808080",
+    textColor: "#ff0000",
   },
   {
     tag: "musicalartist12",

@@ -59,47 +59,65 @@ export default function Directory() {
 
       <div className="grid grid-cols-[repeat(auto-fit,min(90vw,24rem))] justify-center gap-8 px-4 py-8">
         {BADGES.filter((b) => !b.exclude).map(
-          ({ name, image, url, placeholder, tag, bio, textColor, font }) => (
-            <a
-              href={url}
-              className="flex flex-col gap-2 rounded-2xl bg-black p-2 font-display text-white focus-visible:outline"
-              key={name}
-              style={{
-                outlineColor: textColor,
-              }}
-            >
-              <h2
-                className="text-center font-mono text-3xl font-bold lowercase"
-                style={{ color: textColor }}
-              >
-                {tag || name.split(" ")[0]}
-              </h2>
+          ({
+            name,
+            image,
+            url,
+            placeholder,
+            tag,
+            bio,
+            color,
+            textColor,
+            borderIsTextColor,
+            font,
+          }) => (
+            <div className="group relative" key={name}>
               <div
+                className="pointer-events-none absolute inset-0 z-0 rounded-2xl transition-transform group-focus-within:translate-x-4 group-focus-within:translate-y-2 group-hover:translate-x-4 group-hover:translate-y-2"
                 style={{
-                  imageRendering: "pixelated",
-                  aspectRatio: "88 / 31",
+                  backgroundColor: borderIsTextColor ? textColor : color,
                 }}
-                className="w-full"
+              />
+              <a
+                href={url}
+                className="relative z-10 flex flex-col gap-2 rounded-2xl bg-black p-2 font-display text-white focus-visible:outline"
+                style={{
+                  outlineColor: borderIsTextColor ? textColor : color,
+                }}
               >
-                {image /* eslint-disable-next-line @next/next/no-img-element */ && (
-                  <img className="w-full" src={image} alt={name} />
-                )}
-                {placeholder && (
-                  <div className="flex h-full items-center justify-center border-2 border-dashed border-white">
-                    <span className="font-display text-white">
-                      {placeholder}
-                    </span>
-                  </div>
-                )}
-              </div>
-              <div
-                className="text-center"
-                style={{ fontFamily: font ? `"${font}"` : "inherit" }}
-              >
-                <h2 className="text-4xl font-bold">{name}</h2>
-                <p>{bio}</p>
-              </div>
-            </a>
+                <h2
+                  className="text-center font-mono text-3xl font-bold lowercase"
+                  style={{ color: textColor }}
+                >
+                  {tag || name.split(" ")[0]}
+                </h2>
+                <div
+                  style={{
+                    imageRendering: "pixelated",
+                    aspectRatio: "88 / 31",
+                  }}
+                  className="w-full"
+                >
+                  {image /* eslint-disable-next-line @next/next/no-img-element */ && (
+                    <img className="w-full" src={image} alt={name} />
+                  )}
+                  {placeholder && (
+                    <div className="flex h-full items-center justify-center border-2 border-dashed border-white">
+                      <span className="font-display text-white">
+                        {placeholder}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div
+                  className="text-center"
+                  style={{ fontFamily: font ? `"${font}"` : "inherit" }}
+                >
+                  <h2 className="text-4xl font-bold">{name}</h2>
+                  <p>{bio}</p>
+                </div>
+              </a>
+            </div>
           )
         )}
       </div>
