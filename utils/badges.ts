@@ -198,6 +198,15 @@ export const BADGES: Badge[] = [
     font: "DM Sans",
   },
   {
+    name: "oomfieland",
+    image: "/badges/oomfieland.png",
+    url: "#",
+    bio: "oomfieland",
+    color: "#000000",
+    textColor: "#FFFFFF",
+    exclude: true,
+  },
+  {
     name: "eightyeightthirty.one",
     image: "/badges/eightyeightthirtyone.png",
     url: "https://eightyeightthirty.one/",
