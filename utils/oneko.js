@@ -17,7 +17,13 @@ export default function oneko(startX, startY, startAlert) {
   let mousePosX = 0;
   let mousePosY = 0;
 
-  const nekoSites = BADGES.map((badge) => new URL(badge.url).host);
+  const nekoSites = BADGES.map((badge) => {
+    try {
+      return new URL(badge.url).host;
+    } catch (e) {
+      return null;
+    }
+  });
 
   const nekoHitboxes = document.querySelectorAll(".oneko-hitbox");
 
