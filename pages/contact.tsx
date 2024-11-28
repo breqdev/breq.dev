@@ -1,4 +1,5 @@
 import {
+  faBluesky,
   faDiscord,
   faGithub,
   faGitlab,
@@ -49,7 +50,7 @@ function ContactItem({
         className
       }
     >
-      <FontAwesomeIcon className="text-5xl" icon={icon} title={label} />
+      <FontAwesomeIcon className="fa-fw text-5xl" icon={icon} title={label} />
       <div className="flex w-full flex-col items-start">
         {username.length <= 16 ? (
           <h2 className="font-mono text-3xl">{username}</h2>
@@ -184,11 +185,11 @@ export default function Contact() {
 
         <ContactCategory title="microblogging">
           <ContactItem
-            url="https://twitter.com/breqdev"
-            icon={faTwitter}
-            username="@breqdev"
-            label="Twitter"
-            description="until twitter dies"
+            url="https://bsky.app/profile/breq.dev"
+            icon={faBluesky}
+            username="@breq.dev"
+            label="Bluesky"
+            description="in the atmosphere"
             className="hover:bg-cyan-200 focus-visible:bg-cyan-200 dark:hover:bg-cyan-600 dark:focus-visible:bg-cyan-600"
           />
           <ContactItem
@@ -199,14 +200,22 @@ export default function Contact() {
             description="on the federated verse"
             className="hover:bg-violet-200 focus-visible:bg-violet-200 dark:hover:bg-violet-600 dark:focus-visible:bg-violet-600"
           />
-          {/* <ContactItem
+          <ContactItem
+            url="https://twitter.com/breqdev"
+            icon={faTwitter}
+            username="@breqdev"
+            label="Twitter"
+            description="the bird themed hellsite"
+            className="hover:bg-blue-200 focus-visible:bg-blue-200 dark:hover:bg-blue-600 dark:focus-visible:bg-blue-600"
+          />
+          <ContactItem
             url="https://tumblr.breq.dev/"
             icon={faTumblr}
             username="breq"
             label="Tumblr"
-            description="i don't use this"
+            description="i don't really use this"
             className="hover:bg-indigo-200 focus-visible:bg-indigo-200 dark:hover:bg-indigo-600 dark:focus-visible:bg-indigo-600"
-          /> */}
+          />
         </ContactCategory>
 
         <ContactCategory title="socials">
@@ -231,7 +240,7 @@ export default function Contact() {
             icon={faReddit}
             username="u/breqdev"
             label="Reddit"
-            description="L + ratio + reddit user"
+            description="long time lurker, first time poster..."
             className="hover:bg-orange-200 focus-visible:bg-orange-200 dark:hover:bg-orange-600 dark:focus-visible:bg-orange-600"
           />
           <ContactItem

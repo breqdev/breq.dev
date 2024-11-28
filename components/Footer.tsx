@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import {
+  faBluesky,
   faGithub,
   faMastodon,
   faTwitter,
@@ -114,6 +115,12 @@ export default function Footer() {
       "hover:!bg-panpink-light focus:!bg-panpink-light hover:text-black focus:text-black",
     ],
     [
+      faBluesky,
+      "@breq.dev",
+      "https://bsky.app/profile/breq.dev",
+      "hover:!bg-panblue-dark hover:text-white focus:!bg-panblue-dark focus:text-white",
+    ],
+    [
       faMastodon,
       "@breq@tacobelllabs.net",
       "https://tacobelllabs.net/@breq",
@@ -208,7 +215,7 @@ export default function Footer() {
             ))}
             <Link
               href="/contact"
-              className={`${linkStyles} hover:!bg-panblue-dark hover:text-white focus:!bg-panblue-dark focus:text-white`}
+              className={`${linkStyles} hover:!bg-white hover:text-gray-800 focus:!bg-white focus:text-gray-800`}
               style={{ backgroundColor: lightBackgroundColor }}
             >
               more<span className="sr-only"> ways to contact me </span>
