@@ -80,35 +80,46 @@ async function parseRssFeed(url: string, data: Document): Promise<RssFeed> {
     data?.querySelector("description")?.textContent ??
     data?.querySelector("subtitle")?.textContent;
 
-  const lastItem = data?.querySelector("item") ?? data?.querySelector("entry");
+  const items = [
+    ...data?.querySelectorAll("item"),
+    ...data?.querySelectorAll("entry"),
+  ];
 
-  let timeSince = "";
-  let pubDate = null;
-  let postTitle = "";
-  let postLink = "";
+  const itemData = items.map((lastItem) => {
+    let timeSince = "";
+    let pubDate = null;
+    let postTitle = "";
+    let postLink = "";
 
-  if (lastItem) {
-    const itemDate =
-      lastItem.querySelector("pubDate")?.textContent ||
-      lastItem.querySelector("published")?.textContent ||
-      lastItem.querySelector("updated")?.textContent;
+    if (lastItem) {
+      const itemDate =
+        lastItem.querySelector("pubDate")?.textContent ||
+        lastItem.querySelector("published")?.textContent ||
+        lastItem.querySelector("updated")?.textContent;
 
-    if (itemDate) {
-      pubDate = new Date(itemDate);
-      timeSince = pubDate.toLocaleDateString();
+      if (itemDate) {
+        pubDate = new Date(itemDate);
+        timeSince = pubDate.toLocaleDateString();
+      }
+
+      const linkElement = lastItem.querySelector("link");
+
+      postLink =
+        linkElement?.getAttribute("href") ?? linkElement?.textContent ?? "";
+
+      if (!postLink.startsWith("http")) {
+        postLink = `https://${base}${postLink}`;
+      }
+
+      postTitle = lastItem.querySelector("title")?.textContent ?? "";
     }
 
-    const linkElement = lastItem.querySelector("link");
+    return { postTitle, postLink, pubDate, timeSince };
+  });
 
-    postLink =
-      linkElement?.getAttribute("href") ?? linkElement?.textContent ?? "";
-
-    if (!postLink.startsWith("http")) {
-      postLink = `https://${base}${postLink}`;
-    }
-
-    postTitle = lastItem.querySelector("title")?.textContent ?? "";
-  }
+  const { postTitle, postLink, pubDate, timeSince } = itemData.sort((a, b) => {
+    return (b.pubDate?.getTime() ?? 0) - (a.pubDate?.getTime() ?? 0);
+  })[0];
 
   let siteUrl = url;
   const links = data?.querySelectorAll("link");
@@ -243,6 +254,7 @@ const FEEDS = [
   "https://rosenzweig.io/feed.xml",
   "https://www.noblemushtak.com/blog/feed.rss",
   "https://tris.fyi/blog/rss.xml",
+  "https://suricrasia.online/blog/feed.xml",
 ];
 
 export default function Feeds() {
