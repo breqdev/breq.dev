@@ -255,6 +255,7 @@ const FEEDS = [
   "https://www.noblemushtak.com/blog/feed.rss",
   "https://tris.fyi/blog/rss.xml",
   "https://suricrasia.online/blog/feed.xml",
+  "https://alyx.sh/tags/post/index.xml",
 ];
 
 export default function Feeds() {
