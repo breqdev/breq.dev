@@ -9,6 +9,25 @@
   }
 }
 
+/*
+ * overscroll behavior fix, thanks luke!
+ * https://discord.com/channels/1044310532745871402/1226549941233782784/1320847842142715934
+ */
+body:before {
+  content: "";
+  background: linear-gradient(
+    theme("colors.panpink.DEFAULT") 0%,
+    theme("colors.panpink.DEFAULT") 50%,
+    theme("colors.panblue.DEFAULT") 50%,
+    theme("colors.panblue.DEFAULT") 100%
+  );
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
 .math {
   /*
    * KaTeX equations should scroll horizontally if not enough room is available
