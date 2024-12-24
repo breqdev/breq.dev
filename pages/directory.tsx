@@ -70,6 +70,7 @@ export default function Directory() {
             textColor,
             borderIsTextColor,
             font,
+            rel,
           }) => (
             <div className="group relative" key={name}>
               <div
@@ -84,6 +85,7 @@ export default function Directory() {
                 style={{
                   outlineColor: borderIsTextColor ? textColor : color,
                 }}
+                rel={rel}
               >
                 <h2
                   className="text-center font-mono text-3xl font-bold lowercase"

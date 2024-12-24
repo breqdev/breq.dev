@@ -40,6 +40,7 @@ function BadgeImage({
       key={badge.name}
       style={{ imageRendering: "pixelated", width: 88, height: 31 }}
       className="flex-shrink-0 outline-4 outline-panpink focus-visible:outline"
+      rel={badge.rel}
     >
       {badge.image /* eslint-disable-next-line @next/next/no-img-element */ && (
         <img

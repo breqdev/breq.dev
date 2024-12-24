@@ -34,6 +34,9 @@ export type Badge = {
 
   // Font override for the directory page
   font?: string;
+
+  // "rel" property value, see https://microformats.org/wiki/existing-rel-values
+  rel: string;
 };
 
 export const BADGES: Badge[] = [
@@ -46,6 +49,7 @@ export const BADGES: Badge[] = [
     bio: "that's me, silly!",
     color: "#1BB3FF",
     textColor: "#1BB3FF",
+    rel: "me",
   },
   {
     name: "Ava Silver",
@@ -55,6 +59,7 @@ export const BADGES: Badge[] = [
     color: "#9C15E2",
     textColor: "#B44BDF",
     font: "Comfortaa",
+    rel: "sweetheart",
   },
   {
     tag: "miakizz",
@@ -65,6 +70,7 @@ export const BADGES: Badge[] = [
     color: "#A80C30",
     textColor: "#FFFFFF",
     font: "Source Sans Pro",
+    rel: "sweetheart",
   },
   {
     tag: "adryd",
@@ -76,6 +82,7 @@ export const BADGES: Badge[] = [
     color: "#793A80",
     textColor: "#EFBF2D",
     font: "Pretendard",
+    rel: "friend",
   },
   {
     tag: "prismaticwolf",
@@ -86,6 +93,7 @@ export const BADGES: Badge[] = [
     color: "#1735DE",
     textColor: "#FF8400",
     font: "Josefin Sans",
+    rel: "friend",
   },
   {
     name: "Juniper",
@@ -94,6 +102,7 @@ export const BADGES: Badge[] = [
     bio: "photographer, anarchist, good puppy",
     color: "#A876BD",
     textColor: "#A876BD",
+    rel: "friend",
   },
   {
     tag: "FlamingSpork",
@@ -104,6 +113,7 @@ export const BADGES: Badge[] = [
     color: "#E20000",
     textColor: "#E20000",
     font: "Helvetica",
+    rel: "friend",
   },
   {
     name: "Tris Emmy Wilson",
@@ -114,6 +124,7 @@ export const BADGES: Badge[] = [
     textColor: "#458588",
     font: "Atkinson Hyperlegible",
     borderIsTextColor: true,
+    rel: "friend",
   },
   {
     tag: "electricbrooke",
@@ -125,6 +136,7 @@ export const BADGES: Badge[] = [
     textColor: "#FFFFFF",
     font: "DM Mono",
     borderIsTextColor: true,
+    rel: "friend",
   },
   {
     tag: "notnite",
@@ -136,6 +148,7 @@ export const BADGES: Badge[] = [
     textColor: "#FB4934",
     font: "Inconsolata",
     borderIsTextColor: true,
+    rel: "acquaintance",
   },
   {
     tag: "hfuller",
@@ -145,6 +158,7 @@ export const BADGES: Badge[] = [
     bio: "network engineer, hacker, Huntsville resident",
     color: "#808080",
     textColor: "#ff0000",
+    rel: "friend",
   },
   {
     tag: "musicalartist12",
@@ -155,33 +169,7 @@ export const BADGES: Badge[] = [
     color: "#fc6fc4",
     textColor: "#fc6fc4",
     font: "Futura",
-  },
-  {
-    tag: "eggy",
-    name: "Ezgi Bas",
-    image: "/badges/eggy.png",
-    url: "https://twitter.com/ezgiburglar69",
-    bio: "CS, math major, turkish",
-    color: "#F0D75D",
-    textColor: "#F0D75D",
-  },
-  {
-    name: "Kel Weaver",
-    image: "/badges/kel.png",
-    url: "https://keleats.rocks/",
-    bio: "CS + environment, rocks, fiddle, radio",
-    color: "#ADC9A5",
-    textColor: "#ADC9A5",
-    font: "Times New Roman",
-  },
-  {
-    tag: "nyashidos",
-    name: "Ula Bitinaitis",
-    image: "/badges/ula.png",
-    url: "https://www.ulabit.dev/",
-    bio: "CS + media arts, web dev, game dev, VR",
-    color: "#FFE2B1",
-    textColor: "#FFE2B1",
+    rel: "acquaintance",
   },
   {
     tag: "alpacafur",
@@ -192,6 +180,37 @@ export const BADGES: Badge[] = [
     color: "#EB43A3",
     textColor: "#EB43A3",
     font: "Source Sans 3",
+    rel: "friend",
+  },
+  {
+    tag: "nyashidos",
+    name: "Ula Bitinaitis",
+    image: "/badges/ula.png",
+    url: "https://www.ulabit.dev/",
+    bio: "CS + media arts, web dev, game dev, VR",
+    color: "#FFE2B1",
+    textColor: "#FFE2B1",
+    rel: "met",
+  },
+  {
+    name: "Kel Weaver",
+    image: "/badges/kel.png",
+    url: "https://keleats.rocks/",
+    bio: "CS + environment, rocks, fiddle, radio",
+    color: "#ADC9A5",
+    textColor: "#ADC9A5",
+    font: "Times New Roman",
+    rel: "met",
+  },
+  {
+    tag: "eggy",
+    name: "Ezgi Bas",
+    image: "/badges/eggy.png",
+    url: "https://twitter.com/ezgiburglar69",
+    bio: "CS, math major, turkish",
+    color: "#F0D75D",
+    textColor: "#F0D75D",
+    rel: "met",
   },
   {
     name: "Maeve Andersen",
@@ -201,6 +220,7 @@ export const BADGES: Badge[] = [
     color: "#E61E26",
     textColor: "#E61E26",
     font: "IBM Plex Sans",
+    rel: "met",
   },
   {
     tag: "dillydally",
@@ -211,6 +231,7 @@ export const BADGES: Badge[] = [
     color: "#004A00",
     textColor: "#FFFFFF",
     font: "DM Sans",
+    rel: "acquaintance",
   },
   {
     name: "oomfieland",
@@ -220,6 +241,7 @@ export const BADGES: Badge[] = [
     color: "#000000",
     textColor: "#FFFFFF",
     exclude: true,
+    rel: "kin",
   },
   {
     name: "eightyeightthirty.one",
@@ -229,5 +251,6 @@ export const BADGES: Badge[] = [
     color: "#000000",
     textColor: "#FFFFFF",
     exclude: true,
+    rel: "kin",
   },
 ];
