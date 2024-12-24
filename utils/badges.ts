@@ -35,7 +35,7 @@ export type Badge = {
   // Font override for the directory page
   font?: string;
 
-  // "rel" property value, see https://microformats.org/wiki/existing-rel-values
+  // "rel" property value, see http://www.gmpg.org/xfn/intro
   rel: string;
 };
 
@@ -59,7 +59,7 @@ export const BADGES: Badge[] = [
     color: "#9C15E2",
     textColor: "#B44BDF",
     font: "Comfortaa",
-    rel: "sweetheart",
+    rel: "sweetheart date met",
   },
   {
     tag: "miakizz",
@@ -70,7 +70,7 @@ export const BADGES: Badge[] = [
     color: "#A80C30",
     textColor: "#FFFFFF",
     font: "Source Sans Pro",
-    rel: "sweetheart",
+    rel: "sweetheart date met",
   },
   {
     tag: "adryd",
@@ -82,7 +82,7 @@ export const BADGES: Badge[] = [
     color: "#793A80",
     textColor: "#EFBF2D",
     font: "Pretendard",
-    rel: "friend",
+    rel: "friend met",
   },
   {
     tag: "prismaticwolf",
@@ -93,7 +93,7 @@ export const BADGES: Badge[] = [
     color: "#1735DE",
     textColor: "#FF8400",
     font: "Josefin Sans",
-    rel: "friend",
+    rel: "friend met",
   },
   {
     name: "Juniper",
@@ -102,7 +102,7 @@ export const BADGES: Badge[] = [
     bio: "photographer, anarchist, good puppy",
     color: "#A876BD",
     textColor: "#A876BD",
-    rel: "friend",
+    rel: "friend met",
   },
   {
     tag: "FlamingSpork",
@@ -113,7 +113,7 @@ export const BADGES: Badge[] = [
     color: "#E20000",
     textColor: "#E20000",
     font: "Helvetica",
-    rel: "friend",
+    rel: "friend met",
   },
   {
     name: "Tris Emmy Wilson",
@@ -124,7 +124,7 @@ export const BADGES: Badge[] = [
     textColor: "#458588",
     font: "Atkinson Hyperlegible",
     borderIsTextColor: true,
-    rel: "friend",
+    rel: "friend met",
   },
   {
     tag: "electricbrooke",
@@ -136,7 +136,7 @@ export const BADGES: Badge[] = [
     textColor: "#FFFFFF",
     font: "DM Mono",
     borderIsTextColor: true,
-    rel: "friend",
+    rel: "friend met",
   },
   {
     tag: "notnite",
@@ -158,7 +158,7 @@ export const BADGES: Badge[] = [
     bio: "network engineer, hacker, Huntsville resident",
     color: "#808080",
     textColor: "#ff0000",
-    rel: "friend",
+    rel: "friend met",
   },
   {
     tag: "musicalartist12",
@@ -169,7 +169,7 @@ export const BADGES: Badge[] = [
     color: "#fc6fc4",
     textColor: "#fc6fc4",
     font: "Futura",
-    rel: "acquaintance",
+    rel: "acquaintance met",
   },
   {
     tag: "alpacafur",
@@ -180,7 +180,7 @@ export const BADGES: Badge[] = [
     color: "#EB43A3",
     textColor: "#EB43A3",
     font: "Source Sans 3",
-    rel: "friend",
+    rel: "friend met",
   },
   {
     tag: "nyashidos",
@@ -190,7 +190,7 @@ export const BADGES: Badge[] = [
     bio: "CS + media arts, web dev, game dev, VR",
     color: "#FFE2B1",
     textColor: "#FFE2B1",
-    rel: "met",
+    rel: "acquaintance met",
   },
   {
     name: "Kel Weaver",
@@ -200,7 +200,7 @@ export const BADGES: Badge[] = [
     color: "#ADC9A5",
     textColor: "#ADC9A5",
     font: "Times New Roman",
-    rel: "met",
+    rel: "acquaintance met",
   },
   {
     tag: "eggy",
@@ -210,7 +210,7 @@ export const BADGES: Badge[] = [
     bio: "CS, math major, turkish",
     color: "#F0D75D",
     textColor: "#F0D75D",
-    rel: "met",
+    rel: "acquaintance met",
   },
   {
     name: "Maeve Andersen",
@@ -220,7 +220,7 @@ export const BADGES: Badge[] = [
     color: "#E61E26",
     textColor: "#E61E26",
     font: "IBM Plex Sans",
-    rel: "met",
+    rel: "acquaintance met",
   },
   {
     tag: "dillydally",
@@ -231,7 +231,7 @@ export const BADGES: Badge[] = [
     color: "#004A00",
     textColor: "#FFFFFF",
     font: "DM Sans",
-    rel: "acquaintance",
+    rel: "acquaintance met",
   },
   {
     name: "oomfieland",
