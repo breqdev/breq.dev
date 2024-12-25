@@ -127,6 +127,17 @@ export const BADGES: Badge[] = [
     rel: "friend met",
   },
   {
+    name: "Izzy Rosepetals",
+    placeholder: "izzy",
+    url: "https://izzy.horse/",
+    bio: 'pony, "canadian" software developer',
+    color: "#0b004f",
+    textColor: "#8d3e8c",
+    borderIsTextColor: true,
+    font: "Equestria",
+    rel: "friend met",
+  },
+  {
     tag: "electricbrooke",
     name: "Brooke",
     image: "/badges/electricbrooke.png",

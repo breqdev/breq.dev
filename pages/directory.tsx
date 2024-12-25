@@ -10,6 +10,9 @@ function getFontURL(font: string): string {
   } else if (font === "Futura") {
     // ideally would find a less sus source for this
     return "https://fonts.cdnfonts.com/css/futura-medium";
+  } else if (font === "Equestria") {
+    // no clue where izzy got his one from, so we'll just make our own CSS shim
+    return "/shims/equestria.css";
   } else {
     // Fall back to Google Fonts
     return `https://fonts.googleapis.com/css2?family=${font.replaceAll(
