@@ -256,6 +256,7 @@ const FEEDS = [
   "https://tris.fyi/blog/rss.xml",
   "https://suricrasia.online/blog/feed.xml",
   "https://alyx.sh/tags/post/index.xml",
+  "https://pixilic.com/feed",
 ];
 
 export default function Feeds() {
