@@ -165,7 +165,7 @@ export const BADGES: Badge[] = [
     name: "Hunter Fuller",
     image: "/badges/hunter.png",
     url: "https://pixilic.com/",
-    bio: "network engineer, hacker, Huntsville resident",
+    bio: "network engineer, hacker, agent of chaos",
     color: "#808080",
     textColor: "#ff0000",
     rel: "friend met",
