@@ -42,13 +42,28 @@ I use pfSense's Dynamic DNS tools to point `home.breq.dev` at our IPv4 address. 
 
 Getting the "suffix" of my IPv6 address to remain static ended up being a hassle -- I wanted my computer to continue to respect the prefix it was given, but to keep the same suffix part instead of randomly generating it.
 
-I found [`ip token`](https://man7.org/linux/man-pages/man8/ip-token.8.html) to solve this problem, and ended up configuring it with:
+I found [`ip token`](https://man7.org/linux/man-pages/man8/ip-token.8.html) to solve this problem.
+
+To try things out, I ran:
 
 ```bash
 # Accept Router Advertisements to configure the network prefix
 sudo sysctl -w net.ipv6.conf.enp37s0.accept_ra=1
 # Set an IP token identifier (::bc for my initials)
 sudo ip token set ::bc dev enp37s0
+```
+
+Then, to make it persistent:
+
+```bash
+# add net.ipv6.conf.all.accept_ra=1 in the ipv6 section
+sudo nano /etc/sysctl.conf
+
+# NetworkManager equivalent of the ip command
+# My wired network is called "Ethernet",
+# or by default it's something like "Wired Connection 1"
+sudo nmcli connection modify Ethernet ipv6.addr-gen-mode eui64
+sudo nmcli connection modify Ethernet ipv6.token ::bc
 ```
 
 ## Split DNS
@@ -66,7 +81,7 @@ We've got a few services hosted here, with more potentially to come:
 In the future, I'd love to also spin up
 
 - a "home node" for syncing my files with Syncthing
-- a permanent place for the UniFi controller software
+- a permanent place for the UniFi controller software other than my Ubuntu desktop
 - a VPN host, for remote maintenance, getting around firewalls, and maybe hooking up my friends' networks and mine to make a mega home network
 
 Eventually, I'd love to have a dedicated server for lots of these things (Nextcloud, Syncthing, etc) and maybe a reverse proxy to point to other devices on the network? It's not a huge priority, but maybe after I upgrade my desktop machine I'll be able to scrounge together some hardware.
