@@ -160,7 +160,10 @@ export default function Design() {
         <h2 className="text-center font-display text-6xl">themes</h2>
         <div className="my-4 grid grid-cols-1 justify-center gap-8 rounded-2xl bg-black p-2 md:grid-cols-2 lg:grid-cols-3">
           {THEMES.map((theme) => (
-            <div className="flex w-full max-w-sm flex-col gap-2 overflow-clip rounded-xl bg-white p-1 pb-2 text-black">
+            <div
+              className="flex w-full max-w-sm flex-col gap-2 overflow-clip rounded-xl bg-white p-1 pb-2 text-black"
+              key={theme.product}
+            >
               <Image
                 className="w-full rounded-lg"
                 src={theme.preview}
