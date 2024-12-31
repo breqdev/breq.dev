@@ -1,15 +1,46 @@
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
 import { useDarkText } from "../components/Footer";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faScaleBalanced } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCloudDownloadAlt,
+  faScaleBalanced,
+} from "@fortawesome/free-solid-svg-icons";
+import Image, { StaticImageData } from "next/image";
+import opengd77preview from "../public/themes/opengd77/preview.png";
 
 const COLORGRID = [
   ["#ff8ac4", "#b0e4ff", "#ffeb7a", "#fa9f75", "#e0a1ff", "#a1ffd0"],
   [null, "#5ec9ff", null, null, null, null],
   ["#ff42a1", "#1bb3ff", "#ffda00", "#ff6b26", "#c757ff", null],
   ["#ff218c", "#0077b3", null, null, null, null],
+];
+
+type Theme = {
+  product: string;
+  description: () => JSX.Element;
+  preview: StaticImageData;
+  previewStyle: CSSProperties;
+  download: string;
+};
+
+const THEMES: Theme[] = [
+  {
+    product: "OpenGD77",
+    description: () => (
+      <p className="mx-4 text-center font-body">
+        for the{" "}
+        <a className="underline" href="https://www.opengd77.com/">
+          OpenGD77
+        </a>{" "}
+        firmware on my Retevis RT3S handheld radio
+      </p>
+    ),
+    preview: opengd77preview,
+    previewStyle: { imageRendering: "pixelated" },
+    download: "/themes/opengd77/theme.gtm",
+  },
 ];
 
 function Color({ hex }: { hex: string }) {
@@ -122,6 +153,32 @@ export default function Design() {
           <Font name="Libre Franklin" comment="for body text" />
           <Font name="Fira Code" comment="for code" />
           <Font name="Nunito Sans" comment="for formal settings" />
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-7xl">
+        <h2 className="text-center font-display text-6xl">themes</h2>
+        <div className="my-4 grid grid-cols-1 justify-center gap-8 rounded-2xl bg-black p-2 md:grid-cols-2 lg:grid-cols-3">
+          {THEMES.map((theme) => (
+            <div className="flex w-full max-w-sm flex-col gap-2 overflow-clip rounded-xl bg-white p-1 pb-2 text-black">
+              <Image
+                className="w-full rounded-lg"
+                src={theme.preview}
+                alt={theme.product}
+                style={theme.previewStyle}
+              />
+              <h2 className="mx-2 text-center font-display text-2xl">
+                {theme.product}
+              </h2>
+              {theme.description()}
+              <a
+                href={theme.download}
+                className="mx-2 rounded-lg bg-panblue-light p-1 text-center font-display text-lg transition-colors hover:bg-panblue"
+              >
+                <FontAwesomeIcon icon={faCloudDownloadAlt} /> download
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </Page>
