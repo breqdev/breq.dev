@@ -74,7 +74,7 @@ export default function Post(props: BasicMarkdownInfo & PostInfo) {
         <PostHeader {...props} />
         <Markdown content={props.body} />
       </article>
-      <hr className="border-1 mx-auto my-4 max-w-4xl border-black" />
+      <hr className="border-1 mx-4 sm:mx-auto my-4 max-w-4xl border-black" />
       <Comments />
     </Page>
   );

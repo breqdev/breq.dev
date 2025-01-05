@@ -1,44 +1,22 @@
-import React, { useRef, useEffect } from "react";
-
-/*
-<script src="https://utteranc.es/client.js"
-        repo="breqdev/breq.dev"
-        issue-term="pathname"
-        label="Utterances"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
-*/
+import Giscus from "@giscus/react";
 
 export default function Comments() {
-  const commentBox = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const box = commentBox.current;
-
-    if (!box) {
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = "https://utteranc.es/client.js";
-    script.crossOrigin = "anonymous";
-
-    script.setAttribute("repo", "breqdev/breq.dev");
-    script.setAttribute("issue-term", "pathname");
-    script.setAttribute("label", "Utterances");
-    script.setAttribute("theme", "preferred-color-scheme");
-
-    box.appendChild(script);
-
-    return () => {
-      if (box.contains(script)) {
-        box.removeChild(script);
-      }
-    };
-  }, []);
-
-  return <div className="mb-12" ref={commentBox} />;
+  return (
+    <div className="mx-auto mb-8 max-w-3xl px-4">
+      <Giscus
+        id="comments"
+        repo="breqdev/breq.dev"
+        repoId="MDEwOlJlcG9zaXRvcnkzOTQxMjU0ODQ="
+        category="Comments"
+        categoryId="DIC_kwDOF33grM4ClvXO-hVS"
+        mapping="pathname"
+        reactionsEnabled="1"
+        emitMetadata="0"
+        inputPosition="top"
+        theme="light"
+        lang="en"
+        loading="lazy"
+      />
+    </div>
+  );
 }
