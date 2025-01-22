@@ -14,24 +14,17 @@ export default function MarkdownImage(props: ImageInfo & { alt: string }) {
     );
   } else {
     return (
-      <div
-        className="my-4 mx-auto"
-        style={{
-          aspectRatio: `${props.width}/${props.height}`,
-          maxWidth: "48rem",
-          maxHeight: "48rem",
-        }}
-      >
         <Image
           {...props}
           alt={props.alt}
           src={"/images/" + props.src}
           style={{
-            maxWidth: "100%",
-            height: "auto",
+            maxWidth: "min(48rem, 100%)",
+            maxHeight: "40rem",
+            margin: "2rem auto",
+            objectFit: "contain",
           }}
         />
-      </div>
     );
   }
 }
