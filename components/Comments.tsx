@@ -20,7 +20,7 @@ export default function Comments() {
         repo="breqdev/breq.dev"
         repoId="MDEwOlJlcG9zaXRvcnkzOTQxMjU0ODQ="
         category="Comments"
-        categoryId="DIC_kwDOF33grM4ClvXO-hVS"
+        categoryId="DIC_kwDOF33grM4ClvXO"
         mapping="pathname"
         reactionsEnabled="1"
         emitMetadata="0"
