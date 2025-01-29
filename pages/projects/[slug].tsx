@@ -46,7 +46,7 @@ function ProjectInfoItem({
         ) : link ? (
           <a
             href={link}
-            className="outline-none hover:underline focus:bg-panyellow focus:text-black focus:underline"
+            className="outline-hidden hover:underline focus:bg-panyellow focus:text-black focus:underline"
           >
             {value}
           </a>
@@ -66,7 +66,7 @@ function TagInfo({ tags }: { tags: string[] }) {
         {tags?.map((tag) => (
           <li
             key={tag}
-            className="p-category inline rounded-full bg-white px-2 py-0.5 text-black outline-none focus:bg-panblue"
+            className="p-category inline rounded-full bg-white px-2 py-0.5 text-black outline-hidden focus:bg-panblue"
           >
             {tag}
           </li>

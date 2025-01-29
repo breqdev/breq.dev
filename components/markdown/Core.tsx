@@ -40,7 +40,7 @@ function A({ href, children }: { href: string; children: React.ReactNode }) {
 
   const colors = context.dark
     ? "text-white underline"
-    : "text-panblue-dark dark:text-panblue focus:bg-panyellow outline-none";
+    : "text-panblue-dark dark:text-panblue focus:bg-panyellow outline-hidden";
 
   if (ExtLinkRegex.test(href)) {
     return (
@@ -52,7 +52,7 @@ function A({ href, children }: { href: string; children: React.ReactNode }) {
     return (
       <Link
         href={href}
-        className="text-panblue-dark outline-none hover:underline focus:bg-panyellow"
+        className="text-panblue-dark outline-hidden hover:underline focus:bg-panyellow"
       >
         {children}
       </Link>
@@ -73,7 +73,7 @@ function BlockQuote({ children }: { children: React.ReactNode }) {
 
 function Kbd({ children }: { children: React.ReactNode }) {
   return (
-    <kbd className="rounded border-2 border-black bg-gray-200 p-1">
+    <kbd className="rounded-sm border-2 border-black bg-gray-200 p-1">
       {children}
     </kbd>
   );

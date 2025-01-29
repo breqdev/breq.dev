@@ -21,7 +21,7 @@ function HoverLink({
       <span className="absolute bottom-0 left-0 top-0 -ml-8">
         <a
           href={`#${id}`}
-          className="text-xl opacity-0 outline-none transition-opacity duration-200 focus:opacity-100 group-hover:opacity-100"
+          className="text-xl opacity-0 outline-hidden transition-opacity duration-200 focus:opacity-100 group-hover:opacity-100"
         >
           <FontAwesomeIcon icon={faLink} />
           <span className="sr-only">Link to this section </span>

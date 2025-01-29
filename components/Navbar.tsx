@@ -24,7 +24,7 @@ function Wordmark({
   onClick?: () => void;
 }) {
   const className =
-    "flex text-5xl text-black outline-none " +
+    "flex text-5xl text-black outline-hidden " +
     (onClick ? "" : "hover:text-white focus:text-white focus:underline");
 
   const inner = (
@@ -110,7 +110,7 @@ export default function Navbar() {
               <li className="text-lg" key={url}>
                 <Link
                   href={url}
-                  className="text-black outline-none hover:text-white focus:text-white focus:underline"
+                  className="text-black outline-hidden hover:text-white focus:text-white focus:underline"
                   onClick={() => setExpanded(false)}
                 >
                   {name}
@@ -119,7 +119,7 @@ export default function Navbar() {
             ))}
           </ul>
         </div>
-        <div className="relative -my-4 mr-8 hidden aspect-[390/120] h-20 lg:block">
+        <div className="relative -my-4 mr-8 hidden aspect-390/120 h-20 lg:block">
           <Image
             src={flags}
             alt="lesbian, transgender, and polyamorous pride flags combined with maine state flag"

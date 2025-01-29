@@ -16,7 +16,7 @@ function Card({
   return (
     <Link
       href={"/writing/" + slug}
-      className="block rounded-2xl border-4 border-black bg-white p-4 text-black outline-none focus:border-panpink dark:bg-gray-800 dark:text-white"
+      className="block rounded-2xl border-4 border-black bg-white p-4 text-black outline-hidden focus:border-panpink dark:bg-gray-800 dark:text-white"
     >
       <section className="font-display">
         <h2 className="text-3xl">{title}</h2>
