@@ -49,14 +49,14 @@ export async function loadMarkdown<FrontmatterType extends {}>(
             remarkAbcjs,
           ],
           rehypePlugins: [
-            rehypeMdxCodeProps as any,
+            rehypeMdxCodeProps,
             [
-              rehypeKatex as any,
+              rehypeKatex,
               // RSS readers only like MathML
               { output: mode === "full" ? "htmlAndMathml" : "mathml" },
             ],
-            rehypeUnwrapImages,
-            [rehypeImgSize as any, { dir: "public/images" }],
+            // rehypeUnwrapImages,
+            // [rehypeImgSize as any, { dir: "public/images" }],
             rehypeSlug,
           ],
         },
