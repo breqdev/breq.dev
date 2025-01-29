@@ -131,7 +131,7 @@ function ProjectHeader(props: ProjectInfo) {
         <h2 className="p-summary mb-4 text-balance text-3xl text-gray-300">
           {props.description}
         </h2>
-        <a className="u-url hidden" href={`https://breq.dev${asPath}`} />
+        <a className="u-url hidden" href={`https://breq.dev${asPath.split("?")[0]}`} />
         <ProjectInfoCard {...props} />
         <HCard />
       </div>
