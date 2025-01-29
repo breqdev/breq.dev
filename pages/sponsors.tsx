@@ -63,16 +63,16 @@ export default function Sponsors() {
         <div className="my-6 flex flex-col gap-4 font-display text-2xl sm:flex-row">
           <a
             href="https://github.com/sponsors/breqdev"
-            className="flex w-full flex-grow items-center rounded-full bg-gray-200 py-4 px-6 text-center text-black"
+            className="flex w-full grow items-center rounded-full bg-gray-200 py-4 px-6 text-center text-black"
           >
-            <span className="flex-grow">GitHub Sponsors</span>
+            <span className="grow">GitHub Sponsors</span>
             <FontAwesomeIcon icon={faHeart} />
           </a>
           <a
             href="https://ko-fi.com/breqdev"
-            className="flex w-full flex-grow items-center rounded-full bg-panblue py-4 px-6 text-center text-black"
+            className="flex w-full grow items-center rounded-full bg-panblue py-4 px-6 text-center text-black"
           >
-            <span className="flex-grow">Ko-Fi</span>
+            <span className="grow">Ko-Fi</span>
             <Image
               src="/images/logo/ko-fi.png"
               className="-my-2 w-12"

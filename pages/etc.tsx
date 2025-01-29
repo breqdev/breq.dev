@@ -50,13 +50,13 @@ function EtcBlock({
 
   if (external) {
     return (
-      <a href={page} className="group relative z-0 h-full outline-none">
+      <a href={page} className="group relative z-0 h-full outline-hidden">
         {content}
       </a>
     );
   } else {
     return (
-      <Link href={page} className="group relative z-0 h-full outline-none">
+      <Link href={page} className="group relative z-0 h-full outline-hidden">
         {content}
       </Link>
     );

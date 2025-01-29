@@ -10,7 +10,7 @@ export default function Bronk() {
   const [ears, setEars] = useState(0);
   const [hair, setHair] = useState(0);
 
-  const timeout = useRef<ReturnType<typeof setTimeout>>();
+  const timeout = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const triggerAnimation = React.useCallback(() => {
     const actions = [

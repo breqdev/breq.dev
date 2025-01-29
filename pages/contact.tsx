@@ -46,7 +46,7 @@ function ContactItem({
     <a
       href={url}
       className={
-        "flex flex-row items-center gap-4 rounded-2xl border-2 border-black p-4 outline-none transition-colors dark:border-white dark:bg-gray-800 " +
+        "flex flex-row items-center gap-4 rounded-2xl border-2 border-black p-4 outline-hidden transition-colors dark:border-white dark:bg-gray-800 " +
         className
       }
     >

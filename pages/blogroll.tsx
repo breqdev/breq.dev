@@ -190,12 +190,12 @@ function Feed({ feed }: { feed: RssFeed }) {
   return (
     <div className="flex flex-row gap-4 rounded-xl bg-gray-800 p-4">
       <div
-        className="hidden h-24 w-24 flex-shrink-0 grid-cols-1 place-items-center sm:grid"
+        className="hidden h-24 w-24 shrink-0 grid-cols-1 place-items-center sm:grid"
         ref={imageContainer}
       ></div>
       <div className="flex w-full flex-col gap-2">
         <div className="flex flex-row items-start gap-3 text-2xl">
-          <div className="flex flex-grow flex-col gap-2 font-display sm:flex-row sm:items-end">
+          <div className="flex grow flex-col gap-2 font-display sm:flex-row sm:items-end">
             <h2 className="text-3xl">{feed.title}</h2>
             <p className="text-lg text-gray-200">
               {feed.author ? `by ${feed.author}` : null}
@@ -220,7 +220,7 @@ function Feed({ feed }: { feed: RssFeed }) {
             />
           </a>
         </div>
-        <p className="flex-grow font-body italic">{feed.description}</p>
+        <p className="grow font-body italic">{feed.description}</p>
 
         {feed.postTitle && (
           <div className="group relative">

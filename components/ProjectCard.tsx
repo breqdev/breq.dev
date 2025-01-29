@@ -50,7 +50,7 @@ export default function ProjectCard({
   return (
     <Link
       href={"/projects/" + slug}
-      className="group relative z-20 outline-none"
+      className="group relative z-20 outline-hidden"
     >
       <section className="relative z-30 rounded-2xl border-4 border-black bg-white p-4 text-black group-focus:border-panpink dark:bg-gray-800 dark:text-white">
         <div className="h-32 overflow-hidden font-display">

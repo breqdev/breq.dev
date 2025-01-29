@@ -22,7 +22,7 @@ export default function Page({
       <Navbar />
       <article
         className={
-          "flex-grow selection:bg-panyellow/75 " + (className ? className : "")
+          "grow selection:bg-panyellow/75 " + (className ? className : "")
         }
         id="main"
       >

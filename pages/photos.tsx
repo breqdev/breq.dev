@@ -114,9 +114,9 @@ function PhotoDetail({
             <FontAwesomeIcon icon={faTimes} />
           </button>
         </div>
-        <div className="flex flex-grow flex-col gap-2 overflow-auto px-4 py-4 md:w-72 md:max-w-md md:flex-shrink-0 md:py-0">
+        <div className="flex grow flex-col gap-2 overflow-auto px-4 py-4 md:w-72 md:max-w-md md:shrink-0 md:py-0">
           <button
-            className="hidden self-end px-2 py-4 text-7xl outline-none focus-visible:text-panpink md:block"
+            className="hidden self-end px-2 py-4 text-7xl outline-hidden focus-visible:text-panpink md:block"
             onClick={onClose}
             ref={closeButton}
           >
@@ -160,7 +160,7 @@ export default function Photos({
               <>
                 <button
                   key={photo.src}
-                  className="group relative aspect-square min-h-0 outline-none"
+                  className="group relative aspect-square min-h-0 outline-hidden"
                   onClick={() => setOpen(photo.src)}
                 >
                   <Image

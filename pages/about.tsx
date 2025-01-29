@@ -7,7 +7,7 @@ import utah from "../public/images/selfies/utah.jpg";
 
 export function AboutContent() {
   return (
-    <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-8 md:grid-cols-[1fr,3fr]">
+    <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-8 md:grid-cols-[1fr_3fr]">
       <div className="relative mx-auto flex max-w-md flex-col gap-4">
         <Image src={peace} alt="" className="md:rounded-full" />
         <h1 className="absolute bottom-2 left-0 right-0 text-center font-display text-3xl md:hidden">
