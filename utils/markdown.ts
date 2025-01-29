@@ -55,7 +55,7 @@ export async function loadMarkdown<FrontmatterType extends {}>(
               // RSS readers only like MathML
               { output: mode === "full" ? "htmlAndMathml" : "mathml" },
             ],
-            // rehypeUnwrapImages,
+            rehypeUnwrapImages,
             // [rehypeImgSize as any, { dir: "public/images" }],
             rehypeSlug,
           ],
