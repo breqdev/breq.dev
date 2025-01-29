@@ -13,7 +13,7 @@ import CREDITS from "./terminalContent/CREDITS.txt";
 import USAGE from "./terminalContent/USAGE.txt";
 
 export default function Terminal() {
-  const socket = useRef<WebSocket>();
+  const socket = useRef<WebSocket>(undefined);
   const chatName = useRef("");
   const inbox = useRef<{ content: string; nickname: string }[]>([]);
 

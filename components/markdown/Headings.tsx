@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, type JSX } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { MarkdownContext } from "./Core";

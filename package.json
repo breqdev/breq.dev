@@ -5,7 +5,7 @@
   "description": "breq.dev",
   "author": "Brooke Chalmers",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -20,9 +20,9 @@
     "@mdx-js/loader": "^2.2.1",
     "@mdx-js/mdx": "^2.2.1",
     "@mdx-js/react": "^2.2.1",
-    "@next/bundle-analyzer": "^15.1.6",
-    "@next/mdx": "^13.1.0",
-    "@react-three/fiber": "^8.9.1",
+    "@next/bundle-analyzer": "15.1.6",
+    "@next/mdx": "15.1.6",
+    "@react-three/fiber": "^8.17.12",
     "@sentry/nextjs": "^8.52.0",
     "@vercel/analytics": "^1.1.2",
     "autoprefixer": "^10.4.0",
@@ -31,13 +31,13 @@
     "image-size": "^1.0.1",
     "javascript-terminal": "^1.1.1",
     "katex": "^0.16.10",
-    "next": "^13.1.0",
+    "next": "15.1.6",
     "next-mdx-remote": "^4.2.0",
     "postcss": "^8.4.20",
     "prism-react-renderer": "^1.3.5",
     "prismjs": "^1.29.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "react-helmet": "^6.1.0",
     "react-lite-youtube-embed": "^2.3.52",
     "react-modal": "^3.16.1",
@@ -57,21 +57,25 @@
     "remark-unwrap-images": "^3.0.1",
     "rss": "^1.2.2",
     "swr": "^2.0.0",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.0.0",
     "three": "^0.172.0"
   },
   "devDependencies": {
     "@types/exif": "^0.6.3",
     "@types/node": "^22.12.0",
-    "@types/react": "^17.0.47",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
     "@types/react-modal": "^3.13.1",
     "@types/rss": "^0.0.32",
     "@types/three": "^0.172.0",
     "eslint": "^9.19.0",
-    "eslint-config-next": "^15.1.6",
+    "eslint-config-next": "15.1.6",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "typescript": "^5.7.3"
+  },
+  "overrides": {
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3"
   }
 }

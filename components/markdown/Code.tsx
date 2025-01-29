@@ -130,7 +130,7 @@ function theme(colors: Colors): PrismTheme {
   };
 }
 
-export default function Code({ children, ...props }: { children: React.ReactElement, file?: string }) {
+export default function Code({ children, ...props }: { children: React.ReactElement<any>, file?: string }) {
   const [dark, setDark] = React.useState(false);
 
   React.useEffect(() => {
