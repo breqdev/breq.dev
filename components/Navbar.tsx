@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHamburger } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import flags from "public/flags.svg";
+import flags from "../public/flags.svg";
 import Image from "next/image";
 
 function SkipNavigation() {
