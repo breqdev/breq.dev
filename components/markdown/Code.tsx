@@ -1,6 +1,5 @@
 import React from "react";
-import { Highlight, PrismTheme } from "prism-react-renderer";
-import Prism from "prism-react-renderer/prism";
+import { Highlight, PrismTheme, Prism } from "prism-react-renderer";
 
 // https://github.com/FormidableLabs/prism-react-renderer#faq
 (() => {
