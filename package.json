@@ -38,7 +38,6 @@
     "prismjs": "^1.29.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-helmet": "^6.1.0",
     "react-lite-youtube-embed": "^2.3.52",
     "react-modal": "^3.16.1",
     "react-terminal-component": "^1.5.0",

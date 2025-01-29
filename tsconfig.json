@@ -17,6 +17,7 @@
   },
   "include": [
     "next-env.d.ts",
+    "react-three-fiber-jsx.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "next.config.js",
