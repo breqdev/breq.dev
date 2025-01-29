@@ -25,7 +25,7 @@ function BadgeImage({
         }
       };
 
-      imgRef.current.addEventListener("oneko", listener);
+      image.addEventListener("oneko", listener);
 
       return () => {
         image.removeEventListener("oneko", listener);
