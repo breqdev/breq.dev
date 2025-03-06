@@ -4,7 +4,7 @@ title: STMusic
 description: A Guitar-Hero-style game built for the ST Discovery board.
 image: default.png
 video: music-game.480p.webm
-created: "2020"
+created: 2020
 repo: breqdev/STMusic
 tags: [c++, hardware, music]
 writeup: 2020-10-09

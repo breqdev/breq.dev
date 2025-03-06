@@ -3,7 +3,7 @@ layout: project
 title: MakerGamer
 description: A "fantasy console" built for tinkering.
 image: archives/makergamer.jpg
-created: "2016-17"
+created: 2016
 repo: breqdev/makergamer
 status: old
 tags: [python, scratch, javascript]

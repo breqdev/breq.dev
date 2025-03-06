@@ -2,7 +2,7 @@
 title: Links
 description: A dynamic URL shortener made using SSR.
 image: links/dashboard.png
-created: "2021"
+created: 2021
 repo: breqdev/links
 demo: https://links.breq.dev/
 tags: [node, koa, redis]

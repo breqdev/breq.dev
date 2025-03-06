@@ -4,7 +4,7 @@ title: Gemini
 description: A canvas-based web game.
 image: website/gemini.png
 demo: https://breq.dev/apps/gemini.html
-created: "2016"
+created: 2016
 tags: [canvas, javascript]
 writeup: 2021-08-26
 ---

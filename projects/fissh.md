@@ -2,7 +2,7 @@
 title: Make a FiSSH
 description: An SSH-based fish generator that only works at 11:11.
 image: fissh/fish.png
-created: "2024"
+created: 2024
 repo: breqdev/fissh.breq.dev
 tags: [go, ssh, networking]
 writeup: 2024-09-25

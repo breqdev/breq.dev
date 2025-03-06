@@ -3,7 +3,7 @@ layout: project
 title: Breqbot
 description: A Discord bot with minigames and utilities.
 image: breqbot/website.png
-created: "2020"
+created: 2020
 repo: breqdev/breqbot
 tags: [discord, python, redis]
 writeup: 2020-10-08

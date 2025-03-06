@@ -3,7 +3,7 @@ title: Rave Choker / Outshine
 description: A NeoPixel driver project, a companion Android app, and a stylish LED choker.
 image: outshine/choker.jpg
 video: rave-choker-v2.480p.webm
-created: "2022"
+created: 2022
 repo: breqdev/outshine
 tags: [arduino, c++, hardware, react]
 writeup: 2022-02-13

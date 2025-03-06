@@ -2,7 +2,7 @@
 title: Codeplug
 description: Automatically generate radio configurations from a crowdsourced list of repeaters and channels.
 image: codeplug.png
-created: "2024"
+created: 2024
 repo: breqdev/codeplug
 tags: [radio, python, cli]
 writeup: 2024-06-13

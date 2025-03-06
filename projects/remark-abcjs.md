@@ -3,7 +3,7 @@ layout: project
 title: remark-abcjs
 description: A Remark plugin to format music notation.
 image: remark-abcjs.png
-created: "2022"
+created: 2022
 repo: breqdev/remark-abcjs
 tags: [javascript]
 writeup: 2022-01-04

@@ -4,7 +4,7 @@ title: Vibrance
 description: Vibrance synchronizes computers and smartphones to display configurable animations and effects.
 image: default.png
 video: vibrance.480p.webm
-created: "2020"
+created: 2020
 repo: breqdev/vibrance
 tags: [python, music]
 writeup: 2020-06-15

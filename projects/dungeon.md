@@ -2,7 +2,7 @@
 title: 88x31 Dungeon
 description: A set of web experiences to traverse the 88x31 graph, inspired by text-based dungeon crawl games.
 image: dungeon/dungeon-full.png
-created: "2024"
+created: 2024
 repo: breqdev/dungeon
 demo: https://dungeon.breq.dev/
 tags: [javascript, 88x31, web]

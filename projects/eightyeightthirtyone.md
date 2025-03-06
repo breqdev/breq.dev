@@ -2,7 +2,7 @@
 title: eightyeightthirty.one
 description: A snapshot of the social graph of 88x31 badges.
 image: eightyeightthirtyone/88x31.png
-created: "2023"
+created: 2023
 repo: NotNite/eightyeightthirtyone
 demo: https://eightyeightthirty.one/
 tags: [javascript, 88x31, web, redis, rust]

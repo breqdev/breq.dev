@@ -2,7 +2,7 @@
 title: WorkerSocket
 description: A JavaScript library to run a WebSocket inside of a Web Worker.
 image: default.png
-created: "2022"
+created: 2022
 repo: breqdev/workersocket
 tags: [javascript, networking]
 writeup: 2022-02-09

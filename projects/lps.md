@@ -4,7 +4,7 @@ title: LPS System
 description: A simple, calibration-free, vision-based local positioning system.
 image: default.png
 video: ../videos/lps.480p.webm
-created: "2020"
+created: 2020
 repo: breqdev/lps
 tags: [python, math]
 writeup: 2020-09-01

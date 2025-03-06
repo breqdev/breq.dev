@@ -2,7 +2,7 @@
 title: Picto
 description: A Pictochat clone built on Web technologies.
 image: picto.png
-created: "2021"
+created: 2021
 repo: breqdev/pictochat
 demo: https://picto.breq.dev/
 tags: [react, node]

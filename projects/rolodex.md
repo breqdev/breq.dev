@@ -2,7 +2,7 @@
 title: Rolodex
 description: A "contacts app" for amateur radio callsigns and DMR IDs.
 image: rolodex/opengraph.png
-created: "2024"
+created: 2024
 repo: breqdev/callsign-rolodex
 demo: https://rolodex.breq.dev/
 tags: [radio, react, web, firebase]

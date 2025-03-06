@@ -3,7 +3,7 @@ layout: project
 title: Cards
 description: Generate and embed digital cards featuring custom images and text.
 image: card.png
-created: "2020"
+created: 2020
 repo: breqdev/cards
 demo: https://cards.breq.dev/
 tags: [python, flask, puppeteer]

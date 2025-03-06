@@ -3,7 +3,7 @@ layout: project
 title: BlockChat
 description: A simple Blockchain-based chat app.
 image: blockchat.png
-created: "2018"
+created: 2018
 repo: breqdev/blockchat
 status: old
 tags: [blockchain, python]

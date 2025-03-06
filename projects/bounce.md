@@ -4,7 +4,7 @@ title: Bounce Homepage
 description: A simple homepage for my school laptop.
 image: website/bounce.png
 demo: https://breq.dev/apps/bounce.html
-created: "2017"
+created: 2017
 tags: [canvas, javascript]
 writeup: 2021-08-26
 ---

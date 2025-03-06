@@ -3,7 +3,7 @@ layout: project
 title: BotBuilder
 description: A build-your-own Discord bot service.
 image: botbuilder.png
-created: "2021"
+created: 2021
 repo: breqdev/botbuilder
 demo: https://botbuilder.breq.dev/
 tags: [discord, python, flask, web]

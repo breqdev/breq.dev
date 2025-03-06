@@ -3,7 +3,7 @@ title: ATtiny85 Stacker Game
 description: A simple stacking game running on a low-power Atmel chip.
 image: tiny-stacker.jpg
 video: tiny-stacker.480p.webm
-created: "2020"
+created: 2020
 repo: breqdev/tiny-stacker
 tags: [arduino, hardware, power]
 writeup: 2022-05-13

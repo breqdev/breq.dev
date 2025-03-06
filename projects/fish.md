@@ -4,7 +4,7 @@ title: Motion Sickness Fish
 description: Billy Bass fish modified to sing a Phoebe Bridgers song
 image: fish.jpg
 video: fish.480p.webm
-created: "2020"
+created: 2020
 repo: breqdev/bigmouth
 tags: [hardware, arduino, music]
 writeup: 2021-06-08

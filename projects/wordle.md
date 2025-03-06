@@ -2,7 +2,7 @@
 title: Wordle Clones
 description: Two clones of Wordle, written in TypeScript and Rust.
 image: wordle/typescript.png
-created: "2022"
+created: 2022
 repo: breqdev/rust_wordle
 demo: https://wordle.breq.dev/
 tags: [javascript, rust]

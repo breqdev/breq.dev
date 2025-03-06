@@ -3,7 +3,7 @@ layout: project
 title: Wall Matrix 2
 description: A wall-mounted LED matrix display for weather and transit data, take 2!
 image: matrix2/bikes.jpg
-created: "2025"
+created: 2025
 repo: breqdev/matrix2
 tags: [python, hardware]
 writeup: 2025-01-28
@@ -19,8 +19,8 @@ Almost four years ago, I made the first iteration of a [wall-mounted LED matrix]
 
 <div className="flex flex-col md:flex-row gap-2 [&>img]:!aspect-square [&>img]:!object-cover">
 
-![](wallmatrix/mbta.jpg)
-![](wallmatrix/weather.jpg)
+![](wallmatrix/mbta.jpg) ![](wallmatrix/weather.jpg)
+
 </div>
 
 Over that time, we've made only a few changes:

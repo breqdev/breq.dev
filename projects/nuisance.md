@@ -2,7 +2,7 @@
 title: Nuisance
 description: Northeastern University Information, Services, and Notifications Considered Essential
 image: nuisance.png
-created: "2021"
+created: 2021
 repo: breqdev/nuisance
 demo: https://nuisance.breq.dev/
 tags: [react]

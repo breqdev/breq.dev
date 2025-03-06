@@ -4,7 +4,7 @@ title: Pinewood Derby Car
 description: A model car full of blinkenlights that I programmed when I was a smol child.
 image: default.png
 video: pinewood-derby-car.480p.webm
-created: "2014"
+created: 2014
 repo: breqdev/pinewood-derby-car
 status: old
 tags: [arduino, hardware]
