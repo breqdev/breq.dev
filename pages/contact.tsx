@@ -91,7 +91,7 @@ export default function Contact() {
       <SEOHelmet title="Contact - breq.dev" />
       <div className="mx-auto my-8 flex max-w-4xl flex-col gap-8 px-4 text-center font-display text-lg">
         <h1 className="mx-auto max-w-2xl text-6xl">contact me</h1>
-        <p className="text-xl">
+        <p className="-mt-4 text-xl">
           available via{" "}
           <a
             href="https://breq.dev/vcard/breq.vcf"
@@ -200,7 +200,7 @@ export default function Contact() {
             description="on the federated verse"
             className="hover:bg-violet-200 focus-visible:bg-violet-200 dark:hover:bg-violet-600 dark:focus-visible:bg-violet-600"
           />
-          <ContactItem
+          {/* <ContactItem
             url="https://twitter.com/breqdev"
             icon={faTwitter}
             username="@breqdev"
@@ -215,7 +215,7 @@ export default function Contact() {
             label="Tumblr"
             description="i don't really use this"
             className="hover:bg-indigo-200 focus-visible:bg-indigo-200 dark:hover:bg-indigo-600 dark:focus-visible:bg-indigo-600"
-          />
+          /> */}
         </ContactCategory>
 
         <ContactCategory title="socials">
