@@ -54,7 +54,7 @@ export default function Apps() {
       <div className="mx-auto my-8 max-w-2xl">
         <h1 className="text-center font-display text-5xl">app launcher</h1>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fill,8rem)] justify-center gap-8 p-8 sm:grid-cols-[repeat(auto-fill,16rem)]">
+      <div className="grid grid-cols-[repeat(auto-fill,8rem)] justify-center gap-8 p-8 font-display sm:grid-cols-[repeat(auto-fill,16rem)]">
         {APPS.map(({ name, link, icon, invert }) => (
           <a href={link} key={name} className="flex flex-col gap-4">
             {icon ? (
