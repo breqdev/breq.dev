@@ -59,7 +59,7 @@ export const BADGES: Badge[] = [
     color: "#9C15E2",
     textColor: "#B44BDF",
     font: "Comfortaa",
-    rel: "sweetheart date met",
+    rel: "sweetheart date met co-resident",
   },
   {
     tag: "miakizz",
@@ -82,7 +82,7 @@ export const BADGES: Badge[] = [
     color: "#793A80",
     textColor: "#EFBF2D",
     font: "Pretendard",
-    rel: "friend met",
+    rel: "sweetheart date met",
   },
   {
     tag: "prismaticwolf",
@@ -93,7 +93,7 @@ export const BADGES: Badge[] = [
     color: "#1735DE",
     textColor: "#FF8400",
     font: "Josefin Sans",
-    rel: "friend met",
+    rel: "friend met crush",
   },
   {
     name: "Juniper",
@@ -102,7 +102,7 @@ export const BADGES: Badge[] = [
     bio: "photographer, anarchist, good puppy",
     color: "#A876BD",
     textColor: "#A876BD",
-    rel: "friend met",
+    rel: "friend met crush",
   },
   {
     tag: "FlamingSpork",
@@ -168,7 +168,7 @@ export const BADGES: Badge[] = [
     bio: "network engineer, hacker, agent of chaos",
     color: "#808080",
     textColor: "#ff0000",
-    rel: "friend met",
+    rel: "friend met crush",
   },
   {
     tag: "musicalartist12",
