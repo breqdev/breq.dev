@@ -21,6 +21,7 @@ export type BasicMarkdownInfo = {
   url: string;
   body: MDXRemoteSerializeResult | null;
   image: ImageInfo | null;
+  wordCount: number;
 };
 
 function getURL(path: string) {
@@ -82,6 +83,7 @@ export async function loadMarkdown<FrontmatterType extends {}>(
           day: "numeric",
         })
       : null,
+    wordCount: body.match(/\b[a-zA-Z0-9']+\b/g)?.length ?? 0,
   };
 }
 

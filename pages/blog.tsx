@@ -23,6 +23,8 @@ function Post(props: PostInfo & BasicMarkdownInfo) {
         <div className="mt-2 hidden flex-row gap-2 md:flex">
           <p className="self-center">{date}</p>
           <div className="my-1.5 w-0.5 self-stretch bg-gray-200" />
+          <p>{Math.round(props.wordCount / 100) * 100} words</p>
+          <div className="my-1.5 w-0.5 self-stretch bg-gray-200" />
           {props.tags?.map((tag) => (
             <span
               key={tag}
