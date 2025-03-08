@@ -12,23 +12,25 @@ While the setup is pretty tame for now (and Ava has specifically banned me from 
 
 ## Modem
 
-We get internet through a cable provider, so the network starts with a modem. I picked a basic Arris SURFboard with DOCSIS 3.2 support since I wanted the flexibility to configure or upgrade a router down the line.
+We get internet through a cable provider, so the network starts with a modem. I picked a basic Arris SURFboard with DOCSIS 3.2 support since I wanted the flexibility afforded by running a separate router.
 
-This modem operates a little strangely: it gives itself `192.168.100.1`, hands out `192.168.100.10` to the first device it sees on DHCP, then also forwards along the assigned public IP address to the connected device.
+This modem operates a little strangely: it gives itself `192.168.100.1`, hands out `192.168.100.10` to the first device it sees on DHCP, then also forwards along the assigned public IP address to the connected device. While waiting for the pfSense router to arrive, we actually had to use a Gl.inet router since neither the modem nor our access point has no routing functionality.
 
 ## Router and Switching
 
-My router is a small Netgate box running pfSense that was gifted to me by my friend [Ari](https://adryd.com/). It has two LAN ports (presumably for a DMZ subnet), but I only use one.
+My router is a small Netgate box running pfSense that was gifted to me by my friend [Ari](https://adryd.com/). It has two LAN ports: one goes to the network switches, and the other goes to the Wi-Fi access point. This lets the router and access point use VLANs to separate out clients on each SSID.
 
-While waiting for this router to arrive, I got a cheap gl.inet travel router to use in the interim. I keep this one around for any networking shenanigans that might require it.
+I keep the travel router I was using in the interim around for any networking shenanigans that might require it.
 
-I have two Netgear switches I picked up at MIT Swapfest a while ago: one sits near the rest of the equipment on my shelf, and the other sits on my desk to connect to my desktop and oscilloscope.
+I have two Netgear switches I picked up at MIT Swapfest a while ago: one sits near the rest of the equipment on my shelf, and the other sits on my desk to connect to my desktop and oscilloscope. One of these switches was featured in my friend Hunter's [Devices of All Time](https://pixilic.com/devices-of-all-time) blog post, which I somehow didn't realize until months later :)
 
 ## Wi-Fi
 
 After dealing with tons of Wi-Fi dropouts in our old apartment, I decided to invest in a Ubiquiti U6 Mesh access point. It's definitely overkill, but we get exceptional connection to anywhere in the apartment.
 
-While it's theoretically possible to set up the device without a UniFi Controller, I couldn't figure out how to do so (the app kept crashing when I tried to go through the flow). So, I just installed the UniFi server software onto my desktop and ran it so I could configure the device, then closed out of it. While the software allows creating any number of separate SSIDs, we couldn't think of a good use for this. (Maybe we'll think of one later?)
+I was very excited to finally have a router that didn't look like an over-the-top gaming device. The U6 Mesh is very compact and fits nicely on a shelf -- it's about the size of a tall seltzer can. The PoE power is actually quite useful in a home environment -- the cable run is a lot tidier with only a single cable to the device. The only criticism I have so far is that gets pretty warm when it's running.
+
+While it's theoretically possible to set up the device without a UniFi Controller, I couldn't figure out how to do so (the app kept crashing when I tried to go through the flow). So, I just installed the UniFi server software onto my desktop and ran it so I could configure the device, then closed out of it. The software allows creating any number of separate SSIDs, which we use to run our primary network, an SSID matching my parents' home in Maine, and an Eduroam hotspot.
 
 # Layer 3
 
