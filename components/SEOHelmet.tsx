@@ -52,8 +52,7 @@ export default function SEOHelmet({ title, description, image }: SEOProps) {
       />
       <a rel="me" href="https://github.com/breqdev" className="hidden" />
       <a rel="me" href="https://gitlab.com/breq" className="hidden" />
-      <a rel="me" href="https://twitter.com/breqdev" className="hidden" />
-      <a rel="me" href="https://tumblr.breq.dev/" className="hidden" />
+      <a rel="me" href="https://bsky.app/profile/breqdev" className="hidden" />
       <a rel="me" href="https://instagram.com/breqdev" className="hidden" />
       <a
         rel="me"
