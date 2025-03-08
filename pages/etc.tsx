@@ -8,6 +8,7 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
   faAddressCard,
   faCameraAlt,
+  faCirclePlay,
   faGaugeHigh,
   faHeart,
   faPenRuler,
@@ -88,6 +89,9 @@ export default function Etc() {
           </EtcBlock>
           <EtcBlock title="rss feed" page="/follow" icon={faSquareRss}>
             subscribe to blog posts and project writeups.
+          </EtcBlock>
+          <EtcBlock title="app launcher" page="/apps" icon={faCirclePlay}>
+            open any of my web-based projects.
           </EtcBlock>
           <EtcBlock
             title="vcard (.vcf)"

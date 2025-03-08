@@ -79,7 +79,6 @@ export default function Posts({
               />{" "}
               rss
             </a>
-            , and updated when i feel like it.
           </p>
         </div>
         <div className="flex flex-col gap-6 p-4">{posts}</div>

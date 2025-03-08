@@ -61,7 +61,6 @@ export default function Navbar() {
     projects: "/projects",
     blog: "/blog",
     contact: "/contact",
-    apps: "/apps",
     directory: "/directory",
     etc: "/etc",
   };
