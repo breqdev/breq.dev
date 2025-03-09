@@ -56,24 +56,31 @@ export default function Directory() {
       <div className="mx-auto my-12 flex max-w-2xl flex-col rounded-2xl bg-black p-4 text-white">
         <h1 className="text-center font-display text-6xl">friends</h1>
         <p className="max-w-2xl text-center font-display text-xl">
-          these are my awesome friends. check them out!
+          these are my awesome friends. check out their sites below!
         </p>
-        <p className="max-w-2xl text-center font-display text-xl italic">
-          new: this page is{" "}
+        <p className="max-w-2xl text-center font-display text-lg italic">
+          this page is{" "}
           <a
-            className="text-panblue-light"
+            className="text-panblue-light hover:underline"
             href="https://microformats.org/wiki/h-card"
           >
             h-card
           </a>{" "}
           and{" "}
           <a
-            className="text-panblue-light"
+            className="text-panblue-light hover:underline"
             href="http://www.gmpg.org/xfn/intro"
           >
             XFN
           </a>{" "}
-          compliant!
+          compliant! view parsed data on{" "}
+          <a
+            className="text-panblue-light hover:underline"
+            href="https://pin13.net/mf2/?url=https%3A%2F%2Fbreq.dev%2Fdirectory"
+          >
+            pin13
+          </a>
+          .
         </p>
       </div>
 

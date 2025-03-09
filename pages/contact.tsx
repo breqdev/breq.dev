@@ -88,11 +88,11 @@ export default function Contact() {
       <SEOHelmet title="Contact - breq.dev" />
       <div className="mx-auto my-8 flex max-w-4xl flex-col gap-8 px-4 text-center font-display text-lg">
         <h1 className="mx-auto max-w-2xl text-6xl">contact me</h1>
-        <p className="-mt-4 text-xl">
+        <p className="-mt-8 text-xl">
           available via{" "}
           <a
             href="https://breq.dev/vcard/breq.vcf"
-            className="font-bold text-yellow-600 dark:text-yellow-300"
+            className="font-bold text-yellow-600 hover:underline dark:text-yellow-300"
           >
             <FontAwesomeIcon
               icon={faAddressCard}

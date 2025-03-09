@@ -6,6 +6,8 @@ import ProjectCard from "../components/ProjectCard";
 import { getSortedProjects, ProjectInfo } from "../utils/projects";
 import { BasicMarkdownInfo } from "../utils/markdown";
 import { GetStaticProps } from "next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRssSquare } from "@fortawesome/free-solid-svg-icons";
 
 export default function Projects({
   data,
@@ -26,9 +28,22 @@ export default function Projects({
 
   return (
     <Page className="bg-black text-white">
-      <SEOHelmet title="Projects I've made, with <3." />
+      <SEOHelmet title="Project Portfolio - breq.dev" />
       <div className="mx-auto max-w-7xl text-center font-display">
-        <h1 className="my-8 text-6xl">projects</h1>
+        <h1 className="mb-2 mt-8 text-6xl">project portfolio</h1>
+        <p className="mb-8 text-xl">
+          available via{" "}
+          <a
+            href="https://breq.dev/rss.xml"
+            className="font-bold text-orange-300 hover:underline"
+          >
+            <FontAwesomeIcon
+              icon={faRssSquare}
+              className="-mb-px -mr-0.5 ml-0.5"
+            />{" "}
+            rss
+          </a>
+        </p>
         {Object.entries(groups)
           .sort(([a, _], [b, __]) => parseInt(b) - parseInt(a))
           .map(([year, projects]) => (

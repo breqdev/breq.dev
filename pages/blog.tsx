@@ -69,11 +69,11 @@ export default function Posts({
       <div className="mx-auto max-w-5xl text-center font-display">
         <div className="my-8 flex flex-col items-center gap-4 px-4">
           <h1 className="text-6xl">blog posts</h1>
-          <p className="text-xl">
+          <p className="-mt-2 text-xl">
             available via{" "}
             <a
               href="https://breq.dev/rss.xml"
-              className="font-bold text-orange-300"
+              className="font-bold text-orange-300 hover:underline"
             >
               <FontAwesomeIcon
                 icon={faRssSquare}
