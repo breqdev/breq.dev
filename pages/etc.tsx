@@ -39,7 +39,7 @@ function EtcBlock({
   let content = (
     <>
       <div className="relative z-10 flex h-full flex-row gap-4 rounded-xl border-2 border-black bg-white p-4 text-black group-focus:border-panpink">
-        <FontAwesomeIcon className="text-5xl" icon={icon} />
+        <FontAwesomeIcon className="fa-fw text-5xl" icon={icon} />
         <div className="flex flex-col gap-2">
           <h2 className="font-display text-3xl">{title}</h2>
           <p className="font-body">{children}</p>
@@ -70,7 +70,7 @@ export default function Etc() {
   return (
     <Page>
       <SEOHelmet title="Everything Else - breq.dev" />
-      <div className="mx-auto my-8 max-w-2xl">
+      <div className="mx-auto my-8 max-w-3xl">
         <h1 className="text-center font-display text-5xl">
           all the other things
         </h1>
@@ -107,13 +107,13 @@ export default function Etc() {
             external
             icon={faFileLines}
           >
-            download my current resume.
+            download the latest version of my resume.
           </EtcBlock>
           <EtcBlock title="status page" page="/status" icon={faGaugeHigh}>
             view the uptime of my gazillion side projects.
           </EtcBlock>
           <EtcBlock title="design sheet" page="/design" icon={faPenRuler}>
-            reference fonts, colors, and names for my brand.
+            reference fonts and colors across my projects.
           </EtcBlock>
           {data?.sponsors?.length ? (
             <EtcBlock title="sponsors" page="/sponsors" icon={faHeart}>
