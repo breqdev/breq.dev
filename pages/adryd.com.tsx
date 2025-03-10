@@ -144,7 +144,7 @@ export default function Adryd({
       <footer>
         <div className="page-view">
           <div className="logo">
-            <a href="/">
+            <a href="//adryd.com/">
               <svg
                 width="64"
                 height="74"
