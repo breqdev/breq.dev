@@ -33,7 +33,7 @@ export default function Adryd({
   return (
     <>
       <link rel="stylesheet" href="/alternate-styles/adryd.css" />
-      <main className="inner-main bg-white">
+      <main className="inner-main bg-white text-black dark:bg-black dark:text-white">
         <div className="page-view">
           <h1>hi, i'm brooke!</h1>
           <p style={{ fontWeight: 700, fontSize: "1.25rem", lineHeight: 1 }}>
@@ -74,7 +74,7 @@ export default function Adryd({
             <ul>
               {posts.slice(0, 5).map((post) => (
                 <li key={post.slug}>
-                  <Link href={"/projects/" + post.url} className="fancy-link">
+                  <Link href={post.url} className="fancy-link">
                     {post.title} →
                   </Link>
                 </li>
