@@ -1,9 +1,9 @@
 body {
-    background: white !important;
+  background: white !important;
 }
 
 body::before {
-    background: white !important;
+  background: white !important;
 }
 
 @font-face {
@@ -48,6 +48,14 @@ html {
   background-color: var(--background-color);
 }
 @media (prefers-color-scheme: dark) {
+  body {
+    background: black !important;
+  }
+
+  body::before {
+    background: black !important;
+  }
+
   :root {
     --text-color: #e5e5e5;
     --background-color: #0a0a0a;
