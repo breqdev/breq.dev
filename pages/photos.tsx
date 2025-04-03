@@ -1,10 +1,9 @@
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Markdown from "../components/markdown/Markdown";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";
 import { getPhotoSets, PhotoSetInfo } from "../utils/photos";
-import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarAlt,
@@ -17,8 +16,6 @@ import {
 import { BasicMarkdownInfo } from "../utils/markdown";
 import { ImageInfo } from "../utils/images";
 import { GetStaticProps } from "next";
-
-Modal.setAppElement("#__next");
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
@@ -80,20 +77,30 @@ function PhotoDetail({
   onClose: () => void;
   open: string | null;
 }) {
-  const closeButton = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (open === photo.src) {
+      dialog?.showModal();
+    } else {
+      dialog?.close();
+    }
+  }, [open, photo.src]);
 
   return (
-    <Modal
-      isOpen={open === photo.src}
-      className="flex max-h-full justify-center"
-      overlayClassName="bg-black/25 opacity-100 fixed inset-0 z-50 pt-32 md:pt-48 px-8 sm:px-16 pb-32"
-      onRequestClose={onClose}
-      onAfterOpen={() => {
-        closeButton.current?.focus();
+    <dialog
+      ref={dialogRef}
+      className=""
+      onClose={onClose}
+      onClick={(e) => {
+        if (e.target === dialogRef.current) {
+          onClose();
+        }
       }}
     >
       <div className="flex max-w-5xl flex-col border-2 border-white bg-black text-white md:flex-row">
-        <div className="relative -mb-2 aspect-square max-h-full">
+        <div className="relative aspect-square max-h-full">
           <a href={photo.src}>
             <Image
               src={photo.src}
@@ -118,7 +125,6 @@ function PhotoDetail({
           <button
             className="hidden self-end px-2 py-4 text-7xl outline-none focus-visible:text-panpink md:block"
             onClick={onClose}
-            ref={closeButton}
           >
             <FontAwesomeIcon icon={faTimes} />
           </button>
@@ -137,7 +143,7 @@ function PhotoDetail({
           )}
         </div>
       </div>
-    </Modal>
+    </dialog>
   );
 }
 
