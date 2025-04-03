@@ -31,15 +31,23 @@ So, I built a tool to recolor the output from the KiCAD format to look more real
 
 I chose to write this app in JavaScript since the language already provides good utilities for parsing, querying, and manipulating XML documents like SVG files. The UI is pretty utilitarian, but hey, it works and loads quickly! I wrote this without using a framework for styling or JavaScript -- it was nice to take a break from the complex tooling of my usual React/Tailwind setup and go back to basics for a bit.
 
+The whole app is based around some _gnarly_ CSS selectors, especially since the format changes substantially between KiCAD versions and I was trying to target versions 7 through 9.
+
 Here are some example outputs for a board I'm working on:
 
 ![](kicad-pretty/front.svg) <br /> ![](kicad-pretty/back.svg)
 
 # Try it yourself
 
-If you want to try it out yourself, you can! First, in KiCAD, export an SVG with the relevant layers:
+If you want to try it out yourself, you can! First, in KiCAD, export an SVG with the relevant layers. In older versions, this is straightforward:
 
 ![](kicad-pretty/kicad-export.png)
+
+However, in the new version, they've replaced the "Export SVG" dialog with the "Plot" window, which exports a separate SVG file for each layer (which is not what we want!) The easiest way to get a single SVG image is with the KiCAD CLI (replace `MyBoard.kicad_pcb` with the filename of your board file):
+
+```bash
+kicad-cli pcb export svg --mode-single --layers F.Cu,B.Cu,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts MyBoard.kicad_pcb
+```
 
 Then, go to [**kicad-pretty.breq.dev**](https://kicad-pretty.breq.dev/) and:
 
