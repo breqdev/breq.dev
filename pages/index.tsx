@@ -117,7 +117,7 @@ function usePronouns() {
   const [pronouns, setPronouns] = React.useState("she/her");
 
   useEffect(() => {
-    setPronouns(Math.random() > 0.95 ? "she/they" : "she/her");
+    setPronouns(Math.random() > 0.85 ? "she/they" : "she/her");
   }, []);
 
   return pronouns;
