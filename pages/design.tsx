@@ -1,4 +1,4 @@
-import { CSSProperties, useState } from "react";
+import { CSSProperties, useState, type JSX } from "react";
 import { useDarkText } from "../components/Footer";
 import Page from "../components/Page";
 import SEOHelmet from "../components/SEOHelmet";

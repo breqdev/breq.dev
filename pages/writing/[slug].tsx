@@ -47,7 +47,7 @@ export default function Writing(props: BasicMarkdownInfo & WritingInfo) {
           <h2 className="text-xl">{props.date}</h2>
           {props.pdf && (
             <a
-              className="absolute bottom-0 right-0 m-4 rounded-full p-4 text-gray-200 outline-none hover:underline focus:bg-panblue focus:text-white focus:underline"
+              className="absolute bottom-0 right-0 m-4 rounded-full p-4 text-gray-200 outline-hidden hover:underline focus:bg-panblue focus:text-white focus:underline"
               href={props.pdf}
               target="_blank"
               rel="noopener noreferrer"
@@ -76,14 +76,14 @@ export default function Writing(props: BasicMarkdownInfo & WritingInfo) {
               <p className="mb-4 mt-8">Would you like to proceed?</p>
               <div className="flex gap-4">
                 <button
-                  className="flex-grow rounded-xl border-2 border-black bg-panpink p-4 outline-none focus:border-white"
+                  className="grow rounded-xl border-2 border-black bg-panpink p-4 outline-hidden focus:border-white"
                   onClick={() => setAcknowledged(true)}
                 >
                   Yes
                 </button>
                 <Link
                   href="/"
-                  className="flex-grow rounded-xl border-2 border-black p-4 outline-none focus:border-white"
+                  className="grow rounded-xl border-2 border-black p-4 outline-hidden focus:border-white"
                 >
                   No
                 </Link>

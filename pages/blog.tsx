@@ -13,10 +13,10 @@ function Post(props: PostInfo & BasicMarkdownInfo) {
   const date = getDateLabel(props.slug);
 
   return (
-    <Link href={props.url} className="group relative outline-none">
+    <Link href={props.url} className="group relative outline-hidden">
       <section className="relative z-20 flex h-full flex-col gap-1 rounded-2xl border-4 border-black bg-white p-4 text-left text-black group-focus:border-panpink md:gap-0">
         <h2 className="text-2xl md:mb-2 md:text-4xl">{props.title}</h2>
-        <p className="flex-shrink-0 text-left text-sm text-gray-800 md:hidden">
+        <p className="shrink-0 text-left text-sm text-gray-800 md:hidden">
           {date}
         </p>
         <p className="md:text-lg">{props.description}</p>

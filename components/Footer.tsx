@@ -112,42 +112,42 @@ export default function Footer() {
       faEnvelope,
       "breq@breq.dev",
       "mailto:breq@breq.dev",
-      "hover:!bg-panpink-light focus:!bg-panpink-light hover:text-black focus:text-black",
+      "hover:bg-panpink-light! focus:bg-panpink-light! hover:text-black focus:text-black",
     ],
     [
       faBluesky,
       "@breq.dev",
       "https://bsky.app/profile/breq.dev",
-      "hover:!bg-panblue-dark hover:text-white focus:!bg-panblue-dark focus:text-white",
+      "hover:bg-panblue-dark! hover:text-white focus:bg-panblue-dark! focus:text-white",
     ],
     [
       faMastodon,
       "@breq@tacobelllabs.net",
       "https://tacobelllabs.net/@breq",
-      "hover:!bg-brookepurple-light focus:!bg-brookepurple-light hover:text-black focus:text-black",
+      "hover:bg-brookepurple-light! focus:bg-brookepurple-light! hover:text-black focus:text-black",
     ],
     [
       faTwitter,
       "breqdev",
       "https://twitter.com/breqdev",
-      "hover:!bg-panyellow-light focus:!bg-panyellow-light hover:text-black focus:text-black",
+      "hover:bg-panyellow-light! focus:bg-panyellow-light! hover:text-black focus:text-black",
     ],
     [
       faRssSquare,
       "rss",
       "https://breq.dev/rss.xml",
-      "hover:!bg-brookeorange-light focus:!bg-brookeorange-light hover:text-black focus:text-black",
+      "hover:bg-brookeorange-light! focus:bg-brookeorange-light! hover:text-black focus:text-black",
     ],
     [
       faAddressCard,
       "vcf",
       "https://breq.dev/vcard/breq.vcf",
-      "hover:!bg-brookegreen-light focus:!bg-brookegreen-light hover:text-black focus:text-black",
+      "hover:bg-brookegreen-light! focus:bg-brookegreen-light! hover:text-black focus:text-black",
     ],
   ];
 
   const linkStyles =
-    "outline-none whitespace-nowrap cursor-pointer px-2 py-0.5 rounded-lg transition-colors duration-300";
+    "outline-hidden whitespace-nowrap cursor-pointer px-2 py-0.5 rounded-lg transition-colors duration-300";
 
   const [backgroundColor, setBackgroundColor] = useState("#1BB3FF");
   const lightBackgroundColor = lighten(backgroundColor, LIGHTEN_AMOUNT);
@@ -181,7 +181,7 @@ export default function Footer() {
       }
       style={{ backgroundColor }}
     >
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 pb-16 pt-12 lg:grid-cols-[1fr,12rem]">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 pb-16 pt-12 lg:grid-cols-[1fr_12rem]">
         <div className="flex flex-col gap-6">
           <p>
             made with <FontAwesomeIcon icon={faCode} />{" "}
@@ -193,7 +193,7 @@ export default function Footer() {
             {new Date().getFullYear()},{" "}
             <a
               href="https://github.com/breqdev/breq.dev"
-              className={`${linkStyles} hover:!bg-gray-800 hover:text-white focus:!bg-gray-800 focus:text-white`}
+              className={`${linkStyles} hover:bg-gray-800! hover:text-white focus:bg-gray-800! focus:text-white`}
               style={{ backgroundColor: lightBackgroundColor }}
             >
               <FontAwesomeIcon icon={faGithub} className="-ml-0.5 mr-1" />
@@ -215,7 +215,7 @@ export default function Footer() {
             ))}
             <Link
               href="/contact"
-              className={`${linkStyles} hover:!bg-white hover:text-gray-800 focus:!bg-white focus:text-gray-800`}
+              className={`${linkStyles} hover:bg-white! hover:text-gray-800 focus:bg-white! focus:text-gray-800`}
               style={{ backgroundColor: lightBackgroundColor }}
             >
               more<span className="sr-only"> ways to contact me </span>

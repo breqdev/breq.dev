@@ -6,7 +6,7 @@ import { parse } from "path";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkAbcjs from "remark-abcjs";
-import remarkUnwrapImages from "remark-unwrap-images";
+import rehypeUnwrapImages from "rehype-unwrap-images";
 import rehypeSlug from "rehype-slug";
 import rehypeKatex from "rehype-katex";
 import rehypeImgSize from "rehype-img-size";
@@ -48,16 +48,16 @@ export async function loadMarkdown<FrontmatterType extends {}>(
             remarkGfm,
             remarkMath,
             remarkAbcjs,
-            remarkUnwrapImages,
           ],
           rehypePlugins: [
-            rehypeMdxCodeProps as any,
+            rehypeMdxCodeProps,
             [
-              rehypeKatex as any,
+              rehypeKatex,
               // RSS readers only like MathML
               { output: mode === "full" ? "htmlAndMathml" : "mathml" },
             ],
-            [rehypeImgSize as any, { dir: "public/images" }],
+            rehypeUnwrapImages,
+            // [rehypeImgSize as any, { dir: "public/images" }],
             rehypeSlug,
           ],
         },
