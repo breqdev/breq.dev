@@ -16,7 +16,6 @@ import {
   faBluesky,
   faGithub,
   faMastodon,
-  faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import Badges from "./Badges";
 
@@ -118,19 +117,13 @@ export default function Footer() {
       faBluesky,
       "@breq.dev",
       "https://bsky.app/profile/breq.dev",
-      "hover:!bg-panblue-dark hover:text-white focus:!bg-panblue-dark focus:text-white",
+      "hover:!bg-panyellow-light focus:!bg-panyellow-light hover:text-black focus:text-black",
     ],
     [
       faMastodon,
       "@breq@tacobelllabs.net",
       "https://tacobelllabs.net/@breq",
       "hover:!bg-brookepurple-light focus:!bg-brookepurple-light hover:text-black focus:text-black",
-    ],
-    [
-      faTwitter,
-      "breqdev",
-      "https://twitter.com/breqdev",
-      "hover:!bg-panyellow-light focus:!bg-panyellow-light hover:text-black focus:text-black",
     ],
     [
       faRssSquare,
