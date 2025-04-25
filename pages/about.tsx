@@ -31,23 +31,41 @@ export function AboutContent() {
             <span className="font-bold text-panpink">hey, i'm brooke</span>{" "}
             (she/her), and i'm here to learn, create, and have fun.
             <br />
-            <br />i live in Somerville, MA with my girlfriend{" "}
-            <a
-              className="text-panpink-light underline hover:no-underline"
-              href="https://avasilver.dev/"
-            >
-              Ava
-            </a>
-            , and can be frequently spotted riding on a BlueBike, wandering on
-            foot, failing to get a "perfect" at a certain Porter Square ramen
-            shop, or getting up to other miscellaneous shenanigans.
-            <br />
             <br />
             i'm passionate about embedded systems, backend engineering, web dev,
             audio, and bodging things together in creative ways. my favorite
             tools are Python, React, Rust, and Linux. most of my work is with
             software but i'm still comfortable with a soldering iron and a
             breadboard.
+            <br />
+            <br />i have three wonderful, talented, amazing girlfriends:{" "}
+            <a
+              className="text-panpink-light underline hover:no-underline"
+              href="https://avasilver.dev/"
+            >
+              Ava
+            </a>
+            ,{" "}
+            <a
+              className="text-panpink-light underline hover:no-underline"
+              href="https://miakizz.quest/"
+            >
+              Mia
+            </a>
+            , and{" "}
+            <a
+              className="text-panpink-light underline hover:no-underline"
+              href="https://adryd.com/"
+            >
+              Ari
+            </a>
+            .
+            <br />
+            <br />
+            i live with Ava in Somerville, MA, and i can be frequently spotted
+            riding on a BlueBike, wandering on foot, failing to get a "perfect"
+            at a certain Porter Square ramen shop, or getting up to other
+            miscellaneous shenanigans.
             <br />
             <br />
             i am openly, proudly, and unapologetically a queer transgender
@@ -64,14 +82,7 @@ export function AboutContent() {
             and control user interface systems).
             <br />
             <br />i grew up in Scarborough, ME and spent two years in Limestone,
-            ME. if you spot me on the{" "}
-            <a
-              className="text-panpink-light underline hover:no-underline"
-              href="https://amtrakdowneaster.com/"
-            >
-              downeaster
-            </a>
-            , say hi!
+            ME. if you spot me on the amtrak downeaster, say hi!
             <br />
             <br />
             be excellent to each other.
