@@ -53,7 +53,7 @@ function SubHeading({
 }) {
   return (
     <h3
-      className="group mb-4 mt-8 text-center font-display text-3xl italic focus-within:text-panblue-dark"
+      className="group mb-4 mt-8 text-center font-display text-3xl focus-within:text-panblue-dark"
       style={{ scrollMarginTop: "100px" }}
       id={id}
     >
