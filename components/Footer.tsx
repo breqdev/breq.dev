@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { RefObject, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -71,7 +71,9 @@ console.assert(
   lighten("#1bb3ff", LIGHTEN_AMOUNT)
 );
 
-let ONEKO_HAS_LOADED: boolean = false;
+// Intentional global variables, since we want these to persist across mounts
+let TURTLE_MODE: boolean = false;
+let ONEKO_ACTIVE: boolean = false;
 
 function useLED() {
   const [siteUp, setSiteUp] = useState<boolean>();
@@ -103,6 +105,90 @@ function useLED() {
   }, []);
 
   return { siteUp, ledOn };
+}
+
+function useTurtle(turtleRef: RefObject<HTMLImageElement>) {
+  const hasTurtle = useRef(false);
+  const [isTouch, setIsTouch] = useState(false);
+  const turtPosn = useRef({ x: 0, y: 0 });
+  const turtSize = 32;
+
+  function mouseUp() {
+    hasTurtle.current = false;
+  }
+
+  function moveTurtle(cx: number, cy: number) {
+    const turtle = turtleRef.current;
+    if (!turtle) return;
+
+    turtle.style.position = "fixed";
+    turtle.style.left = cx - turtPosn.current.x + "px";
+    turtle.style.top = cy - turtPosn.current.y + "px";
+    turtle.style.height = turtSize + "px";
+    turtle.style.userSelect = "none";
+  }
+
+  function mouseMove(event: MouseEvent) {
+    if (hasTurtle.current && (event.buttons & 1 || isTouch)) {
+      moveTurtle(event.clientX, event.clientY);
+      document.body.style.userSelect = "none";
+      return false;
+    } else {
+      hasTurtle.current = false;
+      document.body.style.userSelect = "initial";
+    }
+  }
+
+  function touchMove(event: TouchEvent) {
+    if (!hasTurtle.current) return;
+    for (const touch of event.changedTouches) {
+      moveTurtle(touch.screenX, touch.screenY);
+      event.preventDefault();
+      return false;
+    }
+  }
+
+  function mouseDown(event: MouseEvent) {
+    hasTurtle.current = true;
+    turtPosn.current.x = event.offsetX;
+    turtPosn.current.y = event.offsetY;
+    event.preventDefault();
+    return false;
+  }
+
+  function touchDown(event: TouchEvent) {
+    setIsTouch(true);
+    hasTurtle.current = true;
+
+    for (const touch of event.touches) {
+      const rect = turtleRef.current?.getBoundingClientRect();
+      if (!rect) continue;
+      turtPosn.current.x = touch.screenX - rect.x;
+      turtPosn.current.y = touch.screenY - rect.y;
+      event.preventDefault();
+      return false;
+    }
+  }
+
+  useEffect(() => {
+    const turtle = turtleRef.current;
+    if (!turtle) return;
+    turtle.addEventListener("mousedown", mouseDown);
+    turtle.addEventListener("touchstart", touchDown);
+    document.body.addEventListener("mousemove", mouseMove);
+    document.body.addEventListener("touchmove", touchMove);
+    document.body.addEventListener("mouseup", mouseUp);
+    document.body.addEventListener("touchend", mouseUp);
+
+    return () => {
+      turtle.removeEventListener("mousedown", mouseDown);
+      turtle.removeEventListener("touchstart", touchDown);
+      document.body.removeEventListener("mousemove", mouseMove);
+      document.body.removeEventListener("touchmove", touchMove);
+      document.body.removeEventListener("mouseup", mouseUp);
+      document.body.removeEventListener("touchend", mouseUp);
+    };
+  });
 }
 
 export default function Footer() {
@@ -149,32 +235,45 @@ export default function Footer() {
     : "text-white";
 
   useEffect(() => {
+    try {
+      const referer = new URL(document.referrer);
+      console.log(referer);
+      if (referer.origin === "https://tris.fyi") {
+        TURTLE_MODE = true;
+      }
+    } catch (e) {
+      console.log(e);
+    }
+
     const url = new URL(window.location.href);
+
     if (
       url.searchParams.has("catx") &&
       url.searchParams.has("caty") &&
       url.searchParams.has("catdx") &&
       url.searchParams.has("catdy") &&
-      !ONEKO_HAS_LOADED
+      !ONEKO_ACTIVE
     ) {
       document.querySelector<HTMLDivElement>("#oneko-trigger")!.style.display =
         "none";
       oneko(32, 32, false);
-      ONEKO_HAS_LOADED = true;
+      ONEKO_ACTIVE = true;
     }
   }, []);
 
   const { siteUp, ledOn } = useLED();
 
+  const turtleRef = useRef<HTMLImageElement>(null);
+  useTurtle(turtleRef);
+
   return (
     <footer
       className={
-        "relative z-10 font-display text-lg transition-colors duration-500 " +
-        textColor
+        "z-10 font-display text-lg transition-colors duration-500 " + textColor
       }
       style={{ backgroundColor }}
     >
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 pb-16 pt-12 lg:grid-cols-[1fr,12rem]">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 pb-16 pt-12 lg:grid-cols-[1fr,12rem]">
         <div className="flex flex-col gap-6">
           <p>
             made with <FontAwesomeIcon icon={faCode} />{" "}
@@ -222,7 +321,19 @@ export default function Footer() {
         </div>
 
         <div className="hidden flex-row items-end justify-end gap-3 self-end lg:flex">
-          {ONEKO_HAS_LOADED ? null : (
+          {TURTLE_MODE ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              draggable="false"
+              id="turtle"
+              src="https://tris.fyi/static/turtlesbian.png"
+              className="z-[60] h-[32px] w-[32px] cursor-grabbing"
+              ref={turtleRef}
+              alt=""
+            />
+          ) : ONEKO_ACTIVE ? (
+            <div className="h-[32px] w-[32px]" />
+          ) : (
             <div
               className="h-[32px] w-[32px]"
               style={{
@@ -237,7 +348,7 @@ export default function Footer() {
                   "#oneko-trigger"
                 )!.style.display = "none";
                 oneko(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2, true);
-                ONEKO_HAS_LOADED = true;
+                ONEKO_ACTIVE = true;
               }}
             />
           )}
