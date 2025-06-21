@@ -237,7 +237,6 @@ export default function Footer() {
   useEffect(() => {
     try {
       const referer = new URL(document.referrer);
-      console.log(referer);
       if (referer.origin === "https://tris.fyi") {
         TURTLE_MODE = true;
       }
