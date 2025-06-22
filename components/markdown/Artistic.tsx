@@ -3,7 +3,9 @@ import { MarkdownContext, Paragraph } from "./Core";
 
 function Caption({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mx-auto mb-8 max-w-xl text-center font-body">{children}</p>
+    <p className="mx-auto -mt-4 mb-8 max-w-xl text-center font-body">
+      {children}
+    </p>
   );
 }
 

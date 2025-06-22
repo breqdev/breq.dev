@@ -91,6 +91,14 @@ function InlineCode({ children }: { children: React.ReactNode }) {
   );
 }
 
+export function Details({ children }: { children: React.ReactNode }) {
+  return (
+    <details className="mx-auto my-4 max-w-prose rounded-2xl bg-gray-200 px-4 py-2 font-body text-lg dark:bg-gray-600">
+      {children}
+    </details>
+  );
+}
+
 const shortcodes = {
   p: Paragraph,
   a: A,
@@ -98,6 +106,7 @@ const shortcodes = {
   kbd: Kbd,
   hr: Hr,
   code: InlineCode,
+  Details,
 };
 
 export default shortcodes;
