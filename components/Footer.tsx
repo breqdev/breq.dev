@@ -268,7 +268,8 @@ export default function Footer() {
   return (
     <footer
       className={
-        "z-10 font-display text-lg transition-colors duration-500 " + textColor
+        "z-10 font-display text-lg transition-colors duration-500 print:hidden " +
+        textColor
       }
       style={{ backgroundColor }}
     >
