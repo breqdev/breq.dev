@@ -107,11 +107,11 @@ function useLED() {
   return { siteUp, ledOn };
 }
 
-function useTurtle(turtleRef: RefObject<HTMLImageElement>) {
+function useTurtle(turtleRef: RefObject<HTMLImageElement>, visible: boolean) {
   const hasTurtle = useRef(false);
   const [isTouch, setIsTouch] = useState(false);
   const turtPosn = useRef({ x: 0, y: 0 });
-  const turtSize = 32;
+  let turtSize = useRef(32);
 
   function mouseUp() {
     hasTurtle.current = false;
@@ -124,7 +124,8 @@ function useTurtle(turtleRef: RefObject<HTMLImageElement>) {
     turtle.style.position = "fixed";
     turtle.style.left = cx - turtPosn.current.x + "px";
     turtle.style.top = cy - turtPosn.current.y + "px";
-    turtle.style.height = turtSize + "px";
+    turtle.style.height = turtSize.current + "px";
+    turtle.style.width = turtSize.current + "px";
     turtle.style.userSelect = "none";
   }
 
@@ -169,6 +170,34 @@ function useTurtle(turtleRef: RefObject<HTMLImageElement>) {
       return false;
     }
   }
+
+  useEffect(() => {
+    // URL params are like this:
+    // ?turt[x]=476px&turt[y]=438px&turt[big]=2.651999999999998
+    if (!visible) return;
+
+    const url = new URL(window.location.href);
+    const initialX = url.searchParams.get("turt[x]");
+    const initialY = url.searchParams.get("turt[y]");
+    const size = url.searchParams.get("turt[big]");
+
+    if (size) {
+      // scale factor is probably very wrong
+      turtSize.current = parseFloat(size) * 18.666666666666668;
+    }
+
+    if (!initialX || !initialY) return;
+
+    const turtle = turtleRef.current;
+    if (!turtle) return;
+
+    turtle.style.position = "fixed";
+    turtle.style.left = parseFloat(initialX) - turtPosn.current.x + "px";
+    turtle.style.top = parseFloat(initialY) - turtPosn.current.y + "px";
+    turtle.style.height = turtSize.current + "px";
+    turtle.style.width = turtSize.current + "px";
+    turtle.style.userSelect = "none";
+  }, [visible, turtleRef]);
 
   useEffect(() => {
     const turtle = turtleRef.current;
@@ -239,6 +268,7 @@ export default function Footer() {
       const referer = new URL(document.referrer);
       if (referer.origin === "https://tris.fyi") {
         TURTLE_MODE = true;
+        setTurtleVisible(true);
       }
     } catch (e) {
       console.log(e);
@@ -263,7 +293,8 @@ export default function Footer() {
   const { siteUp, ledOn } = useLED();
 
   const turtleRef = useRef<HTMLImageElement>(null);
-  useTurtle(turtleRef);
+  const [turtleVisible, setTurtleVisible] = useState(TURTLE_MODE);
+  useTurtle(turtleRef, turtleVisible);
 
   return (
     <footer
