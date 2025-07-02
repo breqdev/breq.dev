@@ -20,7 +20,7 @@ function PostHeader(props: BasicMarkdownInfo & PostInfo) {
 
   return (
     <div className="relative z-0">
-      <section className="relative z-10 mb-8 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800">
+      <section className="relative z-10 mb-8 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800 print:text-panpink">
         <SEOHelmet
           title={props.title + " - breq.dev"}
           description={props.description}
@@ -74,7 +74,7 @@ export default function Post(props: BasicMarkdownInfo & PostInfo) {
         <PostHeader {...props} />
         <Markdown content={props.body} />
       </article>
-      <hr className="border-1 mx-4 sm:mx-auto my-4 max-w-4xl border-black" />
+      <hr className="border-1 mx-4 my-4 max-w-4xl border-black sm:mx-auto" />
       <Comments />
     </Page>
   );

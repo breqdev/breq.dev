@@ -130,7 +130,13 @@ function theme(colors: Colors): PrismTheme {
   };
 }
 
-export default function Code({ children, ...props }: { children: React.ReactElement, file?: string }) {
+export default function Code({
+  children,
+  ...props
+}: {
+  children: React.ReactElement;
+  file?: string;
+}) {
   const [dark, setDark] = React.useState(false);
 
   React.useEffect(() => {
@@ -148,35 +154,35 @@ export default function Code({ children, ...props }: { children: React.ReactElem
   }
 
   return (
-    <div className="mx-auto my-2 w-max min-w-[min(100%,42rem)] max-w-full overflow-x-auto rounded-2xl bg-[#fff5fc] py-2 pl-4 pr-8 font-mono text-lg dark:bg-gray-800 flex flex-col border-2 border-black">
+    <div className="mx-auto my-2 flex w-max min-w-[min(100%,42rem)] max-w-full flex-col overflow-x-auto rounded-2xl border-2 border-black bg-[#fff5fc] py-2 pl-4 pr-8 font-mono text-lg dark:bg-gray-800 print:text-sm">
       {props.file && (
         <>
-        <span className="font-bold">{props.file}</span>
-        <div className="-ml-4 -mr-8 my-2 border-b-2 border-black" />
+          <span className="font-bold">{props.file}</span>
+          <div className="my-2 -ml-4 -mr-8 border-b-2 border-black" />
         </>
       )}
       <Highlight
-      {...defaultProps}
-      theme={theme(dark ? darkTheme : lightTheme)}
-      code={children.props.children.trim()}
-      language={children.props.className?.replace("language-", "")}
-    >
-      {({ tokens, getLineProps, getTokenProps }) => (
-        <pre>
-          {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })} className="" key={i}>
-              {line.map((token, key) => (
-                <span
-                  {...getTokenProps({ token, key })}
-                  className=""
-                  key={key}
-                />
-              ))}
-            </div>
-          ))}
-        </pre>
-      )}
-    </Highlight>
+        {...defaultProps}
+        theme={theme(dark ? darkTheme : lightTheme)}
+        code={children.props.children.trim()}
+        language={children.props.className?.replace("language-", "")}
+      >
+        {({ tokens, getLineProps, getTokenProps }) => (
+          <pre className="print:text-wrap">
+            {tokens.map((line, i) => (
+              <div {...getLineProps({ line, key: i })} className="" key={i}>
+                {line.map((token, key) => (
+                  <span
+                    {...getTokenProps({ token, key })}
+                    className=""
+                    key={key}
+                  />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
     </div>
   );
 }

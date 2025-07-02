@@ -88,7 +88,7 @@ export default function Navbar() {
           />
 
           <button
-            className="flex h-12 w-12 items-center justify-center rounded-xl border-4 border-black text-lg text-black md:hidden"
+            className="flex h-12 w-12 items-center justify-center rounded-xl border-4 border-black text-lg text-black md:hidden print:hidden"
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
