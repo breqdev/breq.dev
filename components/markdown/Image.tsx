@@ -14,17 +14,17 @@ export default function MarkdownImage(props: ImageInfo & { alt: string }) {
     );
   } else {
     return (
-        <Image
-          {...props}
-          alt={props.alt}
-          src={"/images/" + props.src}
-          style={{
-            maxWidth: "min(48rem, 100%)",
-            maxHeight: "40rem",
-            margin: "2rem auto",
-            objectFit: "contain",
-          }}
-        />
+      <Image
+        {...props}
+        alt={props.alt}
+        src={"/images/" + props.src}
+        style={{
+          maxWidth: "min(48rem, 100%)",
+          maxHeight: "40rem",
+          margin: "0 auto",
+          objectFit: "contain",
+        }}
+      />
     );
   }
 }
