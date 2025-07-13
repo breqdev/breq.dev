@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { Fragment, ReactNode } from "react";
 import Link from "next/link";
 
 import Page from "../../components/Page";
@@ -6,6 +6,7 @@ import Markdown from "../../components/markdown/Markdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarAlt,
+  faGlobe,
   faLaptopCode,
   faTag,
   IconDefinition,
@@ -62,14 +63,16 @@ function TagInfo({ tags }: { tags: string[] }) {
   return (
     <span className="flex items-center gap-2">
       <FontAwesomeIcon icon={faTag} />
-      <ul className="flex list-none gap-2">
-        {tags?.map((tag) => (
-          <li
-            key={tag}
-            className="p-category inline rounded-full bg-white px-2 py-0.5 text-black outline-none focus:bg-panblue"
-          >
-            {tag}
-          </li>
+      <ul className="flex list-none gap-2 print:gap-0">
+        {tags?.map((tag, i) => (
+          <Fragment key={tag}>
+            <li className="p-category inline rounded-full bg-white px-2 py-0.5 text-black outline-none focus:bg-panblue print:p-0">
+              {tag}
+            </li>
+            {i < tags.length - 1 && (
+              <span className="mr-1 hidden print:block">,</span>
+            )}
+          </Fragment>
         ))}
       </ul>
     </span>
@@ -109,9 +112,12 @@ function ProjectInfoCard(props: ProjectInfo) {
     ));
 
   return (
-    <div className="flex flex-wrap justify-center gap-4 text-lg">
+    <div className="flex flex-wrap justify-center gap-4 text-lg print:text-black">
       {infoItems}
       <TagInfo tags={props.tags} />
+      <span className="hidden print:inline">
+        <FontAwesomeIcon icon={faGlobe} /> breq.dev
+      </span>
     </div>
   );
 }
@@ -120,18 +126,21 @@ function ProjectHeader(props: ProjectInfo) {
   const { asPath } = useRouter();
 
   return (
-    <section className="relative">
-      <div className="relative z-10 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800">
+    <section className="relative mb-8">
+      <div className="relative z-10 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800 print:p-0 print:text-panpink">
         <SEOHelmet
           title={props.title + " - breq.dev"}
           description={props.description}
           image={props.image?.src}
         />
         <h1 className="p-name text-balance text-5xl">{props.title}</h1>
-        <h2 className="p-summary mb-4 text-balance text-3xl text-gray-300">
+        <h2 className="p-summary mb-4 text-balance text-3xl text-gray-300 print:mb-1">
           {props.description}
         </h2>
-        <a className="u-url hidden" href={`https://breq.dev${asPath.split("?")[0]}`} />
+        <a
+          className="u-url hidden"
+          href={`https://breq.dev${asPath.split("?")[0]}`}
+        />
         <ProjectInfoCard {...props} />
         <HCard />
       </div>
