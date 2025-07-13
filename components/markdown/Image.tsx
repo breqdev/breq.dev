@@ -14,17 +14,21 @@ export default function MarkdownImage(props: ImageInfo & { alt: string }) {
     );
   } else {
     return (
-      <Image
-        {...props}
-        alt={props.alt}
-        src={"/images/" + props.src}
-        style={{
-          maxWidth: "min(48rem, 100%)",
-          maxHeight: "40rem",
-          margin: "0 auto",
-          objectFit: "contain",
-        }}
-      />
+      // Wrapper div avoids page breaks in print mode
+      <div className="contents break-inside-avoid print:block">
+        <Image
+          {...props}
+          alt={props.alt}
+          src={"/images/" + props.src}
+          className="max-w-[min(48rem,100%)] print:max-w-sm"
+          style={{
+            // maxWidth: "min(48rem, 100%)",
+            maxHeight: "40rem",
+            margin: "0 auto",
+            objectFit: "contain",
+          }}
+        />
+      </div>
     );
   }
 }

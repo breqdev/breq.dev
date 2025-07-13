@@ -20,7 +20,7 @@ function PostHeader(props: BasicMarkdownInfo & PostInfo) {
 
   return (
     <div className="relative z-0">
-      <section className="relative z-10 mb-8 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800 print:text-panpink">
+      <section className="relative z-10 mb-8 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800 print:p-0 print:text-panpink">
         <SEOHelmet
           title={props.title + " - breq.dev"}
           description={props.description}
@@ -34,6 +34,7 @@ function PostHeader(props: BasicMarkdownInfo & PostInfo) {
           <time className="dt-published" dateTime={timestamp.toISOString()}>
             {date}
           </time>
+          <span className="hidden print:inline"> · breq.dev</span>
         </p>
         <a className="u-url hidden" href={`https://breq.dev${asPath}`} />
         <HCard />

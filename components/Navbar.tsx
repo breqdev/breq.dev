@@ -75,7 +75,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="sticky top-0 z-50 bg-panpink p-4 font-display"
+      className="sticky top-0 z-50 bg-panpink p-4 font-display print:hidden"
       id="navbarNav"
     >
       <SkipNavigation />
@@ -88,7 +88,7 @@ export default function Navbar() {
           />
 
           <button
-            className="flex h-12 w-12 items-center justify-center rounded-xl border-4 border-black text-lg text-black md:hidden print:hidden"
+            className="flex h-12 w-12 items-center justify-center rounded-xl border-4 border-black text-lg text-black md:hidden"
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
