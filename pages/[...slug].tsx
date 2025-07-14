@@ -20,7 +20,7 @@ function PostHeader(props: BasicMarkdownInfo & PostInfo) {
 
   return (
     <div className="relative z-0">
-      <section className="relative z-10 mb-8 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800 print:p-0 print:text-panpink">
+      <section className="relative z-10 mb-8 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800 print:bg-transparent print:p-0 print:text-panpink-dark">
         <SEOHelmet
           title={props.title + " - breq.dev"}
           description={props.description}
@@ -39,7 +39,7 @@ function PostHeader(props: BasicMarkdownInfo & PostInfo) {
         <a className="u-url hidden" href={`https://breq.dev${asPath}`} />
         <HCard />
       </section>
-      <div className="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink" />
+      <div className="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink print:hidden" />
     </div>
   );
 }

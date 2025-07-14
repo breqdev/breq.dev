@@ -66,7 +66,7 @@ function TagInfo({ tags }: { tags: string[] }) {
       <ul className="flex list-none gap-2 print:gap-0">
         {tags?.map((tag, i) => (
           <Fragment key={tag}>
-            <li className="p-category inline rounded-full bg-white px-2 py-0.5 text-black outline-none focus:bg-panblue print:p-0">
+            <li className="p-category inline rounded-full bg-white px-2 py-0.5 text-black outline-none focus:bg-panblue print:bg-transparent print:p-0">
               {tag}
             </li>
             {i < tags.length - 1 && (
@@ -127,7 +127,7 @@ function ProjectHeader(props: ProjectInfo) {
 
   return (
     <section className="relative mb-8">
-      <div className="relative z-10 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800 print:p-0 print:text-panpink">
+      <div className="relative z-10 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800 print:bg-transparent print:p-0 print:text-panpink-dark">
         <SEOHelmet
           title={props.title + " - breq.dev"}
           description={props.description}
@@ -144,7 +144,7 @@ function ProjectHeader(props: ProjectInfo) {
         <ProjectInfoCard {...props} />
         <HCard />
       </div>
-      <div className="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink" />
+      <div className="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink print:hidden" />
     </section>
   );
 }

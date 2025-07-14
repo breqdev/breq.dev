@@ -6,7 +6,7 @@ export default function Comments() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(typeof window !== 'undefined');
+    setIsClient(typeof window !== "undefined");
   }, []);
 
   if (!isClient) {
@@ -27,7 +27,6 @@ export default function Comments() {
         inputPosition="top"
         theme="preferred_color_scheme"
         lang="en"
-        loading="lazy"
       />
     </div>
   );
