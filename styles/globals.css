@@ -28,6 +28,13 @@ body:before {
   top: 0;
 }
 
+@media print {
+  body:before {
+    background: transparent;
+    display: none;
+  }
+}
+
 .math {
   /*
    * KaTeX equations should scroll horizontally if not enough room is available
