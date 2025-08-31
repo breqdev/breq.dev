@@ -71,16 +71,6 @@ export function AboutContent() {
             i am openly, proudly, and unapologetically a queer transgender
             woman.
             <br />
-            <br />i lead the{" "}
-            <a
-              className="text-panpink-light underline hover:no-underline"
-              href="https://northeasternrover.com/"
-            >
-              northeastern university mars rover team
-            </a>{" "}
-            and write software (mostly for the camera streaming, communications,
-            and control user interface systems).
-            <br />
             <br />i grew up in Scarborough, ME and spent two years in Limestone,
             ME. if you spot me on the amtrak downeaster, say hi!
             <br />
