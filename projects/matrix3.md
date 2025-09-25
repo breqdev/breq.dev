@@ -24,7 +24,7 @@ The schematic of the board is very similar to that of the previous build, with a
 - An ADC and photoresistor were added to enable automatic brightness dimming (a substantial pain point on the previous version!)
 - A USB-C port was added to the side of the board as an alternate power option, since the DC jack on the bottom prevents standing the display up on a table
 
-The layout followed pretty naturally. I kept the board at 192mm wide to match the display, gave it rounded bottom corners to match the style of the previous build, and mounted the encoder at the center on one side.
+The layout followed pretty naturally. I kept the board at 192mm wide to match either a 64-column 3mm-pitch display or a 32-column 6mm-pitch display, gave it rounded bottom corners to match the style of the previous build, and mounted the encoder at the center on one side.
 
 While I like the enclosed build in my apartment, I wanted to leave the option of doing a build with an exposed PCB. The components are all mounted towards the back, and the routing was mostly done only on the back side, leaving the front part of the board mostly empty on both the silkscreen and copper layers. I thought about putting some artwork or text on the silkscreen but couldn't think of a good way to make it look professional -- the usable space on the board is asymmetrical and interrupted by through-hole components.
 
