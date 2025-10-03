@@ -40,8 +40,8 @@ export default async function generateRssFeed() {
     site_url: "https://breq.dev",
     feed_url: "https://breq.dev/rss.xml",
     image_url: "https://breq.dev/rss.png",
-    managingEditor: "Brooke Chalmers <breq@breq.dev>",
-    webMaster: "Brooke Chalmers <breq@breq.dev>",
+    managingEditor: "breq@breq.dev (Brooke Chalmers)",
+    webMaster: "breq@breq.dev (Brooke Chalmers)",
     pubDate: new Date(),
     copyright: `All rights reserved, Brooke Chalmers ${new Date().getFullYear()}`,
     language: "en",
@@ -55,7 +55,8 @@ export default async function generateRssFeed() {
       description: ReactDOMServer.renderToStaticMarkup(
         <Markdown content={post.body} mode="minimal" />
       ),
-      url: post.url,
+      url: new URL(post.url, "https://breq.dev/").toString(),
+      guid: post.url,
       categories: post.tags,
       date: post.date,
     });
