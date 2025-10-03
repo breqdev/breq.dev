@@ -33,13 +33,13 @@ In the end, I decided to put a repeating pattern in the copper layer of the boar
 Building an importing this pattern turned into more of an adventure than I had predicted! The process I found is convoluted and by no means ideal. If this were something I was doing more often I would definitely design an automated tool for it, but as it stands, the best way I know to accomplish this is:
 
 1. Make your board.
-2. Draw a shape representing your edge cuts in KiCAD. Make sure the units match up!
+2. Draw a shape in Inkscape representing your edge cuts in KiCAD. Make sure the units match up!
 3. Under "Fill", choose a pattern you like and set the scaling appropriately.
 4. Import your KiCAD drawing so you can use it as a reference. Plot -> SVG, plot F.Cu, check to have Edge.Cuts plotted on all layers.
 5. Import your plotted SVG into Inkscape and line it up using your Edge.Cuts layer as a reference.
 6. Manually draw shapes to mask off all of the areas you do _not_ want to have your copper pattern. It is easiest to put these in a group. These can be as convoluted or basic as you like.
 7. Select all of your mask shapes and your shape with the pattern and open the "Shape Builder" tool. Select the area(s) where you want the pattern to show (i.e., the areas without parts). You should be left with a shape matching your intended board.
-8. Next you need to turn the pattern into a basic SVG path. The easiest way to do this is to export it as a PNG (make sure your DPI is 500ish), then re-import it and Path -> Trace Bitmap. "Update Preview", if it looks good then "Apply."
+8. Next you need to turn the pattern into a basic SVG path. The easiest way to do this is to export it as a PNG (make sure your DPI is 500ish), then re-import it and Path -> Trace Bitmap. "Update Preview", if it looks good then "Apply." (Make your F.Cu traces hidden before exporting!)
 9. Export as yet another SVG.
 10. In KiCAD, File -> Import -> Graphics, select layer, manually line it up with your board!
 
