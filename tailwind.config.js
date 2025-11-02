@@ -3,6 +3,7 @@ module.exports = {
     "./components/**/*.{js,jsx,ts,tsx,md,mdx}",
     "./pages/**/*.{js,jsx,ts,tsx,md,mdx}",
     "./posts/**/*.{js,jsx,ts,tsx,md,mdx}",
+    "./projects/**/*.{js,jsx,ts,tsx,md,mdx}",
   ],
   theme: {
     fontFamily: {
