@@ -154,7 +154,7 @@ export default function Code({
   }
 
   return (
-    <div className="mx-auto my-2 flex w-max min-w-[min(100%,42rem)] max-w-full flex-col overflow-x-auto rounded-2xl border-2 border-black bg-[#fff5fc] py-2 pl-4 pr-8 font-mono text-lg dark:bg-gray-800 print:text-sm">
+    <div className="text-md mx-auto my-2 flex w-max min-w-[min(100%,42rem)] max-w-full flex-col overflow-x-auto rounded-2xl border-2 border-black bg-[#fff5fc] py-2 pl-4 pr-8 font-mono dark:bg-gray-800 print:text-sm">
       {props.file && (
         <>
           <span className="font-bold">{props.file}</span>
