@@ -37,7 +37,8 @@ export default function ProjectCard({
     media = (
       <Image
         src={image}
-        alt={title}
+        alt=""
+        tabIndex={-1}
         style={{
           maxWidth: "100%",
           height: "auto",
