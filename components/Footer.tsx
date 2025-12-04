@@ -320,31 +320,34 @@ export default function Footer() {
               style={{ backgroundColor: lightBackgroundColor }}
             >
               <FontAwesomeIcon icon={faGithub} className="-ml-0.5 mr-1" />
-              <span className="sr-only">github</span>
+              <span className="sr-only">github.com/</span>
               breqdev/breq.dev
             </a>
           </p>
-          <p className="flex flex-row flex-wrap gap-1">
+          <ul className="flex list-none flex-row flex-wrap gap-1">
             {contactLinks.map(([icon, text, href, colors]) => (
-              <a
-                href={href}
-                key={text}
-                className={`${linkStyles} ${colors}`}
+              <li key={text} className="contents">
+                <a
+                  href={href}
+                  className={`${linkStyles} ${colors}`}
+                  style={{ backgroundColor: lightBackgroundColor }}
+                >
+                  <FontAwesomeIcon icon={icon} className="mr-1" />
+                  <span>{text}</span>
+                </a>
+              </li>
+            ))}
+            <li className="contents">
+              <Link
+                href="/contact"
+                className={`${linkStyles} hover:!bg-white hover:text-gray-800 focus:!bg-white focus:text-gray-800`}
                 style={{ backgroundColor: lightBackgroundColor }}
               >
-                <FontAwesomeIcon icon={icon} className="mr-1" />
-                <span>{text}</span>
-              </a>
-            ))}
-            <Link
-              href="/contact"
-              className={`${linkStyles} hover:!bg-white hover:text-gray-800 focus:!bg-white focus:text-gray-800`}
-              style={{ backgroundColor: lightBackgroundColor }}
-            >
-              more<span className="sr-only"> ways to contact me </span>
-              <FontAwesomeIcon className="ml-1" icon={faChevronRight} />
-            </Link>
-          </p>
+                more<span className="sr-only"> ways to contact me </span>
+                <FontAwesomeIcon className="ml-1" icon={faChevronRight} />
+              </Link>
+            </li>
+          </ul>
           <Badges
             onChangeColor={setBackgroundColor}
             useDarkText={useDarkText(backgroundColor)}
