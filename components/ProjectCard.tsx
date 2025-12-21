@@ -37,7 +37,8 @@ export default function ProjectCard({
     media = (
       <Image
         src={image}
-        alt={title}
+        alt=""
+        tabIndex={-1}
         style={{
           maxWidth: "100%",
           height: "auto",
@@ -62,16 +63,17 @@ export default function ProjectCard({
         </div>
         <div className="mt-3 flex items-center gap-2">
           <FontAwesomeIcon icon={faTag} className="text-lg" />
-          <div className="flex gap-2 overflow-x-auto">
+          <p className="sr-only">tags:</p>
+          <ul className="flex list-none gap-2 overflow-x-auto">
             {tags?.map((tag) => (
-              <span
+              <li
                 key={tag}
                 className="inline-block whitespace-nowrap rounded-full bg-panblue-light px-3 py-1 text-sm text-black"
               >
                 {tag}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
       <div className="absolute inset-0 m-1 transform rounded-2xl bg-panpink group-hover:translate-x-3 group-hover:translate-y-3 group-focus:translate-x-4 group-focus:translate-y-2 motion-safe:transition-transform" />

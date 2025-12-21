@@ -38,10 +38,12 @@ function ProjectInfoItem({
   custom,
 }: ProjectInfoItemProps) {
   return (
-    <div className="flex items-center gap-2">
-      <span className="sr-only">{name}</span>
-      <FontAwesomeIcon icon={icon} />
-      <span>
+    <tr className="flex items-center gap-2">
+      <td>
+        <span className="sr-only">{name}</span>
+        <FontAwesomeIcon icon={icon} />
+      </td>
+      <td>
         {custom ? (
           custom(value)
         ) : link ? (
@@ -54,8 +56,8 @@ function ProjectInfoItem({
         ) : (
           value
         )}
-      </span>
-    </div>
+      </td>
+    </tr>
   );
 }
 
@@ -113,7 +115,9 @@ function ProjectInfoCard(props: ProjectInfo) {
 
   return (
     <div className="flex flex-wrap justify-center gap-4 text-lg print:text-black">
-      {infoItems}
+      <table className="contents">
+        <tbody className="contents">{infoItems}</tbody>
+      </table>
       <TagInfo tags={props.tags} />
       <span className="hidden print:inline">
         <FontAwesomeIcon icon={faGlobe} /> breq.dev
