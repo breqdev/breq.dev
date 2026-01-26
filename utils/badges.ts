@@ -160,7 +160,7 @@ export const BADGES: Badge[] = [
   },
   {
     tag: "notnite",
-    name: "Julian",
+    name: "Jules",
     image: "/badges/notnite.png",
     url: "https://notnite.com/",
     bio: "programmer, game modder, shitposter",
