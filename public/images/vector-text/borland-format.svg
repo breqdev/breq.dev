@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="205.26617mm"
+   height="134.84869mm"
+   viewBox="0 0 293.23739 192.64099"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   sodipodi:docname="borland-format.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.59706907"
+     inkscape:cx="520.87776"
+     inkscape:cy="454.72126"
+     inkscape:window-width="1680"
+     inkscape:window-height="1022"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g81" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="ArrowWide"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path1" />
+    </marker>
+    <rect
+       x="0"
+       y="0"
+       width="413.55951"
+       height="671.224"
+       id="rect17" />
+    <marker
+       style="overflow:visible"
+       id="ArrowWide-8"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path1-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowWide-8-1"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path1-4-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowWide-2"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path1-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowWide-3"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path1-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowWide-3-2"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path1-6-4" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-8.9174852,34.894302)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:0.499999;stroke-linecap:square"
+       x="187.09961"
+       y="-3.6256917"
+       id="text16-4"><tspan
+         sodipodi:role="line"
+         id="tspan16-9"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.5"
+         x="187.09961"
+         y="-3.6256917">LITT.CHR 'A' Symbol</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:0.499999;stroke-linecap:square"
+       x="76.476318"
+       y="-13.990906"
+       id="text16-4-7"><tspan
+         sodipodi:role="line"
+         id="tspan16-9-5"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.5"
+         x="76.476318"
+         y="-13.990906"><tspan
+   style="fill:#008080"
+   id="tspan44">Move</tspan> to (<tspan
+   style="fill:#800080"
+   id="tspan56">0</tspan>, <tspan
+   style="fill:#800000"
+   id="tspan73">0</tspan>)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:0.499999;stroke-linecap:square"
+       x="76.476318"
+       y="6.0239458"
+       id="text16-4-7-9"><tspan
+         sodipodi:role="line"
+         id="tspan16-9-5-7"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.5"
+         x="76.476318"
+         y="6.0239458"><tspan
+   style="fill:#008080"
+   id="tspan43">Draw</tspan> to (<tspan
+   style="fill:#800080"
+   id="tspan57">0</tspan>, <tspan
+   style="fill:#800000"
+   id="tspan74">4</tspan>)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:0.499999;stroke-linecap:square"
+       x="76.476318"
+       y="25.392406"
+       id="text16-4-7-9-6"><tspan
+         sodipodi:role="line"
+         id="tspan16-9-5-7-0"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.5"
+         x="76.476318"
+         y="25.392406"><tspan
+   style="fill:#008080"
+   id="tspan42">Draw</tspan> to (<tspan
+   style="fill:#800080"
+   id="tspan58">2</tspan>, <tspan
+   style="fill:#800000"
+   id="tspan75">6</tspan>)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:0.499999;stroke-linecap:square"
+       x="76.476318"
+       y="45.290035"
+       id="text16-4-7-9-6-8"><tspan
+         sodipodi:role="line"
+         id="tspan16-9-5-7-0-2"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.5"
+         x="76.476318"
+         y="45.290035"><tspan
+   style="fill:#008080"
+   id="tspan41">Draw</tspan> to (<tspan
+   style="fill:#800080"
+   id="tspan59">4</tspan>,<tspan
+   style="fill:#800000"
+   id="tspan76"> 4</tspan>)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:0.499999;stroke-linecap:square"
+       x="76.476318"
+       y="64.658493"
+       id="text16-4-7-9-6-8-7"><tspan
+         sodipodi:role="line"
+         id="tspan16-9-5-7-0-2-6"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.5"
+         x="76.476318"
+         y="64.658493"><tspan
+   style="fill:#008080"
+   id="tspan40">Draw</tspan> to (<tspan
+   style="fill:#800080"
+   id="tspan60">4</tspan>,<tspan
+   style="fill:#800000"
+   id="tspan77"> 0</tspan>)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:0.499999;stroke-linecap:square"
+       x="76.476318"
+       y="84.045891"
+       id="text16-4-7-9-6-8-7-3"><tspan
+         sodipodi:role="line"
+         id="tspan16-9-5-7-0-2-6-7"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.5"
+         x="76.476318"
+         y="84.045891"><tspan
+   style="fill:#008080"
+   id="tspan39">Draw</tspan> to (<tspan
+   style="fill:#800080"
+   id="tspan61">4</tspan>,<tspan
+   style="fill:#800000"
+   id="tspan78"> 3</tspan>)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:0.499999;stroke-linecap:square"
+       x="76.476318"
+       y="103.88963"
+       id="text16-4-7-9-6-8-7-3-9"><tspan
+         sodipodi:role="line"
+         id="tspan16-9-5-7-0-2-6-7-4"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.5"
+         x="76.476318"
+         y="103.88963"><tspan
+   style="fill:#008080"
+   id="tspan38">Draw</tspan> to (<tspan
+   style="fill:#800080"
+   id="tspan62">0</tspan>,<tspan
+   style="fill:#800000"
+   id="tspan79"> 3</tspan>)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:0.499999;stroke-linecap:square"
+       x="76.476318"
+       y="123.82219"
+       id="text16-4-7-9-6-8-7-3-9-6"><tspan
+         sodipodi:role="line"
+         id="tspan16-9-5-7-0-2-6-7-4-9"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.5"
+         x="76.476318"
+         y="123.82219"><tspan
+   style="fill:#008000"
+   id="tspan37">Move</tspan> to (<tspan
+   style="fill:#800080"
+   id="tspan63">6</tspan>, <tspan
+   style="fill:#800000"
+   id="tspan80">0</tspan>)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#808000;fill-opacity:1;stroke-width:0.499999;stroke-linecap:square"
+       x="76.476318"
+       y="144.56256"
+       id="text16-4-7-9-6-8-7-3-9-6-4"><tspan
+         sodipodi:role="line"
+         id="tspan16-9-5-7-0-2-6-7-4-9-1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#808000;stroke-width:0.5"
+         x="76.476318"
+         y="144.56256">End of character</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+       id="rect23"
+       width="146.1187"
+       height="191.64099"
+       x="9.4174852"
+       y="-34.394302" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+       id="rect23-5"
+       width="146.1187"
+       height="191.64099"
+       x="155.53618"
+       y="-34.394302" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,15.849611,-26.374367)"
+       id="text17"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.3333px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect17);display:inline;fill:#000000;fill-opacity:1;stroke-width:3.77953;stroke-linecap:square;stroke-dasharray:none"><tspan
+         x="0"
+         y="27.671531"
+         id="tspan3"><tspan
+   style="fill:#008000"
+   id="tspan1">1</tspan> <tspan
+   style="fill:#800080"
+   id="tspan2">000 0000</tspan>
+</tspan><tspan
+         x="0"
+         y="65.004832"
+         id="tspan6"><tspan
+   style="fill:#008000"
+   id="tspan4">0</tspan> <tspan
+   style="fill:#800000"
+   id="tspan5">000 0000</tspan>
+</tspan><tspan
+         x="0"
+         y="102.33813"
+         id="tspan9"><tspan
+   style="fill:#008080"
+   id="tspan7">1</tspan> <tspan
+   style="fill:#800080"
+   id="tspan8">000 0000</tspan>
+</tspan><tspan
+         x="0"
+         y="139.67144"
+         id="tspan12"><tspan
+   style="fill:#008080"
+   id="tspan10">1</tspan> <tspan
+   style="fill:#800000"
+   id="tspan11">000 0100</tspan>
+</tspan><tspan
+         x="0"
+         y="177.00474"
+         id="tspan15"><tspan
+   style="fill:#008080"
+   id="tspan13">1</tspan> <tspan
+   style="fill:#800080"
+   id="tspan14">000 0010</tspan>
+</tspan><tspan
+         x="0"
+         y="214.33803"
+         id="tspan54"><tspan
+   style="fill:#008080"
+   id="tspan16">1</tspan> <tspan
+   style="fill:#800000"
+   id="tspan17">000 0110</tspan>
+</tspan><tspan
+         x="0"
+         y="251.67133"
+         id="tspan83"><tspan
+   style="fill:#008080"
+   id="tspan55">1</tspan> <tspan
+   style="fill:#800080"
+   id="tspan82">000 0100</tspan>
+</tspan><tspan
+         x="0"
+         y="289.00463"
+         id="tspan86"><tspan
+           style="fill:#008080"
+           id="tspan84">1</tspan><tspan
+           style="fill:#800000"
+           id="tspan85"> 000 0100
+</tspan></tspan><tspan
+         x="0"
+         y="326.33794"
+         id="tspan89"><tspan
+   style="fill:#008080"
+   id="tspan87">1</tspan> <tspan
+   style="fill:#800080"
+   id="tspan88">000 0100
+</tspan></tspan><tspan
+         x="0"
+         y="363.67126"
+         id="tspan92"><tspan
+   style="fill:#008080"
+   id="tspan90">1</tspan><tspan
+   style="fill:#800000"
+   id="tspan91"> 000 0000</tspan>
+</tspan><tspan
+         x="0"
+         y="401.00457"
+         id="tspan95"><tspan
+   style="fill:#008080"
+   id="tspan93">1</tspan> <tspan
+   style="fill:#800080"
+   id="tspan94">000 0100
+</tspan></tspan><tspan
+         x="0"
+         y="438.33788"
+         id="tspan98"><tspan
+   style="fill:#008080"
+   id="tspan96">1</tspan> <tspan
+   style="fill:#800000"
+   id="tspan97">000 0011
+</tspan></tspan><tspan
+         x="0"
+         y="475.67119"
+         id="tspan101"><tspan
+   style="fill:#008080"
+   id="tspan99">1</tspan> <tspan
+   style="fill:#800080"
+   id="tspan100">000 0000</tspan>
+</tspan><tspan
+         x="0"
+         y="513.00451"
+         id="tspan104"><tspan
+   style="fill:#008080"
+   id="tspan102">1</tspan> <tspan
+   style="fill:#800000"
+   id="tspan103">000 0011</tspan>
+</tspan><tspan
+         x="0"
+         y="550.33779"
+         id="tspan107"><tspan
+   style="fill:#008000"
+   id="tspan105">1</tspan> <tspan
+   style="fill:#800080"
+   id="tspan106">000 0110</tspan>
+</tspan><tspan
+         x="0"
+         y="587.6711"
+         id="tspan110"><tspan
+   style="fill:#008000"
+   id="tspan108">0</tspan> <tspan
+   style="fill:#800000"
+   id="tspan109">000 0000
+</tspan></tspan><tspan
+         x="0"
+         y="625.00442"
+         id="tspan113"><tspan
+   style="fill:#808000"
+   id="tspan111">0</tspan> <tspan
+   style="fill:#800080"
+   id="tspan112">000 0000</tspan>
+</tspan><tspan
+         x="0"
+         y="662.33773"
+         id="tspan116"><tspan
+   style="fill:#808000"
+   id="tspan114">0</tspan> <tspan
+   style="fill:#800000"
+   id="tspan115">000 0000</tspan></tspan></text>
+    <g
+       id="g82"
+       transform="matrix(1.457243,0,0,1.457243,-99.235742,2.1908698)"
+       style="stroke-width:0.686227">
+      <g
+         id="g81"
+         style="stroke-width:0.686227">
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 192.09255,6.4722748 h 72.74466"
+           id="path80" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 192.24498,16.820819 h 72.43981"
+           id="path80-6" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 192.24498,27.169364 h 72.43981"
+           id="path80-4" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 192.24498,37.517908 h 72.43981"
+           id="path80-6-7" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 192.24498,47.866452 h 72.43981"
+           id="path80-4-7" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 192.24498,58.214996 h 72.43981"
+           id="path80-6-7-5" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 192.24498,68.56354 h 72.43981"
+           id="path80-4-7-5" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 192.09255,78.912084 h 72.74466"
+           id="path80-6-7-5-0" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="M 192.24498,78.912084 V 6.4722747"
+           id="path80-68" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="M 202.59352,78.912084 V 6.4722747"
+           id="path80-6-2" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="M 212.94207,78.912084 V 6.4722747"
+           id="path80-4-3" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="M 223.29061,78.912084 V 6.4722747"
+           id="path80-6-7-9" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="M 233.63916,78.912084 V 6.4722747"
+           id="path80-4-7-0" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="M 243.9877,78.912084 V 6.4722747"
+           id="path80-6-7-5-3" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="M 254.33624,78.912084 V 6.4722747"
+           id="path80-4-7-5-8" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:#808080;stroke-width:0.686225;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="M 264.68479,78.912084 V 6.4722747"
+           id="path80-6-7-5-0-3" />
+        <g
+           id="g83"
+           style="stroke-width:1.71557;stroke-dasharray:none">
+          <path
+             style="fill:#000000;fill-opacity:1;stroke:#800080;stroke-width:1.71557;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ArrowWide)"
+             d="M 192.24498,78.939092 V 39.162676"
+             id="path82" />
+          <path
+             style="fill:#000000;fill-opacity:1;stroke:#800080;stroke-width:1.71557;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ArrowWide-3)"
+             d="M 233.63916,77.902024 V 49.172969"
+             id="path82-0" />
+          <path
+             style="fill:#000000;fill-opacity:1;stroke:#800080;stroke-width:1.71557;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ArrowWide-3-2)"
+             d="M 233.29966,47.866448 H 194.31615"
+             id="path82-0-1" />
+          <path
+             style="fill:#000000;fill-opacity:1;stroke:#800080;stroke-width:1.71557;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ArrowWide-8)"
+             d="M 192.25243,37.510453 211.67757,18.085319"
+             id="path82-1"
+             sodipodi:nodetypes="cc" />
+          <path
+             style="fill:#000000;fill-opacity:1;stroke:#800080;stroke-width:1.71557;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ArrowWide-8-1)"
+             d="m 212.94417,16.822342 19.42514,19.51923"
+             id="path82-1-5"
+             sodipodi:nodetypes="cc" />
+          <path
+             style="fill:#000000;fill-opacity:1;stroke:#800080;stroke-width:1.71557;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ArrowWide-2)"
+             d="M 233.63916,37.955112 V 77.902024"
+             id="path82-9" />
+        </g>
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="183.18956"
+         y="81.899162"
+         id="text81"><tspan
+           sodipodi:role="line"
+           id="tspan81"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="183.18956"
+           y="81.899162">0</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="190.12831"
+         y="87.767906"
+         id="text81-2"><tspan
+           sodipodi:role="line"
+           id="tspan81-97"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="190.12831"
+           y="87.767906">0</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="183.18956"
+         y="71.550621"
+         id="text81-9"><tspan
+           sodipodi:role="line"
+           id="tspan81-6"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="183.18956"
+           y="71.550621">1</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="183.33772"
+         y="60.202084"
+         id="text81-8"><tspan
+           sodipodi:role="line"
+           id="tspan81-4"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="183.33772"
+           y="60.202084">2</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="183.38535"
+         y="50.353539"
+         id="text81-6"><tspan
+           sodipodi:role="line"
+           id="tspan81-9"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="183.38535"
+           y="50.353539">3</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="183.32655"
+         y="40.004993"
+         id="text81-1"><tspan
+           sodipodi:role="line"
+           id="tspan81-96"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="183.32655"
+           y="40.004993">4</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="183.32655"
+         y="29.656448"
+         id="text81-1-3"><tspan
+           sodipodi:role="line"
+           id="tspan81-96-1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="183.32655"
+           y="29.656448">5</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="183.37846"
+         y="19.371403"
+         id="text81-1-1"><tspan
+           sodipodi:role="line"
+           id="tspan81-96-2"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="183.37846"
+           y="19.371403">6</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="183.35378"
+         y="9.2322063"
+         id="text81-1-32"><tspan
+           sodipodi:role="line"
+           id="tspan81-96-11"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="183.35378"
+           y="9.2322063">7</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="200.32869"
+         y="87.792603"
+         id="text81-9-9"><tspan
+           sodipodi:role="line"
+           id="tspan81-6-4"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="200.32869"
+           y="87.792603">1</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="210.67516"
+         y="87.806717"
+         id="text81-8-3"><tspan
+           sodipodi:role="line"
+           id="tspan81-4-1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="210.67516"
+           y="87.806717">2</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="221.16637"
+         y="87.806717"
+         id="text81-6-6"><tspan
+           sodipodi:role="line"
+           id="tspan81-9-8"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="221.16637"
+           y="87.806717">3</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="230.95546"
+         y="87.806717"
+         id="text81-1-0"><tspan
+           sodipodi:role="line"
+           id="tspan81-96-4"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="230.95546"
+           y="87.806717">4</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="241.75209"
+         y="87.774963"
+         id="text81-1-3-0"><tspan
+           sodipodi:role="line"
+           id="tspan81-96-1-6"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="241.75209"
+           y="87.774963">5</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="252.17725"
+         y="87.806717"
+         id="text81-1-1-8"><tspan
+           sodipodi:role="line"
+           id="tspan81-96-2-2"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="252.17725"
+           y="87.806717">6</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         x="262.59534"
+         y="87.782021"
+         id="text81-1-32-0"><tspan
+           sodipodi:role="line"
+           id="tspan81-96-11-9"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Nunito;-inkscape-font-specification:'Nunito, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37245;stroke-opacity:1"
+           x="262.59534"
+           y="87.782021">7</tspan></text>
+    </g>
+  </g>
+</svg>
