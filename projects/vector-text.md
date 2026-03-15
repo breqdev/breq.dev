@@ -5,7 +5,7 @@ image: vector-text/output_fonts.svg
 created: 2026
 repo: breqdev/vector-text
 tags: [graphics, vector]
-writeup: 2026-02-23
+writeup: 2026-03-14
 ---
 
 ![](vector-text/output_fonts.svg)
@@ -16,13 +16,13 @@ I wrote a Rust library for rendering text to a set of points using commonly avai
 
 Most font definitions in our modern world are based on filled shapes. For both printing and text rendering applications, this makes sense. At the end of the day, 99% of all text written on a computer is going to be rasterized into discrete pixels based on whether each pixel is "inside" or "outside" the shape.
 
-However, there are still applications out there where drawing filled shapes isn't desirable. Devices such as X/Y plotters, vector CRT displays, laser cutters, and galvo-based laser projectors can only draw strokes. In many cases, it is simply easier to work with drawing text based on a vector font. For instance, Hershey fonts are used extensively in [OpenCV](https://docs.opencv.org/3.1.0/d0/de1/group__core.html#ga0f9314ea6e35f99bb23f29567fc16e11).
+However, there are still applications out there where drawing filled shapes isn't desirable. Devices such as X/Y plotters, vector CRT displays, laser cutters, and galvo-based laser projectors can only draw strokes. In many cases, depending on the drawing APIs available, it is simply easier to work with drawing text based on a vector font.
 
 ## Hershey Fonts
 
 One of the rather obvious things that one might want to do with a display is, of course, render text with it. For this, we need a font. Even though traditional fonts are based on vector graphics, they make use of filled shapes of varying width which can't be replicated on a vector display.
 
-In 1967, the U.S. Naval Weapons Laboratory published a font designed for use with vector displays named after its author Dr. Hershey. The [Hershey font](https://en.wikipedia.org/wiki/Hershey_fonts) contained various styles for Latin, Greek, Cyrillic, and Japanese characters. The font was originally developed for display on early cathode ray tube displays which pointed the electron beam based on X and Y signals instead of forming a constant raster pattern as later CRTs did. You might recognize it as the font used by OpenCV by default.
+In 1967, the U.S. Naval Weapons Laboratory published a font designed for use with vector displays named after its author Dr. Hershey. The [Hershey font](https://en.wikipedia.org/wiki/Hershey_fonts) contained various styles for Latin, Greek, Cyrillic, and Japanese characters. The font was originally developed for display on early cathode ray tube displays which pointed the electron beam based on X and Y signals instead of forming a constant raster pattern as later CRTs did. You might recognize it as the font used by [OpenCV](https://docs.opencv.org/3.1.0/d0/de1/group__core.html#ga0f9314ea6e35f99bb23f29567fc16e11) by default.
 
 Hershey fonts are relatively easy to get up and running with, but do have a rather strange format. A hershey font file (".jhf") contains lines like this:
 
@@ -55,7 +55,7 @@ The second piece of the puzzle is font mapping files. Hershey fonts give each sy
 
 ## Borland Graphics Interface
 
-A variety of vector fonts were shipped with the Borland Graphics Interface, which then made their way into [GameMaker](https://github.com/gandrewstone/GameMaker/), [Turbo Pascal](https://github.com/apsteinmetz/turboPascal), and other frameworks. Via those frameworks, this small set of fonts made its way into a large volume of software. One famous example is the `LITT.CHR` font, which became the default font in EAGLE, a popular PCB design program. This was actually how I discovered BGI fonts -- through reading [Astrid's excellent post about recreating LITT.CHR font for modern software](https://design.astridbin.com/project/little-character).
+A variety of vector fonts were shipped with the Borland Graphics Interface, which then made their way into [GameMaker](https://github.com/gandrewstone/GameMaker/), [Turbo Pascal](https://github.com/apsteinmetz/turboPascal), and other frameworks. Via those frameworks, this small set of fonts made its way into a large volume of software. One famous example is the `LITT.CHR` font, which became the default font in EAGLE, a popular PCB design program. This was actually how I discovered BGI fonts -- through reading [Astrid's excellent post about recreating the LITT.CHR font for modern software](https://design.astridbin.com/project/little-character).
 
 Borland developed a variety of software development tools, including the aforementioned Turbo Pascal (launched in 1983) and the similarly-named Turbo C (in 1987). Both were compilers intended to run on CP/M and, later, MS-DOS. The Borland Graphics Interface was developed to provide a convenient graphics library for software written using Borland's compilers. It was notable for supporting a wide range of graphics adapters.
 
