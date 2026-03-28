@@ -146,7 +146,7 @@ export default function Contact() {
           <ContactItem
             url="/keys/pgp.txt"
             icon={faLock}
-            username="EF956A1CEF9CEF5E"
+            username="DDF1CCE64195808A"
             label="PGP keys"
             description="gpg --import"
             className="hover:bg-slate-200 focus-visible:bg-slate-200 dark:hover:bg-slate-600 dark:focus-visible:bg-slate-600"

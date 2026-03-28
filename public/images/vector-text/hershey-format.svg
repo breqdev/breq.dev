@@ -23,17 +23,25 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.68358079"
-     inkscape:cx="245.76466"
-     inkscape:cy="54.12674"
+     inkscape:zoom="1.1909259"
+     inkscape:cx="347.62868"
+     inkscape:cy="223.35562"
      inkscape:window-width="1692"
      inkscape:window-height="1059"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="svg1" />
   <defs
      id="defs1" />
+  <rect
+     style="fill:#ffffff;stroke-width:0.132292"
+     id="rect1"
+     width="93.865166"
+     height="50.431698"
+     x="31.71327"
+     y="22.490473"
+     transform="translate(-31.824353,-22.490473)" />
   <path
      id="rect23"
      style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;paint-order:markers stroke fill"
