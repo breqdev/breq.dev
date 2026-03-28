@@ -6,14 +6,24 @@ created: 2026
 repo: breqdev/galvo
 # demo: https://kicad-pretty.breq.dev/
 tags: [lasers, esp32]
-writeup: 2026-01-28
+writeup: 2026-03-28
 ---
 
-## Don't do this at home
+<div className="mx-auto my-4 max-w-prose rounded-2xl bg-amber-200 px-4 py-2 font-body text-lg dark:bg-yellow-800">
+
+<h2 className="font-bold text-2xl mt-4">Sponsored by PCBWay</h2>
+
+This article is sponsored by [PCBWay](https://www.PCBWay.com/), who generously provided PCB fabrication services for this project. PCBWay provides high-quality boards with fast turnaround at low cost, and are a great option for both hobbyists and professionals. They are also a platinum-level sponsor of the KiCAD project.
+
+</div>
+
+<div className="mx-auto my-4 max-w-prose rounded-2xl bg-red-200 px-4 py-2 font-body text-lg dark:bg-red-800">
+
+<h2 className="font-bold text-2xl mt-4">Safety: Don't do this at home</h2>
 
 Lasers are dangerous tools, and this isn't the type of project you should attempt without a clear understanding of the risks. But since I know that might not stop you, here's the _very basics_ of what you need to know to mess around with this stuff safely.
 
-Lasers are divided into classes, where a higher class number means higher risks. Here's a table summarizing the classes for _visible light_ lasers -- infrared or ultraviolet lasers bring additional risks as the beam can't be seen.
+Lasers are divided into classes, where a higher class number means higher risks. Here's a table summarizing the classes for _visible light_ lasers -- infrared or ultraviolet lasers bring additional risks of unintentional long-duration exposure as the beam can't be seen.
 
 | Class | Power | Risks | Examples |
 | --- | --- | --- | --- |
@@ -38,6 +48,10 @@ I live in Massachusetts, where Class IIIb and IV lasers generally are legally re
 I work with very high power lasers at my day job and thus am familiar with the controls that a professional lab uses to ensure laser safety. I would not have had the confidence to attempt this project without that experience.
 
 A lot of the aspects of this project revolved around buying parts as cheaply as possible to demonstrate how accessible experimenting with lasers is. Do not attempt to apply this mentality to safety equipment. By far the most expensive part of this project was purchasing laser safety goggles from a reputable, CE certified, ANSI-compliant vendor.
+
+</div>
+
+# Concepts
 
 ## Galvanometers
 
@@ -65,7 +79,7 @@ This is one of the perks of working in perceptual color -- you only ever need th
 
 Red lasers are commonly found at the 638nm wavelength, so that one's easy. There are lot of available blue wavelengths between about 440 and 460nm to choose from. Green is where it gets difficult.
 
-By far the most common green light wavelength is 532nm -- it can be created easily by taking an infrared laser at 1064nm and passing its light through a frequency-doubling crystal to produce 532nm. However, this process is imperfect and cheap green lasers often lack the filtering required at the infrared wavelengths, creating a potential hazard if the user is not expecting to need protection against 1064nm light. For lower-power applications like this project, 520nm diodes have started to become available which directly produce light. And as another benefit, 520nm diodes help give you a larger color gamut! By mixing various amounts of red, green, and blue at those selected wavelengths, you can create any color in the triangle below.
+By far the most common green light wavelength is 532nm -- it can be created easily by taking an infrared laser at 1064nm and passing its light through a frequency-doubling crystal to produce 532nm. However, this process is imperfect and cheap green lasers often lack the filtering required at the infrared wavelengths, creating a potential hazard if the user is not expecting to need protection against 1064nm light. For lower-power applications like this project, 520nm diodes have started to become available which directly produce light at the desired wavelength. And as another benefit, 520nm diodes help give you a larger color gamut! By mixing various amounts of red, green, and blue at those selected wavelengths, you can create any color in the triangle below.
 
 ![](laser-projector/chromaticity.svg)
 
@@ -75,7 +89,7 @@ Original source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:CIE
 
 </Caption>
 
-On the note of goggles: Laser safety goggles have the difficult job of letting through enough light for you to work while only letting through a tiny fraction of the light at specific wavelengths. You must choose goggles which match the wavelengths you are using. I got the [F42.P5L13.5000](https://lasersafety.com/product/f42-p5l13-5000/) from Laservision as they are rated for OD 3 (i.e., allowing through only $\frac{1}{10^3}$ of light) at each of the wavelengths in my laser module while still allowing 20% of visible light (the Visible Light Transmission, or VLT).
+On the note of goggles: Laser safety goggles have the difficult job of letting through enough light for you to work while only letting through a tiny fraction of the light at specific wavelengths. You must choose goggles which match the wavelengths you are using. I got the [F42.P5L13.5000](https://lasersafety.com/product/f42-p5l13-5000/) from Laservision as they are rated for about OD 3 (i.e., allowing through only $\frac{1}{10^3}$ of light) at each of the wavelengths in my laser module while still allowing 20% of visible light (the Visible Light Transmission, or VLT).
 
 ![](laser-projector/goggles-rating.png)
 
@@ -109,7 +123,97 @@ The ESP32 is notable for its highly developed Rust support. I am a big fan of th
 
 For an RTOS, I'm using [Embassy](https://embassy.dev/), which gives async/await support. I am not used to programming in an environment where I have full async/await, but lack most of the standard library! That said, the async approach seems to be a very good fit for embedded code, especially with things like networking involved.
 
-## Vector Demos
+# Circuit Design
+
+This was my first time attempting a schematic of this complexity! Overall I'm quite happy with how much worked right away.
+
+### Power Regulation
+
+![](laser-projector/schematic/PowerRegulation.svg)
+
+This project needs a few different voltage rails to function:
+
+- +12V for the laser diodes
+- +/-15V for the galvo driver board
+- +3.3V for the ESP32
+
+I managed to get away with not having a 5V rail for this project which was nice, and the galvos I bought came with a power supply to step down 120/240V AC to the +/-15V rails. I decided to have line voltage enter the system through an IEC connector on the PCB so that it can be routed internally to both this off-board +/-15V supply and regulated down to 12V on the board. This was my first time routing AC voltage on a board, and I'm sure the trace spacing, etc. is far higher than it needs to be, but it seems to work great! The one important thing I learned was to avoid having the ground plane get too close to the AC traces to reduce interference. That, and the habit of grabbing a board by the connectors while it's on is not advisable when said connectors have 120V present.
+
+To step down to +12V, I wanted an on-board solution to reduce the number of components in the project. We made use of an [Mean Well IRM series module](https://www.digikey.com/en/products/detail/mean-well-usa-inc/IRM-05-12/7704648), which has a simple 4-pin footprint and completely solved the 12V rail problem. While it takes up some space on the board, it's still more compact than most off-board options would be and requires no additional wiring.
+
+Finally, we needed to step 12V down to 3.3V. Most examples of this in schematics I found online use the AMS1117 linear regulator or its clones, but I also found countless Reddit comments arguing that the AMS1117 is a bad choice for one reason or another. I ended up using [TI Webench Power Designer](https://webench.ti.com/power-designer/) to come up with a design and directly copied the schematic into my board. The design uses the [TPS561201](https://www.ti.com/lit/ds/symlink/tps561201.pdf), which is a switching regulator large enough to hand-solder, not too many external components, and reasonably good efficiency.
+
+One thing to note about switching regulators is that the layout of passive components around them on the PCB is important to improve output quality. I was able to copy the example given in the chip datasheet and achieve good results.
+
+### Microcontroller
+
+![](laser-projector/schematic/Microcontroller.svg)
+
+The project is built around an ESP32 module, since I did not want to have to design my own antenna around the chip and we had enough space to spare.
+
+The ESP32 has a native USB port which I wanted to potentially use to control the device from a computer. While it is possible to upload code over the native USB port, the development experience is far from optimal as logging and panic handlers in Rust only output to the chip's UART pins, and uploading code requires performing a particular sequence to the BOOT and RESET pins which can't be done over the native USB. Thus, I tried to copy the schematic found in many ESP32 devboards: adding a CP2102N chip for USB to UART and using two transistors to implement BOOT and RESET pins via the serial DTR and RTS signals.
+
+The CP2102N chip was quite difficult to hand-solder, especially because the ground pin is only provided by the pad below the chip. As a backup, I added a header to manually hook up UART signals and physical buttons for the BOOT and RESET signals.
+
+### Galvo Signal Handling
+
+![](laser-projector/schematic/Galvo.svg)
+
+The galvos take a pair of analog signals (one for X and one for Y) as their input. The board we made supports three possible sources for these:
+
+- The ESP32's two DAC output pins (8-bit)
+- An external SPI-based [MCP4922](https://ww1.microchip.com/downloads/en/devicedoc/22250a.pdf) DAC (12-bit)
+- A 3.5mm audio input source, so you can (for instance) play oscilloscope music from a laptop
+
+I included a footprint for the external DAC in case it seemed like we were overly limited by the resolution of the ESP32 DAC, but so far that hasn't been the case yet! The "smoothing" effect created by the inertia of each galvo definitely helps reduce the stair-stepping that would otherwise occur with 8-bit output.
+
+Selection between the active DAC and the external audio input is handled using the presence detection pins of the 3.5mm input jack. We found a part that has two separate pins for detection, allowing us to easily swap in the DAC signal when no cable is present without any other components.
+
+The harder part is amplifying the galvo signal. We needed to take a 0-3.3V input and convert it to a differential signal of +/-10V. Op-amps confuse me, so I made Mia do all the hard work of this part :)
+
+The tricky part of the op-amp circuit is that we need to first scale the DAC output signals to be centered on 0V (removing the 1.65V DC offset), then scale everything up to +/- 10V. I found several designs online that use three op-amps per channel -- one to remove the offset, one to scale the input to 0-5V, and another to flip the input and scale it to 0 to -5V, thus generating the required -10V to +10V differential signal. We chose to take a shortcut by generating a single signal ranging from -10V to +10V and hooking the other end of the differential input up to ground, allowing us to use only two op-amps per channel and thus a single [TL084](https://www.ti.com/lit/ds/symlink/tl084.pdf) chip. After some prototyping in [Falstad Circuit Simulator](https://www.falstad.com/circuit/), we went straight to PCB design -- it was definitely a risk to skip the breadboard prototyping stage, but everything worked on the first try!
+
+### Laser Control
+
+![](laser-projector/schematic/Laser.svg)
+
+Laser diodes, like LEDs, are best driven using a constant-current power supply. The laser driver board that came with the diodes I bought uses an [OC5211](https://datasheet4u.com/pdf-down/O/C/5/OC5211-OCX.pdf) driver for each channel. Each channel provides a digital input signal that allows for dimming of the laser using PWM. While the datasheet specifies that the input pin needs to be a 5V signal (and doesn't provide a range of acceptable values), I found that I can drive it from a 3.3V GPIO pin without any difficulties.
+
+Unfortunately, this design presents a major safety issue: if the digital input signal is in a high-impedance state, the OC5211 has an internal pull-up to 5V. While I had hoped this was a pull-up resistor on the board I could manually remove, it seems like this pull-up resistor is actually contained within the chip itself?
+
+![](laser-projector/OC5211.png)
+
+As a workaround, I decided to add switching to the 12V power supply going to the laser driver. The laser driver board requires high-side switching with a P-channel MOSFET, since the ground pin of the power input is shared with the reference ground for the modulation signals. However, as I can't output +12V from a GPIO, I added a pull-up resistor from the gate to +12V and an NPN transistor such that the GPIO can pull the gate low.
+
+While this is extremely far from a professional product, I wanted to try out some of the steps that would be required for this type of design. Most lasers of this output power have an E-stop interlock and/or keyswitch that must be turned before the laser can be operated, so I replicated this design here. I also added a voltage divider such that the status of the interlock can be read by the ESP32.
+
+### I2C and Wii Accessories
+
+![](laser-projector/schematic/I2C.svg)
+
+I knew early on that I wanted to use Wii Nunchucks as a controller for this project, as they're [uniquely well-suited for homemade projects](/2026/03/15/wii-accessories). All Nunchucks share the same I2C address, so I had to put the two ports on the two different I2C peripherals. I wanted to add additional room for extensibility to the project (such as for a small indicator display?), but since anything else would likely have a different I2C address to the Nunchuck, I chained those connectors off of the same I2C buses as the Nunchuck inputs. I used [Qwiic](https://www.sparkfun.com/qwiic) connectors for easy wiring -- they're quite compact but still possible to hand-solder.
+
+### Enclosure
+
+![](laser-projector/schematic/Enclosure.svg)
+
+I wanted this project to be fully enclosed so that I could easily move it to different locations -- one of the cool things about projectors generally is the variety of spaces they can be used in to create large-scale images. However, the galvos themselves and the galvo driver board get quite hot when running, so I figured that a fan would be essential for keeping things from burning up.
+
+### Manufacturing
+
+After designing the board in KiCAD, I sent it to [PCBWay](https://www.PCBWay.com/) to be manufactured. PCBWay provides a [KiCAD plugin](https://github.com/PCBWay/PCBWay-Plug-in-for-Kicad) which automates the process of sending your board layout from KiCAD into their service. Gone are the days of fussing around with Gerber file export settings or realizing you forgot to attach a drill file! At time of writing, part of the cost of your order will be donated to the KiCAD project to support future development.
+
+The boards for this project arrived quickly, well-packaged with no defects and high-quality silkscreen printing. While I chose a standard thickness and silkscreen color for this project, PCBWay offers many more customization options often at minimal additional cost.
+
+# Physical Construction
+
+TODO: info about the design and construction of the enclosure
+
+I chose to 3D print the enclosure for this project. At slightly over 200 by 200 mm, it's definitely on the larger end of what I'm capable of producing on a consumer-grade FDM printer, and failed prototypes were a little more expensive than I was hoping with each print costing about $5 in filament. In the past, I've used [wood and FDM parts together](/projects/itx-case) to make cases of this size, but my apartment lacks woodworking tools and I didn't want to have to drive to my parents' garage to build this thing.
+
+During this project, I upgraded from my trusty Creality Ender 3 Pro to a [Bambu Lab A1](https://bambulab.com/en-us/a1) printer, which brought a definite boost in the speed and quality of prints.
+
+# Software
 
 One of the things that makes galvo-based laser projectors so unique is that they "natively" display vector images. Vector displays are a medium that largely faded from relevance as raster displays became more practical.
 
