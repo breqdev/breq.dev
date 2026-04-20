@@ -1,21 +1,29 @@
 ---
 title: Laser Vector Projector
-description: TODO
+description: Vector graphics using fast mirrors, on the cheap!
 # image: TODO
 created: 2026
 repo: breqdev/galvo
 # demo: https://kicad-pretty.breq.dev/
 tags: [lasers, esp32]
-writeup: 2026-03-28
+writeup: 2026-04-17
 ---
 
 <div className="mx-auto my-4 max-w-prose rounded-2xl bg-amber-200 px-4 py-2 font-body text-lg dark:bg-yellow-800">
 
 <h2 className="font-bold text-2xl mt-4">Sponsored by PCBWay</h2>
 
-This article is sponsored by [PCBWay](https://www.PCBWay.com/), who generously provided PCB fabrication services for this project. PCBWay provides high-quality boards with fast turnaround at low cost, and are a great option for both hobbyists and professionals. They are also a platinum-level sponsor of the KiCAD project.
+This article is sponsored by [PCBWay](https://www.PCBWay.com/), who generously provided PCB fabrication services for this project. PCBWay provides high-quality boards with fast turnaround at low cost, and are a great option for both hobbyists and professionals.
 
 </div>
+
+I built an RGB laser projector that uses a pair of galvanometers to direct the beam. Software running on an ESP32 can project a variety of vector graphics demos, Wii Nunchucks can be connected for interactive games, and the system accepts a 3.5mm audio input for playback of oscilloscope music.
+
+One of the things that makes galvo-based laser projectors so unique is that they "natively" display vector images. Vector displays are a medium that largely faded from relevance as raster displays became more practical.
+
+Vector displays excel at creating sharp, smooth lines and polygons at any angle.
+
+Ahoy's [A Brief History of Graphics](https://youtu.be/QyjyWUrHsFc?t=188&si=QlK1Vf2i6stZdbR7) has a section on vector graphics with renderings and examples which showcase this excellently.
 
 <div className="mx-auto my-4 max-w-prose rounded-2xl bg-red-200 px-4 py-2 font-body text-lg dark:bg-red-800">
 
@@ -43,17 +51,11 @@ Note that lasers bought from sketchy vendors are often mislabeled! This especial
 
 Most laser safety regulations for visible lasers are based around a 0.25 second exposure time, with the rationale being that the human blink reflex would protect you from exposures longer than that time. Therefore, if a laser is categorized as dangerous for eye exposure, it means that _it can cause permanent damage faster than you can blink_.
 
-I live in Massachusetts, where Class IIIb and IV lasers generally are legally required to be registered with the state for use and all use must be overseen by an accredited laser safety officer. However, courses are expensive and time consuming, the fine for noncompliance is at most $500, and the state would generally have a difficult time knowing about the existence of a laser anyway. This is not legal advice. But if you're going to skip this part, you better know your stuff.
-
 I work with very high power lasers at my day job and thus am familiar with the controls that a professional lab uses to ensure laser safety. I would not have had the confidence to attempt this project without that experience.
-
-A lot of the aspects of this project revolved around buying parts as cheaply as possible to demonstrate how accessible experimenting with lasers is. Do not attempt to apply this mentality to safety equipment. By far the most expensive part of this project was purchasing laser safety goggles from a reputable, CE certified, ANSI-compliant vendor.
 
 </div>
 
-# Concepts
-
-## Galvanometers
+# Galvanometers 101
 
 How do you project an image with light?
 
@@ -69,7 +71,7 @@ The [X/Y galvo setup I bought](https://www.aliexpress.us/item/3256809659931894.h
 
 Galvos for laser applications are often rated in "Kpps", or "kilo-points per second," which refers to the rate at which the galvos can display the ILDA standard test pattern at 8 degrees of deflection. My galvos are rated for 20 Kpps, which is on the slower side. Note that some manufacturers often lie about this measurement given its imprecise nature.
 
-## RGB laser projectors
+# Red, green, and blue lasers
 
 ![](laser-projector/laser-listing.png)
 
@@ -89,47 +91,63 @@ Original source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:CIE
 
 </Caption>
 
-On the note of goggles: Laser safety goggles have the difficult job of letting through enough light for you to work while only letting through a tiny fraction of the light at specific wavelengths. You must choose goggles which match the wavelengths you are using. I got the [F42.P5L13.5000](https://lasersafety.com/product/f42-p5l13-5000/) from Laservision as they are rated for about OD 3 (i.e., allowing through only $\frac{1}{10^3}$ of light) at each of the wavelengths in my laser module while still allowing 20% of visible light (the Visible Light Transmission, or VLT).
+While I certainly can't mention everything you should know regarding safety, one interesting note that ties closely into wavelength selection is laser safety goggles. Laser safety goggles have the difficult job of letting through enough ambient light for you to work while only letting through a tiny fraction of the light at the wavelength of your laser.
+
+As such, you must choose goggles which match the wavelengths you are using, and there are hundreds of different options for different applications.
+
+A lot of the aspects of this project revolved around buying parts as cheaply as possible to demonstrate how accessible experimenting with lasers is. Do not attempt to apply this mentality to safety equipment. By far the most expensive part of this project was purchasing laser safety goggles from a reputable, CE certified, ANSI-compliant vendor.
+
+I got the [F42.P5L13.5000](https://lasersafety.com/product/f42-p5l13-5000/) from Laservision as they are rated for about OD 3 (i.e., allowing through only $\frac{1}{10^3}$ of light) at each of the wavelengths in my laser module while still allowing 20% of visible light (the Visible Light Transmission, or VLT).
 
 ![](laser-projector/goggles-rating.png)
 
-## ESP32
+# Initial prototyping
 
 To paint vector art, two things are essential: precise control over the beam position, and precise control of the beam brightness/color.
 
-### DAC
+To control the beam position, we need a DAC to generate the analog signals corresponding to mirror positions. I chose the ESP32-S2 for this project because it has a built-in dual-channel DAC output. Having a DAC integrated into the microcontroller is useful not just to reduce complexity, but also to ensure the DAC can output samples quickly enough to move the beam at the desired rate. (If the galvos are rated for 20 Kpps, then the DAC should have at least a 20 kHz output rate!)
 
-I chose the ESP32-S2 for this project because it has a dual-channel DAC output. Driving galvos at such high speeds requires fast control of a DAC, and having one integrated into the microcontroller is a good starting point to ensure adequate throughput. (If the galvos are rated for 20 Kpps, then the DAC should have at least a 20 kHz output rate!)
+Although DACs are relatively common in industry, they are unfortunately absent from many hobbyist boards. The ATSAMD line common in MicroPython-focused boards has only a single DAC output. STM32s often have two DACs, but those microcontrollers are rare in breakout boards which makes prototyping harder.
 
-Although DACs are relatively common in industry, they are unfortunately absent from many hobbyist boards. The ATSAMD line common in MicroPython-focused boards has only a single DAC output. STM32s often have two DACs, but aren't nearly as common in hobbyist boards.
+Two variants of the ESP32 chip, however, do support DACs: the original ESP32 and the ESP32-S2 both have two 8-bit DAC outputs. 8 bit outputs essentially give a 256x256 grid for outputs, which is quite small by professional standards but still pretty good for this project. Additionally, the galvos themselves have some inertia, which has a smoothing effect on diagonal lines and hides the "stair step" phenomena in the output. I chose the ESP32-S2 as it was the newer chip, although it does not support Bluetooth.
 
-Two variants of the ESP32 chip, however, do support DACs: the original ESP32 and the ESP32-S2 both have two 8-bit DAC outputs. 8 bit outputs essentially give a 256x256 grid for outputs, which is quite small by professional standards but still pretty good for this project. Additionally, the galvos themselves have some inertia, which has a smoothing effect on diagonal lines and hides the "stair step" phenomena in the output.
+Once the beam position is set, the next step is to control the brightness of each laser to produce arbitrary colors. We can do this using _pulse width modulation_ -- output pulses at a fixed, very fast rate, and adjust the width of each pulse proportionally to the desired brightness.
 
-I chose the ESP32-S2 as it was the newer chip, although it does not support Bluetooth.
+Unlike most microcontrollers, the ESP32 has two built-in PWM peripherals: the "LED Controller" and the "Motor Control Pulse Width Modulator" (MCPWM).
 
-### PWM
-
-PWM on the ESP32 is quite strange compared to other microcontrollers.
-
-There are two peripherals that can generate PWM signals: the "LED Controller" and the "Motor Control Pulse Width Modulator."
-
-The LED Controller is designed primarily to drive LEDs with PWM signals. As such, it lacks a lot of the controls one would typically get (the output frequency is fixed, for instance), but gains other abilities: the peripheral can automatically ramp between colors smoothly without involvement from the CPU. This is the peripheral I'm using for this project.
+The LED Controller is designed primarily to drive LEDs with PWM signals. As such, it lacks a lot of the features one might expect (the output frequency is fixed, for instance), but gains other abilities: the peripheral can automatically ramp between colors smoothly without involvement from the CPU. This is the peripheral I'm using for this project.
 
 The MCPWM gives additional options for timers, interrupts, and synchronizing with external systems -- features that aren't needed for this project.
 
-### Rust
+After choosing the microcontroller, I bought some breakout boards for prototyping. I started off using the [QT Py ESP32](https://www.adafruit.com/product/5325), but Adafruit inexplicably decided not to break out the hardware UART pins on the chip, and the Rust toolchain for the ESP32-S2 doesn't support panic traces or debug logs over the chip's native USB, so I quickly switched to the [TinyS2](https://www.adafruit.com/product/5029).
 
-The ESP32 is notable for its highly developed Rust support. I am a big fan of the Rust language, but haven't had a chance to use it in a `#[no_std]` environment for firmware development yet. The ESP32 is the only chip for which the hardware abstraction layers are maintained by the vendor itself (Espressif) instead of by the community.
+![](laser-projector/prototype.jpg)
 
-For an RTOS, I'm using [Embassy](https://embassy.dev/), which gives async/await support. I am not used to programming in an environment where I have full async/await, but lack most of the standard library! That said, the async approach seems to be a very good fit for embedded code, especially with things like networking involved.
+The prototype setup certainly wasn't polished, but it was a great way for me to validate the overall design.
 
-# Circuit Design
+# Schematic and PCB Design
 
-This was my first time attempting a schematic of this complexity! Overall I'm quite happy with how much worked right away.
+With the components vaguely in place, it was time to develop a PCB to organize and contain them all. I enlisted my lovely girlfriend [Mia](https://miakizz.quest/), who is much more knowledgeable about this stuff than me, to help me with both the schematic and the board layout. This was my first time attempting a schematic of this complexity! Overall I'm quite happy with how much worked right away.
 
-### Power Regulation
+After designing the board in KiCAD, I sent it to [PCBWay](https://www.PCBWay.com/) to be manufactured. PCBWay provides a [KiCAD plugin](https://github.com/PCBWay/PCBWay-Plug-in-for-Kicad) which automates the process of sending your board layout from KiCAD into their service. Gone are the days of fussing around with Gerber file export settings or realizing you forgot to attach a drill file! At time of writing, part of the cost of your order will be donated to the KiCAD project to support future development.
 
-![](laser-projector/schematic/PowerRegulation.svg)
+![](laser-projector/bare-pcb.jpg)
+
+The boards for this project arrived quickly andy well-packaged with no defects and high-quality silkscreen printing. While I chose a standard thickness and silkscreen color for this project, PCBWay offers many more customization options often at minimal additional cost.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-3xl mx-auto">
+
+![](laser-projector/silkscreen-title.jpg)
+
+![](laser-projector/silkscreen-ilda.jpg)
+
+</div>
+
+Of course, I took the opportunity to put some fun graphics and text on the board, including a reproduction of the famous ILDA test pattern. Everything looks impressively sharp and consistent across all of the boards I received. I wrote our names in text only 0.75mm tall, and despite KiCAD DRC warning me about the letter height, it came out looking perfectly legible.
+
+The full schematic is in the GitHub repo, but I'll highlight some of the most interesting parts:
+
+## Power Regulation
 
 This project needs a few different voltage rails to function:
 
@@ -141,21 +159,42 @@ I managed to get away with not having a 5V rail for this project which was nice,
 
 To step down to +12V, I wanted an on-board solution to reduce the number of components in the project. We made use of an [Mean Well IRM series module](https://www.digikey.com/en/products/detail/mean-well-usa-inc/IRM-05-12/7704648), which has a simple 4-pin footprint and completely solved the 12V rail problem. While it takes up some space on the board, it's still more compact than most off-board options would be and requires no additional wiring.
 
-Finally, we needed to step 12V down to 3.3V. Most examples of this in schematics I found online use the AMS1117 linear regulator or its clones, but I also found countless Reddit comments arguing that the AMS1117 is a bad choice for one reason or another. I ended up using [TI Webench Power Designer](https://webench.ti.com/power-designer/) to come up with a design and directly copied the schematic into my board. The design uses the [TPS561201](https://www.ti.com/lit/ds/symlink/tps561201.pdf), which is a switching regulator large enough to hand-solder, not too many external components, and reasonably good efficiency.
+Finally, we needed to step 12V down to 3.3V. Most examples of this in schematics I found online use the AMS1117 linear regulator or its clones, but I also found countless Reddit comments arguing that the AMS1117 is a bad choice because it's inefficient compared to modern switching regulators. I ended up using [TI Webench Power Designer](https://webench.ti.com/power-designer/) to come up with a design and directly copied the schematic into my board. The design uses the [TPS561201](https://www.ti.com/lit/ds/symlink/tps561201.pdf) which is a switching regulator large enough to hand-solder that doesn't require many external components and has reasonably good efficiency.
+
+![](laser-projector/schematic/BuckConverter.svg)
 
 One thing to note about switching regulators is that the layout of passive components around them on the PCB is important to improve output quality. I was able to copy the example given in the chip datasheet and achieve good results.
 
-### Microcontroller
+## Microcontroller
 
 ![](laser-projector/schematic/Microcontroller.svg)
 
 The project is built around an ESP32 module, since I did not want to have to design my own antenna around the chip and we had enough space to spare.
 
-The ESP32 has a native USB port which I wanted to potentially use to control the device from a computer. While it is possible to upload code over the native USB port, the development experience is far from optimal as logging and panic handlers in Rust only output to the chip's UART pins, and uploading code requires performing a particular sequence to the BOOT and RESET pins which can't be done over the native USB. Thus, I tried to copy the schematic found in many ESP32 devboards: adding a CP2102N chip for USB to UART and using two transistors to implement BOOT and RESET pins via the serial DTR and RTS signals.
+The ESP32 has a native USB port which I wanted to potentially use to control the device from a computer. While it is possible to upload code over the native USB port, the development experience is far from optimal for two reasons:
 
-The CP2102N chip was quite difficult to hand-solder, especially because the ground pin is only provided by the pad below the chip. As a backup, I added a header to manually hook up UART signals and physical buttons for the BOOT and RESET signals.
+- Logging and panic handlers in Rust only output to the chip's UART pins
+- Uploading code requires performing a particular sequence to the BOOT and RESET pins which can't be done over the native USB
 
-### Galvo Signal Handling
+Thus, I tried to copy the schematic found in most first-party ESP32 devboards: adding a USB to UART chip and using two transistors to implement BOOT and RESET pins via the serial DTR and RTS signals.
+
+Based on my previous experience hand-soldering a surface mount USB-C connector for my recent [LED matrix sign](/projects/matrix3) project, I decided to try using USB-C connectors for both the native and debug USB ports on this board, too. What I failed to consider was that the 6-pin power-only connectors on the LED matrix had a tight-but-workable 1.2mm pitch, but the 16-pin connector I had to use to carry data signals had a tiny 0.5mm pitch. My skills and equipment were not up to the task.
+
+![](laser-projector/usbc-pinout.svg)
+
+<Caption>
+
+Soldering a power-only USB-C connector is far easier than one supporting USB 2.0. Based on a diagram on [Wikimedia Commons](https://en.wikipedia.org/wiki/File:USB_Type-C_Receptacle_Pinout.svg).
+
+</Caption>
+
+I looked into getting an FTDI chip but it seems like there's a substantial shortage right now -- the FT232RNL was out of stock on DigiKey at the time I designed the board, and is still out of stock months later at the time of writing. Most boards I found used the CP2102N chip instead. It only comes in a tiny 24-QFN ("quad flat no-lead") package with 0.5mm spacing between pins. I figured it would be easy enough to hand-solder, but missed the fact that the only ground pin on the chip is located on the underside.
+
+I ended up using a heat gun and lots of flux to get the chip into place, then using my soldering iron and a drag technique for the pins around the outside. It eventually did seem to work, but I might have burnt a small spot on the dining room table in the process...
+
+When designing, I added a header to manually hook up UART signals and physical buttons for the BOOT and RESET signals as a backup since I knew this would be the hardest part of the board to assemble, and I'm thankful I did!
+
+## Galvo Signal Handling
 
 ![](laser-projector/schematic/Galvo.svg)
 
@@ -165,7 +204,7 @@ The galvos take a pair of analog signals (one for X and one for Y) as their inpu
 - An external SPI-based [MCP4922](https://ww1.microchip.com/downloads/en/devicedoc/22250a.pdf) DAC (12-bit)
 - A 3.5mm audio input source, so you can (for instance) play oscilloscope music from a laptop
 
-I included a footprint for the external DAC in case it seemed like we were overly limited by the resolution of the ESP32 DAC, but so far that hasn't been the case yet! The "smoothing" effect created by the inertia of each galvo definitely helps reduce the stair-stepping that would otherwise occur with 8-bit output.
+I included a footprint for the external DAC in case it seemed like we were overly limited by the resolution of the ESP32 DAC, but so far that hasn't been the case yet! The "smoothing" effect created by the inertia of each galvo definitely helps reduce the stair-stepping that would otherwise occur with 8-bit output. The simulator looks super blocky, but in real life everything looks nice and smooth.
 
 Selection between the active DAC and the external audio input is handled using the presence detection pins of the 3.5mm input jack. We found a part that has two separate pins for detection, allowing us to easily swap in the DAC signal when no cable is present without any other components.
 
@@ -173,55 +212,144 @@ The harder part is amplifying the galvo signal. We needed to take a 0-3.3V input
 
 The tricky part of the op-amp circuit is that we need to first scale the DAC output signals to be centered on 0V (removing the 1.65V DC offset), then scale everything up to +/- 10V. I found several designs online that use three op-amps per channel -- one to remove the offset, one to scale the input to 0-5V, and another to flip the input and scale it to 0 to -5V, thus generating the required -10V to +10V differential signal. We chose to take a shortcut by generating a single signal ranging from -10V to +10V and hooking the other end of the differential input up to ground, allowing us to use only two op-amps per channel and thus a single [TL084](https://www.ti.com/lit/ds/symlink/tl084.pdf) chip. After some prototyping in [Falstad Circuit Simulator](https://www.falstad.com/circuit/), we went straight to PCB design -- it was definitely a risk to skip the breadboard prototyping stage, but everything worked on the first try!
 
-### Laser Control
+## Laser Control
 
 ![](laser-projector/schematic/Laser.svg)
 
 Laser diodes, like LEDs, are best driven using a constant-current power supply. The laser driver board that came with the diodes I bought uses an [OC5211](https://datasheet4u.com/pdf-down/O/C/5/OC5211-OCX.pdf) driver for each channel. Each channel provides a digital input signal that allows for dimming of the laser using PWM. While the datasheet specifies that the input pin needs to be a 5V signal (and doesn't provide a range of acceptable values), I found that I can drive it from a 3.3V GPIO pin without any difficulties.
 
-Unfortunately, this design presents a major safety issue: if the digital input signal is in a high-impedance state, the OC5211 has an internal pull-up to 5V. While I had hoped this was a pull-up resistor on the board I could manually remove, it seems like this pull-up resistor is actually contained within the chip itself?
+Unfortunately, this design presents a major safety issue: if the digital input signal is in a high-impedance state, the OC5211 has an internal pull-up to 5V, so the laser will be set to full brightness. While I had hoped this was a pull-up resistor on the board I could manually remove, it seems like this pull-up resistor is actually contained within the chip itself?
 
 ![](laser-projector/OC5211.png)
+
+<Caption>This diagram seems to imply that the chip contains an onboard 5V regulator solely for the purpose of the built-in pull-up resistor?</Caption>
 
 As a workaround, I decided to add switching to the 12V power supply going to the laser driver. The laser driver board requires high-side switching with a P-channel MOSFET, since the ground pin of the power input is shared with the reference ground for the modulation signals. However, as I can't output +12V from a GPIO, I added a pull-up resistor from the gate to +12V and an NPN transistor such that the GPIO can pull the gate low.
 
 While this is extremely far from a professional product, I wanted to try out some of the steps that would be required for this type of design. Most lasers of this output power have an E-stop interlock and/or keyswitch that must be turned before the laser can be operated, so I replicated this design here. I also added a voltage divider such that the status of the interlock can be read by the ESP32.
 
-### I2C and Wii Accessories
+## I2C and Wii Accessories
 
-![](laser-projector/schematic/I2C.svg)
+![](wii-accessories/kicad_footprint.jpg)
 
 I knew early on that I wanted to use Wii Nunchucks as a controller for this project, as they're [uniquely well-suited for homemade projects](/2026/03/15/wii-accessories). All Nunchucks share the same I2C address, so I had to put the two ports on the two different I2C peripherals. I wanted to add additional room for extensibility to the project (such as for a small indicator display?), but since anything else would likely have a different I2C address to the Nunchuck, I chained those connectors off of the same I2C buses as the Nunchuck inputs. I used [Qwiic](https://www.sparkfun.com/qwiic) connectors for easy wiring -- they're quite compact but still possible to hand-solder.
 
-### Enclosure
+# Enclosure and Construction
 
-![](laser-projector/schematic/Enclosure.svg)
-
-I wanted this project to be fully enclosed so that I could easily move it to different locations -- one of the cool things about projectors generally is the variety of spaces they can be used in to create large-scale images. However, the galvos themselves and the galvo driver board get quite hot when running, so I figured that a fan would be essential for keeping things from burning up.
-
-### Manufacturing
-
-After designing the board in KiCAD, I sent it to [PCBWay](https://www.PCBWay.com/) to be manufactured. PCBWay provides a [KiCAD plugin](https://github.com/PCBWay/PCBWay-Plug-in-for-Kicad) which automates the process of sending your board layout from KiCAD into their service. Gone are the days of fussing around with Gerber file export settings or realizing you forgot to attach a drill file! At time of writing, part of the cost of your order will be donated to the KiCAD project to support future development.
-
-The boards for this project arrived quickly, well-packaged with no defects and high-quality silkscreen printing. While I chose a standard thickness and silkscreen color for this project, PCBWay offers many more customization options often at minimal additional cost.
-
-# Physical Construction
-
-TODO: info about the design and construction of the enclosure
+![](laser-projector/enclosure-cad.png)
 
 I chose to 3D print the enclosure for this project. At slightly over 200 by 200 mm, it's definitely on the larger end of what I'm capable of producing on a consumer-grade FDM printer, and failed prototypes were a little more expensive than I was hoping with each print costing about $5 in filament. In the past, I've used [wood and FDM parts together](/projects/itx-case) to make cases of this size, but my apartment lacks woodworking tools and I didn't want to have to drive to my parents' garage to build this thing.
 
-During this project, I upgraded from my trusty Creality Ender 3 Pro to a [Bambu Lab A1](https://bambulab.com/en-us/a1) printer, which brought a definite boost in the speed and quality of prints.
+![](laser-projector/printer.jpg)
 
-# Software
+Overall it came out pretty well! The bridging areas I worried about came out alright, and the tolerances for screw holes and the like were perfect. The one issue I encountered was warping -- the print looked great on the build plate but warped significantly once removed. This was more of an issue for the top plate than the baseplate and walls, but things look relatively alright once screwed together.
 
-One of the things that makes galvo-based laser projectors so unique is that they "natively" display vector images. Vector displays are a medium that largely faded from relevance as raster displays became more practical.
+I tried to mount individual components on their own adapters to give as much flexibility for later alignment as I might need -- if the laser beam misses the mirror by a millimeter, I didn't want to reprint the entire enclosure. I put the RGB laser module on slots to make later adjustment easier.
 
-Vector displays excel at creating sharp, smooth lines and polygons at any angle.
+![](laser-projector/internal.jpg)
 
-Ahoy's [A Brief History of Graphics](https://youtu.be/QyjyWUrHsFc?t=188&si=QlK1Vf2i6stZdbR7) has a section on vector graphics with renderings and examples which showcase this excellently.
+I added a small 12V fan, as the galvo driver board gets quite hot during operation.
 
-### OpenStreetMap
+Wire management is definitely lackluster, but airflow still seems fine and there are no moving parts to worry about except the mirrors. Many of the cables in use could definitely be re-crimped to a shorter length.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-3xl mx-auto">
+
+![](laser-projector/io-shield-angle.jpg)
+
+![](laser-projector/io-plugged.jpg)
+
+![](laser-projector/fan-power.jpg)
+
+![](laser-projector/front-view.jpg)
+
+</div>
+
+I was dreading making the I/O shield, but it ended up being not too tricky! For each revision, I printed just a single layer before taking it off the printer and test-fitting it to confirm the fit. Once I found one that worked, I printed it at 4mm thickness since it's structurally used to hold the lid in place.
+
+# Firmware
+
+The ESP32 is notable for its highly developed Rust support. I am a big fan of the Rust language, but haven't had a chance to use it in a `#[no_std]` environment for firmware development yet. The ESP32 is the only chip for which the hardware abstraction layers are maintained by the vendor itself (Espressif) instead of by the community.
+
+For an RTOS, I'm using [Embassy](https://embassy.dev/), which gives async/await support. I am not used to programming in an environment where I have full async/await, but lack most of the standard library! That said, the async approach seems to be a very good fit for embedded code, especially with things like networking involved.
+
+A large part of the fun of this project was just seeing how many sources of vector data I could display with the projector!
+
+## ILDA Test Pattern
+
+![](laser-projector/ilda.jpg)
+
+The International Laser Display Association (ILDA) provides a test pattern that can be used for the tuning of RGB galvo-based projectors, alongside a procedure to adjust the PID constants of the galvo driver for the most accurate shape.
+
+![](laser-projector/ilda-pattern-diagram.png)
+
+<Caption>
+
+Source: [ILDA Test Pattern](https://www.ilda.com/resources/StandardsDocs/ILDA_TestPattern95_rev002.pdf)
+
+</Caption>
+
+One difference with the ILDA pattern is that it expects the use of a third galvo scanner to act as a "blanking" control, providing analog dimming of the laser light. Nowadays, most lasers and controllers support high-speed analog modulation of the laser light directly, but historically it was more common to use a physical beam dump attached to a galvo that could move in and out of the light path. The modulation control I have over the laser is quite imperfect, which is probably the reason that the blanking pattern looks the worst out of all parts of the pattern.
+
+A properly-tuned ILDA projector should have the blue circle inscribed into the green square -- although the points making up the blue circle are spaced out larger than the square, the intended effect is that the galvos undershoot the desired path and create an inscribed circle. In my case, the galvos are "too good" and thus trace something closer to the true path. However, if I scale up the image using the potentiometer on the op-amps, the image becomes closer to the result that ILDA intended. Since I don't really care about interfacing with the rest of the laser ecosystem, I deliberately tuned it like this so that graphics would look truer to shape regardless of scaling (up to a limit).
+
+## Text and Retro Fonts
+
+Vector displays excel at displaying crisp vector-based fonts. While the stroke width is unfortunately fixed, shapes look sharp even when viewed from close up.
+
+When I first started playing around with the galvo, I found few libraries for rendering these vector fonts, and even fewer written in Rust. So [I wrote my own](/projects/vector-text)!
+
+A few of my favorites:
+
+The classic Hershey fonts look excellent. The simplex styles are fast enough to draw such that they're visible in person, and the more complicated styles still look great in long-exposure photos.
+
+TODO
+
+KiCAD's NewStroke shares similarities with the Hershey fonts, and looks great in person as well.
+
+TODO
+
+The Borland Graphics Interface fonts bring much more dramatic styling to the mix. You might recognize LITT.CHR from CadSoft EAGLE (rest in peace!)
+
+TODO
+
+## Asteroids
+
+Of course, I wanted to game on this thing. I made an extremely barebones implementation of Asteroids (after all, I was more interested in the display than the gameplay). It looks awesome!
+
+## Arbitrary SVG Data
+
+One major source of vector graphics in our modern world is SVGs. For this, I decided to preprocess the SVG file on my computer, then build the list of points into the program.
+
+I wrote a short script using the [svgpathtools](https://github.com/mathandy/svgpathtools) library to output a list of points:
+
+```py
+from svgpathtools import svg2paths, wsvg
+
+paths, attributes = svg2paths('breqcube.svg')
+
+points = []
+
+for path in paths:
+    first_point = True
+
+    for line in path:
+        for i in range(int(line.length())):
+            point = line.point(i / int(line.length()))
+            points.append((point.real, point.imag, not first_point))
+            first_point = False
+
+    last = path[-1].point(1)
+    points.append((last.real, last.imag, True))
+
+for (x, y, pen) in points:
+    print(f"{'+' if pen else '-'} {int(x)} {int(y)}")
+```
+
+It could definitely be improved (notably, interpolating both lines and curves to a hardcoded 10 points is not ideal), but it works well enough with the files I have!
+
+TODO image
+
+## Maps via OpenStreetMap
 
 Another source of vector information is maps. OpenStreetMap provides a nice interface to download map data for vector display.
 
@@ -235,63 +363,67 @@ Once I had the query nailed down, I could just paste the payload into a Python s
 {
   "version": 0.6,
   "generator": "Overpass API 0.7.62.10 2d4cfc48",
-  "osm3s": {
-    "timestamp_osm_base": "2026-01-29T01:45:29Z",
-    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
-  },
   "elements": [
     {
       "type": "way",
       "id": 8604814,
-      "bounds": {
-        "minlat": 42.3955979,
-        "minlon": -71.1204748,
-        "maxlat": 42.3956969,
-        "maxlon": -71.12024
-      },
-      "nodes": [4257815907, 1092759648, 61170350],
       "geometry": [
         { "lat": 42.3955979, "lon": -71.12024 },
         { "lat": 42.3956344, "lon": -71.1203257 },
         { "lat": 42.3956969, "lon": -71.1204748 }
       ],
       "tags": {
-        "attribution": "Office of Geographic and Environmental Information (MassGIS)",
-        "condition": "fair",
-        "cycleway:left": "no",
-        "cycleway:right": "lane",
-        "cycleway:width": "6'",
         "highway": "secondary",
-        "lanes": "2",
-        "massgis:way_id": "167315",
-        "maxspeed": "20 mph",
         "name": "Highland Avenue",
-        "oneway": "yes",
-        "sidewalk:both": "separate",
-        "source": "massgis_import_v0.1_20071008141127",
-        "surface": "asphalt",
-        "width": "18.3"
+        "oneway": "yes"
+        // ...
       }
     }
     // ...
   ]
+  // ...
 }
 ```
 
-There's a lot of interesting info here about the road on here that could be useful! For our purposes, though, we only care about drawing the paths.
+## Oscilloscope Music
 
-TODO: distinguish types of roads?
+This doesn't really require its own firmware (other than "keep the laser on at full blast"), but it's such a fun application that I can't help but mention it.
 
-TODO: scaling and cropping to fit
+# Lessons learned
 
-### Video Games
+## Surface mount soldering
 
-TODO
+When I first attempted surface mount soldering for the [LED matrix project](/projects/matrix3) I made late last year, I found working with large 0805 and SOIC parts surprisingly straightforward with the soldering iron and tools I already had on hand. It is with that confidence that I decided to attempt to solder chips with even tighter spacing -- if going from DIP to SOIC was that easy, was QFN all that much of a leap?
 
-## Bibliography
+As it turns out, yes it is! While I enjoy learning new skills by doing things and trying stuff out, I think I will have to admit defeat for now on some of the more advanced parts I was hoping to solder.
+
+It wasn't just one tool I was missing out on:
+
+- Checking the joint quality or looking for bridging on 0.5mm pitch components was quite difficult without a microscope (and my phone camera's macro mode was a rather inefficient workaround)
+- Accurately controlling the amount of solder being deposited on pads was difficult when working with a spool of 0.8mm diameter wire, where something smaller would give me much better control
+- While my fine-point conical soldering iron tip worked great, a fine chisel would have given me more control over keeping solder on the tip
+- Isopropyl alcohol and a toothbrush would help clean up the mess left behind by flux
+
+I do really want to go back and practice more fine-pitched surface-mount soldering. Going from DIP to SOIC gave me access to so many more parts and so much more flexibility with project designs, and I find more advanced soldering work to be quite fun and rewarding! I hope to eventually get more confident with even smaller package sizes.
+
+## "Unforgiving" programming
+
+I often enjoy working on projects where the line between "awesome demo" and "totally unimpressive" can be a very small difference in code optimization. My [past work with audio processing](/2023/06/17/ldsp) is a good example of that -- if you miss filling an audio buffer in time, you get glitching and stuttering that makes your project unusable. Contrast this with most of software development, where processing power is abundant and optimizations are simply a nice-to-have.
+
+This project certainly involved lots of tuning. Running the galvos too slowly produces flickering outputs, but running them too fast makes the output lose crispness as corners get rounded off. There is tons of room for optimization: points where the laser turns on or off need more dwell time than points where the color is constant, points in a straight line can be output faster than points with sharp corners, and optimizing the path that the beam takes to trace out a shape to avoid sharp corners and on/off switches can yield substantial performance gains.
+
+## Mechanical design
+
+I've mostly viewed CAD software as a means to an end -- I wanted a part with a certain shape, so I would put up with the process of modeling so I could get it on my 3D printer. But with this project, I truly had a ton of fun with designing everything! Having such a blank slate to work off of, exploring tradeoffs with component positioning, and eventually settling on a final outer form was so rewarding.
+
+I think I want to learn a better CAD tool -- I learned SketchUp back in middle school, but the free tier has been slowly decreasing in usefulness over time, and I'm getting more frustrated with its inability to represent curves nicely as I move towards more complex designs.
+
+# Bibliography
+
+Early in this project, I decided to look for writeups of similar projects people have attempted. I found a surprisingly wide variety of projects, and definitely took inspiration from many of them when designing my projector!
 
 - The [ILDAWaveX16](https://stanleyprojects.com/projects/ildawavex16) by StanleyProjects is an open-source device for controlling ILDA-compliant laser projectors. While it also uses an ESP32, it takes a much more serious approach to clean signal generation, including using a dedicated DAC chip for 16-bit resolution (compared to the 8-bit resolution of my setup).
-- [Bitluni's laser projector setup](https://www.youtube.com/watch?v=bdo3djJrw9o) uses a phosphor (TODO: double check) to simulate a CRT-style screen, and adapts a smartphone telephoto lens to increase the deflection of the galvo output without pushing the galvos to higher angles and burning them up.
+- [Bitluni's laser projector setup](https://www.youtube.com/watch?v=bdo3djJrw9o) uses a phosphor to simulate a CRT-style screen, and adapts a smartphone telephoto lens to increase the deflection of the galvo output without pushing the galvos to higher angles and burning them up.
 - [Atomic14's projector](https://github.com/atomic14/esp-asteroids) has only a single color but seems to be the first example I can find of Asteroids running on a laser galvo setup. I found the discussion on the difficulty of rendering Hershey fonts very informative.
 - [BenMakesEverything's raster projector](https://www.youtube.com/watch?v=fEPicBSYeNQ) is an interesting take on this approach which uses a polygon scanner for the X-axis and a galvo for the Y-axis to draw scan lines in a similar manner to a CRT. It excels at displaying existing raster-based content such as animated GIFs.
-- [limpkin's XY scanner](https://www.limpkin.fr/index.php?post/2008/11/03/XY-Laser-Scanner) was made back in 2007.
+- [limpkin's XY scanner](https://www.limpkin.fr/index.php?post/2008/11/03/XY-Laser-Scanner) was made back in 2007, but shares a lot of similarities with recent projects. One interesting difference is that it makes use of a hardware blanking galvo (ripped out of an old hard drive), as opposed to modern solutions which modulate the current through the laser diode directly.

@@ -9,7 +9,7 @@
    id="svg3241"
    xml:space="preserve"
    sodipodi:docname="chromaticity.svg"
-   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -28,12 +28,12 @@
    inkscape:deskcolor="#d1d1d1"
    inkscape:zoom="1.0296668"
    inkscape:cx="210.74779"
-   inkscape:cy="274.8462"
-   inkscape:window-width="1312"
-   inkscape:window-height="919"
+   inkscape:cy="275.81738"
+   inkscape:window-width="1692"
+   inkscape:window-height="1059"
    inkscape:window-x="0"
-   inkscape:window-y="25"
-   inkscape:window-maximized="0"
+   inkscape:window-y="0"
+   inkscape:window-maximized="1"
    inkscape:current-layer="svg3241" /><title
    id="title3497">Recommendation ITU-R BT.709</title><metadata
    id="metadata3495"><rdf:RDF><cc:Work
@@ -74,6 +74,12 @@
 </clipPath>
 </defs>
 <rect
+   style="fill:#ffffff;stroke-width:4"
+   id="rect1"
+   width="475.89999"
+   height="539.90002"
+   x="0"
+   y="0" /><rect
    width="475.89999"
    height="526"
    x="0"
