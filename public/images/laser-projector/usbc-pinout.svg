@@ -1,0 +1,1351 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="500"
+   height="500"
+   version="1.1"
+   viewBox="0 0 746.26866 746.26866"
+   id="svg92"
+   sodipodi:docname="usbc-pinout.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs92" />
+  <sodipodi:namedview
+     id="namedview92"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.0752781"
+     inkscape:cx="116.61088"
+     inkscape:cy="341.64095"
+     inkscape:window-width="3440"
+     inkscape:window-height="1371"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg92"
+     showguides="false" />
+  <style
+     type="text/css"
+     id="style1">
+	text {font-family:Arial,Helvetica,'Liberation Sans',sans-serif;font-weight:bold;font-size:10px;}
+	.y {fill:#ff0;stroke:#000;stroke-miterlimit:10;}
+	.w {fill:none;stroke:#000;stroke-miterlimit:10;}
+	</style>
+  <rect
+     style="fill:#ffffff;stroke-width:3.96689"
+     id="rect1"
+     width="746.26868"
+     height="746.26868"
+     x="-3.4179692e-08"
+     y="-1.5078125e-05" />
+  <g
+     id="g94-2"
+     transform="translate(190.19841,83.010949)">
+    <g
+       id="g23-8">
+      <rect
+         class="w"
+         x="203"
+         y="29"
+         width="30"
+         height="19"
+         id="rect16-0"
+         style="fill:#00ffff;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="354"
+         y="29"
+         width="30"
+         height="19"
+         id="rect20-6"
+         style="fill:#ff5555;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="468"
+         y="29"
+         width="30"
+         height="19"
+         id="rect23-4"
+         style="fill:#00ff00;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <path
+       d="M 490.4,54.835 H 59.6 c -25.7,0 -45.4,19.7 -45.4,45.4 0,25.7 19.7,45.4 45.4,45.4 h 430.9 c 25.7,0 45.4,-19.7 45.4,-45.4 0,-25.7 -19.8,-45.4 -45.5,-45.4 z m 0,83.2 H 59.6 c -21.4,0 -37.8,-16.4 -37.8,-37.8 0,-21.4 16.4,-37.8 37.8,-37.8 h 430.9 c 21.4,0 37.8,16.4 37.8,37.8 -0.1,21.4 -16.4,37.8 -37.9,37.8 z"
+       id="path1-4" />
+    <g
+       id="g34-7">
+      <text
+         x="208"
+         y="42"
+         id="text27-6"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">CC1</text>
+      <text
+         x="356"
+         y="42"
+         id="text31-2"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">VBUS</text>
+      <text
+         x="472"
+         y="42"
+         id="text34-1"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">GND</text>
+    </g>
+    <path
+       d="m 275,109.64 h 221.1 c 1.1,0 1.9,-0.8 1.9,-1.9 v -15.1 c 0,-1.1 -0.8,-1.9 -1.9,-1.9 H 53.9 c -1.1,0 -1.9,0.8 -1.9,1.9 v 15.1 c 0,1.1 0.8,1.9 1.9,1.9 z"
+       id="path34-2" />
+    <g
+       id="g45-8">
+      <rect
+         class="y"
+         x="206"
+         y="88"
+         width="25"
+         height="8"
+         id="rect38-8"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="357"
+         y="88"
+         width="25"
+         height="8"
+         id="rect42-3"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="471"
+         y="88"
+         width="25"
+         height="8"
+         id="rect45-3"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="g57-3">
+      <rect
+         class="y"
+         x="55"
+         y="105"
+         width="25"
+         height="8"
+         id="rect46-8"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="168"
+         y="105"
+         width="25"
+         height="8"
+         id="rect49-7"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="319"
+         y="105"
+         width="25"
+         height="8"
+         id="rect53-0"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="g69-0">
+      <rect
+         class="w"
+         x="52"
+         y="154"
+         width="30"
+         height="19"
+         id="rect58-3"
+         style="fill:#00ff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="165"
+         y="154"
+         width="30"
+         height="19"
+         id="rect61-7"
+         style="fill:#ff5555;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="317"
+         y="154"
+         width="30"
+         height="19"
+         id="rect65-5"
+         style="fill:#00ffff;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="g80-7">
+      <text
+         x="56"
+         y="166"
+         id="text69-9"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">GND</text>
+      <text
+         x="167"
+         y="166"
+         id="text72-4"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">VBUS</text>
+      <text
+         x="322"
+         y="166"
+         id="text76-8"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">CC2</text>
+    </g>
+  </g>
+  <g
+     id="g100"
+     transform="translate(224.85847,-280.80102)">
+    <g
+       id="g94">
+      <rect
+         class="w"
+         x="48.339943"
+         y="965.16455"
+         width="30"
+         height="19"
+         id="rect12-6"
+         style="fill:#00ff00;stroke:#000000;stroke-miterlimit:10" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#ffffff;stroke:#ffffff;stroke-width:0.713"
+         x="85.163246"
+         y="978.95361"
+         id="text93"><tspan
+           sodipodi:role="line"
+           x="85.163246"
+           y="978.95361"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:none"
+           id="tspan93">Ground</tspan></text>
+    </g>
+    <g
+       id="g99"
+       transform="translate(260.50601,-114.63132)">
+      <rect
+         class="w"
+         x="48.339943"
+         y="1109.8352"
+         width="30"
+         height="19"
+         id="rect19-4"
+         style="fill:#e580ff;stroke:#000000;stroke-miterlimit:10" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#ffffff;stroke:#ffffff;stroke-width:0.713"
+         x="85.78965"
+         y="1122.4377"
+         id="text93-4-3-5-5-1"><tspan
+           sodipodi:role="line"
+           x="85.78965"
+           y="1122.4377"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:none"
+           id="tspan93-8-9-0-9-0">Sideband Use</tspan></text>
+    </g>
+    <g
+       id="g98"
+       transform="translate(260.50601,-115.73645)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#ffffff;stroke:#ffffff;stroke-width:0.713"
+         x="85.78965"
+         y="1093.9189"
+         id="text93-4-3-5-5"><tspan
+           sodipodi:role="line"
+           x="85.78965"
+           y="1093.9189"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:none"
+           id="tspan93-8-9-0-9">Configuration Channel</tspan></text>
+      <rect
+         class="w"
+         x="48.339943"
+         y="1080.901"
+         width="30"
+         height="19"
+         id="rect16-1"
+         style="fill:#00ffff;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="g95"
+       transform="translate(134.59063,-28.934082)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#ffffff;stroke:#ffffff;stroke-width:0.713"
+         x="85.41465"
+         y="1007.668"
+         id="text93-4"><tspan
+           sodipodi:role="line"
+           x="85.41465"
+           y="1007.668"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:none"
+           id="tspan93-8">Power</tspan></text>
+      <rect
+         class="w"
+         x="48.339943"
+         y="994.09863"
+         width="30"
+         height="19"
+         id="rect15-3"
+         style="fill:#ff5555;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="g96"
+       transform="translate(0,-27.828889)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#ffffff;stroke:#ffffff;stroke-width:0.713"
+         x="85.473244"
+         y="1036.6952"
+         id="text93-4-3"><tspan
+           sodipodi:role="line"
+           x="85.473244"
+           y="1036.6952"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:none"
+           id="tspan93-8-9">USB 2.0</tspan></text>
+      <rect
+         class="w"
+         x="48.339943"
+         y="1023.0328"
+         width="30"
+         height="19"
+         id="rect18-2"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="g97"
+       transform="translate(134.59063,-56.763032)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#ffffff;stroke:#ffffff;stroke-width:0.713"
+         x="85.473244"
+         y="1065.5326"
+         id="text93-4-3-5"><tspan
+           sodipodi:role="line"
+           x="85.473244"
+           y="1065.5326"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:none"
+           id="tspan93-8-9-0">USB 3.0</tspan></text>
+      <rect
+         class="w"
+         x="48.339943"
+         y="1051.9669"
+         width="30"
+         height="19"
+         id="rect21-8"
+         style="fill:#000080;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+  </g>
+  <g
+     id="g94-5"
+     transform="translate(190.19841,281.83519)">
+    <g
+       id="g23-4">
+      <rect
+         class="w"
+         x="52"
+         y="29"
+         width="30"
+         height="19"
+         id="rect12-9"
+         style="fill:#00ff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="165"
+         y="29"
+         width="30"
+         height="19"
+         id="rect15-7"
+         style="fill:#ff5555;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="203"
+         y="29"
+         width="30"
+         height="19"
+         id="rect16-4"
+         style="fill:#00ffff;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="241"
+         y="29"
+         width="30"
+         height="19"
+         id="rect17-9"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="279"
+         y="29"
+         width="30"
+         height="19"
+         id="rect18-9"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="317"
+         y="29"
+         width="30"
+         height="19"
+         id="rect19-45"
+         style="fill:#e580ff;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="354"
+         y="29"
+         width="30"
+         height="19"
+         id="rect20-9"
+         style="fill:#ff5555;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="468"
+         y="29"
+         width="30"
+         height="19"
+         id="rect23-7"
+         style="fill:#00ff00;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <path
+       d="M 490.4,54.835 H 59.6 c -25.7,0 -45.4,19.7 -45.4,45.4 0,25.7 19.7,45.4 45.4,45.4 h 430.9 c 25.7,0 45.4,-19.7 45.4,-45.4 0,-25.7 -19.8,-45.4 -45.5,-45.4 z m 0,83.2 H 59.6 c -21.4,0 -37.8,-16.4 -37.8,-37.8 0,-21.4 16.4,-37.8 37.8,-37.8 h 430.9 c 21.4,0 37.8,16.4 37.8,37.8 -0.1,21.4 -16.4,37.8 -37.9,37.8 z"
+       id="path1-0" />
+    <g
+       id="g34-1">
+      <text
+         x="56"
+         y="42"
+         id="text23-9"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">GND</text>
+      <text
+         x="167"
+         y="42"
+         id="text26-1"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">VBUS</text>
+      <text
+         x="208"
+         y="42"
+         id="text27-2"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">CC1</text>
+      <text
+         x="250"
+         y="42"
+         id="text28-0"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">D+</text>
+      <text
+         x="287"
+         y="42"
+         id="text29-7"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">D−</text>
+      <text
+         x="318"
+         y="42"
+         id="text30-3"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">SBU1</text>
+      <text
+         x="356"
+         y="42"
+         id="text31-1"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">VBUS</text>
+      <text
+         x="472"
+         y="42"
+         id="text34-0"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">GND</text>
+    </g>
+    <path
+       d="m 275,109.64 h 221.1 c 1.1,0 1.9,-0.8 1.9,-1.9 v -15.1 c 0,-1.1 -0.8,-1.9 -1.9,-1.9 H 53.9 c -1.1,0 -1.9,0.8 -1.9,1.9 v 15.1 c 0,1.1 0.8,1.9 1.9,1.9 z"
+       id="path34-5" />
+    <g
+       id="g45-6">
+      <rect
+         class="y"
+         x="55"
+         y="88"
+         width="25"
+         height="8"
+         id="rect34-7"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="168"
+         y="88"
+         width="25"
+         height="8"
+         id="rect37-0"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="206"
+         y="88"
+         width="25"
+         height="8"
+         id="rect38-6"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="244"
+         y="88"
+         width="25"
+         height="8"
+         id="rect39-4"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="282"
+         y="88"
+         width="25"
+         height="8"
+         id="rect40-7"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="319"
+         y="88"
+         width="25"
+         height="8"
+         id="rect41-4"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="357"
+         y="88"
+         width="25"
+         height="8"
+         id="rect42-8"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="471"
+         y="88"
+         width="25"
+         height="8"
+         id="rect45-2"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="g57-6">
+      <rect
+         class="y"
+         x="55"
+         y="105"
+         width="25"
+         height="8"
+         id="rect46-0"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="168"
+         y="105"
+         width="25"
+         height="8"
+         id="rect49-4"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="206"
+         y="105"
+         width="25"
+         height="8"
+         id="rect50-62"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="244"
+         y="105"
+         width="25"
+         height="8"
+         id="rect51-89"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="282"
+         y="105"
+         width="25"
+         height="8"
+         id="rect52-6"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="319"
+         y="105"
+         width="25"
+         height="8"
+         id="rect53-07"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="357"
+         y="105"
+         width="25"
+         height="8"
+         id="rect54-0"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="471"
+         y="105"
+         width="25"
+         height="8"
+         id="rect57-1"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="g69-3">
+      <rect
+         class="w"
+         x="52"
+         y="154"
+         width="30"
+         height="19"
+         id="rect58-7"
+         style="fill:#00ff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="165"
+         y="154"
+         width="30"
+         height="19"
+         id="rect61-6"
+         style="fill:#ff5555;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="203"
+         y="154"
+         width="30"
+         height="19"
+         id="rect62-4"
+         style="fill:#e580ff;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="241"
+         y="154"
+         width="30"
+         height="19"
+         id="rect63-5"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="279"
+         y="154"
+         width="30"
+         height="19"
+         id="rect64-2"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="317"
+         y="154"
+         width="30"
+         height="19"
+         id="rect65-0"
+         style="fill:#00ffff;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="354"
+         y="154"
+         width="30"
+         height="19"
+         id="rect66-2"
+         style="fill:#ff5555;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="468"
+         y="154"
+         width="30"
+         height="19"
+         id="rect69-9"
+         style="fill:#00ff00;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="g80-9">
+      <text
+         x="56"
+         y="166"
+         id="text69-4"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">GND</text>
+      <text
+         x="167"
+         y="166"
+         id="text72-0"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">VBUS</text>
+      <text
+         x="205"
+         y="166"
+         id="text73-3"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">SBU2</text>
+      <text
+         x="250"
+         y="166"
+         id="text74-7"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">D−</text>
+      <text
+         x="287"
+         y="166"
+         id="text75-8"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">D+</text>
+      <text
+         x="322"
+         y="166"
+         id="text76-86"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">CC2</text>
+      <text
+         x="356"
+         y="166"
+         id="text77-0"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">VBUS</text>
+      <text
+         x="472"
+         y="166"
+         id="text80-7"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">GND</text>
+    </g>
+  </g>
+  <g
+     id="g94-5-8"
+     transform="translate(190.19841,482.56874)">
+    <g
+       id="g23-4-7">
+      <rect
+         class="w"
+         x="52"
+         y="29"
+         width="30"
+         height="19"
+         id="rect12-9-4"
+         style="fill:#00ff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="90"
+         y="29"
+         width="30"
+         height="19"
+         id="rect13-2-1"
+         style="fill:#000080;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="128"
+         y="29"
+         width="30"
+         height="19"
+         id="rect14-5-9"
+         style="fill:#000080;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="165"
+         y="29"
+         width="30"
+         height="19"
+         id="rect15-7-0"
+         style="fill:#ff5555;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="203"
+         y="29"
+         width="30"
+         height="19"
+         id="rect16-4-9"
+         style="fill:#00ffff;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="241"
+         y="29"
+         width="30"
+         height="19"
+         id="rect17-9-8"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="279"
+         y="29"
+         width="30"
+         height="19"
+         id="rect18-9-8"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="317"
+         y="29"
+         width="30"
+         height="19"
+         id="rect19-45-5"
+         style="fill:#e580ff;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="354"
+         y="29"
+         width="30"
+         height="19"
+         id="rect20-9-8"
+         style="fill:#ff5555;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="392"
+         y="29"
+         width="30"
+         height="19"
+         id="rect21-3-4"
+         style="fill:#000080;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="430"
+         y="29"
+         width="30"
+         height="19"
+         id="rect22-5-3"
+         style="fill:#000080;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="468"
+         y="29"
+         width="30"
+         height="19"
+         id="rect23-7-7"
+         style="fill:#00ff00;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <path
+       d="M 490.4,54.835 H 59.6 c -25.7,0 -45.4,19.7 -45.4,45.4 0,25.7 19.7,45.4 45.4,45.4 h 430.9 c 25.7,0 45.4,-19.7 45.4,-45.4 0,-25.7 -19.8,-45.4 -45.5,-45.4 z m 0,83.2 H 59.6 c -21.4,0 -37.8,-16.4 -37.8,-37.8 0,-21.4 16.4,-37.8 37.8,-37.8 h 430.9 c 21.4,0 37.8,16.4 37.8,37.8 -0.1,21.4 -16.4,37.8 -37.9,37.8 z"
+       id="path1-0-1" />
+    <g
+       id="g34-1-2">
+      <text
+         x="56"
+         y="42"
+         id="text23-9-2"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">GND</text>
+      <text
+         x="93"
+         y="42"
+         id="text24-6-0"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;fill:#ffffff">TX1+</text>
+      <text
+         x="130"
+         y="42"
+         id="text25-2-2"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;fill:#ffffff">TX1−</text>
+      <text
+         x="167"
+         y="42"
+         id="text26-1-1"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">VBUS</text>
+      <text
+         x="208"
+         y="42"
+         id="text27-2-7"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">CC1</text>
+      <text
+         x="250"
+         y="42"
+         id="text28-0-5"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">D+</text>
+      <text
+         x="287"
+         y="42"
+         id="text29-7-1"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">D−</text>
+      <text
+         x="318"
+         y="42"
+         id="text30-3-7"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">SBU1</text>
+      <text
+         x="356"
+         y="42"
+         id="text31-1-4"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">VBUS</text>
+      <text
+         x="395"
+         y="42"
+         id="text32-1-1"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;fill:#ffffff">RX2−</text>
+      <text
+         x="432"
+         y="42"
+         id="text33-9-7"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;fill:#ffffff">RX2+</text>
+      <text
+         x="472"
+         y="42"
+         id="text34-0-1"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">GND</text>
+    </g>
+    <path
+       d="m 275,109.64 h 221.1 c 1.1,0 1.9,-0.8 1.9,-1.9 v -15.1 c 0,-1.1 -0.8,-1.9 -1.9,-1.9 H 53.9 c -1.1,0 -1.9,0.8 -1.9,1.9 v 15.1 c 0,1.1 0.8,1.9 1.9,1.9 z"
+       id="path34-5-1" />
+    <g
+       id="g45-6-1">
+      <rect
+         class="y"
+         x="55"
+         y="88"
+         width="25"
+         height="8"
+         id="rect34-7-7"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="93"
+         y="88"
+         width="25"
+         height="8"
+         id="rect35-7-0"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="130"
+         y="88"
+         width="25"
+         height="8"
+         id="rect36-4-4"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="168"
+         y="88"
+         width="25"
+         height="8"
+         id="rect37-0-0"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="206"
+         y="88"
+         width="25"
+         height="8"
+         id="rect38-6-8"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="244"
+         y="88"
+         width="25"
+         height="8"
+         id="rect39-4-5"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="282"
+         y="88"
+         width="25"
+         height="8"
+         id="rect40-7-1"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="319"
+         y="88"
+         width="25"
+         height="8"
+         id="rect41-4-6"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="357"
+         y="88"
+         width="25"
+         height="8"
+         id="rect42-8-6"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="395"
+         y="88"
+         width="25"
+         height="8"
+         id="rect43-5-2"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="433"
+         y="88"
+         width="25"
+         height="8"
+         id="rect44-8-1"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="471"
+         y="88"
+         width="25"
+         height="8"
+         id="rect45-2-9"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="g57-6-6">
+      <rect
+         class="y"
+         x="55"
+         y="105"
+         width="25"
+         height="8"
+         id="rect46-0-4"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="93"
+         y="105"
+         width="25"
+         height="8"
+         id="rect47-6-8"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="130"
+         y="105"
+         width="25"
+         height="8"
+         id="rect48-6-0"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="168"
+         y="105"
+         width="25"
+         height="8"
+         id="rect49-4-8"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="206"
+         y="105"
+         width="25"
+         height="8"
+         id="rect50-62-1"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="244"
+         y="105"
+         width="25"
+         height="8"
+         id="rect51-89-0"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="282"
+         y="105"
+         width="25"
+         height="8"
+         id="rect52-6-2"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="319"
+         y="105"
+         width="25"
+         height="8"
+         id="rect53-07-2"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="357"
+         y="105"
+         width="25"
+         height="8"
+         id="rect54-0-9"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="395"
+         y="105"
+         width="25"
+         height="8"
+         id="rect55-1-7"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="433"
+         y="105"
+         width="25"
+         height="8"
+         id="rect56-0-5"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="y"
+         x="471"
+         y="105"
+         width="25"
+         height="8"
+         id="rect57-1-6"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="g69-3-4">
+      <rect
+         class="w"
+         x="52"
+         y="154"
+         width="30"
+         height="19"
+         id="rect58-7-6"
+         style="fill:#00ff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="90"
+         y="154"
+         width="30"
+         height="19"
+         id="rect59-7-3"
+         style="fill:#000080;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="128"
+         y="154"
+         width="30"
+         height="19"
+         id="rect60-2-7"
+         style="fill:#000080;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="165"
+         y="154"
+         width="30"
+         height="19"
+         id="rect61-6-9"
+         style="fill:#ff5555;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="203"
+         y="154"
+         width="30"
+         height="19"
+         id="rect62-4-7"
+         style="fill:#e580ff;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="241"
+         y="154"
+         width="30"
+         height="19"
+         id="rect63-5-4"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="279"
+         y="154"
+         width="30"
+         height="19"
+         id="rect64-2-9"
+         style="fill:#ffff00;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="317"
+         y="154"
+         width="30"
+         height="19"
+         id="rect65-0-1"
+         style="fill:#00ffff;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="354"
+         y="154"
+         width="30"
+         height="19"
+         id="rect66-2-7"
+         style="fill:#ff5555;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="392"
+         y="154"
+         width="30"
+         height="19"
+         id="rect67-9-0"
+         style="fill:#000080;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="430"
+         y="154"
+         width="30"
+         height="19"
+         id="rect68-0-6"
+         style="fill:#000080;stroke:#000000;stroke-miterlimit:10" />
+      <rect
+         class="w"
+         x="468"
+         y="154"
+         width="30"
+         height="19"
+         id="rect69-9-0"
+         style="fill:#00ff00;stroke:#000000;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="g80-9-8">
+      <text
+         x="56"
+         y="166"
+         id="text69-4-5"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">GND</text>
+      <text
+         x="92"
+         y="166"
+         id="text70-5-3"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;fill:#ffffff">RX1+</text>
+      <text
+         x="130"
+         y="166"
+         id="text71-1-9"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;fill:#ffffff">RX1−</text>
+      <text
+         x="167"
+         y="166"
+         id="text72-0-4"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">VBUS</text>
+      <text
+         x="205"
+         y="166"
+         id="text73-3-1"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">SBU2</text>
+      <text
+         x="250"
+         y="166"
+         id="text74-7-5"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">D−</text>
+      <text
+         x="287"
+         y="166"
+         id="text75-8-4"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">D+</text>
+      <text
+         x="322"
+         y="166"
+         id="text76-86-1"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">CC2</text>
+      <text
+         x="356"
+         y="166"
+         id="text77-0-5"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">VBUS</text>
+      <text
+         x="395"
+         y="166"
+         id="text78-4-5"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;fill:#ffffff">TX2−</text>
+      <text
+         x="433"
+         y="166"
+         id="text79-6-4"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;fill:#ffffff">TX2+</text>
+      <text
+         x="472"
+         y="166"
+         id="text80-7-9"
+         style="font-weight:bold;font-size:10px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif">GND</text>
+    </g>
+  </g>
+  <path
+     style="fill:#e580ff;stroke:#000000;stroke-width:4.65219;stroke-dasharray:none;stroke-opacity:1"
+     d="M 1.1484074,282.98069 H 745.12027"
+     id="path94" />
+  <path
+     style="fill:#e580ff;stroke:#000000;stroke-width:4.65219;stroke-dasharray:none;stroke-opacity:1"
+     d="M 1.1484074,482.75958 H 745.12025"
+     id="path94-3" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.6667px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke:none;stroke-width:4;stroke-dasharray:none;stroke-opacity:1"
+     x="372.25934"
+     y="55.611996"
+     id="text100"><tspan
+       sodipodi:role="line"
+       id="tspan100"
+       x="372.25934"
+       y="55.611996"
+       style="font-size:42.6667px">USB-C Connector Types</tspan></text>
+  <g
+     id="g103"
+     transform="translate(208.24841,70.980688)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.6667px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000;stroke:none;stroke-width:4;stroke-dasharray:none;stroke-opacity:1"
+       x="-188.19321"
+       y="81.916084"
+       id="text101"><tspan
+         sodipodi:role="line"
+         id="tspan101"
+         x="-188.19321"
+         y="81.916084">6-pin</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000;stroke:none;stroke-width:4;stroke-dasharray:none;stroke-opacity:1"
+       x="-187.34946"
+       y="122.42017"
+       id="text102"><tspan
+         sodipodi:role="line"
+         x="-187.34946"
+         y="122.42017"
+         id="tspan103">USB-PD</tspan><tspan
+         sodipodi:role="line"
+         x="-187.34946"
+         y="149.08679"
+         id="tspan105">(Power Only)</tspan></text>
+  </g>
+  <g
+     id="g103-9"
+     transform="translate(208.24841,253.76856)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.6667px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000;stroke:none;stroke-width:4;stroke-dasharray:none;stroke-opacity:1"
+       x="-188.19321"
+       y="87.916084"
+       id="text101-7"><tspan
+         sodipodi:role="line"
+         id="tspan101-2"
+         x="-188.19321"
+         y="87.916084">16-pin</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000;stroke:none;stroke-width:4;stroke-dasharray:none;stroke-opacity:1"
+       x="-187.34946"
+       y="128.42017"
+       id="text102-5"><tspan
+         sodipodi:role="line"
+         x="-187.34946"
+         y="128.42017"
+         id="tspan104">USB-PD</tspan><tspan
+         sodipodi:role="line"
+         x="-187.34946"
+         y="155.08679"
+         id="tspan106">USB 2.0</tspan><tspan
+         sodipodi:role="line"
+         x="-187.34946"
+         y="181.75342"
+         id="tspan111">Alt. Modes (SBU)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.6667px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000;stroke:none;stroke-width:4;stroke-dasharray:none;stroke-opacity:1"
+       x="-188.19321"
+       y="290.84781"
+       id="text101-7-2"><tspan
+         sodipodi:role="line"
+         id="tspan101-2-4"
+         x="-188.19321"
+         y="290.84781">24-pin</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Arial, Helvetica, 'Liberation Sans', sans-serif;-inkscape-font-specification:'Arial, Helvetica, Liberation Sans, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000;stroke:none;stroke-width:4;stroke-dasharray:none;stroke-opacity:1"
+       x="-187.34946"
+       y="331.3519"
+       id="text102-5-7"><tspan
+         sodipodi:role="line"
+         x="-187.34946"
+         y="331.3519"
+         id="tspan104-5">USB-PD</tspan><tspan
+         sodipodi:role="line"
+         x="-187.34946"
+         y="358.01852"
+         id="tspan107">USB 2.0</tspan><tspan
+         sodipodi:role="line"
+         x="-187.34946"
+         y="384.68515"
+         id="tspan109">USB 3.x</tspan><tspan
+         sodipodi:role="line"
+         x="-187.34946"
+         y="411.35178"
+         id="tspan110">Alt. Modes (all)</tspan></text>
+  </g>
+</svg>

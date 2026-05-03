@@ -6,7 +6,7 @@ export default function MarkdownImage(props: ImageInfo & { alt: string }) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        className="mx-auto"
+        className="mx-auto max-w-[min(60rem,100%)]"
         {...props}
         alt={props.alt}
         src={"/images/" + props.src}

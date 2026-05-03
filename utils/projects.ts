@@ -13,6 +13,7 @@ export type ProjectInfo = {
   demo?: string;
   repo?: string;
   writeup: string; // ISO date
+  coauthors?: string[];
 };
 
 export async function getSortedProjects(options?: {

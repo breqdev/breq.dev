@@ -164,7 +164,7 @@ export default function Code({
       <Highlight
         {...defaultProps}
         theme={theme(dark ? darkTheme : lightTheme)}
-        code={children.props.children.trim()}
+        code={children.props.children.replace(/\n$/, "")}
         language={children.props.className?.replace("language-", "")}
       >
         {({ tokens, getLineProps, getTokenProps }) => (

@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarAlt,
   faGlobe,
+  faHeart,
   faLaptopCode,
   faTag,
   IconDefinition,
@@ -126,6 +127,34 @@ function ProjectInfoCard(props: ProjectInfo) {
   );
 }
 
+const COAUTHORS: Record<
+  string,
+  { name: string; url: string; icon: IconDefinition }
+> = {
+  mia: { name: "Mia Kiesman", url: "https://miakizz.quest/", icon: faHeart },
+};
+
+function FormatCoauthors({ coauthors }: { coauthors?: string[] }) {
+  if (!coauthors || coauthors.length < 1) {
+    return null;
+  } else if (coauthors.length === 1) {
+    const data = COAUTHORS[coauthors[0]];
+    return (
+      <p className="mt-4 text-xl">
+        by Brooke Chalmers and{" "}
+        <a
+          href={data.url}
+          className="font-bold hover:underline focus-visible:underline"
+        >
+          {data.name} <FontAwesomeIcon icon={data.icon} />
+        </a>
+      </p>
+    );
+  } else {
+    return null;
+  }
+}
+
 function ProjectHeader(props: ProjectInfo) {
   const { asPath } = useRouter();
 
@@ -147,6 +176,7 @@ function ProjectHeader(props: ProjectInfo) {
         />
         <ProjectInfoCard {...props} />
         <HCard />
+        <FormatCoauthors coauthors={props.coauthors} />
       </div>
       <div className="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink print:hidden" />
     </section>
