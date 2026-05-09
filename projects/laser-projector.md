@@ -5,7 +5,7 @@ image: laser-projector/cover.jpg
 created: 2026
 repo: breqdev/galvo
 tags: [lasers, esp32]
-writeup: 2026-04-17
+writeup: 2026-05-03
 coauthors: [mia]
 ---
 

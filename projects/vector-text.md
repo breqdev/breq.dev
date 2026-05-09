@@ -10,7 +10,7 @@ writeup: 2026-03-14
 
 ![](vector-text/output_fonts.svg)
 
-I wrote a Rust library for rendering text to a set of points using commonly available vector fonts.
+I wrote a [Rust library](https://crates.io/crates/vector-text) for rendering text to a set of points using commonly available vector fonts.
 
 ## Why vector fonts?
 
@@ -150,6 +150,8 @@ I decided to publish separate crates for each format, in order to keep all of th
 This was my first experience publishing a crate to `crates.io`! I would say it went quite smoothly, and the login and publishing flow took me very little time at all.
 
 ## Conclusion
+
+The library is available on [crates.io](https://crates.io/crates/vector-text), give it a try! Feel free to [open an issue](https://github.com/breqdev/vector-text/issues) if you find any issues or have ideas for improvements.
 
 I have some plans in the works involving a vector display, and I made this project to give myself an easy way to swap out different fonts of different formats for testing. I'm quite happy with the API I was able to create!
 
