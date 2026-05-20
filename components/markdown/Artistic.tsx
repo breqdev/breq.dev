@@ -136,31 +136,33 @@ function Dig({ children }: { children: React.ReactElement }) {
           <hr className="border border-black" />
           <div className="bg-panyellow-light px-4 py-2">
             <p className="mb-2 text-center font-mono italic">Answer Section</p>
-            <table className="w-full">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>TTL</th>
-                  <th>Class</th>
-                  <th>Type</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                {dig.answerSection.map((record, i) => (
-                  <tr
-                    key={i}
-                    className="font-mono *:border-2 *:border-black *:px-2"
-                  >
-                    <td>{record.name}</td>
-                    <td>{record.ttl}</td>
-                    <td>{record.class}</td>
-                    <td>{record.type}</td>
-                    <td>{record.value}</td>
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>TTL</th>
+                    <th>Class</th>
+                    <th>Type</th>
+                    <th>Value</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {dig.answerSection.map((record, i) => (
+                    <tr
+                      key={i}
+                      className="font-mono *:border-2 *:border-black *:px-2"
+                    >
+                      <td>{record.name}</td>
+                      <td>{record.ttl}</td>
+                      <td>{record.class}</td>
+                      <td>{record.type}</td>
+                      <td>{record.value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </>
       ) : null}
@@ -171,31 +173,33 @@ function Dig({ children }: { children: React.ReactElement }) {
             <p className="mb-2 text-center font-mono italic">
               Authority Section
             </p>
-            <table className="w-full">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>TTL</th>
-                  <th>Class</th>
-                  <th>Type</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                {dig.authoritySection.map((record, i) => (
-                  <tr
-                    key={i}
-                    className="font-mono *:border-2 *:border-black *:px-2"
-                  >
-                    <td>{record.name}</td>
-                    <td>{record.ttl}</td>
-                    <td>{record.class}</td>
-                    <td>{record.type}</td>
-                    <td>{record.value}</td>
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>TTL</th>
+                    <th>Class</th>
+                    <th>Type</th>
+                    <th>Value</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {dig.authoritySection.map((record, i) => (
+                    <tr
+                      key={i}
+                      className="font-mono *:border-2 *:border-black *:px-2"
+                    >
+                      <td>{record.name}</td>
+                      <td>{record.ttl}</td>
+                      <td>{record.class}</td>
+                      <td>{record.type}</td>
+                      <td>{record.value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </>
       ) : null}
@@ -206,31 +210,33 @@ function Dig({ children }: { children: React.ReactElement }) {
             <p className="mb-2 text-center font-mono italic">
               Additional Section
             </p>
-            <table className="w-full">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>TTL</th>
-                  <th>Class</th>
-                  <th>Type</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                {dig.additionalSection.map((record, i) => (
-                  <tr
-                    key={i}
-                    className="font-mono *:border-2 *:border-black *:px-2"
-                  >
-                    <td>{record.name}</td>
-                    <td>{record.ttl}</td>
-                    <td>{record.class}</td>
-                    <td>{record.type}</td>
-                    <td>{record.value}</td>
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>TTL</th>
+                    <th>Class</th>
+                    <th>Type</th>
+                    <th>Value</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {dig.additionalSection.map((record, i) => (
+                    <tr
+                      key={i}
+                      className="font-mono *:border-2 *:border-black *:px-2"
+                    >
+                      <td>{record.name}</td>
+                      <td>{record.ttl}</td>
+                      <td>{record.class}</td>
+                      <td>{record.type}</td>
+                      <td>{record.value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </>
       ) : null}
