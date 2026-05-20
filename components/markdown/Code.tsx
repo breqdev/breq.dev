@@ -8,6 +8,7 @@ import Prism from "prism-react-renderer/prism";
 
   require("prismjs/components/prism-rust");
   require("prismjs/components/prism-asm6502");
+  require("prismjs/components/prism-dns-zone-file");
   require("prismjs/components/prism-java");
   require("prismjs/components/prism-smali");
   require("prismjs/components/prism-http");
