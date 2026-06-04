@@ -1,6 +1,6 @@
 ---
-title: Wall Matrix 3
-description: Updated LED matrix displays for home and work
+title: PCBs for LED Matrices
+description: Designing a board to make my LED matrix project more compact and versatile
 image: matrix3/small-weather.jpg
 created: 2025
 # repo: breqdev/matrix2

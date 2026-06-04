@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Wall Matrix 2
+title: Wall Matrix, Take 2
 description: A wall-mounted LED matrix display for weather and transit data, take 2!
 image: matrix2/bikes.jpg
 created: 2025
