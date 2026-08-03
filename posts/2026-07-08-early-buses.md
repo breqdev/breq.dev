@@ -14,6 +14,22 @@ In an attempt to demystify these routes, I spent some time creating a "subway-st
 
 ![](early-buses/early-bus-network.svg)
 
+<div className="grid grid-cols-2 max-w-sm mx-auto gap-2">
+
+<a className="bg-blue-200 dark:bg-blue-600 hover:bg-blue-300 dark:hover:bg-blue-500 transition-colors text-center rounded-xl" href="/images/early-buses/early-bus-network.png" download="MBTA Early Morning Bus Network.png">
+
+Download PNG
+
+</a>
+
+<a className="bg-blue-200 dark:bg-blue-600 hover:bg-blue-300 dark:hover:bg-blue-500 transition-colors text-center rounded-xl" href="/images/early-buses/early-bus-network.svg" download="MBTA Early Morning Bus Network.svg">
+
+Download SVG
+
+</a>
+
+</div>
+
 To make this map, I included every inbound route that departs before 5 AM, arrives before 5:20 AM, and is useful to get to either downtown or the airport (i.e., excluding routes designed to connect with the first inbound subway trains, or bus routes with an unusually early outbound trip due to the lack of a garage near their outbound terminus).
 
 One thing I tried to emphasize is that there's a surprising amount of opportunity for chaining these routes together. From Mattapan, taking either Route 28 departure lines you up nicely to transfer at Nubian to the corresponding 15/171 departure to the airport. The 89/93 and the 57 both arrive at Haymarket early enough that you can transfer to the 116 to reach the airport. Or, if you're going somewhere other than terminal C and want to skip the walk, you can transfer from the 57 to the first Logan Express Back Bay bus of the day.
