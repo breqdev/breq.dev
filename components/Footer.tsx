@@ -356,15 +356,28 @@ export default function Footer() {
 
         <div className="hidden flex-row items-end justify-end gap-3 self-end lg:flex">
           {TURTLE_MODE ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              draggable="false"
-              id="turtle"
-              src="https://tris.fyi/static/turtlesbian.png"
-              className="z-[60] h-[32px] w-[32px] cursor-grabbing"
-              ref={turtleRef}
-              alt=""
-            />
+            <>
+              <button
+                className="rounded border-black bg-gray-200 px-1 py-0.5 text-center text-xs text-black hover:bg-gray-400 focus-visible:bg-gray-400"
+                onClick={() => {
+                  alert(
+                    'You will be redirected momentarily. Please drag the slider to "green" on the new tab. It is about 1/3 of the way on the hue slider'
+                  );
+                  window.location.href = "https://orb.breq.dev/";
+                }}
+              >
+                make it more green
+              </button>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                draggable="false"
+                id="turtle"
+                src="https://tris.fyi/static/turtlesbian.png"
+                className="z-[60] h-[32px] w-[32px] cursor-grabbing"
+                ref={turtleRef}
+                alt=""
+              />
+            </>
           ) : ONEKO_ACTIVE ? (
             <div className="h-[32px] w-[32px]" />
           ) : (
