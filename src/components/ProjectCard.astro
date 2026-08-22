@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+import defaultImage from "../images/default.png";
+import FaIcon from "./FaIcon.astro";
+import { faTag } from "@fortawesome/free-solid-svg-icons";
+import type { InferEntrySchema } from "astro:content";
+
+interface Props {
+  project: { id: string; data: InferEntrySchema<"projects"> };
+  class?: string;
+}
+
+const { project, class: extraClass } = Astro.props;
+---
+
+<a
+  href={"/projects/" + project.id}
+  class={"group relative z-20 outline-none " + (extraClass ?? "")}
+>
+  <section
+    class="relative z-30 rounded-2xl border-4 border-black bg-white p-4 text-black group-focus:border-panpink dark:bg-gray-800 dark:text-white"
+  >
+    <div class="h-32 overflow-hidden font-display">
+      <h2 class="text-balance text-3xl">
+        {project.data.title}
+      </h2>
+      <h3 class="mb-2 text-balance">
+        {project.data.description}
+      </h3>
+    </div>
+    <div class="flex h-52 w-full overflow-hidden rounded-lg">
+      {
+        project.data.video ? (
+          <video
+            playsinline
+            autoplay
+            muted
+            loop
+            disablepictureinpicture
+            class="w-full object-cover"
+            tabindex={-1}
+          >
+            <source src={"/videos/" + project.data.video} type="video/webm" />
+          </video>
+        ) : project.data.image ? (
+          <Image
+            src={project.data.image}
+            alt=""
+            tabindex={-1}
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "cover",
+            }}
+          />
+        ) : (
+          <Image
+            src={defaultImage}
+            alt=""
+            tabindex={-1}
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "cover",
+            }}
+          />
+        )
+      }
+    </div>
+    <div class="mt-3 flex items-center gap-2">
+      <FaIcon icon={faTag} class="text-lg" />
+      <p class="sr-only">tags:</p>
+      <ul class="flex list-none gap-2 overflow-x-auto">
+        {
+          project.data.tags?.map((tag) => (
+            <li class="inline-block whitespace-nowrap rounded-full bg-panblue-light px-3 py-1 text-sm text-black">
+              {tag}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+  <div
+    class="absolute inset-0 m-1 transform rounded-2xl bg-panpink group-hover:translate-x-3 group-hover:translate-y-3 group-focus:translate-x-4 group-focus:translate-y-2 motion-safe:transition-transform"
+  >
+  </div>
+</a>

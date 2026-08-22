@@ -1,0 +1,123 @@
+---
+import { faHamburger } from "@fortawesome/free-solid-svg-icons";
+import Flags from "../assets/flags.svg";
+import FaIcon from "./FaIcon.astro";
+
+const navLinks = {
+  projects: "/projects",
+  blog: "/blog",
+  contact: "/contact",
+  friends: "/directory",
+};
+
+const onHomepage = Astro.url.pathname === "/";
+---
+
+<nav
+  class="sticky top-0 z-50 bg-panpink p-4 font-display print:hidden"
+  id="navbarNav"
+>
+  <a
+    class="absolute left-0 top-0 ml-10 -translate-y-full rounded-b-xl border-x-2 border-b-2 border-black bg-panblue p-2 text-black underline focus:translate-y-0 motion-safe:transition-transform opacity-0 focus:opacity-100"
+    href="#main"
+  >
+    skip navigation
+  </a>
+
+  <div
+    class="mx-auto flex w-full max-w-7xl flex-col gap-4 md:flex-row md:gap-2"
+  >
+    <div class="flex w-full flex-row justify-between md:w-max">
+      {
+        onHomepage ? (
+          <button
+            id="wordmark-button"
+            type="button"
+            class="flex text-5xl text-black outline-none"
+          >
+            <span
+              id="wordmark-breq"
+              class="inline-block motion-safe:transition-transform"
+            >
+              breq
+            </span>
+            .dev
+          </button>
+        ) : (
+          <a
+            href="/"
+            class="flex text-5xl text-black outline-none hover:text-white focus:text-white focus:underline"
+          >
+            <span class="inline-block">breq</span>.dev
+          </a>
+        )
+      }
+
+      <button
+        id="menu-toggle"
+        type="button"
+        class="flex h-12 w-12 items-center justify-center rounded-xl border-4 border-black text-lg text-black md:hidden"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <FaIcon icon={faHamburger} />
+      </button>
+    </div>
+
+    <div
+      id="nav-links"
+      class="absolute left-0 mt-16 max-h-0 w-full overflow-hidden bg-panpink duration-500 motion-safe:transition-[max-height] md:static md:mt-0 md:flex md:max-h-96"
+    >
+      <ul class="flex flex-col gap-2 p-4 md:flex-row md:p-0">
+        {
+          Object.entries(navLinks).map(([name, url]) => (
+            <li class="text-lg">
+              <a
+                href={url}
+                class="nav-link text-black outline-none hover:text-white focus:text-white focus:underline"
+              >
+                {name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div
+      class="relative -my-4 mr-8 hidden aspect-390/120 h-20 lg:block *:h-full *:w-full *:object-cover"
+    >
+      <Flags />
+    </div>
+  </div>
+</nav>
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinksEl = document.getElementById("nav-links");
+  const wordmarkButton = document.getElementById("wordmark-button");
+  const wordmarkBreq = document.getElementById("wordmark-breq");
+
+  let expanded = false;
+
+  function setExpanded(value: boolean) {
+    expanded = value;
+    menuToggle?.setAttribute("aria-expanded", String(expanded));
+    navLinksEl?.classList.toggle("max-h-96", expanded);
+    navLinksEl?.classList.toggle("max-h-0", !expanded);
+  }
+
+  menuToggle?.addEventListener("click", () => setExpanded(!expanded));
+
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => setExpanded(false));
+  });
+
+  let flipped = false;
+  wordmarkButton?.addEventListener("click", () => {
+    flipped = !flipped;
+    wordmarkBreq?.classList.toggle("motion-safe:translate-y-2", flipped);
+    wordmarkBreq?.classList.toggle("motion-safe:rotate-180", flipped);
+  });
+</script>

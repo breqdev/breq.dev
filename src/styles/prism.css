@@ -1,0 +1,96 @@
+/* https://github.com/PrismJS/prism-themes/blob/master/themes/prism-material-light.css */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  color: #404040;
+  background: #fff5fc;
+  font-family: var(--font-mono);
+  font-size: 1em;
+  line-height: 1.5em;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+:not(pre) > code[class*="language-"] {
+  white-space: normal;
+  border-radius: 0.2em;
+  padding: 0.1em;
+}
+
+pre[class*="language-"] {
+  overflow: auto;
+  position: relative;
+  margin: 0.5em auto;
+  padding: 1.25em 1em;
+
+  border-width: 2px;
+  border-color: black;
+  border-radius: 1rem;
+
+  min-width: calc(min(100%, 42rem));
+  max-width: 100%;
+  width: max-content;
+}
+
+.token.changed {
+  color: #8b5cf6;
+  font-style: italic;
+}
+
+.token.number,
+.token.operator,
+.token.property,
+.token.keyword,
+.token.namespace,
+.token.boolean {
+  color: #8b5cf6;
+}
+
+.token.deleted,
+.token.function,
+.token.selector,
+.token.doctype {
+  color: #ff218c;
+  font-style: italic;
+}
+
+.token.variable,
+.token.punctuation,
+.token.tag {
+  color: #ff218c;
+}
+
+.token.inserted,
+.token.attr-name {
+  color: #1bb3ff;
+  font-style: italic;
+}
+
+.token.string,
+.token.builtin,
+.token.char,
+.token.constant,
+.token.url {
+  color: #1bb3ff;
+}
+
+.token.comment {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.token.class-name {
+  color: #404040;
+}

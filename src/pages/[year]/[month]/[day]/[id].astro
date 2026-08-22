@@ -1,0 +1,68 @@
+---
+import { getCollection, render } from "astro:content";
+import Comments from "../../../../components/Comments.astro";
+import Page from "../../../../layouts/Page.astro";
+import HCard from "../../../../components/HCard.astro";
+import {
+  parseSlug,
+  getDateObject,
+  getDateLabel,
+} from "../../../../utils/dates";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => {
+    const {
+      date: [year, month, day],
+      slug: id,
+    } = parseSlug(post.id);
+
+    return {
+      params: { year, month, day, id },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Page
+  title={post.data.title + " - breq.dev"}
+  description={post.data.description}
+>
+  <article class="h-entry mx-auto max-w-6xl p-4">
+    <div class="relative z-0">
+      <section
+        class="relative z-10 mb-8 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800 print:bg-transparent print:p-0 print:text-panpink-dark"
+      >
+        <h1 class="mb-4 text-balance text-4xl md:text-6xl">
+          {post.data.title}
+        </h1>
+        <p class="p-summary hidden">{post.data.description}</p>
+        <p class="text-2xl">
+          <time
+            class="dt-published"
+            datetime={getDateObject(post.id).toISOString()}
+          >
+            {getDateLabel(post.id)}
+          </time>
+          <span class="hidden print:inline"> · breq.dev</span>
+        </p>
+        <a class="u-url hidden" href={Astro.url}></a>
+        <HCard />
+      </section>
+      <div
+        class="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink print:hidden"
+      >
+      </div>
+    </div>
+
+    <main class="markdown">
+      <Content />
+    </main>
+  </article>
+  <hr class="border mx-4 my-4 max-w-4xl border-black sm:mx-auto" />
+  <Comments />
+</Page>

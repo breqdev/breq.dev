@@ -1,7 +1,0 @@
-chatroom usage:
-
-$ connect [name]
-
-$ send [message]
-
-$ inbox

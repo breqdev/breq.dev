@@ -1,0 +1,43 @@
+---
+import { faScaleBalanced } from "@fortawesome/free-solid-svg-icons";
+import FaIcon from "../FaIcon.astro";
+
+interface Props {
+  name: string;
+  comment: string;
+}
+
+const { name, comment } = Astro.props;
+---
+
+<div
+  class="group relative w-full"
+  style={{
+    fontFamily: `var(--${name.replaceAll(" ", "-").toLowerCase()})`,
+  }}
+>
+  <p
+    class="overflow-y-hidden overflow-x-scroll whitespace-nowrap p-2 text-8xl text-gray-400 transition-colors duration-300 group-hover:text-white md:overflow-x-hidden md:text-ellipsis"
+  >
+    The quick brown fox jumps over the lazy dog
+  </p>
+  <div
+    class="mx-auto w-full max-w-md p-8 md:absolute md:bottom-0 md:right-40 md:top-0"
+    style={{
+      backgroundImage:
+        "linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0))",
+    }}
+  >
+    <p class="text-center text-4xl">{name}</p>
+    <p class="text-center font-body italic">{comment}</p>
+    <p class="text-center font-body">
+      <FaIcon icon={faScaleBalanced} /> OFL •{" "}
+      <a
+        class="underline"
+        href={"https://fonts.google.com/specimen/" + name.replaceAll(" ", "+")}
+      >
+        Google Fonts
+      </a>
+    </p>
+  </div>
+</div>

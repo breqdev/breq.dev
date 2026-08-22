@@ -1,0 +1,165 @@
+---
+import HCard from "../../components/HCard.astro";
+import Page from "../../layouts/Page.astro";
+import Comments from "../../components/Comments.astro";
+
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+
+import {
+  faCalendarAlt,
+  faGlobe,
+  faHeart,
+  faLaptopCode,
+  faTag,
+  type IconDefinition,
+} from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import FaIcon from "../../components/FaIcon.astro";
+
+const COAUTHORS: Record<
+  string,
+  { name: string; url: string; icon: IconDefinition }
+> = {
+  mia: { name: "Mia Kiesman", url: "https://miakizz.quest/", icon: faHeart },
+};
+---
+
+<Page
+  title={project.data.title + " - breq.dev"}
+  description={project.data.description}
+>
+  <article class="h-entry mx-auto max-w-6xl p-4">
+    <section class="relative mb-8">
+      <div
+        class="relative z-10 rounded-xl bg-black p-8 text-center font-display text-white dark:bg-gray-800 print:bg-transparent print:p-0 print:text-panpink-dark"
+      >
+        <h1 class="p-name text-balance text-5xl">{project.data.title}</h1>
+        <h2
+          class="p-summary mb-4 text-balance text-3xl text-gray-300 print:mb-1"
+        >
+          {project.data.description}
+        </h2>
+        <a class="u-url hidden" href={Astro.url}></a>
+        <div
+          class="flex flex-wrap justify-center gap-4 text-lg print:text-black"
+        >
+          <table class="contents">
+            <tbody class="contents">
+              <tr class="flex items-center gap-2">
+                <td>
+                  <span class="sr-only">created</span>
+                  <FaIcon icon={faCalendarAlt} />
+                </td>
+                <td>
+                  <time
+                    class="dt-published"
+                    datetime={project.data.writeup.toString()}
+                  >
+                    {project.data.created}
+                  </time>
+                </td>
+              </tr>
+              {
+                project.data.repo && (
+                  <tr class="flex items-center gap-2">
+                    <td>
+                      <span class="sr-only">repo</span>
+                      <FaIcon icon={faGithub} />
+                    </td>
+                    <td>
+                      <a
+                        href={project.data.repo}
+                        class="outline-none hover:underline focus:bg-panyellow focus:text-black focus:underline"
+                      >
+                        {project.data.repo.replace(
+                          new RegExp(`^https://github.com/`),
+                          "",
+                        )}
+                      </a>
+                    </td>
+                  </tr>
+                )
+              }
+              {
+                project.data.demo && (
+                  <tr class="flex items-center gap-2">
+                    <td>
+                      <span class="sr-only">demo</span>
+                      <FaIcon icon={faLaptopCode} />
+                    </td>
+                    <td>
+                      <a
+                        href={project.data.demo}
+                        class="outline-none hover:underline focus:bg-panyellow focus:text-black focus:underline"
+                      >
+                        {project.data.demo}
+                      </a>
+                    </td>
+                  </tr>
+                )
+              }
+            </tbody>
+          </table>
+
+          <span class="flex items-center gap-2">
+            <FaIcon icon={faTag} />
+            <ul class="flex list-none gap-2 print:gap-0">
+              {
+                project.data.tags?.map((tag, i) => (
+                  <>
+                    <li class="p-category inline rounded-full bg-white px-2 py-0.5 text-black outline-none focus:bg-panblue print:bg-transparent print:p-0">
+                      {tag}
+                    </li>
+                    {i < project.data.tags.length - 1 && (
+                      <span class="mr-1 hidden print:block">,</span>
+                    )}
+                  </>
+                ))
+              }
+            </ul>
+          </span>
+
+          <span class="hidden print:inline">
+            <FaIcon icon={faGlobe} /> breq.dev
+          </span>
+        </div>
+        <HCard />
+        {
+          project.data.coauthors && (
+            <p class="mt-4 text-xl">
+              by Brooke Chalmers and{" "}
+              <a
+                href={COAUTHORS[project.data.coauthors[0]].url}
+                class="font-bold hover:underline focus-visible:underline"
+              >
+                {COAUTHORS[project.data.coauthors[0]].name}{" "}
+                <FaIcon icon={COAUTHORS[project.data.coauthors[0]].icon} />
+              </a>
+            </p>
+          )
+        }
+      </div>
+      <div
+        class="absolute inset-0 z-0 translate-x-3 translate-y-2 transform rounded-xl bg-panpink print:hidden"
+      >
+      </div>
+    </section>
+
+    <main class="markdown">
+      <Content />
+    </main>
+  </article>
+
+  <Comments />
+</Page>

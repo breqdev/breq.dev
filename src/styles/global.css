@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@import "katex/dist/katex.min.css";
+
+@import "markdown.css";
+@import "prism.css";
+
+@theme {
+  --font-display: var(--font-nunito), sans-serif;
+  --font-body: var(--font-libre-franklin), sans-serif;
+  --font-mono: var(--font-fira-code), ui-monospace, monospace;
+  --font-sans: var(--font-nunito-sans), sans-serif;
+
+  --color-panpink-light: #ff8ac4;
+  --color-panpink: #ff42a1;
+  --color-panpink-dark: #ff218c;
+
+  --color-panblue: #1bb3ff;
+  --color-panblue-dark: #0077b3;
+  --color-panblue-light: #5ec9ff;
+
+  --color-panyellow-light: #ffeb7a;
+  --color-panyellow: #ffda00;
+
+  --color-brookeorange-light: #fa9f75;
+  --color-brookeorange: #ff6b26;
+
+  --color-brookepurple-light: #e0a1ff;
+  --color-brookepurple: #c757ff;
+
+  --color-brookegreen-light: #a1ffd0;
+}

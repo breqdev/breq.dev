@@ -1,0 +1,1013 @@
+---
+import { getCollection } from "astro:content";
+import { BADGES } from "../utils/badges";
+
+const projects = await getCollection("projects");
+const displayedProjects = projects
+  .sort((a, b) => b.data.writeup.getTime() - a.data.writeup.getTime())
+  .slice(0, 6);
+---
+
+<style>
+  html {
+    font-family: var(--font-sans);
+
+    font-size: var(--text-md);
+    line-height: var(--text-md--line-height);
+
+    background-color: var(--background);
+    color: var(--text);
+  }
+
+  * {
+    overscroll-behavior-x: none;
+  }
+
+  ::selection {
+    background: rgba(194, 230, 242, 0.5); /* seagull-200 @ 50% */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    ::selection {
+      background: rgba(36, 96, 130, 0.5); /* seagull-700 @ 50% */
+    }
+  }
+
+  .dark ::selection,
+  [data-theme="dark"] ::selection {
+    background: rgba(36, 96, 130, 0.5); /* seagull-700 @ 50% */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .astro-code,
+    .astro-code span {
+      color: var(--shiki-dark) !important;
+      background-color: var(--shiki-dark-bg) !important;
+    }
+  }
+
+  .dark .astro-code,
+  .dark .astro-code span,
+  [data-theme="dark"] .astro-code,
+  [data-theme="dark"] .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+
+    padding: 0 1rem;
+  }
+
+  .serif {
+    font-family: var(--font-serif);
+  }
+
+  .sans-serif {
+    font-family: var(--font-sans);
+  }
+
+  .monospace {
+    font-family: var(--font-mono);
+  }
+
+  .arrow,
+  .data-footnote-backref {
+    font-family: var(--font-arrow);
+  }
+
+  .theme-serif {
+    font-family: var(--font-serif);
+  }
+
+  .theme-serif h1,
+  .theme-serif h2,
+  .theme-serif h3,
+  .theme-serif h4 {
+    font-family: var(--font-sans);
+    color: var(--header);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h1,
+  .h1 {
+    font-size: var(--text-4xl);
+    line-height: var(--text-4xl--line-height);
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+  }
+
+  h2,
+  .h2 {
+    font-size: var(--text-2xl);
+    line-height: var(--text-2xl--line-height);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  h3,
+  .h3 {
+    font-size: var(--text-xl);
+    line-height: var(--text-xl--line-height);
+    margin-top: 1.6rem;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+  }
+
+  h4,
+  .h4 {
+    font-size: var(--text-md);
+    line-height: var(--text-md--line-height);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  .lead {
+    font-size: var(--text-lg);
+    line-height: var(--text-lg--line-height);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  blockquote {
+    margin: 0;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+
+    color: var(--blockquote);
+    position: relative;
+  }
+
+  blockquote:before {
+    content: "";
+    position: absolute;
+    width: 0.35rem;
+
+    border-radius: 0.35rem;
+    height: 100%;
+
+    background-color: var(--blockquote-before);
+  }
+
+  blockquote > * {
+    padding-left: 1.6rem;
+  }
+
+  p {
+    margin: 1em 0;
+    hyphens: auto;
+  }
+
+  small {
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+  }
+
+  ul,
+  ol {
+    padding: 0;
+    padding-left: 1.6em;
+  }
+
+  ul > li,
+  ol > li {
+    padding-left: 0.4em;
+  }
+
+  ul > li::marker {
+    color: var(--ul-marker);
+  }
+
+  ol > li::marker {
+    color: var(--ol-marker);
+  }
+
+  li {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  hr {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    border: none;
+    border-top: 1px solid;
+    border-top-color: var(--hr);
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.93em;
+  }
+
+  code:before,
+  code:after {
+    content: "`";
+    font-weight: 400;
+  }
+
+  pre {
+    padding: 12px;
+    border-radius: 8px;
+    line-height: 1.45;
+  }
+
+  pre code {
+    font-weight: 400;
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+  }
+
+  pre code:before,
+  pre code:after {
+    content: none;
+  }
+
+  figure {
+    color: var(--blockquote);
+    font-size: var(--text-md);
+    line-height: var(--text-md--line-height);
+    margin: 0.75rem 0 2rem;
+  }
+
+  table {
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    margin: 1.5rem 0;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead {
+    border-bottom: 1px solid;
+    border-bottom-color: var(--blockquote-before);
+  }
+
+  tr {
+    border-bottom: 1px solid;
+    border-bottom-color: var(--hr);
+  }
+
+  th {
+    color: var(--header);
+    font-weight: 600;
+    text-align: start;
+    padding: 0.5rem;
+  }
+
+  th:first-of-type {
+    padding-left: 0;
+  }
+
+  th:last-of-type {
+    padding-right: 0;
+  }
+
+  td {
+    color: var(--blockquote);
+    padding: 0.5rem;
+  }
+
+  td:first-of-type {
+    padding-left: 0;
+  }
+
+  td:last-of-type {
+    padding-right: 0;
+  }
+
+  .flex-wrap-when-small {
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: 1024px) {
+    .flex-wrap-when-small {
+      flex-wrap: nowrap;
+    }
+
+    html {
+      font-size: var(--text-xl);
+      line-height: var(--text-xl--line-height);
+    }
+
+    h1,
+    .h1 {
+      font-size: var(--text-6xl);
+      line-height: var(--text-6xl--line-height);
+      margin-top: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    h2,
+    .h2 {
+      font-size: var(--text-4xl);
+      line-height: var(--text-4xl--line-height);
+      margin-top: 3rem;
+      margin-bottom: 1.75rem;
+    }
+
+    h3,
+    .h3 {
+      font-size: var(--text-2xl);
+      line-height: var(--text-2xl--line-height);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h4,
+    .h4 {
+      font-size: var(--text-xl);
+      line-height: var(--text-xl--line-height);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .lead {
+      font-size: var(--text-2xl);
+      line-height: var(--text-2xl--line-height);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    pre {
+      line-height: 1.25;
+    }
+
+    pre code {
+      font-size: var(--text-md);
+    }
+
+    small,
+    figure,
+    table {
+      font-size: var(--text-lg);
+      line-height: var(--text-lg--line-height);
+    }
+
+    th {
+      padding: 0.5rem;
+    }
+
+    th:first-of-type {
+      padding-left: 0;
+    }
+
+    th:last-of-type {
+      padding-right: 0;
+    }
+
+    td {
+      padding: 0.5rem;
+    }
+
+    td:first-of-type {
+      padding-left: 0;
+    }
+
+    td:last-of-type {
+      padding-right: 0;
+    }
+  }
+
+  .pixelated {
+    image-rendering: pixelated;
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "Pretendard Arrows";
+    font-style: normal;
+    font-weight: 400;
+    src:
+      url("https://adryd.com/static/fonts/PretendardArrows-v1.eot?#iefix")
+        format("embedded-opentype"),
+      url("https://adryd.com/static/fonts/PretendardArrows-v1.ttf")
+        format("truetype");
+    unicode-range: U+2190-2199, U+21A9-21AA;
+  }
+
+  @font-face {
+    font-family: "Pretendard Std Variable";
+    font-weight: 45 920;
+    font-style: normal;
+    font-display: swap;
+    src: url("https://adryd.com/static/fonts/pretendard/PretendardStdVariable.woff2?#")
+      format("woff2-variations");
+  }
+
+  @font-face {
+    font-family: "Pretendard Std";
+    font-weight: 900;
+    font-display: swap;
+    src:
+      url("https://adryd.com/static/fonts/pretendard/woff2/PretendardStd-Black.woff2?#")
+        format("woff2"),
+      url("https://adryd.com/static/fonts/pretendard/woff/PretendardStd-Black.woff?#")
+        format("woff");
+  }
+
+  @font-face {
+    font-family: "Pretendard Std";
+    font-weight: 800;
+    font-display: swap;
+    src:
+      url("https://adryd.com/static/fonts/pretendard/woff2/PretendardStd-ExtraBold.woff2?#")
+        format("woff2"),
+      url("https://adryd.com/static/fonts/pretendard/woff/PretendardStd-ExtraBold.woff?#")
+        format("woff");
+  }
+
+  @font-face {
+    font-family: "Pretendard Std";
+    font-weight: 700;
+    font-display: swap;
+    src:
+      url("https://adryd.com/static/fonts/pretendard/woff2/PretendardStd-Bold.woff2?#")
+        format("woff2"),
+      url("https://adryd.com/static/fonts/pretendard/woff/PretendardStd-Bold.woff?#")
+        format("woff");
+  }
+
+  @font-face {
+    font-family: "Pretendard Std";
+    font-weight: 600;
+    font-display: swap;
+    src:
+      url("https://adryd.com/static/fonts/pretendard/woff2/PretendardStd-SemiBold.woff2?#")
+        format("woff2"),
+      url("https://adryd.com/static/fonts/pretendard/woff/PretendardStd-SemiBold.woff?#")
+        format("woff");
+  }
+
+  @font-face {
+    font-family: "Pretendard Std";
+    font-weight: 500;
+    font-display: swap;
+    src:
+      url("https://adryd.com/static/fonts/pretendard/woff2/PretendardStd-Medium.woff2?#")
+        format("woff2"),
+      url("https://adryd.com/static/fonts/pretendard/woff/PretendardStd-Medium.woff?#")
+        format("woff");
+  }
+
+  @font-face {
+    font-family: "Pretendard Std";
+    font-weight: 400;
+    font-display: swap;
+    src:
+      url("https://adryd.com/static/fonts/pretendard/woff2/PretendardStd-Regular.woff2?#")
+        format("woff2"),
+      url("https://adryd.com/static/fonts/pretendard/woff/PretendardStd-Regular.woff?#")
+        format("woff");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "Libre Baskerville";
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://adryd.com/static/fonts/libre-baskerville-v24-latin-regular.woff2#")
+      format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "Libre Baskerville";
+    font-style: italic;
+    font-weight: 400;
+    src: url("https://adryd.com/static/fonts/libre-baskerville-v24-latin-italic.woff2#")
+      format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "Libre Baskerville";
+    font-style: normal;
+    font-weight: 700;
+    src: url("https://adryd.com/static/fonts/libre-baskerville-v24-latin-700.woff2#")
+      format("woff2");
+  }
+
+  /* libre-baskerville-700italic - latin */
+  @font-face {
+    font-display: swap;
+    font-family: "Libre Baskerville";
+    font-style: italic;
+    font-weight: 700;
+    src: url("https://adryd.com/static/fonts/libre-baskerville-v24-latin-700italic.woff2#")
+      format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "IBM Plex Mono";
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://adryd.com/static/fonts/ibm-plex-mono-v20-latin-regular.woff2?#")
+      format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "IBM Plex Mono";
+    font-style: normal;
+    font-weight: 700;
+    src: url("https://adryd.com/static/fonts/ibm-plex-mono-v20-latin-700.woff2?#")
+      format("woff2");
+  }
+
+  :root {
+    /* Fonts */
+    --font-arrow:
+      "Pretendard Std", "Pretendard Arrows", apple-system, system-ui,
+      "Helvetica", "Arial", sans-serif;
+    --font-sans:
+      "Pretendard Std", apple-system, system-ui, "Helvetica", "Arial",
+      sans-serif;
+    --font-serif: "Libre Baskerville", serif;
+    --font-mono: "IBM Plex Mono", monospace;
+
+    /* Type scale */
+    --text-xs: 0.75rem;
+    --text-xs--line-height: 1.75;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: 1.75;
+    --text-md: 1rem;
+    --text-md--line-height: 1.751;
+    --text-lg: 1.125rem;
+    --text-lg--line-height: 1.75;
+    --text-xl: 1.25rem;
+    --text-xl--line-height: 1.75;
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: 1.75;
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: 1.5;
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: 1.25;
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
+    --text-6xl: 3.75rem;
+    --text-6xl--line-height: 1;
+    --text-7xl: 4.5rem;
+    --text-7xl--line-height: 1;
+    --text-8xl: 6rem;
+    --text-8xl--line-height: 1;
+    --text-9xl: 8rem;
+    --text-9xl--line-height: 1;
+
+    /* Base palette */
+    --color-white: #fff;
+    --color-black: #000;
+
+    --color-seagull-50: #f1fbfe;
+    --color-seagull-100: #e4f6fb;
+    --color-seagull-200: #c2e6f2;
+    --color-seagull-300: #93d0e6;
+    --color-seagull-400: #70bcda;
+    --color-seagull-500: #3299c2;
+    --color-seagull-600: #267aa1;
+    --color-seagull-700: #246082;
+    --color-seagull-800: #1f516f;
+    --color-seagull-900: #1c445e;
+    --color-seagull-950: #102e43;
+
+    --color-picton-blue-50: #f1fbfe;
+    --color-picton-blue-100: #e4f6fb;
+    --color-picton-blue-200: #b7eeff;
+    --color-picton-blue-300: #7ee0fc;
+    --color-picton-blue-400: #40d0f7;
+    --color-picton-blue-500: #14c3f2;
+    --color-picton-blue-600: #0098c7;
+    --color-picton-blue-700: #0079a2;
+    --color-picton-blue-800: #0d6287;
+    --color-picton-blue-900: #064d70;
+    --color-picton-blue-950: #102e43;
+
+    --color-gray-50: #fafafa;
+    --color-gray-100: #f5f5f5;
+    --color-gray-200: #e5e5e5;
+    --color-gray-300: #d4d4d4;
+    --color-gray-400: #a1a1a1;
+    --color-gray-500: #737373;
+    --color-gray-600: #525252;
+    --color-gray-700: #404040;
+    --color-gray-800: #262626;
+    --color-gray-900: #171717;
+    --color-gray-950: #0a0a0a;
+
+    --color-stone-50: #fafafa;
+    --color-stone-100: #f5f5f5;
+    --color-stone-200: #e7e5e4;
+    --color-stone-300: #d6d3d1;
+    --color-stone-400: #a6a09b;
+    --color-stone-500: #79716b;
+    --color-stone-600: #56524d;
+    --color-stone-700: #44403b;
+    --color-stone-800: #292524;
+    --color-stone-900: #1c1917;
+    --color-stone-950: #0a0a0a;
+
+    --color-green-300: #8cf086;
+    --color-green-500: #1dcc5d;
+    --color-green-700: #148051;
+
+    --color-yellow-300: #fcd847;
+    --color-yellow-500: #ebad02;
+    --color-yellow-700: #b8650d;
+
+    --color-red-300: #f77254;
+    --color-red-500: #dc2626;
+    --color-red-700: #981b29;
+
+    /* Theme (light values) */
+    --background: var(--color-white);
+    --text: var(--color-stone-800);
+    --header: var(--color-stone-900);
+    --blockquote: var(--color-stone-700);
+    --blockquote-before: var(--color-stone-300);
+    --ol-marker: var(--color-stone-600);
+    --ul-marker: var(--color-stone-400);
+    --hr: var(--color-stone-200);
+    --fancy-link-text: var(--color-picton-blue-800);
+    --fancy-link-background: var(--color-seagull-200);
+    --fancy-link-text-hover: var(--color-picton-blue-700);
+    --fancy-link-background-hover: #dbeff8;
+    --subtle-link-background-hover: var(--color-seagull-100);
+  }
+
+  /* ==========================================================================
+   Dark theme overrides
+   Applies automatically via OS/browser preference, and can be forced with
+   a `.dark` class (or `[data-theme="dark"]`) on the <html>/<body> element.
+   ========================================================================== */
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: var(--color-gray-900);
+      --text: var(--color-gray-200);
+      --header: var(--color-gray-100);
+      --blockquote: var(--color-gray-300);
+      --blockquote-before: var(--color-gray-500);
+      --ol-marker: var(--color-gray-400);
+      --ul-marker: var(--color-gray-500);
+      --hr: var(--color-gray-700);
+      --fancy-link-text: var(--color-seagull-400);
+      --fancy-link-background: #2a3b45;
+      --fancy-link-text-hover: var(--color-seagull-300);
+      --fancy-link-background-hover: #253239;
+      --subtle-link-background-hover: #253239;
+    }
+  }
+
+  .dark,
+  [data-theme="dark"] {
+    --background: var(--color-gray-900);
+    --text: var(--color-gray-200);
+    --header: var(--color-gray-100);
+    --blockquote: var(--color-gray-300);
+    --blockquote-before: var(--color-gray-500);
+    --ol-marker: var(--color-gray-400);
+    --ul-marker: var(--color-gray-500);
+    --hr: var(--color-gray-700);
+    --fancy-link-text: var(--color-seagull-400);
+    --fancy-link-background: #2a3b45;
+    --fancy-link-text-hover: var(--color-seagull-300);
+    --fancy-link-background-hover: #253239;
+    --subtle-link-background-hover: #253239;
+  }
+
+  /* ==========================================================================
+   Base rules
+   ========================================================================== */
+
+  a {
+    color: inherit;
+  }
+
+  a img {
+    /* Slight normalize for IE */
+    border: 0;
+  }
+
+  .subtle-link {
+    color: inherit;
+    transition:
+      color 0.1s,
+      background-color 0.1s;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 0.02em 0.2em 0.14em;
+    margin: -0.02em -0.2em -0.14em;
+
+    &:hover {
+      color: inherit;
+      background-color: var(--subtle-link-background-hover);
+    }
+  }
+
+  a.fancy-link,
+  .fancy-link a,
+  .fancy-link button,
+  button.fancy-link {
+    background-color: var(--fancy-link-background);
+    color: var(--fancy-link-text);
+    transition:
+      color 0.1s,
+      background-color 0.1s;
+    text-decoration: none;
+    border-radius: 4px;
+    /* Pretendard padding: 0.16em 0.3em; */
+    /* Source Serif padding: 0.08em 0.3em 0.16em; */
+    padding: 0.08em 0.3em 0.1em;
+    margin: -0.2em 0;
+    cursor: pointer;
+  }
+
+  a.fancy-link:hover,
+  .fancy-link a:hover,
+  .fancy-link button:hover,
+  button.fancy-link:hover {
+    background-color: var(--fancy-link-background-hover);
+    color: var(--fancy-link-text-hover);
+  }
+
+  button.fancy-link {
+    border: none;
+    font-weight: inherit;
+    display: inline;
+  }
+
+  a.revert-fancy-link,
+  .revert-fancy-link a,
+  .revert-fancy-link button {
+    background-color: revert;
+    color: inherit;
+    transition: revert;
+    text-decoration: revert;
+    border-radius: 0;
+    padding: revert;
+    margin: revert;
+    cursor: revert;
+  }
+
+  a.revert-fancy-link:hover,
+  .revert-fancy-link a:hover,
+  .revert-fancy-link button:hover {
+    background-color: revert;
+    color: inherit;
+  }
+
+  h1 {
+    font-weight: 900;
+    font-size: var(--text-6xl);
+    line-height: var(--text-6xl--line-height);
+    margin-bottom: 1rem;
+  }
+
+  .aka {
+    font-weight: 500;
+  }
+
+  p {
+    margin: 0.7rem 0;
+  }
+
+  h2 {
+    margin-top: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    padding-left: 0;
+    padding-inline-start: 0;
+    list-style: none;
+  }
+
+  ul > li {
+    padding-left: 0;
+    padding-inline-start: 0;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+  }
+  .ari {
+    color: #70bcda;
+  }
+</style>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- Global Metadata -->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>hi, i'm brooke!</title>
+    <meta name="title" content="hi, i'm brooke!" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content="hi, i'm brooke!" />
+
+    <!-- Seriously Apple??? -->
+    <meta name="format-detection" content="telephone=no" />
+    <!--[if lt IE 7]>
+<script is:inline src="/static/compat/unitpngfix/unitpngfix.js"></script>
+<![endif]-->
+    <!--[if lt IE 8]>
+<link rel="stylesheet" href="/static/compat/ie.css" />
+<![endif]-->
+    <!--[if lt IE 9]>
+<script is:inline src="/static/compat/ie.js"></script>
+<![endif]-->
+  </head>
+  <body style="margin: 0;">
+    <div class="container theme ie-page-index">
+      <h1 class="intro">
+        <span id="header">hi, i'm <span class="ari">brooke!</span></span>
+      </h1>
+      <p class="aka">(a.k.a breq, Brookelyn)</p>
+      <p>
+        this is my website where i write about the silly things i'm working on.
+        i like computers, trains, radios, making bad designs and wearing a
+        propeller hat for fun.
+      </p>
+      <!--<div class="banner">
+      📢 I am at <a href="https://emfcamp.org">EMF camp</a>.
+      Come say hi if you see me, or <b>call me on DECT at 94824 (WITCH).</b> I'm at the <a
+        href="https://glastonledburyshire-on-severn-gov.uk/"
+        >G&shy;la&shy;sto&shy;nl&shy;edb&shy;urys&shy;hir&shy;e-o&shy;n-S&shy;eve&shy;rn
+      </a> village.
+    </div> -->
+      <h2>
+        <a class="subtle-link" href="/projects/"
+          >pages <span class="arrow">→</span></a
+        >
+      </h2>
+      <p>reference, blog posts, and all that jazz</p>
+      <ul class="fancy-link">
+        {
+          displayedProjects.map((p) => (
+            <li>
+              <a href={`/projects/${p.id}`}>
+                {p.data.title.toLocaleLowerCase()} <span class="arrow">→</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <h2>my friends</h2>
+      <p>some really cool people</p>
+
+      <style>
+        .buttons {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin: rem(1) 0;
+        }
+
+        .buttons img {
+          border-radius: 0;
+          image-rendering: pixelated;
+        }
+
+        .buttons a {
+          display: inline-flex;
+          text-decoration: none;
+        }
+        .links {
+          margin: rem(1) 0;
+        }
+        .links span {
+          display: inline-block;
+        }
+      </style>
+
+      <div class="buttons">
+        {
+          BADGES.map((badge) => (
+            <a href={badge.url}>
+              <img
+                src={badge.image}
+                alt={badge.tag ? `${badge.tag} (${badge.name})` : badge.name}
+                width="88px"
+                height="31px"
+              />
+            </a>
+          ))
+        }
+      </div>
+      <h2>contact me</h2>
+      <p>ask me a question, or show me something cool you've made!</p>
+      <p class="fancy-link">
+        <a href="mailto:breq@breq.dev">email <span class="arrow">→</span></a>
+      </p>
+    </div>
+    <style>
+      @use "@/lib" as *;
+
+      .footer {
+        padding: 1.5rem 0.5rem;
+        background-color: var(--color-stone-100);
+        color: var(--color-stone-700);
+        margin-top: 3rem;
+        font-size: var(--text-xs);
+        line-height: 1.5;
+      }
+
+      .dark .footer {
+        background-color: var(--color-gray-800);
+        color: var(--color-gray-200);
+      }
+
+      .logo {
+        display: block;
+        color: var(--color-stone-800);
+        text-decoration: none;
+      }
+
+      .dark .logo {
+        color: var(--color-gray-300);
+      }
+    </style>
+
+    <div class="footer" role="contentinfo">
+      <div class="container">
+        <div>
+          <a class="logo" href="/">
+            <!--[if lt IE 9]> <img src="/static/compat/Logo.png" class="unitPng" height="68px" width="62px"> <![endif]-->
+            <!--[if gt IE 8]><!-->
+            <!-- Copyright (c) 2024 Ariana "adryd" [REDACTED]. All rights reserved. -->
+            <svg
+              viewBox="0 0 64.05 70.8"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              height="68px"
+              width="61.52px"
+            >
+              <title>adryd logo</title>
+              <g fill="currentColor">
+                <path
+                  d="m9.92688 53.512c-0.12195 0-0.243904 0.04879-0.341465 0.121966-0.073171 0.09755-0.12195 0.219515-0.12195 0.34148v0.68293c-0.804884-0.926861-2.00001-1.48784-3.63417-1.48784-3.19514 0-5.8293 2.80489-5.8293 6.43906 0 3.63416 2.63416 6.43906 5.8293 6.43906 1.63415 0 2.82928-0.560977 3.63416-1.48781v0.70732c0 0.243892 0.195122 0.439026 0.439026 0.439026h2.7805c0.243904 0 0.439025-0.195137 0.439025-0.439026v-11.3171c0-0.121965-0.04878-0.219515-0.12195-0.317064-0.09756-0.07317-0.195121-0.121966-0.317076-0.121966zm-3.36587 9.07322c-1.68294 0-2.90245-1.14635-2.90245-2.97562 0-1.82928 1.21952-2.97563 2.90245-2.97563s2.90245 1.14635 2.90245 2.97563c0 1.82928-1.21952 2.97562-2.90245 2.97562z"
+                ></path>
+                <path
+                  d="m1.3844 42.4378c-0.250666 0-0.479214-0.137612-0.604546-0.358791a0.737252 0.737252 0 0 1 0-0.720358c1.49386-2.66793 5.32449-9.50902 6.48014-11.5745a0.462625 0.462625 0 0 1 0.375999-0.23898c0.156665-0.0094 0.306882 0.06297 0.400881 0.192303 3.02242 3.06512 12.0206-4.81272 14.401-0.553863l-7.08468 12.6549c-0.20981 0.371377-0.591953 0.599018-1.0085 0.599018z"
+                ></path>
+                <path
+                  d="m24.3659 48.634c-0.243904 0-0.439026 0.195137-0.439026 0.439026v5.5854c-0.804882-0.926835-2.00001-1.48782-3.63417-1.48782-3.19514 0-5.8293 2.80489-5.8293 6.43906 0 3.63416 2.63416 6.43906 5.8293 6.43906 1.63416 0 2.82928-0.560977 3.63417-1.48781v0.70732c0 0.243892 0.195122 0.439026 0.439026 0.439026h2.7805c0.12195 0 0.219515-0.04879 0.317076-0.121966 0.07317-0.09755 0.12195-0.195137 0.12195-0.317064v-16.1952c0-0.121965-0.04877-0.219515-0.12195-0.317065-0.09756-0.07317-0.195122-0.121965-0.317076-0.121965zm-3.34148 13.9513c-1.68293 0-2.90245-1.14635-2.90245-2.97562 0-1.82928 1.21952-2.97563 2.90245-2.97563 1.68294 0 2.90246 1.14635 2.90246 2.97563 0 1.82928-1.21952 2.97562-2.90246 2.97562z"
+                ></path>
+                <path
+                  d="m44.0983 41.3712a0.71882 0.71882 0 0 1 0 0.710835 0.684415 0.684415 0 0 1-0.595026 0.355124h-12.9729c-0.416853 0-0.801761-0.229152-1.01188-0.600861l-14.166-25.3065a4.37866 2.25783 0 0 1 0-1.19988l6.47368-11.5681a0.701311 0.701311 0 0 1 0.610997-0.361852c0.25036 0 0.482286 0.13886 0.607618 0.361852z"
+                ></path>
+                <path
+                  d="m33.3171 55.6828v-1.73172c0-0.121965-0.04878-0.219515-0.12195-0.317064-0.09756-0.07317-0.195122-0.121966-0.317076-0.121966h-2.7805c-0.12195 0-0.219511 0.04879-0.317072 0.121966-0.07317 0.09755-0.121954 0.195136-0.121954 0.317064v11.3171c0 0.121965 0.04877 0.219515 0.121954 0.317065 0.09756 0.07317 0.195122 0.121964 0.317072 0.121964h2.7805c0.243904 0 0.439026-0.195137 0.439026-0.439026v-5.0732c0-2.17074 1.73172-2.87806 3.19514-2.82928 0.121965 0 0.243893-0.02457 0.317064-0.121966 0.09755-0.07317 0.146344-0.195137 0.146344-0.317064v-3.19514c0-0.121965-0.04879-0.243892-0.146344-0.317065-0.09755-0.09755-0.219514-0.146343-0.34148-0.121964-1.36586 0.146343-2.73172 0.926833-3.17075 2.39026z"
+                ></path>
+                <path
+                  d="m47.2928 53.512c-0.195137 0-0.365858 0.121966-0.414636 0.317065-0.439026 1.41464-2.19513 7.14638-2.19513 7.14638s-2.09757-5.80491-2.60977-7.17077c-0.04879-0.170722-0.219516-0.292687-0.414637-0.292687h-3.0488c-0.146344 0-0.292687 0.07317-0.365858 0.195137-0.07317 0.121965-0.09755 0.268308-0.04879 0.414632 1 2.39026 4.60978 11.0245 4.60978 11.0245-0.487805 1.36586-1.21952 1.92684-2.63416 2.0244-0.243894 0-0.414638 0.195137-0.414638 0.414638v2.58538c0 0.243893 0.195137 0.43903 0.439026 0.43903 3.17075 0 5.19515-1.56099 6.51223-5.26832 0 0 3.12197-8.8537 3.97563-11.244 0.02457-0.121966 0.02457-0.292687-0.07317-0.390244-0.07317-0.121966-0.219516-0.195137-0.365858-0.195137z"
+                ></path>
+                <path
+                  d="m60.7805 48.634c-0.243892 0-0.439029 0.195137-0.439029 0.439026v5.5854c-0.804881-0.926835-2.00001-1.48782-3.63416-1.48782-3.19514 0-5.8293 2.80489-5.8293 6.43906 0 3.63416 2.63416 6.43906 5.8293 6.43906 1.63416 0 2.82928-0.560977 3.63416-1.48781v0.70732c0 0.243892 0.195137 0.439026 0.439029 0.439026h2.7805c0.121965 0 0.219514-0.04879 0.317064-0.121966 0.07317-0.097546 0.121965-0.195137 0.121965-0.317064v-16.1952c0-0.121965-0.04879-0.219515-0.121965-0.317065-0.09755-0.07317-0.195137-0.121965-0.317064-0.121965zm-3.34148 13.9513c-1.68293 0-2.90245-1.14635-2.90245-2.97562 0-1.82928 1.21952-2.97563 2.90245-2.97563 1.68294 0 2.90246 1.14635 2.90246 2.97563 0 1.82928-1.21952 2.97562-2.90246 2.97562z"
+                ></path>
+              </g>
+            </svg>
+            <!--<![endif]--></a
+          >
+        </div>
+        <span
+          >copyright &copy; {new Date().getFullYear()} Brooke "breq" Chalmers based
+          on work by Ariana "adryd" redacted used without permission. this webpage
+          is licensed under the <a
+            href="https://github.com/outofambit/friends-and-lovers-license/blob/main/FRIENDS_AND_LOVERS_LICENSE"
+            >friends and lovers</a
+          > license. most images, vector graphics, scripts and other assets are made
+          by other artists. visit <a href="https://www.sinkdog.com/"
+            >sinkdog.com</a
+          > for pictures of sinkdog. this footer is mostly here because it looks cool.
+          <br />
+          <span class="ie-display-none">🎈 🌈 🚲 🐕 🍓</span>
+        </span>
+      </div>
+    </div>
+    <script is:inline src="https://adryd.com/static/neko/neko.js?meow"></script>
+    <script is:inline>
+      (window.webpackChunkwpToolsDetect = []).push = function push() {
+        console.log("webpackTools user detected c:");
+        var wpToolsEl = document.getElementById("wpTools");
+        wpToolsEl.innerText = "webpackTools user detected c: →";
+      };
+    </script>
+  </body>
+</html>
