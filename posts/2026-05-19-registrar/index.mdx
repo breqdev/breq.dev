@@ -4,6 +4,8 @@ description: "*but maybe not the TLDs you're thinking of"
 tags: [dns, networking]
 ---
 
+import Dig from "./Dig.astro";
+
 This website has the domain name `breq.dev`. To set it up, I purchased it from a registrar (Porkbun), who then bought it at wholesale prices from the `.dev` registry (run by Google).
 
 When you open this website in your browser, your computer _resolves_ this domain using the DNS protocol. Specifically, it looks up `.dev` in the root servers to get Google's servers, looks up `breq.dev` in Google's servers to get _my_ nameservers (run by Cloudflare in this case), and then queries those servers to get the IP address of the server hosting `breq.dev`.
@@ -24,9 +26,7 @@ Using the `dig` command and the `+norecurse` option, we can see this chain in ac
 
 Let's start with one of the ICANN root servers. Although they're operated by different entities, they all should behave identically. There are not that many root servers, so their IP addresses are often hardcoded -- let's assume we know that the IP address of `a.root-servers.net` is `198.41.0.4`.
 
-<Dig>
-
-```
+<Dig text={`
 ; <<>> DiG 9.18.48 <<>> +norecurse A @198.41.0.4 diginoltar.nl
 ; (1 server found)
 ;; global options: +cmd
@@ -37,28 +37,26 @@ Let's start with one of the ICANN root servers. Although they're operated by dif
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 4096
 ;; QUESTION SECTION:
-;diginoltar.nl.			IN	A
+;diginoltar.nl. IN A
 
 ;; AUTHORITY SECTION:
-nl.			172800	IN	NS	ns3.dns.nl.
-nl.			172800	IN	NS	ns1.dns.nl.
-nl.			172800	IN	NS	ns4.dns.nl.
+nl. 172800 IN NS ns3.dns.nl.
+nl. 172800 IN NS ns1.dns.nl.
+nl. 172800 IN NS ns4.dns.nl.
 
 ;; ADDITIONAL SECTION:
-ns3.dns.nl.		172800	IN	A	194.0.25.24
-ns3.dns.nl.		172800	IN	AAAA	2001:678:20::24
-ns1.dns.nl.		172800	IN	A	194.0.28.53
-ns1.dns.nl.		172800	IN	AAAA	2001:678:2c:0:194:0:28:53
-ns4.dns.nl.		172800	IN	A	185.159.199.200
-ns4.dns.nl.		172800	IN	AAAA	2620:10a:80ac::200
+ns3.dns.nl. 172800 IN A 194.0.25.24
+ns3.dns.nl. 172800 IN AAAA 2001:678:20::24
+ns1.dns.nl. 172800 IN A 194.0.28.53
+ns1.dns.nl. 172800 IN AAAA 2001:678:2c:0:194:0:28:53
+ns4.dns.nl. 172800 IN A 185.159.199.200
+ns4.dns.nl. 172800 IN AAAA 2620:10a:80ac::200
 
 ;; Query time: 32 msec
 ;; SERVER: 198.41.0.4#53(198.41.0.4) (UDP)
 ;; WHEN: Mon May 18 22:10:50 EDT 2026
-;; MSG SIZE  rcvd: 232
-```
-
-</Dig>
+;; MSG SIZE rcvd: 232
+`} />
 
 Remember, it's not the root server's job to have records for every domain name -- that's why we don't see `diginoltar.nl` in the response at all! The root server points you to the authoritative server for the top level domain (`.nl`), and that server points to the authoritative server for the second-level domain (`diginoltar.nl`), and
 
@@ -68,9 +66,7 @@ You might wonder: how can we query, say, `ns1.dns.nl` to look up records if we d
 
 Cool, now let's pick one of those addresses at random and ask it for diginoltar.nl:
 
-<Dig>
-
-```
+<Dig text={`
 ; <<>> DiG 9.18.48 <<>> +norecurse A @194.0.25.24 diginoltar.nl
 ; (1 server found)
 ;; global options: +cmd
@@ -82,20 +78,18 @@ Cool, now let's pick one of those addresses at random and ask it for diginoltar.
 ; EDNS: version: 0, flags:; udp: 1400
 ; COOKIE: aeaea45fdcf62976010000006a08e3e1d11dcd412312d010 (good)
 ;; QUESTION SECTION:
-;diginoltar.nl.			IN	A
+;diginoltar.nl. IN A
 
 ;; AUTHORITY SECTION:
-diginoltar.nl.		3600	IN	NS	ns1.famfo.xyz.
-diginoltar.nl.		3600	IN	NS	ns1.homecloud.lol.
-diginoltar.nl.		3600	IN	NS	miyuki.sakamoto.pl.
+diginoltar.nl. 3600 IN NS ns1.famfo.xyz.
+diginoltar.nl. 3600 IN NS ns1.homecloud.lol.
+diginoltar.nl. 3600 IN NS miyuki.sakamoto.pl.
 
 ;; Query time: 129 msec
 ;; SERVER: 194.0.25.24#53(194.0.25.24) (UDP)
 ;; WHEN: Sat May 16 17:38:41 EDT 2026
-;; MSG SIZE  rcvd: 160
-```
-
-</Dig>
+;; MSG SIZE rcvd: 160
+`} />
 
 Awesome -- we now have some servers which are authoritative for `diginoltar.nl`! Notice that we don't need glue records this time, since they're all on a different domain than `.nl`. We can look up the IP address of the first one using the same process we're doing now:
 
@@ -107,9 +101,7 @@ You might have noticed that we can skip the last step, but I wrote it out for co
 
 Finally, we can ask `ns1.famfo.xyz` for `diginoltar.nl`:
 
-<Dig>
-
-```
+<Dig text={`
 ; <<>> DiG 9.18.48 <<>> +norecurse A @116.202.10.127 diginoltar.nl
 ; (1 server found)
 ;; global options: +cmd
@@ -120,18 +112,16 @@ Finally, we can ask `ns1.famfo.xyz` for `diginoltar.nl`:
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
 ;; QUESTION SECTION:
-;diginoltar.nl.			IN	A
+;diginoltar.nl. IN A
 
 ;; ANSWER SECTION:
-diginoltar.nl.		3600	IN	A	5.75.163.176
+diginoltar.nl. 3600 IN A 5.75.163.176
 
 ;; Query time: 171 msec
 ;; SERVER: 116.202.10.127#53(116.202.10.127) (UDP)
 ;; WHEN: Sat May 16 17:45:15 EDT 2026
-;; MSG SIZE  rcvd: 58
-```
-
-</Dig>
+;; MSG SIZE rcvd: 58
+`} />
 
 And we get our answer: `5.75.163.176`! This is the website hosting `diginoltar.nl`.
 
@@ -139,9 +129,7 @@ Next, let's repeat this process, but with the DigiNøltar infrastructure and the
 
 Ask the root server, `51.195.3.249`:
 
-<Dig>
-
-```
+<Dig text={`
 ; <<>> DiG 9.18.48 <<>> +norecurse A @51.195.3.249 notar.xn--l-4ga
 ; (1 server found)
 ;; global options: +cmd
@@ -152,24 +140,20 @@ Ask the root server, `51.195.3.249`:
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
 ;; QUESTION SECTION:
-;notar.øl.			IN	A
+;notar.øl. IN A
 
 ;; AUTHORITY SECTION:
-øl.			600	IN	NS	ns1.øl.gtld-servers.ol.
+øl. 600 IN NS ns1.øl.gtld-servers.ol.
 
 ;; Query time: 108 msec
 ;; SERVER: 51.195.3.249#53(51.195.3.249) (UDP)
 ;; WHEN: Sat May 16 17:46:50 EDT 2026
-;; MSG SIZE  rcvd: 87
-```
-
-</Dig>
+;; MSG SIZE rcvd: 87
+`} />
 
 Cool, we need to find `ns1.øl.gtld-servers.ol`. Let's ask the root nameserver again:
 
-<Dig>
-
-```
+<Dig text={`
 ; <<>> DiG 9.18.48 <<>> +norecurse A @51.195.3.249 ns1.øl.gtld-servers.ol
 ; (1 server found)
 ;; global options: +cmd
@@ -180,24 +164,20 @@ Cool, we need to find `ns1.øl.gtld-servers.ol`. Let's ask the root nameserver a
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
 ;; QUESTION SECTION:
-;ns1.øl.gtld-servers.ol.	IN	A
+;ns1.øl.gtld-servers.ol. IN A
 
 ;; ANSWER SECTION:
-ns1.øl.gtld-servers.ol. 600	IN	A	5.75.163.176
+ns1.øl.gtld-servers.ol. 600 IN A 5.75.163.176
 
 ;; Query time: 198 msec
 ;; SERVER: 51.195.3.249#53(51.195.3.249) (UDP)
 ;; WHEN: Sat May 16 17:48:56 EDT 2026
-;; MSG SIZE  rcvd: 74
-```
-
-</Dig>
+;; MSG SIZE rcvd: 74
+`} />
 
 We get an A record response directly -- this is uncommon but allowed within the protocol. Let's ask it about `notar.xn--l-4ga`:
 
-<Dig>
-
-```
+<Dig text={`
 ; <<>> DiG 9.18.48 <<>> +norecurse A @5.75.163.176 notar.xn--l-4ga
 ; (1 server found)
 ;; global options: +cmd
@@ -208,18 +188,16 @@ We get an A record response directly -- this is uncommon but allowed within the 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
 ;; QUESTION SECTION:
-;notar.øl.			IN	A
+;notar.øl. IN A
 
 ;; ANSWER SECTION:
-notar.øl.		3600	IN	A	5.75.163.176
+notar.øl. 3600 IN A 5.75.163.176
 
 ;; Query time: 129 msec
 ;; SERVER: 5.75.163.176#53(5.75.163.176) (UDP)
 ;; WHEN: Sat May 16 17:50:18 EDT 2026
-;; MSG SIZE  rcvd: 60
-```
-
-</Dig>
+;; MSG SIZE rcvd: 60
+`} />
 
 Awesome, another A record! We now know that `notar.øl` is hosted on `5.75.163.176`, the same server as `diginoltar.nl`.
 
