@@ -1,0 +1,33 @@
+---
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+
+interface Props {
+  icon: IconDefinition;
+  class?: string;
+  title?: string;
+}
+
+const { icon, class: className, title } = Astro.props;
+const [width, height, , , svgPathData] = icon.icon;
+
+// svgPathData can be a single path string or an array of two
+// (for duotone icons) -- free-solid icons are always a single string.
+const paths = Array.isArray(svgPathData) ? svgPathData : [svgPathData];
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={`0 0 ${width} ${height}`}
+  class={className}
+  fill="currentColor"
+  role={title ? "img" : "presentation"}
+  aria-hidden={title ? undefined : "true"}
+  style={{
+    display: "inline-block",
+    height: "1em",
+    verticalAlign: "-.125em",
+  }}
+>
+  {title && <title>{title}</title>}
+  {paths.map((d) => <path d={d} />)}
+</svg>

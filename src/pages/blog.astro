@@ -1,0 +1,38 @@
+---
+import { faRssSquare } from "@fortawesome/free-solid-svg-icons";
+import FaIcon from "../components/FaIcon.astro";
+import Page from "../layouts/Page.astro";
+import { getCollection } from "astro:content";
+import BlogPostCard from "../components/BlogPostCard.astro";
+import { getDateObject } from "../utils/dates";
+
+const posts = await getCollection("posts");
+
+const sortedPosts = posts.sort(
+  (a, b) => getDateObject(b.id).getTime() - getDateObject(a.id).getTime(),
+);
+---
+
+<Page
+  class="bg-black text-white"
+  title="Brooke's Blog: posts about tinkering with anything and everything"
+>
+  <div class="mx-auto max-w-5xl text-center font-display">
+    <div class="my-8 flex flex-col items-center gap-4 px-4">
+      <h1 class="text-6xl">blog posts</h1>
+      <p class="-mt-2 text-xl">
+        available via{" "}
+        <a
+          href="https://breq.dev/rss.xml"
+          class="font-bold text-orange-300 hover:underline"
+        >
+          <FaIcon icon={faRssSquare} class="-mb-px -mr-0.5 ml-0.5" />{" "}
+          rss
+        </a>
+      </p>
+    </div>
+    <div class="flex flex-col gap-6 p-4">
+      {sortedPosts.map((post) => <BlogPostCard post={post} />)}
+    </div>
+  </div>
+</Page>

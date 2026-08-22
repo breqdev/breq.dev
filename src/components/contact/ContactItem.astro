@@ -1,0 +1,42 @@
+---
+import FaIcon from "../FaIcon.astro";
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+
+interface Props {
+  url: string;
+  icon: IconDefinition;
+  username: string;
+  label: string;
+  description: string;
+  class: string;
+}
+
+const {
+  url,
+  icon,
+  username,
+  label,
+  description,
+  class: className,
+} = Astro.props;
+
+const longUsername = username.length <= 16;
+---
+
+<a
+  href={url}
+  class={"flex flex-row items-center gap-4 rounded-2xl border-2 border-black p-4 outline-none transition-colors dark:border-white dark:bg-gray-800 " +
+    className}
+>
+  <FaIcon class="fa-fw text-5xl" icon={icon} title={label} />
+  <div class="flex w-full flex-col items-start">
+    {
+      longUsername ? (
+        <h2 class="font-mono text-3xl">{username}</h2>
+      ) : (
+        <h2 class="font-mono text-2xl">{username}</h2>
+      )
+    }
+    <p>{description}</p>
+  </div>
+</a>

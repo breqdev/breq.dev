@@ -1,0 +1,495 @@
+---
+import {
+  faBriefcase,
+  faPencil,
+  faSmile,
+} from "@fortawesome/free-solid-svg-icons";
+import FaIcon from "../components/FaIcon.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { getDateObject, getPostUrl } from "../utils/dates";
+import { BADGES } from "../utils/badges";
+
+const projects = await getCollection("projects");
+const displayedProjects = projects
+  .filter((p) => p.data.image)
+  .sort((a, b) => b.data.writeup.getTime() - a.data.writeup.getTime())
+  .slice(0, 6);
+
+const posts = await getCollection("posts");
+const displayedPosts = posts
+  .sort((a, b) => getDateObject(b.id).getTime() - getDateObject(a.id).getTime())
+  .slice(0, 6);
+---
+
+<html lang="en">
+  <head
+    ><meta charset="utf-8" /><link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+    /><link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap"
+      rel="stylesheet"
+    /><meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    /><meta name="theme-color" content="#000000" /><meta
+      name="description"
+      content="Brooke Chalmers' Personal Website"
+    /><title>Brooke Chalmers</title>
+    <style>
+      :root {
+        --acc-duration: 0.4s;
+        --bg-1: #17002a;
+        --bg-2: #2a004d;
+        --text-color: #efddff;
+        --brooke-pink: #ff8ac4;
+        --link-cyan: #00b5d8;
+        --md-link-blue: #349eeb;
+        --font-body: "Comfortaa", system-ui, sans-serif;
+      }
+      html {
+        color: var(--text-color);
+        background-color: var(--bg-1);
+        font-weight: 600;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      body {
+        font-family: var(--font-body);
+        margin: 0;
+      }
+      h1,
+      h2,
+      h3 {
+        margin-block: 0.5rem;
+      }
+      .pronouns {
+        -webkit-text-fill-color: transparent;
+        background: linear-gradient(
+            90deg,
+            #efddff 0% 49.9%,
+            #55cdfc 50% 56%,
+            #f7a8b8 61% 67.5%,
+            #fff 72.5% 77.5%,
+            #f7a8b8 82.5% 88.5%,
+            #55cdfc 93.5% 100%
+          )
+          0 0/200% 100% no-repeat text;
+        transition: background-position 1s ease-in-out;
+      }
+      .pronouns:hover {
+        background-position: 100%;
+      }
+      .clickable {
+        border-radius: 0;
+        padding: 5px;
+        transition: transform 0.4s ease-in-out;
+        display: inline-block;
+        position: relative;
+      }
+      .clickable:hover {
+        background-color: #ffffff1a;
+        border-radius: 10px;
+        transform: scale(1.05);
+      }
+      .full-name {
+        display: none;
+      }
+      @media (width>=769px) {
+        .full-name {
+          display: inline;
+        }
+      }
+      .column {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin: 12px;
+        display: flex;
+      }
+      @media (width>=30em) {
+        .column {
+          margin: 32px;
+        }
+      }
+      .section-card {
+        background-color: var(--bg-2);
+        color: var(--text-color);
+        box-sizing: border-box;
+        border: none;
+        border-radius: 0.75rem;
+        width: 100%;
+        min-height: 5rem;
+        padding: 1.5rem;
+      }
+      @media (width>=30em) {
+        .section-card {
+          width: 90%;
+        }
+      }
+      @media (width>=48em) {
+        .section-card {
+          width: 40rem;
+        }
+      }
+      .resource {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        display: inline-flex;
+      }
+      .back-row {
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 100%;
+        display: flex;
+      }
+      .text-link {
+        color: var(--link-cyan);
+      }
+      .text-link:hover {
+        text-decoration: underline;
+      }
+      .brooke-link {
+        color: var(--brooke-pink);
+      }
+      .brooke-link:hover {
+        text-decoration: underline;
+      }
+      details.acc-section {
+        margin: 4px;
+      }
+      details.acc-section > summary {
+        cursor: pointer;
+        align-items: center;
+        list-style: none;
+        display: flex;
+      }
+      details.acc-section > summary::-webkit-details-marker {
+        display: none;
+      }
+      .acc-header {
+        text-align: start;
+        flex-direction: row;
+        flex: 1;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        font-size: 0.75em;
+        line-height: 1;
+        display: flex;
+      }
+      .acc-icon-box {
+        background-color: #fff;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+        min-width: 45px;
+        min-height: 45px;
+        display: inline-flex;
+      }
+      .acc-icon-box img {
+        max-width: 40px;
+        max-height: 40px;
+      }
+      .acc-chevron {
+        margin-left: auto;
+        transition: transform 0.2s ease-in-out;
+      }
+      details[open] > summary .acc-chevron {
+        transform: rotate(180deg);
+      }
+      .acc-content {
+        min-height: 0;
+      }
+      .acc-content-inner {
+        margin: 4px;
+        padding: 8px;
+      }
+      details.acc-section::details-content {
+        content-visibility: visible;
+        opacity: 0;
+        transition:
+          grid-template-rows var(--acc-duration) ease-in-out,
+          opacity var(--acc-duration) ease-in-out;
+        grid-template-rows: 0fr;
+        display: grid;
+        overflow: clip;
+      }
+      details.acc-section[open]::details-content {
+        opacity: 1;
+        grid-template-rows: 1fr;
+      }
+      .prose p {
+        margin: 0 0 8px;
+      }
+      .prose h1 {
+        margin: 16px 0;
+        font-size: 2.5rem;
+      }
+      .prose h2 {
+        margin: 16px 0;
+        font-size: 1.5rem;
+      }
+      .prose h3,
+      .prose h4,
+      .prose h5,
+      .prose h6 {
+        margin: 16px 0;
+        font-size: 1rem;
+      }
+      .prose a {
+        color: var(--md-link-blue);
+      }
+      .prose ul,
+      .prose ol {
+        margin: 0 0 8px;
+        padding-left: 16px;
+      }
+      .prose li {
+        margin-bottom: 8px;
+      }
+      .prose blockquote {
+        border-left: 4px solid var(--bg-1);
+        margin: 0 0 4px;
+        padding-left: 1rem;
+      }
+      .prose code {
+        white-space: break-spaces;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 8px;
+        display: block;
+        overflow-x: auto;
+      }
+      .prose pre {
+        margin: 0 0 8px;
+      }
+      .prose img {
+        max-width: 100%;
+      }
+    </style>
+  </head><body
+    ><div class="column">
+      <div style="padding-block: 1rem">
+        <div class="section-card">
+          <div
+            style="display:flex; justify-content:center; align-items:center; gap:1rem;"
+          >
+            <img
+              src="https://avasilver.dev/logo.svg"
+              alt=""
+              style="height: 5rem;"
+            /><h1 style="font-size: 3rem; margin-block: 0;">
+              brooke <span class="full-name">chalmers</span>
+            </h1>
+          </div>
+        </div>
+      </div><div class="section-card">
+        <h2 style="font-size: 2rem;">hiya there!</h2><p
+          style="font-size: 1.25rem; margin-block: 0;"
+        >
+          i'm brooke chalmers (<span class="pronouns">she/her</span>). welcome
+          to my corner of the internet! <span id="cat">:3</span>
+        </p>
+      </div><div class="section-card">
+        <div style="display: flex; flex-direction: column;">
+          <details class="acc-section">
+            <summary>
+              <span class="acc-header" style="font-size: 1em">
+                <span
+                  class="acc-icon-box"
+                  style="color: #000000; font-size: 1rem;"
+                >
+                  <FaIcon icon={faBriefcase} />
+                </span>work experience</span
+              >
+              <svg
+                class="acc-chevron"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+              ></summary
+            ><div class="acc-content">
+              <div class="acc-content-inner">
+                {
+                  displayedProjects.map((project) => (
+                    <details class="acc-section" data-group="work">
+                      <summary>
+                        <span class="acc-header" style="font-size: 1em">
+                          <span class="acc-icon-box">
+                            <Image
+                              src={project.data.image!}
+                              alt=""
+                              loading="lazy"
+                              decoding="async"
+                              width="140"
+                              height="150"
+                            />
+                          </span>
+                          {project.data.title}
+                        </span>
+                        <svg
+                          class="acc-chevron"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </summary>
+                      <div class="acc-content">
+                        <div class="acc-content-inner">
+                          <a href={`/projects/${project.id}`}>
+                            {project.data.description}
+                          </a>
+                        </div>
+                      </div>
+                    </details>
+                  ))
+                }
+              </div>
+            </div>
+          </details><div style="padding: 4px;"></div><details
+            class="acc-section"
+          >
+            <summary
+              ><span class="acc-header" style="font-size: 1em"
+                ><span class="acc-icon-box" style="color: #000000;"
+                  ><FaIcon icon={faSmile} /></span
+                >hobbies &amp; fun</span
+              ><svg
+                class="acc-chevron"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+              ></summary
+            ><div class="acc-content">
+              <div class="acc-content-inner">
+                {
+                  displayedPosts.map((post) => (
+                    <details class="acc-section" data-group="hobbies">
+                      <>
+                        <summary>
+                          <>
+                            <span class="acc-header" style="font-size: 1em">
+                              <span
+                                class="acc-icon-box"
+                                style="color: #000000;"
+                              >
+                                <FaIcon icon={faPencil} />
+                              </span>
+                              {post.data.title}
+                            </span>
+                            <svg
+                              class="acc-chevron"
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="m6 9 6 6 6-6" />
+                            </svg>
+                          </>
+                        </summary>
+                        <div class="acc-content">
+                          <div class="acc-content-inner">
+                            <a href={getPostUrl(post.id)}>
+                              {post.data.description}
+                            </a>
+                          </div>
+                        </div>
+                      </>
+                    </details>
+                  ))
+                }
+              </div>
+            </div>
+          </details>
+        </div>
+      </div><div class="section-card">
+        <div style="display: flex; justify-content: space-around;">
+          <a href="/resume.pdf" class="clickable resource"
+            >Resume<img
+              src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='aliceblue'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20%3e%3cpath%20d='M14%202H6a2%202%200%200%200-2%202v16a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2V8z'%20/%3e%3cpolyline%20points='14%202%2014%208%2020%208'%20/%3e%3cline%20x1='16'%20y1='13'%20x2='8'%20y2='13'%20/%3e%3cline%20x1='16'%20y1='17'%20x2='8'%20y2='17'%20/%3e%3cpolyline%20points='10%209%209%209%208%209'%20/%3e%3c/svg%3e"
+              alt="Resume"
+            /></a
+          ><a href="https://www.linkedin.com/games" class="clickable resource"
+            >LinkedIn<img
+              src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='aliceblue'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20%3e%3cpath%20d='M16%208a6%206%200%200%201%206%206v7h-4v-7a2%202%200%200%200-2-2%202%202%200%200%200-2%202v7h-4v-7a6%206%200%200%201%206-6z'%20/%3e%3crect%20x='2'%20y='9'%20width='4'%20height='12'%20/%3e%3ccircle%20cx='4'%20cy='4'%20r='2'%20/%3e%3c/svg%3e"
+              alt="LinkedIn"
+            /></a
+          ><a href="https://github.com/breqdev" class="clickable resource"
+            >Github<img
+              src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='aliceblue'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20%3e%3cpath%20d='M9%2019c-5%201.5-5-2.5-7-3m14%206v-3.87a3.37%203.37%200%200%200-.94-2.61c3.14-.35%206.44-1.54%206.44-7A5.44%205.44%200%200%200%2020%204.77%205.07%205.07%200%200%200%2019.91%201S18.73.65%2016%202.48a13.38%2013.38%200%200%200-7%200C6.27.65%205.09%201%205.09%201A5.07%205.07%200%200%200%205%204.77a5.44%205.44%200%200%200-1.5%203.78c0%205.42%203.3%206.61%206.44%207A3.37%203.37%200%200%200%209%2018.13V22'%20/%3e%3c/svg%3e"
+              alt="Github"
+            /></a
+          ><a href="/blog" class="clickable resource"
+            >Blog<img
+              src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20class='feather%20feather-edit-3'%3e%3cpath%20d='M12%2020h9'%3e%3c/path%3e%3cpath%20d='M16.5%203.5a2.121%202.121%200%200%201%203%203L7%2019l-4%201%201-4L16.5%203.5z'%3e%3c/path%3e%3c/svg%3e"
+              alt="Blog"
+            /></a
+          >
+        </div>
+      </div><div class="section-card">
+        <div
+          style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; align-items: center;"
+        >
+          {
+            BADGES.map((b) => (
+              <a href={b.url}>
+                <img
+                  src={b.image}
+                  alt={b.name}
+                  height="31"
+                  width="88"
+                  loading="lazy"
+                  decoding="async"
+                  style="image-rendering: pixelated;"
+                />
+                '
+              </a>
+            ))
+          }
+        </div>
+      </div><div
+        style="display: flex; justify-content: center; gap: 2rem; align-items: center;"
+      >
+        <span>Brooke Chalmers and Ava Silver 2026</span><a
+          href="mailto:breq@breq.dev"
+          class="clickable">breq@breq.dev</a
+        ><a
+          href="https://github.com/breqdev/breq.dev/"
+          class="clickable resource"
+          >source code<img
+            src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='aliceblue'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20%3e%3cpath%20d='M9%2019c-5%201.5-5-2.5-7-3m14%206v-3.87a3.37%203.37%200%200%200-.94-2.61c3.14-.35%206.44-1.54%206.44-7A5.44%205.44%200%200%200%2020%204.77%205.07%205.07%200%200%200%2019.91%201S18.73.65%2016%202.48a13.38%2013.38%200%200%200-7%200C6.27.65%205.09%201%205.09%201A5.07%205.07%200%200%200%205%204.77a5.44%205.44%200%200%200-1.5%203.78c0%205.42%203.3%206.61%206.44%207A3.37%203.37%200%200%200%209%2018.13V22'%20/%3e%3c/svg%3e"
+            alt="source code"
+            loading="lazy"
+          />
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

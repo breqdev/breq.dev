@@ -1,0 +1,138 @@
+---
+import Page from "../layouts/Page.astro";
+import { BADGES } from "../utils/badges";
+
+function getFontURL(font: string): string {
+  if (font === "Pretendard") {
+    return "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css";
+  } else if (font === "Futura") {
+    // ideally would find a less sus source for this
+    return "/shims/futura.css";
+  } else if (font === "Equestria") {
+    // no clue where izzy got this one from, so we'll just make our own CSS shim
+    return "/shims/equestria.css";
+  } else {
+    // Fall back to Google Fonts
+    return `https://fonts.googleapis.com/css2?family=${font.replaceAll(
+      " ",
+      "+",
+    )}&display=swap`;
+  }
+}
+---
+
+<Fragment slot="head">
+  {
+    BADGES.map((badge) => badge.font)
+      .filter((font) => font !== undefined)
+      .map((font) => <link rel="stylesheet" href={getFontURL(font)} />)
+  }
+</Fragment>
+
+<Page
+  class="bg-gray-800 p-2 text-white"
+  title="Friends - breq.dev"
+  description="A directory of cool people I know."
+>
+  <div
+    class="mx-auto my-12 flex max-w-2xl flex-col rounded-2xl bg-black p-4 text-white"
+  >
+    <h1 class="text-center font-display text-6xl">friends</h1>
+    <p class="max-w-2xl text-center font-display text-xl">
+      these are my awesome friends. check out their sites below!
+    </p>
+    <p class="max-w-2xl text-center font-display text-lg italic">
+      this page is{" "}
+      <a
+        class="text-panblue-light hover:underline"
+        href="https://microformats.org/wiki/h-card"
+      >
+        h-card
+      </a>{" "}
+      and{" "}
+      <a
+        class="text-panblue-light hover:underline"
+        href="http://www.gmpg.org/xfn/intro"
+      >
+        XFN
+      </a>{" "}
+      compliant! view parsed data on{" "}
+      <a
+        class="text-panblue-light hover:underline"
+        href="https://pin13.net/mf2/?url=https%3A%2F%2Fbreq.dev%2Fdirectory"
+      >
+        pin13
+      </a>
+      .
+    </p>
+  </div>
+
+  <div
+    class="grid grid-cols-[repeat(auto-fit,min(90vw,24rem))] justify-center gap-8 px-4 py-8"
+  >
+    {
+      BADGES.filter((b) => !b.exclude).map(
+        ({
+          name,
+          image,
+          url,
+          placeholder,
+          tag,
+          bio,
+          color,
+          textColor,
+          borderIsTextColor,
+          font,
+          rel,
+        }) => (
+          <div class="h-card group relative">
+            <div
+              class="pointer-events-none absolute inset-0 z-0 rounded-2xl transition-transform group-focus-within:translate-x-4 group-focus-within:translate-y-2 group-hover:translate-x-4 group-hover:translate-y-2"
+              style={{
+                backgroundColor: borderIsTextColor ? textColor : color,
+              }}
+            />
+            <a
+              href={url}
+              class="u-url relative z-10 flex flex-col gap-2 rounded-2xl bg-black p-2 font-display text-white focus-visible:outline"
+              style={{
+                outlineColor: borderIsTextColor ? textColor : color,
+              }}
+              rel={rel}
+            >
+              <h2
+                class="p-nickname text-center font-mono text-3xl font-bold lowercase"
+                style={{ color: textColor }}
+              >
+                {tag || name.split(" ")[0]}
+              </h2>
+              <div
+                style={{
+                  imageRendering: "pixelated",
+                  aspectRatio: "88 / 31",
+                }}
+                class="w-full"
+              >
+                {image /* eslint-disable-next-line @next/next/no-img-element */ && (
+                  <img class="u-logo w-full" src={image} alt={name} />
+                )}
+                {placeholder && (
+                  <div class="flex h-full items-center justify-center border-2 border-dashed border-white">
+                    <span class="font-display text-white">{placeholder}</span>
+                  </div>
+                )}
+              </div>
+              <div
+                class="text-center"
+                style={{ fontFamily: font ? `"${font}"` : "inherit" }}
+              >
+                <h2 class="p-name text-4xl font-bold">{name}</h2>
+                <p class="p-note">{bio}</p>
+              </div>
+            </a>
+          </div>
+        ),
+      )
+    }
+  </div>
+</Page>

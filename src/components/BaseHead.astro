@@ -1,0 +1,63 @@
+---
+import Font from "astro/components/Font.astro";
+
+type Props = {
+  title: string;
+  description?: string;
+  image?: string;
+};
+
+const { title, description, image } = Astro.props;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="msapplication-TileColor" content="#9f00a7" />
+<meta name="theme-color" content="#ff42a1" />
+
+<Font cssVariable="--font-fira-code" />
+<Font cssVariable="--font-libre-franklin" />
+<Font cssVariable="--font-nunito" />
+<Font cssVariable="--font-nunito-sans" />
+
+<title>{title}</title>
+<meta name="author" content="Brooke Chalmers" />
+<meta name="description" content={description} />
+<link rel="canonical" href={Astro.url} />
+
+<meta name="og:title" content={title} />
+<meta name="og:description" content={description} />
+{image && <meta name="og:image" content={image} />}
+<meta name="og:url" content="https://breq.dev/" />
+<meta name="og:site_name" content="breq.dev" />
+<meta name="og:type" content="website" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@breqdev" />
+<meta name="twitter:creator" content="@breqdev" />
+{image && <meta name="twitter:image" content={"https://breq.dev" + image} />}
+<a rel="me" href="https://tacobelllabs.net/@breq" class="hidden"></a>
+<a rel="me" href="https://discord.com/users/386352037723635712" class="hidden"
+></a>
+<a
+  rel="me"
+  href="https://signal.me/#eu/65D91kL+LwalfvCf/DWfyl1gpsswnqel4gW79DDNxcZJEJjLoe9AWoZF98GvTQaG"
+  class="hidden"></a>
+<a rel="me" href="https://t.me/breqdev" class="hidden"></a>
+<a
+  rel="me"
+  href="https://wireless2.fcc.gov/UlsApp/UlsSearch/license.jsp?licKey=4768613"
+  class="hidden"></a>
+<a rel="me" href="https://github.com/breqdev" class="hidden"></a>
+<a rel="me" href="https://gitlab.com/breq" class="hidden"></a>
+<a rel="me" href="https://bsky.app/profile/breqdev" class="hidden"></a>
+<a rel="me" href="https://instagram.com/breqdev" class="hidden"></a>
+<a rel="me" href="https://www.linkedin.com/in/breqdev" class="hidden"></a>
+<a rel="me" href="https://reddit.com/u/breqdev" class="hidden"></a>
+<a rel="me" href="https://www.youtube.com/@breqdev" class="hidden"></a>
+<a rel="me" href="https://account.venmo.com/u/breqdev" class="hidden"></a>

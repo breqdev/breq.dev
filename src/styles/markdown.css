@@ -1,0 +1,107 @@
+.markdown {
+  p {
+    @apply mx-auto mb-4 max-w-prose font-body text-lg;
+  }
+
+  p.caption,
+  div.caption p {
+    @apply mb-8 my-2 max-w-xl text-balance text-center text-base;
+  }
+
+  a {
+    @apply text-panblue-dark outline-none hover:underline focus:bg-panyellow;
+  }
+
+  blockquote {
+    @apply -my-1 mx-auto max-w-3xl border-l-8 border-gray-400 py-1 pl-4 italic;
+    max-width: min(max-content, 100%);
+  }
+
+  kbd {
+    @apply rounded border-2 border-black bg-gray-200 p-1;
+  }
+
+  details {
+    @apply mx-auto my-4 max-w-prose rounded-2xl bg-gray-200 px-4 py-2 font-body text-lg dark:bg-gray-600;
+  }
+
+  h1 {
+    @apply mb-4 mt-8 max-w-4xl text-4xl;
+  }
+
+  h2 {
+    @apply mb-4 mt-8 max-w-4xl text-3xl;
+  }
+
+  h3 {
+    @apply mb-4 mt-8 max-w-4xl text-2xl italic;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply mx-auto text-center font-display;
+    scroll-margin-top: 100px;
+  }
+
+  img {
+    max-width: min(48rem, 100%);
+    max-height: 40rem;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  ul {
+    @apply mx-auto max-w-prose text-lg list-disc font-body;
+  }
+
+  ol {
+    @apply mx-auto max-w-prose text-lg list-decimal font-body;
+  }
+
+  li {
+    @apply my-2 mx-8;
+  }
+
+  table {
+    @apply mx-auto border-separate border-spacing-0 overflow-hidden rounded-xl border-2 border-black bg-white dark:border-white dark:bg-gray-800 my-4;
+  }
+
+  th {
+    @apply border border-black p-2 dark:border-white;
+  }
+
+  td {
+    @apply border border-gray-500 p-2;
+  }
+
+  hr {
+    @apply max-w-prose mx-auto my-8;
+  }
+
+  div.callout-gray {
+    @apply mx-auto my-4 max-w-prose rounded-2xl bg-gray-200 px-4 py-2 font-body text-lg dark:bg-gray-600;
+  }
+
+  div.callout-amber {
+    @apply mx-auto my-4 max-w-prose rounded-2xl bg-amber-200 px-4 py-2 font-body text-lg dark:bg-yellow-800;
+  }
+
+  div.callout-red {
+    @apply mx-auto my-4 max-w-prose rounded-2xl bg-red-200 px-4 py-2 font-body text-lg dark:bg-red-800;
+  }
+
+  blockquote {
+    @apply my-4;
+  }
+
+  .anchor {
+    @apply opacity-0 group-hover:opacity-100 group-focus:opacity-100;
+    @apply text-base text-gray-600 dark:text-gray-200;
+    @apply hidden md:block absolute -left-4 top-1/2 -translate-y-1/2;
+  }
+
+  .abcjsContainer {
+    @apply mx-auto w-min;
+  }
+}

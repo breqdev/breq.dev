@@ -1,0 +1,21 @@
+---
+interface Props {
+  position: "justify-center" | "justify-end";
+}
+
+const pronouns = "she/her";
+---
+
+<div class={"flex " + Astro.props.position}>
+  <div class="flex flex-col" style={{ textShadow: "#000 0 0 30px" }}>
+    <h1 class="text-7xl">
+      hey, i'm
+      <br />
+      <span class="text-panpink">brooke chalmers.</span>
+    </h1>
+    <p class="text-right text-6xl text-gray-500">({pronouns}).</p>
+    <h2 class="mt-12 text-right text-3xl">
+      welcome to my little patch of internet.
+    </h2>
+  </div>
+</div>

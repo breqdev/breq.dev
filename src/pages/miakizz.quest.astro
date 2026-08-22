@@ -1,0 +1,542 @@
+---
+import { Image } from "astro:assets";
+import selfie from "../images/selfies/fisheye.png";
+import { getCollection } from "astro:content";
+import { BADGES } from "../utils/badges";
+
+const projects = await getCollection("projects");
+const displayedProjects = projects
+  .filter((p) => p.data.image)
+  .sort((a, b) => b.data.writeup.getTime() - a.data.writeup.getTime())
+  .slice(0, 6);
+
+const recentlyUpdated = projects
+  .sort((a, b) => b.data.writeup.getTime() - a.data.writeup.getTime())
+  .slice(0, 6);
+---
+
+<html lang="en">
+  <head
+    ><meta name="generator" content="Hugo 0.164.0" /><link
+      rel="stylesheet"
+      href="https://miakizz.quest/css/main.min.e505c517e337bb3c960ed62bae6db6bbb5b0da455e0ef842692667b19852d70a.css"
+    /><meta charset="utf-8" /><meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#f7f7f7"
+    /><meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#1b1b1e"
+    /><meta name="mobile-web-app-capable" content="yes" /><meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    /><meta
+      name="viewport"
+      content="width=device-width,user-scalable=no,initial-scale=1,shrink-to-fit=no,viewport-fit=cover"
+    /><meta property="og:url" content="https://breq.dev/" /><meta
+      property="og:site_name"
+      content="Brooke Chalmers"
+    /><meta property="og:title" content="Brooke Chalmers" /><meta
+      property="og:locale"
+      content="en"
+    /><meta property="og:type" content="website" /><meta
+      name="twitter:card"
+      content="summary"
+    /><meta name="twitter:title" content="Brooke Chalmers" /><meta
+      itemprop="name"
+      content="Brooke Chalmers"
+    /><meta itemprop="datePublished" content="2026-08-08T10:13:40-04:00" /><meta
+      itemprop="dateModified"
+      content="2026-08-08T10:13:40-04:00"
+    /><title>Brooke Chalmers</title><link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/favicons/apple-touch-icon.png"
+    /><link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/favicons/favicon-32x32.png"
+    /><link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/favicons/favicon-16x16.png"
+    /><link rel="shortcut icon" href="/img/favicons/favicon.ico" /><meta
+      name="apple-mobile-web-app-title"
+      content="Brooke Chalmers"
+    /><meta name="application-name" content="Brooke Chalmers" /><meta
+      name="msapplication-TileColor"
+      content="#da532c"
+    /><meta
+      name="msapplication-config"
+      content="/img/favicons/browserconfig.xml"
+    /><meta name="theme-color" content="#ffffff" /><link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    /><link rel="dns-prefetch" href="https://fonts.googleapis.com" /><link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin=""
+    /><link rel="dns-prefetch" href="https://fonts.gstatic.com" /><link
+      rel="preconnect"
+      href="https://cdn.jsdelivr.net"
+    /><link rel="dns-prefetch" href="https://cdn.jsdelivr.net" /><link
+      rel="stylesheet"
+      href="https://miakizz.quest/css/main.min.e505c517e337bb3c960ed62bae6db6bbb5b0da455e0ef842692667b19852d70a.css"
+    /><link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+    /><link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css"
+    /><link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tocbot@4.32.2/dist/tocbot.min.css"
+    /><link rel="stylesheet" href="/" /><link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css"
+    />
+    <script src="https://miakizz.quest/js/modules/theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.13/dayjs.min.js"
+    ></script><script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.13/locale/en.js"
+    ></script><script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.13/plugin/relativeTime.js"
+    ></script><script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.13/plugin/localizedFormat.js"
+    ></script>
+    <script defer="" src="https://miakizz.quest/js/home.js"></script>
+  </head><body
+    ><aside
+      aria-label="Sidebar"
+      id="sidebar"
+      class="d-flex flex-column align-items-end"
+    >
+      <header class="profile-wrapper">
+        <a href="/" id="avatar" class="rounded-circle"
+          ><Image
+            src={selfie}
+            width="112"
+            height="112"
+            alt="avatar"
+            onerror='this.style.display="none"'
+          /></a
+        >
+        <a class="site-title d-block" href="/">Brooke Chalmers</a><p
+          class="site-subtitle fst-italic mb-0"
+        >
+          Electrical Engineering Extraordinaire
+        </p>
+      </header><nav class="flex-column flex-grow-1 w-100 ps-0">
+        <ul class="nav">
+          <li class="nav-item active">
+            <a href="/" class="nav-link"
+              ><i class="fa-fw fas fa-house"></i>
+              <span>HOME</span></a
+            >
+          </li><li class="nav-item">
+            <a href="/projects/" class="nav-link"
+              ><i class="fa-fw fas fa-stream"></i>
+              <span>PROJECTS</span></a
+            >
+          </li><li class="nav-item">
+            <a href="/blog/" class="nav-link"
+              ><i class="fa-fw fas fa-archive"></i>
+              <span>POSTS</span></a
+            >
+          </li><li class="nav-item">
+            <a href="/about/" class="nav-link"
+              ><i class="fa-fw fas fa-info-circle"></i>
+              <span>ABOUT</span></a
+            >
+          </li>
+        </ul>
+      </nav><div
+        class="sidebar-bottom d-flex flex-wrap align-items-center w-100"
+      >
+        <button
+          type="button"
+          class="btn btn-link nav-link"
+          aria-label="Switch Mode"
+          id="mode-toggle"
+        >
+          <i class="fas fa-adjust"></i>
+        </button>
+        <span class="icon-border"></span>
+        <a
+          href="https://github.com/breqdev"
+          aria-label="github"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><i class="fab fa-github"></i>
+        </a><a
+          href="https://tacobelllabs.net/@breq"
+          aria-label="custom"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><i class="fab fa-mastodon"></i>
+        </a><a
+          href="mailto:breq@breq.dev"
+          aria-label="email"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><i class="fas fa-envelope"></i>
+        </a><a href="https://breq.dev/rss.xml" aria-label="rss"
+          ><i class="fas fa-rss"></i></a
+        >
+      </div>
+    </aside><div id="main-wrapper" class="d-flex justify-content-center">
+      <div class="container d-flex flex-column px-xxl-5">
+        <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
+          <div
+            id="topbar"
+            class="d-flex align-items-center justify-content-between px-lg-3 h-100"
+          >
+            <nav id="breadcrumb" aria-label="Breadcrumb">
+              <span>Home</span>
+            </nav><button
+              type="button"
+              id="sidebar-trigger"
+              class="btn btn-link"
+              aria-label="Sidebar"
+            >
+              <i class="fas fa-bars fa-fw"></i></button
+            ><div id="topbar-title"></div><button
+              type="button"
+              id="search-trigger"
+              class="btn btn-link"
+              aria-label="Search"
+            >
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+            <button
+              type="button"
+              class="btn btn-link text-decoration-none"
+              id="search-cancel">Cancel</button
+            >
+          </div>
+        </header><div class="row flex-grow-1">
+          <main
+            aria-label="Main Content"
+            class="col-12 col-lg-11 col-xl-9 px-md-4"
+          >
+            <div id="post-list" class="flex-grow-1 px-xl-1">
+              {
+                displayedProjects.map((project) => (
+                  <article class="card-wrapper card">
+                    <a
+                      href={`/projects/${project.id}`}
+                      class="post-preview row g-0 flex-md-row-reverse"
+                    >
+                      <>
+                        <div class="col-md-5">
+                          <Image alt="" src={project.data.image!} />
+                        </div>
+                        <div class="col-md-7">
+                          <div class="card-body d-flex flex-column">
+                            <>
+                              <h1 class="card-title my-2 mt-md-0">
+                                {project.data.title}
+                              </h1>
+                              <div class="card-text content mt-0 mb-3">
+                                <p>{project.data.description}</p>
+                              </div>
+                              <div class="post-meta flex-grow-1 d-flex align-items-end">
+                                <div class="me-auto">
+                                  <i class="far fa-calendar fa-fw me-1" />
+                                  <time>
+                                    {new Intl.DateTimeFormat("en-US", {
+                                      month: "long",
+                                      day: "numeric",
+                                      year: "numeric",
+                                    }).format(project.data.writeup)}
+                                  </time>
+                                </div>
+                              </div>
+                            </>
+                          </div>
+                        </div>
+                      </>
+                    </a>
+                  </article>
+                ))
+              }
+            </div><nav aria-label="Page Navigation">
+              <ul class="pagination align-items-center mt-4 mb-0">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" aria-label="previous-page"
+                    ><i class="fas fa-angle-left"></i></a
+                  >
+                </li><li class="page-item active">
+                  <a class="page-link" href="/">1</a>
+                </li><li class="page-item">
+                  <a class="page-link" href="/projects">2</a>
+                </li><li class="page-item">
+                  <a class="page-link" href="/projects">3</a>
+                </li><li class="page-index align-middle">
+                  <span>1</span>
+                  <span class="text-muted">/ 3</span>
+                </li><li class="page-item">
+                  <a class="page-link" href="/projects" aria-label="next-page"
+                    ><i class="fas fa-angle-right"></i></a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </main><aside
+            aria-label="Panel"
+            id="panel-wrapper"
+            class="col-xl-3 ps-2 text-muted"
+          >
+            <div class="access">
+              <section id="access-lastmod">
+                <h2 class="panel-heading">Recently Updated</h2><ul
+                  class="content list-unstyled ps-0 pb-1 ms-1 mt-2"
+                >
+                  {
+                    recentlyUpdated.map((project) => (
+                      <li class="text-truncate lh-lg">
+                        <a href={`/projects/${project.id}/`}>
+                          {project.data.title}
+                        </a>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </section>
+            </div>
+          </aside>
+        </div><div class="row">
+          <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
+            <br /><footer
+              aria-label="Site Info"
+              class="text-muted"
+              style="padding:12px 0"
+            >
+              <style>
+                .badge {
+                  border: none !important;
+                  image-rendering: pixelated;
+                }
+              </style><div
+                class="d-flex flex-row text-muted justify-content-center justify-content-lg-start flex-wrap"
+                style="gap:5px;min-width:0;margin:0 auto"
+              >
+                {
+                  BADGES.map((b) => (
+                    <a href={b.url} class="badge">
+                      <img src={b.image} alt={b.name} />
+                    </a>
+                  ))
+                }
+              </div><br /><p>
+                Abusing the <a
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  href="https://github.com/geekifan/hugo-theme-chirpy"
+                  target="_blank"
+                  rel="noopener"
+                  data-bs-original-title="v1.0.2">Chirpy</a
+                > theme for <del>Hugo</del>{" "}
+                <a
+                  href="https://astro.build/"
+                  target="_blank"
+                  rel="noopener"
+                  style="font-style: italic;">Astro</a
+                >.
+              </p><br />
+            </footer>
+          </div>
+        </div><div
+          id="search-result-wrapper"
+          class="d-flex justify-content-center d-none"
+        >
+          <div class="col-11 content">
+            <div id="search-hints"></div><div
+              id="search-results"
+              class="d-flex flex-wrap justify-content-center text-muted mt-3"
+            >
+            </div>
+          </div>
+        </div><script>
+          const DEFAULT_CONFIG = {
+            search: {
+              minChars: 1,
+              maxResults: 5,
+              fields: { title: !0, description: !0, section: !0, contents: !0 },
+              strictMode: !0,
+            },
+          };
+          class FastSearch {
+            constructor({
+              searchInput: e,
+              resultsContainer: t,
+              json: n,
+              searchResultTemplate: s = null,
+              noResultsText: o = null,
+            }) {
+              ((this.searchInput = e),
+                (this.resultsContainer = t),
+                (this.json = n),
+                (this.searchResultTemplate = s),
+                (this.noResultsText = o),
+                this.init());
+            }
+            init() {
+              (this.loadSearchIndex(),
+                this.searchInput.addEventListener("input", (e) => {
+                  if (!this.searchIndex) {
+                    this.resultsContainer.innerHTML =
+                      '<li class="search-message">Loading search index...</li>';
+                    return;
+                  }
+                  this.performSearch(this.searchInput.value);
+                }));
+            }
+            async loadSearchIndex() {
+              try {
+                const e = await fetch(this.json);
+                if (!e.ok) throw new Error("Failed to load search index");
+                const t = await e.json();
+                this.searchIndex = t.map((e) => ({
+                  ...e,
+                  searchableTitle: e.title?.toLowerCase() || "",
+                  searchableDesc: e.desc?.toLowerCase() || "",
+                  searchableSection: e.section?.toLowerCase() || "",
+                  searchableContents: e.contents?.toLowerCase() || "",
+                }));
+              } catch (e) {
+                (console.error("Error loading search index:", e),
+                  (this.resultsContainer.innerHTML =
+                    '<li class="search-message">Error loading search index...</li>'));
+              }
+            }
+            escapeHtml(e) {
+              return e
+                ? e
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;")
+                : "";
+            }
+            containsTerm(e, t) {
+              return !!e && !!t && e.includes(t);
+            }
+            performSearch(e) {
+              if (
+                ((e = e.toLowerCase().trim()),
+                !e ||
+                  !this.searchIndex ||
+                  e.length < DEFAULT_CONFIG.search.minChars)
+              ) {
+                this.resultsContainer.innerHTML = "";
+                return;
+              }
+              const s = [e, ...e.split(/\s+/).filter((e) => e.length > 0)],
+                t = [...new Set(s)],
+                o = DEFAULT_CONFIG.search.strictMode,
+                n = this.searchIndex
+                  .map((e) => {
+                    const s = this.checkFieldsForMatch(e, t[0]);
+                    if (o && !s) return { item: e, score: 0, matched: !1 };
+                    let n = 0,
+                      i = 0,
+                      a = !1;
+                    t.forEach((t, s) => {
+                      const r = s === 0,
+                        o = this.checkFieldsForMatch(e, t);
+                      o &&
+                        (i++,
+                        o.inTitle && ((n += r ? 10 : 5), (a = !0)),
+                        o.inDesc && (n += r ? 8 : 4),
+                        o.inSection && (n += r ? 6 : 3),
+                        o.inContents && (n += r ? 4 : 2));
+                    });
+                    const r = i / t.length,
+                      c = n * r * (a ? 1.5 : 1);
+                    return { item: e, score: c, matched: s };
+                  })
+                  .filter((e) => e.matched)
+                  .sort((e, t) => t.score - e.score)
+                  .slice(0, DEFAULT_CONFIG.search.maxResults)
+                  .map((e) => e.item);
+              if (n.length === 0) {
+                this.resultsContainer.innerHTML =
+                  '<p class="mt-5">Oops! No results found.</p>';
+                return;
+              }
+              const i = n
+                .map((e) => {
+                  let t = "",
+                    n = "";
+                  return (
+                    e.categories &&
+                      ((t = e.categories.join(", ")),
+                      (t = `<div class="me-sm-4"><i class="far fa-folder fa-fw"></i>${t}</div>`)),
+                    e.tags &&
+                      ((n = e.tags.join(", ")),
+                      (n = `<div><i class="fa fa-tag fa-fw"></i>${n}</div>`)),
+                    `
+        <article class="px-1 px-sm-2 px-lg-4 px-xl-0">
+          <header>
+            <h2><a href="${this.escapeHtml(e.permalink)}">${this.escapeHtml(e.title)}</a></h2>
+            <div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1">
+              ${t}
+              ${n}
+            </div>
+          </header>
+          <p>${this.escapeHtml(e.contents)}</p>
+        </article>
+      `
+                  );
+                })
+                .join("");
+              this.resultsContainer.innerHTML = i;
+            }
+            checkFieldsForMatch(e, t) {
+              const n = {
+                inTitle: !1,
+                inDesc: !1,
+                inSection: !1,
+                inContents: !1,
+              };
+              return (
+                DEFAULT_CONFIG.search.fields.title &&
+                  this.containsTerm(e.searchableTitle, t) &&
+                  (n.inTitle = !0),
+                DEFAULT_CONFIG.search.fields.description &&
+                  this.containsTerm(e.searchableDesc, t) &&
+                  (n.inDesc = !0),
+                DEFAULT_CONFIG.search.fields.section &&
+                  this.containsTerm(e.searchableSection, t) &&
+                  (n.inSection = !0),
+                DEFAULT_CONFIG.search.fields.contents &&
+                  this.containsTerm(e.searchableContents, t) &&
+                  (n.inContents = !0),
+                !!(n.inTitle || n.inDesc || n.inSection || n.inContents) && n
+              );
+            }
+          }
+          const search = new FastSearch({
+            searchInput: document.getElementById("search-input"),
+            resultsContainer: document.getElementById("search-results"),
+            json: `/index.json`,
+          });
+        </script>
+      </div><aside aria-label="Scroll to Top">
+        <button
+          id="back-to-top"
+          type="button"
+          class="btn btn-lg btn-box-shadow"
+        >
+          <i class="fas fa-angle-up"></i></button
+        >
+      </aside>
+    </div><div id="mask" class="d-none position-fixed w-100 h-100 z-1">
+    </div></body
+  >
+</html>

@@ -1,0 +1,134 @@
+---
+import { faArrowRight, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import AboutContent from "../components/AboutContent.astro";
+import FaIcon from "../components/FaIcon.astro";
+import Greeting from "../components/Greeting.astro";
+import HCard from "../components/HCard.astro";
+import ScrollDownHint from "../components/homepage/ScrollDownHint";
+import Page from "../layouts/Page.astro";
+import CubeLightsAnim from "../components/homepage/CubeLightsAnim";
+import { getCollection } from "astro:content";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const projects = await getCollection("projects");
+
+const displayedProjects = projects
+  .filter((p) => p.data.video || p.data.image)
+  .sort((a, b) => b.data.writeup.getTime() - a.data.writeup.getTime())
+  .slice(0, 12);
+
+function generateBreakpointClass(index: number) {
+  if (index < 3) return "block";
+  if (index < 6) return "hidden md:block";
+  if (index < 9) return "hidden lg:block";
+  if (index < 12) return "hidden xl:block";
+}
+
+// function usePronouns() {
+//   const [pronouns, setPronouns] = React.useState("she/her");
+
+//   useEffect(() => {
+//     setPronouns(Math.random() > 0.85 ? "she/they" : "she/her");
+//   }, []);
+
+//   return pronouns;
+// }
+
+// export default function Index(props: {
+//   data: (BasicMarkdownInfo & ProjectInfo)[];
+// }) {
+//   const [fancy, setFancy] = useState(true);
+
+//   useEffect(() => {
+//     // check for fancy query parameter
+//     const urlParams = new URLSearchParams(window.location.search);
+//     const fancyParam = urlParams.get("fancy");
+//     if (fancyParam !== null) {
+//       setFancy(fancyParam === "true");
+//       return;
+//     }
+
+//     // otherwise, turn off fancy mode if any of the following:
+//     // - prefers-reduced-motion is set
+//     // - computer does not support webgl
+
+//     if (
+//       window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+//       !window.WebGLRenderingContext
+//     ) {
+//       setFancy(false);
+//     } else {
+//       setFancy(true);
+//     }
+//   }, []);
+
+//   return (
+
+//   );
+// }
+
+const fancy = true;
+---
+
+<Page
+  title="Hey, I'm Brooke Chalmers."
+  description="Welcome to my little patch of internet. View my projects, posts, and experiments here."
+>
+  <div class="relative z-10 bg-black text-white">
+    <div
+      class={"mx-auto max-w-6xl px-8 font-display sm:px-16 " +
+        (fancy ? "h-[150vh]" : "h-screen")}
+    >
+      <div class="relative h-screen pt-64">
+        {!fancy && <Greeting position="justify-center" />}
+        <ScrollDownHint client:only>
+          <FaIcon icon={faChevronDown} />
+          <span class="sr-only">scroll down</span>
+        </ScrollDownHint>
+      </div>
+
+      {fancy && <Greeting position="justify-end" />}
+    </div>
+
+    <div
+      class="relative z-10 mx-auto max-w-6xl xl:max-w-384 px-8 py-32 text-center font-display"
+    >
+      <h2 class="top-0 mb-2 py-32 text-6xl">projects</h2>
+      <div
+        class="grid grid-cols-1 gap-8 rounded-2xl bg-black md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        tabindex={-1}
+      >
+        {
+          displayedProjects.map((project, i) => (
+            <ProjectCard project={project} class={generateBreakpointClass(i)} />
+          ))
+        }
+        <a
+          href="/projects"
+          class="flex md:hidden items-center justify-center gap-2 rounded-2xl border-2 border-black bg-white p-8 text-xl text-black focus-visible:border-panpink"
+        >
+          more projects
+          <FaIcon icon={faArrowRight} />
+        </a>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-prose px-8 pb-16 font-display text-2xl">
+      {
+        !fancy && (
+          <h2 class="top-0 mb-16 text-center font-display text-6xl">
+            about me
+          </h2>
+        )
+      }
+
+      <AboutContent />
+    </div>
+
+    <HCard />
+
+    <!-- <TerminalWrapper /> -->
+
+    {fancy && <CubeLightsAnim client:only />}
+  </div>
+</Page>
