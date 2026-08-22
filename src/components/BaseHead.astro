@@ -1,5 +1,6 @@
 ---
 import Font from "astro/components/Font.astro";
+import { getImage } from "astro:assets";
 
 type Props = {
   title: string;
@@ -8,6 +9,18 @@ type Props = {
 };
 
 const { title, description, image } = Astro.props;
+
+const optimizedImage =
+  image &&
+  (await getImage({
+    src: image,
+    width: 1200,
+    height: 630,
+    format: "png", // Open Graph images widely prefer PNG or JPEG over WebP
+  }));
+
+const imageUrl =
+  optimizedImage && new URL(optimizedImage.src, Astro.site || Astro.url.origin);
 ---
 
 <meta charset="utf-8" />
@@ -32,7 +45,7 @@ const { title, description, image } = Astro.props;
 
 <meta name="og:title" content={title} />
 <meta name="og:description" content={description} />
-{image && <meta name="og:image" content={image} />}
+{imageUrl && <meta name="og:image" content={imageUrl} />}
 <meta name="og:url" content="https://breq.dev/" />
 <meta name="og:site_name" content="breq.dev" />
 <meta name="og:type" content="website" />
@@ -40,7 +53,7 @@ const { title, description, image } = Astro.props;
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@breqdev" />
 <meta name="twitter:creator" content="@breqdev" />
-{image && <meta name="twitter:image" content={"https://breq.dev" + image} />}
+{imageUrl && <meta name="twitter:image" content={imageUrl} />}
 <a rel="me" href="https://tacobelllabs.net/@breq" class="hidden"></a>
 <a rel="me" href="https://discord.com/users/386352037723635712" class="hidden"
 ></a>
