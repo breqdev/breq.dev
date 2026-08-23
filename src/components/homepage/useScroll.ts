@@ -16,6 +16,7 @@ export default function useScroll(
       callback(scroll, window.innerHeight);
     };
 
+    listener();
     window.addEventListener("scroll", listener);
 
     return () => {

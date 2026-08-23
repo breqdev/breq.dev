@@ -84,11 +84,11 @@
   }
 
   div.callout-amber {
-    @apply mx-auto my-4 max-w-prose rounded-2xl bg-amber-200 px-4 py-2 font-body text-lg dark:bg-yellow-800;
+    @apply mx-auto my-4 max-w-prose rounded-2xl bg-amber-200 px-4 py-2 font-body text-lg dark:bg-gray-800 dark:outline-8 outline-amber-300;
   }
 
   div.callout-red {
-    @apply mx-auto my-4 max-w-prose rounded-2xl bg-red-200 px-4 py-2 font-body text-lg dark:bg-red-800;
+    @apply mx-auto my-4 max-w-prose rounded-2xl bg-red-200 px-4 py-2 font-body text-lg dark:bg-gray-800 dark:outline-8 outline-red-500;
   }
 
   blockquote {

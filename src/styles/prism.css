@@ -94,3 +94,66 @@ pre[class*="language-"] {
 .token.class-name {
   color: #404040;
 }
+
+@media (prefers-color-scheme: dark) {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    color: #cccccc;
+    background: #1f2937;
+  }
+
+  pre[class*="language-"] {
+    border-color: #404040;
+  }
+
+  .token.changed {
+    color: #a37aff;
+    font-style: italic;
+  }
+
+  .token.number,
+  .token.operator,
+  .token.property,
+  .token.keyword,
+  .token.namespace,
+  .token.boolean {
+    color: #a37aff;
+  }
+
+  .token.deleted,
+  .token.function,
+  .token.selector,
+  .token.doctype {
+    color: #ff218c;
+    font-style: italic;
+  }
+
+  .token.variable,
+  .token.punctuation,
+  .token.tag {
+    color: #ff218c;
+  }
+
+  .token.inserted,
+  .token.attr-name {
+    color: #1bb3ff;
+    font-style: italic;
+  }
+
+  .token.string,
+  .token.builtin,
+  .token.char,
+  .token.constant,
+  .token.url {
+    color: #1bb3ff;
+  }
+
+  .token.comment {
+    color: #9ca3af;
+    font-style: italic;
+  }
+
+  .token.class-name {
+    color: #cccccc;
+  }
+}

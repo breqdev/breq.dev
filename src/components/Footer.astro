@@ -55,9 +55,6 @@ const contactLinks: [IconDefinition, string, string, string][] = [
 
 const linkStyles =
   "outline-none whitespace-nowrap cursor-pointer px-2 py-0.5 rounded-lg transition-colors duration-300";
-
-const enableTurtle =
-  new URL(Astro.request.referrer).origin === "https://tris.fyi/";
 ---
 
 <footer
@@ -235,44 +232,43 @@ const enableTurtle =
     </div>
 
     <div class="hidden flex-row items-end justify-end gap-3 self-end lg:flex">
-      {
-        enableTurtle ? (
-          <>
-            <button
-              class="rounded border-black bg-gray-200 px-1 py-0.5 text-center text-xs text-black hover:bg-gray-400 focus-visible:bg-gray-400"
-              id="makeItMoreGreen"
-            >
-              make it more green
-            </button>
+      <button
+        class="hidden rounded border-black bg-gray-200 px-1 py-0.5 text-center text-xs text-black hover:bg-gray-400 focus-visible:bg-gray-400"
+        id="makeItMoreGreen"
+      >
+        make it more green
+      </button>
 
-            <img
-              draggable="false"
-              id="turtle"
-              src="https://tris.fyi/static/turtlesbian.png"
-              class="z-60 h-8 w-8 cursor-grabbing"
-              alt=""
-            />
-          </>
-        ) : (
-          <div
-            class="h-8 w-8"
-            style={{
-              imageRendering: "pixelated",
-              backgroundImage: "url(/oneko.gif)",
-              backgroundPosition: `${-3 * 32}px ${-3 * 32}px`,
-            }}
-            id="oneko-trigger"
-          />
-        )
-      }
+      <img
+        draggable="false"
+        id="turtle"
+        src="https://tris.fyi/static/turtlesbian.png"
+        class="hidden z-60 h-8 w-8 cursor-grabbing"
+        alt=""
+      />
+      <div
+        class="h-8 w-8 hidden"
+        style={{
+          imageRendering: "pixelated",
+          backgroundImage: "url(/oneko.gif)",
+          backgroundPosition: `${-3 * 32}px ${-3 * 32}px`,
+        }}
+        id="oneko-trigger"
+      >
+      </div>
 
       <script>
         import oneko from "../utils/oneko.js";
         import turtle from "../utils/turtle";
 
         const turtleEl = document.getElementById("turtle");
-        if (turtleEl) {
+
+        if (new URL(document.referrer).hostname.endsWith("tris.fyi")) {
           // visible only in tris mode
+          turtleEl?.classList.remove("hidden");
+          document
+            .getElementById("makeItMoreGreen")
+            ?.classList.remove("hidden");
 
           // green button
           document
@@ -288,6 +284,7 @@ const enableTurtle =
           turtle(turtleEl as HTMLImageElement);
         } else {
           const trigger = document.getElementById("oneko-trigger")!;
+          trigger.classList.remove("hidden");
 
           const url = new URL(window.location.href);
 

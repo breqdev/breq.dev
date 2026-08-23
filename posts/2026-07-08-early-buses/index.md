@@ -14,15 +14,15 @@ In an attempt to demystify these routes, I spent some time creating a "subway-st
 
 ![](./early-bus-network.svg)
 
-<div class="grid grid-cols-2 max-w-sm mx-auto gap-2">
+<div class="grid grid-cols-2 max-w-sm mx-auto gap-2 my-4">
 
-<a class="bg-blue-200 dark:bg-blue-600 hover:bg-blue-300 dark:hover:bg-blue-500 transition-colors text-center rounded-xl" href="/images/early-buses/early-bus-network.png" download="MBTA Early Morning Bus Network.png">
+<a class="bg-blue-200 dark:bg-blue-800 hover:bg-blue-300 dark:hover:bg-blue-700 transition-colors text-center rounded-xl text-black! dark:text-white! no-underline! *:mb-0! py-2" href="/images/early-buses/early-bus-network.png" download="MBTA Early Morning Bus Network.png">
 
 Download PNG
 
 </a>
 
-<a class="bg-blue-200 dark:bg-blue-600 hover:bg-blue-300 dark:hover:bg-blue-500 transition-colors text-center rounded-xl" href="/images/early-buses/early-bus-network.svg" download="MBTA Early Morning Bus Network.svg">
+<a class="bg-blue-200 dark:bg-blue-800 hover:bg-blue-300 dark:hover:bg-blue-700 transition-colors text-center rounded-xl text-black! dark:text-white! no-underline! *:mb-0! py-2" href="/images/early-buses/early-bus-network.svg" download="MBTA Early Morning Bus Network.svg">
 
 Download SVG
 
