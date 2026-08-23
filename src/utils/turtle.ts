@@ -12,6 +12,7 @@ export default function turtle(turtle: HTMLImageElement) {
     if (!turtle) return;
 
     turtle.style.position = "fixed";
+    turtle.style.display = "block";
     turtle.style.left = cx - turtPosn.x + "px";
     turtle.style.top = cy - turtPosn.y + "px";
     turtle.style.height = turtSize + "px";
@@ -60,6 +61,16 @@ export default function turtle(turtle: HTMLImageElement) {
       return false;
     }
   }
+
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get("turt[big]")) {
+    turtSize = parseFloat(params.get("turt[big]")!) * (56 / 3);
+  }
+  moveTurtle(
+    parseFloat(params.get("turt[x]")!),
+    parseFloat(params.get("turt[y]")!),
+  );
 
   turtle.addEventListener("mousedown", mouseDown);
   turtle.addEventListener("touchstart", touchDown);

@@ -250,9 +250,10 @@ const linkStyles =
 
         const turtleEl = document.getElementById("turtle");
 
-        if (new URL(document.referrer).hostname.endsWith("tris.fyi")) {
+        const params = new URLSearchParams(window.location.search);
+
+        if (params.get("turt[x]") && params.get("turt[y]")) {
           // visible only in tris mode
-          turtleEl?.classList.remove("hidden");
           document
             .getElementById("makeItMoreGreen")
             ?.classList.remove("hidden");

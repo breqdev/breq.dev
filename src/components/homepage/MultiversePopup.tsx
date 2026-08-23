@@ -5,6 +5,10 @@ export default function MultiversePopup() {
   const [redirectTarget, setRedirectTarget] = useState("/");
 
   useEffect(() => {
+    if (!document.referrer) {
+      return;
+    }
+
     const referrer = new URL(document.referrer);
 
     if (referrer.hostname.endsWith("adryd.com")) {
