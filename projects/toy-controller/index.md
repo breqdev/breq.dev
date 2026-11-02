@@ -2,6 +2,7 @@
 title: Modding the Fisher-Price Gamepad
 description: Turning a toy video game controller into a real one
 created: 2026
+image: embed_image.jpg
 video: toy-controller.480p.webm
 tags: [soldering, reverse engineering]
 writeup: 2026-11-01

@@ -5,7 +5,7 @@ import { getImage } from "astro:assets";
 type Props = {
   title: string;
   description?: string;
-  image?: string;
+  image?: ImageMetadata;
 };
 
 const { title, description, image } = Astro.props;
@@ -43,17 +43,12 @@ const imageUrl =
 <meta name="description" content={description} />
 <link rel="canonical" href={Astro.url} />
 
-<meta name="og:title" content={title} />
-<meta name="og:description" content={description} />
-{imageUrl && <meta name="og:image" content={imageUrl} />}
-<meta name="og:url" content="https://breq.dev/" />
-<meta name="og:site_name" content="breq.dev" />
-<meta name="og:type" content="website" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@breqdev" />
-<meta name="twitter:creator" content="@breqdev" />
-{imageUrl && <meta name="twitter:image" content={imageUrl} />}
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{imageUrl && <meta property="og:image" content={imageUrl} />}
+<meta property="og:url" content="https://breq.dev/" />
+<meta property="og:site_name" content="breq.dev" />
+<meta property="og:type" content="website" />
 
 <script
   is:inline

@@ -4,7 +4,7 @@ import BaseHead from "../components/BaseHead.astro";
 type Props = {
   title: string;
   description?: string;
-  image?: string;
+  image?: ImageMetadata;
 };
 
 const { title, description, image } = Astro.props;
