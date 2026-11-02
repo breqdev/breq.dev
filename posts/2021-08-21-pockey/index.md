@@ -323,4 +323,4 @@ I'm not disappointed in myself for how this project went. I learned more about b
 
 Oh, and when I said I had nothing to show... that isn't _entirely_ true.
 
-<YouTube id="4HvcbrAWKGY" />
+<iframe src="https://www.youtube.com/embed/4HvcbrAWKGY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" class="w-full aspect-video rounded-2xl overflow-clip"></iframe>

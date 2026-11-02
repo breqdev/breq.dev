@@ -77,7 +77,9 @@ Now, the question is, how do I decide when to activate these movements?
 
 The official Amazon Alexa enabled Billy Bass reacts to the audio to decide when to move. This... doesn't exactly work well, as you can see in this Linus Tech Tips review at around the 5:03 mark:
 
-<YouTube id="4EzC9J9xOHQ" />
+<iframe src="https://www.youtube.com/embed/4EzC9J9xOHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" class="w-full aspect-video rounded-2xl overflow-clip"></iframe>
+
+<br />
 
 "Okay, so he just kind of spasms then. So basically, you just have like a fish out of water on your wall whenever music is playing."
 

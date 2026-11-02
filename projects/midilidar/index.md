@@ -9,7 +9,7 @@ tags: [python, music]
 writeup: 2022-05-13
 ---
 
-<YouTube id="mgYmrErOh_Y" />
+<iframe src="https://www.youtube.com/embed/mgYmrErOh_Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" class="w-full aspect-video rounded-2xl overflow-clip"></iframe>
 
 # Overview
 

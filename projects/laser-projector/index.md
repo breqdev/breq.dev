@@ -439,7 +439,7 @@ Since the laser projector has a 3.5mm input which overrides the built-in DAC, pl
 
 <div class="max-w-2xl mx-auto">
 
-<YouTube id="yUsuyAE-pGs" square />
+<iframe src="https://www.youtube.com/embed/yUsuyAE-pGs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" class="w-full aspect-square rounded-2xl overflow-clip"></iframe>
 
 </div>
 
