@@ -20,7 +20,7 @@ and you'll see a fish appear in your terminal!
 
 # Fish generators
 
-My friend [Ari](https://adryd.com/) introduced me to the original [makea.fish](http://makea.fish/) site (HTTP only), made by [weepingwitch](https://weepingwitch.github.io/). The site embeds an image rendered with PHP showing either a randomly-generated fish or the phrase "come back at 11:11." Getting the 11:11 fish has become somewhat of a ritual among my friends (we have a Discord channel specifically for posting fish screenshots!)
+My friend [Ari](https://adryd.com/) introduced me to the original [makea.fish](http://makea.fish/) site, made by [weepingwitch](https://weepingwitch.github.io/). The site embeds an image rendered using the Canvas API showing either a randomly-generated fish or the phrase "come back at 11:11." Getting the 11:11 fish has become somewhat of a ritual among my friends (we have a Discord channel specifically for posting fish screenshots!)
 
 Over the last few months, we've made a few fun variations on this:
 
