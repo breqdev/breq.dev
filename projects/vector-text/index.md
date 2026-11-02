@@ -1,7 +1,7 @@
 ---
 title: Vector Text Rendering Toolkit
 description: A Rust library for rendering text using a variety of common vector fonts.
-image: ./output_fonts.svg
+image: ./output_fonts.png
 created: 2026
 repo: https://github.com/breqdev/vector-text
 tags: [graphics, vector]
